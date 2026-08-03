@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed (2026-08-04 — gen-pr-body sync)
+
+- **[2026-08-04]**: refactor(scripts): sync `gen-pr-body.ts` to v1.2.0 — remove the `claude -p` AI-mode PR body generation; the script now only builds the structured template fallback (with the existing 50-file truncation note), matching the workspace-root agent-written PR body flow
+
 ### Changed (2026-07-22 — context.md SSOT Alignment)
 
 - **docs/context.md**: Created at the correct SSOT location (`docs/context.md`, not `docs/_meta/`) as a verbatim mirror of `templates/common/docs/context.md` v2.0 — only the template's own placeholders (Project Overview one-liner, Type, Status) filled in. No project-specific restructuring; all divergence from the generic template now lives in `docs/co-safety.context.md` instead, per the template's own "IMMUTABLE after project creation" rule.
