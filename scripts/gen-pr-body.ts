@@ -3,16 +3,19 @@
  * gen-pr-body.ts - Generate a structured PR body from commit message + diff
  * Usage: bun run scripts/gen-pr-body.ts "<commit message>"
  * Output: PR body markdown (stdout)
- * @version 1.1.6
+ * @version 1.2.0
  *
  * Behaviour:
- *   1. If `claude` CLI is available → ask Claude to write the PR body (AI mode)
- *   2. Otherwise → build a structured template from commit message + file list (fallback)
+ *   Builds a structured template PR body from the commit message + file list.
+ *
+ *   NOTE (1.2.0): AI-mode generation via the `claude -p` CLI was removed. The
+ *   agent invoking /sync writes the PR body itself (see skills/sync/SKILL.md)
+ *   and passes it to dev-sync.ts via --body-file; this script remains the
+ *   template fallback and language-validation point for the pipeline.
  */
 
 import { $ } from 'bun';
 import { existsSync } from 'node:fs';
-import { withRetry, DEFAULT_CONFIG } from './retry-handler.ts';
 
 const commitMsg = process.argv.slice(2).join(' ');
 if (!commitMsg) {
@@ -45,8 +48,6 @@ function validateLanguage(text: string, label = 'PR body'): void {
 // Validate commit message used as PR title/summary
 validateLanguage(commitMsg, 'commit message / PR title');
 
-const today = new Date().toISOString().split('T')[0];
-
 // ── Collect changed files ──────────────────────────────────────────────────────
 async function getFiles(): Promise<string> {
   let result = (await $`git diff --name-only HEAD~1 HEAD`.quiet().nothrow()).stdout.toString().trim();
@@ -55,14 +56,7 @@ async function getFiles(): Promise<string> {
   return result;
 }
 
-async function getDiffStat(): Promise<string> {
-  let result = (await $`git diff --stat HEAD~1 HEAD`.quiet().nothrow()).stdout.toString().trim();
-  if (!result) result = (await $`git diff --cached --stat`.quiet().nothrow()).stdout.toString().trim();
-  return result;
-}
-
 const filesRaw = await getFiles();
-const diffStat = await getDiffStat();
 
 const fileList = filesRaw
   .split('\n')
@@ -73,99 +67,6 @@ const fileList = filesRaw
 const truncationNote = filesRaw.split('\n').filter(Boolean).length > 50
   ? `\n> (${filesRaw.split('\n').filter(Boolean).length - 50} more files omitted — see full diff in the PR)`
   : '';
-
-// ── Prompt injection sanitizer ────────────────────────────────────────────────
-// Strips content that could hijack the Claude prompt when git output is embedded.
-function sanitizeForPrompt(text: string): string {
-  // Pre-normalize: collapse multi-line XML tags so per-line regex catches them.
-  // e.g. "<instruct\nion>" → "<instruction>" before the line-by-line filter runs.
-  const normalized = text.replace(/<([a-zA-Z][a-zA-Z0-9]*)\n\s*/g, '<$1');
-
-  return normalized
-    .split('\n')
-    .filter(line => {
-      const trimmed = line.trimStart();
-      // Drop lines that look like injected prompt roles
-      if (/^(Human|Assistant|System)\s*:/i.test(trimmed)) return false;
-      // Drop instruction-injection patterns (e.g., "ignore previous instructions")
-      if (/ignore\s+(all\s+)?(previous|prior|above)\s+(instructions?|context|prompts?)/i.test(trimmed)) return false;
-      // Drop XML-style role tags that Claude XML-tag parsers may interpret
-      // Use word boundary to catch <instruction foo> (attribute-bearing tags)
-      if (/^<\s*(system|human|assistant|instruction)\b/i.test(trimmed)) return false;
-      return true;
-    })
-    .map(line =>
-      line
-        // Escape backtick sequences (break out of code-fence attacks)
-        .replace(/`/g, '⁠`')
-        // Escape closing XML-style tags that could confuse tag boundaries
-        .replace(/<\//g, '&lt;/')
-    )
-    .join('\n');
-}
-
-// ── AI mode: generate body via Claude CLI ────────────────────────────────────
-const hasClaudeRes = await $`claude --version`.quiet().nothrow();
-if (hasClaudeRes.exitCode === 0) {
-  const filesForPrompt = filesRaw.split('\n').filter(Boolean).slice(0, 50).join('\n');
-  const safeFiles = sanitizeForPrompt(filesForPrompt);
-  const safeDiffStat = sanitizeForPrompt(diffStat);
-  const safeCommitMsg = sanitizeForPrompt(commitMsg);
-
-  const prompt = `Generate a GitHub Pull Request body for the following change.
-Output ONLY the PR body in markdown - no explanation, no code fences around the whole output.
-
-Commit message : ${safeCommitMsg}
-Date           : ${today}
-
-<file-list>
-${safeFiles}
-</file-list>
-
-<diff-summary>
-${safeDiffStat}
-</diff-summary>
-
-Use EXACTLY this structure (keep all section headers, fill placeholders):
-
-## Why
-[1-3 sentences: what problem does this solve and why now?]
-
-## What Changed
-[concise bullet list of actual changes - be specific, not generic]
-
-## Test Plan
-- [ ] \`bash scripts/audit.sh\` passes
-- [ ] [add relevant manual or automated test steps]
-
-## Security Checklist
-- [ ] No secrets, credentials, or API keys committed
-- [ ] No \`.env\` files staged (use \`.env.sample\` for templates)
-- [ ] Dependencies unchanged or reviewed for new CVEs
-
-## Notes
-[Breaking changes, deployment steps, or reviewer guidance. Write 'None' if not applicable.]
-
----
-`;
-
-  try {
-    const claudeRetry = await withRetry(
-      () => $`claude -p ${prompt}`.quiet().nothrow(),
-      { ...DEFAULT_CONFIG, maxRetries: 2, initialDelay: 1000, isSuccess: (r: any) => r.exitCode === 0 },
-      'claude pr-body'
-    );
-    const claudeRes = claudeRetry.result;
-    const body = claudeRes?.stdout.toString().trim() ?? '';
-    if (body) {
-      validateLanguage(body, 'AI-generated PR body');
-      process.stdout.write(body + '\n');
-      process.exit(0);
-    }
-  } catch {
-    // fall through to fallback
-  }
-}
 
 // ── Fallback mode: structured template with auto-filled fields ────────────────
 const fallback = `## Why

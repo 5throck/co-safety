@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-07-21T23:21:45.442Z
+**Generated**: 2026-08-03T15:05:51.259Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -139,7 +139,7 @@
 | encoding-utils.ts | 1.0.0 | scripts/lib/encoding-utils.ts | fs, path |
 | error-handling.ts | 1.1.0 | scripts/lib/error-handling.ts | N/A |
 | fetch-legalize.ts | 1.0.0 | scripts/fetch-legalize.ts | child_process, fs, path |
-| gen-pr-body.ts | 1.1.6 | scripts/gen-pr-body.ts | bun |
+| gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-scripts-readme.ts | 1.1.0 | scripts/generate-scripts-readme.ts | N/A |
 | generate-version-manifest.ts | 1.0.7 | scripts/generate-version-manifest.ts | bun |
 | mcp-cache.ts | 1.0.0 | scripts/lib/mcp-cache.ts | N/A |
