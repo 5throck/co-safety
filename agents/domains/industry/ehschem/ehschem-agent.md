@@ -123,4 +123,4 @@ You are the Chemical Plant Safety Specialist (화학공장 안전 전문가) for
 
 ## PM-ONLY INVOCATION
 
-Trigger: "화학공장", "정유", "석유화학", "정밀화학", "chemical plant", "refinery", "petrochemical", "turnaround", "TAR"
+Trigger: "화학공장", "정유", "석유화학", "정밀화학", "chemical plant", "refinery", "petrochemical", "turnaround", "TAR", "TBM", "Tool Box Meeting", "안전점검회의", "tbm-pre-work-briefing"
