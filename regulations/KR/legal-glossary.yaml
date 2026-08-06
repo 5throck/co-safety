@@ -213,9 +213,13 @@ statutes:
     abbreviation: HPGSCA
     regulator: KGS (한국가스안전공사) / MOIS
     articles:
-      - { number: "제14조", topic_en: "Storage / pipe transfer safety" }
-      - { number: "제17조", topic_en: "Safety management / hazardous zone / gas leak emergency" }
-      - { number: "제28조", topic_en: "Tank inspection and maintenance" }
+      - { number: "제11조", topic_en: "Safety management regulations (안전관리규정 — written plan submission)" }
+      - { number: "제13조", topic_en: "Facility and container safety maintenance (시설·용기의 안전유지)" }
+      - { number: "제15조", topic_en: "Safety Manager appointment (안전관리자 선임)" }
+      - { number: "제22조의2", topic_en: "Delegation of detailed facility/technical/inspection standards to KGS Code" }
+      - { number: "제24조", topic_en: "Licensing-authority corrective measures (suspension, relocation, disposal)" }
+      - { number: "제26조", topic_en: "Accident notification (death, injury, explosion, fire, leak)" }
+    note: "2026-08-07 (Group C-1b remediation): previous entries Art 14 (deleted 1999.2.8), Art 17 (actually 용기등의 검사), Art 28 (actually 한국가스안전공사의 설립) were stale mis-citations. Replaced with live articles verified via legalize_kr.parse_law_structure."
 
   액화석유가스의 안전관리 및 사업법:
     english: LPG Safety Control and Business Act

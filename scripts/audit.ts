@@ -1,4 +1,4 @@
-// @version 2.6.4
+// @version 2.6.5
 import { $ } from 'bun';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -391,7 +391,11 @@ const knownCategoryDirs = new Set<string>([
     'skills/domains/industry/logistics',
     'skills/domains/industry/meddevice',
     'skills/domains/industry/powergen',
+    'skills/domains/industry/railway',
     'skills/domains/industry/semicon',
+    'skills/domains/industry/shipbuilding',
+    'skills/domains/industry/steelmaking',
+    'skills/domains/industry/waste',
     'skills/emergency',
     'skills/investigation',
     'skills/_meta'

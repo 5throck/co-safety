@@ -53,6 +53,29 @@ Continues the 2026-08-07 industry-maturity program. Promotes **battery, biotech,
 - **`regulations/KR/legal-glossary.yaml`** (v1.0.4 → v1.0.5) — PSSA entry enhanced with statute_file pointer and Art 4-vs-6 substantive/procedural clarification; expanded article coverage.
 - **LMO-Act Art 22/24** upgraded UNVERIFIED → VERIFIED (confirmed via `kr_safety.search_osha_regulations`) — strengthens the biotech legal_basis.
 
+### Added (2026-08-07 — Industry Maturity Phase 2 Group C: 4 Industries → Tier 2)
+
+Completes the 2026-08-07 industry-maturity program. Promotes **railway, shipbuilding, steelmaking, waste** from Tier 1 (Scaffolded) to **Tier 2 (Operational)** — each now meets ≥5 workflows, ≥1 skill, ≥5 evidence models, agent ≥50 lines. **All 12 Phase-2 target industries now at Tier 2; the industry Tier-1 target list is empty (4 → 0).**
+
+- **8 industry-unique workflows** (`workflows/domains/industry/`, `status: active`) — law-first, compliance-verified via live MCP (kr_safety + legalize_kr); all `draft`→`active` after the ≥3 VERIFIED `legal_basis` floor was met:
+  - `railway/{railway-rolling-stock-maintenance-loto, railway-bridge-viaduct-fall-prevention}` (RSA Art 45/48, ESCA Art 16/22, OSHA-KR Art 36/57, SAPA Art 4–7)
+  - `shipbuilding/{shipbuilding-painting-coating-fire-toxic, shipbuilding-welding-fume-gas-safety}` (HPGSCA Art 11/13/15/24/26 — remediated, OSHA-KR Art 36/57, SAPA Art 4–7)
+  - `steelmaking/{steelmaking-coke-oven-pah-heat-stress, steelmaking-hot-rolling-mill-crush-burn}` (HPGSCA Art 11/13/15/24/26 — remediated, OSHA-KR Art 36/57, SAPA Art 4–7)
+  - `waste/{waste-designated-hazardous-chemical-treatment, waste-landfill-methane-anaerobic-explosion}` (WCA Art 13/25, CCA Art 23, 소방기본법 Art 16, OSHA-KR Art 36/57, SAPA Art 4–7)
+- **4 industry Skills** (`skills/domains/industry/`, propagated to `.claude/`/`.gemini/`/`.agents/` via sync-skills): `rolling-stock-maintenance-loto-planner` (railway), `painting-coating-fire-toxic-planner` (shipbuilding), `coke-oven-pah-heat-stress-planner` (steelmaking), `landfill-methane-anaerobic-explosion-planner` (waste). Each grounded in industry signature hazards. skill-lifecycle-audit: 61/61 healthy (was 57).
+- **4 genuine evidence models** (`evidence-models/domains/industry/`, v1.0.0, `status: active`) authored with full field schemas: `railway-thermite-welding-hot-work-record` (RLW-TW), `shipbuilding-pre-hot-work-gas-free-record` (SHIP-GF), `steelmaking-continuous-casting-cooling-water-record` (STEEL-CC), `waste-designated-waste-manifest-record` (WST-MAN). Plus **8 scaffold-generated EM skeletons** (double-prefixed, `status: draft` pending specialist fields). Total EM count 177 → 189.
+- **`memory/findings/`** — `phase2-group-c-wf-review.md` (SWM workflow selection + 14 rejections), `compliance-2026-08-07-phase2-group-c-anchors.md` (anchor verification + HPGSCA remediation), `compliance-2026-08-07-phase2-group-c-wf.md` (per-WF activation sign-off).
+
+### Changed
+
+- **`docs/_meta/domain-maturity-matrix.md`** — railway, shipbuilding, steelmaking, waste promoted Tier 1 → Tier 2 (Operational). Summary Statistics reconciled: 9 Tier 3 / 11→**15** Tier 2 / 8→**4** Tier 1 / 2 Tier 0 (total 30); industry distribution 8 / 10→**14** / 4→**0** / 0. Phase 2 industry target list 4 → **0 (complete)**.
+
+### Fixed
+
+- **HPGSCA (고압가스안전관리법) deleted/mismatched article remediation** — `regulations/KR/industry-regulatory-anchors.yaml` (shipbuilding & steelmaking `adjacent_laws`), `regulations/KR/High-Pressure-Gas-Safety.yaml`, and `regulations/KR/legal-glossary.yaml`: Art 14 (삭제 1999.2.8 — deleted) and Art 17/28 (topic mismatches) replaced with verified Art 11/13/15/22-2/24/26 via `legalize_kr` (authoritative law.go.kr full-text). Critical because `scaffold-industry.ts` auto-fills `legal_basis` from the anchor table — the phantom Art 14 would otherwise have propagated into all 4 shipbuilding/steelmaking workflows. Note: the `kr_safety` MCP catalog is stale for HPGSCA (still indexes deleted Art 14); prefer `legalize_kr` for HPGSCA verification.
+- **Waste CCA statute-name correction** — `workflows/domains/industry/waste/{waste-designated-hazardous-chemical-treatment, waste-landfill-methane-anaerobic-explosion}/schema.yaml`: "화학물질의 등록 및 평가 등에 관한 법률 Article 23" (ARECA / K-REACH name) → "화학물질관리법 Article 23" (CCA). 사고대비물질 (accident-preparedness substance) management is CCA Art 23, not ARECA; ARECA has no Art 23 on this topic. Verified via `regulations/KR/CCA-Chemical-Control.yaml`.
+- **`scripts/audit.ts`** (v2.6.4 → v2.6.5) — added `railway`, `shipbuilding`, `steelmaking`, `waste` to the `knownCategoryDirs` skill allow-list. Without this, the audit flagged the 4 new industry skill folders as "missing SKILL.md" (any non-listed dir under `skills/domains/industry/` is treated as a skill leaf that must contain SKILL.md). Latent registration step missed when the Group C skills were created; mirrors the Group A/B industry registration.
+
 ### Changed (2026-08-06 — Multi-Platform Governance: 4-Platform Explicit Support)
 
 - **CONSTITUTION.md**: Rewrote from Claude-centric 2-platform index to platform-neutral 4-platform governance index. Now explicitly documents all four supported client surfaces (Claude Desktop App, Claude Code → CLAUDE.md; Antigravity, Antigravity CLI → GEMINI.md), platform skill layers (`skills/` SSOT → `.claude/`/`.gemini/`/`.agents/` mirrors), and a platform feature difference summary.
