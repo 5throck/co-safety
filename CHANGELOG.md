@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — Project Review Remediation: Phase 2 Workflows & Evidence Models)
+
+- **workflows/domains/industry/{food,cosmetics,datacenter,semicon}/**: Added 4 secondary high-risk workflow schemas (`food-allergen-control`, `cosmetics-stability-testing`, `datacenter-fuel-tank-safety`, `semicon-scrubber-maintenance`).
+- **evidence-models/domains/industry/{food,cosmetics,datacenter,semicon}/**: Added 4 evidence model JSON schemas (`food-allergen-record.json`, `cosmetics-stability-record.json`, `datacenter-fuel-tank-record.json`, `semicon-scrubber-record.json`).
+
 ### Added (2026-08-06 — Comprehensive Documentation & User Guide Update)
 
 - **docs/co-safety.context.md**: Updated project context to reflect 22 active domains and 25 specialist agents.
