@@ -14,3 +14,12 @@ industry_profile: biotech
 agent: biotech-agent
 evidence_model: ../../../../evidence-models/_shared/tbm-record.json
 signature_hazard: 배양기 SIP 증기멸균 및 LMO BSL 밀폐작업 전 TBM
+
+
+# ── Shared TBM reference (added by scaffold-industry.ts Task A-01) ──
+# Declares this workflow also consumes the shared TBM base
+# (workflows/_shared/REFERENCE-SPEC.md §3.1 minimal form). Existing
+# top-level fields (signature_hazard, legal_basis, agent) serve as the
+# effective schema; the shared base supplies the common statutory floor.
+references:
+  - shared: ../../../../_shared/tbm

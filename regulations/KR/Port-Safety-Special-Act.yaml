@@ -1,0 +1,104 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOF (해양수산부) / 해양경찰관서 (Korea Coast Guard, port-safety enforcement support)
+framework: Port-Safety-Special-Act
+title_ko: 항만안전특별법
+title_en: Port Safety Special Act (PSSA)
+# =============================================================================
+# Verification provenance — Task 19 (compliance-agent), 2026-08-07
+#   - Full statute structure (Arts 1-17) VERIFIED via legalize_kr.parse_law_structure
+#     under lawId "항만안전특별법" (MST 283835, lawIdCode 014131, last amended
+#     2026-03.10 via law #21443). Cross-checked via kr_safety.search_osha_regulations
+#     catalog (Arts 4, 8, 9 present in catalog).
+#   - Regulator (해양수산부 / MOF) confirmed by article text — Arts 4의2, 4의3,
+#     6③, 10 all designate 해양수산부장관 as the competent authority.
+#   - CRITICAL DISTINCTION (Phase 0 correction, already in master glossary):
+#       * Art 4 (다른 법률과의 관계) is PROCEDURAL — it only states that PSSA
+#         prevails over other statutes on port safety management (except OSHA-KR).
+#         It is NOT a substantive safety-obligation basis. Citing Art 4 as a
+#         workflow's safety-obligation anchor is a MIS-CITATION.
+#       * Art 6 (항만운송 참여자의 안전확보 의무 등) is the SUBSTANTIVE
+#         safety-obligation article — duty to provide a safe working environment
+#         for port transport workers. Use Art 6 (not Art 4) when a workflow needs
+#         a substantive port-safety legal_basis.
+#   - Art 20 does NOT belong to PSSA (PSSA stops at Art 17). The "Art 20"
+#     citation for dangerous-goods transport in the logistics anchor table
+#     refers to DSSMA (위험물안전관리법 제20조 "위험물의 운반") — VERIFIED
+#     separately via legalize_kr.parse_law_structure under "위험물안전관리법".
+# =============================================================================
+primary_law:
+  name_ko: 항만안전특별법
+  abbreviation: PSSA
+  mst: "283835"
+  law_id_code: "014131"
+  last_amended: "2026-03-10"  # 법률 제21443호, partial amendment
+  articles:
+    - article: "4"
+      topic_ko: 다른 법률과의 관계 (PROCEDURAL — 우선적용 선언)
+      topic_en: Relationship to other laws — PROCEDURAL priority-of-application clause only (NOT a substantive safety obligation)
+      note: |
+        항만에서의 안전관리에 관하여 이 법에서 정한 사항에 대하여는 다른 법률에
+        우선하여 적용한다. 다만, 「산업안전보건법」에서 따로 정하고 있는 사항은
+        제외한다. Do NOT cite Art 4 as a workflow's safety-obligation basis —
+        use Art 6 instead.
+    - article: "4의2"
+      topic_ko: 항만안전기본계획 등 수립·시행 (신설 2026.3.10)
+      topic_en: Port Safety Basic Plan — establishment and implementation (MOF, 5-year plan)
+      note: 신설 2026.3.10 (법률 제21443호). 해양수산부장관이 5년마다 수립.
+    - article: "4의3"
+      topic_ko: 항만재해 및 항만안전 실태조사 (신설 2026.3.10)
+      topic_en: Port disaster and port safety fact-finding survey (MOF, annual)
+      note: 신설 2026.3.10 (법률 제21443호). 매년 1회 이상 항만재해 실태조사 실시.
+    - article: "5"
+      topic_ko: 항만운송 참여자의 기본 의무 (안전사고 예방원칙)
+      topic_en: Port transport participants' basic obligations — 3 accident-prevention principles (eliminate risk, root-cause countermeasures, safety-first)
+    - article: "6"
+      topic_ko: 항만운송 참여자의 안전확보 의무 등 (SUBSTANTIVE — 안전 작업환경 제공)
+      topic_en: Port transport participants' safety assurance obligations — SUBSTANTIVE safety-obligation article (safe working environment + cooperation with state/local safety measures + MOF-MOEL 중대재해 cooperation)
+      note: |
+        This is the SUBSTANTIVE port-safety obligation article. ① 항만운송 참여자는
+        해당 사업장에서 항만운송 종사자에게 안전한 작업환경을 제공하기 위하여
+        노력하여야 한다. ② 국가/지자체 안전조치에 적극 협조. ③ 해양수산부장관과
+        고용노동부장관은 「산업안전보건법」에 따른 중대재해 발생에 관하여 협력
+        및 정보공유 (신설 2026.3.10).
+    - article: "7"
+      topic_ko: 항만안전협의체의 구성·운영
+      topic_en: Port Safety Council — establishment and operation (management office convenes industry/labor)
+    - article: "8"
+      topic_ko: 안전교육
+      topic_en: Safety education — port transport participants must provide safety education to workers (employer-funded)
+    - article: "9"
+      topic_ko: 자체안전관리계획의 수립·승인 등
+      topic_en: Self-Safety Management Plan — stevedore operators must establish and obtain management office approval (entry control, facility safety, PPE issuance)
+      note: |
+        Key operational article. 항만하역사업자 must submit 자체안전관리계획 to
+        관리청 for approval. 관리청 may order changes, conduct inspections, and
+        issue 시정조치. 항만안전점검관/요원 administer this regime.
+    - article: "12"
+      topic_ko: 사업정지 등 (SAPA 연계)
+      topic_en: Business suspension or registration cancellation — linked to SAPA Art 4/5 violations and Art 6 penalties
+      note: |
+        관리청 may cancel registration or suspend business if 항만운송 참여자
+        violates 「중대재해 처벌 등에 관한 법률」 Art 4 or Art 5 and causes a
+        항만안전사고, or receives a confirmed 벌금형 이상 under SAPA Art 6.
+        Explicit PSSA-SAPA cross-reference.
+    - article: "15"
+      topic_ko: 벌칙 (자체안전관리계획 위반)
+      topic_en: Penalty — up to 1 year imprisonment or 10 million KRW fine (failure to obtain/maintain Self-Safety Management Plan approval or comply with orders)
+    - article: "16"
+      topic_ko: 양벌규정
+      topic_en: Dual liability — corporation/individual also fined when employee violates Art 15 (unless due diligence demonstrated)
+    - article: "17"
+      topic_ko: 과태료
+      topic_en: Administrative fine — up to 3 million KRW (failure to provide safety education per Art 8, or obstructing Art 9③① inspections)
+related_rule:
+  name_ko: 항만안전특별법 시행령 / 시행규칙 (해양수산부령)
+  abbreviation: PSSA-Enforcement
+key_hazards:
+  - 컨테이너 크레인/양하기 추락 (container crane / gantry fall — OSHA-KR Art 99 overlap)
+  - 야드 화물 적치 붕괴 (yard cargo stacking collapse — OSHA-KR Art 100 overlap)
+  - 지게차/운반차량 보행자 충돌 (forklift / powered-truck pedestrian struck-by)
+  - 도크 가장자리 추락 (dock-edge fall into water)
+  - 위험물 항만하역 화재/폭발/독성 노출 (dangerous-cargo port-handling fire/explosion/toxic exposure — DSSMA Art 20 overlap)
+  - 중대재해 (SAPA-governed serious accidents — PSSA Art 6③ / Art 12 cross-reference)
+last_updated: "2026-08-07"

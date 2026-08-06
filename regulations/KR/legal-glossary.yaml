@@ -9,8 +9,8 @@ source_mcp: mcp-kr-legislation  # curated reference glossary; statute content so
 # (agents/*.md Section A Legal Basis blocks, workflows/**/schema.yaml legal_basis fields,
 # regulations/KR/*.yaml). Articles NOT referenced anywhere in the codebase are omitted;
 # accuracy over completeness. Unverified entries are explicitly commented.
-version: 1.0.4
-last_updated: 2026-08-06
+version: 1.0.5
+last_updated: 2026-08-07
 
 # =============================================================================
 # KOREAN STATUTES (validator allowlist — keys are the exact Korean strings used
@@ -22,11 +22,30 @@ statutes:
     english: Port Safety Special Act
     abbreviation: PSSA
     regulator: MOF (해양수산부)
+    statute_file: Port-Safety-Special-Act.yaml
+    note: |
+      Full 17-article structure (Arts 1-17) VERIFIED via legalize_kr.parse_law_structure
+      (MST 283835, lawIdCode 014131, last amended 2026-03-10 via law #21443).
+      CRITICAL (Phase 0 correction): Art 4 (다른 법률과의 관계) is PROCEDURAL —
+      it only declares PSSA's priority over other statutes (except OSHA-KR) and
+      is NOT a substantive safety-obligation basis. The SUBSTANTIVE port-safety
+      obligation article is Art 6 (항만운송 참여자의 안전확보 의무). Logistics
+      workflows must cite Art 6 (not Art 4) for the safety-obligation legal_basis.
+      "DSSMA Art 20" citations for dangerous-goods transport refer to
+      위험물안전관리법 (DSSMA), NOT PSSA — PSSA stops at Art 17.
     articles:
-      - { number: "제4조", topic_en: "Relationship to other laws — this Act prevails over other statutes on port safety management (다른 법률과의 관계)" }
-      - { number: "제6조", topic_en: "Port transport participants' safety assurance obligations (항만운송 참여자의 안전확보 의무 등)" }
+      - { number: "제4조", topic_en: "PROCEDURAL — Relationship to other laws (다른 법률과의 관계); PSSA priority-of-application clause only. NOT a substantive safety obligation — do not cite as workflow safety-obligation basis (use Art 6)." }
+      - { number: "제4조의2", topic_en: "Port Safety Basic Plan establishment and implementation (항만안전기본계획 등 수립·시행) — 신설 2026.3.10" }
+      - { number: "제4조의3", topic_en: "Port disaster and safety fact-finding survey (항만재해 및 항만안전 실태조사) — 신설 2026.3.10" }
+      - { number: "제5조", topic_en: "Port transport participants' basic obligations — 3 accident-prevention principles (항만운송 참여자의 기본 의무)" }
+      - { number: "제6조", topic_en: "SUBSTANTIVE — Port transport participants' safety assurance obligations (항만운송 참여자의 안전확보 의무 등): safe working environment, state/Local cooperation, MOF-MOEL 중대재해 cooperation" }
+      - { number: "제7조", topic_en: "Port Safety Council establishment and operation (항만안전협의체의 구성·운영)" }
       - { number: "제8조", topic_en: "Safety education for port transport workers (안전교육)" }
       - { number: "제9조", topic_en: "Self-safety management plan establishment and approval (자체안전관리계획의 수립·승인 등)" }
+      - { number: "제12조", topic_en: "Business suspension / registration cancellation — SAPA cross-reference (사업정지 등; violates SAPA Art 4/5 causing 항만안전사고, or SAPA Art 6 벌금형 확정)" }
+      - { number: "제15조", topic_en: "Penalty — up to 1yr imprisonment or 10M KRW fine (자체안전관리계획 위반 벌칙)" }
+      - { number: "제16조", topic_en: "Dual liability (양벌규정)" }
+      - { number: "제17조", topic_en: "Administrative fine — up to 3M KRW (과태료; 안전교육 미실시, 검사 거부 등)" }
   철도안전법:
     english: Rail Safety Act
     abbreviation: RSA

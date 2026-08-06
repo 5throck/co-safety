@@ -29,6 +29,30 @@ Derived from the 2026-08-07 industry-maturity meeting (`memory/meeting-2026-08-0
 
 - **`scripts/scaffold-industry.ts`** (v0.1.0 → v0.1.1) — `evidence_model` field now emits a bare filename (matching `scripts/new-domain.ts` and the 160+ mature workflows) instead of a wrong-depth relative path (`../../../../…`); the 5 generated industry schemas aligned. Latent generator bug that would otherwise replicate across the 8 remaining Phase 2–3 industries.
 
+### Added (2026-08-07 — Industry Maturity Phase 2 Group B: 4 Industries → Tier 2)
+
+Continues the 2026-08-07 industry-maturity program. Promotes **battery, biotech, defense, logistics** from Tier 1 (Scaffolded) to **Tier 2 (Operational)** — each now meets ≥5 workflows, ≥1 skill, ≥5 evidence models, agent ≥50 lines. Industry Tier-1 target list 8 → 4 (railway, shipbuilding, steelmaking, waste remain).
+
+- **8 industry-unique workflows** (`workflows/domains/industry/`, `status: active`) — law-first, compliance-verified via live MCP (kr_safety + legalize_kr); all `draft`→`active` after the ≥3 VERIFIED `legal_basis` floor was met:
+  - `battery/{battery-cell-formation-electrical-safety, battery-cathode-powder-dust-control}` (ESCA Art 16/22, DSSMA Art 5/15/27, OSHA-KR Art 36/57, SAPA Art 4–7)
+  - `biotech/{biotech-bsl-lab-aerosol-control, biotech-biological-spill-response}` (BSA Art 13, LMO-Act Art 22/24, OSHA-KR Art 36/57, SAPA Art 4–7)
+  - `defense/{defense-munitions-storage-magazine-safety, defense-weapons-assembly-composite-solvent}` (FSESA Art 9/23, DAA Art 53, OSHA-KR Art 36/57, SAPA Art 4–7)
+  - `logistics/{logistics-dangerous-cargo-handling, logistics-forklift-pedestrian-strike-prevention}` (PSSA Art 6/8/9, DSSMA Art 20, OSHA-KR Art 36/57/100, SAPA Art 4–7)
+- **4 industry Skills** (`skills/domains/industry/`, propagated to `.claude/`/`.gemini/`/`.agents/` via sync-skills): `hv-cell-formation-electrical-safety-planner` (battery), `bsl-lab-aerosol-control-planner` (biotech), `munitions-magazine-storage-safety-planner` (defense), `dangerous-cargo-handling-planner` (logistics). Each grounded in anchor statutes previously uncited by existing workflows. skill-lifecycle-audit: 57/57 healthy (was 53).
+- **4 evidence models** (`evidence-models/domains/industry/`, v1.0.0, `status: active`): `battery-electrolyte-nmp-exposure-record`, `biotech-bsc-certification-record`, `defense-test-range-blastoverpressure-record`, `logistics-yard-rack-collapse-prevention-record`. Total EM count 173 → 177.
+- **`regulations/KR/Port-Safety-Special-Act.yaml`** — registered 항만안전특별법 (PSSA, MST 283835, lawIdCode 014131, MOF/해양수산부); 12 articles verified via legalize_kr. Resolves a phantom-statute citation in the logistics workflows.
+- **`memory/findings/compliance-2026-08-07-phase2-group-b.md`** — MCP-verified `legal_basis` sign-off report (per-workflow VERIFIED/DISCREPANCY/UNVERIFIABLE classification; 8/8 workflows meet the ≥3 VERIFIED floor).
+
+### Changed
+
+- **`docs/_meta/domain-maturity-matrix.md`** — battery, biotech, defense, logistics promoted Tier 1 → Tier 2 (Operational). Industry Tier-1 target list 8 → 4. Summary Statistics reconciled to row-accurate counts: 9 Tier 3 / 11 Tier 2 / 8 Tier 1 / 2 Tier 0 (total 30); industry distribution 8 / 10 / 4 / 0.
+
+### Fixed
+
+- **`regulations/KR/industry-regulatory-anchors.yaml`** — PSSA article topic corrections: Art 4 (procedural "다른 법률과의 관계"), Art 5 (항만운송 참여자의 기본 의무), Art 6 (항만운송 참여자의 안전확보 의무 등 — substantive safety-obligation article), Art 8 (안전교육), Art 9 (자체안전관리계획 수립·승인). Added `substantive: true/false` flags for machine-readable downstream use. Pre-existing Phase 0 Task A-03 error surfaced by live MCP verification.
+- **`regulations/KR/legal-glossary.yaml`** (v1.0.4 → v1.0.5) — PSSA entry enhanced with statute_file pointer and Art 4-vs-6 substantive/procedural clarification; expanded article coverage.
+- **LMO-Act Art 22/24** upgraded UNVERIFIED → VERIFIED (confirmed via `kr_safety.search_osha_regulations`) — strengthens the biotech legal_basis.
+
 ### Changed (2026-08-06 — Multi-Platform Governance: 4-Platform Explicit Support)
 
 - **CONSTITUTION.md**: Rewrote from Claude-centric 2-platform index to platform-neutral 4-platform governance index. Now explicitly documents all four supported client surfaces (Claude Desktop App, Claude Code → CLAUDE.md; Antigravity, Antigravity CLI → GEMINI.md), platform skill layers (`skills/` SSOT → `.claude/`/`.gemini/`/`.agents/` mirrors), and a platform feature difference summary.

@@ -47,18 +47,18 @@
 | `gasterm` | Gas Terminal / LNG·LPG·Hydrogen | 12 |
 | `powergen` | Power Generation / Thermal·Renewable (nuclear excluded) | 8 |
 | `meddevice` | Medical Device / KGMP-MD·ISO 13485·ISO 14971 | 8 |
-| `food` | Food & Beverage GxP / HACCP & Food Sanitation Act | 3 |
-| `cosmetics` | Cosmetics GxP / CGMP & ISO 22716 | 3 |
-| `semicon` | Semiconductor & Display / Cleanroom & Special Gas (NF3/SiH4/HF) | 3 |
-| `battery` | Secondary Battery & Recycling / Thermal Runaway & NMP Recovery | 2 |
-| `shipbuilding` | Shipbuilding & Offshore / Ship Tank Confined Space & Goliath Crane | 2 |
-| `steelmaking` | Steelmaking & Heavy Metals / Molten Metal LOTO & Byproduct Gas (CO) | 2 |
-| `datacenter` | Data Center & IT Infrastructure / Lithium UPS Fire & High-Voltage Arc Flash | 3 |
-| `logistics` | Port Logistics & Warehouse / Crane Lifting & AGV & Cold Storage Refrigerant | 2 |
-| `railway` | Railway & Transit Infrastructure / 25kV Catenary Electric & Track Confined | 2 |
-| `waste` | Environmental Waste & Water / Sewage H2S Asphyxiation & Shredder LOTO | 2 |
-| `defense` | Defense & Explosives / Munitions Propellant ESD & Missile Cryogenic | 2 |
-| `biotech` | Biopharmaceutical CDMO & Bio-Labs / Bioreactor SIP & LMO Biohazard | 2 |
+| `food` | Food & Beverage GxP / HACCP & Food Sanitation Act | 5 |
+| `cosmetics` | Cosmetics GxP / CGMP & ISO 22716 | 6 |
+| `semicon` | Semiconductor & Display / Cleanroom & Special Gas (NF3/SiH4/HF) | 5 |
+| `battery` | Secondary Battery & Recycling / Thermal Runaway & NMP Recovery | 5 |
+| `shipbuilding` | Shipbuilding & Offshore / Ship Tank Confined Space & Goliath Crane | 3 |
+| `steelmaking` | Steelmaking & Heavy Metals / Molten Metal LOTO & Byproduct Gas (CO) | 3 |
+| `datacenter` | Data Center & IT Infrastructure / Lithium UPS Fire & High-Voltage Arc Flash | 5 |
+| `logistics` | Port Logistics & Warehouse / Crane Lifting & AGV & Cold Storage Refrigerant | 5 |
+| `railway` | Railway & Transit Infrastructure / 25kV Catenary Electric & Track Confined | 3 |
+| `waste` | Environmental Waste & Water / Sewage H2S Asphyxiation & Shredder LOTO | 3 |
+| `defense` | Defense & Explosives / Munitions Propellant ESD & Missile Cryogenic | 5 |
+| `biotech` | Biopharmaceutical CDMO & Bio-Labs / Bioreactor SIP & LMO Biohazard | 5 |
 
 ### Cross-Cutting (Tier 3)
 
