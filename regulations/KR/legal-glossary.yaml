@@ -237,6 +237,20 @@ statutes:
     note: "Referenced in gasterm pipe-transfer-management (도시가스 배관/저장) without specific articles."
     articles: []
 
+  식품위생법:
+    english: Food Sanitation Act
+    abbreviation: FSA
+    regulator: MFDS (식품의약품안전처)
+    articles:
+      - { number: "제48조", topic_en: "HACCP certification and maintenance duty (식품안전관리인증기준)" }
+
+  화장품법:
+    english: Cosmetics Act
+    abbreviation: CA
+    regulator: MFDS (식품의약품안전처)
+    articles:
+      - { number: "제5조", topic_en: "Manufacturing and Quality Control Standards (CGMP)" }
+
   폐기물관리법:
     english: Wastes Control Act
     abbreviation: WCA
