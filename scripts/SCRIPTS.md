@@ -57,6 +57,7 @@ This project has not adopted a TypeScript-only policy — both tiers are legitim
 | `readme-lifecycle-audit.ts` | — | 1.0.2 | active | — | — | — | — |
 | `retry-handler.ts` | — | 1.0.2 | active | — | — | — | — |
 | `safety-audit.ts` | — | 4.3.0 | active | — | — | — | — |
+| `scaffold-industry.ts` | — | 0.1.0 | active | — | — | — | — |
 | `skill-dependency-analysis.ts` | — | 1.0.0 | active | — | — | — | — |
 | `skill-lifecycle-audit.ts` | — | 1.1.4 | active | — | — | — | — |
 | `start-mcp.ts` | — | 1.0.0 | active | — | — | — | — |
