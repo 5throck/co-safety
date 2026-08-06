@@ -1,0 +1,28 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOHW (보건복지부) / National Emergency Medical Center (중앙응급의료센터)
+framework: Emergency-Medical-Service-Act
+title_ko: 응급의료에 관한 법률
+title_en: Emergency Medical Service Act (EMS Act)
+description: |
+  Governs emergency medical service delivery, triage, regional emergency medical
+  centers, and inter-hospital transfer protocols. Referenced (by law name only —
+  no specific articles cited in codebase) in emergency-agent and medical-emergency
+  workflow schema.
+primary_law:
+  name_ko: 응급의료에 관한 법률
+  abbreviation: EMS-Act
+  articles: []
+  note: |
+    Codebase cites this law by name only (2 citations: emergency-agent.md,
+    workflows/emergency/medical-emergency/schema.yaml).
+    TODO: identify specific articles for emergency medical center duties,
+    inter-facility transfer (전원), and field triage in a future verification pass.
+related_rule:
+  name_ko: 응급의료에 관한 법률 시행령 / 시행규칙
+  abbreviation: EMS-Enforcement
+key_hazards:
+  - 응급의료 전달 지연 (emergency care handoff delay)
+  - 중증 외상 전원 지연 (severe trauma transfer delay)
+  - 응급실 과밀화 (ED overcrowding)
+last_updated: "2026-08-06"

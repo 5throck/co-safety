@@ -1,0 +1,27 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOLIT (국토교통부) / KR Rail Authority (국가철도공단)
+framework: Rail-Safety-Act
+title_ko: 철도안전법
+title_en: Railway Safety Act (RSA)
+primary_law:
+  name_ko: 철도안전법
+  abbreviation: RSA
+  articles:
+    - article: "45"
+      topic_ko: 철도보호지구에서의 행위제한 등
+      topic_en: Restrictions on acts within railway protection zones
+    - article: "48"
+      topic_ko: 철도 보호 및 질서유지를 위한 금지행위
+      topic_en: Prohibited acts for railway protection and order maintenance
+related_rule:
+  name_ko: 철도안전법 시행령 / 시행규칙
+  abbreviation: RSA-Enforcement
+key_hazards:
+  - 25kV 전차선 활선 접촉 감전 (catenary live-line electrocution)
+  - 선로 내 작업자 접촉 사고 (track worker struck-by)
+  - 터널/지하구간 밀폐공간 질식 (tunnel confined space asphyxiation)
+  - 열차 접근 시 대피 불가 (train approach — no escape route)
+inspection_cycles:
+  catenary_inspection: 야간 점검 (notulldig — 전차선 정전 구간)
+last_updated: "2026-08-06"

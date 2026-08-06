@@ -1,0 +1,26 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MFDS (식품의약품안전처) / KFDA
+framework: Food-Sanitation-Act
+title_ko: 식품위생법
+title_en: Food Sanitation Act (FSA)
+primary_law:
+  name_ko: 식품위생법
+  abbreviation: FSA
+  articles:
+    - article: "12의2"
+      topic_ko: 유전자변형식품 표시
+      topic_en: Labeling of genetically modified foods
+    - article: "48"
+      topic_ko: 식품안전관리인증기준
+      topic_en: Food Safety Management Certification Standards (HACCP basis)
+related_rule:
+  name_ko: 식품위생법 시행령 / 시행규칙 / 식품위생분야종사자의건강진단규칙
+  abbreviation: FSA-Enforcement
+key_hazards:
+  - HACCP CCP 임계값 이탈 (HACCP CCP critical limit deviation)
+  - 식품 알레르겐 교차오염 (food allergen cross-contact)
+  - 믹서/교반기 LOTO 미이행 (mixer/agitator LOTO failure)
+  - 미생물 오염 (microbial contamination)
+haccp_basis: HACCP 인증 (식품안전관리인증) per MFDS Notice — Art. 48 codifies mandatory HACCP for designated food businesses
+last_updated: "2026-08-06"

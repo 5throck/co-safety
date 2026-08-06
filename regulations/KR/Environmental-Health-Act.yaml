@@ -1,0 +1,27 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: ME (환경부)
+framework: Environmental-Health-Act
+title_ko: 환경보건법
+title_en: Environmental Health Act (EHA)
+description: |
+  Governs environmental health protection — chemical substance environmental
+  exposure, environmental disease prevention, health impact assessment.
+  Referenced (by law name only — no specific articles cited in codebase) in
+  the emergency chemical-release workflow schema.
+primary_law:
+  name_ko: 환경보건법
+  abbreviation: EHA
+  articles: []
+  note: |
+    Codebase cites this law by name only (1 citation: workflows/emergency/chemical-release/schema.yaml).
+    TODO: identify specific articles for environmental health impact assessment
+    and chemical exposure investigation in a future verification pass.
+related_rule:
+  name_ko: 환경보건법 시행령 / 시행규칙
+  abbreviation: EHA-Enforcement
+key_hazards:
+  - 화학물질 환경 노출 (chemical substance environmental exposure)
+  - 환경성 질환 (environmental disease — asthma, atopy)
+  - 토양/지하수 오염 (soil/groundwater contamination)
+last_updated: "2026-08-06"

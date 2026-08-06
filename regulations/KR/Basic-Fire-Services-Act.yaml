@@ -1,0 +1,22 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: NFA (소방청) / local fire departments
+framework: Basic-Fire-Services-Act
+title_ko: 소방기본법
+title_en: Basic Fire Services Act (Fire Services Act)
+primary_law:
+  name_ko: 소방기본법
+  abbreviation: BFS / Fire-Services
+  articles:
+    - article: "16"
+      topic_ko: 소방활동
+      topic_en: Fire-fighting and rescue operations
+related_rule:
+  name_ko: 소방기본법 시행령 / 시행규칙 / 소방력기준에관한규칙
+  abbreviation: BFS-Enforcement
+key_hazards:
+  - 화재 진압 중 화상/질식 (fire-fighting burn/asphyxiation)
+  - 밀폐공간 구조 작전 (confined space rescue operations)
+  - 고소 구조 작전 (high-angle rescue operations)
+  - 소방시설 점검 부실 (fire protection system inspection failure)
+last_updated: "2026-08-06"

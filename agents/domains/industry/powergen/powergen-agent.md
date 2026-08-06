@@ -114,4 +114,4 @@ You are the Power Generation Safety Specialist (발전설비 안전 전문가). 
 ## PM-ONLY INVOCATION
 
 This agent is dispatched ONLY through PM.
-Trigger: "발전소", "발전설비", "터빈", "보일러", "고압 전기", "송전", "변전", "풍력", "태양광", "ESS", "에너지저장"
+Trigger: "발전소", "발전설비", "터빈", "보일러", "고압 전기", "송전", "변전", "풍력", "태양광", "ESS", "에너지저장", "TBM", "Tool Box Meeting", "안전점검회의", "tbm-pre-work-briefing"

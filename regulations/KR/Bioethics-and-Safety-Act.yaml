@@ -1,0 +1,28 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOHW (보건복지부) / National Bioethics Committee (국가생명윤리심의위원회)
+framework: Bioethics-and-Safety-Act
+title_ko: 생명윤리 및 안전에 관한 법률
+title_en: Bioethics and Biosafety Act (BSA / Bioethics Act)
+description: |
+  Primary Korean statute for IRB (Institutional Review Board), informed consent,
+  and human subjects research protections. Heavily cited (23 references) across
+  GCP domain workflows and evidence models.
+primary_law:
+  name_ko: 생명윤리 및 안전에 관한 법률
+  abbreviation: BSA
+  articles:
+    - article: "13"
+      topic_ko: 기관위원회의 지원 등
+      topic_en: Institutional Review Board (IRB) support and operation
+    - article: "16"
+      topic_ko: 인간대상연구의 동의
+      topic_en: Informed consent for human subjects research
+related_rule:
+  name_ko: 생명윤리 및 안전에 관한 법률 시행령 / 시행규칙
+  abbreviation: BSA-Enforcement
+key_hazards:
+  - IRB 승인 없는 임상시험 (clinical trial without IRB approval)
+  - 인지동의 결격 (informed consent deficiency)
+  - 취약계층 연구대상자 보호 (vulnerable population subject protection)
+last_updated: "2026-08-06"

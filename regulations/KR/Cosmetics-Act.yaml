@@ -1,0 +1,23 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MFDS (식품의약품안전처) / KFDA
+framework: Cosmetics-Act
+title_ko: 화장품법
+title_en: Cosmetics Act (CA)
+primary_law:
+  name_ko: 화장품법
+  abbreviation: CA
+  articles:
+    - article: "5"
+      topic_ko: 영업자의 의무 등
+      topic_en: Obligations of cosmetics business operators (CGMP, raw material safety)
+related_rule:
+  name_ko: 화장품법 시행령 / 시행규칙
+  abbreviation: CA-Enforcement
+key_hazards:
+  - 유기용제 노출 (organic solvent exposure — mixing)
+  - 향료 원료 피부/흡입 위해 (fragrance raw material dermal/inhalation hazard)
+  - 배치 미생물 오염 (batch microbial contamination)
+  - 가열교반 화상 (heated agitation burn)
+cgmp_basis: 우수화장품 제조 및 품질관리기준 (MFDS CGMP Notice) — aligned with ISO 22716
+last_updated: "2026-08-06"

@@ -1,0 +1,33 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: DAPA (방위사업청) / MND (국방부)
+framework: Defense-Acquisition-Act
+title_ko: 방위사업법
+title_en: Defense Acquisition Act (DAA / DPA)
+primary_law:
+  name_ko: 방위사업법
+  abbreviation: DAA
+  articles:
+    - article: "28"
+      topic_ko: 품질보증
+      topic_en: Quality assurance for munitions (replaced deleted Art.18)
+    - article: "53"
+      topic_ko: 군용 총포·도검·화약류 등의 제조 등에 관한 특례
+      topic_en: Special provisions for manufacture of military firearms/swords/explosives
+  note: |
+    Article 18 (전문연구기관 및 방위산업체 지정) was deleted on 2020.3.31.
+    REMEDIATED 2026-08-06: codebase references to deleted Art.18 migrated to
+    active Art.28 (품질보증) and Art.53 (군용 화약류 제조 특례). Defense workflows
+    (explosive-propellant-handling, missile-cryogenic-high-pressure) and
+    defense-agent.md now cite Art.28/Art.53 instead of Art.18.
+related_rule:
+  name_ko: 방위사업법 시행령 / 시행규칙
+  abbreviation: DAA-Enforcement
+key_hazards:
+  - 군수품 품질보증 결함 방치 (munitions QA defect accumulation)
+  - 추진제/폭약 저장 안전 (propellant/explosive storage safety)
+  - 유도무기 극저온 연료 (missile cryogenic fuel handling)
+key_scope:
+  - 군수품 품질보증 (munitions quality assurance)
+  - 방위산업체 지정·관리 (defense industry designation/oversight)
+last_updated: "2026-08-06"

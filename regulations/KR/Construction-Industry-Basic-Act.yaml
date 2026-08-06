@@ -1,0 +1,32 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOLIT (국토교통부)
+framework: Construction-Industry-Basic-Act
+title_ko: 건설산업기본법
+title_en: Construction Industry Basic Act (CIBA)
+description: |
+  Note: Art. 83 (건설업의 등록말소 등) was previously mis-cited as TBM legal
+  basis (it means business-registration cancellation, unrelated to TBM). That
+  non-conformance was corrected (FIND-2026-0003 / CA-2026-0003) — TBM now cites
+  건설기술진흥법 Art. 24 instead. Art. 83 remains correctly cited for subcontractor
+  safety oversight contexts.
+primary_law:
+  name_ko: 건설산업기본법
+  abbreviation: CIBA
+  articles:
+    - article: "29의2"
+      topic_ko: 건설공사의 하도급관리
+      topic_en: Subcontracting management for construction works
+    - article: "45"
+      topic_ko: 경영합리화 등의 노력
+      topic_en: Management rationalization efforts (safety management cost)
+    - article: "83"
+      topic_ko: 건설업의 등록말소 등
+      topic_en: Cancellation of construction business registration (administrative penalty)
+related_rule:
+  name_ko: 건설산업기본법 시행령 / 시행규칙
+  abbreviation: CIBA-Enforcement
+key_hazards:
+  - 하도급 안전관리 부실 (subcontractor safety oversight failure)
+  - 안전관리비 부족/유용 (safety management cost shortfall/diversion)
+last_updated: "2026-08-06"
