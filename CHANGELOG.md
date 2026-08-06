@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — Comprehensive Documentation & User Guide Update)
+
+- **docs/co-safety.context.md**: Updated project context to reflect 22 active domains and 25 specialist agents.
+- **README.md & README_ko.md**: Updated Active Domains tables and 22-domain matrix architecture overview (Layer A & Layer C).
+- **docs/user-guide/field-ehs-operational-guide_ko.md**: Expanded Field EHS Operational Guide with Section 4 covering operational safety rules for all 7 newly expanded industrial domains.
+- **docs/user-guide/domain-quick-reference_ko.md**: Created quick reference guide mapping all 22 functional and industry domains, statutes, agents, and core workflows.
+
 ### Added (2026-08-06 — 5 Major Industrial Domains Expansion)
 
 - **agents/domains/industry/{semicon,battery,shipbuilding,steelmaking,datacenter}/**: Added 5 specialist agents (`semicon-agent`, `battery-agent`, `shipbuilding-agent`, `steelmaking-agent`, `datacenter-agent`) and registered all in `AGENTS.md`.

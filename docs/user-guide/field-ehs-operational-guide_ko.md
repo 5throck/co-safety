@@ -8,7 +8,7 @@
 
 ## 1. 개요 (Overview)
 
-본 가이드는 제조, 화학, 건설, 가스, 발전 등 사업장 현장에서 EHS(환경·보건·안전) 관리자와 작업자가 일상 안전보건 활동을 체계적으로 이행하고 법적 준수성(Compliance)을 확보할 수 있도록 표준 절차를 제공합니다.
+본 가이드는 제조, 화학, 건설, 가스, 발전, 반도체, 배터리, 조선, 철강, 데이터센터, 식품, 화장품 등 사업장 현장에서 EHS(환경·보건·안전) 관리자와 작업자가 일상 안전보건 활동을 체계적으로 이행하고 법적 준수성(Compliance)을 확보할 수 있도록 표준 절차를 제공합니다.
 
 ---
 
@@ -71,14 +71,29 @@
 
 ---
 
-## 4. 증적 관리 및 오딧 대응 (Audit Trail)
+## 4. 특수 산업군 현장 안전보건 수칙 (신규 확장 7대 산업)
 
-모든 현장 안전 보건 활동은 규제 기관(고용노동부, 한국산업안전보건공단, 소방서 등) 서면 및 현장 감사 시 증빙자료로 제출되어야 합니다.
+| 산업군 | 핵심 관리 공정 | 현장 필수 준수 수칙 (Operational Rules) | 담당 에이전트 |
+|-------|--------------|--------------------------------------|--------------|
+| **반도체/디스플레이** | 특수가스 캐비닛 & 클린룸 화학물질 | • SiH4/NF3 가스 누출 감지기 및 연동 인터록 매일 점검<br>• 불산(HF) 취급 시 전용 내화학 보호구 및 세안/세척설비 비치 | [semicon-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/semicon/semicon-agent.md) |
+| **이차전지/배터리** | 배터리 셀 제조 & 폐배터리 리사이클링 | • Formation/충방전 공정 열화상 모니터링 및 열폭주 인터록<br>• NMP 유기용제 회수 설비 배기 점검 및 폐배터리 침전조 무산소 점검 | [battery-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/battery/battery-agent.md) |
+| **조선/해양플랜트** | 선박 탱크 밀폐공간 & 골리앗 크레인 | • 선박 보이드 탱크 작업 전 산소/가스 농도 3위치 측정 및 감시자 배치<br>• 대형 크레인 인양 작업 신호수 지정 및 신호체계 모니터링 | [shipbuilding-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/shipbuilding/shipbuilding-agent.md) |
+| **철강/금속제련** | 용광로/전기로 & 부생가스 배관 | • 전기로/가열로 정비 시 Zero Energy LOTO 및 습기 투입 방지<br>• 부생가스(CO/N2) 배관 가스검지기 및 차단 밸브 주간 정밀 점검 | [steelmaking-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/steelmaking/steelmaking-agent.md) |
+| **데이터센터** | 리튬이온 UPS & 고전압 수전 설비 | • UPS 배터리 룸 온습도 모니터링 및 가스계 소화설비 수동 차단기 점검<br>• 고전압 변전실 작업 시 Arc Flash PPE 등급 준수 및 LOTO 부착 | [datacenter-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/datacenter/datacenter-agent.md) |
+| **식품 (HACCP)** | CCP 공정 & 교반기/혼합기 정비 | • HACCP CCP 한계기준(온도/시간) 이탈 시 자동 CAPA 및 가열 처리<br>• 식품 교반기/혼합기 세척 및 정비 시 전원 2중 차단 LOTO 적용 | [food-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/food/food-agent.md) |
+| **화장품 (CGMP)** | 배치 출하 & 유기용제/원료 혼합 | • CGMP 배치 출하 전 미생물/중금속 시험 적합 검수 기록 보관<br>• 향료/알코올 혼합 정조 작업 시 국소배기장치 및 방폭 설비 가동 | [cosmetics-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/cosmetics/cosmetics-agent.md) |
+
+---
+
+## 5. 증적 관리 및 오딧 대응 (Audit Trail)
+
+모든 현장 안전 보건 활동은 규제 기관(고용노동부, 한국산업안전보건공단, 소방서, 식품의약품안전처 등) 서면 및 현장 감사 시 증빙자료로 제출되어야 합니다.
 
 - **서류 보관 기간**:
   - 위험성평가 서류: 3년 보관
   - 안전작업허가서(PTW): 1년 보관
   - 안전보건교육 일지: 3년 보관
   - LOTO 이행 기록: 1년 보관
+  - HACCP / CGMP / GxP 제조기록서: 3~5년 보관
 - **시스템 동기화**:
   - 모든 증적 데이터는 [`evidence-models/`](file:///c:/git/ai_workspace/Projects/safety_os/evidence-models/) 표준 JSON 스키마 구조와 부합하게 기록되어야 합니다.
