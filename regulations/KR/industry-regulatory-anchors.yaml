@@ -520,15 +520,26 @@ industries:
         abbreviation: HPGSCA
         statute_file: High-Pressure-Gas-Safety.yaml
         key_articles:
-          - article: "14"
-            topic_ko: 고압가스 충전·저장 시설 기준
-            topic_en: High-pressure-gas filling/storage facility standards
-          - article: "17"
-            topic_ko: 고압가스 안전관리자
-            topic_en: High-pressure-gas Safety Manager
-          - article: "28"
-            topic_ko: 고압가스 사고 응급조치
-            topic_en: High-pressure-gas accident emergency response
+          - article: "11"
+            topic_ko: 안전관리규정 (실란/특수가스 시설 안전유지 계획 제출)
+            topic_en: Safety management regulations (silane/specialty-gas facility safety-plan submission)
+            substantive: true
+          - article: "13"
+            topic_ko: 시설·용기의 안전유지 (실린더 충전 전 용기 점검 포함)
+            topic_en: Facility and container safety maintenance (incl. pre-charge cylinder check)
+            substantive: true
+          - article: "15"
+            topic_ko: 안전관리자 선임
+            topic_en: Safety Manager appointment
+            substantive: true
+          - article: "24"
+            topic_ko: 허가관청 등의 조치 (사용정지·이전·폐기 명령)
+            topic_en: Licensing-authority corrective measures (suspension, relocation, disposal orders)
+            substantive: true
+          - article: "26"
+            topic_ko: 사고의 통보 등 (가스 누출·폭발·화재 통보)
+            topic_en: Accident notification (gas leak, explosion, fire)
+            substantive: true
       - name_ko: 위험물안전관리법
         abbreviation: DSSMA
         statute_file: Hazardous-Materials-Safety-Control.yaml
@@ -551,10 +562,13 @@ industries:
       hazard), Art 99 (fall prevention during tool install/maintenance).
     verification:
       verified_via:
-        - legalize-kr  # CCA Art 23/24 confirmed via parse_law_structure
-        - statute-file-only  # HPGSCA Art 14/17/28 — not in legalize_kr index
-      unverified:
-        - "HPGSCA Art 14, Art 17, Art 28 [UNVERIFIED-via-legalize-kr] — legalize_kr.parse_law_structure returned [] under '고압가스안전관리법' and '고압가스 안전관리 및 사업법'; sourced from High-Pressure-Gas-Safety.yaml (mcp-kr-legislation). Recommend re-verify when statute is indexed."
+        - legalize-kr  # CCA Art 23/24 + HPGSCA Art 11/13/15/24/26 confirmed via parse_law_structure (HPGSCA indexed under "고압가스안전관리법"; MST 283919, lawIdCode 001850)
+      unverified: []
+      remediation_note: |
+        2026-08-07 (semicon HPGSCA remediation): HPGSCA articles re-verified live — Art 14 (deleted 1999.2.8),
+        Art 17 (용기등의 검사, NOT Safety Manager), Art 28 (한국가스안전공사의 설립, NOT emergency).
+        Replaced with live articles Art 11/13/15/24/26. See
+        memory/findings/compliance-2026-08-07-semicon-hpgsca-remediation.md.
 
   # =========================================================================
   shipbuilding:
@@ -793,7 +807,7 @@ gaps:
     recommendation: Optional — same as shipbuilding.
 
   - statute: HPGSCA (고압가스 안전관리 및 사업법)
-    issue: RESOLVED for shipbuilding/steelmaking (2026-08-07); open for semicon/biotech-adjacent
+    issue: RESOLVED for shipbuilding/steelmaking/semicon (2026-08-07)
     impact: |
       Prior session flag was "not indexed in legalize_kr" — STALE as of 2026-08-07.
       legalize_kr.get_law_metadata("고압가스안전관리법") succeeds (MST 283919, lawIdCode 001850),
@@ -805,10 +819,13 @@ gaps:
       the verified-current article set Art 11/13/15/24/26; High-Pressure-Gas-Safety.yaml and
       legal-glossary.yaml HPGSCA entries reconciled to the same set. See
       memory/findings/compliance-2026-08-07-phase2-group-c-anchors.md §3.1-3.2.
+      2026-08-07 (semicon follow-up remediation): semicon anchor block + 4 semicon workflow
+      schemas + 2 silane READMEs remediated to the same Art 11/13/15/24/26 set. See
+      memory/findings/compliance-2026-08-07-semicon-hpgsca-remediation.md.
     open_followup: |
-      semicon industry block (lines ~519-557) still carries stale Art 14/17/28 citations
-      (Group B, already scaffolded) — deferred to a Group B follow-up compliance task.
-      battery industry does NOT cite HPGSCA in its anchor (uses DSSMA + CCA + ESCA).
+      battery industry does NOT cite HPGSCA in its anchor (uses DSSMA + CCA + ESCA) — no
+      HPGSCA remediation needed for battery. All 3 HPGSCA-citing industries (shipbuilding,
+      steelmaking, semicon) now use the verified Art 11/13/15/24/26 set.
 
   - statute: Bioethics Act (생명윤리 및 안전에 관한 법률)
     issue: Not indexed in legalize_kr under the formal name

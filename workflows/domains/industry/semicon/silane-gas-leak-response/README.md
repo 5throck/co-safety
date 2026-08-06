@@ -40,7 +40,7 @@
 - **확장 포인트**: `industry_specific_fields` — 전문가가 누출 발생 시각·위치·규모, 대피 인원, 통보 연계, 조사 결과 등 산업 고유 필드를 정의.
 
 ## 6. 법적 근거 (Legal Basis)
-출처: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). 아래 인용 문자열은 `schema.yaml`의 `legal_basis`와 정확히 일치(VERBATIM)한다. `[UNVERIFIED]` 표기는 schema.yaml의 주석과 동일하게 유지한다.
+출처: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). 아래 인용 문자열은 `schema.yaml`의 `legal_basis`와 정확히 일치(VERBATIM)한다. HPGSCA 인용은 remediated 조문(Article 11/13/15/24/26)을 사용한다.
 
 - 산업안전보건법 Article 36
 - 산업안전보건법 Article 57
@@ -50,9 +50,11 @@
 - 중대재해처벌법 Article 7
 - 화학물질의 등록 및 평가 등에 관한 법률 Article 23
 - 화학물질의 등록 및 평가 등에 관한 법률 Article 24
-- 고압가스 안전관리 및 사업법 Article 14 _[UNVERIFIED — 전문가 재검증 필요]_
-- 고압가스 안전관리 및 사업법 Article 17 _[UNVERIFIED — 전문가 재검증 필요]_
-- 고압가스 안전관리 및 사업법 Article 28 _[UNVERIFIED — 전문가 재검증 필요]_
+- 고압가스 안전관리 및 사업법 Article 11
+- 고압가스 안전관리 및 사업법 Article 13
+- 고압가스 안전관리 및 사업법 Article 15
+- 고압가스 안전관리 및 사업법 Article 24
+- 고압가스 안전관리 및 사업법 Article 26
 - 위험물안전관리법 Article 5
 - 위험물안전관리법 Article 27
 
@@ -66,12 +68,16 @@
 | 위험물안전관리법 | DSSMA | Act on the Safety Control of Dangerous Goods |
 
 ## 7. 규제 참고사항 (Regulatory Notes)
-반도체 팹은 화학물질 다량 사용(CCA), 가스 다량 사용(HPGSCA — 실란·아르신·포스핀·수소), 위험물 다량 사용(DSSMA — 발화성 액체·가연성 금속)이 결합된 환경이다. 전용 법령은 없으며 복합 통제 앵커가 필요하다. 추가 관련: 산업안전보건법 Article 101(감전 위험), Article 99(도구 설치·유지보수 시 추락 방지).
+반도체 팹은 화학물질 다량 사용(CCA), 가스 다량 사용(HPGSCA — 실란·아르신·포스핀·수소), 위험물 다량 사용(DSSMA — 발화성 액체·가연성 금속)이 결합된 환경이다. 전용 법령은 없으며 복합 통제 앵커가 필요하다. 추가 관련: 산업안전보건법 Article 101(감전 위험), Article 99(도구 설치·유지보수 시 추락 방지). **HPGSCA 인용 주의**: `schema.yaml`의 HPGSCA 인용(Art 11/13/15/24/26)은 compliance-agent가 실시간 MCP `legalize_kr`(law.go.kr 원문, 권위 있음) 검증을 거친 **remediated 조문**이다 — 기존 앵커가 삭제 조문인 Art 14(1999.2.8 삭제)와 주제 불일치 Art 17(용기등의 검사, NOT 안전관리자)/Art 28(한국가스안전공사의 설립, NOT 응급조치)을 인용하던 것을, `legalize_kr`에서 Art 11/13/15/24/26이 실효 조문임을 확인하여 정정하였다(MST 283919, lawIdCode 001850). 참고로 `kr_safety` 카탈로그는 HPGSCA에 대해 stale하여 삭제된 Art 14를 여전히 인덱싱하므로, HPGSCA 검증 시에는 `legalize_kr`을 우선한다.
 
-## 8. 미검증 인용 (Unverified Citations)
-앵커 표에서 [UNVERIFIED]로 표시된 항목이며, 전문가 재검증이 필요하다:
+## 8. 검증 이력 (Verification History)
+이전 버전의 본 README는 §6에서 HPGSCA Article 14/17/28을 `[UNVERIFIED — 전문가 재검증 필요]`로 표기하고, 본 절에 `legalize_kr.parse_law_structure`이 `[]`를 반환했다는 미검증 노트를 게시하고 있었다. 해당 플래그는 **STALE**이다.
 
-- 고압가스 안전관리 및 사업법(HPGSCA) Article 14, Article 17, Article 28 [UNVERIFIED-via-legalize-kr] — legalize_kr.parse_law_structure이 '고압가스안전관리법' 및 '고압가스 안전관리 및 사업법' 모두에서 [] 반환. 출처는 High-Pressure-Gas-Safety.yaml (mcp-kr-legislation). 해당 법령이 색인되면 재검증 권장.
+- **해결일**: 2026-08-07 (semicon HPGSCA remediation, Group A 후속 조치)
+- **관할 법령 색인 상태**: `legalize_kr.get_law_metadata("고압가스안전관리법")` 성공 (MST 283919, lawIdCode 001850, last-commit 2026-03-10)
+- **정정 내용**: Art 14(1999.2.8 삭제), Art 17(용기등의 검사), Art 28(한국가스안전공사의 설립) → 실효 조문 Art 11/13/15/24/26으로 전면 교체
+- **검증 출처**: `legalize_kr.parse_law_structure` 원문 + `regulations/KR/High-Pressure-Gas-Safety.yaml` (등록된 statute YAML)
+- **상세 내역**: `memory/findings/compliance-2026-08-07-semicon-hpgsca-remediation.md` 참조
 
 ---
 _법적 고지: 규제 해석은 사용자 책임입니다. 본 워크플로우는 자동화 보조만 제공하며, 법률 자문이 아닙니다._

@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed (2026-08-07 — semicon HPGSCA Article Remediation)
+
+Completes HPGSCA (고압가스안전관리법) citation consistency across the gas-intensive industries. The semicon industry (Group A) was scaffolded before the HPGSCA article remediation applied to shipbuilding/steelmaking in PR #92, so it retained stale citations to deleted/mismatched articles. Now remediated to the verified in-force set.
+
+- **4 semicon workflow schemas** (`silane-gas-leak-response`, `special-gas-handling`, `semicon-scrubber-maintenance`, `tbm-pre-work-briefing`) — stale `고압가스 안전 관리 및 사업법 Article 14/17/28` → verified **Article 11/13/15/24/26** (matching the shipbuilding/steelmaking 5-article schema convention); `[UNVERIFIED]` markers removed; statute-name unified to the long form. Verified live this session via `legalize_kr.parse_law_structure` (MST 283919): Art 14 = 삭제 1999.2.8, Art 11/13/15/24/26 = substantive in-force.
+- **2 silane READMEs** (Ko + En) — §6 Legal Basis remediated (VERBATIM with schema); §7 HPGSCA verification note added (mirrors shipbuilding framing; documents that the `kr_safety` catalog is stale for HPGSCA); §8 "Unverified Citations" → "Verification History".
+- **`regulations/KR/industry-regulatory-anchors.yaml`** — semicon HPGSCA `adjacent_laws` block remediated (Art 14/17/28 → 11/13/15/24/26, `substantive: true`); semicon `verification` block cleared; gaps HPGSCA entry updated ("RESOLVED for shipbuilding/steelmaking/semicon").
+- **`regulations/KR/legal-glossary.yaml`** (v1.0.5 → v1.0.6) — HPGSCA `regulator` corrected `KGS / MOIS` → `MOTIE (산업통상자원부) / KGS (한국가스안전공사)`. Article list (Art 11/13/15/22-2/24/26) unchanged.
+- **Known residual (separate follow-up):** stale HPGSCA Art 14/17/28 citations remain in 15 workflows across gasterm (10), defense, logistics, steelmaking, and the asset-integrity functional domain. Art 14 (deleted) cases are unambiguous bugs; Art 17/28 are in-force articles requiring per-workflow topic judgment (e.g., gasterm tank-inspection citing Art 17 may be correct). Scoped out for a dedicated codebase-wide HPGSCA compliance pass.
+
+Findings: `memory/findings/compliance-2026-08-07-semicon-hpgsca-remediation.md`. Audit: 872 files, 0 errors.
+
 ### Added (2026-08-07 — Industry Maturity Phase 1 Group A: 4 Industries → Tier 2)
 
 Derived from the 2026-08-07 industry-maturity meeting (`memory/meeting-2026-08-07-industry-maturity.md`). Promotes **cosmetics, datacenter, food, semicon** from Tier 1 (Scaffolded) to **Tier 2 (Operational)** — each now meets ≥5 workflows, ≥1 skill, ≥5 evidence models, agent ≥50 lines.
