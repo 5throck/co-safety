@@ -1,7 +1,7 @@
 # Safety OS — Architecture Overview
 
 > **Last Updated**: 2026-08-06
-> **Active Domains**: 27 (5 functional + 22 industry)
+> **Active Domains**: 30 (8 functional + 22 industry)
 > **Architecture**: 2-Tier functional × industry matrix
 
 ## 1. System Overview
@@ -57,13 +57,16 @@ Emergency (cc)     ✓         ✓           ✓             ✓            ✓ 
 
 ## 3. Domain Inventory
 
-### Functional Domains (5)
+### Functional Domains (8)
 
 | Domain | Workflows | Evidence Models | Key Standard |
 |--------|-----------|-----------------|--------------|
 | PSM | 15 | 15 | OSHA-KR Art 44 (14 elements) |
 | MSDS | 7 | 6 | GHS Rev 9 + K-REACH |
 | Training | 8 | 5 | OSHA-KR Art 13/29/31/32/114 |
+| risk-assessment | 5 | 2 | OSHA-KR Art 36 + MOEL 위험성평가 고시 |
+| incident-investigation | 5 | 3 | OSHA-KR Art 57 + 중대재해처벌법 Art 5 |
+| asset-integrity | 4 | 2 | OSHA-KR Art 36/38 + KOSHA Guide M-155-2022 |
 | contractor-safety | 1 | 1 | TAR/Major Turnaround contractor surge |
 | occupational-health | 1 | 1 | TAR/Major Turnaround health screening |
 
@@ -134,11 +137,11 @@ Industry Domain Agent (coordinator)
 ## 5. Audit System
 
 `safety-audit.ts` v4.3.0 validates:
-- **162 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
-- **148 evidence models** ($ref resolution, domain-specific common fields)
+- **176 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
+- **160 evidence models** ($ref resolution, domain-specific common fields)
 - **31 regulations** (source_mcp validation)
 - **Role separation**: risk-assessment-agent ↔ gmp-qrm, and risk-assessment-agent ↔ psm-agent
-- **27 domain-specific validations** (5 functional + 22 industry)
+- **30 domain-specific validations** (8 functional + 22 industry)
 
 ## 6. Key Documents
 
