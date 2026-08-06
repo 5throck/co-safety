@@ -9,7 +9,7 @@ source_mcp: mcp-kr-legislation  # curated reference glossary; statute content so
 # (agents/*.md Section A Legal Basis blocks, workflows/**/schema.yaml legal_basis fields,
 # regulations/KR/*.yaml). Articles NOT referenced anywhere in the codebase are omitted;
 # accuracy over completeness. Unverified entries are explicitly commented.
-version: 1.0.5
+version: 1.0.6
 last_updated: 2026-08-07
 
 # =============================================================================
@@ -211,7 +211,7 @@ statutes:
   고압가스안전관리법:
     english: High-Pressure Gas Safety Control Act
     abbreviation: HPGSCA
-    regulator: KGS (한국가스안전공사) / MOIS
+    regulator: MOTIE (산업통상자원부) / KGS (한국가스안전공사)
     articles:
       - { number: "제11조", topic_en: "Safety management regulations (안전관리규정 — written plan submission)" }
       - { number: "제13조", topic_en: "Facility and container safety maintenance (시설·용기의 안전유지)" }

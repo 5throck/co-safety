@@ -8,8 +8,11 @@ workflow_type: core
 legal_basis:
   - 산업안전보건법 Article 15
   - 산업안전보건법 Article 36
-  - 고압가스안전관리법 Article 14
-  - 고압가스안전관리법 Article 17
+  - 고압가스 안전관리 및 사업법 Article 11
+  - 고압가스 안전관리 및 사업법 Article 13
+  - 고압가스 안전관리 및 사업법 Article 15
+  - 고압가스 안전관리 및 사업법 Article 24
+  - 고압가스 안전관리 및 사업법 Article 26
   - 화학물질관리법 Article 20
 industry_profile: semicon
 agent: semicon-agent

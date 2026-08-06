@@ -40,7 +40,7 @@ Evidence model produced: [`evidence-models/domains/industry/semicon/semicon-sila
 - **Extension point**: `industry_specific_fields` — specialist defines industry-unique fields such as leak onset time, location, magnitude, evacuee count, notification chain, and investigation outcome.
 
 ## 6. Legal Basis
-Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citation strings below match the `legal_basis` array in `schema.yaml` VERBATIM (Korean proper nouns preserved — never translated). The `[UNVERIFIED]` markers are preserved exactly as in schema.yaml.
+Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citation strings below match the `legal_basis` array in `schema.yaml` VERBATIM (Korean proper nouns preserved — never translated). HPGSCA citations use the remediated article set (Article 11/13/15/24/26).
 
 - 산업안전보건법 Article 36
 - 산업안전보건법 Article 57
@@ -50,9 +50,11 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 - 중대재해처벌법 Article 7
 - 화학물질의 등록 및 평가 등에 관한 법률 Article 23
 - 화학물질의 등록 및 평가 등에 관한 법률 Article 24
-- 고압가스 안전관리 및 사업법 Article 14 _[UNVERIFIED — specialist re-verification required]_
-- 고압가스 안전관리 및 사업법 Article 17 _[UNVERIFIED — specialist re-verification required]_
-- 고압가스 안전관리 및 사업법 Article 28 _[UNVERIFIED — specialist re-verification required]_
+- 고압가스 안전관리 및 사업법 Article 11
+- 고압가스 안전관리 및 사업법 Article 13
+- 고압가스 안전관리 및 사업법 Article 15
+- 고압가스 안전관리 및 사업법 Article 24
+- 고압가스 안전관리 및 사업법 Article 26
 - 위험물안전관리법 Article 5
 - 위험물안전관리법 Article 27
 
@@ -66,12 +68,16 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 | 위험물안전관리법 | DSSMA | Act on the Safety Control of Dangerous Goods |
 
 ## 7. Regulatory Notes
-Semiconductor fabs are chemical-intensive (CCA), gas-intensive (HPGSCA — silane, arsine, phosphine, hydrogen), and dangerous-goods-intensive (DSSMA — pyrophoric liquids, combustible metals). No dedicated statute — a composite anchor is required. Also relevant: OSHA-KR Article 101 (electrical hazard), Article 99 (fall prevention during tool install/maintenance).
+Semiconductor fabs are chemical-intensive (CCA), gas-intensive (HPGSCA — silane, arsine, phosphine, hydrogen), and dangerous-goods-intensive (DSSMA — pyrophoric liquids, combustible metals). No dedicated statute — a composite anchor is required. Also relevant: OSHA-KR Article 101 (electrical hazard), Article 99 (fall prevention during tool install/maintenance). **HPGSCA citation note**: The HPGSCA citations in `schema.yaml` (Art 11/13/15/24/26) are the **remediated article set** verified live by the compliance-agent via the `legalize_kr` MCP (law.go.kr full-text — authoritative) — the prior anchor cited deleted Art 14 (deleted 1999.2.8) and topic-mismatched Art 17 (용기등의 검사, NOT Safety Manager) / Art 28 (한국가스안전공사의 설립, NOT emergency response); `legalize_kr` confirmed Art 11/13/15/24/26 as the in-force articles (MST 283919, lawIdCode 001850). Note: the `kr_safety` catalog is stale for HPGSCA (still indexes deleted Art 14), so prefer `legalize_kr` for HPGSCA verification.
 
-## 8. Unverified Citations
-The following items were flagged [UNVERIFIED] in the anchor table and require specialist re-verification:
+## 8. Verification History
+A prior version of this README flagged HPGSCA Article 14/17/28 in §6 with `[UNVERIFIED — specialist re-verification required]` and posted an unverified-citation note in this section stating that `legalize_kr.parse_law_structure` returned `[]`. That flag is **STALE**.
 
-- 고압가스 안전관리 및 사업법 (HPGSCA) Article 14, Article 17, Article 28 [UNVERIFIED-via-legalize-kr] — legalize_kr.parse_law_structure returned [] under both '고압가스안전관리법' and '고압가스 안전관리 및 사업법'; sourced from High-Pressure-Gas-Safety.yaml (mcp-kr-legislation). Recommend re-verify when statute is indexed.
+- **Resolved**: 2026-08-07 (semicon HPGSCA remediation, Group A follow-up)
+- **Statute index status**: `legalize_kr.get_law_metadata("고압가스안전관리법")` succeeds (MST 283919, lawIdCode 001850, last-commit 2026-03-10)
+- **Correction applied**: Art 14 (deleted 1999.2.8), Art 17 (용기등의 검사), Art 28 (한국가스안전공사의 설립) → replaced with in-force Art 11/13/15/24/26
+- **Verification source**: `legalize_kr.parse_law_structure` full-text + `regulations/KR/High-Pressure-Gas-Safety.yaml` (registered statute YAML)
+- **Details**: see `memory/findings/compliance-2026-08-07-semicon-hpgsca-remediation.md`
 
 ---
 _Legal disclaimer: Regulatory interpretation is user responsibility. This workflow provides automation assistance only, not legal advice._
