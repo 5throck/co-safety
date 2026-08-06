@@ -1,0 +1,33 @@
+# Secondary Battery Manufacturing & Recycling Industry Profile (v1)
+name: battery-manufacturing
+display_name: "이차전지 및 폐배터리 리사이클링 (Secondary Battery & Recycling)"
+description: Secondary battery cell/pack manufacturing and recycling operations under DSSMA and CCA, covering thermal runaway prevention, NMP recovery, and recycling chemical hazard control.
+applicable_laws:
+  - 위험물안전관리법 (DSSMA) Article 5, 6, 27
+  - 화학물질관리법 (CCA) Article 20, 23
+  - 산업안전보건법 (OSHA-KR) Article 36, 110
+  - 중대재해처벌법 (SAPA) Article 4
+pillars:
+  - thermal_runaway_prevention
+  - hazardous_chemical_recycling
+  - dry_room_solvent_recovery
+  - battery_pack_fire_suppression
+workflows:
+  battery:
+    - battery-thermal-runaway-prevent
+    - battery-recycling-hazard-control
+agent: battery-agent
+regulatory_reference: regulations/KR/NFA-FIRE.md
+international_alignment:
+  - framework: NFPA 855
+    level: harmonized
+v1_scope:
+  includes:
+    - lithium_ion_cell_manufacturing
+    - cathode_anode_material_processing
+    - battery_recycling_black_mass
+  excludes:
+    - lead_acid_batteries
+version: "1.0"
+status: active
+last_updated: 2026-08-06

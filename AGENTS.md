@@ -86,6 +86,16 @@
 | Food Agent | [`agents/domains/industry/food/food-agent.md`](agents/domains/industry/food/food-agent.md) | Medium | Food Safety specialist; HACCP CCP monitoring, food sanitation, food processing machinery LOTO, and worker EHS per Food Sanitation Act + MFDS Notice |
 | Cosmetics Agent | [`agents/domains/industry/cosmetics/cosmetics-agent.md`](agents/domains/industry/cosmetics/cosmetics-agent.md) | Medium | Cosmetics Safety specialist; CGMP batch release, raw material safety assessment, ISO 22716, and solvent mixing EHS per Cosmetics Act + MFDS CGMP Notice |
 
+### High-Tech & Heavy Industries
+
+| Agent | File | Tier | Role |
+|-------|------|------|------|
+| Semicon Agent | [`agents/domains/industry/semicon/semicon-agent.md`](agents/domains/industry/semicon/semicon-agent.md) | Medium | Semiconductor & Display Safety specialist; cleanroom EHS, special gas handling (NF3/SiH4/WF6), and HF acid safety per HPGSCA + CCA |
+| Battery Agent | [`agents/domains/industry/battery/battery-agent.md`](agents/domains/industry/battery/battery-agent.md) | Medium | Secondary Battery Safety specialist; battery cell manufacturing, thermal runaway prevention, NMP recovery, and recycling chemical control per DSSMA + CCA |
+| Shipbuilding Agent | [`agents/domains/industry/shipbuilding/shipbuilding-agent.md`](agents/domains/industry/shipbuilding/shipbuilding-agent.md) | Medium | Shipbuilding & Offshore Safety specialist; ship tank confined space asphyxiation prevention, heavy crane lifting, and SAPA Art. 5 subcontractor safety |
+| Steelmaking Agent | [`agents/domains/industry/steelmaking/steelmaking-agent.md`](agents/domains/industry/steelmaking/steelmaking-agent.md) | Medium | Steelmaking & Heavy Metals Safety specialist; molten metal furnace explosion prevention, LOTO energy isolation, and byproduct gas (CO/N2) leak control |
+| DataCenter Agent | [`agents/domains/industry/datacenter/datacenter-agent.md`](agents/domains/industry/datacenter/datacenter-agent.md) | Medium | Data Center Safety specialist; hyperscale IT infrastructure, lithium-ion UPS/ESS fire safety, high-voltage electrical safety, Arc Flash, and BCP per ESCA + EUA |
+
 ---
 
 ## PM Gateway Policy
@@ -161,6 +171,11 @@ All specialist agents below are dispatched ONLY through PM:
 | **meddevice-agent** | 4 | "의료기기", "medical device", "KGMP-MD", "ISO 13485", "ISO 14971", "설계관리", "멸균 밸리데이션", "의료기기 회수" |
 | **food-agent** | 4 | "식품", "HACCP", "CCP", "food safety", "food processing", "mixer LOTO", "식품위생법" |
 | **cosmetics-agent** | 4 | "화장품", "CGMP", "ISO 22716", "cosmetics", "batch release", "cosmetic ingredient", "화장품법" |
+| **semicon-agent** | 4 | "반도체", "디스플레이", "클린룸", "특수가스", "불산", "SiH4", "NF3", "semiconductor", "cleanroom", "special gas" |
+| **battery-agent** | 4 | "이차전지", "배터리", "열폭주", "폐배터리", "리사이클링", "NMP", "battery", "thermal runaway", "recycling" |
+| **shipbuilding-agent** | 4 | "조선", "해양플랜트", "선박 탱크", "밀폐공간 질식", "골리앗 크레인", "shipbuilding", "confined space", "ship tank" |
+| **steelmaking-agent** | 4 | "철강", "제련", "용광로", "전기로", "용융물", "부생가스", "CO가스", "steelmaking", "blast furnace", "molten metal" |
+| **datacenter-agent** | 4 | "데이터센터", "UPS", "수전설비", "고전압", "Arc Flash", "BCP", "datacenter", "ups fire", "high voltage" |
 
 **IMPORTANT**: Do NOT invoke any specialist agent directly. All requests must go through PM.
 
