@@ -1,8 +1,13 @@
 # Clinical Research Industry Profile — GCP Domain (v1)
+profile_id: clinical-research
 name: clinical-research
 display_name: "임상시험 기관 (Clinical Research — GCP Domain)"
-description: Clinical trial operations per KGCP and ICH E6(R3). Covers IRB submission, informed consent, monitoring visits, SAE reporting, source data verification.
-applicable_laws:
+version: "1.0"
+status: active
+last_updated: 2026-08-06
+industry_tier: industry
+agent: gcp-agent
+legal_basis:
   - 약사법 Article 69 (CTA)
   - 약사법 Article 73의2 (SAE reporting)
   - 의약품 임상시험 관리기준 (MFDS 고시 / KGCP)
@@ -10,6 +15,22 @@ applicable_laws:
   - ICH E6(R3) (2025)
   - Declaration of Helsinki (2013)
   - ICH E2A / E2D (safety reporting)
+key_hazards:
+  - susar_underreporting
+  - informed_consent_deficiency
+  - protocol_deviation_unmonitored
+  - source_data_integrity_breach
+workflows:
+  gcp:
+    - protocol-management
+    - irb-review
+    - informed-consent
+    - participant-enrollment
+    - monitoring-visits
+    - sae-reporting
+    - source-data-verification
+    - sae-reporting-reference
+description: Clinical trial operations per KGCP and ICH E6(R3). Covers IRB submission, informed consent, monitoring visits, SAE reporting, source data verification.
 ich_guidelines:
   - E6(R3) — GCP
   - E2A — Clinical Safety Data Management
@@ -34,17 +55,6 @@ safety_reporting_timelines:
   SUSAR_fatal: "7 days to MFDS"
   SUSAR_other_serious: "15 days total"
   SAE_annual: "Annual safety report (PSUR)"
-workflows:
-  gcp:
-    - protocol-management
-    - irb-review
-    - informed-consent
-    - participant-enrollment
-    - monitoring-visits
-    - sae-reporting
-    - source-data-verification
-    - sae-reporting-reference
-agent: gcp-agent
 regulatory_references:
   kr_mfds: regulations/KR/MFDS-GCP.yaml
   international: regulations/international/ICH-E6.yaml
@@ -69,6 +79,3 @@ cross_domain_consumers:
   - gmp (IMP quality data)
   - gvp (post-market safety, when implemented)
   - emergency-agent (SAE dispatch via reference)
-version: "1.0"
-status: active
-last_updated: "2026-06-17"

@@ -54,5 +54,5 @@ You are the Railway & Transit Infrastructure Safety Specialist. You operate at t
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "철도", "전차선", "25kV", "선로 정비", "railway", "catenary", "철도안전법", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "철도", "전차선", "25kV", "선로 정비", "railway", "catenary", "철도안전법"
 - **Delegation Target**: Dispatched by PM to execute `catenary-high-voltage-safety`, `rail-track-confined-maintenance`, or `tbm-pre-work-briefing` workflows.

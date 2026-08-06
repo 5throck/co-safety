@@ -132,6 +132,37 @@ When a specialist agent's required tool is denied, PM applies the [Permission De
 User Request → PM Triage → Design Approval → Specialist Dispatch → QA Gate → Finalization
 ```
 
+### Dispatch Trigger Precedence
+
+When a user request matches triggers for multiple agents, PM resolves routing using these rules in order:
+
+**Rule 1 — Domain specificity wins.** A trigger that names a specific industry, facility, or regulated domain routes to the domain agent. The domain agent owns the work and delegates to functional agents or shared skills as needed.
+> Example: "LOTO for steelmaking furnace" -> **steelmaking-agent** owns the work, dispatches to `psm-loto` skill for the procedure.
+
+**Rule 2 — Functional specialization wins for cross-cutting tasks.** A generic functional trigger (no industry qualifier) routes to the functional agent. The functional agent may consult domain agents for context.
+> Example: "Develop a LOTO procedure for new equipment" -> **psm-agent** (no industry context, functional owner).
+
+**Rule 3 — Shared skills are the single entry point for cross-industry workflows.** TBM always routes to `tool-box-meeting` skill; PTW always routes to `permit-to-work` skill. Domain agents invoke these skills internally — PM does not duplicate dispatch.
+> Example: "Tool box meeting for chemical plant" -> `tool-box-meeting` skill (not ehschem-agent then TBM).
+
+**Rule 4 — PM arbitration.** When ambiguity remains after Rules 1-3, PM asks the user to clarify scope (industry, process, or regulation) before dispatching.
+
+#### Overlap Table
+
+| Trigger Term(s) | Primary Owner | Secondary / Consulted |
+|-----------------|---------------|----------------------|
+| LOTO, lockout, tagout | psm-agent (`psm-loto` skill) | steelmaking-agent, food-agent, waste-agent, shipbuilding-agent (industry-specific LOTO) |
+| compliance, 규제 | compliance-agent | All domain agents (industry-specific compliance); gmp-agent, glp-agent (GxP compliance) |
+| risk assessment, 위험성평가 | risk-assessment-agent (`risk-assessment` skill) | psm-agent (PHA), meddevice-agent (ISO 14971), ehschem-agent (process hazard screening), gmp-agent (QRM) |
+| emergency, 사고, 화재, incident | emergency-agent (`emergency-response` skill) | gasterm-agent (gas leak), powergen-agent (ESS fire), domain agents (site-specific) |
+| MSDS, 화학물질, hazardous chemicals | msds-agent (`msds-parser`, `ghs-classifier` skills) | ehschem-agent, semicon-agent (special gas), battery-agent (NMP/recycling) |
+| training, 교육 | training-agent | contractor-safety-agent (onboarding training), domain agents (role-specific curricula) |
+| audit, 검사, inspection readiness | audit-agent (`audit-preparation` skill) | gasterm-agent (KGS inspection), glp-agent (QAU), gmp-agent (self-inspection) |
+| contractor, 하도급 | contractor-safety-agent (`contractor-onboarding` skill) | ehsconst-agent (건설 하도급), shipbuilding-agent (SAPA Art. 5) |
+| TBM, tool box meeting | `tool-box-meeting` skill (safety-workflow-manager) | ehsconst-agent (건설 TBM profile) |
+| turnaround, TAR | ehschem-agent (`tar-planning` skill) | psm-agent (PSSR), contractor-safety-agent (surge management) |
+| fall hazard, 추락 | ehsconst-agent (`fall-hazard-assessor` skill) | risk-assessment-agent (cross-site scoring) |
+
 ### Execution Plan Boilerplate
 
 Every execution plan MUST end with `/sync` as the final step — it handles lifecycle update (VERSION_MANIFEST, SCRIPTS.md), full audit, commit, push, and PR creation in one pipeline. No separate Lifecycle Update or Final QA Audit rows are needed.

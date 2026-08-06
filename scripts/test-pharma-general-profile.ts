@@ -51,13 +51,13 @@ try {
     if (!profile) {
         record('T-01', 'Profile YAML loads', false, 'empty or invalid YAML');
     } else {
-        const requiredFields = ['name', 'display_name', 'description', 'applicable_laws', 'workflows', 'agent'];
+        const requiredFields = ['profile_id', 'name', 'display_name', 'description', 'legal_basis', 'key_hazards', 'workflows', 'agent', 'status', 'last_updated', 'industry_tier'];
         const missing = requiredFields.filter(f => !profile[f]);
         if (missing.length === 0) {
             record('T-01', 'Profile YAML loads with all required fields', true);
-            console.log(`       name: ${profile.name}`);
+            console.log(`       profile_id: ${profile.profile_id}`);
             console.log(`       agent: ${profile.agent}`);
-            console.log(`       applicable_laws: ${profile.applicable_laws.length} entries`);
+            console.log(`       legal_basis: ${profile.legal_basis.length} entries`);
         } else {
             record('T-01', 'Profile YAML loads with all required fields', false, `missing: ${missing.join(', ')}`);
         }

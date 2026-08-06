@@ -1,8 +1,13 @@
 # Pharmacovigilance Industry Profile — GVP Domain (v1)
+profile_id: pharmacovigilance
 name: pharmacovigilance
 display_name: "약물감시 (Pharmacovigilance — GVP Domain)"
-description: Post-market drug safety surveillance operations per KGVP, ICH E2 series, and EU GVP. Covers ICSR, signal detection, PBRER, RMP, PMS, benefit-risk assessment.
-applicable_laws:
+version: "1.0"
+status: active
+last_updated: 2026-08-06
+industry_tier: industry
+agent: gvp-agent
+legal_basis:
   - 약사법 Article 73의2 (이상반응 보고)
   - 약사법 Article 73의3 (재평가)
   - 의약품 이상반응 보고 등에 관한 규정 (MFDS 고시)
@@ -10,6 +15,25 @@ applicable_laws:
   - ICH E2A, E2B(R3), E2C(R2), E2D, E2E, E2F
   - EU GVP Modules 1-16
   - WHO-UMC (VigiBase)
+key_hazards:
+  - icsr_underreporting
+  - signal_detection_failure
+  - pbrer_submission_delay
+  - benefit_risk_misassessment
+workflows:
+  gvp:
+    - icsr-intake
+    - signal-detection
+    - pbrer-generation
+    - risk-management-plan
+    - pms-study-management
+    - benefit-risk-assessment
+    - labeling-update
+    - urgent-safety-action-reference
+description: Post-market drug safety surveillance operations per KGVP, ICH E2 series, and EU GVP. Covers ICSR, signal detection, PBRER, RMP, PMS, benefit-risk assessment.
+regulatory_references:
+  kr_mfds: regulations/KR/MFDS-GVP.yaml
+  international: regulations/international/ICH-E2.yaml
 ich_e2_guidelines:
   - E2A: Clinical Safety Data Management
   - E2B(R3): Electronic Transmission of ICSR
@@ -33,20 +57,6 @@ korean_specific:
   kids_role:
     name: "의약품안전사용센터 (Korea Institute of Drug Safety & Risk Management)"
     function: "Voluntary ADR reporting, signal analysis support"
-workflows:
-  gvp:
-    - icsr-intake
-    - signal-detection
-    - pbrer-generation
-    - risk-management-plan
-    - pms-study-management
-    - benefit-risk-assessment
-    - labeling-update
-    - urgent-safety-action-reference
-agent: gvp-agent
-regulatory_references:
-  kr_mfds: regulations/KR/MFDS-GVP.yaml
-  international: regulations/international/ICH-E2.yaml
 v1_scope:
   includes:
     - icsr_intake_triage
@@ -68,6 +78,3 @@ cross_domain_consumers:
   - gdp (cold chain excursions affecting safety)
   - msds (occupational exposure signals)
   - emergency-agent (urgent action dispatch)
-version: "1.0"
-status: active
-last_updated: "2026-06-17"

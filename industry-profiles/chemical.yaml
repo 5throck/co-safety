@@ -1,7 +1,22 @@
-profile_name: Chemical Manufacturing
-description: Standard chemical process industry profile compliant with OSHA-KR Article 44 PSM requirements.
+# Chemical Manufacturing Industry Profile (legacy — Pattern C, migrated v1)
+profile_id: chemical
+name: chemical
+display_name: "화학제조 (Chemical Manufacturing)"
+version: "1.0"
+status: active
+last_updated: 2026-08-06
+industry_tier: industry
+agent: chemical-agent
 legal_basis:
-  - OSHA-KR Article 44
+  - OSHA-KR Article 44 (PSM)
+  - 중대재해처벌법 (SAPA)
+  - 화학물질관리법 (CCA)
+key_hazards:
+  - process_hazard_analysis
+  - management_of_change
+  - mechanical_integrity_failure
+  - emergency_planning_response
+description: Standard chemical process industry profile compliant with OSHA-KR Article 44 PSM requirements.
 psm_elements:
   - element: Process Safety Information (PSI)
   - element: Process Hazard Analysis (PHA)

@@ -1,12 +1,17 @@
 # Shipbuilding & Offshore Engineering Industry Profile (v1)
+profile_id: shipbuilding-heavy
 name: shipbuilding-heavy
 display_name: "조선 및 해양 플랜트 (Shipbuilding & Offshore Engineering)"
-description: Heavy shipbuilding and offshore platform operations under OSHA-KR and SAPA Article 5, covering ship tank confined space asphyxiation prevention, heavy crane lifting, and subcontractor safety.
-applicable_laws:
+version: "1.0"
+status: active
+last_updated: 2026-08-06
+industry_tier: industry
+agent: shipbuilding-agent
+legal_basis:
   - 산업안전보건법 (OSHA-KR) Article 38, 39, 63
   - 산업안전보건기준에 관한 규칙 (OSHSR) Article 618, 623
   - 중대재해처벌법 (SAPA) Article 5
-pillars:
+key_hazards:
   - ship_confined_space_asphyxiation_prevention
   - heavy_crane_lifting_safety
   - subcontractor_safety_management
@@ -15,7 +20,7 @@ workflows:
   shipbuilding:
     - ship-tank-confined-space
     - heavy-crane-subcontractor-safety
-agent: shipbuilding-agent
+description: Heavy shipbuilding and offshore platform operations under OSHA-KR and SAPA Article 5, covering ship tank confined space asphyxiation prevention, heavy crane lifting, and subcontractor safety.
 regulatory_reference: regulations/KR/MOEL-SHIP.md
 international_alignment:
   - framework: OSHA 1915 (Shipyard Employment)
@@ -27,6 +32,3 @@ v1_scope:
     - ship_tank_welding_coating
   excludes:
     - small_pleasure_boats
-version: "1.0"
-status: active
-last_updated: 2026-08-06

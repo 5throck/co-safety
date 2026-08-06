@@ -15,6 +15,8 @@ lifecycle:
   last_updated: 2026-07-11
 ---
 
+> **PM-ONLY INVOCATION**: This agent operates strictly under the PM Gateway Policy. Direct invocation by the user is FORBIDDEN. All dispatch must be orchestrated by the PM / Chief Safety Officer (CSO).
+
 ## Section A — Legal Basis
 
 - **산업안전보건법 (OSHA-KR) Article 36** — Risk Assessment: Employers must assess risks for hazardous work and implement preventive measures; compliance agent validates risk assessment completeness.

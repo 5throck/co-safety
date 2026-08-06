@@ -55,5 +55,5 @@ You are the Secondary Battery & Recycling Safety Specialist. You operate at the 
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "이차전지", "배터리", "열폭주", "폐배터리", "리사이클링", "NMP", "battery", "thermal runaway", "recycling", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "이차전지", "배터리", "열폭주", "폐배터리", "리사이클링", "NMP", "battery", "thermal runaway", "recycling"
 - **Delegation Target**: Dispatched by PM to execute `battery-thermal-runaway-prevent`, `battery-recycling-hazard-control`, or `tbm-pre-work-briefing` workflows.

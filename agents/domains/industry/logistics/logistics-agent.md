@@ -54,5 +54,5 @@ You are the Port Logistics & Automated Warehouse Safety Specialist. You operate 
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "항만물류", "물류센터", "port logistics", "gantry crane", "AGV", "냉동창고", "항만안전특별법", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "항만물류", "물류센터", "port logistics", "gantry crane", "AGV", "냉동창고", "항만안전특별법"
 - **Delegation Target**: Dispatched by PM to execute `port-crane-agv-safety`, `cold-storage-refrigerant-safety`, or `tbm-pre-work-briefing` workflows.

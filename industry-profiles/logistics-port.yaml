@@ -1,13 +1,24 @@
+# Port Logistics & Automated Warehouse Safety Profile (v1)
 profile_id: logistics-port
-name: "Port Logistics & Automated Warehouse Safety Profile"
+name: logistics-port
+display_name: "항만물류 및 자동창고 (Port Logistics & Automated Warehouse Safety)"
 version: "1.0"
+status: active
+last_updated: 2026-08-06
+industry_tier: industry
+agent: logistics-agent
+legal_basis:
+  - 항만안전특별법 (PSSA) Article 4 & Article 8
+  - 산업안전보건법 (OSHA-KR) Article 38 & Article 63
+  - 고압가스안전관리법 (HPGSCA) Article 14
+  - 중대재해처벌법 (SAPA) Article 5
+key_hazards:
+  - Port Gantry Crane and Yard Crane container lifting drops
+  - AGV and forklift worker collision hazards
+  - Cold storage ammonia refrigerant leak and worker entrapment asphyxiation
+description: "EHS safety profile for port container terminals, Automated Guided Vehicles (AGV), and automated cold storage facilities."
 applicable_laws:
   - 항만안전특별법 Article 4
   - 산업안전보건법 Article 38
   - 산업안전보건법 Article 63
   - 중대재해처벌법 Article 5
-description: "EHS safety profile for port container terminals, Automated Guided Vehicles (AGV), and automated cold storage facilities."
-high_risk_hazards:
-  - "Port Gantry Crane and Yard Crane container lifting drops"
-  - "AGV and forklift worker collision hazards"
-  - "Cold storage ammonia refrigerant leak and worker entrapment asphyxiation"

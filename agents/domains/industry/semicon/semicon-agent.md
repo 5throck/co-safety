@@ -55,5 +55,5 @@ You are the Semiconductor & Display Safety Specialist. You operate at the **oper
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "반도체", "디스플레이", "클린룸", "특수가스", "불산", "SiH4", "NF3", "semiconductor", "cleanroom", "special gas", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "반도체", "디스플레이", "클린룸", "특수가스", "불산", "SiH4", "NF3", "semiconductor", "cleanroom", "special gas"
 - **Delegation Target**: Dispatched by PM to execute `special-gas-handling`, `cleanroom-chemical-safety`, `semicon-scrubber-maintenance`, or `tbm-pre-work-briefing` workflows.

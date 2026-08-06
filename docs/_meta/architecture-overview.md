@@ -17,12 +17,15 @@ Safety OS is a multi-domain compliance orchestration platform for Korean EHS/GxP
 │  Strategy   │  Execution coordinator                             │
 │  KPI/Policy │  Dispatches to domain agents                       │
 ├─────────────┴─────────────────────────────────────────────┤
-│                    Domain Agents (27 active)                      │
+│                    Domain Agents (30 active)                      │
 ├──────────────────────────┬──────────────────────────────────────┤
 │  Functional (Tier 1)     │  Industry (Tier 2)                    │
 │  PSM  MSDS  Training      │  GxP (GMP/GDP/GLP/GCP/GVP)            │
-│  contractor-safety        │  ehschem  gasterm  powergen           │
-│  occupational-health      │  ehsconst  meddevice  food  cosmetics │
+│  risk-assessment          │  ehschem  gasterm  powergen           │
+│  incident-investigation  │  ehsconst  meddevice  food  cosmetics │
+│  asset-integrity          │                                       │
+│  contractor-safety        │                                       │
+│  occupational-health      │                                       │
 │                          │  semicon  battery  shipbuilding        │
 │                          │  steelmaking  datacenter  logistics    │
 │                          │  railway  waste  defense  biotech      │
@@ -137,7 +140,7 @@ Industry Domain Agent (coordinator)
 ## 5. Audit System
 
 `safety-audit.ts` v4.3.0 validates:
-- **176 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
+- **191 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
 - **160 evidence models** ($ref resolution, domain-specific common fields)
 - **31 regulations** (source_mcp validation)
 - **Role separation**: risk-assessment-agent ↔ gmp-qrm, and risk-assessment-agent ↔ psm-agent

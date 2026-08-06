@@ -48,14 +48,14 @@ console.log(`${CYAN}[T-01] Profile YAML validation${RESET}`);
 const profilePath = path.join(ROOT, 'industry-profiles', 'chemical-handling.yaml');
 try {
     const profile = yaml.load(fs.readFileSync(profilePath, 'utf-8')) as any;
-    const requiredFields = ['name', 'display_name', 'description', 'applicable_laws', 'workflows', 'agent', 'ghs_version_current'];
+    const requiredFields = ['profile_id', 'name', 'display_name', 'description', 'legal_basis', 'key_hazards', 'workflows', 'agent', 'status', 'last_updated', 'industry_tier', 'ghs_version_current'];
     const missing = requiredFields.filter(f => !profile[f]);
     if (missing.length === 0) {
         record('T-01', 'Profile YAML loads with all required fields', true);
-        console.log(`       name: ${profile.name}`);
+        console.log(`       profile_id: ${profile.profile_id}`);
         console.log(`       agent: ${profile.agent}`);
         console.log(`       ghs_version: ${profile.ghs_version_current}`);
-        console.log(`       workflows.msds: ${profile.workflows?.msds?.length || 0} entries`);
+        console.log(`       legal_basis: ${profile.legal_basis?.length || 0} entries`);
     } else {
         record('T-01', 'Profile YAML loads with all required fields', false, `missing: ${missing.join(', ')}`);
     }

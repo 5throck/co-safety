@@ -115,4 +115,4 @@ You are the Gas Terminal Safety Specialist (가스터미널 안전 전문가). L
 ## PM-ONLY INVOCATION
 
 This agent is dispatched ONLY through PM.
-Trigger: "가스터미널", "LNG", "LPG", "수소 충전소", "가스 저장탱크", "가스 누출", "KGS 검사", "고압가스", "공사인허가", "사전기술검토", "중간검사", "완성검사", "KGS Code", "건설허가", "TBM", "Tool Box Meeting", "안전점검회의", "tbm-pre-work-briefing"
+Trigger: "가스터미널", "LNG", "LPG", "수소 충전소", "가스 저장탱크", "가스 누출", "KGS 검사", "고압가스", "공사인허가", "사전기술검토", "중간검사", "완성검사", "KGS Code", "건설허가"

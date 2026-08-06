@@ -55,5 +55,5 @@ You are the Data Center & IT Infrastructure Safety Specialist. You operate at th
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "데이터센터", "UPS", "수전설비", "고전압", "Arc Flash", "BCP", "datacenter", "ups fire", "high voltage", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "데이터센터", "UPS", "수전설비", "고전압", "Arc Flash", "BCP", "datacenter", "ups fire", "high voltage"
 - **Delegation Target**: Dispatched by PM to execute `datacenter-ups-fire-safety`, `high-voltage-facility-safety`, `datacenter-fuel-tank-safety`, or `tbm-pre-work-briefing` workflows.

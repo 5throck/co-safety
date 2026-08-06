@@ -54,5 +54,5 @@ You are the Biopharmaceutical CDMO & Bio-Lab Safety Specialist. You operate at t
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "바이오 CDMO", "배양기", "LMO", "생물안전", "biotech", "bioreactor", "biohazard", "BSL", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "바이오 CDMO", "배양기", "LMO", "생물안전", "biotech", "bioreactor", "biohazard", "BSL"
 - **Delegation Target**: Dispatched by PM to execute `bioreactor-sterilization-safety`, `lmo-biohazard-containment`, or `tbm-pre-work-briefing` workflows.
