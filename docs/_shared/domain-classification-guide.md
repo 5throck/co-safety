@@ -46,6 +46,18 @@ This guide organizes the domains into a **3-tier classification system**.
 | `powergen` | Power generation facilities (excluding nuclear) | 전기사업법 (Electricity Business Act), 전기안전관리법 (Electrical Safety Management Act), 신재생에너지법 (New and Renewable Energy Act) |
 | `ehschem` | Chemical plants (refining / petrochemical / fine chemicals) | 산안법 (OSHA-KR), 화학물질관리법 (Chemical Substances Control Act), K-REACH, 위험물안전관리법 (Hazardous Materials Safety Control Act) |
 | `meddevice` | Medical devices | KGMP-MD, ISO 13485, ISO 14971 |
+| `food` | Food & beverage manufacturing | 식품위생법 (Food Sanitation Act), MFDS HACCP Notice |
+| `cosmetics` | Cosmetics manufacturing | 화장품법 (Cosmetics Act), MFDS CGMP Notice, ISO 22716 |
+| `semicon` | Semiconductor & display manufacturing | 고압가스안전관리법 (HPGSCA), 화학물질관리법 (CCA), SEMI S2/S8 |
+| `battery` | Secondary battery manufacturing & recycling | 위험물안전관리법 (HMSCA), 화학물질관리법 (CCA), NFPA 855 |
+| `shipbuilding` | Shipbuilding & offshore engineering | 산안법 (OSHA-KR Art 38/39/63), 중대재해처벌법 (SAPA Art 5) |
+| `steelmaking` | Steelmaking & heavy metal smelting | 산안법 (OSHA-KR Art 92), 고압가스안전관리법 (HPGSCA) |
+| `datacenter` | Data centers & IT infrastructure | 전기안전관리법 (ESMA), 전기사업법, NFPA 855 |
+| `logistics` | Port logistics & automated warehouses | 항만안전특별법 (PSSA), 산안법 (OSHA-KR Art 38/63), 고압가스안전관리법 |
+| `railway` | Railway & transit infrastructure | 철도안전법 (RSA), 산안법 (OSHA-KR Art 38/39), 전기안전관리법 |
+| `waste` | Environmental waste & water treatment | 폐기물관리법 (WCA), 하수도법 (SA), 산안법 (OSHA-KR Art 618) |
+| `defense` | Defense & explosives manufacturing | 총포화약법 (FSESA), 방위사업법 (DAA), 고압가스안전관리법 |
+| `biotech` | Biopharmaceutical CDMO & bio-labs | LMO법 (LMO Act), 약사법 (PA), 산안법 (OSHA-KR) |
 
 ### Tier 3: Cross-Cutting Services
 **Characteristic**: Referenced by all domains. Emergency response, routine inspections, and the like.

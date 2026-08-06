@@ -32,6 +32,18 @@ Safety OS는 계층 구조로 이루어진 에이전트 팀입니다. 사용자�
 | **powergen-agent** | 발전설비 코디네이터 | `powergen-operation-record.json` |
 | **gmp/gdp/glp/gcp/gvp-agent** | 제약 GxP 단계별 전문 에이전트 | 단계별 GxP 기록 |
 | **meddevice-agent** | 의료기기 코디네이터 (ISO 13485, ISO 14971) | `meddevice-record.json` |
+| **food-agent** | 식품안전 및 HACCP CCP 모니터링 전문가 | `haccp-ccp-record.json`, `food-allergen-record.json` |
+| **cosmetics-agent** | 화장품 CGMP 및 ISO 22716 안전 전문가 | `cgmp-batch-record.json`, `cosmetics-stability-record.json` |
+| **semicon-agent** | 반도체 클린룸 EHS 및 특수가스 전문가 | `semicon-special-gas-record.json`, `semicon-scrubber-record.json` |
+| **battery-agent** | 이차전지 열폭주 방지 및 폐배터리 리사이클링 전문가 | `battery-thermal-runaway-record.json`, `battery-recycling-record.json` |
+| **shipbuilding-agent** | 조선 선박 탱크 밀폐공간 및 골리앗 크레인 전문가 | `ship-confined-space-record.json`, `heavy-crane-record.json` |
+| **steelmaking-agent** | 철강 용광로 LOTO 및 부생가스 전문가 | `steel-molten-metal-loto-record.json`, `steel-byproduct-gas-record.json` |
+| **datacenter-agent** | 데이터센터 UPS 화재 및 고전압 수전설비 전문가 | `datacenter-ups-fire-record.json`, `datacenter-fuel-tank-record.json` |
+| **logistics-agent** | 항만 물류 크레인 인양, AGV 및 냉동창고 전문가 | `port-crane-agv-record.json`, `cold-storage-refrigerant-record.json` |
+| **railway-agent** | 철도 25kV 전차선 고전압 감전 및 선로 정비 전문가 | `catenary-high-voltage-record.json`, `rail-track-confined-record.json` |
+| **waste-agent** | 폐기물/하수조 황화수소 질식 및 소각 파쇄기 LOTO 전문가 | `sewage-confined-h2s-record.json`, `incinerator-shredder-loto-record.json` |
+| **defense-agent** | 방산 화약 추진제 ESD 및 유도무기 극저온가스 전문가 | `explosive-propellant-record.json`, `missile-cryogenic-record.json` |
+| **biotech-agent** | 바이오 CDMO Bioreactor SIP 멸균 및 LMO 유해인자 전문가 | `bioreactor-sterilization-record.json`, `lmo-biohazard-record.json` |
 | **emergency-agent** | 비상 대응 (모든 도메인에서 파견 가능) | `emergency-response-record.json` |
 
 ### 핵심 원칙

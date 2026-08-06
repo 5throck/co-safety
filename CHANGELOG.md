@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — Full Documentation Sync for 27 Active Domains)
+
+- **docs/co-safety.context.md**: Updated project context to reflect 27 active domains and 30 specialist agents.
+- **README.md & README_ko.md**: Updated Active Domains tables and 27-domain 2-tier matrix architecture overview (Layer A & Layer C).
+- **docs/_shared/{tutorial,tutorial_ko}.md**: Updated onboarding tutorial with all 30 specialist agents and evidence models.
+- **docs/_shared/{user-guide,user-guide_ko}.md**: Updated user guides with 27-domain selection criteria and dispatch patterns.
+- **docs/_shared/{user-scenarios,user-scenarios_ko}.md**: Added Scenario 6 & 7 walkthroughs covering high-tech and specialized industrial safety (port, railway, defense, biotech).
+- **docs/_shared/{domain-classification-guide,domain-classification-guide_ko}.md**: Updated 3-tier classification tables with 22 industry-specific domains.
+- **docs/user-guide/field-ehs-operational-guide_ko.md**: Expanded Field EHS Operational Guide with operational rules for all 12 expansion domains.
+- **docs/user-guide/domain-quick-reference_ko.md**: Updated quick reference guide mapping all 27 domains, statutes, agents, and workflows.
+
 ### Added (2026-08-06 — 5 Additional Industrial Domains Expansion)
 
 - **agents/domains/industry/{logistics,railway,waste,defense,biotech}/**: Added 5 specialist agents (`logistics-agent`, `railway-agent`, `waste-agent`, `defense-agent`, `biotech-agent`) and registered all in `AGENTS.md`.

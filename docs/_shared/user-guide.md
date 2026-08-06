@@ -38,6 +38,42 @@ bun scripts/test-cross-domain-integration.ts        # Cross-domain
 ### "I manufacture medical devices"
 → Industry domain: `meddevice` (coordinator) + functional `msds`, `glp`
 
+### "I work in food manufacturing or processing"
+→ Industry domain: `food` (coordinator) + HACCP CCP & LOTO
+
+### "I work in cosmetics manufacturing"
+→ Industry domain: `cosmetics` (coordinator) + CGMP & ISO 22716
+
+### "I work in semiconductor / display manufacturing"
+→ Industry domain: `semicon` (coordinator) + special gas & cleanroom EHS
+
+### "I work in battery manufacturing or recycling"
+→ Industry domain: `battery` (coordinator) + thermal runaway & chemical safety
+
+### "I work in shipbuilding or offshore engineering"
+→ Industry domain: `shipbuilding` (coordinator) + tank confined space & Goliath crane
+
+### "I work in steelmaking or metal smelting"
+→ Industry domain: `steelmaking` (coordinator) + molten metal LOTO & CO gas safety
+
+### "I operate data centers or IT infrastructure"
+→ Industry domain: `datacenter` (coordinator) + UPS fire & high-voltage safety
+
+### "I work in port logistics or warehouse operations"
+→ Industry domain: `logistics` (coordinator) + crane lifting, AGV, & cold storage
+
+### "I work in railway or metro transit infrastructure"
+→ Industry domain: `railway` (coordinator) + 25kV catenary & track maintenance
+
+### "I work in environmental waste or water treatment"
+→ Industry domain: `waste` (coordinator) + sewage H2S asphyxiation & incinerator LOTO
+
+### "I work in defense manufacturing or explosives"
+→ Industry domain: `defense` (coordinator) + propellant ESD & missile cryogenic fuel
+
+### "I work in biopharmaceutical CDMO or bio-labs"
+→ Industry domain: `biotech` (coordinator) + bioreactor SIP & LMO biohazard
+
 ## 3. Dispatch Pattern
 
 **Principle**: Your industry domain agent is your coordinator. It dispatches to functional services as needed.

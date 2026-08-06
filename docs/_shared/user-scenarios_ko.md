@@ -268,8 +268,44 @@ ls workflows/domains/industry/     # 산업 운영 (건설, 가스, 발전 등)
 ### 생성되는 증거 기록
 - `risk-assessment-record.json` (제36조 위험성평가 — 위험 점수 및 통제 조치)
 - `psm-loto-record.json` (LOTO 절차 검증)
-- `training-record.json` (위험성평가 결과 전달 교육)
-- `ehsconst-tbm-record.json` (risk_assessment_ref 연결된 TBM 기록)
+- `training-record.json` (위험성평가 결과 전파 교육)
+- `ehsconst-tbm-record.json` (risk_assessment_ref가 연결된 TBM)
+
+---
+
+## 시나리오 7: 신산업 및 고위험 공정 특수 안전 관리 (항만 / 철도 / 방산 / 바이오)
+
+**상황**: 항만 컨테이너 크레인, 철도 25kV 전차선, 방산 화약 혼합실, 바이오 CDMO 배양기 등 고위험 공정 정비 작업.
+
+### 단계별 절차
+
+1. **항만 물류** — 크레인 인양 및 AGV 안전점검
+   ```
+   사용자: "항만 갠트리 크레인 인양 및 AGV 정비 안전점검"
+   → logistics-agent가 port-crane-agv-safety 워크플로우 실행
+   → port-crane-agv-record.json 생성
+   ```
+
+2. **철도 인프라** — 25kV 전차선 단전 및 접지
+   ```
+   사용자: "철도 25kV 전차선 단전 및 접지점검"
+   → railway-agent가 catenary-high-voltage-safety 워크플로우 실행
+   → catenary-high-voltage-record.json 생성
+   ```
+
+3. **방위산업** — 화약 추진제 정전기(ESD) 방지
+   ```
+   사용자: "화약 추진제 혼합실 정전기 접지 점검"
+   → defense-agent가 explosive-propellant-handling 워크플로우 실행
+   → explosive-propellant-record.json 생성
+   ```
+
+4. **바이오 CDMO** — Bioreactor 고온/고압 증기 멸균(SIP)
+   ```
+   사용자: "배양기 Bioreactor 고온/고압 증기 멸균 점검"
+   → biotech-agent가 bioreactor-sterilization-safety 워크플로우 실행
+   → bioreactor-sterilization-record.json 생성
+   ```
 
 ---
 
