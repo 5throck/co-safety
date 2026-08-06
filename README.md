@@ -18,7 +18,7 @@
 
 ---
 
-## Active Domains (27)
+## Active Domains (30)
 
 ### Functional Layer (Tier 1) — cross-industry methodology & data services
 
@@ -27,6 +27,9 @@
 | `psm` | Process Safety Management (OSHA 14 elements) | 15 |
 | `msds` | Chemical Substance Safety / GHS Rev 9 | 7 |
 | `training` | Safety Training Management (OSHA-KR Art 13/29/31/32/114) | 8 |
+| `risk-assessment` | Workplace Risk Assessment / OSHA-KR Art 36 (4M, JSA, MOC-triggered, post-incident) | 5 |
+| `incident-investigation` | Incident Investigation & RCA / OSHA-KR Art 57 + SAPA Art 5 (5-Why, Bow-Tie, CAPA) | 5 |
+| `asset-integrity` | Equipment Integrity & Preventive Maintenance / OSHA-KR Art 38 + KOSHA Guide M-155 | 4 |
 | `contractor-safety` | Contractor Safety Management (TAR/Major Turnaround surge scenarios) | 1 |
 | `occupational-health` | Occupational Health Surveillance (TAR/Major Turnaround health screening) | 1 |
 
