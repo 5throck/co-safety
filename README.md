@@ -18,7 +18,7 @@
 
 ---
 
-## Active Domains (15)
+## Active Domains (22)
 
 ### Functional Layer (Tier 1) — cross-industry methodology & data services
 
@@ -44,6 +44,13 @@
 | `gasterm` | Gas Terminal / LNG·LPG·Hydrogen | 12 |
 | `powergen` | Power Generation / Thermal·Renewable (nuclear excluded) | 8 |
 | `meddevice` | Medical Device / KGMP-MD·ISO 13485·ISO 14971 | 8 |
+| `food` | Food & Beverage GxP / HACCP & Food Sanitation Act | 2 |
+| `cosmetics` | Cosmetics GxP / CGMP & ISO 22716 | 2 |
+| `semicon` | Semiconductor & Display / Cleanroom & Special Gas (NF3/SiH4/HF) | 2 |
+| `battery` | Secondary Battery & Recycling / Thermal Runaway & NMP Recovery | 2 |
+| `shipbuilding` | Shipbuilding & Offshore / Ship Tank Confined Space & Goliath Crane | 2 |
+| `steelmaking` | Steelmaking & Heavy Metals / Molten Metal LOTO & Byproduct Gas (CO) | 2 |
+| `datacenter` | Data Center & IT Infrastructure / Lithium UPS Fire & High-Voltage Arc Flash | 2 |
 
 ### Cross-Cutting (Tier 3)
 

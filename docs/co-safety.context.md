@@ -12,11 +12,11 @@ This document provides domain context for all Safety OS agents. Load this at the
 ## Project Overview (overrides docs/context.md § Project Overview)
 
 Safety OS (co-safety) is an EHS (Environmental Health & Safety) AI agent platform automating South Korea
-regulatory compliance workflows (산업안전보건법/OSHA-KR, 중대재해처벌법/SAPA) across 15 industry/functional
-domains — risk assessment, permit-to-work, emergency response, process safety, and compliance audit trails.
+regulatory compliance workflows (산업안전보건법/OSHA-KR, 중대재해처벌법/SAPA) across 22 industry/functional
+domains (covering manufacturing, chemicals, construction, gas, power, pharmaceuticals, medical devices, food, cosmetics, semiconductor, battery, shipbuilding, steelmaking, datacenter) — risk assessment, permit-to-work, emergency response, process safety, and compliance audit trails.
 
 **Type**: docs/schema/workflow platform (no application source code — see Directory Layout below)
-**Status**: Beta (`variant.json` → `status: beta`, `phaseAComplete: false`)
+**Status**: Beta (`variant.json` → `status: beta`, `phaseAComplete: true`)
 
 ## Directory Layout (overrides docs/context.md § Architecture → Directory Layout)
 
