@@ -32,6 +32,18 @@ Safety OS is an agent team organized in a hierarchy. You always send requests to
 | **powergen-agent** | Power generation facility coordinator | `powergen-operation-record.json` |
 | **gmp/gdp/glp/gcp/gvp-agent** | Pharmaceutical GxP stage-specific specialist agents | Stage-specific GxP records |
 | **meddevice-agent** | Medical device coordinator (ISO 13485, ISO 14971) | `meddevice-record.json` |
+| **food-agent** | Food safety and HACCP CCP monitoring specialist | `haccp-ccp-record.json`, `food-allergen-record.json` |
+| **cosmetics-agent** | Cosmetics CGMP and ISO 22716 safety specialist | `cgmp-batch-record.json`, `cosmetics-stability-record.json` |
+| **semicon-agent** | Semiconductor fab cleanroom EHS & special gas specialist | `semicon-special-gas-record.json`, `semicon-scrubber-record.json` |
+| **battery-agent** | Battery manufacturing thermal runaway & recycling specialist | `battery-thermal-runaway-record.json`, `battery-recycling-record.json` |
+| **shipbuilding-agent** | Shipbuilding tank confined space & Goliath crane specialist | `ship-confined-space-record.json`, `heavy-crane-record.json` |
+| **steelmaking-agent** | Steelmaking molten metal LOTO & byproduct gas specialist | `steel-molten-metal-loto-record.json`, `steel-byproduct-gas-record.json` |
+| **datacenter-agent** | Data center UPS fire & high-voltage facility specialist | `datacenter-ups-fire-record.json`, `datacenter-fuel-tank-record.json` |
+| **logistics-agent** | Port logistics crane lifting, AGV, & cold storage specialist | `port-crane-agv-record.json`, `cold-storage-refrigerant-record.json` |
+| **railway-agent** | Railway 25kV catenary high-voltage & track maintenance specialist | `catenary-high-voltage-record.json`, `rail-track-confined-record.json` |
+| **waste-agent** | Environmental waste & sewage H2S asphyxiation specialist | `sewage-confined-h2s-record.json`, `incinerator-shredder-loto-record.json` |
+| **defense-agent** | Munitions propellant ESD & missile cryogenic fuel specialist | `explosive-propellant-record.json`, `missile-cryogenic-record.json` |
+| **biotech-agent** | Biopharmaceutical CDMO bioreactor SIP & LMO biohazard specialist | `bioreactor-sterilization-record.json`, `lmo-biohazard-record.json` |
 | **emergency-agent** | Emergency response (dispatchable from all domains) | `emergency-response-record.json` |
 
 ### Core Principle

@@ -283,6 +283,42 @@ ls workflows/domains/industry/     # Industry operations (construction, gas, pow
 
 ---
 
+## Scenario 6: High-Tech & New Industrial Hazard Operations (Port / Railway / Defense / Biotech)
+
+**Situation**: High-risk specialized operations in port container terminals, 25kV electrification, munition mixing, or bio-reactors.
+
+### Step-by-Step
+
+1. **Port Logistics** — Crane Lifting & AGV Clearance
+   ```
+   User: "항만 갠트리 크레인 인양 및 AGV 정비 안전점검"
+   → logistics-agent dispatches port-crane-agv-safety workflow
+   → Generates port-crane-agv-record.json
+   ```
+
+2. **Railway Infrastructure** — 25kV Catenary LOTO
+   ```
+   User: "철도 25kV 전차선 단전 및 접지점검"
+   → railway-agent dispatches catenary-high-voltage-safety workflow
+   → Generates catenary-high-voltage-record.json
+   ```
+
+3. **Defense Munitions** — Propellant Static ESD Prevention
+   ```
+   User: "화약 추진제 혼합실 정전기 접지 점검"
+   → defense-agent dispatches explosive-propellant-handling workflow
+   → Generates explosive-propellant-record.json
+   ```
+
+4. **Biopharmaceutical CDMO** — Bioreactor SIP Sterilization
+   ```
+   User: "배양기 Bioreactor 고온/고압 증기 멸균 점검"
+   → biotech-agent dispatches bioreactor-sterilization-safety workflow
+   → Generates bioreactor-sterilization-record.json
+   ```
+
+---
+
 ## Agent Dispatch Pattern
 
 ```
