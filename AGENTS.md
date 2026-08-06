@@ -95,6 +95,11 @@
 | Shipbuilding Agent | [`agents/domains/industry/shipbuilding/shipbuilding-agent.md`](agents/domains/industry/shipbuilding/shipbuilding-agent.md) | Medium | Shipbuilding & Offshore Safety specialist; ship tank confined space asphyxiation prevention, heavy crane lifting, and SAPA Art. 5 subcontractor safety |
 | Steelmaking Agent | [`agents/domains/industry/steelmaking/steelmaking-agent.md`](agents/domains/industry/steelmaking/steelmaking-agent.md) | Medium | Steelmaking & Heavy Metals Safety specialist; molten metal furnace explosion prevention, LOTO energy isolation, and byproduct gas (CO/N2) leak control |
 | DataCenter Agent | [`agents/domains/industry/datacenter/datacenter-agent.md`](agents/domains/industry/datacenter/datacenter-agent.md) | Medium | Data Center Safety specialist; hyperscale IT infrastructure, lithium-ion UPS/ESS fire safety, high-voltage electrical safety, Arc Flash, and BCP per ESCA + EUA |
+| Logistics Agent | [`agents/domains/industry/logistics/logistics-agent.md`](agents/domains/industry/logistics/logistics-agent.md) | Medium | Port Logistics & Automated Warehouse Safety specialist; port crane lifting, AGV collision, and cold storage refrigerant leak control per Port Safety Special Act |
+| Railway Agent | [`agents/domains/industry/railway/railway-agent.md`](agents/domains/industry/railway/railway-agent.md) | Medium | Railway & Transit Infrastructure Safety specialist; 25kV catenary high-voltage electric safety, track maintenance, and tunnel confined space per Railway Safety Act |
+| Waste Agent | [`agents/domains/industry/waste/waste-agent.md`](agents/domains/industry/waste/waste-agent.md) | Medium | Environmental Waste & Water Treatment Safety specialist; sewage H2S asphyxiation, incinerator/shredder LOTO, and biogas explosion prevention per Wastes Control Act + Sewerage Act |
+| Defense Agent | [`agents/domains/industry/defense/defense-agent.md`](agents/domains/industry/defense/defense-agent.md) | Medium | Defense & Explosives Safety specialist; ammunition propellant ESD, missile cryogenic fuel, and high-pressure gas handling per Defense Acquisition Act + FSESA |
+| Biotech Agent | [`agents/domains/industry/biotech/biotech-agent.md`](agents/domains/industry/biotech/biotech-agent.md) | Medium | Biopharmaceutical CDMO & Bio-Lab Safety specialist; bioreactor SIP steam sterilization, LMO Class 2-3 biohazard containment, and BSL per LMO Act |
 
 ---
 
@@ -176,6 +181,11 @@ All specialist agents below are dispatched ONLY through PM:
 | **shipbuilding-agent** | 4 | "조선", "해양플랜트", "선박 탱크", "밀폐공간 질식", "골리앗 크레인", "shipbuilding", "confined space", "ship tank" |
 | **steelmaking-agent** | 4 | "철강", "제련", "용광로", "전기로", "용융물", "부생가스", "CO가스", "steelmaking", "blast furnace", "molten metal" |
 | **datacenter-agent** | 4 | "데이터센터", "UPS", "수전설비", "고전압", "Arc Flash", "BCP", "datacenter", "ups fire", "high voltage" |
+| **logistics-agent** | 4 | "항만물류", "물류센터", "port logistics", "gantry crane", "AGV", "냉동창고", "항만안전특별법" |
+| **railway-agent** | 4 | "철도", "전차선", "25kV", "선로 정비", "railway", "catenary", "철도안전법" |
+| **waste-agent** | 4 | "폐기물", "하수처리장", "황화수소", "소각로", "waste", "sewage", "H2S asphyxiation", "폐기물관리법", "하수도법" |
+| **defense-agent** | 4 | "방위산업", "화약", "추진제", "유도무기", "defense", "explosive", "propellant", "방위사업법" |
+| **biotech-agent** | 4 | "바이오 CDMO", "배양기", "LMO", "생물안전", "biotech", "bioreactor", "biohazard", "BSL" |
 
 **IMPORTANT**: Do NOT invoke any specialist agent directly. All requests must go through PM.
 

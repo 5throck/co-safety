@@ -1,0 +1,13 @@
+profile_id: logistics-port
+name: "Port Logistics & Automated Warehouse Safety Profile"
+version: "1.0"
+applicable_laws:
+  - 항만안전특별법 Article 4
+  - 산업안전보건법 Article 38
+  - 산업안전보건법 Article 63
+  - 중대재해처벌법 Article 5
+description: "EHS safety profile for port container terminals, Automated Guided Vehicles (AGV), and automated cold storage facilities."
+high_risk_hazards:
+  - "Port Gantry Crane and Yard Crane container lifting drops"
+  - "AGV and forklift worker collision hazards"
+  - "Cold storage ammonia refrigerant leak and worker entrapment asphyxiation"

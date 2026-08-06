@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — 5 Additional Industrial Domains Expansion)
+
+- **agents/domains/industry/{logistics,railway,waste,defense,biotech}/**: Added 5 specialist agents (`logistics-agent`, `railway-agent`, `waste-agent`, `defense-agent`, `biotech-agent`) and registered all in `AGENTS.md`.
+- **industry-profiles/{logistics-port,railway-transit,waste-water-environmental,defense-aerospace,biotech-cdmo}.yaml**: Added 5 industry profiles covering port logistics, railway electrification, municipal waste/water treatment, defense munitions, and biopharmaceutical CDMO.
+- **workflows/domains/industry/{logistics,railway,waste,defense,biotech}/**: Added 10 core workflow schemas covering port crane AGV safety, cold storage refrigerant, 25kV catenary electric LOTO, rail track confined maintenance, sewage H2S asphyxiation, incinerator LOTO, munitions propellant ESD, missile cryogenic fuel, bioreactor SIP sterilization, and LMO biohazard containment.
+- **evidence-models/domains/industry/{logistics,railway,waste,defense,biotech}/**: Added 10 evidence model JSON schemas for all 5 new expansion domains.
+
 ### Added (2026-08-06 — Project Review Remediation: Phase 2 Workflows & Evidence Models)
 
 - **workflows/domains/industry/{food,cosmetics,datacenter,semicon}/**: Added 4 secondary high-risk workflow schemas (`food-allergen-control`, `cosmetics-stability-testing`, `datacenter-fuel-tank-safety`, `semicon-scrubber-maintenance`).

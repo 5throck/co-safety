@@ -1,0 +1,13 @@
+profile_id: waste-water-environmental
+name: "Environmental Waste & Water Treatment Safety Profile"
+version: "1.0"
+applicable_laws:
+  - 폐기물관리법 Article 13
+  - 하수도법 Article 19
+  - 산업안전보건법 Article 618
+  - 중대재해처벌법 Article 4
+description: "EHS safety profile for municipal sewage treatment plants, waste incinerators, industrial shredders, and biogas recovery facilities."
+high_risk_hazards:
+  - "Sewage manhole and sludge tank Hydrogen Sulfide (H2S) asphyxiation"
+  - "Waste incinerator and industrial shredder maintenance LOTO failure"
+  - "Biogas digester Methane (CH4) gas explosion and toxic leachate exposure"
