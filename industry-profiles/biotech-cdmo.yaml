@@ -1,0 +1,13 @@
+profile_id: biotech-cdmo
+name: "Biopharmaceutical CDMO & Bio-Lab Safety Profile"
+version: "1.0"
+applicable_laws:
+  - 유전자재조합생물체의 국가간 이동 등에 관한 법률 Article 22
+  - 약사법 Article 34
+  - 산업안전보건법 Article 38
+  - 중대재해처벌법 Article 4
+description: "GxP and EHS safety profile for biopharmaceutical CDMO commercial manufacturing, large-scale bioreactor SIP sterilization, and Biosafety Level (BSL) 2-3 laboratories."
+high_risk_hazards:
+  - "Bioreactor Steam-in-Place (SIP) thermal burns and pressure relief valve failure"
+  - "LMO Class 2-3 pathogen biohazard containment breach and aerosol exposure"
+  - "Cleanroom Hydrogen Peroxide (H2O2) vapor sterilization toxic exposure"

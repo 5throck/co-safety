@@ -1,0 +1,13 @@
+profile_id: railway-transit
+name: "Railway & Transit Infrastructure Safety Profile"
+version: "1.0"
+applicable_laws:
+  - 철도안전법 Article 45
+  - 산업안전보건법 Article 38
+  - 산업안전보건법 Article 39
+  - 중대재해처벌법 Article 4
+description: "EHS safety profile for railway electrification, high-voltage overhead catenary systems, track maintenance, and subway tunnel operations."
+high_risk_hazards:
+  - "25kV catenary high-voltage electric shock and Arc Flash"
+  - "Night track maintenance worker train collision"
+  - "Train bogie maintenance wheel pinching and heavy component drops"

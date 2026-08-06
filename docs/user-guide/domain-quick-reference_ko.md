@@ -47,7 +47,16 @@
 ### 2.4 첨단 기술 & IT 인프라 도메인 (4개)
 | 도메인 ID | 도메인 명칭 | 주관 법령 / 규격 | 담당 에이전트 | 대표 워크플로우 |
 |----------|-----------|----------------|--------------|----------------|
-| `semicon` | 반도체/디스플레이 | 고압가스법 제14조, 화관법 제20조 | [semicon-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/semicon/semicon-agent.md) | `special-gas-handling`, `cleanroom-chemical-safety` |
+| `semicon` | 반도체/디스플레이 | 고압가스법 제14조, 화관법 제20조 | [semicon-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/semicon/semicon-agent.md) | `special-gas-handling`, `cleanroom-chemical-safety`, `semicon-scrubber-maintenance` |
 | `battery` | 이차전지/리사이클링 | 위험물안전관리법 제5조, 화관법 | [battery-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/battery/battery-agent.md) | `battery-thermal-runaway-prevent`, `battery-recycling-hazard-control` |
 | `steelmaking` | 철강/금속제련 | 산안법 제92조, 고압가스법 | [steelmaking-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/steelmaking/steelmaking-agent.md) | `molten-metal-loto`, `byproduct-gas-leak-prevent` |
-| `datacenter` | 데이터센터/IT | 전기안전관리법 제16조, NFPA 855 | [datacenter-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/datacenter/datacenter-agent.md) | `datacenter-ups-fire-safety`, `high-voltage-facility-safety` |
+| `datacenter` | 데이터센터/IT | 전기안전관리법 제16조, NFPA 855 | [datacenter-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/datacenter/datacenter-agent.md) | `datacenter-ups-fire-safety`, `high-voltage-facility-safety`, `datacenter-fuel-tank-safety` |
+
+### 2.5 물류, 교통, 환경, 방산 & 바이오 도메인 (5개)
+| 도메인 ID | 도메인 명칭 | 주관 법령 / 규격 | 담당 에이전트 | 대표 워크플로우 |
+|----------|-----------|----------------|--------------|----------------|
+| `logistics` | 항만 물류/물류센터 | 항만안전특별법 제4조, 산안법 제38조 | [logistics-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/logistics/logistics-agent.md) | `port-crane-agv-safety`, `cold-storage-refrigerant-safety` |
+| `railway` | 철도/교통 인프라 | 철도안전법 제45조, 전기안전법 | [railway-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/railway/railway-agent.md) | `catenary-high-voltage-safety`, `rail-track-confined-maintenance` |
+| `waste` | 폐기물/수자원 | 폐기물관리법 제13조, 하수도법 제19조 | [waste-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/waste/waste-agent.md) | `sewage-confined-h2s-prevent`, `incinerator-shredder-loto` |
+| `defense` | 방위산업/화약 | 총포화약법 제9조, 방위사업법 제18조 | [defense-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/defense/defense-agent.md) | `explosive-propellant-handling`, `missile-cryogenic-high-pressure` |
+| `biotech` | 바이오 CDMO | LMO법 제22조, 약사법 제34조 | [biotech-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/biotech/biotech-agent.md) | `bioreactor-sterilization-safety`, `lmo-biohazard-containment` |

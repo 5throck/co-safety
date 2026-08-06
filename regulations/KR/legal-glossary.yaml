@@ -18,6 +18,22 @@ last_updated: 2026-07-05
 # the `articles[].number` field uses the Korean 제NN조 form as canonical.
 # =============================================================================
 statutes:
+  항만안전특별법:
+    english: Port Safety Special Act
+    abbreviation: PSSA
+    regulator: MOF (해양수산부)
+  철도안전법:
+    english: Rail Safety Act
+    abbreviation: RSA
+    regulator: MOLIT (국토교통부)
+  하수도법:
+    english: Sewerage Act
+    abbreviation: SA
+    regulator: ME (환경부)
+  총포·도검·화약류 등의 안전관리에 관한 법률:
+    english: Act on the Safety Management of Firearms, Swords, Explosives, etc.
+    abbreviation: FSESA
+    regulator: NPA (경찰청)
   산업안전보건법:
     english: Occupational Safety and Health Act
     abbreviation: OSHA-KR
