@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — PM-led Project Review Remediation)
+
+- **docs/user-guide/field-ehs-operational-guide_ko.md**: Added Korean Field EHS Operational Guide (Layer C Canonical) covering 4 daily safety procedures (TBM, Risk Assessment, PTW, LOTO) and PSM 12 elements checklist for floor practitioners.
+
+### Changed (2026-08-06 — Phase A Status Update)
+
+- **variant.json**: Updated `phaseAComplete` to `true` and recorded `lastTransition` as "Phase A completed on 2026-08-06" following 100% verification of Conditions 1-5 in `PROMOTION_CHECKLIST.md`.
+
 ### Changed (2026-08-04 — gen-pr-body sync)
 
 - **[2026-08-04]**: refactor(scripts): sync `gen-pr-body.ts` to v1.2.0 — remove the `claude -p` AI-mode PR body generation; the script now only builds the structured template fallback (with the existing 50-file truncation note), matching the workspace-root agent-written PR body flow

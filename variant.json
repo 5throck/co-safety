@@ -49,10 +49,10 @@
   },
   "lifecycle": {
     "statusSince": "2026-06-04",
-    "lastTransition": "initial → beta on 2026-06-04",
+    "lastTransition": "Phase A completed on 2026-08-06",
     "stablePromotedOn": null
   },
   "createdAt": "2026-06-04",
-  "phaseAComplete": false,
+  "phaseAComplete": true,
   "promotionChecklist": "PROMOTION_CHECKLIST.md"
 }
