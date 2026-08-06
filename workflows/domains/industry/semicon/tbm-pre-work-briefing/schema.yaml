@@ -1,0 +1,17 @@
+schema_version: "1.0"
+workflow_id: tbm-pre-work-briefing
+title: "반도체 TBM (Tool Box Meeting)"
+status: active
+applicability: mandatory
+workflow_type: core
+
+legal_basis:
+  - 산업안전보건법 Article 15
+  - 산업안전보건법 Article 36
+  - 고압가스안전관리법 Article 14
+  - 고압가스안전관리법 Article 17
+  - 화학물질관리법 Article 20
+industry_profile: semicon
+agent: semicon-agent
+evidence_model: ../../../../evidence-models/_shared/tbm-record.json
+signature_hazard: 특수가스 실린더 교체 및 불산(HF) 취급 전 TBM

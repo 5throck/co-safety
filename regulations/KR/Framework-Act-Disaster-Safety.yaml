@@ -1,0 +1,28 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOIS (행정안전부) / National Disaster Management Institute
+framework: Framework-Act-Disaster-Safety
+title_ko: 재난 및 안전관리 기본법
+title_en: Framework Act on the Management of Disasters and Safety (FAMDS / formerly CATA)
+description: |
+  Umbrella framework statute for Korea's disaster/safety management system.
+  Referenced (by law name only — no specific articles cited in codebase) across
+  emergency-agent, disaster-response-agent, ehschem major-incident, gasterm
+  gas-emergency, and disaster-response workflow schemas.
+primary_law:
+  name_ko: 재난 및 안전관리 기본법
+  abbreviation: FAMDS
+  articles: []
+  note: |
+    Codebase cites this law by name only (no article numbers).
+    TODO: identify specific articles for disaster declaration (재난선포),
+    emergency response headquarters (중앙재난안전대책본부), and mutual aid
+    agreements in a future verification pass against legalize-kr text.
+related_rule:
+  name_ko: 재난 및 안전관리 기본법 시행령 / 시행규칙
+  abbreviation: FAMDS-Enforcement
+key_hazards:
+  - 재난 대응 체계 가동 (disaster response system activation)
+  - 다기관 협업 통신 (multi-agency coordination)
+  - 대피/구조 작전 (evacuation/rescue operations)
+last_updated: "2026-08-06"

@@ -1,0 +1,29 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: ME (환경부) / KCDC (질병관리청)
+framework: LMO-Transboundary-Movement
+title_ko: 유전자변형생물체의 국가간 이동 등에 관한 법률
+title_en: Act on the Transboundary Movement, etc. of Living Modified Organisms (LMO Act)
+primary_law:
+  name_ko: 유전자변형생물체의 국가간 이동 등에 관한 법률
+  abbreviation: LMO-Act
+  articles:
+    - article: "22"
+      topic_ko: 연구시설의 설치·운영
+      topic_en: Installation and operation of LMO research facilities (containment)
+    - article: "24"
+      topic_ko: 표시
+      topic_en: Labeling of LMO-containing products
+related_rule:
+  name_ko: LMO Act 시행령 / 시행규칙
+  abbreviation: LMO-Enforcement
+key_hazards:
+  - BSL-2/3 오염 (biosafety level containment breach)
+  - LMO 환경 유출 (LMO environmental release)
+  - 배양기 SIP 증기멸균 화상 (bioreactor SIP steam sterilization burn)
+  - 에어로졸 노출 (aerosol exposure to biohazard)
+containment_levels:
+  BL1: Biosafety Level 1 (low risk)
+  BL2: Biosafety Level 2 (moderate risk)
+  BL3: Biosafety Level 3 (high risk — special containment)
+last_updated: "2026-08-06"

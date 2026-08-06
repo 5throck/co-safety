@@ -236,6 +236,7 @@ Human operational documentation for Korean EHS/GxP practitioners — workflow RE
 | emergency-response | emergency-agent | Trigger emergency response protocol on incident, fire, spill, or injury report |
 | legalize-kr-sync | safety-workflow-manager | Fetches the legalize-kr repository into a local cache directory for accessing Korean law data |
 | permit-to-work | safety-workflow-manager | Trigger permit-to-work (PTW) issuance workflow for high-risk or non-routine work |
+| tool-box-meeting | safety-workflow-manager | Trigger pre-work Tool Box Meeting (TBM) — cross-industry daily safety briefing with per-domain legal profiles (ehschem/gasterm/steelmaking/shipbuilding/powergen/waste/defense/semicon/battery/biotech/datacenter/logistics/railway/food) |
 | risk-assessment | risk-assessment-agent | Trigger risk assessment workflow for hazard identification and scoring |
 | hazop-analysis | psm-agent | Support execution of HAZOP procedures |
 | psm-moc | psm-agent | Generate Management of Change (MOC) packages |

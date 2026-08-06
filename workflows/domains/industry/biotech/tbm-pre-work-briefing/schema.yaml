@@ -1,0 +1,16 @@
+schema_version: "1.0"
+workflow_id: tbm-pre-work-briefing
+title: "바이오 TBM (Tool Box Meeting)"
+status: active
+applicability: mandatory
+workflow_type: core
+
+legal_basis:
+  - 산업안전보건법 Article 15
+  - 산업안전보건법 Article 36
+  - 유전자변형생물체의 국가간 이동 등에 관한 법률 Article 22
+  - 중대재해처벌법 Article 4
+industry_profile: biotech
+agent: biotech-agent
+evidence_model: ../../../../evidence-models/_shared/tbm-record.json
+signature_hazard: 배양기 SIP 증기멸균 및 LMO BSL 밀폐작업 전 TBM

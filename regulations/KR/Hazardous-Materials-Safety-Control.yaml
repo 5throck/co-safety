@@ -1,0 +1,42 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: NFA (소방청) / MOIS (행정안전부)
+framework: Hazardous-Materials-Safety-Control
+title_ko: 위험물안전관리법
+title_en: Act on the Prevention of Hazards from Dangerous Materials (DSSMA / Hazardous Materials Safety Control Act)
+description: |
+  Heavily cited phantom law (40+ codebase citations across battery, datacenter,
+  ehschem, gasterm, powergen, psm, msds domains). Governs storage/handling of
+  flammable/combustible hazardous materials (NMP electrolyte, fuel oil, solvents).
+primary_law:
+  name_ko: 위험물안전관리법
+  abbreviation: DSSMA
+  articles:
+    - article: "5"
+      topic_ko: 위험물의 저장 및 취급의 제한
+      topic_en: Restrictions on storage and handling of hazardous materials
+    - article: "6"
+      topic_ko: 위험물시설의 설치 및 변경 등
+      topic_en: Installation and modification of hazardous materials facilities
+    - article: "13"
+      topic_ko: 과징금처분
+      topic_en: Administrative surcharge (penalty) for violations
+    - article: "18"
+      topic_ko: 정기점검 및 정기검사
+      topic_en: Periodic inspection and examination of facilities
+    - article: "22의2"
+      topic_ko: 위험물 누출 등의 사고 조사
+      topic_en: Investigation of hazardous material leak/spill incidents
+    - article: "27"
+      topic_ko: 응급조치·통보 및 조치명령
+      topic_en: Emergency measures, notification, and corrective orders
+related_rule:
+  name_ko: 위험물안전관리법 시행령 / 시행규칙
+  abbreviation: DSSMA-Enforcement
+key_hazards:
+  - 인화성 물질 화재/폭발 (flammable material fire/explosion)
+  - 저장탱크 누출/붕괴 (storage tank leak/collapse)
+  - NMP 전해액 인화 (NMP electrolyte flammability — battery)
+  - 중유/경유 저장탱크 화재 (fuel oil storage tank fire — datacenter/powergen)
+designated_quantities: 지정수량 (designated quantity) per schedule — handling above threshold requires permit
+last_updated: "2026-08-06"

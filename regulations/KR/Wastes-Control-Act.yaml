@@ -1,0 +1,25 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: ME (환경부) / KOEMCO (한국환경공단)
+framework: Wastes-Control-Act
+title_ko: 폐기물관리법
+title_en: Wastes Control Act (WCA)
+primary_law:
+  name_ko: 폐기물관리법
+  abbreviation: WCA
+  articles:
+    - article: "13"
+      topic_ko: 폐기물의 처리 기준 등
+      topic_en: Standards for waste treatment (collection, transport, disposal)
+    - article: "25"
+      topic_ko: 폐기물처리업
+      topic_en: Waste treatment business licensing and operation
+related_rule:
+  name_ko: 폐기물관리법 시행령 / 시행규칙 (기후에너지환경부령)
+  abbreviation: WCA-Enforcement
+key_hazards:
+  - 소각로 화재/폭발 (incinerator fire/explosion)
+  - 분쇄기 걸림/비염 (shredder entanglement/amputation)
+  - 바이오가스 메탄 폭발 (biogas methane explosion)
+  - 폐기물 처리 중 유해가스 (toxic gas during treatment — H2S, CO)
+last_updated: "2026-08-06"

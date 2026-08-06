@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-06T04:26:55.497Z
+**Generated**: 2026-08-06T05:39:00.115Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -9,7 +9,7 @@
 ## Summary
 
 - **Agents**: 40
-- **Skills**: 58
+- **Skills**: 66
 - **Scripts**: 56
 - **Commands**: 7
 
@@ -74,7 +74,9 @@
 | audit-preparation | 1.0.0 | .claude/skills/audit-preparation/SKILL.md | both | 감사 준비, audit preparation, 규제 감사, OSHA-KR 감사, 중대재해처벌법 감사 대응, 증적자료 취합, regulatory inspection readiness | audit-agent |
 | benefit-risk-assessor | 1.0 | .claude/skills/benefit-risk-assessor/SKILL.md | both | 편익위해평가, benefit-risk assessment, PrOACT-URL, BRAT, MCDA, 위해편익 균형, PBRER 재평가, RMP 재평가 | gvp-agent |
 | chemical-risk-assessment | 1.0 | .claude/skills/chemical-risk-assessment/SKILL.md | both | 화학물질 위험성평가, chemical risk assessment, 노출평가, exposure assessment, RCR, 허용기준 초과, OEL DNEL, 신규화학물질 도입승인 | msds-agent |
+| completion-inspection | 1.0.0 | .claude/skills/completion-inspection/SKILL.md | both | completion inspection, final inspection, permit issuance, 완성검사, 최종검사, 사용전검사 | gasterm-agent |
 | compliance-gap | 1.0.0 | .claude/skills/compliance-gap/SKILL.md | both | 컴플라이언스 갭, compliance gap, 준법 감시, 법률 검토, regulatory compliance, 규제 준수, 법적 요건, legal requirement review | compliance-agent |
+| construction-permit-overview | 1.0.0 | .claude/skills/construction-permit-overview/SKILL.md | both | construction permit, permit lifecycle, gas terminal construction, KGS inspection, 가스시설 공사, 공사허가, 검사일정, 건설인허가 | gasterm-agent |
 | contractor-onboarding | 1.0.0 | .claude/skills/contractor-onboarding/SKILL.md | both | 협력업체 온보딩, contractor onboarding, 도급업체 안전교육, 협력업체 자격심사, site access approval, 안전교육 이수확인, 도급 안전관리 | contractor-safety-agent |
 | documentation-writing | 1.0.0 | .claude/skills/documentation-writing/SKILL.md | both | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | N/A |
 | dts-verification | 1.0 | .claude/skills/dts-verification/SKILL.md | both | DTS 바코드 검증, DTS verification, 의약품 유통관리, RFID 검증, MFDS DTS센터, 위변조 의약품 조사, GS1 데이터매트릭스 | gdp-agent |
@@ -87,23 +89,27 @@
 | ghs-classifier | 1.0 | .claude/skills/ghs-classifier/SKILL.md | both | GHS 분류, GHS classification, 유해성 분류, H-Statement, 위험문구, 예방조치문구, P-Statement, GHS Rev 9 | msds-agent |
 | glp-data-integrity-checker | 1.0 | .claude/skills/glp-data-integrity-checker/SKILL.md | both | ALCOA+, data integrity, 데이터 무결성, GLP 원시자료, raw data, OECD GLP Section 9, 감사증적, audit trail | glp-agent |
 | glp-study-protocol-validator | 1.0 | .claude/skills/glp-study-protocol-validator/SKILL.md | both | 시험계획서 검증, study protocol validation, GLP protocol, OECD GLP Section 8, 시험책임자, Study Director, 시험물질 특성, 보존기간 10년 | glp-agent |
-| gmp-change-control | 1.0 | .claude/skills/gmp-change-control/SKILL.md | both | 변경관리, change control, KP-GMP, ICH Q10, 변경요청, effectiveness check, 품질영향평가, 밸리데이션 재검증 | gmp-agent |
-| gmp-deviation-capa | 1.0 | .claude/skills/gmp-deviation-capa/SKILL.md | both | 이상관리, 시정예방조치, CAPA, deviation, OOS, OOT, KP-GMP Article 19, 일탈 조사 | gmp-agent |
-| gmp-qrm | 1.0 | .claude/skills/gmp-qrm/SKILL.md | both | 품질위해관리, QRM, ICH Q9, FMEA, HACCP, FTA, risk priority number, 품질리스크 평가 | gmp-agent |
+| gmp-change-control | 1.0 | .claude/skills/gmp-change-control/SKILL.md | both | gmp change control, change control, 변경관리, 품질변경, gmp change | gmp-agent |
+| gmp-deviation-capa | 1.0 | .claude/skills/gmp-deviation-capa/SKILL.md | both | gmp deviation, gmp capa, deviation, 이상관리, 시정예방조치, oos, out of specification | gmp-agent |
+| gmp-qrm | 1.0 | .claude/skills/gmp-qrm/SKILL.md | both | quality risk management, qrm, fmea, risk assessment, 품질위해관리, 위해관리 | gmp-agent |
 | hazop-analysis | 1.0.0 | .claude/skills/hazop-analysis/SKILL.md | both | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
 | iso14971-risk-scorer | 1.0 | .claude/skills/iso14971-risk-scorer/SKILL.md | both | ISO 14971, 위해 추정, risk estimation, 심각도 발생확률 매트릭스, severity probability matrix, 잔여위험, residual risk, ALARP | meddevice-agent |
 | legalize-kr-sync | 1.0.0 | skills/legalize-kr-sync/SKILL.md | workspace | clone legalize-kr, fetch laws, sync korean laws | safety-workflow-manager |
 | legalize-kr-sync | 1.0.0 | .claude/skills/legalize-kr-sync/SKILL.md | both | clone legalize-kr, fetch laws, sync korean laws | safety-workflow-manager |
+| meeting | 1.5.0 | .claude/skills/meeting/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
 | meeting-facilitation | 1.5.0 | skills/meeting-facilitation/SKILL.md | workspace | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
 | meeting-facilitation | 1.5.0 | .claude/skills/meeting-facilitation/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
+| mid-construction-inspection | 1.0.0 | .claude/skills/mid-construction-inspection/SKILL.md | both | mid-construction inspection, construction inspection, 중간검사, 공사검사, 현장검사 | gasterm-agent |
 | msds-parser | 1.0 | .claude/skills/msds-parser/SKILL.md | both | MSDS 파싱, MSDS parser, SDS 16항목, 물질안전보건자료, GHS 16-section, msds-record.json, 공급자 MSDS 양식 | msds-agent |
 | permit-to-work | 1.0.1 | .claude/skills/permit-to-work/SKILL.md | both | 작업허가서, permit to work, PTW, hot work permit, 화기작업, 밀폐공간작업, confined space | safety-workflow-manager |
 | platform-command-lifecycle-manager | 1.0.0 | .claude/skills/platform-command-lifecycle-manager/SKILL.md | both | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
 | platform-skill-lifecycle-manager | 1.0.0 | .claude/skills/platform-skill-lifecycle-manager/SKILL.md | both | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
+| pre-construction-technical-review | 1.0.0 | .claude/skills/pre-construction-technical-review/SKILL.md | both | pre-construction review, technical review, design review, 시설기준 검토, 기술검토, 설계검토, 사전기술검토 | gasterm-agent |
 | process-hazard-screening | 1.0 | .claude/skills/process-hazard-screening/SKILL.md | both | PSM 적용대상, process hazard screening, 위해물질 보유량, 공정안전관리, PHA 대상 여부, 사고대비물질, 화학공장 초기 위해평가 | ehschem-agent |
 | project-review | 1.1.0 | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
 | project-review | 1.1.0 | .claude/skills/project-review/SKILL.md | both | project review, review project, audit project, quality review | pm |
 | protocol-deviation-analyzer | 1.0 | .claude/skills/protocol-deviation-analyzer/SKILL.md | both | 프로토콜 이탈, protocol deviation, ICH E6(R3), important deviation, CAPA, IRB 보고, KGCP, 임상시험 이탈 | gcp-agent |
+| psm-loto | 1.0.0 | .claude/skills/psm-loto/SKILL.md | both | loto, lockout, tagout, lock out, tag out, energy isolation, 에너지 차단, 로크아웃, 태그아웃 | psm-agent |
 | psm-moc | 1.0 | .claude/skills/psm-moc/SKILL.md | both | management of change, moc, change management, process change, 변경관리, 공정변경 | psm-agent |
 | research-analysis | 1.0.0 | .claude/skills/research-analysis/SKILL.md | both | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | N/A |
 | risk-assessment | 1.0.0 | .claude/skills/risk-assessment/SKILL.md | both | 위험성평가, risk assessment, hazard identification, 위험 평가, 작업위험성분석 | risk-assessment-agent |
@@ -119,9 +125,11 @@
 | sync | 1.1.0 | skills/sync/SKILL.md | workspace | sync, commit and push, create PR, push changes | pm |
 | sync | 1.1.0 | .claude/skills/sync/SKILL.md | both | sync, commit and push, create PR, push changes | pm |
 | tank-integrity-validator | 1.0 | .claude/skills/tank-integrity-validator/SKILL.md | both | 저장탱크 건전성, tank integrity, LNG 탱크 검사, 수소 취성, hydrogen embrittlement, KGS 코드, 압력용기 검사, 부식 피로 검증 | gasterm-agent |
+| tar-planning | 1.0.0 | .claude/skills/tar-planning/SKILL.md | both | turnaround, tar, tar planning, shutdown planning, 정기보수, 가동중지, 보수정비, 대정비 | ehschem-agent |
 | team-builder | 1.1.0 | skills/team-builder/SKILL.md | workspace | 새 팀 구성, 에이전트팀 변경, 신규 도메인 팀 빌딩, build new agent team, agent team benchmarking, team proposal generation, consulting team design | pm |
 | team-builder | 1.1.0 | .claude/skills/team-builder/SKILL.md | both | 새 팀 구성, 에이전트팀 변경, 신규 도메인 팀 빌딩, build new agent team, agent team benchmarking, team proposal generation, consulting team design | pm |
 | temperature-excursion-analyzer | 1.0 | .claude/skills/temperature-excursion-analyzer/SKILL.md | both | 온도이탈, temperature excursion, 콜드체인, cold chain, GDP 온도관리, 냉장유통, excursion event, 안정성 데이터 검토 | gdp-agent |
+| tool-box-meeting | 1.0.0 | .claude/skills/tool-box-meeting/SKILL.md | both | TBM, Tool Box Meeting, Toolbox Meeting, 안전점검회의, 작업 전 안전회의, 작업전 안전회의, 오늘 TBM, 작업 전 안전점검, pre-work briefing, daily safety briefing | safety-workflow-manager |
 | translate | 1.0.0 | skills/translate/SKILL.md | workspace | translate, translation, localize, Korean translation | pm |
 | translate | 1.0.0 | .claude/skills/translate/SKILL.md | both | translate, translation, localize, Korean translation | pm |
 
@@ -209,7 +217,7 @@
 **Checked**: Claude (.claude/) vs Gemini (.gemini/)
 
 - **Commands with parity**: 7 / 7
-- **Skills with parity**: 49 / 58
+- **Skills with parity**: 57 / 66
 
 ---
 

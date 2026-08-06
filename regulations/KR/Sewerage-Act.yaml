@@ -1,0 +1,27 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: ME (환경부) / local public sewerage authorities
+framework: Sewerage-Act
+title_ko: 하수도법
+title_en: Sewerage Act (SA)
+primary_law:
+  name_ko: 하수도법
+  abbreviation: SA
+  articles:
+    - article: "19"
+      topic_ko: 공공하수도의 운영·관리 및 손괴·방해행위 금지 등
+      topic_en: Public sewerage operation/maintenance; prohibition on damage/obstruction
+    - article: "20"
+      topic_ko: 기술진단 등
+      topic_en: Technical diagnosis and inspection of sewerage facilities
+related_rule:
+  name_ko: 하수도법 시행령 / 시행규칙
+  abbreviation: SA-Enforcement
+key_hazards:
+  - 하수조/맨홀 H2S 질식 (sewage/manhole H2S asphyxiation)
+  - 메탄 가스 폭발 (methane gas explosion)
+  - 산소 결핍 (oxygen deficiency — confined space)
+  - 슬러지 처리 중 낙하/매몰 (sludge handling fall/burial)
+inspection_cycles:
+  manhole_entry_gas_check: 진입 전 O2/H2S/LEL 측정 (pre-entry gas measurement mandatory)
+last_updated: "2026-08-06"

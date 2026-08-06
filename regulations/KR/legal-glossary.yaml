@@ -9,8 +9,8 @@ source_mcp: mcp-kr-legislation  # curated reference glossary; statute content so
 # (agents/*.md Section A Legal Basis blocks, workflows/**/schema.yaml legal_basis fields,
 # regulations/KR/*.yaml). Articles NOT referenced anywhere in the codebase are omitted;
 # accuracy over completeness. Unverified entries are explicitly commented.
-version: 1.0.2
-last_updated: 2026-07-05
+version: 1.0.3
+last_updated: 2026-08-06
 
 # =============================================================================
 # KOREAN STATUTES (validator allowlist — keys are the exact Korean strings used
@@ -26,14 +26,31 @@ statutes:
     english: Rail Safety Act
     abbreviation: RSA
     regulator: MOLIT (국토교통부)
+    articles:
+      - { number: "제45조", topic_en: "Restrictions on acts within railway protection zones (철도보호지구)" }
+      - { number: "제48조", topic_en: "Prohibited acts for railway protection and order maintenance" }
   하수도법:
     english: Sewerage Act
     abbreviation: SA
     regulator: ME (환경부)
+    articles:
+      - { number: "제19조", topic_en: "Public sewerage operation/maintenance; damage prohibition" }
+      - { number: "제20조", topic_en: "Technical diagnosis and inspection of sewerage facilities" }
   총포·도검·화약류 등의 안전관리에 관한 법률:
     english: Act on the Safety Management of Firearms, Swords, Explosives, etc.
     abbreviation: FSESA
     regulator: NPA (경찰청)
+    articles:
+      - { number: "제9조",  topic_en: "Permission for import/export of firearms/swords/explosives" }
+      - { number: "제23조", topic_en: "Reporting on discovery/pickup of regulated items" }
+  방위사업법:
+    english: Defense Acquisition Act
+    abbreviation: DAA
+    regulator: DAPA (방위사업청)
+    note: "Article 18 (전문연구기관 및 방위산업체 지정) was deleted on 2020.3.31. REMEDIATED 2026-08-06: codebase references migrated to active Art.28 (품질보증) and Art.53 (군용 화약류 제조 특례)."
+    articles:
+      - { number: "제28조", topic_en: "Quality assurance for munitions (replaced deleted Art.18)" }
+      - { number: "제53조", topic_en: "Special provisions for manufacture of military firearms/explosives" }
   산업안전보건법:
     english: Occupational Safety and Health Act
     abbreviation: OSHA-KR
@@ -243,6 +260,8 @@ statutes:
     articles:
       - { number: "제5조",     topic_en: "Storage and handling restrictions and technical standards" }
       - { number: "제6조",     topic_en: "Installation and modification of hazardous-materials facilities" }
+      - { number: "제13조",    topic_en: "Administrative surcharge (penalty) for violations" }
+      - { number: "제18조",    topic_en: "Periodic inspection and examination of facilities" }
       - { number: "제22조의2", topic_en: "Accident investigation for leaks/spills" }
       - { number: "제27조",    topic_en: "Emergency measures, notification, and corrective orders" }
 
@@ -258,7 +277,8 @@ statutes:
     abbreviation: FSA
     regulator: MFDS (식품의약품안전처)
     articles:
-      - { number: "제48조", topic_en: "HACCP certification and maintenance duty (식품안전관리인증기준)" }
+      - { number: "제12조의2", topic_en: "Labeling of genetically modified foods (유전자변형식품 표시)" }
+      - { number: "제48조",   topic_en: "HACCP certification and maintenance duty (식품안전관리인증기준)" }
 
   화장품법:
     english: Cosmetics Act
@@ -272,7 +292,9 @@ statutes:
     abbreviation: WCA
     regulator: ME (환경부)
     note: "Referenced in powergen ash-chemical-waste-management without specific articles."
-    articles: []
+    articles:
+      - { number: "제13조", topic_en: "Standards for waste treatment (collection, transport, disposal)" }
+      - { number: "제25조", topic_en: "Waste treatment business licensing and operation" }
 
   환경보건법:
     english: Environmental Health Act
@@ -285,16 +307,20 @@ statutes:
     english: Bioethics and Safety Act
     abbreviation: BSA
     regulator: MOHW (보건복지부)
-    note: "Cited in GCP workflows (informed-consent, irb-review, sae-reporting-reference) governing IRB/생명윤리심의위원회. No specific article numbers confirmed yet — article-level detail pending future verification."
-    articles: []
+    note: "Cited in GCP workflows (informed-consent, irb-review, sae-reporting-reference) governing IRB/생명윤리심의위원회. Canonical statute name is 생명윤리 및 안전에 관한 법률."
+    articles:
+      - { number: "제13조", topic_en: "Institutional Review Board (IRB) support and operation" }
+      - { number: "제16조", topic_en: "Informed consent for human subjects research" }
 
   건설산업기본법:
     english: Construction Industry Basic Act
     abbreviation: CIBA
     regulator: MOLIT (국토교통부)
-    note: "Verified as active Korean law via legalize_kr (MST 273435)."
+    note: "Verified as active Korean law via legalize_kr (MST 273435). Art.83 (등록말소) was previously mis-cited as TBM basis (FIND-2026-0003, corrected)."
     articles:
       - { number: "제29조의2", topic_en: "Management of construction subcontracting (건설공사의 하도급관리)" }
+      - { number: "제45조",   topic_en: "Management rationalization efforts (safety management cost)" }
+      - { number: "제83조",   topic_en: "Cancellation of construction business registration (administrative penalty)" }
 
   재난 및 안전관리 기본법:
     english: Framework Act on the Management of Disasters and Safety
@@ -303,6 +329,15 @@ statutes:
     note: "Verified as active Korean law via legalize_kr (MST 283851). Canonical name for what several workflows informally cited as '재난관리기본법'. Article-level detail pending future verification."
     articles: []
 
+  유전자변형생물체의 국가간 이동 등에 관한 법률:
+    english: Act on the Transboundary Movement, etc. of Living Modified Organisms
+    abbreviation: LMO-Act
+    regulator: ME (환경부)
+    note: "Governs LMO containment, BSL facility operation, and labeling. Cited in biotech domain (LMO biohazard containment)."
+    articles:
+      - { number: "제22조", topic_en: "Installation and operation of LMO research facilities (containment)" }
+      - { number: "제24조", topic_en: "Labeling of LMO-containing products" }
+
   독성시험 책임자 규정:
     english: Toxicity Study Director Regulation
     note: "Cited in workflows/domains/industry/glp/personnel-qualification/schema.yaml. Appears to be an internal MFDS rule reference (cf. '비임상시험 관리기준 (MFDS 고시)' pattern documented in regulations/KR/MFDS-GLP.yaml) rather than a standalone statute. Abbreviation, regulator, and article-level detail unverified — not fabricated pending confirmation."
@@ -310,9 +345,11 @@ statutes:
 
   소방기본법:
     english: Basic Fire Services Act
+    abbreviation: BFS
     regulator: NFA (소방청)
-    note: "Cited in emergency workflows (confined-space-rescue, high-angle-rescue) as '소방기본법 (구조)'. Abbreviation and article-level detail unverified."
-    articles: []
+    note: "Cited in emergency workflows (confined-space-rescue, high-angle-rescue) as '소방기본법 (구조)'."
+    articles:
+      - { number: "제16조", topic_en: "Fire-fighting and rescue operations (소방활동)" }
 
   응급의료에 관한 법률:
     english: Emergency Medical Service Act

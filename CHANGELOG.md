@@ -6,6 +6,50 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — Korean Statute YAML Registration for 15 Phantom Laws)
+
+- **regulations/KR/**: Registered 15 statute YAML files that were cited as `legal_basis` across the codebase but had no corresponding regulation file (phantom citations). Each follows the Tier 2 schema (source_mcp, regulator, primary_law.articles, key_hazards) with article text verified against `.cache/legalize-kr/`:
+  - `Rail-Safety-Act.yaml` (철도안전법 RSA — Art.45, 48)
+  - `Firearms-Swords-Explosives-Safety.yaml` (총포·도검·화약류법 FSESA — Art.9, 23)
+  - `Defense-Acquisition-Act.yaml` (방위사업법 DAA — Art.53; **note: Art.18 was deleted 2020.3.31, flagged for remediation**)
+  - `Wastes-Control-Act.yaml` (폐기물관리법 WCA — Art.13, 25)
+  - `Sewerage-Act.yaml` (하수도법 SA — Art.19, 20)
+  - `LMO-Transboundary-Movement.yaml` (유전자변형생물체법 LMO Act — Art.22, 24)
+  - `Hazardous-Materials-Safety-Control.yaml` (위험물안전관리법 DSSMA — Art.5, 6, 13, 18, 22의2, 27)
+  - `Food-Sanitation-Act.yaml` (식품위생법 FSA — Art.12의2, 48)
+  - `Cosmetics-Act.yaml` (화장품법 CA — Art.5)
+  - `Construction-Industry-Basic-Act.yaml` (건설산업기본법 CIBA — Art.29의2, 45, 83)
+  - `Framework-Act-Disaster-Safety.yaml` (재난 및 안전관리 기본법 FAMDS — name-only citation)
+  - `Environmental-Health-Act.yaml` (환경보건법 EHA — name-only citation)
+  - `Bioethics-and-Safety-Act.yaml` (생명윤리법 BSA — Art.13, 16)
+  - `Basic-Fire-Services-Act.yaml` (소방기본법 — Art.16)
+  - `Emergency-Medical-Service-Act.yaml` (응급의료에 관한 법률 — name-only citation)
+- **regulations/KR/legal-glossary.yaml**: Updated to v1.0.3 — added 2 new statute entries (방위사업법 DAA, 유전자변형생물체법 LMO Act) and expanded article arrays for 8 laws (DSSMA, FSA, CIBA, BSA, 소방기본법, RSA, FSESA, WCA, SA).
+
+### Added (2026-08-06 — TBM Cross-Industry Expansion)
+
+- **evidence-models/_shared/tbm-record.json**: New shared base evidence model for pre-work Tool Box Meetings (TBM, 작업 전 안전점검회의). Reusable across 15 industry profiles via `industry_profile` enum and `industry_specific_fields` extension. Construction retains its dedicated `ehsconst-tbm-record.json` for SAPA Art.12 / contractor-tier fields.
+- **skills/daily/tool-box-meeting/SKILL.md**: New cross-industry TBM skill (owner: safety-workflow-manager) following the `permit-to-work` / `risk-assessment` shared-skill pattern. Includes industry profile → legal basis mapping table for 15 domains.
+- **workflows/domains/industry/{ehschem,gasterm,steelmaking,shipbuilding,powergen,waste,defense,semicon,battery,biotech,datacenter,logistics,railway,food}/tbm-pre-work-briefing/**: Added 13 industry-specific TBM workflows, each citing >=3 legal sources (industry-specific statute + OSHA-KR Art.15/36 + SAPA). TBM was previously construction-only; now covers all high-risk industries where Korean EHS practice mandates pre-work safety briefings.
+- **agents/domains/industry/{ehschem,gasterm,steelmaking,shipbuilding,powergen,waste,defense,semicon,battery,biotech,datacenter,logistics,railway,food}-agent.md**: Added TBM responsibilities, KPI (participation rate >=95%), and dispatch triggers to 14 domain agents.
+- **AGENTS.md**: Registered `tool-box-meeting` skill in the Skills table.
+
+### Fixed (2026-08-06 — Construction Daily Workflow Index Accuracy)
+
+- **workflows/daily/construction/_INDEX.md**: Corrected stale status markers — 4 of 6 daily operations previously marked "Pending" are actually implemented elsewhere in the codebase. TBM now points to its construction-dedicated workflow + the 14-industry cross-cutting expansion; Fall Protection, Hot Work, and Confined Space now cross-reference their active locations; Electrical Safety and Heavy Equipment clarified as partial. Eliminates confusion for audit/regulatory inspection readiness.
+
+### Fixed (2026-08-06 — Defense Domain Deleted-Article Citation Remediation)
+
+- **workflows/domains/industry/defense/{explosive-propellant-handling,missile-cryogenic-high-pressure}/schema.yaml** + **agents/domains/industry/defense/defense-agent.md**: Migrated legal_basis citations from 방위사업법 Article 18 (전문연구기관 및 방위산업체 지정, deleted 2020.3.31) to active Article 28 (품질보증) and Article 53 (군용 화약류 제조 특례). Same class of non-conformance as FIND-2026-0003 (TBM wrong-article citation). `regulations/KR/Defense-Acquisition-Act.yaml` and `legal-glossary.yaml` notes updated to reflect remediation.
+
+### Fixed (2026-08-06 — Agent-Workflow Reference Integrity)
+
+- **agents/domains/industry/{food,cosmetics,datacenter,semicon}-agent.md**: Corrected orphaned workflow references — each agent's Responsibilities and Delegation Target sections now include the third workflow that existed on disk but was previously unclaimed (`food-allergen-control`, `cosmetics-stability-testing`, `datacenter-fuel-tank-safety`, `semicon-scrubber-maintenance`).
+
+### Fixed (2026-08-06 — Skill Mirror Sync)
+
+- **.claude/skills/, .gemini/skills/, .agents/skills/**: Synchronized 5 missing skill mirrors via `bun scripts/sync-skills.ts` — 4 gasterm construction-phase skills (`construction-permit-overview`, `pre-construction-technical-review`, `mid-construction-inspection`, `completion-inspection`) plus the new `tool-box-meeting` skill. Source skills were registered in AGENTS.md but never mirrored.
+
 ### Added (2026-08-06 — Full Documentation Sync for 27 Active Domains)
 
 - **docs/co-safety.context.md**: Updated project context to reflect 27 active domains and 30 specialist agents.
