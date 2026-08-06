@@ -411,20 +411,22 @@ industries:
       statute_file: null  # GAP — no dedicated yaml file
       key_articles:
         - article: "4"
-          topic_ko: 항만작업자의 안전의무
-          topic_en: Port-worker safety obligations
+          topic_ko: 다른 법률과의 관계 (절차조항 — 우선적용 규정)
+          topic_en: Relationship with other laws (procedural — priority-of-application clause)
+          substantive: false  # Procedural; substantive safety basis is Art 6
         - article: "5"
-          topic_ko: 항만하역업체의 안전관리
-          topic_en: Port-stevedoring contractor safety management
+          topic_ko: 항만운송 참여자의 기본 의무
+          topic_en: Basic obligations of port-transport participants
         - article: "6"
-          topic_ko: 항만작업 안전수칙
-          topic_en: Port-work safety rules
+          topic_ko: 항만운송 참여자의 안전확보 의무 등
+          topic_en: Safety-securing obligations of port-transport participants, etc.
+          substantive: true  # SUBSTANTIVE safety-obligation article (verified via legalize_kr parse_law_structure)
         - article: "8"
-          topic_ko: 위험물 항만하역 안전조치
-          topic_en: Dangerous-goods port-handling safety measures
+          topic_ko: 안전교육
+          topic_en: Safety education
         - article: "9"
-          topic_ko: 항만사고 조사·보고
-          topic_en: Port-accident investigation and reporting
+          topic_ko: 자체안전관리계획의 수립ㆍ승인 등
+          topic_en: Establishment and approval of self-safety-management plan
     adjacent_laws:
       - name_ko: 산업안전보건법 (적하하역 작업 관련)
         abbreviation: OSHA-KR

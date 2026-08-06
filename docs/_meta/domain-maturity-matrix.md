@@ -27,13 +27,13 @@
 | gvp | 3 | 8 | 2 | 7 | 124 | active | **Tier 3 -- Mature** |
 | meddevice | 2 | 8 | 1 | 7 | 90 | active | +1 Skill (need 2 for Tier 3) |
 | powergen | 3 | 9 | 2 | 8 | 117 | active | **Tier 3 -- Mature** |
-| battery | 1 | 3 | 0 | 2 | 59 | active | +2 WF, +1 Skill, +3 EMs |
-| biotech | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
+| battery | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
+| biotech | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | cosmetics | 2 | 6 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | datacenter | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
-| defense | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
+| defense | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | food | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
-| logistics | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
+| logistics | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | railway | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
 | semicon | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | shipbuilding | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
@@ -57,18 +57,15 @@
 
 Domains at Tier 1 or below must reach Tier 2 by 2026-10-31. Priority order:
 
-### Industry Domains (8 at Tier 1)
+### Industry Domains (4 at Tier 1)
 
 > Group A (datacenter, food, semicon, cosmetics) promoted to Tier 2 on 2026-08-07 — see matrix rows above.
+> Group B (battery, biotech, defense, logistics) promoted to Tier 2 on 2026-08-07 — 2 industry-unique workflows + 1 skill + 1 EM each; `legal_basis` compliance-verified via live MCP (kr_safety + legalize_kr).
 
-1. **battery** -- 3 workflows, 2 EMs, 59 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-2. **biotech** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-3. **defense** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-4. **logistics** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-5. **railway** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-6. **shipbuilding** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-7. **steelmaking** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-8. **waste** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+1. **railway** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+2. **shipbuilding** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+3. **steelmaking** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+4. **waste** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
 
 ### Functional Domains (6 at Tier 1 or below)
 
@@ -91,18 +88,19 @@ These domains are at Tier 2 and need only a single metric boost to reach Tier 3:
 
 | Metric | Count |
 |--------|-------|
-| Tier 3 (Mature) | 10 domains |
-| Tier 2 (Operational) | 6 domains |
-| Tier 1 (Scaffolded) | 11 domains |
+| Tier 3 (Mature) | 9 domains |
+| Tier 2 (Operational) | 11 domains |
+| Tier 1 (Scaffolded) | 8 domains |
 | Tier 0 (Placeholder) | 2 domains |
 | **Total** | **30 domains** |
 
 ### Tier Distribution
 
-- **Industry domains**: 9 Tier 3, 5 Tier 2, 8 Tier 1, 0 Tier 0
-- **Functional domains**: 1 Tier 3, 1 Tier 2, 3 Tier 1, 2 Tier 0
+- **Industry domains**: 8 Tier 3, 10 Tier 2, 4 Tier 1, 0 Tier 0
+- **Functional domains**: 1 Tier 3, 1 Tier 2, 4 Tier 1, 2 Tier 0
 
 > 2026-08-07 -- Group A maturation: datacenter, food, semicon, cosmetics promoted Tier 1 -> Tier 2 (1 skill + parallel EM additions each).
+> 2026-08-07 -- Group B maturation: battery, biotech, defense, logistics promoted Tier 1 -> Tier 2 (2 industry-unique workflows + 1 skill + 1 EM each; compliance-verified via live MCP).
 
 ## Historical Trend
 (To be populated bi-weekly during architecture reviews)

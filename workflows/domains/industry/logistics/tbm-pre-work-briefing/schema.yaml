@@ -16,3 +16,12 @@ industry_profile: logistics
 agent: logistics-agent
 evidence_model: ../../../../evidence-models/_shared/tbm-record.json
 signature_hazard: 갠트리 크레인 리프팅 및 AGV 운행 구간 작업 전 TBM
+
+
+# ── Shared TBM reference (added by scaffold-industry.ts Task A-01) ──
+# Declares this workflow also consumes the shared TBM base
+# (workflows/_shared/REFERENCE-SPEC.md §3.1 minimal form). Existing
+# top-level fields (signature_hazard, legal_basis, agent) serve as the
+# effective schema; the shared base supplies the common statutory floor.
+references:
+  - shared: ../../../../_shared/tbm

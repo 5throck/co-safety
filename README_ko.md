@@ -47,18 +47,18 @@
 | `gasterm` | 가스터미널 / LNG·LPG·수소 | 12 |
 | `powergen` | 발전설비 / 화력·신재생 (원자력 제외) | 8 |
 | `meddevice` | 의료기기 / KGMP-MD·ISO 13485·ISO 14971 | 8 |
-| `food` | 식품 / HACCP & 식품위생법 | 3 |
-| `cosmetics` | 화장품 / CGMP & ISO 22716 | 3 |
-| `semicon` | 반도체 및 디스플레이 / 클린룸 & 특수가스(NF3/SiH4/HF) | 3 |
-| `battery` | 이차전지 및 폐배터리 리사이클링 / 열폭주 예방 & NMP 회수 | 2 |
-| `shipbuilding` | 조선 및 해양 플랜트 / 선박 탱크 밀폐공간 & 대형 크레인 인양 | 2 |
-| `steelmaking` | 철강 및 금속 제련 / 용광로 LOTO & 부생가스(CO) 누출 방지 | 2 |
-| `datacenter` | 데이터센터 및 IT 인프라 / 리튬이온 UPS 화재 & 고전압 Arc Flash | 3 |
-| `logistics` | 항만 물류 및 물류센터 / 크레인 인양 & AGV & 냉동창고 냉매가스 | 2 |
-| `railway` | 철도 및 도시철도 / 25kV 전차선 감전 & 야간 선로 정비 밀폐 | 2 |
-| `waste` | 폐기물 및 수자원/하수 / 하수조 H2S 질식 예방 & 소각로 LOTO | 2 |
-| `defense` | 방위산업 및 총포·화약 / 추진제 ESD 정전기 & 유도무기 극저온가스 | 2 |
-| `biotech` | 바이오 CDMO 및 연구소 / 배터리용 Bioreactor SIP 멸균 & LMO 유해인자 | 2 |
+| `food` | 식품 / HACCP & 식품위생법 | 5 |
+| `cosmetics` | 화장품 / CGMP & ISO 22716 | 6 |
+| `semicon` | 반도체 및 디스플레이 / 클린룸 & 특수가스(NF3/SiH4/HF) | 5 |
+| `battery` | 이차전지 및 폐배터리 리사이클링 / 열폭주 예방 & NMP 회수 | 5 |
+| `shipbuilding` | 조선 및 해양 플랜트 / 선박 탱크 밀폐공간 & 대형 크레인 인양 | 3 |
+| `steelmaking` | 철강 및 금속 제련 / 용광로 LOTO & 부생가스(CO) 누출 방지 | 3 |
+| `datacenter` | 데이터센터 및 IT 인프라 / 리튬이온 UPS 화재 & 고전압 Arc Flash | 5 |
+| `logistics` | 항만 물류 및 물류센터 / 크레인 인양 & AGV & 냉동창고 냉매가스 | 5 |
+| `railway` | 철도 및 도시철도 / 25kV 전차선 감전 & 야간 선로 정비 밀폐 | 3 |
+| `waste` | 폐기물 및 수자원/하수 / 하수조 H2S 질식 예방 & 소각로 LOTO | 3 |
+| `defense` | 방위산업 및 총포·화약 / 추진제 ESD 정전기 & 유도무기 극저온가스 | 5 |
+| `biotech` | 바이오 CDMO 및 연구소 / 배터리용 Bioreactor SIP 멸균 & LMO 유해인자 | 5 |
 
 ### 공통 서비스 (Tier 3)
 
