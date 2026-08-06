@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-06T09:46:49.737Z
+**Generated**: 2026-08-06T10:26:04.292Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -24,16 +24,16 @@
 | _core/safety-workflow-manager | agents/_core/safety-workflow-manager.md | high | opus | 2026-07-07 |
 | _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-07-10 |
 | _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-07-10 |
-| _shared/compliance-agent | agents/_shared/compliance-agent.md | medium | sonnet | 2026-07-11 |
+| _shared/compliance-agent | agents/_shared/compliance-agent.md | medium | sonnet | 2026-08-06 |
 | _shared/contractor-safety-agent | agents/_shared/contractor-safety-agent.md | medium | sonnet | 2026-07-07 |
 | _shared/disaster-response-agent | agents/_shared/disaster-response-agent.md | high | opus | 2026-07-10 |
 | _shared/docs-writer | agents/_shared/docs-writer.md | medium | sonnet | 2026-07-07 |
-| _shared/emergency-agent | agents/_shared/emergency-agent.md | high | opus | 2026-07-11 |
+| _shared/emergency-agent | agents/_shared/emergency-agent.md | high | opus | 2026-08-06 |
 | _shared/incident-investigation-agent | agents/_shared/incident-investigation-agent.md | medium | sonnet | 2026-07-10 |
 | _shared/legal-agent | agents/_shared/legal-agent.md | medium | sonnet | 2026-07-10 |
 | _shared/occupational-health-agent | agents/_shared/occupational-health-agent.md | medium | sonnet | 2026-07-10 |
 | _shared/reporting-agent | agents/_shared/reporting-agent.md | medium | sonnet | 2026-07-10 |
-| _shared/risk-assessment-agent | agents/_shared/risk-assessment-agent.md | medium | sonnet | 2026-07-21 |
+| _shared/risk-assessment-agent | agents/_shared/risk-assessment-agent.md | medium | sonnet | 2026-08-06 |
 | domains/functional/msds/msds-agent | agents/domains/functional/msds/msds-agent.md | medium | sonnet | 2026-07-10 |
 | domains/functional/psm/psm-agent | agents/domains/functional/psm/psm-agent.md | medium | sonnet | 2026-07-11 |
 | domains/functional/training/training-agent | agents/domains/functional/training/training-agent.md | medium | sonnet | 2026-07-07 |
