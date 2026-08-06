@@ -68,14 +68,26 @@
 
 ## 2-Tier 매트릭스 아키텍처
 
-| 기능 서비스 (Tier 1) | `GxP` (제약) | `ehschem` (화학) | `gasterm` (가스/에너지) | `powergen` (발전) | `ehsconst` (건설) | `meddevice` (의료기기) |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| `psm` (공정안전) | | ✓ | ✓ | ✓ | | |
-| `msds` (화학데이터) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `training` (안전교육) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `emergency` (공통 대응) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+### 전통 EHS 및 GxP 산업군
 
-> `✓` = 해당 산업 도메인에 기능 서비스 적용 · 빈칸 = 해당 없음 · `GxP` = GMP, GDP, GLP, GCP, GVP
+| 기능 서비스 (Tier 1) | `GxP` (제약) | `ehschem` (화학) | `gasterm` (가스/에너지) | `powergen` (발전) | `ehsconst` (건설) | `meddevice` (의료기기) | `food` (식품) | `cosmetics` (화장품) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| `psm` (공정안전) | | ✓ | ✓ | ✓ | | | | |
+| `msds` (화학데이터) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `training` (안전교육) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `emergency` (공통 대응) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+### 첨단 제조 및 인프라 산업군
+
+| 기능 서비스 (Tier 1) | `semicon` (반도체) | `battery` (배터리) | `shipbuilding` (조선) | `steelmaking` (철강) | `datacenter` (데이터센터) | `logistics` (물류) | `railway` (철도) | `waste` (폐기물) | `defense` (방산) | `biotech` (바이오) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| `psm` (공정안전) | ✓ | | | | | | | | ✓ | |
+| `msds` (화학데이터) | ✓ | ✓ | ✓ | ✓ | | ✓ | | ✓ | ✓ | ✓ |
+| `training` (안전교육) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `emergency` (공통 대응) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+> `✓` = 해당 산업 도메인에 기능 서비스 적용 · 빈칸 = 해당 없음 · `GxP` = GMP, GDP, GLP, GCP, GVP  
+> `contractor-safety`와 `occupational-health`는 대정수(TAR) 이벤트 기반으로 화학·가스·중공업 도메인에서 트리거됨 (고정 열이 아닌 이벤트 기반).
 >
 > **산업 도메인 (Tier 2, 열) = 매트릭스 코디네이터.** 공정안전(PSM), 화학데이터(MSDS), 교육(Training) 등 기능 서비스(Tier 1, 행)에 dispatch합니다. [자세히 보기 →](docs/_shared/domain-classification-guide_ko.md)
 
@@ -94,7 +106,7 @@
 ### 아키텍처 및 설계
 | 문서 | 용도 |
 |------|------|
-| [아키텍처 개요 (EN)](docs/_meta/architecture-overview.md) | 15-도메인 시스템 아키텍처 |
+| [아키텍처 개요 (EN)](docs/_meta/architecture-overview.md) | 27-도메인 시스템 아키텍처 (기능 5개 + 산업 22개) |
 | [도메인 추가 가이드](docs/_shared/domain-onboarding-guide_ko.md) | 신규 도메인 11단계 SOP + Active Domains Registry |
 | [Reference 워크플로우 패턴](docs/_shared/reference-workflow-pattern_ko.md) | Reference 워크플로우 설계 (10개 적용) |
 
@@ -107,7 +119,9 @@
 | 도메인 | Scope |
 |--------|-------|
 | 기능 | [MSDS](docs/domains/functional/msds/scope.md) · [Training](docs/domains/functional/training/scope.md) |
-| 산업 | [GMP](docs/domains/industry/gmp/scope.md) · [GDP](docs/domains/industry/gdp/scope.md) · [GLP](docs/domains/industry/glp/scope.md) · [GCP](docs/domains/industry/gcp/scope.md) · [GVP](docs/domains/industry/gvp/scope.md) · [ehsconst](docs/domains/industry/ehsconst/scope.md) · [ehschem](docs/domains/industry/ehschem/scope.md) · [gasterm](docs/domains/industry/gasterm/scope.md) · [powergen](docs/domains/industry/powergen/scope.md) · [meddevice](docs/domains/industry/meddevice/scope.md) |
+| GxP 및 헬스케어 | [GMP](docs/domains/industry/gmp/scope.md) · [GDP](docs/domains/industry/gdp/scope.md) · [GLP](docs/domains/industry/glp/scope.md) · [GCP](docs/domains/industry/gcp/scope.md) · [GVP](docs/domains/industry/gvp/scope.md) · [meddevice](docs/domains/industry/meddevice/scope.md) · [food](docs/domains/industry/food/scope.md) · [cosmetics](docs/domains/industry/cosmetics/scope.md) |
+| EHS 및 중공업 | [ehsconst](docs/domains/industry/ehsconst/scope.md) · [ehschem](docs/domains/industry/ehschem/scope.md) · [gasterm](docs/domains/industry/gasterm/scope.md) · [powergen](docs/domains/industry/powergen/scope.md) · [shipbuilding](docs/domains/industry/shipbuilding/scope.md) · [steelmaking](docs/domains/industry/steelmaking/scope.md) |
+| 첨단 기술 및 인프라 | [semicon](docs/domains/industry/semicon/scope.md) · [battery](docs/domains/industry/battery/scope.md) · [datacenter](docs/domains/industry/datacenter/scope.md) · [logistics](docs/domains/industry/logistics/scope.md) · [railway](docs/domains/industry/railway/scope.md) · [waste](docs/domains/industry/waste/scope.md) · [defense](docs/domains/industry/defense/scope.md) · [biotech](docs/domains/industry/biotech/scope.md) |
 
 ---
 

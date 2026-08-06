@@ -1,7 +1,7 @@
 # Safety OS — Architecture Overview
 
-> **Last Updated**: 2026-07-11
-> **Active Domains**: 15 (5 functional + 10 industry)
+> **Last Updated**: 2026-08-06
+> **Active Domains**: 27 (5 functional + 22 industry)
 > **Architecture**: 2-Tier functional × industry matrix
 
 ## 1. System Overview
@@ -12,17 +12,20 @@ Safety OS is a multi-domain compliance orchestration platform for Korean EHS/GxP
 ┌─────────────────────────────────────────────────────────────────┐
 │                    PM Agent (CSO / Chief Safety Officer)         │
 │                    Facilitator + final authority                  │
-├─────────────┬───────────────────────────────────────────────────┤
+├─────────────┬─────────────────────────────────────────────┤
 │  SGM        │  SWM (Safety Workflow Manager)                     │
 │  Strategy   │  Execution coordinator                             │
 │  KPI/Policy │  Dispatches to domain agents                       │
-├─────────────┴───────────────────────────────────────────────────┤
-│                    Domain Agents (15 active)                      │
+├─────────────┴─────────────────────────────────────────────┤
+│                    Domain Agents (27 active)                      │
 ├──────────────────────────┬──────────────────────────────────────┤
 │  Functional (Tier 1)     │  Industry (Tier 2)                    │
-│  PSM  MSDS  Training      │  GMP  GDP  GLP  GCP  GVP              │
-│  contractor-safety        │  ehsconst  ehschem  gasterm           │
-│  occupational-health      │  powergen  meddevice                  │
+│  PSM  MSDS  Training      │  GxP (GMP/GDP/GLP/GCP/GVP)            │
+│  contractor-safety        │  ehschem  gasterm  powergen           │
+│  occupational-health      │  ehsconst  meddevice  food  cosmetics │
+│                          │  semicon  battery  shipbuilding        │
+│                          │  steelmaking  datacenter  logistics    │
+│                          │  railway  waste  defense  biotech      │
 ├──────────────────────────┴──────────────────────────────────────┤
 │              Cross-Cutting Services (Tier 3)                      │
 │  Emergency (9 scenarios)  │  Daily EHS (6 workflows)             │
@@ -32,19 +35,22 @@ Safety OS is a multi-domain compliance orchestration platform for Korean EHS/GxP
 
 ## 2. 2-Tier Matrix
 
+### Legacy & GxP Industries
 ```
-                 Pharma(GxP)  Chemical    Gas/Energy   Power    Construction   MedDevice
-PSM (func)           -          ✓            ✓           ✓          -              -
-MSDS (func)          ✓          ✓            ✓           ✓          ✓              ✓
-Training (func)      ✓          ✓            ✓           ✓          ✓              ✓
-Emergency (cc)       ✓          ✓            ✓           ✓          ✓              ✓
-─────────────────────────────────────────────────────────────────────────────────────────
-GMP/GDP/GLP/GCP/GVP (ind)   ✓
-ehsconst (ind)                                                        ✓
-ehschem (ind)                    ✓
-gasterm (ind)                                ✓
-powergen (ind)                                            ✓
-meddevice (ind)                                                                     ✓
+                 Pharma(GxP)  Chemical    Gas/Energy   Power    Construction   MedDevice   Food    Cosmetics
+PSM (func)           -          ✓            ✓           ✓          -              -         -        -
+MSDS (func)          ✓          ✓            ✓           ✓          ✓              ✓         ✓        ✓
+Training (func)      ✓          ✓            ✓           ✓          ✓              ✓         ✓        ✓
+Emergency (cc)       ✓          ✓            ✓           ✓          ✓              ✓         ✓        ✓
+```
+
+### Advanced Manufacturing & Infrastructure Industries
+```
+                 Semicon   Battery   Shipbuilding  Steelmaking  DataCenter  Logistics  Railway  Waste  Defense  Biotech
+PSM (func)         ✓         -           -             -            -           -         -       -       ✓       -
+MSDS (func)        ✓         ✓           ✓             ✓            -           ✓         -       ✓       ✓       ✓
+Training (func)    ✓         ✓           ✓             ✓            ✓           ✓         ✓       ✓       ✓       ✓
+Emergency (cc)     ✓         ✓           ✓             ✓            ✓           ✓         ✓       ✓       ✓       ✓
 ```
 
 > `contractor-safety` and `occupational-health` (functional) apply to TAR/Major-Turnaround surge scenarios across industry domains — not shown as matrix columns since they're triggered by event type (TAR), not a fixed industry.
@@ -61,8 +67,9 @@ meddevice (ind)                                                                 
 | contractor-safety | 1 | 1 | TAR/Major Turnaround contractor surge |
 | occupational-health | 1 | 1 | TAR/Major Turnaround health screening |
 
-### Industry Domains (10)
+### Industry Domains (22)
 
+#### GxP & Healthcare (8)
 | Domain | Workflows | Evidence Models | Key Standard |
 |--------|-----------|-----------------|--------------|
 | GMP | 10 | 11 | KP-GMP + ICH Q7/Q9/Q10 |
@@ -70,11 +77,31 @@ meddevice (ind)                                                                 
 | GLP | 8 | 7 | OECD GLP + MAD |
 | GCP | 8 | 7 | KGCP + ICH E6(R3) |
 | GVP | 8 | 7 | ICH E2 series + EU GVP |
+| meddevice | 8 | 7 | KGMP-MD + ISO 13485 + ISO 14971 |
+| food | 3 | 3 | 식품위생법 + MFDS HACCP |
+| cosmetics | 3 | 3 | 화장품법 + MFDS CGMP + ISO 22716 |
+
+#### Traditional EHS & Heavy Industry (6)
+| Domain | Workflows | Evidence Models | Key Standard |
+|--------|-----------|-----------------|--------------|
 | ehsconst | 9 | 9 | OSHA-KR + SAPA Art 12 |
 | ehschem | 8 | 6 | CCA + K-REACH + 환경법 |
 | gasterm | 12 | 11 | 고압가스법 + LPG법 + 수소법 |
 | powergen | 8 | 8 | 전기사업법 + 전기안전법 |
-| meddevice | 8 | 7 | KGMP-MD + ISO 13485 + ISO 14971 |
+| shipbuilding | 2 | 2 | OSHA-KR Art 38/63 + SAPA Art 5 |
+| steelmaking | 2 | 2 | OSHA-KR Art 92 + 고압가스법 |
+
+#### Advanced Tech & Infrastructure (8)
+| Domain | Workflows | Evidence Models | Key Standard |
+|--------|-----------|-----------------|--------------|
+| semicon | 3 | 3 | HPGSCA + CCA + SEMI S2/S8 |
+| battery | 2 | 2 | HMSCA + CCA + NFPA 855 |
+| datacenter | 3 | 3 | ESMA + EBA + NFPA 855 |
+| logistics | 2 | 2 | 항만안전특별법 + OSHA-KR Art 63 |
+| railway | 2 | 2 | 철도안전법 + ESMA |
+| waste | 2 | 2 | 폐기물관리법 + 하수도법 + OSHA-KR Art 618 |
+| defense | 2 | 2 | 총포화약법 + 방위사업법 + HPGSCA |
+| biotech | 2 | 2 | LMO법 + 약사법 + OSHA-KR |
 
 ### Cross-Cutting Services
 
@@ -107,11 +134,11 @@ Industry Domain Agent (coordinator)
 ## 5. Audit System
 
 `safety-audit.ts` v4.3.0 validates:
-- **134 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — including `workflows/daily/**`, `workflows/emergency/**`, and `workflows/compliance/**`, which get the same array/minItems(≥3) check as registered domains (closed 2026-07-11; previously only a truthy check applied to these trees)
-- **120 evidence models** ($ref resolution, domain-specific common fields)
-- **31 regulations** (source_mcp validation) — includes canonical `regulations/KR/OSHA-KR.yaml` and `SAPA.yaml` base files added 2026-07-11
-- **Role separation**: risk-assessment-agent ↔ gmp-qrm, and risk-assessment-agent ↔ psm-agent (added 2026-07-11)
-- **15 domain-specific validations** (5 functional + 10 industry)
+- **162 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
+- **148 evidence models** ($ref resolution, domain-specific common fields)
+- **31 regulations** (source_mcp validation)
+- **Role separation**: risk-assessment-agent ↔ gmp-qrm, and risk-assessment-agent ↔ psm-agent
+- **27 domain-specific validations** (5 functional + 22 industry)
 
 ## 6. Key Documents
 
