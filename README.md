@@ -68,14 +68,26 @@
 
 ## 2-Tier Matrix Architecture
 
-| Functional Service (Tier 1) | `GxP` (Pharma) | `ehschem` (Chemical) | `gasterm` (Gas/Energy) | `powergen` (Power) | `ehsconst` (Construction) | `meddevice` (MedDevice) |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| `psm` (Process Safety) | | ✓ | ✓ | ✓ | | |
-| `msds` (Chemical Data) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `training` (Safety Education) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| `emergency` (Cross-Cutting) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+### Legacy & GxP Industries
 
-> `✓` = functional service applies to this industry domain · (blank) = not applicable · `GxP` = GMP, GDP, GLP, GCP, GVP
+| Functional Service (Tier 1) | `GxP` (Pharma) | `ehschem` (Chemical) | `gasterm` (Gas/Energy) | `powergen` (Power) | `ehsconst` (Construction) | `meddevice` (MedDevice) | `food` (Food) | `cosmetics` (Cosmetics) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| `psm` (Process Safety) | | ✓ | ✓ | ✓ | | | | |
+| `msds` (Chemical Data) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `training` (Safety Education) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `emergency` (Cross-Cutting) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+### Advanced Manufacturing & Infrastructure Industries
+
+| Functional Service (Tier 1) | `semicon` (Fab) | `battery` (Battery) | `shipbuilding` (Ship) | `steelmaking` (Steel) | `datacenter` (DC) | `logistics` (Port) | `railway` (Rail) | `waste` (Waste/Water) | `defense` (Defense) | `biotech` (BioTech) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| `psm` (Process Safety) | ✓ | | | | | | | | ✓ | |
+| `msds` (Chemical Data) | ✓ | ✓ | ✓ | ✓ | | ✓ | | ✓ | ✓ | ✓ |
+| `training` (Safety Education) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `emergency` (Cross-Cutting) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+> `✓` = functional service applies to this industry domain · (blank) = not applicable · `GxP` = GMP, GDP, GLP, GCP, GVP  
+> `contractor-safety` and `occupational-health` apply to TAR/Major-Turnaround surge scenarios across chemical, gas, and heavy industry domains (event-triggered, not fixed columns).
 >
 > **Industry domains (Tier 2, columns) = matrix coordinators.** They dispatch to functional services (Tier 1, rows) for cross-cutting concerns. [Learn more →](docs/_shared/domain-classification-guide.md)
 
@@ -94,7 +106,7 @@
 ### Architecture & Design
 | Document | Purpose |
 |----------|---------|
-| [Architecture Overview](docs/_meta/architecture-overview.md) | 15-domain system architecture |
+| [Architecture Overview](docs/_meta/architecture-overview.md) | 27-domain system architecture (5 functional + 22 industry) |
 | [Domain Onboarding Guide](docs/_shared/domain-onboarding-guide.md) | 11-step SOP for adding new domains + Active Domains Registry |
 | [Reference Workflow Pattern](docs/_shared/reference-workflow-pattern.md) | Reference workflow design (10 applications) |
 
@@ -107,7 +119,9 @@
 | Domain | Scope |
 |--------|-------|
 | Functional | [MSDS](docs/domains/functional/msds/scope.md) · [Training](docs/domains/functional/training/scope.md) |
-| Industry | [GMP](docs/domains/industry/gmp/scope.md) · [GDP](docs/domains/industry/gdp/scope.md) · [GLP](docs/domains/industry/glp/scope.md) · [GCP](docs/domains/industry/gcp/scope.md) · [GVP](docs/domains/industry/gvp/scope.md) · [ehsconst](docs/domains/industry/ehsconst/scope.md) · [ehschem](docs/domains/industry/ehschem/scope.md) · [gasterm](docs/domains/industry/gasterm/scope.md) · [powergen](docs/domains/industry/powergen/scope.md) · [meddevice](docs/domains/industry/meddevice/scope.md) |
+| GxP & Healthcare | [GMP](docs/domains/industry/gmp/scope.md) · [GDP](docs/domains/industry/gdp/scope.md) · [GLP](docs/domains/industry/glp/scope.md) · [GCP](docs/domains/industry/gcp/scope.md) · [GVP](docs/domains/industry/gvp/scope.md) · [meddevice](docs/domains/industry/meddevice/scope.md) · [food](docs/domains/industry/food/scope.md) · [cosmetics](docs/domains/industry/cosmetics/scope.md) |
+| EHS & Heavy Industry | [ehsconst](docs/domains/industry/ehsconst/scope.md) · [ehschem](docs/domains/industry/ehschem/scope.md) · [gasterm](docs/domains/industry/gasterm/scope.md) · [powergen](docs/domains/industry/powergen/scope.md) · [shipbuilding](docs/domains/industry/shipbuilding/scope.md) · [steelmaking](docs/domains/industry/steelmaking/scope.md) |
+| Advanced Tech & Infrastructure | [semicon](docs/domains/industry/semicon/scope.md) · [battery](docs/domains/industry/battery/scope.md) · [datacenter](docs/domains/industry/datacenter/scope.md) · [logistics](docs/domains/industry/logistics/scope.md) · [railway](docs/domains/industry/railway/scope.md) · [waste](docs/domains/industry/waste/scope.md) · [defense](docs/domains/industry/defense/scope.md) · [biotech](docs/domains/industry/biotech/scope.md) |
 
 ---
 
