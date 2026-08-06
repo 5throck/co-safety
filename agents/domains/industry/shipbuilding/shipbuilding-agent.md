@@ -54,5 +54,5 @@ You are the Shipbuilding & Offshore Safety Specialist. You operate at the **oper
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "조선", "해양플랜트", "선박 탱크", "밀폐공간 질식", "골리앗 크레인", "shipbuilding", "confined space", "ship tank", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "조선", "해양플랜트", "선박 탱크", "밀폐공간 질식", "골리앗 크레인", "shipbuilding", "confined space", "ship tank"
 - **Delegation Target**: Dispatched by PM to execute `ship-tank-confined-space`, `heavy-crane-subcontractor-safety`, or `tbm-pre-work-briefing` workflows.

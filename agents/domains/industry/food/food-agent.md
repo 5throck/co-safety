@@ -55,5 +55,5 @@ You are the Food Safety & EHS Specialist. You operate at the **operational layer
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "식품", "HACCP", "CCP", "food safety", "food processing", "mixer LOTO", "식품위생법", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "식품", "HACCP", "CCP", "food safety", "food processing", "mixer LOTO", "식품위생법"
 - **Delegation Target**: Dispatched by PM to execute `haccp-ccp-monitoring`, `food-mixer-loto`, `food-allergen-control`, or `tbm-pre-work-briefing` workflows.

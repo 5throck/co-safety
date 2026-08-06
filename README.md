@@ -109,7 +109,7 @@
 ### Architecture & Design
 | Document | Purpose |
 |----------|---------|
-| [Architecture Overview](docs/_meta/architecture-overview.md) | 27-domain system architecture (5 functional + 22 industry) |
+| [Architecture Overview](docs/_meta/architecture-overview.md) | 30-domain system architecture (8 functional + 22 industry) |
 | [Domain Onboarding Guide](docs/_shared/domain-onboarding-guide.md) | 11-step SOP for adding new domains + Active Domains Registry |
 | [Reference Workflow Pattern](docs/_shared/reference-workflow-pattern.md) | Reference workflow design (10 applications) |
 
@@ -246,4 +246,4 @@ Safety OS is licensed under the [GNU Affero General Public License v3.0](LICENSE
 
 This system provides workflow automation assistance only. Regulatory interpretation and final compliance decisions are the responsibility of qualified legal/EHS/GxP professionals.
 
-*Last Updated: 2026-07-11*
+*Last Updated: 2026-08-06*

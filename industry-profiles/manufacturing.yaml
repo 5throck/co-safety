@@ -1,11 +1,20 @@
 # Manufacturing Industry Profile — MVP
+profile_id: manufacturing
 name: manufacturing
 display_name: "제조업 (Manufacturing)"
-description: Standard manufacturing operations, focusing on equipment safety and general occupational health.
-applicable_laws:
+version: "1.0"
+status: draft
+last_updated: 2026-08-06
+industry_tier: industry
+agent: manufacturing-agent
+legal_basis:
   - 산업안전보건법 (Occupational Safety and Health Act)
   - 중대재해처벌법 (Serious Accidents Punishment Act)
   - OSHA-KR Article 38
+key_hazards:
+  - falls
+  - heavy_equipment
+  - general_machinery_hazards
 workflows:
   daily:
     - risk-assessment
@@ -14,4 +23,6 @@ workflows:
     - contractor-management
     - safety-training
     - safety-patrol
-status: draft
+description: Standard manufacturing operations, focusing on equipment safety and general occupational health.
+risk_level: High
+psm_required: false

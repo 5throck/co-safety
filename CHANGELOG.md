@@ -6,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed (2026-08-06 — Post-v0.1.0 Sync Adjustments)
+
+- **docs/_meta/ROADMAP.md**: Moved from project root to `docs/_meta/` to comply with File Organization Policy (root `.md` restricted to README/CHANGELOG/AGENTS/SECURITY). Internal links and cross-references updated.
+
+## [0.1.0] - 2026-08-06
+
+### Added (2026-08-06 — Project Improvement Meeting: Architecture & Compliance Hardening)
+
+- **evidence-models/_shared/loto-record.json**: New cross-cutting LOTO (Lockout/Tagout) base evidence model — second application of the cross-cutting promotion pattern (after TBM). Extracted common LOTO fields from `psm-loto-record.json` with `industry_profile` enum (15 industries) and `industry_specific_fields` extension. Enriched `energy_sources` to object array with magnitude.
+- **docs/_meta/adr/ADR-001-cross-cutting-evidence-promotion.md**: First project ADR documenting the cross-cutting promotion pattern with a 4-criteria promotion checklist (3+ domains, >70% common fields, parameterizable provisions, regulatory alignment). Establishes precedent for future promotions (confined space entry, hot work permit).
+- **industry-profiles/_schema.yaml + _validate.ts**: Canonical industry profile schema definition + standalone validation script. All 26 profile YAMLs migrated from 3 incompatible patterns (A/B/C) to a single canonical structure (`profile_id`, `name`, `display_name`, `version`, `status`, `last_updated`, `industry_tier`, `agent`, `legal_basis`, `key_hazards`). Validation: 26/26 PASS.
+- **docs/_meta/ROADMAP.md**: New strategic roadmap document with domain maturity phases and bi-weekly architecture review cadence (see P2-1). Placed under `docs/_meta/` per File Organization Policy (root `.md` restricted to README/CHANGELOG/AGENTS/SECURITY).
+
+### Fixed (2026-08-06 — Project Improvement Meeting: Critical Compliance & Documentation)
+
+- **regulations/KR/legal-glossary.yaml** (v1.0.3 → v1.0.4): Three compliance corrections — (1) 수소경제법 제32조/제33조 had identical fabricated descriptions, now reflect actual statute text (종합정보관리시스템 구축·운영 / 수소산업진흥전담기관 지정); (2) 항만안전특별법 제4조 (procedural "relationship to other laws") was misused as substantive safety basis in 2 logistics workflows, corrected to 제6조 (안전확보 의무); (3) 산업안전보건기준에 관한 규칙 added as formal `subordinate_rules:` entry with Art.92/618/623 (MOEL administrative rule, not a statute).
+- **README.md + README_ko.md**: Footer date 2026-07-11 → 2026-08-06; domain count "27-domain (5 functional + 22 industry)" → "30-domain (8 functional + 22 industry)".
+- **docs/_meta/architecture-overview.md**: ASCII diagram "Domain Agents (27 active)" → "30 active"; functional box expanded to all 8 functional domains; schema count 176 → 191.
+- **agents/_shared/{compliance,emergency,risk-assessment}-agent.md**: Added missing PM-ONLY INVOCATION sections (PM Gateway Policy enforcement — 3 of 12 shared agents were bypassable).
+- **agents/domains/industry/{ehschem,gasterm,powergen,steelmaking,shipbuilding,waste,defense,semicon,battery,biotech,datacenter,logistics,railway,food}-agent.md** (14 files): Removed TBM dispatch triggers from Dispatch Trigger lines to resolve ambiguity with the shared `tool-box-meeting` skill. Ownership/execution of `tbm-pre-work-briefing` workflow retained. ehsconst keeps TBM triggers as dedicated construction TBM owner.
+
 ### Added (2026-08-06 — Korean Statute YAML Registration for 15 Phantom Laws)
 
 - **regulations/KR/**: Registered 15 statute YAML files that were cited as `legal_basis` across the codebase but had no corresponding regulation file (phantom citations). Each follows the Tier 2 schema (source_mcp, regulator, primary_law.articles, key_hazards) with article text verified against `.cache/legalize-kr/`:

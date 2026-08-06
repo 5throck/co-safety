@@ -109,7 +109,7 @@
 ### 아키텍처 및 설계
 | 문서 | 용도 |
 |------|------|
-| [아키텍처 개요 (EN)](docs/_meta/architecture-overview.md) | 27-도메인 시스템 아키텍처 (기능 5개 + 산업 22개) |
+| [아키텍처 개요 (EN)](docs/_meta/architecture-overview.md) | 30-도메인 시스템 아키텍처 (기능 8개 + 산업 22개) |
 | [도메인 추가 가이드](docs/_shared/domain-onboarding-guide_ko.md) | 신규 도메인 11단계 SOP + Active Domains Registry |
 | [Reference 워크플로우 패턴](docs/_shared/reference-workflow-pattern_ko.md) | Reference 워크플로우 설계 (10개 적용) |
 
@@ -246,4 +246,4 @@ Safety OS는 [GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0)에 따
 
 본 시스템은 워크플로우 자동화 지원만 제공합니다. 규제 해석 및 최종 컴플라이언스 판단은 자격을 갖춘 법률/EHS/GxP 전문가의 책임입니다.
 
-*Last Updated: 2026-07-11*
+*Last Updated: 2026-08-06*

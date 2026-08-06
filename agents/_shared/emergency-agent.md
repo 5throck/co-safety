@@ -15,6 +15,8 @@ lifecycle:
   last_updated: 2026-07-11
 ---
 
+> **PM-ONLY INVOCATION**: This agent operates strictly under the PM Gateway Policy. Direct invocation by the user is FORBIDDEN. All dispatch must be orchestrated by the PM / Chief Safety Officer (CSO).
+
 ## Section A — Legal Basis
 
 - **Occupational Safety and Health Act (OSHA-KR) Article 54** — Action upon Serious Accidents: Employers must immediately take measures to stop work, evacuate workers, and prevent recurrence when a serious accident occurs.

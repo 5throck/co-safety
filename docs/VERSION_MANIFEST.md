@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-06T05:39:00.115Z
+**Generated**: 2026-08-06T09:46:49.737Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -42,10 +42,10 @@
 | domains/industry/cosmetics/cosmetics-agent | agents/domains/industry/cosmetics/cosmetics-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/datacenter/datacenter-agent | agents/domains/industry/datacenter/datacenter-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/defense/defense-agent | agents/domains/industry/defense/defense-agent.md | medium | sonnet | 2026-08-06 |
-| domains/industry/ehschem/ehschem-agent | agents/domains/industry/ehschem/ehschem-agent.md | medium | sonnet | 2026-07-10 |
+| domains/industry/ehschem/ehschem-agent | agents/domains/industry/ehschem/ehschem-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/ehsconst/ehsconst-agent | agents/domains/industry/ehsconst/ehsconst-agent.md | medium | sonnet | 2026-07-10 |
 | domains/industry/food/food-agent | agents/domains/industry/food/food-agent.md | medium | sonnet | 2026-08-06 |
-| domains/industry/gasterm/gasterm-agent | agents/domains/industry/gasterm/gasterm-agent.md | medium | sonnet | 2026-07-10 |
+| domains/industry/gasterm/gasterm-agent | agents/domains/industry/gasterm/gasterm-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/gcp/gcp-agent | agents/domains/industry/gcp/gcp-agent.md | medium | sonnet | 2026-07-10 |
 | domains/industry/gdp/gdp-agent | agents/domains/industry/gdp/gdp-agent.md | medium | sonnet | 2026-07-10 |
 | domains/industry/glp/glp-agent | agents/domains/industry/glp/glp-agent.md | medium | sonnet | 2026-07-10 |
@@ -53,7 +53,7 @@
 | domains/industry/gvp/gvp-agent | agents/domains/industry/gvp/gvp-agent.md | medium | sonnet | 2026-07-10 |
 | domains/industry/logistics/logistics-agent | agents/domains/industry/logistics/logistics-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/meddevice/meddevice-agent | agents/domains/industry/meddevice/meddevice-agent.md | medium | sonnet | 2026-07-10 |
-| domains/industry/powergen/powergen-agent | agents/domains/industry/powergen/powergen-agent.md | medium | sonnet | 2026-07-10 |
+| domains/industry/powergen/powergen-agent | agents/domains/industry/powergen/powergen-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/railway/railway-agent | agents/domains/industry/railway/railway-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/semicon/semicon-agent | agents/domains/industry/semicon/semicon-agent.md | medium | sonnet | 2026-08-06 |
 | domains/industry/shipbuilding/shipbuilding-agent | agents/domains/industry/shipbuilding/shipbuilding-agent.md | medium | sonnet | 2026-08-06 |

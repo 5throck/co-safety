@@ -54,5 +54,5 @@ You are the Steelmaking & Heavy Metals Safety Specialist. You operate at the **o
 
 ### Workflow Integration
 
-- **Dispatch Trigger**: "철강", "제련", "용광로", "전기로", "용융물", "부생가스", "CO가스", "steelmaking", "blast furnace", "molten metal", "TBM", "Tool Box Meeting", "안전점검회의"
+- **Dispatch Trigger**: "철강", "제련", "용광로", "전기로", "용융물", "부생가스", "CO가스", "steelmaking", "blast furnace", "molten metal"
 - **Delegation Target**: Dispatched by PM to execute `molten-metal-loto`, `byproduct-gas-leak-prevent`, or `tbm-pre-work-briefing` workflows.
