@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — 5 Major Industrial Domains Expansion)
+
+- **agents/domains/industry/{semicon,battery,shipbuilding,steelmaking,datacenter}/**: Added 5 specialist agents (`semicon-agent`, `battery-agent`, `shipbuilding-agent`, `steelmaking-agent`, `datacenter-agent`) and registered all in `AGENTS.md`.
+- **industry-profiles/{semicon-cleanroom,battery-manufacturing,shipbuilding-heavy,steelmaking-heavy,datacenter-infrastructure}.yaml**: Added 5 industry profiles covering semiconductor, battery/recycling, shipbuilding, steelmaking, and data center IT infrastructure.
+- **workflows/domains/industry/{semicon,battery,shipbuilding,steelmaking,datacenter}/**: Added 10 core workflow schemas covering special gas handling, cleanroom HF safety, battery thermal runaway, recycling hazard control, ship tank confined space, Goliath crane subcontractor safety, molten metal LOTO, byproduct gas leak, UPS fire safety, and high-voltage facility safety.
+- **evidence-models/domains/industry/{semicon,battery,shipbuilding,steelmaking,datacenter}/**: Added 10 evidence model JSON schemas for all 5 expansion domains.
+
 ### Added (2026-08-06 — Food & Cosmetics Domain Expansion)
 
 - **agents/domains/industry/{food,cosmetics}/**: Added `food-agent` (Food Safety & HACCP Specialist) and `cosmetics-agent` (Cosmetics Safety & CGMP Specialist) to `agents/` and registered both in `AGENTS.md`.
