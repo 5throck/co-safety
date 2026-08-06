@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-06T22:06:14.280Z
+**Generated**: 2026-08-06T22:55:35.522Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -9,7 +9,7 @@
 ## Summary
 
 - **Agents**: 40
-- **Skills**: 74
+- **Skills**: 78
 - **Scripts**: 57
 - **Commands**: 7
 
@@ -75,6 +75,7 @@
 | benefit-risk-assessor | 1.0 | .claude/skills/benefit-risk-assessor/SKILL.md | both | 편익위해평가, benefit-risk assessment, PrOACT-URL, BRAT, MCDA, 위해편익 균형, PBRER 재평가, RMP 재평가 | gvp-agent |
 | bsl-lab-aerosol-control-planner | 1.0 | .claude/skills/bsl-lab-aerosol-control-planner/SKILL.md | both | BSL-2 BSL-3 실험실 에어로졸, bsl lab bioaerosol control, 생물안전캐비닛 BSC 작업, biological safety cabinet certification, 원심분리 에어로졸 밀폐, centrifuge sealed cup aerosol, 샤프스 재해 예방, sharps injury prevention needlestick, BSA Article 13 IRB 심의, LMO법 Article 22 밀폐관리, 생물유해인자 취급 작업, biohazard agent lab practice | biotech-agent |
 | chemical-risk-assessment | 1.0 | .claude/skills/chemical-risk-assessment/SKILL.md | both | 화학물질 위험성평가, chemical risk assessment, 노출평가, exposure assessment, RCR, 허용기준 초과, OEL DNEL, 신규화학물질 도입승인 | msds-agent |
+| coke-oven-pah-heat-stress-planner | 1.0 | .claude/skills/coke-oven-pah-heat-stress-planner/SKILL.md | both | 코크스로 작업 PAH 발암물질, coke oven PAH carcinogen, 코올타르피치 휘발성 유기화합물, coal tar pitch volatile CTPV, 노정 극고온 열스트레스, oven top heat stress steelmaking, 코크스로 가스 누출, coke oven gas leak, IARC Group 1 코크스 배출물, IARC Group 1 coke oven emissions, OSHA-KR Article 125 작업환경측정, OSHA-KR Article 130 특수건강진단, DSSMA Article 5 코크스 위험물, 특수건강진단 코크스로 작업자 | steelmaking-agent |
 | completion-inspection | 1.0.0 | .claude/skills/completion-inspection/SKILL.md | both | completion inspection, final inspection, permit issuance, 완성검사, 최종검사, 사용전검사 | gasterm-agent |
 | compliance-gap | 1.0.0 | .claude/skills/compliance-gap/SKILL.md | both | 컴플라이언스 갭, compliance gap, 준법 감시, 법률 검토, regulatory compliance, 규제 준수, 법적 요건, legal requirement review | compliance-agent |
 | construction-permit-overview | 1.0.0 | .claude/skills/construction-permit-overview/SKILL.md | both | construction permit, permit lifecycle, gas terminal construction, KGS inspection, 가스시설 공사, 공사허가, 검사일정, 건설인허가 | gasterm-agent |
@@ -98,6 +99,7 @@
 | hazop-analysis | 1.0.0 | .claude/skills/hazop-analysis/SKILL.md | both | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
 | hv-cell-formation-electrical-safety-planner | 1.0 | .claude/skills/hv-cell-formation-electrical-safety-planner/SKILL.md | both | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, OSHA-KR Article 101 감전 위험 방지, aging room thermal interlock, DC arc flash battery | battery-agent |
 | iso14971-risk-scorer | 1.0 | .claude/skills/iso14971-risk-scorer/SKILL.md | both | ISO 14971, 위해 추정, risk estimation, 심각도 발생확률 매트릭스, severity probability matrix, 잔여위험, residual risk, ALARP | meddevice-agent |
+| landfill-methane-anaerobic-explosion-planner | 1.0 | .claude/skills/landfill-methane-anaerobic-explosion-planner/SKILL.md | both | 매립지 메탄 가스 폭발, landfill methane CH4 explosion, 혐기소화 소화조 biogas, anaerobic digestion biogas, 침출수 화학적 위해, leachate chemical hazard landfill, 사면 붕괴 매립지, landfill slope collapse, 매립지 깊은 화재 소방, deep seated landfill fire, 가스 추출정 LEL 모니터링, gas extraction well LEL monitoring, WCA Article 25 폐기물처리업 허가, BFS Article 16 소방활동, Sudokwon Landfill safety | waste-agent |
 | legalize-kr-sync | 1.0.0 | skills/legalize-kr-sync/SKILL.md | workspace | clone legalize-kr, fetch laws, sync korean laws | safety-workflow-manager |
 | legalize-kr-sync | 1.0.0 | .claude/skills/legalize-kr-sync/SKILL.md | both | clone legalize-kr, fetch laws, sync korean laws | safety-workflow-manager |
 | meeting | 1.5.0 | .claude/skills/meeting/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
@@ -106,6 +108,7 @@
 | mid-construction-inspection | 1.0.0 | .claude/skills/mid-construction-inspection/SKILL.md | both | mid-construction inspection, construction inspection, 중간검사, 공사검사, 현장검사 | gasterm-agent |
 | msds-parser | 1.0 | .claude/skills/msds-parser/SKILL.md | both | MSDS 파싱, MSDS parser, SDS 16항목, 물질안전보건자료, GHS 16-section, msds-record.json, 공급자 MSDS 양식 | msds-agent |
 | munitions-magazine-storage-safety-planner | 1.0 | .claude/skills/munitions-magazine-storage-safety-planner/SKILL.md | both | 탄약 마가진 저장 안전, munitions magazine storage safety, 화약류 안전거리 Q-D, quantity-distance siting explosives, 호환성 그룹 분리 저장, compatibility group segregation, UN hazard division 1.1 1.2 1.3, sympathetic detonation prevention, 화약류안전관리자 선임, FSESA Article 23 explosives safety manager, 마가진 낙뢰 정전기 대책, magazine lightning protection | defense-agent |
+| painting-coating-fire-toxic-planner | 1.0 | .claude/skills/painting-coating-fire-toxic-planner/SKILL.md | both | 조선 도장 작업 화재 폭발, ship painting coating fire, 선박 도료 가연성 증기 LEL, paint vapor LEL explosion shipyard, 유기용제 흡입 노출 도장, solvent vapor inhalation painting, 도장 베이 화재 대응, paint bay fire response, 밀폐구역 도장 산소결핍, confined area painting O2 deficiency, DSSMA Article 5 도장 위험물, DSSMA Article 27 응급조치, OSHA-KR Article 110 MSDS 작성, SAPA Article 5 도급 사업주 | shipbuilding-agent |
 | permit-to-work | 1.0.1 | .claude/skills/permit-to-work/SKILL.md | both | 작업허가서, permit to work, PTW, hot work permit, 화기작업, 밀폐공간작업, confined space | safety-workflow-manager |
 | platform-command-lifecycle-manager | 1.0.0 | .claude/skills/platform-command-lifecycle-manager/SKILL.md | both | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
 | platform-skill-lifecycle-manager | 1.0.0 | .claude/skills/platform-skill-lifecycle-manager/SKILL.md | both | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
@@ -120,6 +123,7 @@
 | rack-fall-protection-planner | 1.0 | .claude/skills/rack-fall-protection-planner/SKILL.md | both | 데이터센터 추락 방지, 서버 랙 설치 작업, rack install fall protection, overhead cabling work-at-height, top-of-rack 작업, 제상플로어 접근, raised-floor tile handling, datacenter work-at-height plan, 랙 설치 사다리 선택, rack anchor point rating | datacenter-agent |
 | research-analysis | 1.0.0 | .claude/skills/research-analysis/SKILL.md | both | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | N/A |
 | risk-assessment | 1.0.0 | .claude/skills/risk-assessment/SKILL.md | both | 위험성평가, risk assessment, hazard identification, 위험 평가, 작업위험성분석 | risk-assessment-agent |
+| rolling-stock-maintenance-loto-planner | 1.0 | .claude/skills/rolling-stock-maintenance-loto-planner/SKILL.md | both | 철도 차량사업소 차량 정비 LOTO, rolling stock depot maintenance, EMU 객차 정비 차량 이동 잠금, rolling stock vehicle movement lockout, bogey 대차 리프팅 크레인, bogey heavy lift rigging, 밑바닥 pit 작업 차량 압사, undercarriage pit work crush, 차량 지붕 추락 방지, roof fall prevention rolling stock, 철도 안전관리자 정비 허가, RSA Article 48 철도 보호, OSHA-KR Article 99 추락 방지 전차선, wheel chock derail brake scotch | railway-agent |
 | root-cause-analysis | 1.0.0 | .claude/skills/root-cause-analysis/SKILL.md | both | 근본원인분석, root cause analysis, RCA, 5 whys, fishbone diagram, 사고조사, CAPA 수립 | incident-investigation-agent |
 | sae-causality-assessor | 1.0 | .claude/skills/sae-causality-assessor/SKILL.md | both | SAE 인과성 평가, causality assessment, ImPACT, WHO-UMC, Naranjo algorithm, ICH E2A, 중대이상반응 인과관계, 이상반응 인과성 | gcp-agent |
 | safety-inspection-validator | 1.0 | .claude/skills/safety-inspection-validator/SKILL.md | both | 안전점검 결과 검증, safety inspection findings, 지적사항 분류, CAPA, 시정조치, Critical Major Minor 분류, 건설 안전점검 | ehsconst-agent |
@@ -154,7 +158,7 @@
 | agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | N/A |
 | analyze-git-history.ts | 1.0.0 | scripts/analyze-git-history.ts | child_process |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
-| audit.ts | 2.6.4 | scripts/audit.ts | bun |
+| audit.ts | 2.6.5 | scripts/audit.ts | bun |
 | auto-executor.ts | 1.0.0 | scripts/lib/auto-executor.ts | N/A |
 | check-pm-approval.ts | 1.0.1 | scripts/check-pm-approval.ts | N/A |
 | checkpoint-manager.ts | 1.0.0 | scripts/lib/checkpoint-manager.ts | N/A |
@@ -226,7 +230,7 @@
 **Checked**: Claude (.claude/) vs Gemini (.gemini/)
 
 - **Commands with parity**: 7 / 7
-- **Skills with parity**: 65 / 74
+- **Skills with parity**: 69 / 78
 
 ---
 

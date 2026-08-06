@@ -34,11 +34,11 @@
 | defense | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | food | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | logistics | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
-| railway | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
+| railway | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (2 unique WFs + skill + EM added 2026-08-07) |
 | semicon | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
-| shipbuilding | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
-| steelmaking | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
-| waste | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
+| shipbuilding | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (2 unique WFs + skill + EM added 2026-08-07) |
+| steelmaking | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (2 unique WFs + skill + EM added 2026-08-07) |
+| waste | 2 | 5 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (2 unique WFs + skill + EM added 2026-08-07) |
 
 ## Functional Domains (8)
 
@@ -57,15 +57,13 @@
 
 Domains at Tier 1 or below must reach Tier 2 by 2026-10-31. Priority order:
 
-### Industry Domains (4 at Tier 1)
+### Industry Domains (0 at Tier 1)
 
 > Group A (datacenter, food, semicon, cosmetics) promoted to Tier 2 on 2026-08-07 — see matrix rows above.
 > Group B (battery, biotech, defense, logistics) promoted to Tier 2 on 2026-08-07 — 2 industry-unique workflows + 1 skill + 1 EM each; `legal_basis` compliance-verified via live MCP (kr_safety + legalize_kr).
+> Group C (railway, shipbuilding, steelmaking, waste) promoted to Tier 2 on 2026-08-07 — 2 industry-unique workflows + 1 skill + 1 EM each; `legal_basis` compliance-verified via live MCP; HPGSCA Art 14/17/28→11/13/15/24/26 remediation + waste CCA Art 23 citation fix.
 
-1. **railway** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-2. **shipbuilding** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-3. **steelmaking** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-4. **waste** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+**All 12 Phase-2 target industries (Groups A + B + C) now at Tier 2.** No industry domains remain at Tier 1.
 
 ### Functional Domains (6 at Tier 1 or below)
 
@@ -89,18 +87,19 @@ These domains are at Tier 2 and need only a single metric boost to reach Tier 3:
 | Metric | Count |
 |--------|-------|
 | Tier 3 (Mature) | 9 domains |
-| Tier 2 (Operational) | 11 domains |
-| Tier 1 (Scaffolded) | 8 domains |
+| Tier 2 (Operational) | 15 domains |
+| Tier 1 (Scaffolded) | 4 domains |
 | Tier 0 (Placeholder) | 2 domains |
 | **Total** | **30 domains** |
 
 ### Tier Distribution
 
-- **Industry domains**: 8 Tier 3, 10 Tier 2, 4 Tier 1, 0 Tier 0
+- **Industry domains**: 8 Tier 3, 14 Tier 2, 0 Tier 1, 0 Tier 0
 - **Functional domains**: 1 Tier 3, 1 Tier 2, 4 Tier 1, 2 Tier 0
 
 > 2026-08-07 -- Group A maturation: datacenter, food, semicon, cosmetics promoted Tier 1 -> Tier 2 (1 skill + parallel EM additions each).
 > 2026-08-07 -- Group B maturation: battery, biotech, defense, logistics promoted Tier 1 -> Tier 2 (2 industry-unique workflows + 1 skill + 1 EM each; compliance-verified via live MCP).
+> 2026-08-07 -- Group C maturation: railway, shipbuilding, steelmaking, waste promoted Tier 1 -> Tier 2 (2 industry-unique workflows + 1 skill + 1 EM each; compliance-verified via live MCP; HPGSCA + waste-CCA citation remediation). All 12 Phase-2 industries now Tier 2.
 
 ## Historical Trend
 (To be populated bi-weekly during architecture reviews)

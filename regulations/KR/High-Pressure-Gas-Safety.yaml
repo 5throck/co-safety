@@ -7,14 +7,24 @@ title_en: High-Pressure Gas Safety Control Act
 primary_law:
   name_ko: 고압가스 안전관리법
   articles:
-    - article: "14"
-      topic_ko: 고압가스 저장탱크 안전
-    - article: "17"
-      topic_ko: 고압가스 취급 기준
-    - article: "28"
+    - article: "11"
+      topic_ko: 안전관리규정 (시설 안전유지 계획 서면 제출)
+    - article: "13"
+      topic_ko: 시설·용기의 안전유지 (충전 전 용기 점검 포함)
+    - article: "15"
       topic_ko: 안전관리자 선임
     - article: "22-2"
       topic_ko: 시설·기술·검사 상세기준 위임 (KGS Code)
+    - article: "24"
+      topic_ko: 허가관청 등의 조치 (사용정지·이전·폐기 명령)
+    - article: "26"
+      topic_ko: 사고의 통보 등 (사망·부상·폭발·화재·누출 통보)
+  verification:
+    verified_via: legalize-kr  # 2026-08-07 (Group C-1b): Art 11/13/15/22-2/24/26 confirmed via parse_law_structure(고압가스안전관리법); MST 283919, lawIdCode 001850
+    replaced_articles: |
+      Removed Art 14 (deleted 1999.2.8), Art 17 (actually 용기등의 검사 — container inspection, NOT safety manager),
+      Art 28 (actually 한국가스안전공사의 설립 — KGS Corporation establishment, NOT safety manager / emergency).
+      See memory/findings/compliance-2026-08-07-phase2-group-c-anchors.md §3.1-3.2.
 kgs_inspection:
   storage_tank: 연 1회
   gas_detector: 월 1회
@@ -31,4 +41,4 @@ applicable_facilities:
   - LPG_충전소 (전국 1200+)
   - 도시가스_저장시설
   - 석유화학_고압가스_시설
-last_updated: "2026-06-18"
+last_updated: "2026-08-07"
