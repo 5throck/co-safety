@@ -2,7 +2,7 @@
 
 > Tracks per-domain completeness to prioritize Phase 2 maturation work.
 > See [ROADMAP.md](ROADMAP.md) for strategic context. Updated bi-weekly.
-> Last Updated: 2026-08-06
+> Last Updated: 2026-08-07
 
 ## Maturity Tiers
 
@@ -29,13 +29,13 @@
 | powergen | 3 | 9 | 2 | 8 | 117 | active | **Tier 3 -- Mature** |
 | battery | 1 | 3 | 0 | 2 | 59 | active | +2 WF, +1 Skill, +3 EMs |
 | biotech | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
-| cosmetics | 1 | 3 | 0 | 3 | 58 | active | +2 WF, +1 Skill, +2 EMs |
-| datacenter | 1 | 4 | 0 | 3 | 59 | active | +1 WF, +1 Skill, +2 EMs |
+| cosmetics | 2 | 6 | 1 | 5 | 58 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
+| datacenter | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | defense | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
-| food | 1 | 4 | 0 | 3 | 59 | active | +1 WF, +1 Skill, +2 EMs |
+| food | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | logistics | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
 | railway | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
-| semicon | 1 | 4 | 0 | 3 | 59 | active | +1 WF, +1 Skill, +2 EMs |
+| semicon | 2 | 5 | 1 | 5 | 59 | active | **Tier 2 -- Operational** (skill added 2026-08-07) |
 | shipbuilding | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
 | steelmaking | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
 | waste | 1 | 3 | 0 | 2 | 58 | active | +2 WF, +1 Skill, +3 EMs |
@@ -57,20 +57,18 @@
 
 Domains at Tier 1 or below must reach Tier 2 by 2026-10-31. Priority order:
 
-### Industry Domains (12 at Tier 1)
+### Industry Domains (8 at Tier 1)
 
-1. **datacenter** -- 4 workflows, 3 EMs, 59 agent lines; needs only +1 Workflow, +1 Skill, +2 EMs
-2. **food** -- 4 workflows, 3 EMs, 59 agent lines; needs only +1 Workflow, +1 Skill, +2 EMs
-3. **semicon** -- 4 workflows, 3 EMs, 59 agent lines; needs only +1 Workflow, +1 Skill, +2 EMs
-4. **cosmetics** -- 3 workflows, 3 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +2 EMs
-5. **battery** -- 3 workflows, 2 EMs, 59 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-6. **biotech** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-7. **defense** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-8. **logistics** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-9. **railway** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-10. **shipbuilding** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-11. **steelmaking** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
-12. **waste** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+> Group A (datacenter, food, semicon, cosmetics) promoted to Tier 2 on 2026-08-07 — see matrix rows above.
+
+1. **battery** -- 3 workflows, 2 EMs, 59 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+2. **biotech** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+3. **defense** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+4. **logistics** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+5. **railway** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+6. **shipbuilding** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+7. **steelmaking** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
+8. **waste** -- 3 workflows, 2 EMs, 58 agent lines; needs +2 Workflows, +1 Skill, +3 EMs
 
 ### Functional Domains (6 at Tier 1 or below)
 
@@ -94,15 +92,17 @@ These domains are at Tier 2 and need only a single metric boost to reach Tier 3:
 | Metric | Count |
 |--------|-------|
 | Tier 3 (Mature) | 10 domains |
-| Tier 2 (Operational) | 2 domains |
-| Tier 1 (Scaffolded) | 15 domains |
+| Tier 2 (Operational) | 6 domains |
+| Tier 1 (Scaffolded) | 11 domains |
 | Tier 0 (Placeholder) | 2 domains |
 | **Total** | **30 domains** |
 
 ### Tier Distribution
 
-- **Industry domains**: 9 Tier 3, 1 Tier 2, 12 Tier 1, 0 Tier 0
+- **Industry domains**: 9 Tier 3, 5 Tier 2, 8 Tier 1, 0 Tier 0
 - **Functional domains**: 1 Tier 3, 1 Tier 2, 3 Tier 1, 2 Tier 0
+
+> 2026-08-07 -- Group A maturation: datacenter, food, semicon, cosmetics promoted Tier 1 -> Tier 2 (1 skill + parallel EM additions each).
 
 ## Historical Trend
 (To be populated bi-weekly during architecture reviews)

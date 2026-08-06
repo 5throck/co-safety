@@ -20,7 +20,7 @@
  *   bun scripts/scaffold-industry.ts --industry battery --unique-wfs silane-gas-leak-response,battery-room-fire-suppression --dry-run
  *   bun scripts/scaffold-industry.ts --validate
  *
- * @version 0.1.0
+ * @version 0.1.1
  */
 
 import * as fs from 'node:fs';
@@ -324,7 +324,7 @@ function renderUniqueWorkflowSchema(
     lines.push('');
     lines.push(`# Industry-unique workflow. NOT a shared-workflow reference (no \`references:\` block).`);
     lines.push(`# Evidence model skeleton — see evidence-models/domains/industry/${industry}/${emRef}.`);
-    lines.push(`evidence_model: ../../../../evidence-models/domains/industry/${industry}/${emRef}`);
+    lines.push(`evidence_model: ${emRef}`);
     return lines.join('\n') + '\n';
 }
 

@@ -39,8 +39,17 @@
  *   validation that registered domains get (previously only a truthy check
  *   applied). Added risk-assessment-agent ↔ psm-agent role-separation check,
  *   mirroring the existing risk-assessment-agent ↔ gmp-qrm check.
+ * v4.3.1 (2026-08-07): Effective legal_basis resolution for the
+ *   `references:` pattern (REFERENCE-SPEC.md §4). When an industry schema
+ *   declares a `references:` block instead of a top-level legal_basis
+ *   (e.g. cosmetics/tbm thin reference to workflows/_shared/tbm/), the audit
+ *   now loads the shared base schema, applies overrides.legal_basis.add
+ *   (append, de-duped) and overrides.legal_basis.replace (substitute), and
+ *   validates the resulting effective list against the ≥3 floor. Both the
+ *   top-level workflow scan and validateDomainWorkflow use the resolver.
+ *   Missing/unreadable shared schemas produce a named error (no crash).
  *
- * @version 4.3.0
+ * @version 4.3.1
  */
 
 import * as fs from 'node:fs';
@@ -95,6 +104,91 @@ function relPath(full: string): string {
     return path.relative(ROOT, full).replace(/\\/g, '/');
 }
 
+// ── Effective legal_basis resolution (REFERENCE-SPEC.md §4) ──────────────────
+// Industry schemas may declare a `references:` block (thin pointer to a shared
+// workflow base under workflows/_shared/) instead of a top-level `legal_basis`.
+// This resolver returns the effective legal_basis array for audit:
+//   1. If the schema has a top-level `legal_basis` array → return it (legacy).
+//   2. Else if the schema has a `references:` block → load each referenced
+//      shared `schema.yaml`, start from its `legal_basis`, then apply
+//      `overrides.legal_basis.replace` (substitute) and/or `.add` (append,
+//      de-duplicated). Multiple references accumulate.
+//   3. Else → return { basis: null } (caller reports "missing legal_basis").
+// Missing/unreadable shared schemas produce a named error in `refErrors`
+// (callers merge it into their error list) — never throws.
+function resolveEffectiveLegalBasis(
+    doc: any,
+    schemaFile: string,
+    rel: string,
+): { basis: string[] | null; refErrors: string[] } {
+    const refErrors: string[] = [];
+
+    // Fast path: top-level legal_basis wins — identical to pre-4.3.1 behavior.
+    if (Array.isArray(doc.legal_basis)) {
+        return { basis: doc.legal_basis, refErrors };
+    }
+
+    const references = Array.isArray(doc.references) ? doc.references : [];
+    if (references.length === 0) {
+        return { basis: null, refErrors };
+    }
+
+    const accumulated: string[] = [];
+    let resolvedAny = false;
+
+    for (const ref of references) {
+        if (!ref || typeof ref.shared !== 'string') continue;
+
+        // spec §3.3: `shared` is a directory path (no extension) relative to
+        // the industry schema.yaml; the shared schema lives at <shared>/schema.yaml.
+        const sharedDir = path.resolve(path.dirname(schemaFile), ref.shared);
+        const sharedSchemaPath = path.join(sharedDir, 'schema.yaml');
+        if (!fs.existsSync(sharedSchemaPath)) {
+            refErrors.push(`${rel}: references.shared does not resolve to a schema.yaml -> ${ref.shared}`);
+            continue;
+        }
+
+        let sharedDoc: any;
+        try {
+            sharedDoc = yaml.load(fs.readFileSync(sharedSchemaPath, 'utf-8')) as any;
+        } catch (e: any) {
+            refErrors.push(`${rel}: references.shared schema.yaml parse error (${ref.shared}) - ${e.message}`);
+            continue;
+        }
+
+        if (!sharedDoc || !Array.isArray(sharedDoc.legal_basis)) {
+            // Shared schema contributes no legal_basis; nothing to merge.
+            continue;
+        }
+
+        resolvedAny = true;
+
+        const lbOverride =
+            ref.overrides && typeof ref.overrides === 'object' ? ref.overrides.legal_basis : null;
+
+        // spec §4: replace substitutes the shared base entirely; otherwise the
+        // base is inherited additively (default — never accidentally removed).
+        if (lbOverride && Array.isArray(lbOverride.replace)) {
+            for (const item of lbOverride.replace) {
+                if (!accumulated.includes(item)) accumulated.push(item);
+            }
+        } else {
+            for (const item of sharedDoc.legal_basis) {
+                if (!accumulated.includes(item)) accumulated.push(item);
+            }
+        }
+
+        // spec §4.1: `add` appends industry-specific statutes (de-duplicated).
+        if (lbOverride && Array.isArray(lbOverride.add)) {
+            for (const item of lbOverride.add) {
+                if (!accumulated.includes(item)) accumulated.push(item);
+            }
+        }
+    }
+
+    return { basis: resolvedAny ? accumulated : null, refErrors };
+}
+
 // ── scan workflows ────────────────────────────────────────────────────────────
 
 console.log(`${CYAN}=== safety-audit.ts - Safety OS Audit check ===${RESET}\n`);
@@ -116,7 +210,13 @@ for (const file of schemaFiles) {
             continue;
         }
 
-        if (!doc.legal_basis) {
+        // v4.3.1: resolve effective legal_basis via REFERENCE-SPEC.md §4 —
+        // supports the thin-reference pattern (references: block pointing to a
+        // shared workflow under workflows/_shared/) used by cosmetics/tbm etc.
+        const { basis: effectiveLegalBasis, refErrors } = resolveEffectiveLegalBasis(doc, file, rel);
+        errors.push(...refErrors);
+
+        if (!effectiveLegalBasis) {
             errors.push(`${rel}: missing legal_basis`);
         } else if (!rel.includes('workflows/domains/')) {
             // workflows/domains/** gets array+minItems validation from
@@ -127,7 +227,7 @@ for (const file of schemaFiles) {
             // enforce the same array+minItems policy here directly.
             const isReference = doc.workflow_type === 'reference';
             const reqMin = isReference ? 2 : DEFAULT_MIN_WORKFLOW_LEGAL_BASIS;
-            if (!Array.isArray(doc.legal_basis) || doc.legal_basis.length < reqMin) {
+            if (!Array.isArray(effectiveLegalBasis) || effectiveLegalBasis.length < reqMin) {
                 errors.push(`${rel}: workflow requires multi-source legal_basis (≥${reqMin})`);
             }
         }
@@ -263,9 +363,15 @@ function validateDomainWorkflow(domainName: string, requiredMin: number = 3, tie
         try {
             const doc = yaml.load(content) as any;
             if (!doc) continue;
+            // v4.3.1: resolve effective legal_basis (REFERENCE-SPEC.md §4) so
+            // registered domains that adopt the thin-reference pattern (e.g.
+            // ehsconst per spec §5) also pass the floor without duplicating
+            // the resolver logic here.
+            const { basis: effectiveLegalBasis, refErrors } = resolveEffectiveLegalBasis(doc, file, rel);
+            errs.push(...refErrors);
             const isReference = doc.workflow_type === 'reference';
             const reqMin = isReference ? 2 : requiredMin;
-            if (!Array.isArray(doc.legal_basis) || doc.legal_basis.length < reqMin) {
+            if (!Array.isArray(effectiveLegalBasis) || effectiveLegalBasis.length < reqMin) {
                 errs.push(`${rel}: ${domainName} workflow requires multi-source legal_basis (≥${reqMin})`);
             }
             if (isReference && !doc.target_agent) {

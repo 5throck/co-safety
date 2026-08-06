@@ -6,6 +6,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-07 — Industry Maturity Phase 1 Group A: 4 Industries → Tier 2)
+
+Derived from the 2026-08-07 industry-maturity meeting (`memory/meeting-2026-08-07-industry-maturity.md`). Promotes **cosmetics, datacenter, food, semicon** from Tier 1 (Scaffolded) to **Tier 2 (Operational)** — each now meets ≥5 workflows, ≥1 skill, ≥5 evidence models, agent ≥50 lines.
+
+- **5 industry-unique workflows** (`workflows/domains/industry/`) — law-first, compliance-verified via live MCP (kr_safety + legalize_kr), `status: active`:
+  - `datacenter/rack-cabling-fall-protection` (OSHA-KR Art 36/57, ESCA Art 16/22, SAPA Art 4–7)
+  - `food/thermal-hazard-control` (BFS Art 16, FSA Art 48, OSHA-KR Art 36, SAPA Art 4)
+  - `semicon/silane-gas-leak-response` (HPGSCA Art 14/17/28, DSSMA Art 27, CCA Art 24, SAPA Art 4)
+  - `cosmetics/solvent-exposure-control` and `cosmetics/powder-dust-control` (OSHA-KR/MSDS Art 110, CA Art 5, K-REACH Art 10, SAPA Art 4)
+- **4 industry Skills** (`skills/domains/industry/`, propagated to `.claude/`/`.gemini/`/`.agents/` via sync-skills): `rack-fall-protection-planner`, `thermal-burn-prevention-planner`, `pyrophoric-gas-emergency-responder`, `cosmetics-solvent-exposure-monitor`. skill-lifecycle-audit: 53/53 healthy.
+- **3 evidence models** (`evidence-models/domains/industry/`, v1.0.0, `status: active`): `datacenter-clean-agent-suppression-record`, `food-foreign-material-detection-record`, `semicon-waste-neutralization-record`. Total EM count 162 → 165.
+- **`workflows/_shared/REFERENCE-APPLICATION-GUIDE.md`** — practitioner guide for adopting shared workflows via the `references:` pattern (meeting Action Item A-08).
+- **`memory/findings/compliance-2026-08-07-phase1-group-a.md`** — MCP-verified `legal_basis` sign-off report (per-workflow VERIFIED/DISCREPANCY/UNVERIFIABLE classification with evidence; 3 supplementary gaps flagged, non-blocking).
+
+### Changed
+
+- **`docs/_meta/domain-maturity-matrix.md`** — cosmetics, datacenter, food, semicon promoted Tier 1 → Tier 2 (Operational). Industry distribution 9/1/12/0 → 9/5/8/0; Tier-1 maturation target list 12 → 8.
+- **`scripts/safety-audit.ts`** (v4.3.0 → v4.3.1) — effective `legal_basis` resolution per REFERENCE-SPEC §4: when a workflow schema has a `references:` block, the audit now follows it to the shared base and applies `overrides.legal_basis.add`/`replace` for the ≥3 check. Resolves the `cosmetics/tbm` thin-reference (effective basis 10 entries). Legacy top-level `legal_basis` fast path unchanged; 0 regressions across 815 files.
+
+### Fixed
+
+- **`scripts/scaffold-industry.ts`** (v0.1.0 → v0.1.1) — `evidence_model` field now emits a bare filename (matching `scripts/new-domain.ts` and the 160+ mature workflows) instead of a wrong-depth relative path (`../../../../…`); the 5 generated industry schemas aligned. Latent generator bug that would otherwise replicate across the 8 remaining Phase 2–3 industries.
+
 ### Changed (2026-08-06 — Multi-Platform Governance: 4-Platform Explicit Support)
 
 - **CONSTITUTION.md**: Rewrote from Claude-centric 2-platform index to platform-neutral 4-platform governance index. Now explicitly documents all four supported client surfaces (Claude Desktop App, Claude Code → CLAUDE.md; Antigravity, Antigravity CLI → GEMINI.md), platform skill layers (`skills/` SSOT → `.claude/`/`.gemini/`/`.agents/` mirrors), and a platform feature difference summary.
