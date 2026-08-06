@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added (2026-08-06 — Food & Cosmetics Domain Expansion)
+
+- **agents/domains/industry/{food,cosmetics}/**: Added `food-agent` (Food Safety & HACCP Specialist) and `cosmetics-agent` (Cosmetics Safety & CGMP Specialist) to `agents/` and registered both in `AGENTS.md`.
+- **industry-profiles/{food-gxp,cosmetics-cgmp}.yaml**: Added industry profiles for Food & Beverage GxP (HACCP) and Cosmetics GxP (CGMP & ISO 22716).
+- **workflows/domains/industry/{food,cosmetics}/**: Added core workflows `haccp-ccp-monitoring`, `food-mixer-loto`, `cgmp-batch-release`, and `cosmetics-safety-assessment`.
+- **evidence-models/domains/industry/{food,cosmetics}/**: Added evidence model JSON schemas `haccp-ccp-record.json`, `food-mixer-loto-record.json`, `cgmp-batch-record.json`, and `cosmetics-safety-assessment-record.json`.
+
 ### Added (2026-08-06 — PM-led Project Review Remediation)
 
 - **docs/user-guide/field-ehs-operational-guide_ko.md**: Added Korean Field EHS Operational Guide (Layer C Canonical) covering 4 daily safety procedures (TBM, Risk Assessment, PTW, LOTO) and PSM 12 elements checklist for floor practitioners.

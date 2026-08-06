@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-06T01:32:36.598Z
+**Generated**: 2026-08-06T01:36:20.381Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -8,7 +8,7 @@
 
 ## Summary
 
-- **Agents**: 28
+- **Agents**: 30
 - **Skills**: 58
 - **Scripts**: 56
 - **Commands**: 7
@@ -37,8 +37,10 @@
 | domains/functional/msds/msds-agent | agents/domains/functional/msds/msds-agent.md | medium | sonnet | 2026-07-10 |
 | domains/functional/psm/psm-agent | agents/domains/functional/psm/psm-agent.md | medium | sonnet | 2026-07-11 |
 | domains/functional/training/training-agent | agents/domains/functional/training/training-agent.md | medium | sonnet | 2026-07-07 |
+| domains/industry/cosmetics/cosmetics-agent | agents/domains/industry/cosmetics/cosmetics-agent.md | medium | sonnet | N/A |
 | domains/industry/ehschem/ehschem-agent | agents/domains/industry/ehschem/ehschem-agent.md | medium | sonnet | 2026-07-10 |
 | domains/industry/ehsconst/ehsconst-agent | agents/domains/industry/ehsconst/ehsconst-agent.md | medium | sonnet | 2026-07-10 |
+| domains/industry/food/food-agent | agents/domains/industry/food/food-agent.md | medium | sonnet | N/A |
 | domains/industry/gasterm/gasterm-agent | agents/domains/industry/gasterm/gasterm-agent.md | medium | sonnet | 2026-07-10 |
 | domains/industry/gcp/gcp-agent | agents/domains/industry/gcp/gcp-agent.md | medium | sonnet | 2026-07-10 |
 | domains/industry/gdp/gdp-agent | agents/domains/industry/gdp/gdp-agent.md | medium | sonnet | 2026-07-10 |

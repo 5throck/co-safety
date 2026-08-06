@@ -79,6 +79,13 @@
 |-------|------|------|------|
 | MedDevice Agent | [`agents/domains/industry/meddevice/meddevice-agent.md`](agents/domains/industry/meddevice/meddevice-agent.md) | Medium | Medical Device Safety specialist; KGMP-MD + ISO 13485 + ISO 14971; design controls, risk management, sterilization validation, and PMS for Class 1-4 devices |
 
+### Food & Cosmetics
+
+| Agent | File | Tier | Role |
+|-------|------|------|------|
+| Food Agent | [`agents/domains/industry/food/food-agent.md`](agents/domains/industry/food/food-agent.md) | Medium | Food Safety specialist; HACCP CCP monitoring, food sanitation, food processing machinery LOTO, and worker EHS per Food Sanitation Act + MFDS Notice |
+| Cosmetics Agent | [`agents/domains/industry/cosmetics/cosmetics-agent.md`](agents/domains/industry/cosmetics/cosmetics-agent.md) | Medium | Cosmetics Safety specialist; CGMP batch release, raw material safety assessment, ISO 22716, and solvent mixing EHS per Cosmetics Act + MFDS CGMP Notice |
+
 ---
 
 ## PM Gateway Policy
@@ -152,6 +159,8 @@ All specialist agents below are dispatched ONLY through PM:
 | **gcp-agent** | 4 | "GCP", "임상시험", "clinical trial", "IRB", "생명윤리", "informed consent", "CRA", "monitoring", "SAE", "SUSAR", "ICF", "SDV", "CSR" |
 | **gvp-agent** | 4 | "GVP", "약물감시", "pharmacovigilance", "ICSR", "ADR", "이상반응", "signal detection", "PBRER", "PSUR", "RMP", "Risk Management Plan", "PMS", "재평가", "Drug Safety Officer", "DSUR" |
 | **meddevice-agent** | 4 | "의료기기", "medical device", "KGMP-MD", "ISO 13485", "ISO 14971", "설계관리", "멸균 밸리데이션", "의료기기 회수" |
+| **food-agent** | 4 | "식품", "HACCP", "CCP", "food safety", "food processing", "mixer LOTO", "식품위생법" |
+| **cosmetics-agent** | 4 | "화장품", "CGMP", "ISO 22716", "cosmetics", "batch release", "cosmetic ingredient", "화장품법" |
 
 **IMPORTANT**: Do NOT invoke any specialist agent directly. All requests must go through PM.
 
