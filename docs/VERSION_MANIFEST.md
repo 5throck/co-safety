@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-06T10:26:04.292Z
+**Generated**: 2026-08-06T16:21:23.426Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 40
 - **Skills**: 66
-- **Scripts**: 56
+- **Scripts**: 57
 - **Commands**: 7
 
 ---
@@ -172,6 +172,7 @@
 | readme-lifecycle-audit.ts | 1.0.2 | scripts/readme-lifecycle-audit.ts | N/A |
 | retry-handler.ts | 1.0.2 | scripts/retry-handler.ts | N/A |
 | safety-audit.ts | 4.3.0 | scripts/safety-audit.ts | js-yaml |
+| scaffold-industry.ts | 0.1.0 | scripts/scaffold-industry.ts | js-yaml |
 | skill-dependency-analysis.ts | 1.0.0 | scripts/skill-dependency-analysis.ts | N/A |
 | skill-lifecycle-audit.ts | 1.1.4 | scripts/skill-lifecycle-audit.ts | N/A |
 | start-mcp.ts | 1.0.0 | scripts/start-mcp.ts | child_process, path |
