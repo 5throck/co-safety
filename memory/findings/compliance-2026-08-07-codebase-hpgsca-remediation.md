@@ -197,3 +197,32 @@ semicon and steelmaking READMEs verified CLEAN (number-only citations, or alread
 - Wrong-label grep: 0 matches for `Article 11(안전관리자)` / `safety officer Article 11` and variants in shipbuilding (verified).
 - Deleted-Art-14 grep (`고압가스...Article 14/제14조`): 0 matches across `workflows/domains`.
 - `bun scripts/audit.ts` + `bun scripts/safety-audit.ts`: run by PM before commit (see PR).
+
+### 10.5 Boiler-steam-system-safety Art-17 Resolution (follow-up PR, compliance-agent)
+
+Resolves the §10.3 deferred item. (Heading numbered §10.5 rather than §10.4 as originally requested, because §10.4 is already occupied by "PM verification".)
+
+**legalize_kr verification (authoritative law.go.kr full-text, statute indexed under short name `고압가스안전관리법`):**
+- Article mapping (from `parse_law_structure`, 78 articles total) confirms: 제11조 안전관리규정 / 제13조 시설·용기의 안전유지 / 제15조 안전관리자 / 제16조 검사 등 / **제17조 용기등의 검사** / 제22조의2 상세기준 / 제24조 허가관청 등의 조치 / 제26조 사고의 통보 등 / 제28조 한국가스안전공사의 설립. 제14조 ABSENT from statute → re-confirms deleted 1999.2.8.
+- Art 17 제1항 verbatim: *"용기등을 제조·수리 또는 수입한 자(외국용기등 제조자를 포함한다)는 그 용기등을 판매하거나 사용하기 전에 산업통상부장관, 시장·군수 또는 구청장의 검사를 받아야 한다."* — i.e. inspection regime for manufactured/repaired/imported **용기등 (gas containers/freezers/specific equipment)**.
+
+**Topicality analysis:** HPGSCA scope (Art 1 purpose, Art 3 definitions) is **고압가스 (high-pressure GAS)** and its **용기·냉동기·특정설비**. A power-plant steam boiler generates high-pressure **steam (vapor)**, which is the working fluid, not a stored high-pressure gas; the boiler drum is not a HPGSCA "용기등". Korean power-plant boiler safety is governed by 산안법 + 발전설비 안전관리 규정 + 전기사업법 — all already in the schema. Art 17 is therefore a **topic mismatch**, and substituting Art 13 (시설·용기의 안전유지 — also 고압가스-facility-scoped) would be an equivalent mismatch. No HPGSCA article is topically correct for this workflow.
+
+**Decision: (A) REMOVE HPGSCA from README §1.** Schema `legal_basis` already contains the 3 topically-correct sources and was untouched; only README §1 was edited to align verbatim with the schema. Option (B) rejected — no substantively-correct HPGSCA article applies to a pure steam boiler. Option (C) rejected — Art 17 content was successfully verified, so this is not UNVERIFIABLE.
+
+**Before/after — `workflows/domains/industry/powergen/boiler-steam-system-safety/README.md` line 4 (§1 목적):**
+
+*Before:*
+> 본 워크플로우는 한국 발전 안전 관련 법령에 따라 보일러 및 증기 시스템 안전을 관리한다. 주요 근거법령은 산업안전보건법 (Occupational Safety and Health Act) 제98조, 고압가스안전관리법 (High-Pressure Gas Safety Control Act) 제17조 및 전기사업법 (Electric Utility Act) 제47조이다.
+
+*After:*
+> 본 워크플로우는 한국 발전 안전 관련 법령에 따라 보일러 및 증기 시스템 안전을 관리한다. 주요 근거법령은 전기사업법 (Electric Utility Act) 제47조, 발전설비 안전관리 규정 (Regulation on Safety Management of Power Generation Facilities), 및 산업안전보건법 (Occupational Safety and Health Act) 제44조(PSM)이다. 보일러와 증기 시스템은 고압가스 안전 관리 및 사업법의 적용 대상인 고압가스 용기등이 아니므로 해당 법은 근거법령에서 제외한다.
+
+Three defects fixed in one edit: (a) HPGSCA Art 17 removed (topic mismatch); (b) 산안법 제98조 → 제44조(PSM) to match schema; (c) 발전설비 안전관리 규정 added (was in schema but missing from README §1). legal_basis count remains 3 (≥3 ✓); README↔schema verbatim-aligned ✓. Scope strictly limited to `powergen/boiler-steam-system-safety`; no other workflow touched.
+
+**Verification:**
+- `bun scripts/safety-audit.ts` → exit 0 (872 files checked, 0 errors).
+- `bun scripts/audit.ts` → exit 0 (all checks passed).
+- Post-fix grep: 0 matches for `고압가스...제17조` / `고압가스안전관리법` / `제98조` within `boiler-steam-system-safety/`.
+
+**Legal disclaimer:** Regulatory interpretation is user responsibility. This entry documents workflow-automation assistance only, not legal advice.

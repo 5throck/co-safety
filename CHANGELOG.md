@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed (2026-08-07 — Boiler-steam-system-safety HPGSCA Art 17 Topicality Resolution)
+
+Resolves the single "Deferred" item flagged in the codebase-wide HPGSCA remediation below — the only in-force-article topicality judgment held back for compliance-agent review.
+
+- **`powergen/boiler-steam-system-safety` README §1** — removed HPGSCA Art 17 (용기등의 검사) as a **topicality mismatch**: the compliance-agent verified via `legalize_kr.parse_law_structure` that HPGSCA scope (Art 1/3) is high-pressure *gas* and its 용기·냉동기·특정설비; a power-plant steam boiler produces high-pressure *steam (vapor)* — not stored gas — and its drum is not a HPGSCA "용기등", so neither Art 17 nor Art 13 applies. README §1 now aligns VERBATIM with the schema `legal_basis` (전기사업법 Article 47, 발전설비 안전관리 규정, 산업안전보건법 Article 44 (PSM)) — also correcting 산안법 제98조→제44조(PSM) and adding the previously-missing 발전설비 안전관리 규정. Schema untouched (no HPGSCA). 3 sources retained (≥3 ✓).
+- **Findings:** `memory/findings/compliance-2026-08-07-codebase-hpgsca-remediation.md` §10.5. Audit: 872 files, 0 errors.
+
 ### Fixed (2026-08-07 — Codebase-wide HPGSCA Stale-Citation Remediation)
 
 Fulfills the "Known residual" follow-up noted in the semicon HPGSCA entry below. Extends the verified HPGSCA (고압가스 안전 관리 및 사업법) in-force article set {11/13/15/24/26} to all remaining stale-citation workflows codebase-wide, and corrects HPGSCA topic-label prose accuracy in the gas-intensive-industry READMEs.
@@ -16,7 +23,7 @@ Fulfills the "Known residual" follow-up noted in the semicon HPGSCA entry below.
 - **4 shipbuilding READMEs** (welding + painting, Ko + En) §4 + §7 — corrected wrong HPGSCA topic-label prose (Art 11↔15 swapped; Art 13/24/26 misattributed) to the verified `legal-glossary.yaml` topics. Article citation NUMBERS were already correct; only the descriptive LABELS were wrong. semicon + steelmaking READMEs verified clean (no change).
 - **`regulations/KR/legal-glossary.yaml`** + anchor YAML — no change needed (already canonical from #93).
 
-Verified live via `legalize_kr.parse_law_structure` (MST 283919): Art 14 = 삭제 1999.2.8; Art 11/13/15/24/26 = substantive in-force. The `kr_safety` catalog remains stale for HPGSCA (still indexes deleted Art 14) → `legalize_kr` used throughout. Deferred (non-blocking): `powergen/boiler-steam-system-safety` README Art 17 (in-force; topicality judgment pending compliance-agent). Findings: `memory/findings/compliance-2026-08-07-codebase-hpgsca-remediation.md`. Audit: 872 files, 0 errors.
+Verified live via `legalize_kr.parse_law_structure` (MST 283919): Art 14 = 삭제 1999.2.8; Art 11/13/15/24/26 = substantive in-force. The `kr_safety` catalog remains stale for HPGSCA (still indexes deleted Art 14) → `legalize_kr` used throughout. Deferred item resolved: `powergen/boiler-steam-system-safety` README Art 17 topicality — resolved in the follow-up entry above (HPGSCA removed as topic-mismatched for steam boilers). Findings: `memory/findings/compliance-2026-08-07-codebase-hpgsca-remediation.md`. Audit: 872 files, 0 errors.
 
 ### Fixed (2026-08-07 — semicon HPGSCA Article Remediation)
 
