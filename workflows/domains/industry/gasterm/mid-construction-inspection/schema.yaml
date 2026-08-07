@@ -6,7 +6,7 @@ applicability: mandatory
 workflow_type: core
 
 legal_basis:
-  - 고압가스안전관리법 Article 22-2
+  - 고압가스 안전 관리 및 사업법 Article 22-2
   - 액화석유가스의 안전관리 및 사업법 Article 45
   - 도시가스사업법 Article 17-5
 industry_profile: gas-facility

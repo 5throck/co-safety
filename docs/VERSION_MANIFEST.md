@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-07T03:35:26.627Z
+**Generated**: 2026-08-07T03:55:59.101Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -119,7 +119,7 @@
 | protocol-deviation-analyzer | 1.0 | .claude/skills/protocol-deviation-analyzer/SKILL.md | both | 프로토콜 이탈, protocol deviation, ICH E6(R3), important deviation, CAPA, IRB 보고, KGCP, 임상시험 이탈 | gcp-agent |
 | psm-loto | 1.0.0 | .claude/skills/psm-loto/SKILL.md | both | loto, lockout, tagout, lock out, tag out, energy isolation, 에너지 차단, 로크아웃, 태그아웃 | psm-agent |
 | psm-moc | 1.0 | .claude/skills/psm-moc/SKILL.md | both | management of change, moc, change management, process change, 변경관리, 공정변경 | psm-agent |
-| pyrophoric-gas-emergency-responder | 1.0 | .claude/skills/pyrophoric-gas-emergency-responder/SKILL.md | both | 실란 가스 누출, silane gas leak, pyrophoric gas emergency, 발화성 가스 사고, arsine phosphine diborane leak, special gas cabinet emergency, gas alarm response fab, 고압가스 사고 응급조치, HPGSCA Article 28, sub-fab evacuation | semicon-agent |
+| pyrophoric-gas-emergency-responder | 1.0 | .claude/skills/pyrophoric-gas-emergency-responder/SKILL.md | both | 실란 가스 누출, silane gas leak, pyrophoric gas emergency, 발화성 가스 사고, arsine phosphine diborane leak, special gas cabinet emergency, gas alarm response fab, 고압가스 사고 응급조치, HPGSCA Article 26, sub-fab evacuation | semicon-agent |
 | rack-fall-protection-planner | 1.0 | .claude/skills/rack-fall-protection-planner/SKILL.md | both | 데이터센터 추락 방지, 서버 랙 설치 작업, rack install fall protection, overhead cabling work-at-height, top-of-rack 작업, 제상플로어 접근, raised-floor tile handling, datacenter work-at-height plan, 랙 설치 사다리 선택, rack anchor point rating | datacenter-agent |
 | research-analysis | 1.0.0 | .claude/skills/research-analysis/SKILL.md | both | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | N/A |
 | risk-assessment | 1.0.0 | .claude/skills/risk-assessment/SKILL.md | both | 위험성평가, risk assessment, hazard identification, 위험 평가, 작업위험성분석 | risk-assessment-agent |

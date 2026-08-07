@@ -20,7 +20,7 @@ metadata:
     - 최종검사
     - 사용전검사
   legal_basis:
-    - 고압가스안전관리법 제22조의2 (기술검토), 제28조 (완성검사)
+    - 고압가스 안전 관리 및 사업법 제22조의2 (기술검토), 제13조 (시설·용기의 안전유지)
     - 액화석유가스의 안전관리 및 사업법 제37조, 제45조 (검사 기준)
     - 도시가스사업법 제17조의5 (시설·기술·검사 기준)
 ---
@@ -43,7 +43,7 @@ Execute Phase 3 of the KGS Code construction inspection: completion inspection a
 
 | Law | Article | Requirement |
 |-----|---------|-------------|
-| 고압가스안전관리법 | Articles 22의2, 28 | 기술검토, 완성검사 |
+| 고압가스 안전 관리 및 사업법 | Articles 22의2, 13 | 기술검토, 시설·용기의 안전유지 |
 | 액화석유가스의 안전관리 및 사업법 | Articles 37, 45 | 검사 기준 |
 | 도시가스사업법 | Article 17의5 | 시설·기술·검사 기준 |
 | KGS Code | Section 5 | Commissioning and Start-up |

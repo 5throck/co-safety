@@ -95,13 +95,13 @@ TBM is legally grounded in OSHA-KR Articles 15/17 (safety management officers), 
 | Profile | Domain | Signature Hazard | Industry-Specific Legal Basis |
 |---------|--------|------------------|-------------------------------|
 | `ehschem` | Chemical plant | TAR turnaround | OSHA-KR Art.44 (PSM), DSSMA Art.18 |
-| `gasterm` | Gas terminal | Gas pipe opening | HPGSCA Art.17, KGS Code |
+| `gasterm` | Gas terminal | Gas pipe opening | HPGSCA Art.13 (시설·용기 안전유지), KGS Code |
 | `steelmaking` | Steel | Molten metal tap | OSHA-KR Art.38, KOSHA Z-40 (LOTO) |
 | `shipbuilding` | Shipyard | Confined space entry | OSHSR Art.618/623, SAPA Art.5 |
 | `powergen` | Power plant | HV electrical | 전기사업법 Art.46/47/65, ESCA Art.16 |
 | `waste` | Waste/water | Manhole H2S | OSHA-KR Art.618, WCA Art.25, SA Art.19 |
 | `defense` | Munitions | Explosive handling | FSESA Art.9, DAA Art.53 |
-| `semicon` | Semiconductor | Special gas cylinder | HPGSCA Art.14/17, CCA Art.20 |
+| `semicon` | Semiconductor | Special gas cylinder | HPGSCA Art.17 (용기등의 검사), CCA Art.20 |
 | `battery` | Battery | Cell thermal runaway | DSSMA Art.5/27, CCA Art.20 |
 | `biotech` | Biopharma | Bioreactor SIP / BSL | LMO Act Art.22, BSL regulation |
 | `datacenter` | Data center | UPS battery / HV | ESCA Art.16/29, EUA Art.65 |

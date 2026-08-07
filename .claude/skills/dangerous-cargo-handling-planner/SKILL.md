@@ -301,7 +301,7 @@ dangerous-goods + DSSMA Art 20 transport).
 
 vs. `cold-storage-refrigerant-safety` (existing logistics WF): that
 addresses closed-loop ammonia refrigerant in a cold-storage warehouse
-(고압가스안전관리법 Art 14 + OSHA-KR Art 39 confined-space). This skill
+(고압가스 안전 관리 및 사업법 (HPGSCA) Art 13 + OSHA-KR Art 39 confined-space). This skill
 addresses OPEN handling of packaged IMDG dangerous goods at the port.
 Different substances (one refrigerant gas in a closed loop vs. every IMDG
 class in open handling), different location (warehouse vs. berth).

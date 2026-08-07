@@ -1,7 +1,7 @@
 # 중간검사 (Mid-Construction Inspection) Workflow
 
 ## 1. 목적
-본 워크플로우는 한국 가스안전 관련 법령(고압가스안전관리법 (High-Pressure Gas Safety Control Act) 제22조의2, 액화석유가스의 안전관리 및 사업법 (LPG Safety Control and Business Act) 제45조, 도시가스사업법 (City Gas Business Act) 제17조의5)에 따른 KGS 입회 중간검사를 관리한다. 공사 진도 50~70% 시점에서 시공이 설계 및 KGS Code 기준에 부합하는지 확인한다.
+본 워크플로우는 한국 가스안전 관련 법령(고압가스 안전 관리 및 사업법 (High-Pressure Gas Safety Control Act) 제22조의2, 액화석유가스의 안전관리 및 사업법 (LPG Safety Control and Business Act) 제45조, 도시가스사업법 (City Gas Business Act) 제17조의5)에 따른 KGS 입회 중간검사를 관리한다. 공사 진도 50~70% 시점에서 시공이 설계 및 KGS Code 기준에 부합하는지 확인한다.
 
 ## 2. 전제 조건
 - 사전기술검토(Phase 1) 합격 완료증이 필수
