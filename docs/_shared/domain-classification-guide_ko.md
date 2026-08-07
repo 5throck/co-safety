@@ -4,7 +4,7 @@
 
 ## 1. Why This Guide Exists
 
-Safety OS에는 15개 도메인(기능 5개 + 산업 10개)이 활성화되어 있으며, 다음 두 가지 성격이 혼재되어 있었습니다:
+Safety OS에는 30개 도메인(기능 8개 + 산업 22개)이 활성화되어 있으며, 다음 두 가지 성격이 혼재되어 있었습니다:
 
 - **기능적(Functional) 도메인**: 산업 무관, 방법론이나 데이터 중심 (PSM, MSDS, Training, contractor-safety, occupational-health)
 - **산업적(Industry) 도메인**: 특정 산업 운영 중심 (ehsconst, gasterm, powergen, ehschem, meddevice, GxP family — gmp/gdp/glp/gcp/gvp)
@@ -30,6 +30,9 @@ Safety OS에는 15개 도메인(기능 5개 + 산업 10개)이 활성화되어 �
 | `training` | 안전교육 관리 (OSHA-KR Art 13/29/31/32/114) | 모든 산업 |
 | `contractor-safety` | 계약자 안전관리 (대정비(TAR)/대규모 정비 surge 시나리오) | 화학공장, 가스터미널, 발전소의 정기 대정비 기간 |
 | `occupational-health` | 근로자 건강관리 (대정비(TAR)/대규모 정비 건강검진) | 화학공장, 가스터미널, 발전소의 정기 대정비 기간 |
+| `risk-assessment` | 작업 위험성평가 방법론 (산업안전보건법 제36조 위험성평가; 일상/변경 위험성평가, 작업안전분석, 위험등록부) | 모든 산업 (의무 기본 항목) |
+| `incident-investigation` | 사고 조사 및 근본원인 분석 (5-Why, bow-tie, CAPA, 교훈 전파) | 모든 산업 (사고 발생 후) |
+| `asset-integrity` | 설비 무결성 및 점검 방법론 (예방정비, 법정검사 일정, 노후설비 평가, 고장분석) | 설비 집약 산업 (화학, 발전, 반도체, 가스터미널 등) |
 
 ### Tier 2: Industry Domains (산업 도메인)
 **특징**: 특정 산업 운영 중심. 산업별 다부처 규제 통합 관리.
@@ -139,7 +142,7 @@ PSM (산업안전보건법 제44조)은 "covered process"를 가진 시설에 �
 | **LPG 기지 (대규모)** | ✓ | `gasterm` | `psm_applicable: true` 필드 |
 | LNG 화력발전소 (대규모 가스) | ✓ | `powergen` | `psm_applicable` 필드 추가 예정 |
 | 수소 충전소 (대규모) | 일부 | `gasterm` | psm_applicable 조건부 |
-| 반도체 (특수 가스) | 일부 | (ehssemi 예정) | - |
+| 반도체 (특수 가스) | 일부 | (semicon 예정) | - |
 | 제약 (대규모 화학) | 일부 | `gmp` | gmp와 psm 협업 |
 
 **구현 원칙**:

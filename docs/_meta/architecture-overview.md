@@ -84,8 +84,8 @@ Emergency (cc)     ✓         ✓           ✓             ✓            ✓ 
 | GCP | 8 | 7 | KGCP + ICH E6(R3) |
 | GVP | 8 | 7 | ICH E2 series + EU GVP |
 | meddevice | 8 | 7 | KGMP-MD + ISO 13485 + ISO 14971 |
-| food | 3 | 3 | 식품위생법 + MFDS HACCP |
-| cosmetics | 3 | 3 | 화장품법 + MFDS CGMP + ISO 22716 |
+| food | 5 | 5 | 식품위생법 + MFDS HACCP |
+| cosmetics | 6 | 5 | 화장품법 + MFDS CGMP + ISO 22716 |
 
 #### Traditional EHS & Heavy Industry (6)
 | Domain | Workflows | Evidence Models | Key Standard |
@@ -94,20 +94,20 @@ Emergency (cc)     ✓         ✓           ✓             ✓            ✓ 
 | ehschem | 8 | 6 | CCA + K-REACH + 환경법 |
 | gasterm | 12 | 11 | 고압가스법 + LPG법 + 수소법 |
 | powergen | 8 | 8 | 전기사업법 + 전기안전법 |
-| shipbuilding | 2 | 2 | OSHA-KR Art 38/63 + SAPA Art 5 |
-| steelmaking | 2 | 2 | OSHA-KR Art 92 + 고압가스법 |
+| shipbuilding | 5 | 5 | OSHA-KR Art 38/63 + SAPA Art 5 |
+| steelmaking | 5 | 5 | OSHA-KR Art 92 + 고압가스법 |
 
 #### Advanced Tech & Infrastructure (8)
 | Domain | Workflows | Evidence Models | Key Standard |
 |--------|-----------|-----------------|--------------|
-| semicon | 3 | 3 | HPGSCA + CCA + SEMI S2/S8 |
-| battery | 2 | 2 | HMSCA + CCA + NFPA 855 |
-| datacenter | 3 | 3 | ESMA + EBA + NFPA 855 |
-| logistics | 2 | 2 | 항만안전특별법 + OSHA-KR Art 63 |
-| railway | 2 | 2 | 철도안전법 + ESMA |
-| waste | 2 | 2 | 폐기물관리법 + 하수도법 + OSHA-KR Art 618 |
-| defense | 2 | 2 | 총포화약법 + 방위사업법 + HPGSCA |
-| biotech | 2 | 2 | LMO법 + 약사법 + OSHA-KR |
+| semicon | 5 | 5 | HPGSCA + CCA + SEMI S2/S8 |
+| battery | 5 | 5 | HMSCA + CCA + NFPA 855 |
+| datacenter | 5 | 5 | ESMA + EBA + NFPA 855 |
+| logistics | 5 | 5 | 항만안전특별법 + OSHA-KR Art 63 |
+| railway | 5 | 5 | 철도안전법 + ESMA |
+| waste | 5 | 5 | 폐기물관리법 + 하수도법 + OSHA-KR Art 618 |
+| defense | 5 | 5 | 총포화약법 + 방위사업법 + HPGSCA |
+| biotech | 5 | 5 | LMO법 + 약사법 + OSHA-KR |
 
 ### Cross-Cutting Services
 

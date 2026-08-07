@@ -4,7 +4,7 @@
 
 ## 1. Why This Guide Exists
 
-Safety OS has 15 active domains (5 functional + 10 industry). Historically, two natures have been mixed together:
+Safety OS has 30 active domains (8 functional + 22 industry). Historically, two natures have been mixed together:
 
 - **Functional domains**: Industry-agnostic; methodology- or data-driven (PSM, MSDS, Training, contractor-safety, occupational-health)
 - **Industry domains**: Centered on a specific industry's operations (ehsconst, gasterm, powergen, ehschem, meddevice, GxP family — gmp/gdp/glp/gcp/gvp)
@@ -30,6 +30,9 @@ This guide organizes the domains into a **3-tier classification system**.
 | `training` | Safety training management (OSHA-KR Art 13/29/31/32/114) | All industries |
 | `contractor-safety` | Contractor safety management (TAR/Major Turnaround surge scenarios) | Chemical plants, gas terminals, power generation during scheduled turnarounds |
 | `occupational-health` | Occupational health surveillance (TAR/Major Turnaround health screening) | Chemical plants, gas terminals, power generation during scheduled turnarounds |
+| `risk-assessment` | Workplace risk assessment methodology (OSHA-KR Art 36 위험성평가; daily/change risk assessment, job-safety-analysis, risk register) | All industries (mandatory baseline) |
+| `incident-investigation` | Incident investigation & root-cause analysis (5-Why, bow-tie, CAPA, lessons-learned dissemination) | All industries (post-incident) |
+| `asset-integrity` | Equipment integrity & inspection methodology (preventive maintenance, statutory inspection scheduling, aging-equipment assessment, failure analysis) | Asset-intensive industries (chemicals, power, semicon, gas terminals, etc.) |
 
 ### Tier 2: Industry Domains
 **Characteristic**: Centered on a specific industry's operations. Integrates the multi-agency regulations for that industry.
@@ -139,7 +142,7 @@ PSM (산업안전보건법 제44조) applies to facilities with a "covered proce
 | **LPG base (large-scale)** | ✓ | `gasterm` | `psm_applicable: true` field |
 | LNG thermal power plant (large-scale gas) | ✓ | `powergen` | `psm_applicable` field (to be added) |
 | Hydrogen filling station (large-scale) | Partial | `gasterm` | `psm_applicable` conditional |
-| Semiconductor (specialty gases) | Partial | (ehssemi, planned) | - |
+| Semiconductor (specialty gases) | Partial | (semicon, planned) | - |
 | Pharmaceutical (large-scale chemical) | Partial | `gmp` | gmp and psm collaboration |
 
 **Implementation principles**:

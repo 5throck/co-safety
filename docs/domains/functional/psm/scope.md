@@ -45,7 +45,7 @@ Facilities handling hazardous substances at or above threshold quantities — in
 | Large-scale LPG base | ✓ | `gasterm` (`psm_applicable: true`) |
 | LNG-fired power plant (large gas) | ✓ | `powergen` (field planned v1.1) |
 | High-pressure boiler power plant | ✓ | `powergen` (field planned v1.1) |
-| Semiconductor fab (special gases) | Conditional | *(ehssemi — future)* |
+| Semiconductor fab (special gases) | Conditional | *(semicon — future)* |
 | Pharmaceutical large-scale chemical | Conditional | `gmp` (case-by-case) |
 
 ### 3.3 v1 Exclusions (Deferred)

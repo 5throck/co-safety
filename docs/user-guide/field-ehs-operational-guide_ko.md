@@ -71,7 +71,7 @@
 
 ---
 
-## 4. 특수 산업군 현장 안전보건 수칙 (신규 확장 7대 산업)
+## 4. 특수 산업군 현장 안전보건 수칙 (신규 확장 12대 산업)
 
 | 산업군 | 핵심 관리 공정 | 현장 필수 준수 수칙 (Operational Rules) | 담당 에이전트 |
 |-------|--------------|--------------------------------------|--------------|
@@ -83,7 +83,7 @@
 | **식품 (HACCP)** | CCP 공정 & 교반기/혼합기 정비 | • HACCP CCP 한계기준(온도/시간) 이탈 시 자동 CAPA 및 가열 처리<br>• 식품 교반기/혼합기 세척 및 정비 시 전원 2중 차단 LOTO 적용 | [food-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/food/food-agent.md) |
 | **화장품 (CGMP)** | 배치 출하 & 유기용제/원료 혼합 | • CGMP 배치 출하 전 미생물/중금속 시험 적합 검수 기록 보관<br>• 향료/알코올 혼합 정조 작업 시 국소배기장치 및 방폭 설비 가동 | [cosmetics-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/cosmetics/cosmetics-agent.md) |
 | **항만 물류** | 항만 크레인 인양 & 냉동창고 | • 항만 갠트리 크레인 작업 전 와이어로프/신호수 점검 및 AGV 센서 연동<br>• 냉동창고 암모니아 냉매가스 누출 감지기 및 비상 탈출 장치 매일 점검 | [logistics-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/logistics/logistics-agent.md) |
-| **철동/교통** | 25kV 전차선 & 야간 선로 정비 | • 전차선 정비 전 전원 단전 확인 및 이동식 단축 접지봉 즉시 부착<br>• 야간 선로 정비 작업 전 감시인 배치 및 열차 통과 지연 인터록 확인 | [railway-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/railway/railway-agent.md) |
+| **철도/교통** | 25kV 전차선 & 야간 선로 정비 | • 전차선 정비 전 전원 단전 확인 및 이동식 단축 접지봉 즉시 부착<br>• 야간 선로 정비 작업 전 감시인 배치 및 열차 통과 지연 인터록 확인 | [railway-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/railway/railway-agent.md) |
 | **폐기물/수자원** | 하수조 밀폐공간 & 소각 파쇄기 | • 하수조/맨홀 진입 전 O2(>=18%) 및 H2S(<=10ppm) 측정 및 강제 환기<br>• 폐기물 소각 호퍼 및 파쇄기 정비 전 전원 완전 차단 LOTO 적용 | [waste-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/waste/waste-agent.md) |
 | **방위산업** | 화약 추진제 & 극저온 가스 | • 화약 추진제 혼합실 정전기 방지 접지 resistance 및 제습 점검<br>• 유도무기 극저온 액체연료(LN2/LOX) 충전 잔여 압력 확인 | [defense-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/defense/defense-agent.md) |
 | **바이오 CDMO** | Bioreactor SIP & LMO 생물안전 | • Bioreactor SIP 멸균 작업 전 패킹 누출 및 안전 릴리프 밸브 점검<br>• LMO 2~3등급 시설 HEPA 필터 차압 유지 및 H2O2 훈증 소독 점검 | [biotech-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/biotech/biotech-agent.md) |

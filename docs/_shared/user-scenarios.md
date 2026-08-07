@@ -283,7 +283,7 @@ ls workflows/domains/industry/     # Industry operations (construction, gas, pow
 
 ---
 
-## Scenario 6: High-Tech & New Industrial Hazard Operations (Port / Railway / Defense / Biotech)
+## Scenario 7: High-Tech & New Industrial Hazard Operations (Port / Railway / Defense / Biotech)
 
 **Situation**: High-risk specialized operations in port container terminals, 25kV electrification, munition mixing, or bio-reactors.
 
@@ -374,4 +374,4 @@ bun scripts/dev-sync.ts "commit message"
 | [Reference Pattern](reference-workflow-pattern.md) | Reference workflow design |
 | [User Guide](user-guide.md) | Domain selection + dispatch patterns |
 | [MCP Integration](mcp-integration-guide.md) | MCP server connection |
-| [Architecture Overview](../_meta/architecture-overview.md) | 12-domain system architecture |
+| [Architecture Overview](../_meta/architecture-overview.md) | 30-domain system architecture |

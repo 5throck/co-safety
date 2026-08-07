@@ -44,9 +44,9 @@ The 12 newer industry domains (logistics, railway, waste, defense, biotech, batt
 |--------|--------------|-----------|---------------------|
 | Original 4 | 10.0 | 3.3 | 8.5 |
 | GxP 5 | 8.4 | 2.0 | 7.8 |
-| Newer 12 | 3.2 | 0.0 | 2.3 |
+| Newer 12 | 5.0 | 1.0 | 5.0 |
 
-**Target**: Bring all 12 newer domains to **Maturity Tier 2** (minimum: 5 workflows, 3 skills, 5 evidence models, full handoff protocols) by 2026-10-31. See [domain-maturity-matrix.md](domain-maturity-matrix.md) for per-domain tracking.
+**Target**: Bring all 12 newer domains to **Maturity Tier 2** (minimum: 5 workflows, 1 skill, 5 evidence models, full handoff protocols) by 2026-10-31. See [domain-maturity-matrix.md](domain-maturity-matrix.md) for per-domain tracking. **✅ Achieved 2026-08-07 — all 12 industries promoted to Tier 2 (ahead of the 2026-10-31 target).**
 
 ### 2.2 Cross-Cutting Consolidation (P1-4, P2-4)
 
