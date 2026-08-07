@@ -22,7 +22,7 @@
 
 ### Functional Layer (Tier 1) — cross-industry methodology & data services
 
-| Domain | Tier | Coverage | Workflows |
+| Domain | Maturity | Coverage | Workflows |
 |--------|:---:|----------|-----------|
 | `psm` | T3 | Process Safety Management (OSHA 14 elements) | 15 |
 | `msds` | T2 | Chemical Substance Safety / GHS Rev 9 | 7 |
@@ -33,11 +33,11 @@
 | `contractor-safety` | T0 | Contractor Safety Management (TAR/Major Turnaround surge scenarios) | 1 |
 | `occupational-health` | T0 | Occupational Health Surveillance (TAR/Major Turnaround health screening) | 1 |
 
-> **Tier** = domain maturity level: **T3** (Mature, production-ready) · **T2** (Operational) · **T1** (Scaffolded) · **T0** (Placeholder). See [Domain Maturity Matrix](docs/_meta/domain-maturity-matrix.md) for criteria.
+> **Maturity** = domain completeness level: **T3** (Mature, production-ready) · **T2** (Operational) · **T1** (Scaffolded) · **T0** (Placeholder). See [Domain Maturity Matrix](docs/_meta/domain-maturity-matrix.md) for criteria.
 
 ### Industry Layer (Tier 2) — industry-specific operations
 
-| Domain | Tier | Coverage | Workflows |
+| Domain | Maturity | Coverage | Workflows |
 |--------|:---:|----------|-----------|
 | `gmp` | T3 | Pharmaceutical Manufacturing Quality | 10 |
 | `gdp` | T3 | Pharmaceutical Distribution / GDP | 8 |
@@ -62,7 +62,7 @@
 | `defense` | T2 | Defense & Explosives / Munitions Propellant ESD & Missile Cryogenic | 5 |
 | `biotech` | T2 | Biopharmaceutical CDMO & Bio-Labs / Bioreactor SIP & LMO Biohazard | 5 |
 
-> **Tier** = domain maturity level: **T3** (Mature) · **T2** (Operational) · **T1** (Scaffolded) · **T0** (Placeholder). See [Domain Maturity Matrix](docs/_meta/domain-maturity-matrix.md) for criteria.
+> **Maturity** = domain completeness level: **T3** (Mature) · **T2** (Operational) · **T1** (Scaffolded) · **T0** (Placeholder). See [Domain Maturity Matrix](docs/_meta/domain-maturity-matrix.md) for criteria.
 
 ### Cross-Cutting (Tier 3)
 
