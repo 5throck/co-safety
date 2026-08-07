@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed (2026-08-07 — HPGSCA Statute-Name Consistency Sweep + Profile/Agent/Docs Art-14 Residuals)
+
+Completes the HPGSCA (고압가스 안전 관리 및 사업법) remediation across the remaining file surfaces. The #93–#96 passes covered `workflows/` schemas+READMEs and `skills/`; this pass extends **long-form statute-name consistency** to evidence-models, regulation YAML, industry-profiles, agent role files, and docs — and, as a bonus accuracy catch, removed the last **deleted-Art-14 citation residuals** that had survived in the profile/agent/docs layer (outside the earlier workflow/skill scope).
+
+- **evidence-models (14 JSON)** — `legal_basis` enum/example citation values unified to the long form, aligned to the #94-remediated workflow schemas. `completion-inspection` evidence-model aligned to its schema (Art 28→13, Art 17→13). `description` prose left as-is (short form is natural Korean).
+- **Deleted-Art-14 accuracy catch (12 citations, 9 files)** — profiles (logistics-port, defense-aerospace ×2, semicon-cleanroom, semiconductor), agents (defense, logistics, semicon, steelmaking), and scope.md (steelmaking, semicon, logistics, defense) still cited **deleted Art 14**; all replaced with verified **Art 13 (시설·용기의 안전유지)**.
+- **regulations/KR/High-Pressure-Gas-Safety.yaml** — formal citation strings → long form (YAML identifier keys and legalize_kr lookup fields left short form).
+- **industry-profiles (5)** + **agents (4)** + **docs/domains/industry/scope.md (4)** — formal citation lists with article numbers → long form; statute-name-only prose mentions left as-is.
+- **Left unchanged (correct)**: `legal-glossary.yaml` dict key, `industry-regulatory-anchors.yaml` lookup keys, casual prose, and the 3 historical archival docs (`docs/_meta/archive/`, `docs/superpowers/{plans,specs}/`) — not edited to avoid falsifying history.
+
+Verified live via `legalize_kr` (MST 283919). Final deleted-Art-14 sweep: 0 citations in any live file (only historical CHANGELOG/findings/log records mention Art 14, correctly preserved). 28 files converted; 5 left as prose/identifier; 3 archival skipped. Findings: `memory/findings/compliance-2026-08-07-hpgsca-name-consistency-sweep.md`. Audit: 872 files, 0 errors.
+
 ### Fixed (2026-08-07 — SKILL-layer HPGSCA Stale-Citation Remediation)
 
 Extends the HPGSCA (고압가스 안전 관리 및 사업법) remediation to the **skills/ layer** — the #93/#94/#95 passes covered `workflows/` schemas + READMEs but not the planner/TBM skills, which retained their own stale HPGSCA citations. All 12 defects verified via `legalize_kr` (MST 283919) and propagated to `.claude/`/`.gemini/`/`.agents/` mirrors via `sync-skills.ts`.

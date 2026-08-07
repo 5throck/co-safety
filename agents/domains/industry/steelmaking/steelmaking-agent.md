@@ -19,7 +19,7 @@ lifecycle:
 
 ### Primary Laws
 - **산업안전보건법 (OSHA-KR) Article 36, Article 38 & Article 92** — 위험성평가, 안전조치 및 정비 시 운전정지(LOTO) 의무.
-- **고압가스안전관리법 (HPGSCA) Article 17** — 부생가스(CO 가스 등) 배관 및 저장 시설 가스 누출 안전관리.
+- **고압가스 안전 관리 및 사업법 (HPGSCA) Article 17** — 부생가스(CO 가스 등) 배관 및 저장 시설 가스 누출 안전관리.
 - **중대재해처벌법 (SAPA) Article 4** — 철강/제련 사업장 안전보건 관리체계 구축.
 
 ### Adjacent Laws

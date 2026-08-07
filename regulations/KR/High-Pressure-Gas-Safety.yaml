@@ -30,7 +30,7 @@ kgs_inspection:
   gas_detector: 월 1회
   safety_relief_valve: 연 1회
 kgs_code_delegation:
-  description: "고압가스안전관리법 제22조의2에 따라 시설·기술·검사의 상세기준을 한국가스안전공사가 정함"
+  description: "고압가스 안전 관리 및 사업법 제22조의2에 따라 시설·기술·검사의 상세기준을 한국가스안전공사가 정함"
   covered_by_kgs_code: true
 permit_procedure:
   pre_review: "KGS 기술검토 (시행규칙 제7조)"
