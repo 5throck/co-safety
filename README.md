@@ -22,43 +22,47 @@
 
 ### Functional Layer (Tier 1) — cross-industry methodology & data services
 
-| Domain | Coverage | Workflows |
-|--------|----------|-----------|
-| `psm` | Process Safety Management (OSHA 14 elements) | 15 |
-| `msds` | Chemical Substance Safety / GHS Rev 9 | 7 |
-| `training` | Safety Training Management (OSHA-KR Art 13/29/31/32/114) | 8 |
-| `risk-assessment` | Workplace Risk Assessment / OSHA-KR Art 36 (4M, JSA, MOC-triggered, post-incident) | 5 |
-| `incident-investigation` | Incident Investigation & RCA / OSHA-KR Art 57 + SAPA Art 5 (5-Why, Bow-Tie, CAPA) | 5 |
-| `asset-integrity` | Equipment Integrity & Preventive Maintenance / OSHA-KR Art 38 + KOSHA Guide M-155 | 4 |
-| `contractor-safety` | Contractor Safety Management (TAR/Major Turnaround surge scenarios) | 1 |
-| `occupational-health` | Occupational Health Surveillance (TAR/Major Turnaround health screening) | 1 |
+| Domain | Tier | Coverage | Workflows |
+|--------|:---:|----------|-----------|
+| `psm` | T3 | Process Safety Management (OSHA 14 elements) | 15 |
+| `msds` | T2 | Chemical Substance Safety / GHS Rev 9 | 7 |
+| `training` | T1 | Safety Training Management (OSHA-KR Art 13/29/31/32/114) | 8 |
+| `risk-assessment` | T1 | Workplace Risk Assessment / OSHA-KR Art 36 (4M, JSA, MOC-triggered, post-incident) | 5 |
+| `incident-investigation` | T1 | Incident Investigation & RCA / OSHA-KR Art 57 + SAPA Art 5 (5-Why, Bow-Tie, CAPA) | 5 |
+| `asset-integrity` | T1 | Equipment Integrity & Preventive Maintenance / OSHA-KR Art 38 + KOSHA Guide M-155 | 4 |
+| `contractor-safety` | T0 | Contractor Safety Management (TAR/Major Turnaround surge scenarios) | 1 |
+| `occupational-health` | T0 | Occupational Health Surveillance (TAR/Major Turnaround health screening) | 1 |
+
+> **Tier** = domain maturity level: **T3** (Mature, production-ready) · **T2** (Operational) · **T1** (Scaffolded) · **T0** (Placeholder). See [Domain Maturity Matrix](docs/_meta/domain-maturity-matrix.md) for criteria.
 
 ### Industry Layer (Tier 2) — industry-specific operations
 
-| Domain | Coverage | Workflows |
-|--------|----------|-----------|
-| `gmp` | Pharmaceutical Manufacturing Quality | 10 |
-| `gdp` | Pharmaceutical Distribution / GDP | 8 |
-| `glp` | Non-Clinical Laboratory Studies / OECD | 8 |
-| `gcp` | Clinical Trial Management / ICH E6(R3) | 8 |
-| `gvp` | Post-Market Pharmacovigilance / ICH E2 | 8 |
-| `ehsconst` | Construction Safety / SAPA Article 12 | 9 |
-| `ehschem` | Chemical Plant / Refining·Petrochemical·Specialty | 8 |
-| `gasterm` | Gas Terminal / LNG·LPG·Hydrogen | 12 |
-| `powergen` | Power Generation / Thermal·Renewable (nuclear excluded) | 8 |
-| `meddevice` | Medical Device / KGMP-MD·ISO 13485·ISO 14971 | 8 |
-| `food` | Food & Beverage GxP / HACCP & Food Sanitation Act | 5 |
-| `cosmetics` | Cosmetics GxP / CGMP & ISO 22716 | 6 |
-| `semicon` | Semiconductor & Display / Cleanroom & Special Gas (NF3/SiH4/HF) | 5 |
-| `battery` | Secondary Battery & Recycling / Thermal Runaway & NMP Recovery | 5 |
-| `shipbuilding` | Shipbuilding & Offshore / Ship Tank Confined Space & Goliath Crane | 3 |
-| `steelmaking` | Steelmaking & Heavy Metals / Molten Metal LOTO & Byproduct Gas (CO) | 3 |
-| `datacenter` | Data Center & IT Infrastructure / Lithium UPS Fire & High-Voltage Arc Flash | 5 |
-| `logistics` | Port Logistics & Warehouse / Crane Lifting & AGV & Cold Storage Refrigerant | 5 |
-| `railway` | Railway & Transit Infrastructure / 25kV Catenary Electric & Track Confined | 3 |
-| `waste` | Environmental Waste & Water / Sewage H2S Asphyxiation & Shredder LOTO | 3 |
-| `defense` | Defense & Explosives / Munitions Propellant ESD & Missile Cryogenic | 5 |
-| `biotech` | Biopharmaceutical CDMO & Bio-Labs / Bioreactor SIP & LMO Biohazard | 5 |
+| Domain | Tier | Coverage | Workflows |
+|--------|:---:|----------|-----------|
+| `gmp` | T3 | Pharmaceutical Manufacturing Quality | 10 |
+| `gdp` | T3 | Pharmaceutical Distribution / GDP | 8 |
+| `glp` | T3 | Non-Clinical Laboratory Studies / OECD | 8 |
+| `gcp` | T3 | Clinical Trial Management / ICH E6(R3) | 8 |
+| `gvp` | T3 | Post-Market Pharmacovigilance / ICH E2 | 8 |
+| `ehsconst` | T3 | Construction Safety / SAPA Article 12 | 9 |
+| `ehschem` | T2 | Chemical Plant / Refining·Petrochemical·Specialty | 9 |
+| `gasterm` | T3 | Gas Terminal / LNG·LPG·Hydrogen | 13 |
+| `powergen` | T3 | Power Generation / Thermal·Renewable (nuclear excluded) | 9 |
+| `meddevice` | T2 | Medical Device / KGMP-MD·ISO 13485·ISO 14971 | 8 |
+| `food` | T2 | Food & Beverage GxP / HACCP & Food Sanitation Act | 5 |
+| `cosmetics` | T2 | Cosmetics GxP / CGMP & ISO 22716 | 6 |
+| `semicon` | T2 | Semiconductor & Display / Cleanroom & Special Gas (NF3/SiH4/HF) | 5 |
+| `battery` | T2 | Secondary Battery & Recycling / Thermal Runaway & NMP Recovery | 5 |
+| `shipbuilding` | T2 | Shipbuilding & Offshore / Ship Tank Confined Space & Goliath Crane | 5 |
+| `steelmaking` | T2 | Steelmaking & Heavy Metals / Molten Metal LOTO & Byproduct Gas (CO) | 5 |
+| `datacenter` | T2 | Data Center & IT Infrastructure / Lithium UPS Fire & High-Voltage Arc Flash | 5 |
+| `logistics` | T2 | Port Logistics & Warehouse / Crane Lifting & AGV & Cold Storage Refrigerant | 5 |
+| `railway` | T2 | Railway & Transit Infrastructure / 25kV Catenary Electric & Track Confined | 5 |
+| `waste` | T2 | Environmental Waste & Water / Sewage H2S Asphyxiation & Shredder LOTO | 5 |
+| `defense` | T2 | Defense & Explosives / Munitions Propellant ESD & Missile Cryogenic | 5 |
+| `biotech` | T2 | Biopharmaceutical CDMO & Bio-Labs / Bioreactor SIP & LMO Biohazard | 5 |
+
+> **Tier** = domain maturity level: **T3** (Mature) · **T2** (Operational) · **T1** (Scaffolded) · **T0** (Placeholder). See [Domain Maturity Matrix](docs/_meta/domain-maturity-matrix.md) for criteria.
 
 ### Cross-Cutting (Tier 3)
 
@@ -78,6 +82,9 @@
 | `psm` (Process Safety) | | ✓ | ✓ | ✓ | | | | |
 | `msds` (Chemical Data) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | `training` (Safety Education) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `risk-assessment` (Workplace Risk) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `incident-investigation` (RCA) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `asset-integrity` (Equipment) | | ✓ | ✓ | ✓ | ✓ | | | |
 | `emergency` (Cross-Cutting) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 ### Advanced Manufacturing & Infrastructure Industries
@@ -87,9 +94,14 @@
 | `psm` (Process Safety) | ✓ | | | | | | | | ✓ | |
 | `msds` (Chemical Data) | ✓ | ✓ | ✓ | ✓ | | ✓ | | ✓ | ✓ | ✓ |
 | `training` (Safety Education) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `risk-assessment` (Workplace Risk) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `incident-investigation` (RCA) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `asset-integrity` (Equipment) | ✓ | ✓ | ✓ | ✓ | ✓ | | ✓ | | ✓ | |
 | `emergency` (Cross-Cutting) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
-> `✓` = functional service applies to this industry domain · (blank) = not applicable · `GxP` = GMP, GDP, GLP, GCP, GVP  
+> `✓` = functional service applies to this industry domain · (blank) = not applicable · `GxP` = GMP, GDP, GLP, GCP, GVP
+> `risk-assessment` and `incident-investigation` apply universally to all industry domains (OSHA-KR Art 36/57 statutory requirement).
+> `asset-integrity` applies to equipment-intensive industries where OSHA-KR Art 38 statutory inspection obligations exist — not applicable to GxP pharma/food/cosmetics (batch-quality focus) or logistics/biotech/waste (non-heavy-equipment).
 > `contractor-safety` and `occupational-health` apply to TAR/Major-Turnaround surge scenarios across chemical, gas, and heavy industry domains (event-triggered, not fixed columns).
 >
 > **Industry domains (Tier 2, columns) = matrix coordinators.** They dispatch to functional services (Tier 1, rows) for cross-cutting concerns. [Learn more →](docs/_shared/domain-classification-guide.md)
@@ -246,4 +258,4 @@ Safety OS is licensed under the [GNU Affero General Public License v3.0](LICENSE
 
 This system provides workflow automation assistance only. Regulatory interpretation and final compliance decisions are the responsibility of qualified legal/EHS/GxP professionals.
 
-*Last Updated: 2026-08-06*
+*Last Updated: 2026-08-07*
