@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed (2026-08-07 — Codebase-wide HPGSCA Stale-Citation Remediation)
+
+Fulfills the "Known residual" follow-up noted in the semicon HPGSCA entry below. Extends the verified HPGSCA (고압가스 안전 관리 및 사업법) in-force article set {11/13/15/24/26} to all remaining stale-citation workflows codebase-wide, and corrects HPGSCA topic-label prose accuracy in the gas-intensive-industry READMEs.
+
+- **15 workflow schemas** across 5 domains (gasterm 10, asset-integrity 2, defense 1, logistics 1, steelmaking 1) — stale `고압가스안전관리법 Article 14/17/28` → verified in-force articles. Art 14 (deleted 1999.2.8) replaced unconditionally; Art 17 (용기등의 검사) / Art 28 (한국가스안전공사의 설립) evaluated per-workflow and replaced where topic-mismatched; statute-name unified to the long form `고압가스 안전 관리 및 사업법`. ≥3 `legal_basis` preserved in all 15.
+- **9 gasterm READMEs** — §6 Legal Basis synced VERBATIM with each schema; §7 HPGSCA `legalize_kr` verification note added.
+- **`powergen/fuel-handling-safety` README** §1 — deleted Art 14 → Art 13 (the 16th deleted-Art-14 case); statute-name unified to long form. Schema has no HPGSCA citation (prose-only fix).
+- **4 shipbuilding READMEs** (welding + painting, Ko + En) §4 + §7 — corrected wrong HPGSCA topic-label prose (Art 11↔15 swapped; Art 13/24/26 misattributed) to the verified `legal-glossary.yaml` topics. Article citation NUMBERS were already correct; only the descriptive LABELS were wrong. semicon + steelmaking READMEs verified clean (no change).
+- **`regulations/KR/legal-glossary.yaml`** + anchor YAML — no change needed (already canonical from #93).
+
+Verified live via `legalize_kr.parse_law_structure` (MST 283919): Art 14 = 삭제 1999.2.8; Art 11/13/15/24/26 = substantive in-force. The `kr_safety` catalog remains stale for HPGSCA (still indexes deleted Art 14) → `legalize_kr` used throughout. Deferred (non-blocking): `powergen/boiler-steam-system-safety` README Art 17 (in-force; topicality judgment pending compliance-agent). Findings: `memory/findings/compliance-2026-08-07-codebase-hpgsca-remediation.md`. Audit: 872 files, 0 errors.
+
 ### Fixed (2026-08-07 — semicon HPGSCA Article Remediation)
 
 Completes HPGSCA (고압가스안전관리법) citation consistency across the gas-intensive industries. The semicon industry (Group A) was scaffolded before the HPGSCA article remediation applied to shipbuilding/steelmaking in PR #92, so it retained stale citations to deleted/mismatched articles. Now remediated to the verified in-force set.

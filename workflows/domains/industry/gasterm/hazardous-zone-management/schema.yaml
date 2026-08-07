@@ -6,7 +6,7 @@ applicability: mandatory
 workflow_type: core
 
 legal_basis:
-  - 고압가스안전관리법 Article 17
+  - 고압가스 안전 관리 및 사업법 Article 13
   - LPG 안전관리법 Article 30
   - 수소법 Article 32
 industry_profile: gas-facility

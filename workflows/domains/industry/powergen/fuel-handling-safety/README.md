@@ -1,7 +1,7 @@
 # 연료 취급 안전 (Fuel Handling Safety) Workflow
 
 ## 1. 목적
-본 워크플로우는 한국 발전 안전 관련 법령에 따라 연료 취급 안전을 관리한다. 주요 근거법령은 위험물안전관리법 (Dangerous Substances Safety Management Act), 화학물질관리법 (Chemicals Control Act) 제23조, 고압가스안전관리법 (High-Pressure Gas Safety Control Act) 제14조 및 산업안전보건법 (Occupational Safety and Health Act) 제101조이다.
+본 워크플로우는 한국 발전 안전 관련 법령에 따라 연료 취급 안전을 관리한다. 주요 근거법령은 위험물안전관리법 (Dangerous Substances Safety Management Act), 화학물질관리법 (Chemicals Control Act) 제23조, 고압가스 안전관리 및 사업법 (High-Pressure Gas Safety Control and Business Act) 제13조 및 산업안전보건법 (Occupational Safety and Health Act) 제101조이다.
 
 ## 2. 워크플로우 단계
 1. 작업 전 점검
