@@ -21,8 +21,8 @@ metadata:
     - 설계검토
     - 사전기술검토
   legal_basis:
-    - 고압가스안전관리법 제22조의2 (기술검토)
-    - 고압가스안전관리법 시행규칙 제7조 (기술검토 신청 절차)
+    - 고압가스 안전 관리 및 사업법 제22조의2 (기술검토)
+    - 고압가스 안전 관리 및 사업법 시행규칙 제7조 (기술검토 신청 절차)
     - 액화석유가스의 안전관리 및 사업법 제27조의2 (LPG 시설·기술기준 위임)
     - 도시가스사업법 제17조의5 (시설·기술 기준)
 ---
@@ -45,8 +45,8 @@ Execute Phase 1 of the KGS Code construction inspection: pre-construction techni
 
 | Law | Article | Requirement |
 |-----|---------|-------------|
-| 고압가스안전관리법 | Article 22의2 | 기술검토 |
-| 고압가스안전관리법 시행규칙 | Article 7 | 기술검토 신청 절차 (별지 제8호서식) |
+| 고압가스 안전 관리 및 사업법 | Article 22의2 | 기술검토 |
+| 고압가스 안전 관리 및 사업법 시행규칙 | Article 7 | 기술검토 신청 절차 (별지 제8호서식) |
 | 액화석유가스의 안전관리 및 사업법 | Article 27의2 | LPG 시설·기술기준 위임 |
 | 도시가스사업법 | Article 17의5 | 시설·기술 기준 |
 | KGS Code | Section 3 | Design and Construction Standards |
@@ -58,7 +58,7 @@ Execute Phase 1 of the KGS Code construction inspection: pre-construction techni
 ### Workflow
 
 1. **Application Preparation** — Assemble 시설계획서, 배치도, 안전관리계획서, and KGS Code reference materials. Determine `review_type` (new_construction/modification/expansion) and `facility_type`/`gas_type`.
-2. **KGS Technical Review Application** — Submit KGS 기술검토 신청 (별지 제8호서식) per 고압가스안전관리법 시행규칙 제7조. Record `application_date` and `kgs_review_id`.
+2. **KGS Technical Review Application** — Submit KGS 기술검토 신청 (별지 제8호서식) per 고압가스 안전 관리 및 사업법 시행규칙 제7조. Record `application_date` and `kgs_review_id`.
 3. **Review Pending** — KGS 기술기준위원회 reviews (typically 2-4 weeks in practice). Record applicable `kgs_code_references` (e.g., KGS AC211, KGS FA121).
 4. **Result Receipt** — Record `review_result`: `pass` / `supplement_required` / `fail`. If `supplement_required`, populate `supplement_items[]` with the specific deficiencies requiring correction before resubmission.
 5. **Local Government Submission** — On `pass`, submit results to `local_government` (관할 지자체) as supporting documentation for the 변경허가 application; record `local_gov_submission_date`.

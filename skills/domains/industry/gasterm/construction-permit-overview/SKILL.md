@@ -22,8 +22,8 @@ metadata:
     - 검사일정
     - 건설인허가
   legal_basis:
-    - 고압가스안전관리법 제22조의2 (기술검토 등)
-    - 고압가스안전관리법 시행규칙 제7조 (기술검토 신청 절차)
+    - 고압가스 안전 관리 및 사업법 제22조의2 (기술검토 등)
+    - 고압가스 안전 관리 및 사업법 시행규칙 제7조 (기술검토 신청 절차)
     - 액화석유가스의 안전관리 및 사업법 제27조의2, 제45조 (LPG 충전업 안전관리, 검사기준)
     - 도시가스사업법 제17조의5 (시설·기술·검사 기준 위임)
 ---
@@ -46,8 +46,8 @@ Orchestrate the complete construction/permit lifecycle for gas terminal faciliti
 
 | Law | Article | Requirement |
 |-----|---------|-------------|
-| 고압가스안전관리법 | Article 22의2 | 기술검토 (technical review of facility/installation) |
-| 고압가스안전관리법 시행규칙 | Article 7 | 기술검토 신청 절차 |
+| 고압가스 안전 관리 및 사업법 | Article 22의2 | 기술검토 (technical review of facility/installation) |
+| 고압가스 안전 관리 및 사업법 시행규칙 | Article 7 | 기술검토 신청 절차 |
 | 액화석유가스의 안전관리 및 사업법 | Articles 27의2, 45 | LPG 충전업 안전관리, 검사 기준 |
 | 도시가스사업법 | Article 17의5 | 시설·기술·검사 기준 위임 |
 | KGS Code | — | Comprehensive gas facility safety code (phase-specific KGS AC/FA/FP series) |

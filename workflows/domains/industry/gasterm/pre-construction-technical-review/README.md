@@ -1,7 +1,7 @@
 # 사전기술검토 (Pre-Construction Technical Review) Workflow
 
 ## 1. 목적
-본 워크플로우는 한국 가스안전 관련 법령(고압가스안전관리법 (High-Pressure Gas Safety Control Act) 제22조의2, 액화석유가스의 안전관리 및 사업법 (LPG Safety Control and Business Act) 제27조의2, 도시가스사업법 (City Gas Business Act) 제17조의5)에 따른 KGS Code 준거 시설기술 기준 적합성 심사(사전기술검토)를 관리한다. 고압가스안전관리법 시행규칙 제7조에 따른 기술검토 신청 절차를 포함한다.
+본 워크플로우는 한국 가스안전 관련 법령(고압가스 안전 관리 및 사업법 (High-Pressure Gas Safety Control Act) 제22조의2, 액화석유가스의 안전관리 및 사업법 (LPG Safety Control and Business Act) 제27조의2, 도시가스사업법 (City Gas Business Act) 제17조의5)에 따른 KGS Code 준거 시설기술 기준 적합성 심사(사전기술검토)를 관리한다. 고압가스 안전 관리 및 사업법 시행규칙 제7조에 따른 기술검토 신청 절차를 포함한다.
 
 ## 2. 워크플로우 단계
 1. 신청 준비 — 시설계획서, 배치도, 안전관리계획서, KGS Code 준거 자료 수집

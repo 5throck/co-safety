@@ -19,7 +19,7 @@ metadata:
     - 공사검사
     - 현장검사
   legal_basis:
-    - 고압가스안전관리법 제22조의2 (기술검토 연계 중간검사)
+    - 고압가스 안전 관리 및 사업법 제22조의2 (기술검토 연계 중간검사)
     - 액화석유가스의 안전관리 및 사업법 제45조 (검사 기준)
     - 도시가스사업법 제17조의5 (시설·기술·검사 기준)
 ---
@@ -43,7 +43,7 @@ Execute Phase 2 of the KGS Code construction inspection: mid-construction on-sit
 
 | Law | Article | Requirement |
 |-----|---------|-------------|
-| 고압가스안전관리법 | Article 22의2 | 기술검토 연계 중간검사 |
+| 고압가스 안전 관리 및 사업법 | Article 22의2 | 기술검토 연계 중간검사 |
 | 액화석유가스의 안전관리 및 사업법 | Article 45 | 검사 기준 |
 | 도시가스사업법 | Article 17의5 | 시설·기술·검사 기준 |
 | KGS Code | Section 4 | Inspection and Testing |

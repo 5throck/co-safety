@@ -17,7 +17,7 @@ metadata:
     - special gas cabinet emergency
     - gas alarm response fab
     - 고압가스 사고 응급조치
-    - HPGSCA Article 28
+    - HPGSCA Article 26
     - sub-fab evacuation
 ---
 
@@ -39,7 +39,7 @@ active-leak response.
 
 The semicon anchor
 (`regulations/KR/industry-regulatory-anchors.yaml` lines 527-529) cites
-**고압가스 안전관리 및 사업법 (HPGSCA) Article 28 (고압가스 사고 응급조치)**
+**고압가스 안전관리 및 사업법 (HPGSCA) Article 26 (사고의 통보 등)**
 and **위험물안전관리법 (DSSMA) Article 27 (응급조치·통보)** — neither cited by
 any other existing semicon skill.
 
@@ -123,7 +123,7 @@ any other existing semicon skill.
 
 - 고용노동부 (Ministry of Employment and Labor) — 중대재해 if any worker
   exposure > PEL or any injury
-- 한국가스안전공사 (Korea Gas Safety Corp) — 고압가스 사고 per HPGSCA Art 28
+- 한국가스안전공사 (Korea Gas Safety Corp) — 고압가스 사고 per HPGSCA Art 26
 - 소방서 (119) — if fire spread, burn injury, or rescue needed
 - 고객사/동종 산업 단지 — mutual-aid activation if release reaches
   property line
@@ -203,7 +203,7 @@ any other existing semicon skill.
     "last_full_evacuation": "2026-04-20"
   },
   "regulatory_basis": [
-    "고압가스 안전관리 및 사업법 (HPGSCA) Article 28 — 고압가스 사고 응급조치",
+    "고압가스 안전관리 및 사업법 (HPGSCA) Article 26 — 사고의 통보 등",
     "위험물안전관리법 (DSSMA) Article 27 — 응급조치·통보 및 조치명령",
     "화학물질관리법 (CCA) Article 24 — 취급시설 관리 기준",
     "산업안전보건법 (OSHA-KR) Article 36 — 위험성평가",
@@ -216,9 +216,10 @@ any other existing semicon skill.
 
 ## Korean-Specific Standards
 
-- **고압가스 안전관리 및 사업법 (HPGSCA) Article 28** — 고압가스 사고 응급조치
-  (high-pressure-gas accident emergency response). [UNVERIFIED-via-legalize-kr
-  per the semicon anchor — sourced from High-Pressure-Gas-Safety.yaml]
+- **고압가스 안전관리 및 사업법 (HPGSCA) Article 26** — 사고의 통보 등
+  (accident notification: death/injury/poisoning, gas-leak explosion/fire,
+  facility damage). [VERIFIED via legalize_kr (law.go.kr) — MST 283919,
+  2026-08-07; Art 28 is 한국가스안전공사의 설립 (KGS establishment), not 응급조치]
 - **위험물안전관리법 (DSSMA) Article 27** — 응급조치·통보 및 조치명령
 - **한국가스안전공사 (KGS) 가스안전점검** — semi-annual cabinet + piping inspection
 - **고용노동부 (MOEL) 중대재해 신고** — mandatory within 1 hour of any
@@ -250,7 +251,7 @@ vs. `gas-dispersion-analyzer` (gasterm): that skill models outdoor LNG/LPG/
 hydrogen dispersion for terminal/transport incidents using Gaussian/dense-
 gas models. It does NOT address indoor sub-fab gas-cabinet response, gas-
 specific toxicity (arsine hemolysis, silane pyrophoricity), or the HPGSCA
-Art 28 emergency-response protocol. The release physics are also distinct
+Art 26 accident-notification protocol. The release physics are also distinct
 (high-pressure cylinder indoor release vs. outdoor atmospheric release).
 
 vs. `emergency-response` (skills/emergency): that skill is a generic
@@ -266,9 +267,10 @@ cabinet-commissioning scope. This skill is incident-response.
 ## Legal Disclaimer
 
 > 자동화 응급조치 보조. 최종 가스 사고 대응 결정은 가스안전관리자 + 소방대장 +
-> 현장 안전관리자 권한 per 고압가스 안전관리 및 사업법 (HPGSCA) Article 28 and
-> 위험물안전관리법 (DSSMA) Article 27. HPGSCA article numbers are marked
-> [UNVERIFIED-via-legalize-kr] per the semicon industry anchor and should be
-> re-verified when the legalize_kr index expands. Silane behavior is
-> inherently unpredictable — this skill's decision matrix is a planning aid,
-> not a substitute for SCBA-equipped trained response teams.
+> 현장 안전관리자 권한 per 고압가스 안전관리 및 사업법 (HPGSCA) Article 26 and
+> 위험물안전관리법 (DSSMA) Article 27. HPGSCA article numbers were
+> VERIFIED via legalize_kr (law.go.kr, MST 283919) on 2026-08-07 — Art 26
+> (사고의 통보 등) is the accident-notification article; Art 28 is 한국가스안전공사의
+> 설립 (KGS establishment). Silane behavior is inherently unpredictable — this
+> skill's decision matrix is a planning aid, not a substitute for SCBA-equipped
+> trained response teams.

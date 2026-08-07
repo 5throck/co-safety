@@ -57,7 +57,7 @@ into a deployable coke-oven-worker exposure-protection plan.
 | Measurement | Stack/portable gas-detector ppm | Personal air-sample + biological monitoring |
 | Exposure unit | Equipment-location | Worker-person (8-hr TWA, career cumulative) |
 | Cancer class | CO acute toxicity | PAH = IARC Group 1 (coke-oven emissions) |
-| Regulatory anchor | HPGSCA Art 17 (gas facility) | OSHA Art 125 (work-env measurement) + Art 130 (special health exam) |
+| Regulatory anchor | HPGSCA Art 13 (시설·용기의 안전유지) | OSHA Art 125 (work-env measurement) + Art 130 (special health exam) |
 | International tracking | Equipment standard | IARC monographs (since 1984) — Korea's POSCO cohort studied |
 
 Coke-oven emissions are an **IARC Group 1 carcinogen** (confirmed human
@@ -390,7 +390,7 @@ tracked steelmaking hazard worldwide.
 
 vs. `byproduct-gas-leak-prevent` (existing steelmaking WF): that
 addresses the PROCESS-GAS piping leak-detection SYSTEM integrity
-(HPGSCA Art 17 + OSHA Art 36/38). This skill addresses the WORKER-
+(HPGSCA Art 13 + OSHA Art 36/38). This skill addresses the WORKER-
 EXPOSURE industrial-hygiene profile — PAH carcinogen, heat stress,
 special-health-exam tracking. Different discipline entirely: gas-
 detection system integrity (equipment) vs. personal-exposure assessment

@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed (2026-08-07 — SKILL-layer HPGSCA Stale-Citation Remediation)
+
+Extends the HPGSCA (고압가스 안전 관리 및 사업법) remediation to the **skills/ layer** — the #93/#94/#95 passes covered `workflows/` schemas + READMEs but not the planner/TBM skills, which retained their own stale HPGSCA citations. All 12 defects verified via `legalize_kr` (MST 283919) and propagated to `.claude/`/`.gemini/`/`.agents/` mirrors via `sync-skills.ts`.
+
+- **Tier 1 — deleted Art 14 (3 SKILLs):** `tool-box-meeting` (semicon row: dropped deleted Art 14, kept Art 17 — topically correct for gas cylinders/용기), `painting-coating-fire-toxic-planner` (Art 14/28 → workflow's verified Art 11/13/15/24/26 set), `dangerous-cargo-handling-planner` (Art 14 → Art 13 facility safety + long statute name).
+- **Tier 2 — in-force Art 17/28 topic-label/mismatch (4 SKILLs):** `tool-box-meeting` (gasterm row Art 17 → Art 13 — gas-pipe opening is facility, not container inspection), `coke-oven-pah-heat-stress-planner` (Art 17 mislabeled "gas facility" → Art 13 시설·용기의 안전유지), `pyrophoric-gas-emergency-responder` (**Art 28 mislabeled "고압가스 사고 응급조치" → Art 26 사고의 통보 등** — Art 28 is KGS establishment, not emergency response; fixed across all 7 occurrences + cleared stale UNVERIFIED disclaimers), `completion-inspection` SKILL (제28조 "완성검사" mislabel → 제13조, aligned to the #94-remediated workflow schema).
+- **Tier 3 — statute-name short→long form (gasterm construction family):** `construction-permit-overview`, `pre-construction-technical-review`, `mid-construction-inspection` — SKILL + workflow schema/README (`고압가스안전관리법 Article 22-2` → `고압가스 안전 관리 및 사업법 Article 22-2`; Art 22-2 in-force, correct — name consistency only).
+- **Propagation:** all 9 source SKILLs mirrored to `.claude/skills/`, `.gemini/skills/`, `.agents/skills/` via `sync-skills.ts`.
+
+Verified live via `legalize_kr.parse_law_structure`; 0 UNVERIFIABLE items. Residual grep (deleted Art 14 + short-form statute name) across `skills/` + all 3 mirror layers: 0 matches. Findings: `memory/findings/compliance-2026-08-07-skill-layer-hpgsca-remediation.md`. Audit: 872 files, 0 errors.
+
 ### Fixed (2026-08-07 — Boiler-steam-system-safety HPGSCA Art 17 Topicality Resolution)
 
 Resolves the single "Deferred" item flagged in the codebase-wide HPGSCA remediation below — the only in-force-article topicality judgment held back for compliance-agent review.

@@ -383,7 +383,7 @@ would invoke the confined-space WF's permit + atmosphere regime).
 
 vs. `shipbuilding-welding-fume-gas-safety` (sister new WF): that
 addresses WELDING-fume particulate (Mn/Cr6+) + gas-cylinder + arc
-(HPGSCA Art 14/28 + OSHA Art 101). This skill addresses PAINTING-vapor
+(고압가스 안전 관리 및 사업법 (HPGSCA) Art 11/13/15/24/26 + OSHA Art 101). This skill addresses PAINTING-vapor
 liquid solvent + LEL flammability (DSSMA Art 5/27). Different chemical
 profile (solid particulate + ozone vs. liquid solvent + flammability),
 different fire risk geometry (spark ignition vs. LEL cloud), different
