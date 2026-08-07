@@ -16,14 +16,14 @@ Use this guide when introducing a new regulatory or operational domain to Safety
 - **GLP** (Good Laboratory Practice)
 - **GCP** (Good Clinical Practice)
 - **GVP** (Good Pharmacovigilance Practice)
-- **EHS-Vertical** (e.g., `ehssemi`, `ehsconst`)
+- **EHS-Vertical** (e.g., `semicon`, `ehsconst`)
 
 ## 2. Naming Convention
 
 | Family | Convention | Examples |
 |--------|-----------|----------|
 | GxP family | lowercase | `gmp`, `gdp`, `glp`, `gcp`, `gvp` |
-| EHS family | `ehs<industry-abbrev>` | `ehsmfg`, `ehsconst`, `ehssemi` |
+| EHS family | `ehs<industry-abbrev>` | `ehsmfg`, `ehsconst`, `semicon` |
 | Common/shared | underscore prefix | `_shared`, `_meta`, `_core` |
 
 ## 3. Folder Structure Per Top-Level Directory
@@ -179,6 +179,21 @@ Must pass with 0 errors. The audit auto-recognizes new domains via recursive wal
 | `training` | functional | 2026-06-19 | active (v1) | training-management |
 | `contractor-safety` | functional | 2026-07-03 | active (v1) | TAR/Major Turnaround surge scenarios |
 | `occupational-health` | functional | 2026-07-03 | active (v1) | TAR/Major Turnaround health screening |
+| `food` | industry | 2026-08-07 | active | food-gxp |
+| `cosmetics` | industry | 2026-08-07 | active | cosmetics-cgmp |
+| `semicon` | industry | 2026-08-07 | active | semicon-cleanroom |
+| `battery` | industry | 2026-08-07 | active | battery-manufacturing |
+| `datacenter` | industry | 2026-08-07 | active | datacenter-infrastructure |
+| `logistics` | industry | 2026-08-07 | active | logistics-port |
+| `railway` | industry | 2026-08-07 | active | railway-transit |
+| `waste` | industry | 2026-08-07 | active | waste-water-environmental |
+| `defense` | industry | 2026-08-07 | active | defense-aerospace |
+| `biotech` | industry | 2026-08-07 | active | biotech-cdmo |
+| `shipbuilding` | industry | 2026-08-07 | active | shipbuilding-heavy |
+| `steelmaking` | industry | 2026-08-07 | active | steelmaking-heavy |
+| `risk-assessment` | functional | 2026-08-07 | active | OSHA-KR Art 36 위험성평가 (job-safety-analysis, risk register) |
+| `incident-investigation` | functional | 2026-08-07 | active | RCA methodology (5-Why, bow-tie, CAPA) |
+| `asset-integrity` | functional | 2026-08-07 | active | equipment integrity (preventive maintenance, statutory inspection) |
 
 ## 6. Migration Notes (for Existing Domains)
 

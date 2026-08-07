@@ -40,14 +40,14 @@
 |----------|-----------|----------------|--------------|----------------|
 | `ehsconst` | 건설안전 | 산안법 제63조, 중재법 제12조 | [ehsconst-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/ehsconst/ehsconst-agent.md) | `construction-safety-plan`, `fall-prevention`, `sapa-serious-accident` |
 | `ehschem` | 화학공장 | 화관법 제20조, 산안법 제44조 | [ehschem-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/ehschem/ehschem-agent.md) | `turnaround-shutdown-planning`, `plant-operation` |
-| `gasterm` | 가스터미널 | 고압가스법 제14조, KGS Code | [gasterm-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/gasterm/gasterm-agent.md) | `tank-storage`, `leak-detection`, `major-gas-incident` |
+| `gasterm` | 가스터미널 | 고압가스 안전 관리 및 사업법 (HPGSCA) 제13조·제15조, KGS Code | [gasterm-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/gasterm/gasterm-agent.md) | `tank-storage`, `leak-detection`, `major-gas-incident` |
 | `powergen` | 발전설비 | 전기사업법 제65조, 전기안전법 | [powergen-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/powergen/powergen-agent.md) | `boiler-turbine-safety`, `arc-flash-analysis`, `ess-fire-risk` |
 | `shipbuilding` | 조선/해양 | 산안법 제38조, 중재법 제5조 | [shipbuilding-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/shipbuilding/shipbuilding-agent.md) | `ship-tank-confined-space`, `heavy-crane-subcontractor-safety` |
 
 ### 2.4 첨단 기술 & IT 인프라 도메인 (4개)
 | 도메인 ID | 도메인 명칭 | 주관 법령 / 규격 | 담당 에이전트 | 대표 워크플로우 |
 |----------|-----------|----------------|--------------|----------------|
-| `semicon` | 반도체/디스플레이 | 고압가스법 제14조, 화관법 제20조 | [semicon-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/semicon/semicon-agent.md) | `special-gas-handling`, `cleanroom-chemical-safety`, `semicon-scrubber-maintenance` |
+| `semicon` | 반도체/디스플레이 | 고압가스 안전 관리 및 사업법 (HPGSCA) 제11조·제13조·제15조·제24조·제26조, 화학물질관리법 (CCA) | [semicon-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/semicon/semicon-agent.md) | `special-gas-handling`, `cleanroom-chemical-safety`, `semicon-scrubber-maintenance` |
 | `battery` | 이차전지/리사이클링 | 위험물안전관리법 제5조, 화관법 | [battery-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/battery/battery-agent.md) | `battery-thermal-runaway-prevent`, `battery-recycling-hazard-control` |
 | `steelmaking` | 철강/금속제련 | 산안법 제92조, 고압가스법 | [steelmaking-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/steelmaking/steelmaking-agent.md) | `molten-metal-loto`, `byproduct-gas-leak-prevent` |
 | `datacenter` | 데이터센터/IT | 전기안전관리법 제16조, NFPA 855 | [datacenter-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/datacenter/datacenter-agent.md) | `datacenter-ups-fire-safety`, `high-voltage-facility-safety`, `datacenter-fuel-tank-safety` |

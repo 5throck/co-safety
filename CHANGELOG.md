@@ -6,6 +6,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed (2026-08-07 — Documentation Refresh: align design + user docs to 30-domain / Tier-2-complete state)
+
+Refreshes user-facing and design documentation to reflect (a) the **Industry Maturity Program** completion (all 12 added industries now Tier 2 / Operational) and (b) **PR #84** adding 3 functional domains (`risk-assessment`, `incident-investigation`, `asset-integrity`) — bringing the canonical domain count to **30 (8 functional + 22 industry)**. Source of truth: `docs/_meta/domain-maturity-matrix.md`. README, CONSTITUTION, AGENTS, and the architecture-overview header already stated 30 and were left unchanged.
+
+**P0 — factually wrong counts / citations fixed:**
+- `docs/co-safety.context.md` — "27 industry/functional domains" → "30 (8 functional + 22 industry)"; `industry-profiles/` count 14 → 26 (session-loaded context doc).
+- `docs/_shared/domain-classification-guide{,_ko}.md` — "15 active domains (5 functional + 10 industry)" → "30 (8 functional + 22 industry)"; §2 Tier-1 functional table: added `risk-assessment`, `incident-investigation`, `asset-integrity`.
+- `docs/_shared/domain-onboarding-guide{,_ko}.md` — §5 Active Domains Registry: added the 15 missing domains (12 industry + 3 functional); `ehssemi` → `semicon`.
+- `docs/_shared/user-scenarios{,_ko}.md` — nav "12-domain" → "30-domain"; EN-only: renumbered the duplicate "Scenario 6" → "Scenario 7" (ko already correct).
+- `docs/user-guide/domain-quick-reference_ko.md` — removed **deleted HPGSCA Art-14** citations (gasterm, semicon); replaced with verified in-force articles via `legalize_kr` (gasterm Art 13/15; semicon Art 11/13/15/24/26) and corrected the wrong statute `화관법` → `화학물질관리법 (CCA)` for semicon (matches its schemas; CCA Art 20 is the actual citation).
+
+**P1 — design docs:**
+- `docs/_meta/architecture-overview.md` §3 — updated Workflows/Evidence-Models counts for all 12 promoted industries to match the maturity matrix (most 2–3 → 5). Header/diagram (30) untouched.
+- `docs/_meta/ROADMAP.md` — §2.1 "Newer 12" cohort averages updated to post-maturation values; Tier-2 target marked ✅ Achieved 2026-08-07 (ahead of 2026-10-31); Tier-2 skill criterion corrected (3 → ≥1).
+
+**P2 — polish:**
+- `docs/user-guide/field-ehs-operational-guide_ko.md` — heading "신규 확장 7대 산업" → "12대 산업"; typo "철동/교통" → "철도/교통".
+- `docs/_shared/tutorial{,_ko}.md` — Last Updated date bumped to 2026-08-07.
+- `docs/domains/functional/psm/scope.md` + `domain-classification-guide{,_ko}.md` §4 — last `ehssemi` residuals → `semicon` (PSM-integration "planned/future" status retained).
+
+EN↔ko parity maintained on every edited pair (bilingual pair consistency check PASS). Audit: 872 files, 0 errors.
+
 ### Fixed (2026-08-07 — HPGSCA Statute-Name Consistency Sweep + Profile/Agent/Docs Art-14 Residuals)
 
 Completes the HPGSCA (고압가스 안전 관리 및 사업법) remediation across the remaining file surfaces. The #93–#96 passes covered `workflows/` schemas+READMEs and `skills/`; this pass extends **long-form statute-name consistency** to evidence-models, regulation YAML, industry-profiles, agent role files, and docs — and, as a bonus accuracy catch, removed the last **deleted-Art-14 citation residuals** that had survived in the profile/agent/docs layer (outside the earlier workflow/skill scope).

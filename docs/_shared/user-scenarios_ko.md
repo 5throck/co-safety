@@ -364,4 +364,4 @@ bun scripts/dev-sync.ts "커밋 메시지"
 | [Reference 패턴](reference-workflow-pattern.md) | Reference 워크플로우 설계 |
 | [사용자 가이드](user-guide.md) | 도메인 선택 + dispatch 패턴 |
 | [MCP 통합](mcp-integration-guide.md) | MCP 서버 연결 |
-| [아키텍처 개요](../_meta/architecture-overview.md) | 12-도메인 시스템 아키텍처 |
+| [아키텍처 개요](../_meta/architecture-overview.md) | 30-도메인 시스템 아키텍처 |

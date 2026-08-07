@@ -16,14 +16,14 @@ Safety OS에 신규 규제 또는 운영 도메인을 도입할 때 본 가이�
 - **GLP** (Good Laboratory Practice)
 - **GCP** (Good Clinical Practice)
 - **GVP** (Good Pharmacovigilance Practice)
-- **EHS-Vertical** (예: `ehssemi`, `ehsconst`)
+- **EHS-Vertical** (예: `semicon`, `ehsconst`)
 
 ## 2. 명명 규칙
 
 | 계열 | 규칙 | 예시 |
 |--------|-----------|----------|
 | GxP 계열 | 소문자 | `gmp`, `gdp`, `glp`, `gcp`, `gvp` |
-| EHS 계열 | `ehs<산업-약어>` | `ehsmfg`, `ehsconst`, `ehssemi` |
+| EHS 계열 | `ehs<산업-약어>` | `ehsmfg`, `ehsconst`, `semicon` |
 | 공통/공유 | 언더스코어 접두어 | `_shared`, `_meta`, `_core` |
 
 ## 3. 최상위 디렉토리별 폴더 구조
@@ -179,6 +179,21 @@ bun scripts/safety-audit.ts
 | `training` | functional | 2026-06-19 | active (v1) | training-management |
 | `contractor-safety` | functional | 2026-07-03 | active (v1) | TAR/대정비 surge 시나리오 |
 | `occupational-health` | functional | 2026-07-03 | active (v1) | TAR/대정비 건강검진 |
+| `food` | industry | 2026-08-07 | active | food-gxp |
+| `cosmetics` | industry | 2026-08-07 | active | cosmetics-cgmp |
+| `semicon` | industry | 2026-08-07 | active | semicon-cleanroom |
+| `battery` | industry | 2026-08-07 | active | battery-manufacturing |
+| `datacenter` | industry | 2026-08-07 | active | datacenter-infrastructure |
+| `logistics` | industry | 2026-08-07 | active | logistics-port |
+| `railway` | industry | 2026-08-07 | active | railway-transit |
+| `waste` | industry | 2026-08-07 | active | waste-water-environmental |
+| `defense` | industry | 2026-08-07 | active | defense-aerospace |
+| `biotech` | industry | 2026-08-07 | active | biotech-cdmo |
+| `shipbuilding` | industry | 2026-08-07 | active | shipbuilding-heavy |
+| `steelmaking` | industry | 2026-08-07 | active | steelmaking-heavy |
+| `risk-assessment` | functional | 2026-08-07 | active | 산안법 제36조 위험성평가 (작업안전분석, 위험등록부) |
+| `incident-investigation` | functional | 2026-08-07 | active | RCA 방법론 (5-Why, bow-tie, CAPA) |
+| `asset-integrity` | functional | 2026-08-07 | active | 설비 무결성 (예방정비, 법정검사) |
 
 ## 6. 마이그레이션 참고사항 (기존 도메인 대상)
 
