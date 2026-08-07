@@ -103,18 +103,18 @@
       "description": "Multi-source legal basis. Primary: 고압가스안전관리법 (facility/installation/inspection), 액화석유가스의 안전관리 및 사업법 (LPG safety), 도시가스사업법 (city gas pipeline/storage). Adjacent laws may include: 위험물안전관리법 (flammable storage), OSHA-KR Article 44 (PSM for large-scale terminals), 수소경제 육성 및 수소안전관리에 관한 법률 (hydrogen facilities).",
       "examples": [
         [
-          "고압가스안전관리법 Art.22-2",
+          "고압가스 안전 관리 및 사업법 Art.22-2",
           "액법 Art.27-2",
           "위험물안전관리법 Art.13"
         ],
         [
-          "고압가스안전관리법 Art.28",
+          "고압가스 안전 관리 및 사업법 Art.28",
           "도시가스사업법 Art.17-5",
           "OSHA-KR Art.44 §1"
         ],
         [
           "액법 Art.45",
-          "고압가스안전관리법 Art.17",
+          "고압가스 안전 관리 및 사업법 Art.17",
           "수소안전관리법 Art.32"
         ]
       ]

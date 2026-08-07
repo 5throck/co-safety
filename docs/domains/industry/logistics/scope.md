@@ -11,4 +11,4 @@
 ## Key Laws & Regulations
 - 항만안전특별법 (PSSA) Article 4
 - 산업안전보건법 (OSHA-KR) Article 38, Article 63
-- 고압가스안전관리법 (HPGSCA) Article 14
+- 고압가스 안전 관리 및 사업법 (HPGSCA) Article 13

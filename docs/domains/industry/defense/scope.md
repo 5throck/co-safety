@@ -11,4 +11,4 @@
 ## Key Laws & Regulations
 - 총포·도검·화약류 등의 안전관리에 관한 법률 (FSESA) Article 9
 - 방위사업법 (DAA) Article 18
-- 고압가스안전관리법 (HPGSCA) Article 14
+- 고압가스 안전 관리 및 사업법 (HPGSCA) Article 13

@@ -88,7 +88,7 @@
       "type": "array",
       "items": { "type": "string" },
       "minItems": 3,
-      "examples": [["산업안전보건법 Article 36", "산업안전보건법 Article 38", "고압가스안전관리법 Article 17"]]
+      "examples": [["산업안전보건법 Article 36", "산업안전보건법 Article 38", "고압가스 안전 관리 및 사업법 Article 17"]]
     },
     "e_signature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/e_signature" },
     "nomenclature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/nomenclature" },

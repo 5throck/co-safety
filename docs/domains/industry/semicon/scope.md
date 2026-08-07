@@ -10,6 +10,6 @@
 - Scrubber unit gas exhaust cleaning and maintenance
 
 ## Key Laws & Regulations
-- 고압가스안전관리법 (HPGSCA) Article 14
+- 고압가스 안전 관리 및 사업법 (HPGSCA) Article 13
 - 화학물질관리법 (CCA) Article 20, Article 24
 - SEMI S2 / S8 Safety Guidelines

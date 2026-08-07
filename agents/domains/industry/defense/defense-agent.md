@@ -20,7 +20,7 @@ lifecycle:
 ### Primary Laws
 - **총포·도검·화약류 등의 안전관리에 관한 법률 (FSESA) Article 9 & Article 23** — 화약류 제조업 허가 및 제조시설 안전기준.
 - **방위사업법 (DAA) Article 28 & Article 53** — 군수품 품질보증(Art.28) 및 군용 화약류 제조 특례(Art.53). (Note: Art.18 was deleted 2020.3.31; migrated to active Art.28.)
-- **고압가스안전관리법 (HPGSCA) Article 14** — 극저온 액체연료(LN2/LOX) 및 고압 분사제 가스 설비 안전.
+- **고압가스 안전 관리 및 사업법 (HPGSCA) Article 13** — 극저온 액체연료(LN2/LOX) 및 고압 분사제 가스 설비 안전.
 
 ### Adjacent Laws
 - **중대재해처벌법 (SAPA) Article 4** — 방위산업체 및 군수 제조시설 경책임자 안전보건 확보의무.
