@@ -1,4 +1,4 @@
-// @version 1.4.3 — variant-aware: runs safety-audit.ts for safety-os, workspace audit.ts for workspace root
+// @version 1.4.4 — variant-aware: runs safety-audit.ts for safety-os, workspace audit.ts for workspace root
 import { $ } from 'bun';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -31,7 +31,23 @@ if (path.resolve(actualCwd) !== expectedRoot) {
     process.exit(1);
 }
 
-const msg = process.argv.slice(2).join(' ') || "chore: update";
+// --body-file <path> (or --body-file=<path>) is consumed here and removed from the
+// commit-message/branch-slug args below — this script doesn't consume it for `gh pr
+// create` yet, but leaving it in `msg` corrupted the commit message and branch slug
+// whenever an agent passed --body-file (observed: branch "pr/...--body-file-git-...").
+const rawArgs = process.argv.slice(2);
+const msgParts: string[] = [];
+for (let i = 0; i < rawArgs.length; i++) {
+    const arg = rawArgs[i];
+    if (arg === '--body-file') {
+        i++; // skip the path value too
+    } else if (arg.startsWith('--body-file=')) {
+        // no-op, value is inline
+    } else {
+        msgParts.push(arg);
+    }
+}
+const msg = msgParts.join(' ') || "chore: update";
 const dateObj = new Date();
 const date = dateObj.toISOString().split('T')[0]; // yyyy-MM-dd
 

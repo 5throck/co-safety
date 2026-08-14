@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+- **[2026-08-15]**: fix(scripts): `dev-sync.ts` no longer corrupts the commit message/branch slug when `--body-file <path>` is passed — the arg (and its path value) was previously joined straight into the commit message, producing garbage like branch `pr/...--body-file-git-sync-pr-body-md`; now stripped before building `msg`
+
 ### Changed (2026-08-07 — Documentation Refresh: align design + user docs to 30-domain / Tier-2-complete state)
 
 Refreshes user-facing and design documentation to reflect (a) the **Industry Maturity Program** completion (all 12 added industries now Tier 2 / Operational) and (b) **PR #84** adding 3 functional domains (`risk-assessment`, `incident-investigation`, `asset-integrity`) — bringing the canonical domain count to **30 (8 functional + 22 industry)**. Source of truth: `docs/_meta/domain-maturity-matrix.md`. README, CONSTITUTION, AGENTS, and the architecture-overview header already stated 30 and were left unchanged.
