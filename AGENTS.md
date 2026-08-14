@@ -14,7 +14,7 @@
 ## Agent Roster
 
 > Safety OS agents only. Workspace-root agents (auditor, lifecycle-manager, architect, etc.)
-> are not included — they operate at L0 level and are not deployed in this L2 project.
+> are not included — they operate at L0 level and are not deployed in this L3 project.
 
 ### Orchestration
 

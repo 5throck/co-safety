@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-08-14](2026-08-14.md) | --body-file .git/sync-pr-body.md  |
 | [2026-08-07](2026-08-07.md) | industry-maturity |
 | [2026-08-06](2026-08-06.md) | fix(project-review): PM-led remediation & Phase A status update |
 | [2026-08-03](2026-08-03.md) | refactor(scripts): sync gen-pr-body to 1.2.0 - remove claude -p AI mode |
