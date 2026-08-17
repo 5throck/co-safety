@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+- **[2026-08-18]**: fix(git): add `merge=union` union merge drivers to `.gitattributes` for the append-only pipeline files (`CHANGELOG.md`, `memory/*.md`, `docs/VERSION_MANIFEST.md`, `scripts/README.md`) to prevent recurring merge conflicts when parallel PR branches both update the same anchor lines on every `/sync`; ported from `ai-workspace-standards` PR #556
+
 ### Fixed
 - **[2026-08-15]**: fix(scripts): `dev-sync.ts` no longer corrupts the commit message/branch slug when `--body-file <path>` is passed — the arg (and its path value) was previously joined straight into the commit message, producing garbage like branch `pr/...--body-file-git-sync-pr-body-md`; now stripped before building `msg`
 

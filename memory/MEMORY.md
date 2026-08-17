@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-08-17](2026-08-17.md) | fix(git): add merge=union drivers to .gitattributes to prevent CHANGELOG/memory conflicts |
 | [2026-08-14](2026-08-14.md) | --body-file .git/sync-pr-body.md  |
 | [2026-08-07](2026-08-07.md) | industry-maturity |
 | [2026-08-06](2026-08-06.md) | fix(project-review): PM-led remediation & Phase A status update |
