@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Process Safety Management specialist — manages PHA, MOC, PSSR, and LOTO for high-risk chemical and petrochemical facilities per OSHA-KR Article 44."
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/psm-agent.md
 ---
 
 # Process Safety Management (PSM) Agent

@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-17T22:53:14.994Z
+**Generated**: 2026-08-19T14:47:55.564Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -199,7 +199,7 @@
 | test-pharma-general-profile.ts | 1.0.0 | scripts/test-pharma-general-profile.ts | js-yaml |
 | test-runner.ts | 1.1.0 | scripts/test-runner.ts | child_process, fs, path |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
-| validate-agents.ts | 1.0.0 | scripts/validate-agents.ts | N/A |
+| validate-agents.ts | 1.1.0 | scripts/validate-agents.ts | N/A |
 | validate-doc-folder.ts | 1.0.1 | scripts/validate-doc-folder.ts | fs, path |
 | validate-md-language.ts | 1.4.1 | scripts/validate-md-language.ts | fs, js-yaml |
 | validate-skills.ts | 1.1.0 | scripts/validate-skills.ts | N/A |

@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Formats official documentation; enforces English-only policy and specific translation zones"
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/docs-writer.md
 ---
 
 # docs-writer

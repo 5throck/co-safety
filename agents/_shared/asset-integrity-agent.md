@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Asset integrity specialist; preventative maintenance and aging equipment management"
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/asset-integrity-agent.md
 ---
 
 # Asset Integrity Agent

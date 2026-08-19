@@ -13,6 +13,7 @@ lifecycle:
   phase: production
   created: 2026-08-06
   last_updated: 2026-08-06
+  governance: docs/lifecycle/agents/cosmetics-agent.md
 ---
 
 ## Section A — Legal Basis

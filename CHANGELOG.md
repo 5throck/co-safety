@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+- **[2026-08-19]**: fix(scripts): `validate-agents.ts` (v1.1.0) now recursively scans `agents/**/*.md` instead of only the top-level directory — safety_os nests all 40 agent definitions under `agents/_core/`, `agents/_shared/`, `agents/domains/functional/`, and `agents/domains/industry/`, so the previous single-level `readdirSync` silently scanned an empty directory and reported a false 0-checked pass, letting `audit.ts` give a false green light on agent governance. Backfilled missing `lifecycle.phase`/`lifecycle.governance` frontmatter on all 40 agent files and created the previously-nonexistent `docs/lifecycle/agents/*.md` governance records (with required `## Phase History` and `## Acceptance Criteria` sections) for all 40 agents so the fixed validator passes on real compliance rather than a lowered bar.
 - **[2026-08-18]**: fix(git): add `merge=union` union merge drivers to `.gitattributes` for the append-only pipeline files (`CHANGELOG.md`, `memory/*.md`, `docs/VERSION_MANIFEST.md`, `scripts/README.md`) to prevent recurring merge conflicts when parallel PR branches both update the same anchor lines on every `/sync`; ported from `ai-workspace-standards` PR #556
 
 ### Fixed

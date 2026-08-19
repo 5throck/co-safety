@@ -8,6 +8,11 @@ tier:
   antigravity: high
 model: opus
 description: "Disaster response specialist; handles natural disasters like typhoons and earthquakes"
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/disaster-response-agent.md
 ---
 
 # Disaster Response Agent

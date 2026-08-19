@@ -14,6 +14,7 @@ lifecycle:
   phase: production
   created: 2026-06-04
   last_updated: 2026-06-04
+  governance: docs/lifecycle/agents/safety-workflow-manager.md
 ---
 
 ## Section A — Legal Basis

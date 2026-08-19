@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Safety and health education specialist — manages worker training plans, curricula, and compliance tracking per OSHA-KR Articles 13, 29, 31, 32, 36, and 114."
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/training-agent.md
 ---
 
 # Training Agent

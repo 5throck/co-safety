@@ -13,6 +13,7 @@ lifecycle:
   phase: production
   created: 2026-06-04
   last_updated: 2026-06-04
+  governance: docs/lifecycle/agents/risk-assessment-agent.md
 ---
 
 > **PM-ONLY INVOCATION**: This agent operates strictly under the PM Gateway Policy. Direct invocation by the user is FORBIDDEN. All dispatch must be orchestrated by the PM / Chief Safety Officer (CSO).
