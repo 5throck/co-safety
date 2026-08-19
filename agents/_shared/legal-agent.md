@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Real-time legal interpretation and compliance advisory based on South Korean EHS laws"
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/legal-agent.md
 ---
 
 # Legal Agent

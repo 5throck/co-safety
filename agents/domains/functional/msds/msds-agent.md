@@ -14,6 +14,7 @@ lifecycle:
   created: 2026-06-17
   last_updated: 2026-06-17
   migrated_from: agents/_shared/chemical-safety-agent.md
+  governance: docs/lifecycle/agents/msds-agent.md
 ---
 
 ## Section A — Legal Basis

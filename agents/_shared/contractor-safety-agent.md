@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Contractor safety management; onboarding and monitoring of external workers"
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/contractor-safety-agent.md
 ---
 
 # Contractor Safety Agent

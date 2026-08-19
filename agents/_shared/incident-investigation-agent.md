@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Incident investigation and root cause analysis (RCA) specialist"
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/incident-investigation-agent.md
 ---
 
 # Incident Investigation Agent

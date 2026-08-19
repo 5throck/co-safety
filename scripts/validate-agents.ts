@@ -1,23 +1,50 @@
 #!/usr/bin/env bun
 /**
  * Agent Lifecycle Validation Script
- * @version 1.0.0
+ * @version 1.1.0
  *
- * Validates all agents/*.md files for required lifecycle frontmatter
+ * Validates all agents/**\/*.md files for required lifecycle frontmatter
  * and checks governance records in docs/lifecycle/agents/*.md
  *
  * Performs two validations:
- * 1. Runtime definition validation: agents/*.md must have lifecycle frontmatter
+ * 1. Runtime definition validation: agents/**\/*.md must have lifecycle frontmatter
  * 2. Governance record validation: docs/lifecycle/agents/*.md must have detailed documentation
+ *
+ * v1.1.0 (2026-08-19): agents/ is now recursively scanned (safety_os nests agent
+ *   definitions under agents/_core/, agents/_shared/, agents/domains/functional/,
+ *   agents/domains/industry/) — the previous single-level readdirSync silently
+ *   scanned an empty top-level directory and reported a false 0-checked pass.
  *
  * Usage:
  *   bun scripts/validate-agents.ts
  *   bun scripts/validate-agents.ts --json
  */
 
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { cwd } from 'node:process';
+
+// Matches the workspace-root isAgentFile() exclusion rule: real agent
+// definitions only, excluding README variants and files starting with "_".
+function isAgentFile(filename: string): boolean {
+  return filename.endsWith('.md') && !/^README(_\w+)?\.md$/.test(filename) && !filename.startsWith('_');
+}
+
+// Recursively collect agent .md files under a directory, returning paths
+// relative to AGENTS_DIR (e.g. "_core/pm.md").
+function collectAgentFiles(dir: string, baseDir: string): string[] {
+  const results: string[] = [];
+  for (const entry of readdirSync(dir)) {
+    const fullPath = join(dir, entry);
+    const stat = statSync(fullPath);
+    if (stat.isDirectory()) {
+      results.push(...collectAgentFiles(fullPath, baseDir));
+    } else if (stat.isFile() && isAgentFile(entry)) {
+      results.push(fullPath.slice(baseDir.length + 1).replace(/\\/g, '/'));
+    }
+  }
+  return results;
+}
 
 interface ValidationIssue {
   level: 'error' | 'warning';
@@ -176,11 +203,14 @@ function hasNestedField(rawContent: string, fieldPath: string): boolean {
 function validateRuntimeDefinitions(): void {
   if (!JSON_MODE) console.log(`\n${colors.cyan}📋 Part 1: Runtime Definition Validation (agents/*.md)${colors.reset}`);
 
-  const agentFiles = readdirSync(AGENTS_DIR).filter(f => f.endsWith('.md') && f !== 'README.md');
+  const agentFiles = collectAgentFiles(AGENTS_DIR, AGENTS_DIR);
 
   for (const file of agentFiles) {
     totalFiles++;
-    const agentName = file.replace('.md', '');
+    // agentName derived from the file's basename so it matches the flat
+    // governance-doc naming under docs/lifecycle/agents/<agentName>.md
+    // regardless of which nested subdirectory the runtime file lives in.
+    const agentName = file.split('/').pop()!.replace('.md', '');
     const filePath = join(AGENTS_DIR, file);
     const rawContent = readFileSync(filePath, 'utf-8');
 

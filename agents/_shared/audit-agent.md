@@ -13,6 +13,7 @@ lifecycle:
   phase: production
   created: 2026-06-04
   last_updated: 2026-07-10
+  governance: docs/lifecycle/agents/audit-agent.md
 ---
 
 ## Section A — Legal Basis

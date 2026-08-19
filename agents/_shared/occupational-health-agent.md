@@ -8,6 +8,11 @@ tier:
   antigravity: medium
 model: sonnet
 description: "Occupational health specialist; worker health examinations and environment monitoring"
+lifecycle:
+  phase: production
+  created: 2026-08-19
+  last_updated: 2026-08-19
+  governance: docs/lifecycle/agents/occupational-health-agent.md
 ---
 
 # occupational-health-agent

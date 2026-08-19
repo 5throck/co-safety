@@ -13,6 +13,7 @@ lifecycle:
   phase: production
   created: "2026-06-17"
   last_updated: "2026-06-17"
+  governance: docs/lifecycle/agents/gvp-agent.md
 ---
 
 ## Section A — Legal Basis
