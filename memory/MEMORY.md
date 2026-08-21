@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-08-21](2026-08-21.md) | docs: manually upgrade docs/context.md to v2.4 (no co-safety variant template exists yet) |
 | [2026-08-19](2026-08-19.md) | fix(scripts): recursively scan agents/ in validate-agents.ts and backfill lifecycle governance for all 40 agents |
 | [2026-08-17](2026-08-17.md) | fix(git): add merge=union drivers to .gitattributes to prevent CHANGELOG/memory conflicts |
 | [2026-08-14](2026-08-14.md) | --body-file .git/sync-pr-body.md  |
