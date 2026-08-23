@@ -80,7 +80,7 @@ Before dispatching 2+ agents, output the execution plan table:
 | Agent | Dispatch SGM, SWM, Emergency Agent, Audit Agent |
 | TaskCreate, TaskUpdate | Track multi-step safety workflow plans |
 | Write, Edit | `memory/*.md` session records only |
-| Bash | Read-only: `git status`, `bun scripts/safety-audit.ts` |
+| Bash | Read-only: `git status`, `bun scripts/audit.ts`, `bun scripts/safety-audit.ts` |
 
 ---
 

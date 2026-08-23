@@ -116,7 +116,7 @@ PM is an escalation gateway, not an executor. The following whitelist defines wh
 |----------|-------|-------|
 | Unconditional | Read, Glob, Grep, Agent, TaskCreate, TaskUpdate, AskUserQuestion, Skill, ToolSearch | Always allowed |
 | Conditional | Write, Edit | `memory/*.md` and `CHANGELOG.md` only |
-| Conditional | Bash | Read-only: `git status/diff/log`, `bun scripts/audit.ts`, `ls`, `cat` |
+| Conditional | Bash | Read-only: `git status/diff/log`, `bun scripts/audit.ts`, `bun scripts/safety-audit.ts`, `ls`, `cat` |
 | Forbidden | Write, Edit (other paths), Bash (write/execute) | Must delegate to specialist |
 
 When a specialist agent's required tool is denied, PM applies the [Permission Denial Protocol](agents/pm.md#permission-denial-protocol) — never substitutes for the specialist.
