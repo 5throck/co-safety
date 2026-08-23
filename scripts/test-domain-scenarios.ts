@@ -183,8 +183,8 @@ console.log('');
 console.log(`${CYAN}[S-05] 건설 현장 중대재해 (ehsconst→emergency→SAPA)${RESET}`);
 
 check('S-05', 'EHSCONST-1', 'ehsconst safety-plan evidence exists', evidenceExists('industry', 'ehsconst', 'ehsconst-safety-plan-record.json'));
-check('S-05', 'EHSCONST-2', 'ehsconst evidence has sapa_article_12_compliance',
-    evidenceHasField('industry', 'ehsconst', 'ehsconst-safety-plan-record.json', 'sapa_article_12_compliance'));
+check('S-05', 'EHSCONST-2', 'ehsconst evidence has sapa_article_5_compliance',
+    evidenceHasField('industry', 'ehsconst', 'ehsconst-safety-plan-record.json', 'sapa_article_5_compliance'));
 check('S-05', 'EHSCONST-3', 'ehsconst evidence has contractor_tier',
     evidenceHasField('industry', 'ehsconst', 'ehsconst-safety-plan-record.json', 'contractor_tier'));
 check('S-05', 'EHSCONST-4', 'ehsconst sapa-serious-accident-reference workflow exists',

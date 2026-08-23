@@ -873,6 +873,8 @@ gaps:
     impact: Affects battery, datacenter, semicon, shipbuilding, steelmaking, waste.
     recommendation: SGM/PM should add Art 15 and Art 17 to legal-glossary.yaml DSSMA entry. Out of scope for this task.
 
+last_updated: "2026-08-07"
+
 ###############################################################################
 # End of file
 ###############################################################################

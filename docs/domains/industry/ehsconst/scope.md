@@ -34,7 +34,7 @@ Construction safety domain for Korean construction industry, addressing high-ris
 
 ## 4. Common Fields (all ehsconst-*.json)
 
-- `sapa_article_12_compliance`: boolean (건설업 특례 준수)
+- `sapa_article_5_compliance`: boolean (SAPA Article 5 도급·하도급 안전보건 확보의무 준수)
 - `project_id`: 건설공사 번호
 - `contractor_tier`: 원도급 / 1차 하도급 / 2차 하도급 이하
 - `safety_officer_in_charge`: 안전관리자 ID

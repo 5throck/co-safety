@@ -3,7 +3,7 @@
   "$id": "risk-assessment-record.json",
   "title": "Workplace Risk Assessment Record",
   "description": "Structured risk assessment record per OSHA-KR Article 36 (위험성평가 실시). Documents hazard identification, risk scoring, and control measures for workplace tasks.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "object",
   "required": [
     "record_id",
@@ -24,6 +24,10 @@
     "assessment_scope": {
       "type": "string",
       "description": "Work area, task, or process being assessed"
+    },
+    "facility_id": {
+      "type": "string",
+      "description": "Facility or work area identifier"
     },
     "assessment_date": {
       "type": "string",

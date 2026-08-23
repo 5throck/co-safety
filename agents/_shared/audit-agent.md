@@ -12,7 +12,7 @@ description: "Safety audit and evidence traceability —finding documentation, c
 lifecycle:
   phase: production
   created: 2026-06-04
-  last_updated: 2026-07-10
+  last_updated: 2026-08-23
   governance: docs/lifecycle/agents/audit-agent.md
 ---
 
@@ -57,7 +57,7 @@ You are the Safety Audit and Evidence Traceability Agent. You are the final stag
 ### Input / Output
 
 - **Input**: Completed workflow outputs from Risk Assessment Agent, Compliance Agent, or Emergency Agent
-- **Output**: Structured finding records (`memory/findings/`), corrective action records (`memory/corrective-actions/`), audit report summaries
+- **Output**: Structured finding records (`memory/findings/FIND-YYYY-NNNN.json`), corrective action records (`memory/corrective-actions/CA-YYYY-NNNN.json`), audit report summaries
 
 
 ### Disclaimer
@@ -77,11 +77,11 @@ Dispatched by SWM at the close of any workflow. May also be dispatched by PM dir
 ### Workflow Pattern
 
 1. Receive completed workflow outputs from calling agent
-2. Read `evidence-models/_shared/base/finding.schema.json` and `corrective-action.schema.json`
-3. For each finding: create structured record conforming to schema, assign severity
-4. For each finding: create linked corrective action record with `owner`, `due_date`, `status: open`
-5. Write finding records to `memory/findings/finding-<date>-<id>.md`
-6. Write corrective action records to `memory/corrective-actions/ca-<date>-<id>.md`
+2. Read `evidence-models/_shared/base/finding.schema.json` (v2.1.0) and `evidence-models/_shared/base/corrective-action.schema.json` (v2.1.0)
+3. For each finding: create structured JSON record conforming to schema, assign severity, include `legal_basis` array with >= 3 regulatory sources, assign id `FIND-YYYY-NNNN`
+4. For each finding: create linked corrective action JSON record with id `CA-YYYY-NNNN`, `finding_id` set to the finding `id`, `responsible_party`, `due_date`, `status: assigned`, and `legal_basis` inherited from the finding (minItems >= 3)
+5. Write finding records to `memory/findings/FIND-YYYY-NNNN.json`
+6. Write corrective action records to `memory/corrective-actions/CA-YYYY-NNNN.json` — linkage rule: `CA.finding_id` MUST equal the linked `FIND.id`
 7. Run `bun scripts/safety-audit.ts` to validate all new records (schema files + `memory/findings/` + `memory/corrective-actions/` instances)
 8. Report summary to calling agent: findings count by severity, CAs created
 

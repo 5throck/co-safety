@@ -31,13 +31,14 @@
     "refresh_cycle_months": { "type": "number", "description": "Retraining interval (12 = annual)" },
     "legal_basis": {
       "type": "array",
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 (curriculum content requirements for regular/new-hire/job-transfer education) or Article 31 (special curriculum for hazardous work) or Article 114 (MSDS curriculum content). Adjacent laws may include: SAPA Article 4 (employer safety and health assurance obligation — training provision), OSHA-KR Article 36 (risk assessment results must be included in training curriculum for affected tasks).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 (curriculum content requirements for regular/new-hire/job-transfer education) or Article 31 (special curriculum for hazardous work) or Article 114 (MSDS curriculum content). Adjacent laws may include: SAPA Article 4 (employer safety and health assurance obligation — training provision), OSHA-KR Article 36 (risk assessment results must be included in training curriculum for affected tasks). Curricula store no direct PII, but target_audience definitions may identify worker groups/individuals; cite PIPA (개인정보보호법) minimum-necessary principle (Art 16) when audiences reference identifiable persons — see regulations/KR/PIPA.yaml.",
       "items": { "type": "string" },
       "minItems": 3,
       "examples": [
         ["OSHA-KR Art.29 §1", "OSHA-KR Art.36 §1", "SAPA Art.4"],
         ["OSHA-KR Art.31 §1", "OSHA-KR Art.114 §1", "SAPA Art.4"],
-        ["OSHA-KR Art.114 §1", "OSHA-KR Art.29 §1", "SAPA Art.4"]
+        ["OSHA-KR Art.114 §1", "OSHA-KR Art.29 §1", "SAPA Art.4"],
+        ["OSHA-KR Art.29 §1", "OSHA-KR Art.36 §1", "PIPA Art.16 §1"]
       ]
     }
   }

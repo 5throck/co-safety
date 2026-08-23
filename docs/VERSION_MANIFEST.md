@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-23T13:31:58.280Z
+**Generated**: 2026-08-23T17:41:12.152Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 40
 - **Skills**: 78
-- **Scripts**: 57
+- **Scripts**: 61
 - **Commands**: 7
 
 ---
@@ -20,28 +20,28 @@
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
 | _core/pm | agents/_core/pm.md | high | opus | 2026-08-19 |
-| _core/safety-governance-manager | agents/_core/safety-governance-manager.md | high | opus | 2026-08-19 |
+| _core/safety-governance-manager | agents/_core/safety-governance-manager.md | high | opus | 2026-08-23 |
 | _core/safety-workflow-manager | agents/_core/safety-workflow-manager.md | high | opus | 2026-08-19 |
 | _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-08-19 |
-| _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-19 |
-| _shared/compliance-agent | agents/_shared/compliance-agent.md | medium | sonnet | 2026-08-19 |
+| _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-23 |
+| _shared/compliance-agent | agents/_shared/compliance-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/contractor-safety-agent | agents/_shared/contractor-safety-agent.md | medium | sonnet | 2026-08-19 |
 | _shared/disaster-response-agent | agents/_shared/disaster-response-agent.md | high | opus | 2026-08-19 |
 | _shared/docs-writer | agents/_shared/docs-writer.md | medium | sonnet | 2026-08-19 |
-| _shared/emergency-agent | agents/_shared/emergency-agent.md | high | opus | 2026-08-19 |
-| _shared/incident-investigation-agent | agents/_shared/incident-investigation-agent.md | medium | sonnet | 2026-08-19 |
-| _shared/legal-agent | agents/_shared/legal-agent.md | medium | sonnet | 2026-08-19 |
-| _shared/occupational-health-agent | agents/_shared/occupational-health-agent.md | medium | sonnet | 2026-08-19 |
+| _shared/emergency-agent | agents/_shared/emergency-agent.md | high | opus | 2026-08-23 |
+| _shared/incident-investigation-agent | agents/_shared/incident-investigation-agent.md | medium | sonnet | 2026-08-23 |
+| _shared/legal-agent | agents/_shared/legal-agent.md | medium | sonnet | 2026-08-23 |
+| _shared/occupational-health-agent | agents/_shared/occupational-health-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/reporting-agent | agents/_shared/reporting-agent.md | medium | sonnet | 2026-08-19 |
-| _shared/risk-assessment-agent | agents/_shared/risk-assessment-agent.md | medium | sonnet | 2026-08-19 |
-| domains/functional/msds/msds-agent | agents/domains/functional/msds/msds-agent.md | medium | sonnet | 2026-08-19 |
-| domains/functional/psm/psm-agent | agents/domains/functional/psm/psm-agent.md | medium | sonnet | 2026-08-19 |
+| _shared/risk-assessment-agent | agents/_shared/risk-assessment-agent.md | medium | sonnet | 2026-08-23 |
+| domains/functional/msds/msds-agent | agents/domains/functional/msds/msds-agent.md | medium | sonnet | 2026-08-23 |
+| domains/functional/psm/psm-agent | agents/domains/functional/psm/psm-agent.md | medium | sonnet | 2026-08-23 |
 | domains/functional/training/training-agent | agents/domains/functional/training/training-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/battery/battery-agent | agents/domains/industry/battery/battery-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/biotech/biotech-agent | agents/domains/industry/biotech/biotech-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/cosmetics/cosmetics-agent | agents/domains/industry/cosmetics/cosmetics-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/datacenter/datacenter-agent | agents/domains/industry/datacenter/datacenter-agent.md | medium | sonnet | 2026-08-19 |
-| domains/industry/defense/defense-agent | agents/domains/industry/defense/defense-agent.md | medium | sonnet | 2026-08-19 |
+| domains/industry/defense/defense-agent | agents/domains/industry/defense/defense-agent.md | medium | sonnet | 2026-08-23 |
 | domains/industry/ehschem/ehschem-agent | agents/domains/industry/ehschem/ehschem-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/ehsconst/ehsconst-agent | agents/domains/industry/ehsconst/ehsconst-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/food/food-agent | agents/domains/industry/food/food-agent.md | medium | sonnet | 2026-08-19 |
@@ -56,7 +56,7 @@
 | domains/industry/powergen/powergen-agent | agents/domains/industry/powergen/powergen-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/railway/railway-agent | agents/domains/industry/railway/railway-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/semicon/semicon-agent | agents/domains/industry/semicon/semicon-agent.md | medium | sonnet | 2026-08-19 |
-| domains/industry/shipbuilding/shipbuilding-agent | agents/domains/industry/shipbuilding/shipbuilding-agent.md | medium | sonnet | 2026-08-19 |
+| domains/industry/shipbuilding/shipbuilding-agent | agents/domains/industry/shipbuilding/shipbuilding-agent.md | medium | sonnet | 2026-08-23 |
 | domains/industry/steelmaking/steelmaking-agent | agents/domains/industry/steelmaking/steelmaking-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/waste/waste-agent | agents/domains/industry/waste/waste-agent.md | medium | sonnet | 2026-08-19 |
 
@@ -167,9 +167,10 @@
 | dispatch-parallel.ts | 1.0.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.0.0 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.0.0 | scripts/dispatch.ts | N/A |
-| domain-config.ts | 1.4.0 | scripts/domain-config.ts | N/A |
+| domain-config.ts | 1.5.0 | scripts/domain-config.ts | N/A |
 | encoding-utils.ts | 1.0.0 | scripts/lib/encoding-utils.ts | fs, path |
 | error-handling.ts | 1.1.0 | scripts/lib/error-handling.ts | N/A |
+| evidence-validator.ts | 1.0.0 | scripts/lib/evidence-validator.ts | N/A |
 | fetch-legalize.ts | 1.0.0 | scripts/fetch-legalize.ts | child_process, fs, path |
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-scripts-readme.ts | 1.1.0 | scripts/generate-scripts-readme.ts | N/A |
@@ -183,7 +184,8 @@
 | qa-gate.ts | N/A | scripts/qa-gate.ts | bun |
 | readme-lifecycle-audit.ts | 1.0.2 | scripts/readme-lifecycle-audit.ts | N/A |
 | retry-handler.ts | 1.0.2 | scripts/retry-handler.ts | N/A |
-| safety-audit.ts | 4.5.0 | scripts/safety-audit.ts | js-yaml |
+| risk-register-rollup.ts | 1.0.0 | scripts/risk-register-rollup.ts | N/A |
+| safety-audit.ts | 4.6.0 | scripts/safety-audit.ts | js-yaml |
 | scaffold-industry.ts | 0.1.1 | scripts/scaffold-industry.ts | js-yaml |
 | skill-dependency-analysis.ts | 1.0.0 | scripts/skill-dependency-analysis.ts | N/A |
 | skill-lifecycle-audit.ts | 1.1.4 | scripts/skill-lifecycle-audit.ts | N/A |
@@ -198,6 +200,8 @@
 | test-domain-scenarios.ts | 1.1.0 | scripts/test-domain-scenarios.ts | N/A |
 | test-pharma-general-profile.ts | 1.0.0 | scripts/test-pharma-general-profile.ts | js-yaml |
 | test-runner.ts | 1.1.0 | scripts/test-runner.ts | child_process, fs, path |
+| test-runtime-tools.ts | 1.0.0 | scripts/test-runtime-tools.ts | N/A |
+| training-ingest.ts | 1.0.0 | scripts/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
 | validate-agents.ts | 1.1.0 | scripts/validate-agents.ts | N/A |
 | validate-doc-folder.ts | 1.0.1 | scripts/validate-doc-folder.ts | fs, path |

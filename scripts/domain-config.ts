@@ -5,7 +5,19 @@
  * define all domains in this config array. The audit script iterates and
  * applies the same validation logic to each domain.
  *
- * @version 1.4.0
+ * @version 1.5.0
+ * v1.5.0 (2026-08-23): (a) Renamed ehsconst required_evidence_fields
+ *   sapa_article_12_compliance -> sapa_article_5_compliance per the PR #105
+ *   article correction (SAPA Art 12 = notification of finalized criminal facts;
+ *   the contract/subcontractor safety obligation is Art 5). (b) Populated the
+ *   training domain's empty required_evidence_fields with the verified
+ *   intersection of all 5 training evidence models ('record_id',
+ *   'legal_basis') — only 2 of the 5 models currently carry the common.schema
+ *   e_signature/nomenclature/audit_trail $refs, so that triple is NOT the
+ *   intersection yet. (c) Expanded KNOWN_INDUSTRIES to the full
+ *   applicable_industries vocabulary actually declared across workflows/**
+ *   schema.yaml (21 values); both alias forms (medical_device/meddevice,
+ *   pharma/pharmaceutical) are retained because live schemas use each form.
  * v1.4.0 (2026-07-11): Removed PSM's skip_workflow_validation blanket exemption —
  *   all 15 PSM workflow schemas now carry compliant multi-source (≥3-entry)
  *   legal_basis arrays (the last outlier, loto-lockout-tagout, was fixed rather
@@ -108,7 +120,7 @@ const RAW_DOMAINS: DomainConfig[] = [
     {
         name: 'training',
         tier: 'functional',
-        required_evidence_fields: [],
+        required_evidence_fields: ['record_id', 'legal_basis'],
         description: 'Safety Training Management (OSHA-KR Art 13, 29, 31, 32, 36, 114 + SAPA Art 7, 8, 12)',
     },
     {
@@ -146,7 +158,7 @@ const RAW_DOMAINS: DomainConfig[] = [
     {
         name: 'ehsconst',
         tier: 'industry',
-        required_evidence_fields: ['sapa_article_12_compliance', 'project_id', 'contractor_tier'],
+        required_evidence_fields: ['sapa_article_5_compliance', 'project_id', 'contractor_tier'],
         description: 'Construction Safety',
     },
     {
@@ -275,5 +287,8 @@ export const CROSS_DOMAIN_REFS: Array<{
  * Known industries for applicable_industries validation.
  */
 export const KNOWN_INDUSTRIES = [
-    'chemical', 'gas_terminal', 'power_generation', 'construction', 'medical_device', 'pharma',
+    'chemical', 'gas_terminal', 'power_generation', 'construction', 'manufacturing',
+    'medical_device', 'meddevice', 'pharma', 'pharmaceutical', 'food', 'cosmetics',
+    'semiconductor', 'battery', 'shipbuilding', 'steelmaking', 'logistics', 'railway',
+    'waste', 'defense', 'biotech', 'datacenter',
 ];

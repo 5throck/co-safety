@@ -115,6 +115,28 @@ not require a migration script. No breaking (rename/type-change/new-required/rem
   renamed, re-typed, added to `required[]`, or removed; no migration script needed: a search of
   `memory/` on 2026-08-23 confirmed zero CHEM-TAR record instances exist.
 
+- `domains/industry/ehsconst/ehsconst-*-record.json` (all 9 models) are at **v2.0.0**
+  (2026-08-23): breaking change — `sapa_article_12_compliance` renamed to
+  `sapa_article_5_compliance` in both `required[]` and `properties` across every model
+  (`ehsconst-safety-plan`, `-inspection`, `-fall-prevention`, `-collapse-prevention`,
+  `-ptw`, `-tbm`, `-subcontractor`, `-supervision`, `-safety-budget`). The property
+  description was re-grounded from the mis-cited "중대재해처벌법 Article 12 (건설업 특례)"
+  to SAPA Article 5 (도급·하도급 안전보건 확보의무) per regulations/KR/SAPA-Construction.yaml
+  (PR #105 article correction: SAPA contains no construction special-provision article;
+  the contract/subcontractor obligation is Art 5). Triggers rule 1 (field rename).
+  No `v1-to-v2.ts` script was created: a search of `memory/` on 2026-08-23 confirmed
+  zero EHSC-* record instances exist, so there is no data to transform and a script
+  would be a no-op.
+
+- `domains/functional/risk-assessment/risk-assessment-record.json` is at **v2.1.0** (2026-08-24):
+  additive-only minor bump — new optional `facility_id` property (string, description mirrored from
+  `risk-register-record.json`'s facility identifier) linking an assessment to its facility/work area
+  so `scripts/risk-register-rollup.ts` can group assessments into per-facility registers. Not added
+  to `required[]`; no field renamed, re-typed, or removed; no `$ref` target changed. No migration
+  script needed: a search of `memory/` on 2026-08-24 confirmed zero RA- record instances exist, so
+  existing records (none) remain valid unmodified and all future records can adopt the field at
+  creation time.
+
 ## When to Create a Migration
 
 1. A field is **renamed** across evidence model schemas

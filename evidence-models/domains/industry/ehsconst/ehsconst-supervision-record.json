@@ -3,11 +3,11 @@
   "$id": "ehsconst-supervision-record.json",
   "title": "Construction Independent Safety Supervision Record",
   "description": "독립 안전감리 기록 per 건설기술진흥법 Article 24.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "object",
   "required": [
     "record_id",
-    "sapa_article_12_compliance",
+    "sapa_article_5_compliance",
     "project_id",
     "contractor_tier",
     "safety_officer_in_charge",
@@ -21,9 +21,9 @@
       "type": "string",
       "pattern": "^EHSC-SUP-[0-9]{4}-[0-9]{4}$"
     },
-    "sapa_article_12_compliance": {
+    "sapa_article_5_compliance": {
       "type": "boolean",
-      "description": "중대재해처벌법 Article 12 (건설업 특례) 준수"
+      "description": "SAPA Article 5 (도급·하도급 안전보건 확보의무) 준수"
     },
     "project_id": {
       "type": "string",
