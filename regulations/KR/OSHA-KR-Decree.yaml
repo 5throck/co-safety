@@ -1,0 +1,97 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOEL (고용노동부)
+framework: OSHA-KR-Decree
+title_ko: 산업안전보건법 시행령 (핵심 조항 정본)
+title_en: Enforcement Decree of the Occupational Safety and Health Act — Canonical Index
+description: >
+  Presidential-decree (시행령) companion to regulations/KR/OSHA-KR.yaml. Verified against
+  the legalize-kr cache (.cache/legalize-kr/kr/산업안전보건법/시행령.md, MST 288347,
+  시행일자 2026-08-01). The decree is large (119+ articles); this index carries the
+  chapter structure plus the articles cited by or directly mapped to Safety OS domains
+  (PSM, construction, MSDS, health monitoring). Cited in-repo by
+  docs/domains/functional/psm/scope.md (제43조).
+  NOTE: 제33조 (명예산업안전감독관의 해촉) was historically mis-cited in
+  docs/domains/functional/psm/scope.md as the PSM covered-substance provision; the
+  correct provision is 제43조 with 별표 13 threshold quantities.
+primary_law:
+  name_ko: 산업안전보건법 시행령
+  name_en: Enforcement Decree of the Occupational Safety and Health Act
+  abbreviation: OSHA-KR-Decree
+  parent_statute: regulations/KR/OSHA-KR.yaml
+  structure_note: >
+    Ch.1 General (Art 1-9), Ch.2 Industrial Accident Prevention and Comfort Measures
+    (Art 10-66 approx: safety/health management bodies, committees, education, PSM,
+    construction coordination, worker councils), Ch.3 Machinery/Substance Hazards
+    (Art 66-94 approx: certification, MSDS, hazardous substances, asbestos),
+    Ch.4 Health Preservation (Art 84-99 approx: work environment measurement,
+    health examinations, work-hour limits), Ch.5-7 Supplementary (Art 100+: penalties,
+    delegation). Article-to-statute mapping follows the decree's own 조문 references.
+  articles:
+    - article: "1"
+      topic_ko: 목적
+      topic_en: Purpose — matters delegated by OSHA-KR and enforcement details
+    - article: "2"
+      topic_ko: 적용범위 등
+      topic_en: Scope of application
+    - article: "13"
+      topic_ko: 이사회 보고ㆍ승인 대상 회사 등
+      topic_en: Companies subject to board reporting/approval of safety plans (counterpart of statute Art 14)
+    - article: "16"
+      topic_ko: 안전관리자의 선임 등
+      topic_en: Safety manager appointment (counterpart of statute Art 17)
+    - article: "20"
+      topic_ko: 보건관리자의 선임 등
+      topic_en: Health manager appointment
+    - article: "29"
+      topic_ko: 산업보건의의 선임 등
+      topic_en: Industrial health physician appointment
+    - article: "34"
+      topic_ko: 산업안전보건위원회 구성 대상
+      topic_en: Establishments subject to safety/health committee formation (counterpart of statute Art 24)
+    - article: "35"
+      topic_ko: 산업안전보건위원회의 구성
+      topic_en: Safety/health committee composition
+    - article: "42"
+      topic_ko: 유해위험방지계획서 제출 대상
+      topic_en: Hazard-prevention plan submission targets (statute Art 38 counterpart)
+    - article: "43"
+      topic_ko: 공정안전보고서의 제출 대상
+      topic_en: PSM-covered facilities — hazardous/dangerous equipment per listed business types, or substances at or above 별표 13 threshold quantities (규정량); statutory basis OSHA-KR Art 44. Cited by docs/domains/functional/psm/scope.md
+    - article: "44"
+      topic_ko: 공정안전보고서의 내용
+      topic_en: PSM report contents — process safety data, PHA, safe operation plan, emergency plan
+    - article: "45"
+      topic_ko: 공정안전보고서의 제출
+      topic_en: PSM report submission on installation/relocation/major modification of covered facilities
+    - article: "51"
+      topic_ko: 도급승인 대상 작업
+      topic_en: Work subject to contract approval (permit-to-work anchor)
+    - article: "52"
+      topic_ko: 안전보건총괄책임자 지정 대상사업
+      topic_en: Businesses requiring designation of overall safety/health coordinator
+    - article: "54"
+      topic_ko: 질식 또는 붕괴의 위험이 있는 작업
+      topic_en: Work with asphyxiation or collapse risk (construction confined-space/excavation anchor)
+    - article: "55"
+      topic_ko: 산업재해 예방 조치 대상 건설공사
+      topic_en: Construction projects subject to accident-prevention measures
+    - article: "63"
+      topic_ko: 노사협의체의 설치 대상
+      topic_en: Establishments subject to labor-management safety council (TBM/협의체 anchor)
+    - article: "86"
+      topic_ko: 물질안전보건자료의 작성ㆍ제출 제외 대상 화학물질 등
+      topic_en: Chemicals exempt from MSDS preparation/submission (MSDS domain anchor)
+    - article: "87"
+      topic_ko: 제조 등이 금지되는 유해물질
+      topic_en: Harmful substances whose manufacture/import/use is prohibited (statute Art 113 anchor)
+    - article: "88"
+      topic_ko: 허가 대상 유해물질
+      topic_en: Harmful substances subject to permission (statute Art 113 anchor)
+    - article: "95"
+      topic_ko: 작업환경측정기관의 지정 요건
+      topic_en: Designation requirements for work-environment measurement agencies (statute Art 125 anchor)
+    - article: "97"
+      topic_ko: 특수건강진단기관의 지정 요건
+      topic_en: Designation requirements for special health examination agencies (statute Art 130 anchor)
+last_updated: "2026-08-23"

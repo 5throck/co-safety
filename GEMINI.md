@@ -189,7 +189,7 @@ State parallel vs sequential order below the table. The Agent tool must not be c
 | Safety policy / KPI / industry profile design | Phase 1-2 | SGM (Safety Governance Manager) | High |
 | Workflow execution / risk assessment / compliance check | Phase 4 | SWM (Safety Workflow Manager) | High |
 | Compliance gap analysis | Phase 4 | compliance-agent | Medium |
-| Emergency response dispatch | Direct | emergency-agent | Medium |
+| Emergency response dispatch | Direct | emergency-agent | High |
 | Safety audit / evidence review | Phase 6 | audit-agent | Medium |
 
 **Tier ceiling**: Agents may NOT be elevated beyond their defined tier. Platform column is MANDATORY in every execution plan row.
@@ -197,10 +197,44 @@ State parallel vs sequential order below the table. The Agent tool must not be c
 #### Specialist Agent List
 All agents below require PM dispatch:
 - safety-governance-manager (SGM) — Phase 1-2 — High
-- safety-workflow-manager (SWM) — Phase 4 — High
+- legal-agent — Phase 1-2 — Medium
+- safety-workflow-manager (SWM) — Phase 3-4 — High
+- emergency-agent — Phase 4 — High
+- disaster-response-agent — Phase 4 — High
 - docs-writer — Phase 4 — Medium
 - compliance-agent — Phase 4 — Medium
-- audit-agent — Phase 6 — Medium
+- risk-assessment-agent — Phase 4 — Medium
+- reporting-agent — Phase 4 — Medium
+- training-agent — Phase 4 — Medium
+- psm-agent — Phase 4 — Medium
+- asset-integrity-agent — Phase 4 — Medium
+- contractor-safety-agent — Phase 4 — Medium
+- occupational-health-agent — Phase 4 — Medium
+- msds-agent — Phase 4 — Medium
+- ehschem-agent — Phase 4 — Medium
+- ehsconst-agent — Phase 4 — Medium
+- gasterm-agent — Phase 4 — Medium
+- powergen-agent — Phase 4 — Medium
+- gmp-agent — Phase 4 — Medium
+- glp-agent — Phase 4 — Medium
+- gdp-agent — Phase 4 — Medium
+- gcp-agent — Phase 4 — Medium
+- gvp-agent — Phase 4 — Medium
+- meddevice-agent — Phase 4 — Medium
+- food-agent — Phase 4 — Medium
+- cosmetics-agent — Phase 4 — Medium
+- semicon-agent — Phase 4 — Medium
+- battery-agent — Phase 4 — Medium
+- shipbuilding-agent — Phase 4 — Medium
+- steelmaking-agent — Phase 4 — Medium
+- datacenter-agent — Phase 4 — Medium
+- logistics-agent — Phase 4 — Medium
+- railway-agent — Phase 4 — Medium
+- waste-agent — Phase 4 — Medium
+- defense-agent — Phase 4 — Medium
+- biotech-agent — Phase 4 — Medium
+- incident-investigation-agent — Phase 5 — Medium
+- audit-agent — Phase 5-6 — Medium
 
 #### Permission Denial Protocol
 

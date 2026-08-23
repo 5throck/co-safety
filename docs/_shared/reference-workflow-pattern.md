@@ -2,7 +2,7 @@
 
 > **Pattern origin**: Established 2026-06-17 per MSDS domain meeting (`memory/meeting-2026-06-17-msds-open-questions-resolution.md` Q1 resolution).
 >
-> **First application**: `workflows/domains/msds/chemical-spill-reference/` — provides spill data and dispatches to `emergency-agent`.
+> **First application**: `workflows/domains/functional/msds/chemical-spill-reference/` — provides spill data and dispatches to `emergency-agent`.
 
 ---
 
@@ -96,7 +96,7 @@ This is because the reference workflow inherits regulatory authority from its `t
 
 ## 5. Implementation Example
 
-### `workflows/domains/msds/chemical-spill-reference/schema.yaml`
+### `workflows/domains/functional/msds/chemical-spill-reference/schema.yaml`
 
 ```yaml
 schema_version: "1.0"

@@ -32,5 +32,6 @@ Each policy document should include:
 5. **Approval** — CSO sign-off (name, date)
 6. **Review Cadence** — when this policy is next due for review
 
-No policy documents exist yet — this directory was previously empty and
-undocumented; SGM should populate it as policies are approved.
+One policy is in force: `POL-001` (`enterprise-safety-governance-policy.md`,
+v1.0.0, approved 2026-07-22); SGM should add further policies here as they are
+approved.

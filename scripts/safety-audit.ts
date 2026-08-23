@@ -48,8 +48,21 @@
  *   validates the resulting effective list against the ≥3 floor. Both the
  *   top-level workflow scan and validateDomainWorkflow use the resolver.
  *   Missing/unreadable shared schemas produce a named error (no crash).
+ * v4.4.0 (2026-08-23): Added memory record validation — actual instance records
+ *   under memory/findings/ and memory/corrective-actions/ are now validated
+ *   against their base schemas (evidence-models/_shared/base/finding.schema.json,
+ *   corrective-action.schema.json) with $ref chain resolution into
+ *   common.schema.json definitions. Previously only the schema FILES were
+ *   checked; record instances were never validated. Per-file errors follow the
+ *   existing `<rel>: <message>` style and count toward the exit code.
+ * v4.5.0 (2026-08-23): Added regulation staleness detection (WARN-only) —
+ *   regulation YAML files with a last_updated older than 90 days from the run
+ *   date, or with no parsable last_updated at all, are reported in a warnings
+ *   summary section. Warnings NEVER affect the error count or exit code; they
+ *   surface review-debt only (e.g. industry-regulatory-anchors.yaml has no
+ *   last_updated field).
  *
- * @version 4.3.1
+ * @version 4.5.0
  */
 
 import * as fs from 'node:fs';
@@ -61,12 +74,44 @@ import { DOMAINS, CROSS_DOMAIN_REFS, KNOWN_INDUSTRIES, DEFAULT_MIN_WORKFLOW_LEGA
 const GREEN = '\x1b[32m';
 const RED = '\x1b[31m';
 const CYAN = '\x1b[36m';
+const YELLOW = '\x1b[33m';
 const RESET = '\x1b[0m';
 
 const ROOT = path.resolve(process.cwd());
 
 let totalChecked = 0;
 const errors: string[] = [];
+
+// ── Regulation staleness detection (v4.5.0, WARN-only) ───────────────────────
+const STALENESS_DAYS = 90;
+const warnings: string[] = [];
+
+function checkRegulationStaleness(rel: string, lastUpdated: unknown): void {
+    // js-yaml resolves plain (unquoted) ISO dates to JS Date objects; quoted
+    // dates stay strings. Accept both before declaring the field unparsable.
+    let ts: number | null = null;
+    let display: string;
+    if (lastUpdated instanceof Date) {
+        ts = lastUpdated.getTime();
+        display = lastUpdated.toISOString().slice(0, 10);
+    } else if (typeof lastUpdated === 'string') {
+        const parsed = Date.parse(lastUpdated);
+        if (!Number.isNaN(parsed)) {
+            ts = parsed;
+            display = lastUpdated;
+        }
+    } else {
+        display = String(lastUpdated);
+    }
+    if (ts === null) {
+        warnings.push(`${rel}: no parsable last_updated field (staleness unknown)`);
+        return;
+    }
+    const ageDays = Math.floor((Date.now() - ts) / 86400000);
+    if (ageDays > STALENESS_DAYS) {
+        warnings.push(`${rel}: last_updated ${display} is ${ageDays} days old (> ${STALENESS_DAYS})`);
+    }
+}
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -262,6 +307,8 @@ for (const file of regFiles) {
         if (doc.source_mcp !== 'mcp-kr-legislation') {
             errors.push(`${rel}: missing or incorrect source_mcp (expected 'mcp-kr-legislation')`);
         }
+        // v4.5.0: staleness reporting — warnings only, never counted as errors.
+        checkRegulationStaleness(rel, doc.last_updated);
     } catch (e: any) {
         errors.push(`${rel}: YAML parsing error - ${e.message}`);
     }
@@ -301,6 +348,147 @@ for (const file of evidenceFiles) {
         }
     } catch (e: any) {
         errors.push(`${rel}: JSON parsing error - ${e.message}`);
+    }
+}
+
+// ── Memory record validation (v4.4.0) ────────────────────────────────────────
+// Validates instance RECORDS under memory/findings/ and memory/corrective-actions/
+// against their base schemas in evidence-models/_shared/base/. Hand-rolled
+// draft-07 subset validator (no ajv dependency) — supports exactly the keywords
+// used by the evidence-model schemas: $ref, type, required, properties, enum,
+// pattern, format (date/date-time), minItems, items. Unknown keywords ignored.
+
+function walkJsonPointer(doc: any, pointer: string): any {
+    let node = doc;
+    for (const segment of pointer.split('/').filter(s => s.length > 0)) {
+        if (node == null || typeof node !== 'object') return undefined;
+        node = node[segment.replace(/~1/g, '/').replace(/~0/g, '~')];
+    }
+    return node;
+}
+
+const loadedRefDocs = new Map<string, any>();
+
+function resolveRefSchema(ref: string, baseDir: string): any {
+    const [filePart, pointer] = ref.split('#');
+    if (!filePart) {
+        // Internal ref — resolved against the root schema being validated,
+        // handled by the caller; external resolution never reaches here.
+        return null;
+    }
+    const abs = path.resolve(baseDir, filePart);
+    if (!loadedRefDocs.has(abs)) {
+        try {
+            loadedRefDocs.set(abs, JSON.parse(fs.readFileSync(abs, 'utf-8')));
+        } catch (e: any) {
+            loadedRefDocs.set(abs, null);
+            errors.push(`${relPath(abs)}: cannot load $ref target - ${e.message}`);
+        }
+    }
+    const doc = loadedRefDocs.get(abs);
+    return pointer ? walkJsonPointer(doc, pointer) : doc;
+}
+
+interface RecordValidationCtx {
+    rel: string;
+    path: string;
+    rootDoc: any;
+    baseDir: string;
+}
+
+function validateRecordValue(value: any, schema: any, ctx: RecordValidationCtx): void {
+    // Resolve $ref chains (e.g. finding.schema.json -> common.schema.json#/definitions/x)
+    let hops = 0;
+    while (schema && schema.$ref) {
+        if (++hops > 16) {
+            errors.push(`${ctx.rel}: ${ctx.path} exceeds $ref resolution depth (possible circular $ref)`);
+            return;
+        }
+        const [filePart, pointer] = schema.$ref.split('#');
+        if (!filePart) {
+            schema = pointer ? walkJsonPointer(ctx.rootDoc, pointer) : ctx.rootDoc;
+        } else {
+            schema = resolveRefSchema(schema.$ref, ctx.baseDir);
+        }
+    }
+    if (!schema || typeof schema !== 'object') return;
+
+    if (schema.type === 'string') {
+        if (typeof value !== 'string') {
+            errors.push(`${ctx.rel}: ${ctx.path} must be a string`);
+            return;
+        }
+        if (Array.isArray(schema.enum) && !schema.enum.includes(value)) {
+            errors.push(`${ctx.rel}: ${ctx.path} has invalid value '${value}' (allowed: ${schema.enum.join(', ')})`);
+        }
+        if (schema.pattern && !(new RegExp(schema.pattern)).test(value)) {
+            errors.push(`${ctx.rel}: ${ctx.path} does not match pattern '${schema.pattern}'`);
+        }
+        if (schema.format === 'date' && !/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(value)) {
+            errors.push(`${ctx.rel}: ${ctx.path} is not an ISO date (YYYY-MM-DD)`);
+        }
+        if (schema.format === 'date-time' && !/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/.test(value)) {
+            errors.push(`${ctx.rel}: ${ctx.path} is not an ISO date-time`);
+        }
+    } else if (schema.type === 'array') {
+        if (!Array.isArray(value)) {
+            errors.push(`${ctx.rel}: ${ctx.path} must be an array`);
+            return;
+        }
+        if (typeof schema.minItems === 'number' && value.length < schema.minItems) {
+            errors.push(`${ctx.rel}: ${ctx.path} must have at least ${schema.minItems} item(s)`);
+        }
+        if (schema.items) {
+            value.forEach((item, i) =>
+                validateRecordValue(item, schema.items, { ...ctx, path: `${ctx.path}[${i}]` }));
+        }
+    } else if (schema.type === 'object') {
+        if (!value || typeof value !== 'object' || Array.isArray(value)) {
+            errors.push(`${ctx.rel}: ${ctx.path} must be an object`);
+            return;
+        }
+        for (const req of schema.required || []) {
+            if (!(req in value)) {
+                errors.push(`${ctx.rel}: missing required field '${req}'`);
+            }
+        }
+        for (const [key, sub] of Object.entries(schema.properties || {})) {
+            if (key in value) {
+                validateRecordValue(value[key], sub, { ...ctx, path: `${ctx.path}.${key}` });
+            }
+        }
+    }
+}
+
+const memoryRecordChecks = [
+    { dir: path.join(ROOT, 'memory', 'findings'), schemaFile: 'finding.schema.json', label: 'findings' },
+    { dir: path.join(ROOT, 'memory', 'corrective-actions'), schemaFile: 'corrective-action.schema.json', label: 'corrective-actions' },
+];
+const memoryRecordCounts: Record<string, number> = {};
+
+for (const check of memoryRecordChecks) {
+    memoryRecordCounts[check.label] = 0;
+    const schemaPath = path.join(ROOT, 'evidence-models', '_shared', 'base', check.schemaFile);
+    let schema: any = null;
+    try {
+        schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
+    } catch (e: any) {
+        errors.push(`evidence-models/_shared/base/${check.schemaFile}: cannot load schema for memory-record validation - ${e.message}`);
+    }
+    if (!schema || !fs.existsSync(check.dir)) continue;
+
+    for (const entry of fs.readdirSync(check.dir)) {
+        if (!entry.endsWith('.json')) continue; // skip session notes (*.md)
+        const file = path.join(check.dir, entry);
+        totalChecked++;
+        memoryRecordCounts[check.label]++;
+        const rel = relPath(file);
+        try {
+            const doc = JSON.parse(fs.readFileSync(file, 'utf-8'));
+            validateRecordValue(doc, schema, { rel, path: '$', rootDoc: schema, baseDir: path.dirname(schemaPath) });
+        } catch (e: any) {
+            errors.push(`${rel}: JSON parsing error - ${e.message}`);
+        }
     }
 }
 
@@ -544,7 +732,17 @@ const evReport = Object.entries(domainCounts).map(([k, v]) => `${v.evidence} ${k
 console.log(`Files checked : ${totalChecked}`);
 console.log(`  workflows/        : ${schemaFiles.length} schema.yaml file(s) (${wfReport})`);
 console.log(`  regulations/      : ${regFiles.length} .yaml file(s)`);
-console.log(`  evidence-models/  : ${evidenceFiles.length} .json file(s) (${evReport})\n`);
+console.log(`  evidence-models/  : ${evidenceFiles.length} .json file(s) (${evReport})`);
+console.log(`  memory records    : ${memoryRecordCounts['findings']} finding(s), ${memoryRecordCounts['corrective-actions']} corrective action(s)\n`);
+
+// ── Staleness warnings summary (v4.5.0) — informational, does not affect exit ─
+if (warnings.length > 0) {
+    console.log(`${YELLOW}⚠ ${warnings.length} regulation staleness warning(s) (WARN-only — not counted as errors):${RESET}`);
+    for (const w of warnings) {
+        console.log(`${YELLOW}  - ${w}${RESET}`);
+    }
+    console.log('');
+}
 
 if (errors.length === 0) {
     console.log(`${GREEN}✅ ${totalChecked} files checked, 0 errors${RESET}`);

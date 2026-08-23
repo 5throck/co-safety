@@ -3,7 +3,7 @@
   "$id": "ehschem-turnaround-record.json",
   "title": "Chemical Plant Turnaround Record",
   "description": "정기보수 (TAR) 가동중지 계획 기록.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "object",
   "required": [
     "record_id",
@@ -107,6 +107,13 @@
         "type": "string"
       },
       "description": "이 TAR 기간 중 발급된 psm-loto-record.json 레코드들의 record_id 배열 (설비/격리 지점별로 다수의 개별 LOTO 허가가 발생하므로 단일 참조가 아닌 배열)."
+    },
+    "pssr_ref": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "이 TAR 기간 수행된 psm-pssr-record.json 레코드들의 record_id 배열 (PSM-PSSR-YYYY-####; 단위공정/재시작 단계별로 다수의 PSSR이 수행될 수 있으므로 단일 참조가 아닌 배열). pssr-review 워크플로우의 산출물을 참조하며, post_tar_pssr_completed = true 설정 시 최소 1개 이상의 참조가 존재해야 한다."
     },
     "legal_basis": {
       "type": "array",

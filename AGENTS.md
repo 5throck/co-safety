@@ -59,7 +59,7 @@
 | Agent | File | Tier | Role |
 |-------|------|------|------|
 | EHSChem Agent | [`agents/domains/industry/ehschem/ehschem-agent.md`](agents/domains/industry/ehschem/ehschem-agent.md) | Medium | Chemical Plant Safety specialist (정유/석유화학/정밀화학); industry coordinator dispatching to PSM/MSDS/Emergency services |
-| EHSConst Agent | [`agents/domains/industry/ehsconst/ehsconst-agent.md`](agents/domains/industry/ehsconst/ehsconst-agent.md) | Medium | Construction Safety specialist; manages safety plans, fall/collapse prevention, and SAPA Article 12 (건설업 특례) compliance per OSHA-KR construction provisions |
+| EHSConst Agent | [`agents/domains/industry/ehsconst/ehsconst-agent.md`](agents/domains/industry/ehsconst/ehsconst-agent.md) | Medium | Construction Safety specialist; manages safety plans, fall/collapse prevention, and SAPA Article 5 (도급·하도급 안전보건 확보의무) compliance per OSHA-KR construction provisions |
 | GasTerm Agent | [`agents/domains/industry/gasterm/gasterm-agent.md`](agents/domains/industry/gasterm/gasterm-agent.md) | Medium | Gas Terminal Safety specialist (LNG/LPG/수소 기지 및 충전소); KGS compliance, leak detection, and emergency preparedness |
 | PowerGen Agent | [`agents/domains/industry/powergen/powergen-agent.md`](agents/domains/industry/powergen/powergen-agent.md) | Medium | Power Generation Safety specialist (화력/신재생 발전설비); boiler/turbine, high-voltage electrical, and ESS fire safety (원자력 제외) |
 

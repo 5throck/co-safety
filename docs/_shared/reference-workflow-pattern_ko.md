@@ -2,7 +2,7 @@
 
 > **패턴 기원**: 2026-06-17 MSDS 도메인 회의(`memory/meeting-2026-06-17-msds-open-questions-resolution.md` Q1 결의)에 따라 확립.
 >
-> **최초 적용**: `workflows/domains/msds/chemical-spill-reference/` — 누출 데이터를 제공하고 `emergency-agent`로 dispatch.
+> **최초 적용**: `workflows/domains/functional/msds/chemical-spill-reference/` — 누출 데이터를 제공하고 `emergency-agent`로 dispatch.
 
 ---
 
@@ -96,7 +96,7 @@ const requiredMin = isReference ? 2 : 3;  // MSDS 예시
 
 ## 5. 구현 예시
 
-### `workflows/domains/msds/chemical-spill-reference/schema.yaml`
+### `workflows/domains/functional/msds/chemical-spill-reference/schema.yaml`
 
 ```yaml
 schema_version: "1.0"

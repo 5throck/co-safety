@@ -1,5 +1,5 @@
 
-# Hot Work Permit (Element 10)
+# Hot Work Permit
 
 ## Overview
 This workflow defines the permit-to-work procedure for hot work operations conducted in or near a covered process, in compliance with OSHA-KR Article 44. Hot work includes welding, cutting, grinding, brazing, and any other operation that generates sparks, flames, or heat sufficient to ignite flammable or combustible materials.

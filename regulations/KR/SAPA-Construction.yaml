@@ -2,34 +2,45 @@ source_mcp: mcp-kr-legislation
 jurisdiction: KR
 regulator: MOEL (고용노동부)
 framework: SAPA-Construction
-title_ko: 중대재해처벌법 건설업 특례
-title_en: Serious Accidents Punishment Act — Construction Provisions
+title_ko: 중대재해처벌법 건설업 적용 조항
+title_en: Serious Accidents Punishment Act — Construction-Relevant Provisions
+description: >
+  Construction-narrowed view of 중대재해처벌법, reconciled against the canonical index
+  (regulations/KR/SAPA.yaml) with .cache/legalize-kr/kr/중대재해처벌등에관한법률/법률.md
+  (MST 228817) as arbiter. IMPORTANT: SAPA contains NO construction-specific
+  special-provision article (건설특례) — the former "Article 12 건설업 특례" claim in this
+  file was a mis-citation. Construction relevance comes from Art 3 scope thresholds,
+  Art 5 contract/subcontract obligations, and SAPA 시행령 Art 4(9) contractor-selection
+  criteria (see regulations/KR/SAPA-Decree.yaml).
 primary_law:
   name_ko: 중대재해처벌법
   name_en: SAPA
   articles:
     - article: "3"
-      topic_ko: 경영책임자 처벌 (건설업 포함)
-      topic_en: Management responsibility
+      topic_ko: 적용범위
+      topic_en: Application scope — construction projects of individual business owners below thresholds excluded; phase-in for 공사금액 50억원 미만 construction per Addendum Art 1
+    - article: "4"
+      topic_ko: 사업주와 경영책임자등의 안전 및 보건 확보의무
+      topic_en: Employer obligations — safety and health management system establishment and implementation
+    - article: "5"
+      topic_ko: 도급·용역·위탁 등 관계에서의 안전·보건 확보의무
+      topic_en: Prime-contractor obligations toward subcontractor workers (원도급–하도급 chain) where the site is under the contractor's substantive control
+    - article: "6"
+      topic_ko: 중대산업재해 사업주와 경영책임자등의 처벌
+      topic_en: Punishment for serious industrial accidents (death — ≥1 yr imprisonment or ≤KRW 1bn fine; injury/disease — ≤7 yrs or ≤KRW 100m)
     - article: "7"
-      topic_ko: 사업주 의무 (안전보건관리체계)
-      topic_en: Employer obligations
-    - article: "12"
-      topic_ko: 건설공사 특례 (발주처/원사업주 책임 강화)
-      topic_en: Construction project special provisions
-    - article: "13"
-      topic_ko: 하도급업체 안전보건 의무
-      topic_en: Subcontractor safety/health obligations
+      topic_ko: 중대산업재해의 양벌규정
+      topic_en: Dual liability — corporate penalty ≤KRW 5bn (death cases) / ≤KRW 1bn (injury·disease cases)
 serious_accident_threshold:
-  fatality: "사망 1명 이상"
-  serious_injury: "6개월 이상 치료를 요하는 부상 1명 이상"
-  multiple_injury: "동일 사고로 3명 이상 부상"
-  occupational_disease: "업무상 질병 1년 이상 요양"
+  fatality: "사망자 1명 이상 발생"
+  serious_injury: "동일한 사고로 6개월 이상 치료가 필요한 부상자 2명 이상 발생"
+  occupational_disease: "동일한 유해요인으로 급성중독 등 대통령령으로 정하는 직업성 질병자가 1년 이내에 3명 이상 발생"
 construction_specific_obligations:
   ordering_party: 발주처 (안전관리체계 구축, 원도급자 선정 기준)
   prime_contractor: 원도급자 (하도급자 관리, 안전관리비 집행)
   subcontractor: 하도급자 (자체 안전관리)
 penalties:
-  business_entity: "벌금 최대 1억 원"
-  management: "징역 최대 1년 또는 벌금 최대 1억 원"
-last_updated: "2026-06-18"
+  individual_death_case: "1년 이상 징역 또는 10억원 이하 벌금 (징역과 벌금 병과 가능) — 제6조제1항"
+  individual_injury_or_disease_case: "7년 이하 징역 또는 1억원 이하 벌금 — 제6조제2항"
+  corporate_dual_liability: "법인 벌금 50억원 이하 (사망) / 10억원 이하 (부상·질병) — 제7조 양벌규정"
+last_updated: "2026-08-23"

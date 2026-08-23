@@ -18,7 +18,7 @@ lifecycle:
 
 ## Section A — Legal Basis
 
-- **Occupational Safety and Health Act (OSHA-KR) Article 9** — Labor Inspector Powers: The Ministry of Employment and Labor may inspect workplaces; audit records must be maintained and available for inspection.
+- **Occupational Safety and Health Act (OSHA-KR) Article 155** — Labor Inspector Powers: The Ministry of Employment and Labor may inspect workplaces; audit records must be maintained and available for inspection.
 - **Occupational Safety and Health Act (OSHA-KR) Article 57** — Incident Recording & Reporting: All industrial accidents must be recorded using prescribed forms and retained for 3 years.
 - **Serious Accidents Punishment Act (SAPA) Article 4** — Obligation to Secure Safety and Health: Organizations must establish and maintain safety management systems and preserve related records.
 
@@ -82,7 +82,7 @@ Dispatched by SWM at the close of any workflow. May also be dispatched by PM dir
 4. For each finding: create linked corrective action record with `owner`, `due_date`, `status: open`
 5. Write finding records to `memory/findings/finding-<date>-<id>.md`
 6. Write corrective action records to `memory/corrective-actions/ca-<date>-<id>.md`
-7. Run `bun scripts/safety-audit.ts` to validate all new records
+7. Run `bun scripts/safety-audit.ts` to validate all new records (schema files + `memory/findings/` + `memory/corrective-actions/` instances)
 8. Report summary to calling agent: findings count by severity, CAs created
 
 ### Escalation Thresholds

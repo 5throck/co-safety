@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "instructor-qualification-record.json",
   "title": "Instructor Qualification Record",
-  "description": "Safety training instructor qualification per KOSHA requirements.",
-  "version": "1.0.0",
+  "description": "Safety training instructor qualification record per OSHA-KR Articles 29, 31, 32, 114 (안전보건교육 강사 자격).",
+  "version": "1.1.0",
   "type": "object",
   "required": [
     "record_id",
@@ -19,10 +19,12 @@
       "pattern": "^TRAIN-INST-[0-9]{4}-[0-9]{4}$"
     },
     "instructor_id": {
-      "type": "string"
+      "type": "string",
+      "description": "Instructor employee ID"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "Instructor name (성명)"
     },
     "qualification_type": {
       "type": "string",
@@ -31,10 +33,16 @@
         "internal_qualified",
         "external_expert",
         "safety_manager"
-      ]
+      ],
+      "description": "KOSHA 인증 / 내부 자격 / 외부 전문가 / 안전관리자"
     },
     "qualification_number": {
-      "type": "string"
+      "type": "string",
+      "description": "Certificate number issued by the issuing authority"
+    },
+    "issuing_authority": {
+      "type": "string",
+      "description": "Qualification issuing authority (발급기관, e.g., KOSHA, MOEL, internal safety department)"
     },
     "qualified_training_types": {
       "type": "array",
@@ -45,10 +53,12 @@
           "special",
           "supervisor",
           "new_hire",
+          "job_transfer",
           "first_aid",
           "msds"
         ]
-      }
+      },
+      "description": "Training types this instructor may teach (정기/특별/관리감독자/신규채용/직무전환/응급조치/MSDS)"
     },
     "valid_from": {
       "type": "string",
@@ -56,23 +66,46 @@
     },
     "valid_until": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "description": "Qualification expiry date (자격 만료일)"
     },
     "renewal_required": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "True if periodic renewal education is required before expiry"
+    },
+    "renewal_due_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Deadline for renewal filing when renewal_required=true"
+    },
+    "courses_taught": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^TRAIN-CURR-[0-9]{4}-[0-9]{4}$"
+      },
+      "description": "Linked course references taught by this instructor (training-curriculum-record.json IDs)"
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": ["pending", "verified", "expired", "revoked"],
+      "description": "Qualification verification status against issuing authority records"
     },
     "legal_basis": {
       "type": "array",
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 §4 (instructor qualification requirements for safety education) or Article 31 §3 (instructor requirements for special safety education). Adjacent laws may include: SAPA Article 7 (employer must ensure qualified instructors — quality of training provision), KOSHA qualification standards (안전보건교육 강사 자격 기준).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 §1 (worker safety education including instructor requirements) or Article 31 §1 (special safety education for hazardous work) or Article 32 §1 (supervisor education, 관리감독자 교육) or Article 13 §1 (emergency response education) or Article 114 §1 (MSDS education). Adjacent laws may include: SAPA Article 4 (employer must ensure qualified instructors — safety and health assurance obligation), SAPA Article 5 (contract/subcontractor safety obligations).",
       "items": {
         "type": "string"
       },
       "minItems": 3,
       "examples": [
-        ["OSHA-KR Art.29 §4", "KOSHA GUIDE T-XX-2022", "SAPA Art.7"],
-        ["OSHA-KR Art.31 §3", "KOSHA GUIDE T-XX-2022", "SAPA Art.7"],
-        ["OSHA-KR Art.29 §4", "OSHA-KR Art.32 §2", "SAPA Art.7"]
+        ["OSHA-KR Art.29 §1", "OSHA-KR Art.31 §1", "SAPA Art.4"],
+        ["OSHA-KR Art.32 §1", "OSHA-KR Art.29 §1", "SAPA Art.4"],
+        ["OSHA-KR Art.114 §1", "OSHA-KR Art.29 §1", "SAPA Art.5"]
       ]
-    }
+    },
+    "e_signature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/e_signature" },
+    "nomenclature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/nomenclature" },
+    "audit_trail": { "$ref": "../../../_shared/base/common.schema.json#/definitions/audit_trail" }
   }
 }

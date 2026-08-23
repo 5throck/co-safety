@@ -50,22 +50,22 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 117 (special health examination) and Article 118 (work environment measurement). Adjacent laws may include: SAPA Article 7 (employer obligation for worker health protection), OSHA-KR Article 29 (safety education including health hazards), 산업보건기준에관한규칙 (MOEL ordinance — occupational health standards).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 130 (special health examination) and Article 125 (work environment measurement). Adjacent laws may include: SAPA Article 4 (employer safety and health assurance obligation), OSHA-KR Article 29 (safety education including health hazards), 산업보건기준에관한규칙 (MOEL ordinance — occupational health standards).",
       "examples": [
         [
-          "OSHA-KR Art.117 §1",
-          "SAPA Art.7",
-          "OSHA-KR Art.118 §1"
+          "OSHA-KR Art.130 §1",
+          "SAPA Art.4",
+          "OSHA-KR Art.125 §1"
         ],
         [
-          "OSHA-KR Art.118 §1",
+          "OSHA-KR Art.125 §1",
           "산업보건기준에관한규칙",
-          "SAPA Art.7"
+          "SAPA Art.4"
         ],
         [
-          "OSHA-KR Art.117 §1",
+          "OSHA-KR Art.130 §1",
           "OSHA-KR Art.29 §1",
-          "SAPA Art.7"
+          "SAPA Art.4"
         ]
       ]
     },

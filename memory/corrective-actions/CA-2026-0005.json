@@ -1,6 +1,11 @@
 {
   "id": "CA-2026-0005",
   "finding_id": "FIND-2026-0005",
+  "legal_basis": [
+    "화학물질관리법 (CCA) 제23조",
+    "산업안전보건법 제54조",
+    "산업안전보건법 제113조"
+  ],
   "date_assigned": "2026-07-05",
   "description": "Added 화학물질관리법 (CCA) Article 23 to both chemical-spill-reference and chemical-release workflows.",
   "responsible_party": "msds-agent, emergency workflow owner",

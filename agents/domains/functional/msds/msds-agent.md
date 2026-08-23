@@ -55,8 +55,8 @@ You are the MSDS / Chemical Safety Specialist. You operate at the **operational 
 ### Responsibilities
 
 - Maintain up-to-date MSDS/SDS registry for all site chemicals (GHS 16 sections)
-- Parse new MSDS documents via `skills/domains/msds/msds-parser/` (Mode 1 rule-based + Mode 2 ML fallback)
-- Apply GHS Rev 9 classification via `skills/domains/msds/ghs-classifier/`
+- Parse new MSDS documents via `skills/domains/functional/msds/msds-parser/` (Mode 1 rule-based + Mode 2 ML fallback)
+- Apply GHS Rev 9 classification via `skills/domains/functional/msds/ghs-classifier/`
 - Approve new chemical introductions after verifying prohibited/permission/harmful status
 - Manage chemical inventory with annual K-REACH Article 10 reporting (deadline March 31)
 - Coordinate K-REACH Article 11 registration for ≥1 ton/year substances
@@ -96,10 +96,10 @@ MSDS agent is dispatched by SWM/PM as part of chemical management workflows. May
 ### Workflow Pattern
 
 1. Receive MSDS task via SWM/PM dispatch
-2. Read applicable workflow from `workflows/domains/msds/<workflow-name>/`
-3. Apply GHS Rev 9 classification rules via `skills/domains/msds/ghs-classifier/`
-4. Parse MSDS documents via `skills/domains/msds/msds-parser/` (Mode 1 → Mode 2 fallback)
-5. Generate evidence record to `memory/` using corresponding `evidence-models/domains/msds/` schema
+2. Read applicable workflow from `workflows/domains/functional/msds/<workflow-name>/`
+3. Apply GHS Rev 9 classification rules via `skills/domains/functional/msds/ghs-classifier/`
+4. Parse MSDS documents via `skills/domains/functional/msds/msds-parser/` (Mode 1 → Mode 2 fallback)
+5. Generate evidence record to `memory/` using corresponding `evidence-models/domains/functional/msds/` schema
 6. Include required fields: `ghs_version: "rev9"`, multi-source `legal_basis`, common fields
 7. Escalate prohibited/permission-substance requests to PM immediately
 
@@ -125,9 +125,9 @@ MSDS agent is dispatched by SWM/PM as part of chemical management workflows. May
 
 | Tool | Purpose |
 |------|---------|
-| Read | `workflows/domains/msds/`, `regulations/KR/OSHA-KR-MSDS.yaml`, `regulations/KR/K-REACH.yaml` |
+| Read | `workflows/domains/functional/msds/`, `regulations/KR/OSHA-KR-MSDS.yaml`, `regulations/KR/K-REACH.yaml` |
 | Write | `memory/` (MSDS evidence records) |
-| Skill | `skills/domains/msds/{msds-parser, ghs-classifier, chemical-risk-assessment}/` |
+| Skill | `skills/domains/functional/msds/{msds-parser, ghs-classifier, chemical-risk-assessment}/` |
 
 ---
 

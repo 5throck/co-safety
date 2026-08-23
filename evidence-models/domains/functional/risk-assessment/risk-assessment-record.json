@@ -3,7 +3,7 @@
   "$id": "risk-assessment-record.json",
   "title": "Workplace Risk Assessment Record",
   "description": "Structured risk assessment record per OSHA-KR Article 36 (위험성평가 실시). Documents hazard identification, risk scoring, and control measures for workplace tasks.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "type": "object",
   "required": [
     "record_id",
@@ -57,9 +57,25 @@
         "construction",
         "chemical",
         "gas_terminal",
-        "power_generation"
+        "power_generation",
+        "pharmaceutical",
+        "food",
+        "cosmetics",
+        "semiconductor",
+        "battery",
+        "shipbuilding",
+        "steelmaking",
+        "logistics",
+        "railway",
+        "waste",
+        "defense",
+        "biotech",
+        "meddevice",
+        "datacenter",
+        "medical_device",
+        "pharma"
       ],
-      "description": "Industry sector"
+      "description": "Industry sector. Vocabulary covers every value used in `applicable_industries` across `workflows/domains/functional/risk-assessment/*/schema.yaml` plus the KNOWN_INDUSTRIES vocabulary in `scripts/domain-config.ts` (note: 'meddevice'/'pharmaceutical' vs 'medical_device'/'pharma' are divergent aliases between those two vocabularies; both forms are accepted until the vocabularies are unified)."
     },
     "hazards": {
       "type": "array",
@@ -86,6 +102,7 @@
               "confined_space",
               "biological",
               "ergonomic",
+              "psychosocial",
               "noise",
               "radiation",
               "other"
@@ -122,13 +139,13 @@
               "high",
               "critical"
             ],
-            "description": "Risk level before controls"
+            "description": "Risk level before controls. Qualitative band derived from `risk_score_before` via the normative band table defined on that property."
           },
           "risk_score_before": {
             "type": "integer",
             "minimum": 1,
             "maximum": 25,
-            "description": "Numeric Likelihood × Severity product (1-25 scale) before controls, alongside the qualitative risk_level_before band. Added v1.1.0 to enable quantitative trend analysis and cross-record aggregation."
+            "description": "Numeric Likelihood x Severity product (1-25 scale) before controls, alongside the qualitative risk_level_before band. Added v1.1.0 to enable quantitative trend analysis and cross-record aggregation. Normative band table (single source of truth for all score/band fields in this schema): 1-5 Low, 6-12 Medium, 13-19 High, 20-25 Critical; any score >= 13 (High or Critical) requires escalation (`escalate: true`, SWM review)."
           },
           "control_measures": {
             "type": "array",
@@ -185,13 +202,13 @@
               "high",
               "critical"
             ],
-            "description": "Residual risk level after controls"
+            "description": "Residual risk level after controls. Qualitative band derived from `risk_score_after` via the normative band table defined on `risk_score_before`."
           },
           "risk_score_after": {
             "type": "integer",
             "minimum": 1,
             "maximum": 25,
-            "description": "Numeric Likelihood × Severity product (1-25 scale) after controls, alongside the qualitative risk_level_after band. Added v1.1.0."
+            "description": "Numeric Likelihood x Severity product (1-25 scale) after controls, alongside the qualitative risk_level_after band. Added v1.1.0. Bands identical to the normative table defined on `risk_score_before`."
           }
         },
         "required": [
@@ -201,7 +218,9 @@
           "likelihood_before",
           "severity_before",
           "risk_level_before",
-          "risk_level_after"
+          "risk_score_before",
+          "risk_level_after",
+          "risk_score_after"
         ]
       },
       "minItems": 1
@@ -255,7 +274,7 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 36 (risk assessment obligation) and Article 9 (risk assessment system establishment). Adjacent laws may include: SAPA Article 4 (management obligation for risk assessment), SAPA Article 7 (employer obligation for risk communication), MOEL workplace risk assessment guidelines (고용노동부 고시).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 36 (risk assessment obligation). Adjacent laws may include: SAPA Article 4 (safety and health assurance obligation — management system must include risk assessment), SAPA Article 5 (safety and health assurance obligation in contracted/outsourced work), MOEL workplace risk assessment guidelines (고용노동부 고시).",
       "examples": [
         [
           "OSHA-KR Art.36 §1",
@@ -263,14 +282,14 @@
           "MOEL 위험성평가 고시"
         ],
         [
-          "OSHA-KR Art.9 §1",
-          "SAPA Art.7",
-          "OSHA-KR Art.36 §1"
+          "OSHA-KR Art.36 §1",
+          "산업안전보건법 시행규칙 Article 37",
+          "MOEL 위험성평가 고시"
         ],
         [
           "OSHA-KR Art.36 §1",
           "SAPA Art.4",
-          "SAPA Art.7"
+          "SAPA Art.5"
         ]
       ]
     },

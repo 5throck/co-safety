@@ -120,7 +120,7 @@ confidence_baseline: 95  # Expected confidence when rule matches
 
 ## Output
 
-Generates `msds-record.json` per `evidence-models/domains/msds/msds-record.json` schema.
+Generates `msds-record.json` per `evidence-models/domains/functional/msds/msds-record.json` schema.
 
 ## v2 Roadmap
 - ML model internalization (remove external LLM dependency)

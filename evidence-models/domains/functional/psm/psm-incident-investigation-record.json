@@ -76,11 +76,11 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 44 (PSM — incident investigation). Adjacent laws may include: SAPA Article 8 (investigation and reporting of serious accidents), OSHA-KR Article 38-2 (accident investigation duty), OSHA-KR Article 10 (accident reporting to MOL).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 44 (PSM — incident investigation). Adjacent laws may include: OSHA-KR Article 54 (action upon serious accidents — stop work, evacuation, recurrence prevention) and OSHA-KR Article 57 (incident recording and reporting, retain 3 years).",
       "examples": [
         "산업안전보건법 Article 44 (공정안전관리 — 사고조사)",
-        "중대재해처벌법 Article 8 (중대재해 조사 및 보고)",
-        "산업안전보건법 Article 38-2 (산업재해 조사)"
+        "산업안전보건법 Article 54 (중대재해 발생 시 조치)",
+        "산업안전보건법 Article 57 (산업재해 기록·보고)"
       ]
     }
   }

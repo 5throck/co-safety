@@ -111,21 +111,21 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: OSHA-KR Articles 15/17 (construction safety manager), Articles 98-103 (fall/collapse/electrical prevention). Adjacent laws may include: SAPA Article 12 (construction project special provisions), 건설산업기본법 Articles 45/83 (subcontractor management), 건설기술진흥법 Articles 24/25 (safety supervision).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Articles 15/17 (construction safety manager), Articles 98-103 (fall/collapse/electrical prevention). Adjacent laws may include: SAPA Article 5 (contract/subcontractor safety obligations), 건설산업기본법 Articles 45/83 (subcontractor management), 건설기술진흥법 Articles 24/25 (safety supervision).",
       "examples": [
         [
           "OSHA-KR Art.15 §1",
-          "SAPA Art.12",
+          "SAPA Art.5",
           "건설산업기본법 Art.45"
         ],
         [
           "OSHA-KR Art.98 §1",
-          "SAPA Art.12",
+          "SAPA Art.5",
           "건설기술진흥법 Art.24"
         ],
         [
           "OSHA-KR Art.17 §1",
-          "SAPA Art.12",
+          "SAPA Art.5",
           "건설산업기본법 Art.83"
         ]
       ]

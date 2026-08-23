@@ -88,7 +88,7 @@ statutes:
       - { number: "제24조",  topic_en: "Occupational Safety and Health Committee" }
       - { number: "제29조",  topic_en: "Worker safety and health education (근로자 안전보건교육)" }
       - { number: "제31조",  topic_en: "Special safety and health training for hazardous work (특별안전보건교육 위험작업)" }
-      - { number: "제32조",  topic_en: "Workplace safety measures" }
+      - { number: "제32조",  topic_en: "Supervisor education / workplace safety measures (관리감독자 교육 / 작업장 안전조치)" }
       - { number: "제36조",  topic_en: "Risk assessment (위험성평가 실시)" }
       - { number: "제38조",  topic_en: "Safety measures (안전조치)" }
       - { number: "제39조",  topic_en: "Health measures (보건조치)" }
