@@ -1,4 +1,9 @@
-// @version 1.4.4 — variant-aware: runs safety-audit.ts for safety-os, workspace audit.ts for workspace root
+// @version 1.5.0 — runtime-tools integration tests wired into variant domain-test suite
+//
+// Changelog:
+//   1.5.0 — added scripts/test-runtime-tools.ts (training-ingest / risk-register-rollup /
+//           sandboxed safety-audit integration tests) to the variant-only domain test suite
+//   1.4.4 — variant-aware: runs safety-audit.ts for safety-os, workspace audit.ts for workspace root
 import { $ } from 'bun';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -172,6 +177,7 @@ if (isVariant) {
         'scripts/test-chemical-handling-profile.ts',
         'scripts/test-cross-domain-integration.ts',
         'scripts/test-domain-scenarios.ts',
+        'scripts/test-runtime-tools.ts',
     ];
     for (const testScript of testScripts) {
         if (fs.existsSync(testScript)) {

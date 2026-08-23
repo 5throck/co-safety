@@ -1,0 +1,52 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: PIPC (개인정보보호위원회)
+framework: PIPA
+title_ko: 개인정보 보호법 (전체 조항 중 노무·교육기록 관련 조문 선별 색인)
+title_en: Personal Information Protection Act — Canonical Index (workplace personal-data articles)
+description: >
+  Statutory basis for processing worker personal data collected by Safety OS
+  evidence models. Training evidence records carry employee PII (trainee_name,
+  trainee_id, instructor_id, e_signature.signer_id, overdue_worker_list) and
+  therefore require privacy-law grounding alongside OSHA-KR/SAPA citations.
+  Selected articles verified verbatim against the legalize-kr cache
+  (.cache/legalize-kr/kr/개인정보보호법/법률.md, MST 283839, 공포번호 제21445호,
+  공포일자 2026-03-10, 시행일자 2026-09-11, 소관부처 개인정보보호위원회). Minimal
+  index: only articles governing collection/use (제15조), minimality (제16조),
+  third-party provision (제17조), out-of-purpose restriction (제18조),
+  destruction (제21조), and security safeguards (제29조) as applied to workplace
+  training-record processing. Full act text remains in the legalize-kr cache;
+  enforcement decree (.cache/legalize-kr/kr/개인정보보호법/시행령.md) not indexed here.
+primary_law:
+  name_ko: 개인정보 보호법
+  name_en: Personal Information Protection Act
+  abbreviation: PIPA
+  structure_note: >
+    Ch.1 General (Art 1-6), Ch.2 Policy establishment (Art 7-14),
+    Ch.3 Processing of personal information (Art 15-39의7), Ch.4-9 promotion,
+    oversight, remedies, penalties. This index covers only Ch.1 principles and
+    Ch.3 collection/use/provision/destruction/security articles relevant to
+    employee training records.
+  articles:
+    - article: "3"
+      topic_ko: 개인정보 보호 원칙
+      topic_en: Protection principles — clear processing purpose, lawful minimum-necessary collection, purpose-bound use, accuracy/completeness, secure management, transparency and data-subject rights (Art 30 privacy-policy disclosure)
+    - article: "15"
+      topic_ko: 개인정보의 수집ㆍ이용
+      topic_en: Collection and use permitted only under enumerated grounds (consent; contract; legitimate interest not overridden by data-subject rights); consent must state purpose, item list, retention/use period, and refusal consequences — governs capture of trainee/instructor identifiers in training records
+    - article: "16"
+      topic_ko: 개인정보의 수집 제한
+      topic_en: Minimum-necessary collection — collector bears burden of proving minimality; optional items require explicit notice and refusal must not cause disadvantage (e.g., collect worker ID only as needed for completion tracking)
+    - article: "17"
+      topic_ko: 개인정보의 제공
+      topic_en: Third-party provision (incl. sharing) only with consent or within original collection grounds under Art 15(1)(2)(3),(5)-(7); consent must disclose recipient, recipient's purpose, provided items, and retention period — restricts sharing training rosters/results outside the employer
+    - article: "18"
+      topic_ko: 개인정보의 목적 외 이용ㆍ제공 제한
+      topic_en: Out-of-purpose use/provision prohibited beyond Art 15(1)/Art 17(1)/Art 28의8(1) scope, except separate consent, specific other-statute basis, or urgent life/body/property interests; provider must impose use limits and safety measures on recipients
+    - article: "21"
+      topic_ko: 개인정보의 파기
+      topic_en: Prompt destruction when retention period expires or processing purpose is achieved, unless another statute requires preservation (e.g., statutory training-record retention under OSHA-KR); irreversible method required; retained records stored separately from other personal data
+    - article: "29"
+      topic_ko: 안전조치의무
+      topic_en: Duty of technical/managerial/physical safeguards against leakage (internal management plan, access-log retention) for stored training evidence containing employee identifiers
+last_updated: "2026-08-23"

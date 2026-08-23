@@ -79,6 +79,7 @@ lifecycle:
 - functional/msds-agent: 세척/소독 화학물질
 - emergency-agent: device-recall-reference로 위해사항/회수 dispatch
 - functional/glp-agent: 생물적합성 시험
+- risk-assessment-agent: workforce/process risk assessments route there; device risk stays here (ISO 14971 via `iso14971-risk-scorer`)
 - PM (CSO): MFDS 위해사항 신고, KGMP-MD 부적합
 
 ### Tools Used

@@ -19,7 +19,7 @@
  * v2.7.0 (2026-06-17): Added GVP module validation — ich_e2_compliance,
  *   pbrer_cycle_ref, product_id, rmp_version_ref fields.
  * v2.8.0 (2026-06-18): Added ehsconst (Construction Safety) module validation —
- *   sapa_article_12_compliance, project_id, contractor_tier, safety_officer_in_charge.
+ *   sapa_article_5_compliance, project_id, contractor_tier, safety_officer_in_charge.
  * v2.9.0 (2026-06-18): Added gasterm (Gas Terminal) + powergen (Power Generation)
  *   module validation. gasterm: facility_type, kgs_inspection_status, psm_applicable,
  *   gas_type. powergen: plant_type, kesa_inspection_status, voltage_class.
@@ -61,14 +61,23 @@
  *   summary section. Warnings NEVER affect the error count or exit code; they
  *   surface review-debt only (e.g. industry-regulatory-anchors.yaml has no
  *   last_updated field).
+ * v4.6.0 (2026-08-24): Extracted the hand-rolled draft-07 record validator
+ *   into scripts/lib/evidence-validator.ts (behavior-neutral refactor —
+ *   shared errors closure replaced by an explicit error-sink parameter;
+ *   external-$ref memo cache moved to module state). Memory-record bucket
+ *   config generalized to full schema paths relative to ROOT. Added three
+ *   new memory buckets: memory/training (training-record.json),
+ *   memory/assessments (risk-assessment-record.json), memory/registers
+ *   (risk-register-record.json).
  *
- * @version 4.5.0
+ * @version 4.6.0
  */
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as yaml from 'js-yaml';
 import { DOMAINS, CROSS_DOMAIN_REFS, KNOWN_INDUSTRIES, DEFAULT_MIN_WORKFLOW_LEGAL_BASIS } from './domain-config.ts';
+import { validateRecordValue } from './lib/evidence-validator.ts';
 
 // Color helpers
 const GREEN = '\x1b[32m';
@@ -351,141 +360,43 @@ for (const file of evidenceFiles) {
     }
 }
 
-// ── Memory record validation (v4.4.0) ────────────────────────────────────────
-// Validates instance RECORDS under memory/findings/ and memory/corrective-actions/
-// against their base schemas in evidence-models/_shared/base/. Hand-rolled
-// draft-07 subset validator (no ajv dependency) — supports exactly the keywords
-// used by the evidence-model schemas: $ref, type, required, properties, enum,
-// pattern, format (date/date-time), minItems, items. Unknown keywords ignored.
-
-function walkJsonPointer(doc: any, pointer: string): any {
-    let node = doc;
-    for (const segment of pointer.split('/').filter(s => s.length > 0)) {
-        if (node == null || typeof node !== 'object') return undefined;
-        node = node[segment.replace(/~1/g, '/').replace(/~0/g, '~')];
-    }
-    return node;
-}
-
-const loadedRefDocs = new Map<string, any>();
-
-function resolveRefSchema(ref: string, baseDir: string): any {
-    const [filePart, pointer] = ref.split('#');
-    if (!filePart) {
-        // Internal ref — resolved against the root schema being validated,
-        // handled by the caller; external resolution never reaches here.
-        return null;
-    }
-    const abs = path.resolve(baseDir, filePart);
-    if (!loadedRefDocs.has(abs)) {
-        try {
-            loadedRefDocs.set(abs, JSON.parse(fs.readFileSync(abs, 'utf-8')));
-        } catch (e: any) {
-            loadedRefDocs.set(abs, null);
-            errors.push(`${relPath(abs)}: cannot load $ref target - ${e.message}`);
-        }
-    }
-    const doc = loadedRefDocs.get(abs);
-    return pointer ? walkJsonPointer(doc, pointer) : doc;
-}
-
-interface RecordValidationCtx {
-    rel: string;
-    path: string;
-    rootDoc: any;
-    baseDir: string;
-}
-
-function validateRecordValue(value: any, schema: any, ctx: RecordValidationCtx): void {
-    // Resolve $ref chains (e.g. finding.schema.json -> common.schema.json#/definitions/x)
-    let hops = 0;
-    while (schema && schema.$ref) {
-        if (++hops > 16) {
-            errors.push(`${ctx.rel}: ${ctx.path} exceeds $ref resolution depth (possible circular $ref)`);
-            return;
-        }
-        const [filePart, pointer] = schema.$ref.split('#');
-        if (!filePart) {
-            schema = pointer ? walkJsonPointer(ctx.rootDoc, pointer) : ctx.rootDoc;
-        } else {
-            schema = resolveRefSchema(schema.$ref, ctx.baseDir);
-        }
-    }
-    if (!schema || typeof schema !== 'object') return;
-
-    if (schema.type === 'string') {
-        if (typeof value !== 'string') {
-            errors.push(`${ctx.rel}: ${ctx.path} must be a string`);
-            return;
-        }
-        if (Array.isArray(schema.enum) && !schema.enum.includes(value)) {
-            errors.push(`${ctx.rel}: ${ctx.path} has invalid value '${value}' (allowed: ${schema.enum.join(', ')})`);
-        }
-        if (schema.pattern && !(new RegExp(schema.pattern)).test(value)) {
-            errors.push(`${ctx.rel}: ${ctx.path} does not match pattern '${schema.pattern}'`);
-        }
-        if (schema.format === 'date' && !/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(value)) {
-            errors.push(`${ctx.rel}: ${ctx.path} is not an ISO date (YYYY-MM-DD)`);
-        }
-        if (schema.format === 'date-time' && !/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/.test(value)) {
-            errors.push(`${ctx.rel}: ${ctx.path} is not an ISO date-time`);
-        }
-    } else if (schema.type === 'array') {
-        if (!Array.isArray(value)) {
-            errors.push(`${ctx.rel}: ${ctx.path} must be an array`);
-            return;
-        }
-        if (typeof schema.minItems === 'number' && value.length < schema.minItems) {
-            errors.push(`${ctx.rel}: ${ctx.path} must have at least ${schema.minItems} item(s)`);
-        }
-        if (schema.items) {
-            value.forEach((item, i) =>
-                validateRecordValue(item, schema.items, { ...ctx, path: `${ctx.path}[${i}]` }));
-        }
-    } else if (schema.type === 'object') {
-        if (!value || typeof value !== 'object' || Array.isArray(value)) {
-            errors.push(`${ctx.rel}: ${ctx.path} must be an object`);
-            return;
-        }
-        for (const req of schema.required || []) {
-            if (!(req in value)) {
-                errors.push(`${ctx.rel}: missing required field '${req}'`);
-            }
-        }
-        for (const [key, sub] of Object.entries(schema.properties || {})) {
-            if (key in value) {
-                validateRecordValue(value[key], sub, { ...ctx, path: `${ctx.path}.${key}` });
-            }
-        }
-    }
-}
+// ── Memory record validation (v4.4.0, generalized v4.6.0) ────────────────────
+// Validates instance RECORDS under memory/<bucket>/ against their schemas.
+// Bucket entries carry full schema paths relative to ROOT (v4.6.0 — previously
+// hardcoded to evidence-models/_shared/base/). The draft-07 subset validator
+// lives in scripts/lib/evidence-validator.ts (no ajv dependency); its error
+// sink is passed explicitly so messages land in this script's errors[] array.
 
 const memoryRecordChecks = [
-    { dir: path.join(ROOT, 'memory', 'findings'), schemaFile: 'finding.schema.json', label: 'findings' },
-    { dir: path.join(ROOT, 'memory', 'corrective-actions'), schemaFile: 'corrective-action.schema.json', label: 'corrective-actions' },
+    { dir: 'memory/findings', schemaPath: 'evidence-models/_shared/base/finding.schema.json', label: 'findings', unit: 'finding(s)' },
+    { dir: 'memory/corrective-actions', schemaPath: 'evidence-models/_shared/base/corrective-action.schema.json', label: 'corrective-actions', unit: 'corrective action(s)' },
+    { dir: 'memory/training', schemaPath: 'evidence-models/domains/functional/training/training-record.json', label: 'training', unit: 'training record(s)' },
+    { dir: 'memory/assessments', schemaPath: 'evidence-models/domains/functional/risk-assessment/risk-assessment-record.json', label: 'assessments', unit: 'assessment(s)' },
+    { dir: 'memory/registers', schemaPath: 'evidence-models/domains/functional/risk-assessment/risk-register-record.json', label: 'registers', unit: 'register(s)' },
 ];
 const memoryRecordCounts: Record<string, number> = {};
 
 for (const check of memoryRecordChecks) {
     memoryRecordCounts[check.label] = 0;
-    const schemaPath = path.join(ROOT, 'evidence-models', '_shared', 'base', check.schemaFile);
+    const schemaPath = path.join(ROOT, check.schemaPath);
+    const bucketDir = path.join(ROOT, check.dir);
     let schema: any = null;
     try {
         schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     } catch (e: any) {
-        errors.push(`evidence-models/_shared/base/${check.schemaFile}: cannot load schema for memory-record validation - ${e.message}`);
+        errors.push(`${check.schemaPath}: cannot load schema for memory-record validation - ${e.message}`);
     }
-    if (!schema || !fs.existsSync(check.dir)) continue;
+    if (!schema || !fs.existsSync(bucketDir)) continue;
 
-    for (const entry of fs.readdirSync(check.dir)) {
+    for (const entry of fs.readdirSync(bucketDir)) {
         if (!entry.endsWith('.json')) continue; // skip session notes (*.md)
-        const file = path.join(check.dir, entry);
+        const file = path.join(bucketDir, entry);
         totalChecked++;
         memoryRecordCounts[check.label]++;
         const rel = relPath(file);
         try {
             const doc = JSON.parse(fs.readFileSync(file, 'utf-8'));
-            validateRecordValue(doc, schema, { rel, path: '$', rootDoc: schema, baseDir: path.dirname(schemaPath) });
+            validateRecordValue(doc, schema, { rel, path: '$', rootDoc: schema, baseDir: path.dirname(schemaPath) }, errors);
         } catch (e: any) {
             errors.push(`${rel}: JSON parsing error - ${e.message}`);
         }
@@ -733,7 +644,8 @@ console.log(`Files checked : ${totalChecked}`);
 console.log(`  workflows/        : ${schemaFiles.length} schema.yaml file(s) (${wfReport})`);
 console.log(`  regulations/      : ${regFiles.length} .yaml file(s)`);
 console.log(`  evidence-models/  : ${evidenceFiles.length} .json file(s) (${evReport})`);
-console.log(`  memory records    : ${memoryRecordCounts['findings']} finding(s), ${memoryRecordCounts['corrective-actions']} corrective action(s)\n`);
+const memReport = memoryRecordChecks.map(c => `${memoryRecordCounts[c.label]} ${c.unit}`).join(', ');
+console.log(`  memory records    : ${memReport}\n`);
 
 // ── Staleness warnings summary (v4.5.0) — informational, does not affect exit ─
 if (warnings.length > 0) {

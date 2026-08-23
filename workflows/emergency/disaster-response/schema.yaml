@@ -9,5 +9,5 @@ legal_basis:
   - 중대재해처벌법 Article 4
   - 산업안전보건법 Article 54 (Action upon Serious Accidents)
 industry_profile: all
-agent: emergency-agent
+agent: disaster-response-agent
 evidence_model: emergency-disaster-record.json

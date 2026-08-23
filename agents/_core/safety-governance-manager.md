@@ -68,6 +68,14 @@ SGM is dispatched by PM only. Do not accept direct user requests.
 4. Write approved policy to `policies/` (or equivalent path)
 5. Report outcomes to PM
 
+### Regulatory Watch Protocol (quarterly)
+
+1. Each quarter, re-validate every `regulations/KR/*.yaml` against live law via the `legalize_kr` MCP (`source_mcp: mcp-kr-legislation`)
+2. Execute verification by dispatching Compliance Agent's live-verification step (per `agents/_shared/compliance-agent.md` Workflow Pattern step 2) — SGM does not interpret law text itself
+3. Log detected drift (amended/repealed articles) as FIND records under `memory/findings/`
+4. Review staleness warnings emitted by `scripts/safety-audit.ts` each quarter and schedule affected-file refreshes
+5. Report quarterly regulatory-watch outcome to PM
+
 ### Tools Used
 
 | Tool | Purpose |

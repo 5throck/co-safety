@@ -43,7 +43,7 @@ This project has not adopted a TypeScript-only policy — both tiers are legitim
 | `audit.ts` | — | 2.6.5 | active | — | — | — | — |
 | `check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.4.4 | active | — | — | — | — |
+| `dev-sync.ts` | — | 1.5.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.0.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.0.0 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -56,7 +56,8 @@ This project has not adopted a TypeScript-only policy — both tiers are legitim
 | `qa-gate.ts` | — | 1.0.2 | active | — | — | — | — |
 | `readme-lifecycle-audit.ts` | — | 1.0.2 | active | — | — | — | — |
 | `retry-handler.ts` | — | 1.0.2 | active | — | — | — | — |
-| `safety-audit.ts` | — | 4.3.1 | active | — | — | — | — |
+| `risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
+| `safety-audit.ts` | — | 4.6.0 | active | — | — | — | — |
 | `scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
 | `skill-dependency-analysis.ts` | — | 1.0.0 | active | — | — | — | — |
 | `skill-lifecycle-audit.ts` | — | 1.1.4 | active | — | — | — | — |
@@ -71,7 +72,9 @@ This project has not adopted a TypeScript-only policy — both tiers are legitim
 | `test-domain-scenarios.ts` | — | 1.1.0 | active | — | — | — | — |
 | `test-pharma-general-profile.ts` | — | 1.0.0 | active | — | — | — | — |
 | `test-runner.ts` | — | 1.1.0 | active | — | — | — | — |
+| `test-runtime-tools.ts` | — | 1.0.0 | active | — | — | — | — |
 | `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
+| `training-ingest.ts` | — | 1.0.0 | active | — | — | — | — |
 | `validate-agents.ts` | — | 1.1.0 | active | — | — | — | — |
 | `validate-doc-folder.ts` | — | 1.0.1 | active | — | — | — | — |
 | `validate-md-language.ts` | — | 1.4.1 | active | — | — | — | — |
@@ -85,6 +88,7 @@ This project has not adopted a TypeScript-only policy — both tiers are legitim
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/encoding-utils.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/error-handling.ts` | — | 1.1.0 | active | — | — | — | — |
+| `lib/evidence-validator.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/mcp-cache.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/pipeline-state.ts` | — | 1.1.0 | active | — | — | — | — |
 | `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -106,7 +110,7 @@ This project has not adopted a TypeScript-only policy — both tiers are legitim
 | `sync-md.ps1` | — | — | deprecated | 2026-08-29 | — | — | sync-md.ts |
 
 **Notes on the above:**
-- `lib/*.ts` (9 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
+- `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
 - `audit.sh` / `audit.ps1`: genuine standalone parallel implementations of `audit.ts`'s checks for non-Bun environments — NOT thin wrappers, so no `pair` relationship.
 - `sync-md.sh`: standalone implementation, NOT deprecated (no deprecation marker in file) — distinct from `sync-md.ps1`, which IS a deprecated thin wrapper around `sync-md.ts`.
 - `gen-pr-body.sh` / `gen-pr-body.ps1`: both are deprecated thin wrappers delegating to `gen-pr-body.ts` (removal date 2026-08-29 per their own headers).

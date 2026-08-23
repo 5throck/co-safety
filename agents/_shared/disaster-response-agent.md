@@ -11,7 +11,7 @@ description: "Disaster response specialist; handles natural disasters like typho
 lifecycle:
   phase: production
   created: 2026-08-19
-  last_updated: 2026-08-19
+  last_updated: 2026-08-23
   governance: docs/lifecycle/agents/disaster-response-agent.md
 ---
 
@@ -44,3 +44,5 @@ lifecycle:
   - Escalate to PM (CSO) to mandate a complete site shutdown under OSHA-KR Article 51 during severe weather warnings.
 - **Handoff Protocols**:
   - Handoff to `asset-integrity-agent` post-disaster to inspect equipment and facility structural safety before work resumes.
+  - Accept inbound handoff from `emergency-agent` for E-04 (Natural Disaster) classifications per `agents/_shared/emergency-agent.md` §Handoff Protocols — this agent owns on-site disaster response until the site is stabilized.
+  - Return-handoff to `emergency-agent` post-stabilization so the standard post-emergency chain applies (`audit-agent` evidence-chain validation of the incident record, then `incident-investigation-agent` for RCA).

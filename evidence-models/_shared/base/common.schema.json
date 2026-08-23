@@ -26,7 +26,7 @@
         },
         "signer_id": {
           "type": "string",
-          "description": "Employee identifier of signer"
+          "description": "Employee identifier of signer (personal data — PIPA 개인정보보호법 applies)"
         },
         "signer_role": {
           "type": "string",
