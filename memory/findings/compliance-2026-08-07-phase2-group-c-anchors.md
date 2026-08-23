@@ -4,7 +4,7 @@
 **Date**: 2026-08-07
 **Scope**: Pre-scaffold gate for 4 Group C-1b industries (railway, shipbuilding, steelmaking, waste). Verify each industry's regulatory anchor has ≥3 legal sources and that every cited statute has a registered `regulations/KR/*.yaml` (no phantoms, à la Group B PSSA gap). Spot-check industry-specific article numbers via live MCP.
 **Method**: Live MCP verification — `legalize_kr.parse_law_structure` (primary, full-text) and `kr_safety.search_osha_regulations` (secondary, catalog). Universal floor (OSHA-KR Art 36/57 + SAPA Art 4/5/6/7) verified once via the anchor file's prior-session verification block and applies to all 4 industries.
-**Predecessor inputs**: `regulations/KR/industry-regulatory-anchors.yaml` (file `last_verified: 2026-08-07`); `memory/findings/compliance-2026-08-07-phase2-group-b.md` (PSSA phantom-registration precedent).
+**Predecessor inputs**: `regulations/KR/industry-regulatory-anchors.yaml` (file `last_verified: 2026-08-07`); `docs/_meta/archive/compliance-2026-08-07-phase2-group-b.md` (PSSA phantom-registration precedent; relocated from memory/findings/ 2026-08-24).
 
 > **Disclaimer**: Regulatory interpretation is the user's responsibility. This report verifies citation existence and current-article accuracy only; it does not constitute legal advice.
 

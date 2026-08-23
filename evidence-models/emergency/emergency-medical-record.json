@@ -3,7 +3,7 @@
   "$id": "emergency-medical-record.json",
   "title": "Emergency Medical Response Record",
   "description": "Medical emergency response (cardiac arrest/allergy/severe injury).",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "object",
   "required": ["record_id", "incident_id", "incident_type", "severity", "response_status", "legal_basis", "e_signature", "nomenclature", "audit_trail"],
   "properties": {
@@ -42,6 +42,7 @@
     "ambulance_dispatched": { "type": "boolean" },
     "hospital_destination": { "type": ["string", "null"] },
     "arrival_time_at_hospital": { "type": ["string", "null"], "format": "date-time" },
+    "incident_investigation_agent_dispatched": { "type": "boolean", "description": "Handoff confirmation per emergency-agent.md §Handoff Protocols" },
 
     "legal_basis": {
       "type": "array",

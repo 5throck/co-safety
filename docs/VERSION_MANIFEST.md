@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-23T18:03:56.566Z
+**Generated**: 2026-08-23T21:14:28.041Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -19,7 +19,7 @@
 
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
-| _core/pm | agents/_core/pm.md | high | opus | 2026-08-19 |
+| _core/pm | agents/_core/pm.md | high | opus | 2026-08-23 |
 | _core/safety-governance-manager | agents/_core/safety-governance-manager.md | high | opus | 2026-08-23 |
 | _core/safety-workflow-manager | agents/_core/safety-workflow-manager.md | high | opus | 2026-08-19 |
 | _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-08-19 |
@@ -185,7 +185,7 @@
 | readme-lifecycle-audit.ts | 1.0.2 | scripts/readme-lifecycle-audit.ts | N/A |
 | retry-handler.ts | 1.0.2 | scripts/retry-handler.ts | N/A |
 | risk-register-rollup.ts | 1.0.0 | scripts/risk-register-rollup.ts | N/A |
-| safety-audit.ts | 4.6.0 | scripts/safety-audit.ts | js-yaml |
+| safety-audit.ts | 4.7.0 | scripts/safety-audit.ts | js-yaml |
 | scaffold-industry.ts | 0.1.1 | scripts/scaffold-industry.ts | js-yaml |
 | skill-dependency-analysis.ts | 1.0.0 | scripts/skill-dependency-analysis.ts | N/A |
 | skill-lifecycle-audit.ts | 1.1.4 | scripts/skill-lifecycle-audit.ts | N/A |

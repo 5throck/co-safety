@@ -137,6 +137,26 @@ not require a migration script. No breaking (rename/type-change/new-required/rem
   existing records (none) remain valid unmodified and all future records can adopt the field at
   creation time.
 
+- `_shared/base/common.schema.json` is at **v1.2.0** (2026-08-24): additive-only minor bump —
+  `e_signature.signer_role` enum expanded from 6 to 10 values to remove the GxP bias for non-GxP
+  domains. Added first-responder / industrial roles `safety_manager`, `emergency_response_lead`,
+  `incident_commander`, `field_responder`; existing GxP roles (`QA_manager`, `production_manager`,
+  `QC_analyst`, `reviewer`, `RP`) and the `other` fallback are unchanged, and a property
+  `description` was added documenting the role families. Enum extension only: no value renamed or
+  removed, no required field changed — all existing instances remain valid unmodified.
+
+- `emergency/emergency-*-record.json` (7 of 8 models) are at **v1.2.0** (2026-08-24): additive-only
+  minor bump — optional boolean `incident_investigation_agent_dispatched` ("Handoff confirmation
+  per emergency-agent.md §Handoff Protocols") added to every schema that lacked it (`-rescue`,
+  `-medical`, `-mechanical`, `-explosion-gas`, `-electrical`, `-disaster`, `-chemical-release`),
+  matching the audit hook already defined by `emergency-fire-response-record.json`. Not added to
+  `required[]`; no field renamed, re-typed, or removed; no migration script needed: a search of
+  `memory/` on 2026-08-24 confirmed zero EMRG- record instances exist, so there is no data to
+  transform. Note: `emergency-fire-response-record.json` itself is NOT bumped — it already carried
+  the field and its content did not change; it remains at **v1.0.0** per its own change history
+  (it was created, with the handoff field and `legal_basis.minItems: 3` already present, in the
+  same commit that bumped its 7 siblings v1.0.0 → v1.1.0, so it never joined that cohort).
+
 ## When to Create a Migration
 
 1. A field is **renamed** across evidence model schemas

@@ -25,7 +25,7 @@ lifecycle:
   - OSHA-KR Article 93 (Safety Inspection of Hazardous Machines)
   - SAPA Article 4 — Obligation to Secure Safety and Health (안전·보건 확보 의무)
 - **Enforcement Agency**: Ministry of Employment and Labor (MOEL)
-- **Regulation Metadata**: `regulations/KR/osha-kr.json`, `regulations/KR/sapa.json`
+- **Regulation Metadata**: `regulations/KR/OSHA-KR.yaml`, `regulations/KR/SAPA.yaml`
 
 ## Section B — Role & Responsibilities
 - **Purpose & Scope**: Manages asset integrity, preventative maintenance schedules, and aging equipment tracking.

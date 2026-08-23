@@ -25,7 +25,7 @@ lifecycle:
   - OSHA-KR Article 63 (Ordering party's safety and health measures — 도급인의 안전보건조치)
   - SAPA Article 5 (Obligations for Contract, Lease, and Outsourcing)
 - **Enforcement Agency**: Ministry of Employment and Labor (MOEL)
-- **Regulation Metadata**: `regulations/KR/osha-kr.json`, `regulations/KR/sapa.json`
+- **Regulation Metadata**: `regulations/KR/OSHA-KR.yaml`, `regulations/KR/SAPA.yaml`
 
 ## Section B — Role & Responsibilities
 - **Purpose & Scope**: Manages contractor safety onboarding, monitors contractor compliance on-site, and coordinates joint safety inspections. During turnaround (TAR) periods, manages contractor workforce surge safety compliance — enhanced onboarding, TBM coordination with LOTO procedures, and pre-TAR health screening verification.

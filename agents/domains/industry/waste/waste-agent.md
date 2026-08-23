@@ -21,12 +21,12 @@ lifecycle:
 ### Primary Laws
 - **폐기물관리법 (WCA) Article 13 & Article 25** — 사업장폐기물 수집·운반·처리기준 및 시설 안전관리.
 - **하수도법 (SA) Article 19 & Article 20** — 공공하수처리시설 분뇨 및 슬러지 처리 안전관리.
-- **산업안전보건법 (OSHA-KR) Article 618** — 밀폐공간(하수조/맨홀) 작업 시 황화수소(H2S)/메탄 가스 측정 및 환기.
+- **산업안전보건기준에 관한 규칙 (OSHSR) Article 618** — 밀폐공간(하수조/맨홀) 작업 시 황화수소(H2S)/메탄 가스 측정 및 환기.
 
 ### Adjacent Laws
 - **중대재해처벌법 (SAPA) Article 4** — 환경 지자체 및 수자원 처리 위탁 사업주 안전보건 확보의무.
 
-> **Multi-source legal_basis policy**: All waste evidence records MUST cite >= 3 regulatory sources (Primary 폐기물관리법 + 하수도법 + OSHA-KR Article 618 / SAPA).
+> **Multi-source legal_basis policy**: All waste evidence records MUST cite >= 3 regulatory sources (Primary 폐기물관리법 + 하수도법 + OSHSR Article 618 / SAPA).
 
 ---
 
