@@ -22,7 +22,7 @@ All new chemical introduction requests for substances not currently in the chemi
 - Wait for classification result before proceeding.
 
 ### Step 4: Risk Assessment
-- Apply `skills/domains/msds/chemical-risk-assessment/` for intended use scenario.
+- Apply `skills/domains/functional/msds/chemical-risk-assessment/` for intended use scenario.
 - Evaluate exposure routes (inhalation, dermal, ingestion).
 - Recommend engineering controls, PPE, storage conditions.
 

@@ -16,7 +16,7 @@ Mirrors PSM/GMP module architecture with **new domain-onboarding SOP** applied (
 
 | Component | Count | Notes |
 |-----------|-------|-------|
-| Agent | 1 | `agents/domains/msds/msds-agent.md` (migrated from `_shared/chemical-safety-agent.md`) |
+| Agent | 1 | `agents/domains/functional/msds/msds-agent.md` (migrated from `_shared/chemical-safety-agent.md`) |
 | Workflows | 7 | 6 core + 1 reference (chemical-spill-reference) |
 | Evidence Models | 6 | All include `ghs_version: "rev9"` field |
 | Skills | 3 | msds-parser (hybrid), ghs-classifier, chemical-risk-assessment |
@@ -74,7 +74,7 @@ All include `ghs_version` field (Rev 9 baseline, migration tracking):
 
 ### 4.4 Agent Updates
 
-- `agents/domains/msds/msds-agent.md` (new — migrated from chemical-safety-agent)
+- `agents/domains/functional/msds/msds-agent.md` (new — migrated from chemical-safety-agent)
 - `agents/_shared/occupational-health-agent.md` Section B update: explicit MSDS data dependency
 
 ## 5. Multi-Source Legal Basis Requirement

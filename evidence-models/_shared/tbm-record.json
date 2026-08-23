@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "tbm-record.json",
   "title": "Cross-Industry TBM (Tool Box Meeting) Record — Shared Base",
-  "description": "Shared base evidence model for pre-work Tool Box Meetings (TBM, 작업 전 안전점검회의) across high-risk industries. Domain-specific fields go in industry_specific_fields. Construction retains its dedicated ehsconst-tbm-record.json for construction-only provisions (SAPA Art.12, contractor tier).",
+  "description": "Shared base evidence model for pre-work Tool Box Meetings (TBM, 작업 전 안전점검회의) across high-risk industries. Domain-specific fields go in industry_specific_fields. Construction retains its dedicated ehsconst-tbm-record.json for construction-only provisions (SAPA Art.5, contractor tier).",
   "version": "1.0.0",
   "type": "object",
   "required": [

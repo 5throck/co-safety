@@ -7,11 +7,11 @@
  *
  * Test coverage:
  *   T-01: Profile YAML loads and has required fields
- *   T-02: Every workflow referenced in profile exists at workflows/domains/msds/
+ *   T-02: Every workflow referenced in profile exists at workflows/domains/functional/msds/
  *   T-03: Every workflow has schema.yaml with required fields
  *   T-04: Every workflow has README.md
  *   T-05: Every workflow evidence_model reference resolves
- *   T-06: MSDS agent exists at agents/domains/msds/msds-agent.md
+ *   T-06: MSDS agent exists at agents/domains/functional/msds/msds-agent.md
  *   T-07: MSDS agent has multi-source legal basis (≥3 sources)
  *   T-08: MSDS agent has scope limitation (occupational-health boundary)
  *   T-09: All 3 MSDS skills exist with SKILL.md
@@ -118,7 +118,7 @@ if (allEvidenceModelsExist) record('T-05', `All evidence model references resolv
 console.log(`\n${CYAN}[T-06] MSDS agent existence${RESET}`);
 const agentPath = path.join(ROOT, 'agents', 'domains', 'functional', 'msds', 'msds-agent.md');
 if (fs.existsSync(agentPath)) {
-    record('T-06', 'MSDS agent exists at agents/domains/msds/msds-agent.md', true);
+    record('T-06', 'MSDS agent exists at agents/domains/functional/msds/msds-agent.md', true);
 } else {
     record('T-06', 'MSDS agent exists', false);
 }

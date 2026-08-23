@@ -3,9 +3,19 @@
   "$id": "common.schema.json",
   "title": "Safety OS Common Fields",
   "description": "Common fields shared across all Safety OS evidence models (v1). Includes electronic signature schema (v1: schema-only, cryptography deferred to v2), ICH Q9 Quality Risk Management reference, and multilingual nomenclature per meeting decisions 2026-06-17.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "object",
   "definitions": {
+    "agent_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      "description": "Kebab-case identifier of the Safety OS agent that created or owns the record (e.g. audit-agent, compliance-agent, docs-writer). Must match audit_trail.created_by when an audit trail is present."
+    },
+    "workflow_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*(/[a-z][a-z0-9-]*)?$",
+      "description": "Identifier of the workflow execution that produced the record: workflow directory slug, optionally domain-qualified ('<slug>' or '<domain>/<slug>', e.g. 'psm/pha-hazop'). Optional for record types that do not originate from a dispatched workflow."
+    },
     "e_signature": {
       "type": "object",
       "description": "Electronic signature per 21 CFR Part 11 / KP-GMP equivalent. v1 includes schema-only; cryptographic_hash is null until v2 PKI/HSM integration.",

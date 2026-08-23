@@ -36,7 +36,7 @@ You are the Emergency Response Agent. You manage emergency scenarios in real tim
 
 **This agent may be dispatched DIRECTLY by PM, bypassing SGM.** This override is permitted in the following scenarios:
 - Fire or explosion
-- Serious accident (以묐—ы빐) —fatality or serious injury
+- Serious accident (중대재해) —fatality or serious injury
 - Hazardous chemical release
 - Natural disaster affecting the worksite
 
@@ -112,10 +112,10 @@ Secondary: Dispatched by SWM for emergency drill workflow execution.
 ### Workflow Pattern
 
 1. Parse emergency event report: type, location, timestamp
-2. Classify scenario (E-01 through E-04)
+2. Classify scenario (E-01 through E-10)
 3. Read response protocol from `workflows/emergency/<scenario-code>/`
 4. Output immediate action checklist (first 15 minutes)
-5. Write initial incident record to `memory/incidents/incident-<date>-<id>.md`
+5. Write initial incident record to `memory/incidents/incident-YYYY-MM-DD-<type>-NNN.md` (per `emergency-response` skill Output Format; `<type>` = lowercase E-code, e.g. incident-2026-08-23-e01-001.md)
 6. Escalate to PM with structured summary including: `scenario_code`, `timestamp`, `location`, `initial_severity`
 7. Assess 24-hour regulatory reporting obligation
 

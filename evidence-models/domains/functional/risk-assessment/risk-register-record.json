@@ -3,7 +3,7 @@
   "$id": "risk-register-record.json",
   "title": "Risk Register Record",
   "description": "Consolidated risk register for ongoing hazard tracking and periodic review per OSHA-KR Article 36 and MOEL 위험성평가 고시. Aggregates individual risk assessments into a living register.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "object",
   "required": [
     "record_id",
@@ -51,7 +51,7 @@
           "hazard_description": { "type": "string" },
           "hazard_category": {
             "type": "string",
-            "enum": ["mechanical", "electrical", "chemical", "thermal", "fall", "collapse", "confined_space", "biological", "ergonomic", "noise", "radiation", "other"]
+            "enum": ["mechanical", "electrical", "chemical", "thermal", "fall", "collapse", "confined_space", "biological", "ergonomic", "psychosocial", "noise", "radiation", "other"]
           },
           "current_risk_level": {
             "type": "string",

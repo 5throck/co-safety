@@ -17,7 +17,7 @@ All new and updated MSDS documents received from chemical suppliers for substanc
 - Detect document format (PDF text-extractable vs scanned).
 
 ### Step 3: Parsing (Hybrid Mode)
-- **Mode 1 (rule-based, default)**: Match against `skills/domains/msds/msds-parser/rules/<supplier>.yaml`.
+- **Mode 1 (rule-based, default)**: Match against `skills/domains/functional/msds/msds-parser/rules/<supplier>.yaml`.
 - **Mode 2 (ML fallback, auto when Mode 1 confidence <80%)**: External LLM API call with 16-section extraction prompt.
 - **Manual review**: Required if Mode 2 confidence <90%.
 

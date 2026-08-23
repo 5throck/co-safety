@@ -13,7 +13,7 @@ All chemicals under the `chemical-handling` profile requiring GHS classification
 - Identify each component's CAS number, concentration, and known hazard data.
 
 ### Step 2: Apply GHS Rev 9 Ruleset
-- Use `skills/domains/msds/ghs-classifier/` to apply classification rules.
+- Use `skills/domains/functional/msds/ghs-classifier/` to apply classification rules.
 - Evaluate hazard classes:
   - Physical hazards (explosives, flammables, oxidizers, gases under pressure, etc.)
   - Health hazards (acute toxicity, skin/eye corrosion, carcinogenicity, reproductive toxicity, etc.)

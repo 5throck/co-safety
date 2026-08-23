@@ -31,7 +31,7 @@ PSM is a **functional (Tier 1) domain** — it supplies PSM methodology to any i
 ### 3.1 v1 Coverage (Korea)
 - **OSHA-KR Article 44**: PSM mandatory for covered processes (공정안전보고서 제출 의무)
 - **OSHA-KR Article 36**: Risk assessment (위험성평가) — cross-reference
-- **OSHA-KR Enforcement Decree Article 33**: Covered substance thresholds (규정량 이상 유해·위험물질)
+- **OSHA-KR Enforcement Decree Article 43** (별표 13 규정량): PSM covered-facility determination — hazardous substances handled at or above threshold quantities (indexed in `regulations/KR/OSHA-KR-Decree.yaml`; former "Article 33" citation here was a mis-citation — Art 33 is 명예산업안전감독관의 해촉)
 - **고용노동부 고시 KOSHA Guide P-2**: PSM audit standards
 
 ### 3.2 Covered Process Criteria (OSHA-KR Art 44)

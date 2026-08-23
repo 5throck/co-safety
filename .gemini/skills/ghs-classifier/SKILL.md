@@ -109,7 +109,7 @@ All output records include `ghs_version: "rev9"` field. When Rev 10 is adopted, 
 
 ## Output
 
-Generates `ghs-classification-record.json` per `evidence-models/domains/msds/ghs-classification-record.json` schema.
+Generates `ghs-classification-record.json` per `evidence-models/domains/functional/msds/ghs-classification-record.json` schema.
 
 ## v2 Roadmap
 - GHS Rev 10 ruleset (2027 expected)

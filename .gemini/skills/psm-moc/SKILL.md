@@ -35,3 +35,22 @@ This skill oversees the Management of Change (MOC) process to ensure that safety
 5. **Implementation & Training**: Update affected documentation and train affected personnel.
 6. **Closeout**: Verify all requirements are met and close the MOC record.
 
+## Replacement-in-Kind (RIC) Applicability
+
+A change qualifies as Replacement-in-Kind and may bypass full MOC review only when ALL of the following hold:
+
+- The replacement satisfies the original design specifications, materials, and rated capacity exactly.
+- No change to operating conditions, process chemistry, or service environment.
+- Like-for-like configuration and connection points (no re-piping, re-wiring, or layout change).
+- Not a temporary substitution — temporary changes always require a full MOC record with `change_type: "temporary"`.
+
+If any criterion fails, classify the item as a permanent change and execute the full MOC workflow.
+
+## Temporary Change Rules
+
+For changes recorded with `change_type: "temporary"` (per `evidence-models/domains/functional/psm/psm-moc-record.json`):
+
+- **Expiration date mandatory**: define a fixed end date at initiation; an MOC without an expiration date must not be approved.
+- **Termination**: on expiry, terminate the temporary configuration and restore the baseline equipment, procedure, or operating condition; document the restoration in the MOC record.
+- **Return-to-baseline verification**: confirm restoration during Closeout (step 6); extending a temporary change requires a new MOC record — never silent renewal.
+

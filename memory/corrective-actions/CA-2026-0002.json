@@ -1,6 +1,11 @@
 {
   "id": "CA-2026-0002",
   "finding_id": "FIND-2026-0002",
+  "legal_basis": [
+    "화학물질관리법 (CCA) 제20조",
+    "산업안전보건법 제113조",
+    "중대재해처벌법 제4조"
+  ],
   "date_assigned": "2026-07-05",
   "description": "Update msds/chemical-approval to cite 화학물질관리법 (CCA) Article 20 instead of superseded TCCL.",
   "responsible_party": "msds-agent / docs-writer",

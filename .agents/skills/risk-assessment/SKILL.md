@@ -16,7 +16,8 @@ metadata:
   legal_basis:
     - 산업안전보건법 제36조 (위험성평가 의무)
     - 중대재해처벌법 제4조 (안전·보건 확보 의무)
-    - 산업안전보건기준에 관한 규칙 제158조~제165조 (위험성평가 방법 등)
+    - 산업안전보건법 시행규칙 제37조 (위험성평가의 실시 및 기록·보존)
+    - 고용노동부 고시 「사업장 위험성평가에 관한 지침」 (위험성평가 방법 등)
 scope: workspace
 ---
 
@@ -35,23 +36,23 @@ Invoke this skill when a user reports a new work task, equipment change, workpla
    - **Severity**: 1 (negligible) to 5 (catastrophic)
    - **Risk Level** = Likelihood × Severity (1–25 scale)
 4. **Control Assignment** — For each hazard, assign one or more controls following the hierarchy: Elimination → Substitution → Engineering → Administrative → PPE. Record responsible person and target completion date.
-5. **Documentation** — Save the completed assessment record as structured JSON per `evidence-models/domains/functional/risk-assessment/risk-assessment-record.json` schema. Also save a human-readable summary to `memory/findings/` with the `legal_basis` field populated. Obtain responsible person signature or digital acknowledgment.
+5. **Documentation** — Save the completed assessment record as structured JSON per `evidence-models/domains/functional/risk-assessment/risk-assessment-record.json` schema. Also save a human-readable summary to `memory/assessments/` with the `legal_basis` field populated. Obtain responsible person signature or digital acknowledgment.
 
 ## Output Format
 
-Generate a structured JSON evidence record conforming to `risk-assessment-record.json` (OSHA-KR Article 36 evidence model) and save a human-readable summary to `memory/findings/risk-assessment-YYYY-MM-DD-<scope>.md` with the following structure:
+Generate a structured JSON evidence record conforming to `risk-assessment-record.json` (OSHA-KR Article 36 evidence model) and save a human-readable summary to `memory/assessments/risk-assessment-YYYY-MM-DD-<scope>.md` with the following structure:
 
 ```markdown
 # Risk Assessment Record
 date: YYYY-MM-DD
 assessor: <name>
-legal_basis: 산업안전보건법 제36조 (위험성평가 의무), 중대재해처벌법 제4조 (안전·보건 확보 의무), 산업안전보건기준에 관한 규칙 제158조~제165조 (위험성평가 방법 등)
+legal_basis: 산업안전보건법 제36조 (위험성평가 의무), 중대재해처벌법 제4조 (안전·보건 확보 의무), 산업안전보건법 시행규칙 제37조 (위험성평가의 실시 및 기록·보존), 고용노동부 고시 「사업장 위험성평가에 관한 지침」 (위험성평가 방법 등)
 status: draft | approved
 
 ## Hazards
 | # | Hazard | Likelihood | Severity | Risk Level | Controls | Owner | Due |
 |---|--------|-----------|----------|------------|----------|-------|-----|
-| 1 | ...    | 3         | 4        | 12 (High)  | ...      | ...   | ... |
+| 1 | ...    | 3         | 4        | 12 (Medium) | ...      | ...   | ... |
 
 ## Approval
 Approved by: <CSO/Manager>
@@ -60,9 +61,10 @@ Date: YYYY-MM-DD
 
 ## Legal Notes
 
+- Runtime records (structured JSON + human-readable summary) are written under `memory/assessments/` — never into `evidence-models/`, which holds schemas only. This mirrors the audit-agent FIND/CA precedent (`memory/findings/`, `memory/corrective-actions/`).
 - 산업안전보건법 제36조 requires employers to conduct risk assessments and implement control measures for all identified hazards.
 - 중대재해처벌법 제4조 imposes enterprise-level obligation to establish and maintain safety management systems including risk assessment.
-- 산업안전보건기준에 관한 규칙 제158조~제165조 defines the risk assessment methodology, documentation requirements, and control hierarchy.
+- 산업안전보건법 시행규칙 제37조 requires recording and preserving risk assessment results; 고용노동부 고시 「사업장 위험성평가에 관한 지침」 defines the risk assessment methodology, documentation requirements, and control hierarchy.
 - Assessments must be reviewed when work methods change, after incidents, or at a minimum annually.
 - Records must be retained for a minimum of 3 years per enforcement guidelines.
 - This skill provides workflow assistance only and does not constitute legal advice.

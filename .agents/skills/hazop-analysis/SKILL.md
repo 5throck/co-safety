@@ -1,8 +1,8 @@
 ---
 name: hazop-analysis
-version: 1.0.0
+version: 1.1.0
 created: 2026-06-04
-last_updated: 2026-07-10
+last_updated: 2026-08-23
 owner: psm-agent
 scope: workspace
 status: active
@@ -28,10 +28,11 @@ This skill facilitates Hazard and Operability (HAZOP) studies, a structured and 
 
 ## Operational Steps
 1. **Define the Scope**: Identify the process nodes, design intent, and parameters to be analyzed.
-2. **Apply Guidewords**: Use standard HAZOP guidewords (e.g., MORE, LESS, NONE, REVERSE) against process parameters.
+2. **Apply Guidewords**: Use the full IEC 61882 guideword set against process parameters: None, More, Less, Reverse, As well as, Part of, Other than, Before, After, Early, Late.
 3. **Identify Deviations**: Determine potential deviations from design intent.
 4. **Determine Causes and Consequences**: Analyze what causes the deviation and its potential impact.
 5. **Identify Safeguards**: List existing safeguards preventing the deviation or mitigating consequences.
-6. **Recommend Actions**: Propose recommendations to address unacceptable risks.
-7. **Document**: Record all findings in the HAZOP worksheet and generate an evidence record.
+6. **Rank Risk**: Score each deviation on a Likelihood x Severity basis (1-25 scale) and band it per the normative risk bands defined in `evidence-models/domains/functional/risk-assessment/risk-assessment-record.json` (the repo's single source of truth): 1-5 Low / 6-12 Medium / 13-19 High / 20-25 Critical; any score >= 13 requires escalation.
+7. **Recommend Actions**: Propose recommendations to address unacceptable risks; register each unresolved recommendation as a `FIND-YYYY-NNNN` finding record and track it to closure through its linked `CA-YYYY-NNNN` corrective-action record until verified — a HAZOP recommendation is closed only when its corrective action is verified.
+8. **Document**: Record all findings in the HAZOP worksheet and generate an evidence record conforming to `evidence-models/domains/functional/psm/psm-pha-record.json`.
 

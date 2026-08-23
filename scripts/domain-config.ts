@@ -7,9 +7,9 @@
  *
  * @version 1.4.0
  * v1.4.0 (2026-07-11): Removed PSM's skip_workflow_validation blanket exemption —
- *   14/15 PSM workflow schemas already use compliant 3-item legal_basis arrays;
- *   the one remaining outlier (loto-lockout-tagout) was fixed to match rather than
- *   exempting the entire domain from array-format validation.
+ *   all 15 PSM workflow schemas now carry compliant multi-source (≥3-entry)
+ *   legal_basis arrays (the last outlier, loto-lockout-tagout, was fixed rather
+ *   than exempting the entire domain from array-format validation).
  * v1.3.0 (2026-07-05): Replaced per-domain min_legal_basis/min_workflow_legal_basis
  *   hardcoding with DEFAULT_MIN_LEGAL_BASIS/DEFAULT_MIN_WORKFLOW_LEGAL_BASIS constants.
  *   Domains that need a lower threshold must set it explicitly (only PSM has
@@ -46,7 +46,7 @@ export interface DomainConfig {
     /** Override DEFAULT_MIN_WORKFLOW_LEGAL_BASIS for this domain (must be >= DEFAULT) */
     min_workflow_legal_basis?: number;
     description: string;
-    /** Set true to skip array-format legal_basis check on workflow schemas (e.g. PSM uses plain string) */
+    /** Set true to skip array-format legal_basis check on workflow schemas (no registered domain sets it today) */
     skip_workflow_validation?: boolean;
 }
 
@@ -123,6 +123,24 @@ const RAW_DOMAINS: DomainConfig[] = [
         required_evidence_fields: ['tar_id', 'special_health_exam_completion_rate', 'heat_exposure_monitoring'],
         description: 'Occupational Health Surveillance (TAR/Major Turnaround health screening)',
     },
+    {
+        name: 'asset-integrity',
+        tier: 'functional',
+        required_evidence_fields: ['e_signature', 'nomenclature', 'audit_trail'],
+        description: 'Asset Integrity Management (preventative maintenance, aging equipment)',
+    },
+    {
+        name: 'incident-investigation',
+        tier: 'functional',
+        required_evidence_fields: ['e_signature', 'nomenclature', 'audit_trail'],
+        description: 'Incident Investigation & Root Cause Analysis',
+    },
+    {
+        name: 'risk-assessment',
+        tier: 'functional',
+        required_evidence_fields: ['e_signature', 'nomenclature', 'audit_trail'],
+        description: 'Risk Assessment (hazard identification and scoring)',
+    },
 
     // ── Industry domains ──────────────────────────────────────────────
     {
@@ -154,6 +172,78 @@ const RAW_DOMAINS: DomainConfig[] = [
         tier: 'industry',
         required_evidence_fields: ['device_class', 'kgmp_certification_status', 'iso_13485_compliance'],
         description: 'Medical Device Safety (KGMP-MD + ISO 13485 + ISO 14971)',
+    },
+    {
+        name: 'battery',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Secondary Battery Safety (cell manufacturing, thermal runaway, recycling)',
+    },
+    {
+        name: 'biotech',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Biopharmaceutical CDMO & Bio-Lab Safety (bioreactor SIP, LMO containment)',
+    },
+    {
+        name: 'cosmetics',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Cosmetics Safety (CGMP batch release, solvent exposure)',
+    },
+    {
+        name: 'datacenter',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Data Center Safety (UPS fire, high voltage)',
+    },
+    {
+        name: 'defense',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Defense & Explosives Safety (propellant, munitions storage)',
+    },
+    {
+        name: 'food',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Food Safety (HACCP CCP monitoring, mixer LOTO)',
+    },
+    {
+        name: 'logistics',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Port Logistics & Automated Warehouse Safety',
+    },
+    {
+        name: 'railway',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Railway & Transit Infrastructure Safety',
+    },
+    {
+        name: 'semicon',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Semiconductor & Display Safety (cleanroom, special gas)',
+    },
+    {
+        name: 'shipbuilding',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Shipbuilding & Offshore Safety (confined space, heavy crane)',
+    },
+    {
+        name: 'steelmaking',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Steelmaking & Heavy Metals Safety (molten metal, byproduct gas)',
+    },
+    {
+        name: 'waste',
+        tier: 'industry',
+        required_evidence_fields: ['record_id', 'audit_trail'],
+        description: 'Environmental Waste & Water Treatment Safety',
     },
 ];
 

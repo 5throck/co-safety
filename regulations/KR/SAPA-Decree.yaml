@@ -1,0 +1,63 @@
+source_mcp: mcp-kr-legislation
+jurisdiction: KR
+regulator: MOEL (고용노동부)
+framework: SAPA-Decree
+title_ko: 중대재해 처벌 등에 관한 법률 시행령 (전체 조항 정본)
+title_en: Enforcement Decree of the Serious Accidents Punishment Act — Canonical Index
+description: >
+  Presidential-decree (시행령) companion to regulations/KR/SAPA.yaml. Full 13-article
+  structure verified verbatim against the legalize-kr cache
+  (.cache/legalize-kr/kr/중대재해처벌등에관한법률/시행령.md, MST 277417, 시행일자
+  2025-10-01, 총리령 제32020호 2021.10.5 제정). Cited in-repo by
+  docs/user-guide/field-ehs-operational-guide_ko.md (제4조) and referenced by
+  regulations/KR/SAPA-Construction.yaml (제4조제9호 도급 기준·절차).
+primary_law:
+  name_ko: 중대재해 처벌 등에 관한 법률 시행령
+  name_en: Enforcement Decree of the Serious Accidents Punishment Act
+  abbreviation: SAPA-Decree
+  parent_statute: regulations/KR/SAPA.yaml
+  structure_note: >
+    Ch.1 General (Art 1-3), Ch.2 Serious Industrial Accidents (Art 4-7),
+    Ch.3 Serious Civic Disasters (Art 8-11), Ch.4 Supplementary (Art 12-13);
+    별표 1 직업성 질병, 별표 2·3 공중이용시설, 별표 4 과태료 부과기준.
+  articles:
+    - article: "1"
+      topic_ko: 목적
+      topic_en: Purpose — matters delegated by SAPA and matters necessary for its enforcement
+    - article: "2"
+      topic_ko: 직업성 질병자
+      topic_en: Occupational disease patients — defined via 별표 1 (SAPA Art 2(2)-다)
+    - article: "3"
+      topic_ko: 공중이용시설
+      topic_en: Public-use facilities and structures designated by decree via 별표 2·3 (SAPA Art 2(4))
+    - article: "4"
+      topic_ko: 안전보건관리체계의 구축 및 이행 조치
+      topic_en: Concrete safety/health management system measures under SAPA Art 4(1)(1) — policy/goals, dedicated organization (≥500 workers or top-200 construction capacity), hazard identification semiannual review, budgeting, officer empowerment, staffing, worker-opinion procedure, emergency manuals, contractor-selection criteria incl. construction/shipbuilding work-period standards (제9호)
+    - article: "5"
+      topic_ko: 안전ㆍ보건 관계 법령에 따른 의무이행에 필요한 관리상의 조치
+      topic_en: Managerial measures for compliance with related safety/health laws — semiannual compliance checks and remedial actions (SAPA Art 4(1)(4))
+    - article: "6"
+      topic_ko: 안전보건교육의 실시 등
+      topic_en: Mandatory safety/health education for management after a serious industrial accident — ≤20 hours, scheduling/notification/postponement procedure (SAPA Art 8)
+    - article: "7"
+      topic_ko: 과태료의 부과기준
+      topic_en: Administrative fine criteria for unfulfilled education via 별표 4 (SAPA Art 8(2))
+    - article: "8"
+      topic_ko: 원료ㆍ제조물 관련 안전보건관리체계의 구축 및 이행 조치
+      topic_en: Safety/health management system measures for raw materials/products (serious civic disasters) — staffing, budget, periodic inspection per 별표 5 (SAPA Art 9(1))
+    - article: "9"
+      topic_ko: 원료ㆍ제조물 관련 안전ㆍ보건 관계 법령에 따른 의무이행에 필요한 관리상의 조치
+      topic_en: Managerial compliance-check measures for raw material/product-related laws (SAPA Art 9(1)(4))
+    - article: "10"
+      topic_ko: 공중이용시설ㆍ공중교통수단 관련 안전보건관리체계 구축 및 이행에 관한 조치
+      topic_en: Management system measures for public-use facilities/public transport — annual safety plan, inspections, emergency procedures (SAPA Art 9(2))
+    - article: "11"
+      topic_ko: 공중이용시설ㆍ공중교통수단 관련 안전ㆍ보건 관계 법령에 따른 의무이행에 필요한 관리상의 조치
+      topic_en: Managerial compliance-check measures for public-use facility/transport laws (SAPA Art 9(2)(4))
+    - article: "12"
+      topic_ko: 중대산업재해 발생사실의 공표
+      topic_en: Public disclosure of serious industrial accident facts — targets convicted sites, disclosure contents, 30-day comment period, 1-year homepage posting (SAPA Art 13)
+    - article: "13"
+      topic_ko: 조치 등의 이행사항에 관한 서면의 보관
+      topic_en: Written records of implemented measures retained for 5 years from implementation date
+last_updated: "2026-08-23"

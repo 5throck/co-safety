@@ -149,4 +149,9 @@ domain_sub_variants:
   - regulations/KR/OSHA-KR-Construction.yaml
   - regulations/KR/OSHA-KR-MSDS.yaml
   - regulations/KR/OSHA-KR-Training.yaml
-last_updated: "2026-07-11"
+related_decree:
+  name_ko: 산업안전보건법 시행령
+  name_en: Enforcement Decree of the Occupational Safety and Health Act
+  abbreviation: OSHA-KR-Decree
+  file: regulations/KR/OSHA-KR-Decree.yaml
+last_updated: "2026-08-23"

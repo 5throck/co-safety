@@ -192,7 +192,7 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 44 (PSM — hazardous energy isolation). LOTO-specific: OSHA-KR Article 38 (safety measures including work stoppage), Occupational Safety and Health Standards Rule Article 92 (zero energy state / lockout-tagout — confirmed from KOSHA GUIDE Z-40-2022 revision history, 2022.12.29). Adjacent laws may include: SAPA Article 4 (safety management system obligation), SAPA Article 5 (third-party/contractor safety duty — KOSHA GUIDE Z-40-2022 section 7.4 for contractor LOTO training), OSHA-KR Article 34-2 (periodic inspection of safety devices).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 44 (PSM — hazardous energy isolation). LOTO-specific: OSHA-KR Article 38 (safety measures including work stoppage), Occupational Safety and Health Standards Rule Article 92 (zero energy state / lockout-tagout — confirmed from KOSHA GUIDE Z-40-2022 revision history, 2022.12.29). Adjacent laws may include: SAPA Article 4 (safety management system obligation), SAPA Article 5 (third-party/contractor safety duty — KOSHA GUIDE Z-40-2022 section 7.4 for contractor LOTO training), OSHA-KR Article 93 (safety inspection of equipment and safety devices).",
       "examples": [
         "산업안전보건법 Article 44 (공정안전관리 — 위험에너지 통제/LOTO)",
         "안전보건기준에관한규칙 Article 92 (정비 등 작업 시 운전정지 등 — KOSHA GUIDE Z-40-2022)",

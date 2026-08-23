@@ -21,7 +21,7 @@ lifecycle:
 
 ## Section A — Legal Basis
 - **Applicable Laws**:
-  - **산업안전보건법 (OSHA-KR) Article 9** — Labor Inspector Powers (workplace inspection authority)
+  - **산업안전보건법 (OSHA-KR) Article 155** — Labor Inspector Powers (workplace inspection authority)
   - **산업안전보건법 (OSHA-KR) Article 57** — Incident Recording & Reporting
   - **중대재해처벌법 (SAPA) Article 4** — Obligation to Secure Safety and Health (안전·보건 확보 의무)
 - **Enforcement Agency**: Ministry of Employment and Labor (MOEL)

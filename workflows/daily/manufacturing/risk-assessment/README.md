@@ -41,18 +41,18 @@ This workflow guides safety personnel through the systematic identification of w
    - **Likelihood** (1=rare, 2=unlikely, 3=possible, 4=likely, 5=almost certain)
    - **Severity** (1=negligible, 2=minor, 3=moderate, 4=major, 5=catastrophic)
    - **Risk Level** = Likelihood × Severity
-   - Risk bands: 1–5 Low, 6–12 Medium, 13–19 High, 20–25 Critical
+   - Risk bands: 1–5 Low, 6–12 Medium, 13–19 High, 20–25 Critical. The normative band table is defined in `evidence-models/domains/functional/risk-assessment/risk-assessment-record.json` (see `risk_score_before`) — that schema is the single source of truth; scores ≥ 13 trigger escalation.
 
 4. **Control Assignment** — risk-assessment-agent recommends controls following the hierarchy: Elimination → Substitution → Engineering controls → Administrative controls → PPE. Each control is assigned to a responsible person with a target completion date.
 
-5. **Documentation** — safety-workflow-manager creates the risk assessment record as structured JSON per `evidence-models/domains/functional/risk-assessment/risk-assessment-record.json` schema, with a human-readable summary in `memory/findings/risk-assessment-YYYY-MM-DD-<scope>.md`, and routes for responsible person acknowledgment.
+5. **Documentation** — safety-workflow-manager creates the risk assessment record as structured JSON per `evidence-models/domains/functional/risk-assessment/risk-assessment-record.json` schema, with a human-readable summary in `memory/assessments/risk-assessment-YYYY-MM-DD-<scope>.md`, and routes for responsible person acknowledgment.
 
 ## 6. Evidence Requirements
 
 The following records must be created and retained to satisfy audit requirements:
 
 - Structured JSON evidence record conforming to `evidence-models/domains/functional/risk-assessment/risk-assessment-record.json` (primary audit artifact)
-- Human-readable summary in `memory/findings/risk-assessment-YYYY-MM-DD-<scope>.md`
+- Human-readable summary in `memory/assessments/risk-assessment-YYYY-MM-DD-<scope>.md`
 - Responsible person signature or digital acknowledgment (`e_signature` field in JSON record)
 - Record of any residual risks accepted by management with justification
 - Version history if the assessment is revised (`audit_trail.record_status` field)
@@ -63,6 +63,6 @@ The workflow is complete when:
 
 - All hazards for the defined scope have been identified and scored
 - Controls have been assigned for all Medium, High, and Critical risks
-- The assessment record is saved as structured JSON per `risk-assessment-record.json` schema with `legal_basis` field populated, and a human-readable summary is saved to `memory/findings/`
+- The assessment record is saved as structured JSON per `risk-assessment-record.json` schema with `legal_basis` field populated, and a human-readable summary is saved to `memory/assessments/`
 - Responsible person acknowledgment is obtained
 - Any Critical or High risks have been escalated to the site safety manager for review

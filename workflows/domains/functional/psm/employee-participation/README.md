@@ -1,5 +1,5 @@
 
-# Employee Participation Program (Element 13)
+# Employee Participation Program
 
 ## Overview
 This workflow defines the Employee Participation Program for covered processes in compliance with OSHA-KR Article 44. Employers must develop a written plan of action regarding the implementation of employee participation, and workers have the right to participate in the development and conduct of PHAs, incident investigations, compliance audits, and procedure reviews.

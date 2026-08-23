@@ -1,6 +1,11 @@
 {
   "id": "CA-2026-0001",
   "finding_id": "FIND-2026-0001",
+  "legal_basis": [
+    "중대재해처벌법 제4조",
+    "중대재해처벌법 제7조",
+    "산업안전보건법 제54조"
+  ],
   "date_assigned": "2026-07-05",
   "description": "Correct emergency-workflow SAPA/OSHA-KR citations: replace '중대재해처벌법 Art 7' with 'Art 4' in the 6 affected workflows; fix disaster-response's invalid 'OSHA-KR Art 5' with 'OSHA-KR Article 54'.",
   "responsible_party": "Safety governance / legal-agent verification",

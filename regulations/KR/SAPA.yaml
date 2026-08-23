@@ -6,11 +6,14 @@ title_ko: 중대재해처벌법 (전체 조항 정본)
 title_en: Serious Accidents Punishment Act (SAPA) — Canonical Base
 description: >
   Canonical, cross-domain base regulation file consolidating the full 16-article structure
+  (Arts 1-16, incl. Art 1 목적 and Art 2 정의 with the 중대재해/중대산업재해 thresholds)
   of 중대재해처벌법 as cited anywhere in the Safety OS codebase. Domain-specific sub-variant
   files (SAPA-Construction.yaml, SAPA-Training.yaml) narrow this list to the articles
   relevant to their domain — this file is the single source of truth for the full set.
-  Structure verified via kr_safety MCP (MST=228817); see regulations/KR/legal-glossary.yaml
-  for the underlying provenance data this file is generated from.
+  Structure verified via kr_safety MCP (MST=228817); Arts 1-2 re-verified verbatim against
+  the legalize-kr cache (.cache/legalize-kr/kr/중대재해처벌등에관한법률/법률.md); see
+  regulations/KR/legal-glossary.yaml for the underlying provenance data this file is
+  generated from.
 primary_law:
   name_ko: 중대재해처벌법
   name_en: Serious Accidents Punishment Act
@@ -19,9 +22,15 @@ primary_law:
     Ch.1 General (Art 1-2), Ch.2 Serious Industrial Accidents (Art 3-9),
     Ch.3 Serious Civic Disasters (Art 10-11), Ch.4 Supplementary (Art 12-16).
   articles:
+    - article: "1"
+      topic_ko: 목적
+      topic_en: Purpose — punish business owners, management responsible persons, public officials, and corporations whose violation of safety·health measures causes casualties; prevent serious disasters and protect life and body of citizens and workers
+    - article: "2"
+      topic_ko: 정의
+      topic_en: Definitions — 중대재해 = 중대산업재해 + 중대시민재해; 중대산업재해 = OSHA-KR Art 2(1) industrial accident with fatality ≥1, ≥2 injured requiring ≥6 months treatment in one accident, or ≥3 occupational disease patients (acute poisoning etc.) within 1 year from the same hazard factor; also defines 중대시민재해/공중이용시설/공중교통수단/제조물/종사자/사업주/경영책임자등
     - article: "3"
-      topic_ko: 경영책임자등의 범위
-      topic_en: Scope — application to business owners and management responsible persons
+      topic_ko: 적용범위
+      topic_en: Application scope — Chapter 2 does not apply to individual business owners or management responsible persons of businesses/workplaces with fewer than 5 regular workers
     - article: "4"
       topic_ko: 사업주와 경영책임자등의 안전 및 보건 확보의무
       topic_en: Safety and health assurance obligation — management system establishment
@@ -64,4 +73,9 @@ primary_law:
 domain_sub_variants:
   - regulations/KR/SAPA-Construction.yaml
   - regulations/KR/SAPA-Training.yaml
-last_updated: "2026-07-11"
+related_decree:
+  name_ko: 중대재해 처벌 등에 관한 법률 시행령
+  name_en: Enforcement Decree of the Serious Accidents Punishment Act
+  abbreviation: SAPA-Decree
+  file: regulations/KR/SAPA-Decree.yaml
+last_updated: "2026-08-23"
