@@ -1,8 +1,9 @@
 # 전사 안전보건 거버넌스 정책 (Enterprise Safety Governance Policy)
 
 - **문서 번호**: POL-001
-- **버전**: 1.0.0
+- **버전**: 1.1.0
 - **제정일**: 2026-07-22
+- **최종 개정일**: 2026-08-24 (§1 적용 대상 프로파일 열거를 `industry-profiles/` 현행 26개로 갱신)
 - **승인권자**: Chief Safety Officer (CSO) — safety-governance-manager (SGM) 위임
 - **상태**: 승인됨 (Approved)
 
@@ -14,16 +15,16 @@
 최상위 우산 정책(umbrella policy)**이다. 하위 도메인별 정책(화학물질 취급, 건설 추락 방지,
 반도체 공정안전 등)은 본 정책의 원칙을 상속하며, 본 정책과 상충할 수 없다.
 
-적용 대상 산업 프로파일 (`industry-profiles/`):
-- `chemical.yaml`, `chemical-plant.yaml`, `chemical-handling.yaml`
-- `construction.yaml`
-- `manufacturing.yaml`
-- `semiconductor.yaml`
-- `datacenter.yaml`
-- `pharma-general.yaml`, `pharma-distribution.yaml`, `pharma-laboratory.yaml`, `pharmacovigilance.yaml`
-- `clinical-research.yaml`
-- `medical-device.yaml`
-- `training-management.yaml`
+적용 대상 산업 프로파일 (`industry-profiles/`, 26개 — `_schema.yaml`은 스키마 템플릿으로 제외):
+- 화학: `chemical.yaml`, `chemical-plant.yaml`, `chemical-handling.yaml`
+- 건설·중공업: `construction.yaml`, `shipbuilding-heavy.yaml`, `steelmaking-heavy.yaml`
+- 제조·첨단: `manufacturing.yaml`, `semiconductor.yaml`, `semicon-cleanroom.yaml`, `battery-manufacturing.yaml`, `datacenter.yaml`, `datacenter-infrastructure.yaml`
+- 의약품·GxP: `pharma-general.yaml`, `pharma-distribution.yaml`, `pharma-laboratory.yaml`, `pharmacovigilance.yaml`, `clinical-research.yaml`, `medical-device.yaml`, `biotech-cdmo.yaml`, `cosmetics-cgmp.yaml`, `food-gxp.yaml`
+- 인프라·환경: `logistics-port.yaml`, `railway-transit.yaml`, `waste-water-environmental.yaml`
+- 공통: `training-management.yaml`
+
+> 본 열거는 2026-08-24 기준이며, 신규 프로파일 추가 시 본 정책의 우산 적용을 자동으로
+> 상속한다 (열거 누락이 적용 제외를 의미하지 않는다).
 
 적용 대상 조직 단위: 전 사업장, 모든 임직원 및 상시 상주 협력업체(도급인 포함,
 산업안전보건법 제63조 관계 사업장 포함).
