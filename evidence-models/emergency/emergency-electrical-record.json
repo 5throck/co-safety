@@ -3,7 +3,7 @@
   "$id": "emergency-electrical-record.json",
   "title": "Emergency Electrical Incident Record",
   "description": "Electrical shock, electrocution, electrical fire response.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "object",
   "required": ["record_id", "incident_id", "incident_type", "severity", "response_status", "legal_basis", "e_signature", "nomenclature", "audit_trail"],
   "properties": {
@@ -40,6 +40,7 @@
     "cpr_required": { "type": "boolean" },
     "burn_severity": { "type": "string", "enum": ["none", "first_degree", "second_degree", "third_degree"] },
     "victim_id": { "type": ["string", "null"] },
+    "incident_investigation_agent_dispatched": { "type": "boolean", "description": "Handoff confirmation per emergency-agent.md §Handoff Protocols" },
 
     "legal_basis": {
       "type": "array",

@@ -26,7 +26,7 @@ lifecycle:
   - OSHA-KR Article 54 (Action Upon Serious Industrial Accident — emergency response)
   - 재난 및 안전관리 기본법 (Framework Act on the Management of Disasters and Safety) — natural disaster preparedness and response
 - **Enforcement Agency**: Ministry of Employment and Labor (MOEL) / Ministry of the Interior and Safety (MOIS)
-- **Regulation Metadata**: `regulations/KR/osha-kr.json`, `regulations/KR/framework-disaster.json`
+- **Regulation Metadata**: `regulations/KR/OSHA-KR.yaml`, `regulations/KR/Framework-Act-Disaster-Safety.yaml`
 
 ## Section B — Role & Responsibilities
 - **Purpose & Scope**: Prepares for and responds to natural disasters (typhoons, earthquakes, floods, extreme heat/cold).

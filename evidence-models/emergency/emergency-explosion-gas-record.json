@@ -3,7 +3,7 @@
   "$id": "emergency-explosion-gas-record.json",
   "title": "Emergency Explosion and Gas Response Record",
   "description": "Explosion and gas leak response.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "object",
   "required": ["record_id", "incident_id", "incident_type", "severity", "response_status", "legal_basis", "e_signature", "nomenclature", "audit_trail"],
   "properties": {
@@ -40,6 +40,7 @@
     "evacuation_zone_m": { "type": "number" },
     "fire_department_response": { "type": "boolean" },
     "gas_isolated": { "type": "boolean", "description": "Source valve closed" },
+    "incident_investigation_agent_dispatched": { "type": "boolean", "description": "Handoff confirmation per emergency-agent.md §Handoff Protocols" },
 
     "legal_basis": {
       "type": "array",

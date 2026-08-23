@@ -69,8 +69,16 @@
  *   new memory buckets: memory/training (training-record.json),
  *   memory/assessments (risk-assessment-record.json), memory/registers
  *   (risk-register-record.json).
+ * v4.7.0 (2026-08-24): Widened applicable_industries vocabulary validation
+ *   from PSM-only to ALL workflow schemas — the KNOWN_INDUSTRIES check now
+ *   runs in the main scan loop over workflows/** schema.yaml instead of a
+ *   dedicated PSM directory pass (removed; it had been triple-counting PSM
+ *   schemas in totalChecked, so the reported file count drops 1035 -> 1020
+ *   with identical unique coverage). Survey of all 213 validated schemas
+ *   found every distinct applicable_industries value already present in
+ *   KNOWN_INDUSTRIES (21/21), so domain-config.ts needed no additions.
  *
- * @version 4.6.0
+ * @version 4.7.0
  */
 
 import * as fs from 'node:fs';
@@ -262,6 +270,18 @@ for (const file of schemaFiles) {
         if (!doc) {
             errors.push(`${rel}: empty or invalid yaml`);
             continue;
+        }
+
+        // v4.7.0: applicable_industries vocabulary check — previously enforced
+        // only on PSM schemas via a dedicated directory pass; now applies to
+        // every workflow schema tree (daily/emergency/compliance/domains).
+        if (doc?.applicable_industries) {
+            const industries = Array.isArray(doc.applicable_industries) ? doc.applicable_industries : [];
+            for (const ind of industries) {
+                if (!KNOWN_INDUSTRIES.includes(ind)) {
+                    errors.push(`${rel}: applicable_industries references unknown industry '${ind}'`);
+                }
+            }
         }
 
         // v4.3.1: resolve effective legal_basis via REFERENCE-SPEC.md §4 —
@@ -534,31 +554,6 @@ for (const domain of DOMAINS) {
         workflows: walkDirExact(wfDir, 'schema.yaml').length,
         evidence: evResult.files.length,
     };
-}
-
-// ── PSM applicable_industries validation ─────────────────────────────────────
-const psmWfDir = path.join(workflowDir, 'domains', 'functional', 'psm');
-if (fs.existsSync(psmWfDir)) {
-    for (const wfDir of fs.readdirSync(psmWfDir, { withFileTypes: true })) {
-        if (!wfDir.isDirectory()) continue;
-        const schemaPath = path.join(psmWfDir, wfDir.name, 'schema.yaml');
-        if (!fs.existsSync(schemaPath)) continue;
-        totalChecked++;
-        try {
-            const doc = yaml.load(fs.readFileSync(schemaPath, 'utf-8')) as any;
-            if (doc?.applicable_industries) {
-                const industries = Array.isArray(doc.applicable_industries) ? doc.applicable_industries : [];
-                for (const ind of industries) {
-                    if (!KNOWN_INDUSTRIES.includes(ind)) {
-                        errors.push(`psm/${wfDir.name}/schema.yaml: applicable_industries references unknown industry '${ind}'`);
-                    }
-                }
-            }
-        } catch (e: any) {
-            const rel = path.relative(ROOT, schemaPath).replace(/\\/g, '/');
-            errors.push(`${rel}: YAML parsing error in PSM applicable_industries - ${e.message}`);
-        }
-    }
 }
 
 // ── Cross-domain reference integrity (v3.1.0) ──────────────────────────────

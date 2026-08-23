@@ -3,7 +3,7 @@
   "$id": "emergency-rescue-record.json",
   "title": "Emergency Rescue Operation Record",
   "description": "Specialized rescue: confined space and high-angle. Shared schema.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "object",
   "required": ["record_id", "incident_id", "incident_type", "severity", "response_status", "legal_basis", "e_signature", "nomenclature", "audit_trail"],
   "properties": {
@@ -41,6 +41,7 @@
     "victim_condition_pre_rescue": { "type": "string", "enum": ["conscious", "unconscious_breathing", "unconscious_not_breathing", "unknown"] },
     "victim_condition_post_rescue": { "type": "string", "enum": ["stable", "critical", "fatal"] },
     "atmospheric_test_performed": { "type": "boolean", "description": "For confined space" },
+    "incident_investigation_agent_dispatched": { "type": "boolean", "description": "Handoff confirmation per emergency-agent.md §Handoff Protocols" },
 
     "legal_basis": {
       "type": "array",
