@@ -54,7 +54,7 @@ Validates construction safety inspection findings per OSHA-KR construction provi
 
 ### Step 2: Legal Basis Mapping
 - OSHA-KR construction article 매핑
-- SAPA Article 12 적용 여부
+- SAPA Article 5 도급·하도급 확보의무 적용 여부
 - 안전관리계획서 위반 여부
 
 ### Step 3: Risk Re-assessment

@@ -1,7 +1,7 @@
 # 신규 화학물질 도입 승인 (New Chemical Introduction Approval) Workflow
 
 ## 1. Objective
-Review and approve requests to introduce new chemicals at site facilities, verifying compliance with OSHA-KR Article 113 (prohibited/permission/harmful substances) and 유해화학물질 관리법 (TCCL).
+Review and approve requests to introduce new chemicals at site facilities, verifying compliance with OSHA-KR Articles 117-118 (유해·위험물질의 제조 등 금지/허가) and 화학물질관리법 (CCA, absorbed former TCCL).
 
 ## 2. Applicability
 All new chemical introduction requests for substances not currently in the chemical inventory, under the `chemical-handling` profile.
@@ -12,7 +12,7 @@ All new chemical introduction requests for substances not currently in the chemi
 - Receive request from production/engineering with: chemical name, CAS number, intended use, expected quantity, storage location.
 
 ### Step 2: Substance Classification Check
-- Query prohibited substance registry (취급금지물질 list under OSHA-KR Article 113).
+- Query prohibited substance registry (취급금지물질 list under OSHA-KR Article 117).
 - Query permission-required substance registry (허가대상물질).
 - Query harmful substance registry (유해물질).
 - Query toxic chemical registry under TCCL.
@@ -54,4 +54,4 @@ Generate `chemical-approval-record.json` with substance ID, classification, risk
 - Approval cycle time: ≤14 days for routine, ≤30 days for complex cases
 
 ## 7. Legal Disclaimer
-> Workflow automation assistance only. Final approval decisions require qualified EHS manager and Chemical Management Officer per OSHA-KR Article 113.
+> Workflow automation assistance only. Final approval decisions require qualified EHS manager and Chemical Management Officer per OSHA-KR Articles 117-118.

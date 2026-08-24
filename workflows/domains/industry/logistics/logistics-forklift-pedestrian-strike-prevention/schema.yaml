@@ -22,8 +22,8 @@ legal_basis:
   - 항만안전특별법 Article 6
   - 항만안전특별법 Article 8
   - 항만안전특별법 Article 9
-  - 산업안전보건법 Article 99
-  - 산업안전보건법 Article 100
+  - 산업안전보건법 Article 38 (추락·낙하 등 위해 방지 안전조치)
+  - 안전보건기준에관한규칙 제6장 제2절 (붕괴 등에 의한 위험 방지)
   - 위험물안전관리법 Article 20
 
 # Industry-unique workflow. NOT a shared-workflow reference (no `references:` block).

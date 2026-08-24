@@ -8,7 +8,7 @@ tier:
   antigravity: medium
 model: sonnet
 color: orange
-description: "MSDS / Chemical Safety specialist — manages chemical substance data, GHS classification, MSDS lifecycle, chemical approval per OSHA-KR Articles 110-114 + K-REACH + GHS Rev 9."
+description: "MSDS / Chemical Safety specialist — manages chemical substance data, GHS classification, MSDS lifecycle, chemical approval per OSHA-KR Articles 104, 110-115, 117-118 + K-REACH + GHS Rev 9."
 lifecycle:
   phase: production
   created: 2026-06-17
@@ -20,17 +20,21 @@ lifecycle:
 ## Section A — Legal Basis
 
 ### Primary Laws
-- **산업안전보건법 (OSHA-KR) Article 110** — MSDS 작성·비치 의무 (preparation and posting duty)
-- **산업안전보건법 (OSHA-KR) Article 111** — MSDS 제출 대상 물질 (substances subject to submission)
-- **산업안전보건법 (OSHA-KR) Article 112** — MSDS 양식 및 기재사항 (format and content per GHS 16 sections)
-- **산업안전보건법 (OSHA-KR) Article 113** — 유해·허가·취급금지물질 관리 (prohibited, permission, harmful substances)
-- **산업안전보건법 (OSHA-KR) Article 114** — 경고표지 부착 의무 (warning label attachment)
-- **산업안전보건법 (OSHA-KR) Article 243** — GHS 분류 의무화 (mandatory GHS classification)
+- **산업안전보건법 (OSHA-KR) Article 110** — 물질안전보건자료 작성·제출 (MSDS preparation & submission to MOEL)
+- **산업안전보건법 (OSHA-KR) Article 111** — 물질안전보건자료의 제공 (provision duty to transferees/recipients)
+- **산업안전보건법 (OSHA-KR) Article 112** — 일부 비공개 승인 등 (trade-secret partial non-disclosure approval; MSDS format/content is delegated — see 시행규칙 §156)
+- **산업안전보건법 (OSHA-KR) Article 104** — 유해인자의 분류기준 (hazard-factor classification criteria — statutory GHS anchor; 산업안전보건법 시행규칙 별표 18)
+- **산업안전보건법 (OSHA-KR) Article 114** — 물질안전보건자료의 게시 및 교육 (MSDS posting & worker education)
+- **산업안전보건법 (OSHA-KR) Article 115** — 용기 등의 경고표시 (warning labels on containers/packages)
+- **산업안전보건법 (OSHA-KR) Articles 117-118** — 유해·위험물질의 제조 등 금지/허가 (substance bans and permissions)
+- **산업안전보건법 시행규칙 제156-169조** — MSDS 작성방법·기재사항·제출·게시·교육 절차 (delegated MSDS procedures)
 
 ### Adjacent Laws
 - **화학물질등록 및 평가 등에 관한 법률 (K-REACH) Articles 10-14** — Chemical registration and evaluation
 - **화학물질관리법 (CCA)** — Chemical management (absorbed former TCCL; partially superseded by K-REACH)
 - **UN GHS Rev 9 (2021)** — Globally Harmonized System, Korean baseline since 2023
+
+> **Anchor correction (2026-08-24 SGM arbitration)**: the former "Article 243" GHS citation was a legacy pre-2008 article number — the current statute ends at Art 175. GHS classification anchors to **Article 104** (유해인자의 분류기준) with delegated criteria in 산업안전보건법 시행규칙 별표 18.
 
 > **Multi-source legal_basis policy**: All MSDS evidence records MUST cite >= 3 regulatory sources. At least one OSHA-KR MSDS article + at least one delegated/international standard.
 

@@ -61,7 +61,7 @@ TBM is legally grounded in OSHA-KR Articles 15/17 (safety management officers), 
 - Risk assessment execution (use `risk-assessment` skill) — TBM *consumes* risk assessment findings
 - Lockout/Tagout verification (use `psm-loto` skill) — TBM may *reference* LOTO scope but does not verify it
 
-**Distinction from related agents:** Construction TBM retains its dedicated workflow (`ehsconst/tbm-tool-box-meeting`) and evidence model (`ehsconst-tbm-record.json`) for construction-specific provisions (SAPA Art.12 special provisions, contractor tier). This shared skill serves the other 13 high-risk industries.
+**Distinction from related agents:** Construction TBM retains its dedicated workflow (`ehsconst/tbm-tool-box-meeting`) and evidence model (`ehsconst-tbm-record.json`) for construction-specific provisions (SAPA Art.5 contract/subcontractor duties, contractor tier). This shared skill serves the other 13 high-risk industries.
 
 ## Steps
 
@@ -108,7 +108,7 @@ TBM is legally grounded in OSHA-KR Articles 15/17 (safety management officers), 
 | `logistics` | Port | Gantry crane lift | PSSA Art.4/8, OSHA-KR Art.63 |
 | `railway` | Railway | Catenary live-line | RSA Art.45/48, OSHA-KR Art.38 |
 | `food` | Food processing | Mixer LOTO | FSA Art.48, OSHA-KR Art.92 |
-| `construction` | Construction | (use ehsconst dedicated) | SAPA Art.12, 건설기술진흥법 Art.24 |
+| `construction` | Construction | (use ehsconst dedicated) | SAPA Art.5, 건설기술진흥법 Art.24 |
 
 ## Output Format
 

@@ -93,13 +93,13 @@
     },
     "legal_basis": {
       "type": "array",
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 §1 (worker safety education including instructor requirements) or Article 31 §1 (special safety education for hazardous work) or Article 32 §1 (supervisor education, 관리감독자 교육) or Article 13 §1 (emergency response education) or Article 114 §1 (MSDS education). Adjacent laws may include: SAPA Article 4 (employer must ensure qualified instructors — safety and health assurance obligation), SAPA Article 5 (contract/subcontractor safety obligations). Records carry instructor PII (instructor_id, name, qualification_number) and MUST additionally cite PIPA (개인정보보호법): collection/use grounds (Art 15), destruction after retention period lapses (Art 21) — see regulations/KR/PIPA.yaml.",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 §1 (worker safety education including instructor requirements) or Article 29 §3 + 시행규칙 §26 (special safety education for hazardous work) or Article 32 §1 (job education for 안전보건관리책임자 등 — 관리감독자 excluded) or Article 114 §1 (MSDS education). Adjacent laws may include: SAPA Article 4 (employer must ensure qualified instructors — safety and health assurance obligation), SAPA Article 5 (contract/subcontractor safety obligations). Records carry instructor PII (instructor_id, name, qualification_number) and MUST additionally cite PIPA (개인정보보호법): collection/use grounds (Art 15), destruction after retention period lapses (Art 21) — see regulations/KR/PIPA.yaml.",
       "items": {
         "type": "string"
       },
       "minItems": 3,
       "examples": [
-        ["OSHA-KR Art.29 §1", "OSHA-KR Art.31 §1", "SAPA Art.4"],
+        ["OSHA-KR Art.29 §3", "산업안전보건법 시행규칙 Art.26 §1", "SAPA Art.4"],
         ["OSHA-KR Art.32 §1", "OSHA-KR Art.29 §1", "SAPA Art.4"],
         ["OSHA-KR Art.114 §1", "OSHA-KR Art.29 §1", "SAPA Art.5"],
         ["OSHA-KR Art.29 §1", "SAPA Art.4", "PIPA Art.15 §1", "PIPA Art.21 §1"]

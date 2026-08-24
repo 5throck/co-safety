@@ -125,10 +125,10 @@ Location: `workflows/daily/manufacturing/`
 | Workflow | Legal Basis (≥3 sources, see `regulations/KR/OSHA-KR.yaml`/`SAPA.yaml`) | Agent Chain |
 |----------|-------------|-------------|
 | risk-assessment | 제36조, 제38조, SAPA 제4조 | SWM → risk-assessment-agent |
-| permit-to-work | 제98조, 제38조, SAPA 제4조 | SWM → risk-assessment-agent → compliance-agent |
+| permit-to-work | 제38조 (+규칙), SAPA 제4조 | SWM → risk-assessment-agent → compliance-agent |
 | equipment-inspection | 제93조, 제108조, SAPA 제4조 | SWM → audit-agent |
 | contractor-management | 제63조, 제61조, SAPA 제5조 | SWM → compliance-agent → risk-assessment-agent |
-| safety-training | 제29조, 제31조, SAPA 제8조 | SWM → compliance-agent |
+| safety-training | 제29조(특별교육=③), 규칙 §26, SAPA 제8조 | SWM → compliance-agent |
 | safety-patrol | 제15조, 제16조, SAPA 제4조 | SWM → risk-assessment-agent → audit-agent |
 
 ## Evidence Trail

@@ -18,11 +18,11 @@ primary_law:
   abbreviation: OSHA-KR
   articles:
     - article: "13"
-      topic_ko: 구급설비/구급조치
-      topic_en: First-aid equipment and measures
+      topic_ko: 기술 또는 작업환경에 관한 표준 (지도·권고)
+      topic_en: Technical and work-environment standards issued/guided by MOEL
     - article: "14"
-      topic_ko: 안전보건관리규정 작성 (이사회 승인)
-      topic_en: Safety and Health Management Regulations (rules creation / BoD approval of safety plan)
+      topic_ko: 안전·보건 계획 수립 및 이사회 보고·승인 (안전보건관리규정은 제25·26조)
+      topic_en: Annual safety/health plan — board report & approval (SHM regulations = Arts 25-26)
     - article: "15"
       topic_ko: 안전보건관리책임자 직무
       topic_en: Safety and Health Management Supervisor duties
@@ -36,23 +36,26 @@ primary_law:
       topic_ko: 산업안전보건위원회
       topic_en: Occupational Safety and Health Committee
     - article: "29"
-      topic_ko: 근로자 안전보건교육
-      topic_en: Worker safety and health education
+      topic_ko: 근로자 안전보건교육 (특별교육=제29조③ + 규칙 §26)
+      topic_en: Worker safety and health education (special education = Art 29(3) + OSHSR §26)
     - article: "31"
-      topic_ko: 특별안전보건교육 (위험작업)
-      topic_en: Special safety and health training for hazardous work
+      topic_ko: 건설업 기초안전보건교육 (일용근로자; 특별교육 아님)
+      topic_en: Construction-industry basic safety and health education for day laborers (NOT special education)
     - article: "32"
-      topic_ko: 관리감독자 교육 / 작업장 안전조치
-      topic_en: Workplace safety measures
+      topic_ko: 안전보건관리책임자 등에 대한 직무교육 (책임자/안전/보건/담당자 — 관리감독자 제외)
+      topic_en: Job education for safety/health management supervisors, managers, officers (management supervisors excluded)
     - article: "36"
       topic_ko: 위험성평가 실시
       topic_en: Risk assessment
     - article: "38"
-      topic_ko: 안전조치
-      topic_en: Safety measures
+      topic_ko: 안전조치 (추락·붕괴·감전 등 위험방지의 일반 근거)
+      topic_en: Safety measures — general statutory basis for fall/collapse/electrical hazard prevention
     - article: "39"
       topic_ko: 보건조치
       topic_en: Health measures
+    - article: "42"
+      topic_ko: 유해위험방지계획서의 작성·제출 (건설)
+      topic_en: Preparation/submission of hazard-prevention plans (construction)
     - article: "44"
       topic_ko: 공정안전관리 (PSM 대상 공정)
       topic_en: Process Safety Management (PSM) for covered processes
@@ -77,42 +80,57 @@ primary_law:
     - article: "63"
       topic_ko: 도급인의 안전보건조치
       topic_en: Ordering party's safety and health measures
+    - article: "89"
+      topic_ko: 자율안전확인의 신고
+      topic_en: Voluntary safety confirmation — declaration
     - article: "93"
       topic_ko: 안전검사
       topic_en: Safety inspection
     - article: "98"
-      topic_ko: 허가대상작업 (기계사고 예방)
-      topic_en: Permit-to-work / mechanical accident prevention
+      topic_ko: 자율검사프로그램에 따른 안전검사 (허가대상작업 아님)
+      topic_en: Safety inspection under voluntary inspection programs (NOT permit-to-work)
     - article: "99"
-      topic_ko: 추락방지
-      topic_en: Fall prevention
+      topic_ko: 자율검사프로그램 인정의 취소 등 (추락방지 아님)
+      topic_en: Revocation of voluntary-inspection-program recognition (NOT fall prevention)
     - article: "100"
-      topic_ko: 붕괴방지
-      topic_en: Collapse prevention
+      topic_ko: 자율안전검사기관 (붕괴방지 아님)
+      topic_en: Voluntary safety inspection institutions (NOT collapse prevention)
     - article: "101"
-      topic_ko: 전기위해 방지
-      topic_en: Electrical hazard prevention
+      topic_ko: 성능시험 등 (전기위해 방지 아님)
+      topic_en: Performance tests, etc. (NOT electrical hazard prevention)
     - article: "103"
-      topic_ko: 안전보건관리계획
-      topic_en: Safety and Health Management Plan
+      topic_ko: 유해·위험기계등의 안전 관련 정보의 종합관리 (안전보건관리계획 아님)
+      topic_en: Comprehensive management of machinery safety information (NOT SHM plan)
+    - article: "104"
+      topic_ko: 유해인자의 분류기준 (GHS 분류 근거; 시행규칙 별표18)
+      topic_en: Hazard-factor classification criteria — GHS basis (OSH Ordinance 별표 18)
     - article: "108"
-      topic_ko: 자율안전확인
-      topic_en: Voluntary safety confirmation
+      topic_ko: 신규화학물질의 유해성·위험성 조사
+      topic_en: Hazard investigation of new chemical substances (자율안전확인은 제89조)
     - article: "110"
-      topic_ko: MSDS 작성·비치 의무
-      topic_en: MSDS preparation and posting duty
+      topic_ko: 물질안전보건자료(MSDS) 작성·제출 (게시·비치=제114조)
+      topic_en: MSDS preparation & submission to MOEL (posting/keeping = Art 114)
     - article: "111"
-      topic_ko: MSDS 제출대상 물질
-      topic_en: Substances subject to MSDS submission
+      topic_ko: 물질안전보건자료의 제공 (양수인 등에게 제공 의무)
+      topic_en: MSDS provision duty to transferees/recipients
     - article: "112"
-      topic_ko: MSDS 형식 및 필수 기재사항 (GHS 16 항목)
-      topic_en: MSDS format and required content (GHS 16 sections)
+      topic_ko: 물질안전보건자료 일부 비공개 승인 등 (영업비밀; 양식·기재사항=규칙 §156)
+      topic_en: Partial non-disclosure approval for trade secrets (format/content = OSHSR §156)
     - article: "113"
-      topic_ko: 유해·위험물질 (제조등금지/허가/유해물질)
-      topic_en: Prohibited, permission-required, and harmful substances
+      topic_ko: 국외제조자가 선임한 자에 의한 정보 제출 등 (금지/허가=제117·118조)
+      topic_en: Information submission by agents appointed by overseas manufacturers (bans/permits = Arts 117-118)
     - article: "114"
-      topic_ko: 경고표지 부착 의무
-      topic_en: Warning label attachment duty
+      topic_ko: 물질안전보건자료의 게시 및 교육 (경고표시=제115조)
+      topic_en: MSDS posting & worker education (warning labels = Art 115)
+    - article: "115"
+      topic_ko: 물질안전보건자료대상물질 용기 등의 경고표시
+      topic_en: Warning labels on containers/packages of MSDS-subject substances
+    - article: "117"
+      topic_ko: 유해·위험물질의 제조 등 금지
+      topic_en: Prohibition of manufacture/import etc. of hazardous/dangerous substances
+    - article: "118"
+      topic_ko: 유해·위험물질의 제조 등 허가
+      topic_en: Permission for manufacture/import etc. of hazardous/dangerous substances
     - article: "125"
       topic_ko: 작업환경측정
       topic_en: Work Environment Measurement
@@ -125,9 +143,6 @@ primary_law:
     - article: "155"
       topic_ko: 고용노동부 작업장 감독 권한
       topic_en: MOEL workplace inspection authority
-    - article: "243"
-      topic_ko: GHS 분류 의무화
-      topic_en: Mandatory GHS classification
 related_rule:
   name_ko: 안전보건기준에관한규칙
   abbreviation: OSHA-KR-Rules
@@ -154,4 +169,4 @@ related_decree:
   name_en: Enforcement Decree of the Occupational Safety and Health Act
   abbreviation: OSHA-KR-Decree
   file: regulations/KR/OSHA-KR-Decree.yaml
-last_updated: "2026-08-23"
+last_updated: "2026-08-24"

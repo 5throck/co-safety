@@ -31,12 +31,12 @@
     "training_method": { "type": "string", "enum": ["classroom", "online", "on_the_job", "field", "vr_ar"] },
     "legal_basis": {
       "type": "array",
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 (worker safety education) or Article 31 (special/hazardous work education) or Article 13 (emergency response) or Article 32 (supervisor education) or Article 114 (MSDS education) or Article 36 (risk assessment communication). Adjacent laws may include: SAPA Article 4 (employer safety and health assurance obligation), SAPA Article 5 (contract/subcontractor safety obligations). Records contain worker PII (trainee_name, trainee_id, instructor_id, e_signature signer IDs) and MUST additionally cite PIPA (개인정보보호법): collection/use grounds (Art 15), minimum-necessary collection (Art 16), third-party provision restrictions (Arts 17-18), destruction after retention (Art 21) — see regulations/KR/PIPA.yaml.",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 (worker safety education) or Article 29 §3 + 시행규칙 §26 (special education for hazardous work) or Article 32 (job education for safety/health management supervisors etc.) or Article 114 (MSDS education) or Article 36 (risk assessment communication). Adjacent laws may include: SAPA Article 4 (employer safety and health assurance obligation), SAPA Article 5 (contract/subcontractor safety obligations). Records contain worker PII (trainee_name, trainee_id, instructor_id, e_signature signer IDs) and MUST additionally cite PIPA (개인정보보호법): collection/use grounds (Art 15), minimum-necessary collection (Art 16), third-party provision restrictions (Arts 17-18), destruction after retention (Art 21) — see regulations/KR/PIPA.yaml.",
       "items": { "type": "string" },
       "minItems": 3,
       "examples": [
         ["OSHA-KR Art.29 §1", "OSHA-KR Art.36 §1", "SAPA Art.4"],
-        ["OSHA-KR Art.31 §1", "OSHA-KR Art.13 §1", "SAPA Art.4"],
+        ["OSHA-KR Art.29 §3", "산업안전보건법 시행규칙 Art.26 §1", "SAPA Art.4"],
         ["OSHA-KR Art.114 §1", "OSHA-KR Art.29 §1", "SAPA Art.5"],
         ["OSHA-KR Art.29 §1", "SAPA Art.4", "PIPA Art.15 §1", "PIPA Art.21 §1"]
       ]

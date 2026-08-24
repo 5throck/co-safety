@@ -1,7 +1,7 @@
 # 안전보건관리계획 (Safety Management Plan) Workflow
 
 ## 1. 목적
-산업안전보건법 (Occupational Safety and Health Act, OSHA-KR) 제103조에 따른 안전보건관리계획 (Safety and Health Management Plan) 수립 및 갱신.
+산업안전보건법 (Occupational Safety and Health Act, OSHA-KR) 제42조에 따른 유해위험방지계획서 (Hazard-Prevention Plan) 작성·제출 및 갱신. 앵커 정정 (2026-08-24): 구(舊) "제103조 = 안전보건관리계획" 표기는 2008년 이전 조번호 잔류 오류로, 현행 제103조는 유해·위험기계등의 안전 정보 종합관리임.
 
 ## 2. 적용 대상 (Applicability)
 - 공사금액 50억 원 이상

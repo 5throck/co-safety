@@ -6,7 +6,8 @@ applicability: mandatory
 
 legal_basis:
   - 전기안전관리법
-  - 산업안전보건법 Article 101 (전기위해 방지)
+  - 산업안전보건법 Article 38 (안전조치)
+  - 안전보건기준에관한규칙 (전기 관련 기준)
   - 중대재해처벌법 Article 4
 industry_profile: all
 agent: emergency-agent

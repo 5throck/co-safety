@@ -18,7 +18,7 @@ metadata:
     - ventilation verification 향료 솔벤트
     - biological monitoring cosmetics
     - respirator selection 유기용제
-    - OSHA-KR MSDS Article 110
+    - OSHA-KR Article 110 (MSDS 작성·제출)
 ---
 
 # Cosmetics Solvent Exposure Monitor Skill
@@ -35,7 +35,7 @@ fragrance volatile organic compounds (VOCs)**.
 This skill is the operational counterpart to the `solvent-exposure-control`
 workflow (Task A-04, 2026-08-07). The cosmetics regulatory anchor
 (`regulations/KR/industry-regulatory-anchors.yaml` lines 260-266) names
-**OSHA-KR-MSDS Article 110 (MSDS 작성·비치 의무)** as the worker-safety
+**OSHA-KR Article 110 (물질안전보건자료 작성·제출 의무)** as the worker-safety
 anchor — a citation no existing cosmetics skill addresses. All three
 existing cosmetics workflows (`cgmp-batch-release`, `cosmetics-safety-
 assessment`, `cosmetics-stability-testing`) are product-quality/registration-
@@ -202,7 +202,7 @@ mandatory rather than relying on odor thresholds.
     "cartridge_changeout_log_current": true
   },
   "regulatory_basis": [
-    "산업안전보건법 (OSHA-KR) MSDS 규정 Article 110 — MSDS 작성·비치 의무",
+    "산업안전보건법 (OSHA-KR) Article 110 — 물질안전보건자료 작성·제출 의무",
     "화장품법 (CA) Article 5 — 제조업 등의 등록 및 시설 기준 (ventilation)",
     "화학물질의 등록 및 평가 등에 관한 법률 (K-REACH) Article 10 — 기존화학물질 등록",
     "산업안전보건법 (OSHA-KR) Article 36 — 위험성평가",
@@ -214,7 +214,7 @@ mandatory rather than relying on odor thresholds.
 
 ## Korean-Specific Standards
 
-- **산업안전보건법 (OSHA-KR) MSDS 규정 Article 110** — MSDS 작성·비치 의무
+- **산업안전보건법 (OSHA-KR) Article 110** — 물질안전보건자료 작성·제출 의무
   (mandatory MSDS preparation and retention). Foundation for solvent-hazard
   communication.
 - **유기용제 중독 예방 규칙** (OSHA-KR Organic Solvent Poisoning Prevention
@@ -271,7 +271,7 @@ serve different worker groups (powder mixing vs. liquid blending/filling).
 ## Legal Disclaimer
 
 > 자동화 모니터링 계획 보조. 최종 노출 평가 및 PPE 결정은 산업보건의 + 안전관리자
-> 권한 per 산업안전보건법 (OSHA-KR) MSDS 규정 Article 110 and 화장품법 (CA)
+> 권한 per 산업안전보건법 (OSHA-KR) Article 110 and 화장품법 (CA)
 > Article 5. Air sampling must be performed by a KOSHA-accredited analytical
 > laboratory; biological monitoring interpretation requires a board-certified
 > occupational physician.

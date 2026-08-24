@@ -21,7 +21,7 @@ metadata:
     - roof fall prevention rolling stock
     - 철도 안전관리자 정비 허가
     - RSA Article 48 철도 보호
-    - OSHA-KR Article 99 추락 방지 전차선
+    - OSHA-KR Article 38 추락 방지 포함 안전조치 (전차선)
     - wheel chock derail brake scotch
 ---
 
@@ -40,13 +40,13 @@ space hazards covered by the two existing railway workflows.
 The railway industry anchor
 (`regulations/KR/industry-regulatory-anchors.yaml` lines 463-501) names
 **철도안전법 (RSA) Article 48 (철도 보호 및 질서유지를 위한 금지행위)** and
-**OSHA-KR Article 99 (추락 방지 — 전차선/선로 작업)** in the primary/adjacent
+**OSHA-KR Article 38 (추락 등 안전조치 — 전차선/선로 작업)** in the primary/adjacent
 statute blocks — cited by ZERO existing railway workflows prior to the
 `railway-rolling-stock-maintenance-loto` workflow (Task C-1b, 2026-08-07).
-The anchor also names **OSHA-KR Article 101 (감전 위험 방지)** for the
+The anchor also names **OSHA-KR Article 38 (감전 등 안전조치)** for the
 catenary-adjacent depot work. This skill operationalizes RSA Art 48 +
 OSHA Art 92 (LOTO 정지 — 안전보건기준에관한규칙 Art 92, per existing
-codebase convention) + OSHA Art 99 into a deployable depot-maintenance
+codebase convention) + OSHA Art 38 into a deployable depot-maintenance
 safety plan.
 
 ## Korean Railway Depot Context
@@ -79,10 +79,10 @@ that plans lockout of a MOVING VEHICLE.
   codebase convention `산업안전보건법 Article 92`) — hazardous-energy
   isolation; applied here to kinetic + pneumatic + electrical energy of a
   rail vehicle
-- **OSHA-KR Art 99** (UNCITED by existing railway WFs; in anchor
+- **OSHA-KR Art 38** (corrected anchor, 2026-08-24; in anchor
   adjacent_laws) — 추락 방지: fall prevention for roof access and pit
   access during depot work
-- **OSHA-KR Art 101** (in anchor adjacent_laws) — 감전 위험 방지: electrical
+- **OSHA-KR Art 38** (in anchor adjacent_laws) — 감전 등 안전조치: electrical
   hazard for catenary-adjacent / pantograph work
 - **SAPA Art 4** — 사업주 안전보장 의무: universal safety-assurance
   obligation
@@ -111,7 +111,7 @@ that plans lockout of a MOVING VEHICLE.
   inspection or AC-unit service
 - No fall-protection anchor point on curved roof — fall-to-grade
 - Catenary adjacent on same track — co-existent electrical hazard
-  (OSHA Art 101)
+  (OSHA Art 38 + OSHSR 전기기준)
 
 ### 4. Pit access fall + confined-space edge
 
@@ -182,7 +182,7 @@ that plans lockout of a MOVING VEHICLE.
 - **Bogey-lift plan** — rigging diagram, crane capacity verification,
   exclusion zone, signed by lifting engineer
 - **TBM (tool-box meeting)** before each shift — see shared TBM workflow
-- **Fall-protection plan** per OSHA Art 99 for any roof / pit access
+- **Fall-protection plan** per OSHA Art 38 for any roof / pit access
 
 ### 4. PPE
 
@@ -196,7 +196,7 @@ that plans lockout of a MOVING VEHICLE.
 - **High-visibility vest** (depot has active vehicle movements on other
   tracks)
 - **Dielectric gloves Class 2** if catenary-adjacent work cannot be
-  avoided (per OSHA Art 101)
+  avoided (per OSHA Art 38 + OSHSR)
 - **Hearing protection** in bogey-test bay (post-maintenance test runs)
 
 ## Planning Workflow
@@ -215,7 +215,7 @@ that plans lockout of a MOVING VEHICLE.
 5. **Bogey-lift plan (if bogey work)** — rigging diagram, crane capacity
    vs bogey weight, carbody stand placement, exclusion zone
 6. **Roof-access fall-protection plan (if roof work)** — anchor point
-   selection, 100% tie-off procedure, rescue plan per OSHA Art 99
+   selection, 100% tie-off procedure, rescue plan per OSHA Art 38
 7. **Pit-access plan (if underfloor work)** — pit-edge guardrails, ladder
    condition, pit atmosphere check
 8. **Multi-trade coordination briefing** — single supervisor sequences
@@ -293,8 +293,8 @@ that plans lockout of a MOVING VEHICLE.
   "regulatory_basis": [
     "철도안전법 (RSA) Article 48 — 철도 보호 및 질서유지를 위한 금지행위",
     "산업안전보건법 (OSHA-KR) Article 92 — LOTO 정지 (안전보건기준에관한규칙 제92조, codebase convention)",
-    "산업안전보건법 (OSHA-KR) Article 99 — 추락 방지 (전차선/선로/차량 작업)",
-    "산업안전보건법 (OSHA-KR) Article 101 — 감전 위험 방지 (25kV 전차선 인접)",
+    "산업안전보건법 (OSHA-KR) Article 38 — 추락 등 위해 방지 안전조치 (전차선/선로/차량 작업)",
+    "산업안전보건기준에관한규칙 — 감전 등 전기 재해 방지 기준 (25kV 전차선 인접)",
     "중대재해처벌법 (SAPA) Article 4 — 사업주 안전보장 의무"
   ],
   "acceptance_status": "ready_to_execute"
@@ -310,10 +310,10 @@ that plans lockout of a MOVING VEHICLE.
   isolation; cited per existing codebase convention — technically in
   안전보건기준에관한규칙 Art 92, followed for consistency with existing
   `incinerator-shredder-loto` and `molten-metal-loto` schemas)
-- **산업안전보건법 (OSHA-KR) Article 99** — 추락 방지 (fall prevention;
+- **산업안전보건법 (OSHA-KR) Article 38** — 추락 등 안전조치 (fall prevention;
   UNCITED by existing railway WFs — this skill newly activates it for
   roof and pit access)
-- **산업안전보건법 (OSHA-KR) Article 101** — 감전 위험 방지 (electrical-
+- **안전보건기준에관한규칙 (OSHSR)** — 감전 등 전기 재해 방지 기준 (electrical-
   hazard prevention; co-existent catenary-adjacent work)
 - **KORAIL / Seoul Metro depot 안전관리자** — every depot has a named
   안전관리자 who MUST countersign the 작업허가서 and verify vehicle-
@@ -384,7 +384,7 @@ VEHICLE LOTO — distinct isolation discipline as described above.
 
 > 자동화 계획 보조. 최종 차량 정비 안전 조치 결정은 차량사업소 안전관리자 +
 > 철도운영기관 안전책임자 권한 per 철도안전법 (RSA) Article 48 and
-> 산업안전보건법 (OSHA-KR) Article 92 + Article 99 + Article 101. Wheel-
+> 산업안전보건법 (OSHA-KR) Article 92 + Article 38 (+안전보건기준에관한규칙). Wheel-
 > chock-to-rail contact, bogey-lift rigging capacity, and catenary
 > isolation MUST be verified by the depot 안전관리자 and a qualified lifting
 > engineer before any undercarriage, pit, bogey, or roof work begins.

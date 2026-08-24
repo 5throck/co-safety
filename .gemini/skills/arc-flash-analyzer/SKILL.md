@@ -87,7 +87,7 @@ IEEE 1584 standard 기반 아크 플래시 위해 분석 — incident energy, ar
 
 - 한국전기안전공사 (KESCO) 아크 플래시 가이드
 - 한국산업안전보건공단 (KOSHA) 고압 전기 작업 가이드
-- OSHA-KR Article 101 (전기 위해 방지)
+- 산업안전보건법 Article 38 (전기 위해 방지 포함 안전조치)
 - 발전설비 안전관리 규정 (MOTIE 고시)
 
 ## Output

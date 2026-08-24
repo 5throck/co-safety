@@ -66,7 +66,7 @@ Emergency (cc)     ✓         ✓           ✓             ✓            ✓ 
 |--------|-----------|-----------------|--------------|
 | PSM | 15 | 15 | OSHA-KR Art 44 (14 elements) |
 | MSDS | 7 | 6 | GHS Rev 9 + K-REACH |
-| Training | 8 | 5 | OSHA-KR Art 13/29/31/32/114 |
+| Training | 8 | 5 | OSHA-KR Art 29(③ 특별교육)/31/32/114 |
 | risk-assessment | 5 | 2 | OSHA-KR Art 36 + MOEL 위험성평가 고시 |
 | incident-investigation | 5 | 3 | OSHA-KR Art 57 + 중대재해처벌법 Art 5 |
 | asset-integrity | 4 | 2 | OSHA-KR Art 36/38 + KOSHA Guide M-155-2022 |
@@ -90,7 +90,7 @@ Emergency (cc)     ✓         ✓           ✓             ✓            ✓ 
 #### Traditional EHS & Heavy Industry (6)
 | Domain | Workflows | Evidence Models | Key Standard |
 |--------|-----------|-----------------|--------------|
-| ehsconst | 9 | 9 | OSHA-KR + SAPA Art 12 |
+| ehsconst | 9 | 9 | OSHA-KR + SAPA Art 5 |
 | ehschem | 8 | 6 | CCA + K-REACH + 환경법 |
 | gasterm | 12 | 11 | 고압가스법 + LPG법 + 수소법 |
 | powergen | 8 | 8 | 전기사업법 + 전기안전법 |

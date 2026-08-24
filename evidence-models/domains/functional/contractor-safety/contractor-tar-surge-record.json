@@ -78,7 +78,7 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 (contractor safety education) and Article 13 (emergency response). Adjacent laws may include: SAPA Article 5 (contractor safety management obligation), OSHA-KR Article 38 (pre-work safety measures for contractors), SAPA Article 3 (management responsibility for contractor safety).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 29 (contractor safety education) and 산업안전보건법 시행령 제15조 (관리감독자 응급조치·보고 업무 — via 법 제16조). Adjacent laws may include: SAPA Article 5 (contractor safety management obligation), OSHA-KR Article 38 (pre-work safety measures for contractors), SAPA Article 3 (management responsibility for contractor safety).",
       "examples": [
         [
           "OSHA-KR Art.29 §1",
@@ -86,14 +86,14 @@
           "OSHA-KR Art.38 §1"
         ],
         [
-          "OSHA-KR Art.13 §1",
+          "산업안전보건법 시행령 제15조 (관리감독자 응급조치)",
           "SAPA Art.3",
           "OSHA-KR Art.29 §1"
         ],
         [
           "OSHA-KR Art.38 §1",
           "SAPA Art.5",
-          "OSHA-KR Art.13 §1"
+          "산업안전보건법 시행령 제15조 (관리감독자 응급조치)"
         ]
       ]
     },

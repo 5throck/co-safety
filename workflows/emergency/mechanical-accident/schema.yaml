@@ -5,9 +5,9 @@ status: active
 applicability: mandatory
 
 legal_basis:
-  - 산업안전보건법 Article 32 (기계위해 방지)
+  - 산업안전보건법 Article 38 (안전조치)
   - 중대재해처벌법 Article 4
-  - 산업안전보건법 Article 98
+  - 안전보건기준에관한규칙 제2편 제1장 (기계·기구 등의 위험예방)
 industry_profile: all
 agent: emergency-agent
 evidence_model: emergency-mechanical-record.json

@@ -123,4 +123,4 @@ Per hierarchy of controls:
 - Integration with PSM risk assessment (process-level)
 
 ## Legal Disclaimer
-> Skill automation only. Final risk acceptance decisions require qualified EHS professional review per OSHA-KR Article 113.
+> Skill automation only. Final risk acceptance decisions require qualified EHS professional review per OSHA-KR Articles 117-118.

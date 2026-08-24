@@ -30,7 +30,7 @@ This is an **industry-unique workflow** — a railway-industry-specific bridge/v
    3. **Active protection**: Wind-speed monitoring alarms, dropped-object protective covers, train-approach warning systems.
    4. **Administrative**: Safe-work permit (height), weather work-stoppage criteria (wind/precipitation/lightning), shift-change TBM, work-zone control.
    5. **PPE**: Full-body harness, hard hat, shock-absorbing double lanyard, slip-resistant footwear.
-3. **Fall prevention**: Verify anchor-point adequacy (safety hook/rail) before work; install fall-arrest nets; maintain continuous harness attachment for work at or above 2 m. Aligns with 산업안전보건법 (OSHA-KR) Article 99 (fall prevention — bridge/viaduct).
+3. **Fall prevention**: Verify anchor-point adequacy (safety hook/rail) before work; install fall-arrest nets; maintain continuous harness attachment for work at or above 2 m. Aligns with 산업안전보건법 (OSHA-KR) Article 38 (safety measures — fall prevention for bridges/viaducts).
 4. **Weather/wind work limits**: Halt all height work at wind speeds ≥10 m/s, during rain/lightning, or on visibility degradation. Operate a weather-monitoring system and pre-define work-stoppage authority.
 5. **Water rescue contingency**: Stand by with lifejackets/rescue boats during over-water/gorge work; pre-notify the water-rescue team; pre-establish immediate rescue procedures on fall.
 6. **Train approach control**: Adjust work windows around lower-level train operations, activate train-approach warning systems, and apply dropped-object controls. Aligns with 철도안전법 (RSA) Article 45 (railway-protection-zone restrictions — bridge structures).
@@ -56,8 +56,8 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 - 중대재해처벌법 Article 7
 - 철도안전법 Article 45
 - 철도안전법 Article 48
-- 산업안전보건법 Article 99
-- 산업안전보건법 Article 101
+- 산업안전보건법 Article 38 (추락 등 위해 방지 안전조치)
+- 안전보건기준에관한규칙 (감전 등 전기 재해 방지 기준)
 
 ### Gloss
 | Korean | Abbreviation | English |
@@ -67,7 +67,7 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 | 철도안전법 | RSA | Railway Safety Act |
 
 ## 7. Regulatory Notes
-No single dedicated statute governs railway bridge/viaduct inspection and maintenance. Composite anchor: 철도안전법 (RSA — railway-protection-zone restrictions Article 45 covering bridge structures, railway protection and order maintenance Article 48) as the baseline, overlaid with 산업안전보건법 (OSHA-KR — fall prevention Article 99, electrical-hazard prevention Article 101, inspection-work safety Article 57). 중대재해처벌법 (SAPA) Articles 4–7 supply the general employer safety-assurance duty. The defining feature of this workflow is the **height + water-rescue + weather** composite hazard profile, distinct from generic building height work (which also cites OSHA-KR Article 99). Depot maintenance (`railway-rolling-stock-maintenance-loto`) centers on vehicle LOTO; track/tunnel work (`rail-track-confined-maintenance`) centers on confined-space and train-approach hazards — this workflow is purpose-built for the **open-air height + water** profile unique to railway bridges/viaducts.
+No single dedicated statute governs railway bridge/viaduct inspection and maintenance. Composite anchor: 철도안전법 (RSA — railway-protection-zone restrictions Article 45 covering bridge structures, railway protection and order maintenance Article 48) as the baseline, overlaid with 산업안전보건법 (OSHA-KR — fall/electrical safety measures Article 38 with OSHSR technical standards, inspection-work safety Article 57). 중대재해처벌법 (SAPA) Articles 4–7 supply the general employer safety-assurance duty. The defining feature of this workflow is the **height + water-rescue + weather** composite hazard profile, distinct from generic building height work (which also cites OSHA-KR Article 38). Depot maintenance (`railway-rolling-stock-maintenance-loto`) centers on vehicle LOTO; track/tunnel work (`rail-track-confined-maintenance`) centers on confined-space and train-approach hazards — this workflow is purpose-built for the **open-air height + water** profile unique to railway bridges/viaducts.
 
 ## 8. Outsourcing Note
 Railway bridge/viaduct repair construction and height-inspection services are heavily outsourced, making 중대재해처벌법 (SAPA) Article 5 (outsourcing/contract safety obligation) especially relevant. The operator (railway corporation or facility-management authority) must ensure this workflow's fall-prevention, weather-stoppage, and water-rescue controls are applied by repair contractors and inspection-service subcontractors down the contracting chain. In particular, the commissioning client must verify the contractor's height-work license, safety-officer appointment, and water-rescue notification procedures before work begins.

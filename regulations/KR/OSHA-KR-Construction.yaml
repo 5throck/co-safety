@@ -8,36 +8,36 @@ primary_law:
   name_ko: 산업안전보건법
   name_en: OSHA-KR
   articles:
-    - article: "15"
+    - article: "17"
       topic_ko: 안전관리자 선임 (건설공사)
       topic_en: Safety manager appointment
-    - article: "17"
+    - article: "72"
       topic_ko: 산업안전보건관리비 (건설공사 원가의 1.5~5%)
       topic_en: Safety management budget (1.5-5% of project cost)
-    - article: "98"
-      topic_ko: 건설공사 안전조치 (가설, 굴착, 거푸집)
+    - article: "38"
+      topic_ko: 건설공사 안전조치 (추락·붕괴·낙하 장소, 굴착 등 — 세부기준은 고용노동부령 위임)
       topic_en: Construction safety measures
-    - article: "99"
-      topic_ko: 추락 방지 조치
+    - article: "42"
+      topic_ko: 유해위험방지계획서의 작성·제출 (종전 안전보건관리계획 제도 대체)
+      topic_en: Hazard prevention plan submission (successor of former safety and health management plan scheme)
+related_rule:
+  name_ko: 산업안전보건기준에 관한 규칙
+  abbreviation: OSHA-KR-Rules
+  articles:
+    - article: "42"
+      topic_ko: 추락의 방지 (난간등·추락방호망·안전대)
       topic_en: Fall prevention
-    - article: "100"
-      topic_ko: 붕괴 위험 방지
-      topic_en: Collapse prevention
-    - article: "101"
-      topic_ko: 전기 위해 방지
-      topic_en: Electrical hazard prevention
-    - article: "102"
-      topic_ko: 기타 건설 위해 방지
-      topic_en: Other construction hazard prevention
-    - article: "103"
-      topic_ko: 안전보건관리계획
-      topic_en: Safety and Health Management Plan
+    - article: "154"
+      topic_ko: "붕괴 등의 방지 (굴착면 붕괴: 제339조)"
+      topic_en: "Collapse prevention (excavation face: Art 339)"
+    - article: "304"
+      topic_ko: "감전방지 — 누전차단기 등 (전기 위해 방지: 제301조~제323조)"
+      topic_en: Electric shock prevention (electrical hazard provisions Arts 301-323)
 safety_budget_rates:
   general_construction: "1.5%"
   high_risk_construction: "5.0%"
   scope: "안전장비, 안전교육, 안전점검, 건강진단, 안전관리자 인건비 등"
 construction_safety_plan_required:
-  threshold: "공사금액 50억원 이상 또는 사고발생 위험이 큰 공사"
-  authority: "MOEL 승인"
-  submission_timing: "착공 전"
-last_updated: "2026-06-18"
+  legal_basis_current: "유해위험방지계획서 작성·제출 (법 제42조) / 건설공사발주자 산업재해 예방 조치 (법 제67조)"
+  legacy_note: "종전 MOEL 승인형 안전보건관리계획(공사금액 50억원 이상, 착공 전 제출)은 현행 법률에 근거 조항 없음 — 2026-08-24 전체 조문 헤더 검증"
+last_updated: "2026-08-24"

@@ -9,32 +9,32 @@ primary_law:
   name_en: Occupational Safety and Health Act (OSHA-KR)
   articles:
     - article: "110"
-      topic_ko: MSDS 작성·비치 의무
-      topic_en: MSDS preparation and posting duty
+      topic_ko: MSDS(물질안전보건자료) 작성·제출 의무
+      topic_en: MSDS preparation and submission duty
     - article: "111"
-      topic_ko: MSDS 제출 대상 물질
-      topic_en: Substances subject to MSDS submission
+      topic_ko: MSDS 제공 의무 (양수인·근로자 등)
+      topic_en: Duty to provide MSDS to transferees and workers
     - article: "112"
-      topic_ko: MSDS 양식 및 기재사항
-      topic_en: MSDS format and required content (GHS 16 sections)
-    - article: "113"
-      topic_ko: 유해물질·허가물질·취급금지물질 관리
-      topic_en: Prohibited, permission-required, and harmful substances
-    - article: "114"
-      topic_ko: 경고표지 부착 의무
-      topic_en: Warning label attachment duty
-    - article: "243"
-      topic_ko: GHS (Globally Harmonized System) 분류 의무화
-      topic_en: Mandatory GHS classification
+      topic_ko: MSDS 일부 비공개(영업비밀) 승인
+      topic_en: Approval for partial non-disclosure of trade-secret MSDS content
+    - article: "117"
+      topic_ko: "유해·위험물질의 제조 등 금지 (허가물질: 제118조)"
+      topic_en: "Prohibited substances manufacture etc. (permission-required: Art 118)"
+    - article: "115"
+      topic_ko: 용기 등 경고표시(GHS 라벨) 의무
+      topic_en: Warning label attachment duty on containers
+    - article: "104"
+      topic_ko: 유해인자 분류기준 (GHS 기준 — 시행규칙 별표 18)
+      topic_en: Hazard classification criteria (GHS — Enforcement Rule Appendix 18)
 international_alignment:
   - framework: GHS
     reference: UN GHS Rev 9 (2021)
     alignment_level: mandatory
     kr_mandation_date: "2023-01-01"
 delegated_legislation:
-  - name_ko: 산업안전보건법 시행규칙 제175조~제187조
-    name_en: OSHA-KR Enforcement Rule Articles 175-187
-    scope: MSDS 세부 절차
+  - name_ko: 산업안전보건법 시행규칙 제156조~제169조
+    name_en: OSHA-KR Enforcement Rule Articles 156-169
+    scope: MSDS 세부 절차 (작성방법·기재사항 제156조, 제출 제157조, 제공 제160조, 게시·비치 제167조, 교육 제169조)
 key_themes:
   - msds_preparation
   - ghs_classification
@@ -57,4 +57,4 @@ recent_amendments:
   - year: "2024"
     summary: MSDS 사전 승인제 의무화, 온라인 제출 시스템 고도화
     impact: 모든 사업장 연간 1회 이상 MSDS 갱신 확인 의무
-last_updated: "2026-06-17"
+last_updated: "2026-08-24"

@@ -31,9 +31,9 @@
    4. **관리 조치 (Administrative)**: 안전작업허가서(전기/기계/차량), 교대 TBM, 정비 중 인접 선로 출입 금지 통제.
    5. **PPE**: 절연장갑·절연화·안면보호구(전기 작업), 추락보호대(차상 작업), 안전모·방진마스크(pit 작업).
 3. **차량 고정 및 이동 통제 (Vehicle immobilization and movement control)**: 입고 후 wheel chock 전후轮 양측 설치, hand brake 체결, 마스터 컨트롤러 cut-out, 정비 중 "정비 중 — 출입 금지" 표지부(Lockout/Tagout) 부착. 철도안전법 Article 48(철도 보호 및 질서유지)과 연계.
-4. **활선부·전기 안전 (Catenary/energized parts control)**: 차상 작업 시 해당 선로 전원 차단·접지·Lockout/Tagout, 집전장치(pantograph) 강하 확인, 잔류 전압 확인(Zero-Energy Verification). 산업안전보건법 Article 101(감전 위험 방지)과 연계.
+4. **활선부·전기 안전 (Catenary/energized parts control)**: 차상 작업 시 해당 선로 전원 차단·접지·Lockout/Tagout, 집전장치(pantograph) 강하 확인, 잔류 전압 확인(Zero-Energy Verification). 산업안전보건법 안전보건기준에관한규칙(감전 위험 방지)과 연계.
 5. **대차·중량 리프팅 안전 (Bogey / heavy-lift safety)**: 크레인·리프트 안전하중 표시 준수, 리프팅 sling 적격성 점검, 리프트 하부 인원 통제, 불균형 적재 방지.
-6. **지밑(pit) 작업 안전 (Undercarriage pit work)**: pit 진입 전 차량 고정 상태 재확인, pit 내 환기·조명·비상 대피로 확보, 리프트 지지 불안정 시 즉시 대피. 산업안전보건법 Article 99(추락 방지 — pit/차상)과 연계.
+6. **지밑(pit) 작업 안전 (Undercarriage pit work)**: pit 진입 전 차량 고정 상태 재확인, pit 내 환기·조명·비상 대피로 확보, 리프트 지지 불안정 시 즉시 대피. 산업안전보건법 Article 38(추락 등 안전조치 — pit/차상)과 연계.
 7. **비상 대응 (Emergency response)**: 차량 이상 이동·충돌·감전·추락 시 즉시 작업 중지·대피, 구조·구급 호출 절차 사전 정립.
 8. **기록 및 감사 (Recordkeeping & audit)**: 아래 §5의 증거 기록 생성, 안전작업허가서·점검표·차량 고정 확인 로그 보관.
 
@@ -55,8 +55,8 @@
 - 중대재해처벌법 Article 7
 - 철도안전법 Article 45
 - 철도안전법 Article 48
-- 산업안전보건법 Article 99
-- 산업안전보건법 Article 101
+- 산업안전보건법 Article 38 (추락 등 위해 방지 안전조치)
+- 안전보건기준에관한규칙 (감전 등 전기 재해 방지 기준)
 
 ### 법령 용어 정리 (Gloss)
 | 한국어 | 약자 | 영문 |
@@ -66,7 +66,7 @@
 | 철도안전법 | RSA | Railway Safety Act |
 
 ## 7. 규제 참고사항 (Regulatory Notes)
-철도 차량사업소 정비를 전속 규율하는 단일 법령은 없다. 복합 통제 앵커: 철도안전법(RSA — 선로·차량사업소 운영 기준, 철도보호지구 행위제한 Article 45, 철도 보호 및 질서유지 Article 48)을 기본으로 하고, 산업안전보건법(OSHA-KR — 정비 작업자 안전, 추락 방지 Article 99, 감전 위험 방지 Article 101)을 정비 근로자 보호에 적용한다. 중대재해처벌법(SAPA) Article 4~7은 사업주 안전보건 확보 의무의 일반적 근거이다. 본 워크플로우의 핵심 차별점은 **이동 차량(rolling-stock vehicle) LOTO**로, 고정 설비 LOTO(제철 용융물·가열로, 폐기물 소각로·파쇄기)와 구별된다 — 차량 LOTO의 1차 목적은 설비 에너지 격리가 아니라 차량 우발 이동 방지와 인접 선로 진입 통제이다. 철도 교량/고가 작업(RSA Art 45)과 선로/터널 작업(RSA Art 48)은 별도 워크플로우(`railway-bridge-viaduct-fall-prevention`, `rail-track-confined-maintenance`)에서 다룬다.
+철도 차량사업소 정비를 전속 규율하는 단일 법령은 없다. 복합 통제 앵커: 철도안전법(RSA — 선로·차량사업소 운영 기준, 철도보호지구 행위제한 Article 45, 철도 보호 및 질서유지 Article 48)을 기본으로 하고, 산업안전보건법(OSHA-KR — 정비 작업자 안전, 추락·감전 등 안전조치 Article 38 + 안전보건기준에관한규칙)을 정비 근로자 보호에 적용한다. 중대재해처벌법(SAPA) Article 4~7은 사업주 안전보건 확보 의무의 일반적 근거이다. 본 워크플로우의 핵심 차별점은 **이동 차량(rolling-stock vehicle) LOTO**로, 고정 설비 LOTO(제철 용융물·가열로, 폐기물 소각로·파쇄기)와 구별된다 — 차량 LOTO의 1차 목적은 설비 에너지 격리가 아니라 차량 우발 이동 방지와 인접 선로 진입 통제이다. 철도 교량/고가 작업(RSA Art 45)과 선로/터널 작업(RSA Art 48)은 별도 워크플로우(`railway-bridge-viaduct-fall-prevention`, `rail-track-confined-maintenance`)에서 다룬다.
 
 ## 8. 외주 안전 안내 (Outsourcing Note)
 철도 차량 정비·중정비(중수선)와 차량사업소 시설 유지보수는 외주·하도급 비중이 높아 중대재해처벌법 Article 5(도급·하도급 사업주 안전보건 확보 의무)가 특히 중요하다. 운영사(철도공사 또는 민간 운영사)는 차량 정비 외주업체 및 시설 유지보수 협력업체에 본 워크플로우의 차량 고정·Lockout/Tagout 통제 조치를 하도급 단계까지 적용하도록 해야 한다. 특히 다수 업체가 동일 차량사업소 내에서 동시 정비하는 환경에서는 작업 범위 중첩·인접 선로 통제 책임 소재를 명확히 해야 한다.

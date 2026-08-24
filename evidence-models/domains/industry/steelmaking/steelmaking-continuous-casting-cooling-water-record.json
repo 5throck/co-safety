@@ -47,7 +47,7 @@
     },
     "hydrostatic_leak_test_passed": {
       "type": "boolean",
-      "description": "True if the pre-shift mold/copper-plate hydrostatic leak test passed (no water-to-molten-metal path). Korea OSHA-KR Art 98 permit-to-work requires this verification before casting."
+      "description": "True if the pre-shift mold/copper-plate hydrostatic leak test passed (no water-to-molten-metal path). Site PTW practice under OSHA-KR Article 38 (안전조치) and KOSHA guidance requires this verification before casting (anchor corrected from legacy Art 98 on 2026-08-24)."
     },
     "pre_cast_inspector_id": {
       "type": "string",

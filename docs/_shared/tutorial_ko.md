@@ -25,7 +25,7 @@ Safety OS는 계층 구조로 이루어진 에이전트 팀입니다. 사용자�
 | **PM (CSO)** | 조정자. 모든 요청의 창구. 법적 근거 확인 후 전문 에이전트 파견 | 실행 계획 테이블, 감사 로그 |
 | **psm-agent** | 공정안전관리(PSM) 전문가. PHA, MOC, PSSR, PSI, MI, SOP, LOTO 실행 | `psm-moc-record.json`, `psm-pssr-record.json`, `psm-loto-record.json` |
 | **msds-agent** | 화학물질 데이터 및 GHS 분류 전문가 | `msds-record.json`, `ghs-classification-record.json` |
-| **training-agent** | 안전교육 관리 (산안법 제29조/제31조/제32조) | `training-record.json` |
+| **training-agent** | 안전교육 관리 (산안법 제29조(특별교육=③)/제31조 건설기초/제32조 직무교육) | `training-record.json` |
 | **ehschem-agent** | 화학공장 운영 코디네이터. psm·msds·emergency 파견 | `ehschem-plant-safety-record.json` |
 | **ehsconst-agent** | 건설현장 운영 코디네이터. 추락 위험, 작업허가서, TBM 관리 | `ehsconst-inspection-record.json` |
 | **gasterm-agent** | 가스터미널·충전소 코디네이터 | `gasterm-operation-record.json` |
@@ -298,7 +298,7 @@ PSM에는 **12대 요소**가 있으며, 그 중 **요소 4가 교육 훈련**�
 | 구분 | 어디에서 처리하는가 | 근거 법령 |
 |------|---------------------|-----------|
 | PSM 교육 훈련 (요소 4) | psm-agent 내부 | 산업안전보건법 시행규칙 별표 13 |
-| 일반 안전보건 교육 | training-agent | 산업안전보건법 제29조/제31조/제32조 |
+| 일반 안전보건 교육 | training-agent | 산업안전보건법 제29조(특별교육=제29조③)/제31조(건설 기초)/제32조(직무교육) |
 | 신규 화학물질 교육 통보 | msds-agent → occupational-health | 산업안전보건법 제114조 |
 
 ### 실수 3 — 증거 기록을 공식 신고서로 오해하는 경우

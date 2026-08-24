@@ -27,7 +27,7 @@ This guide organizes the domains into a **3-tier classification system**.
 |--------|----------|-------------------------------|
 | `psm` | Process safety management methodology (PHA, MOC, PSSR, MI, PSI, SOP, LOTO) | Chemicals, refining, **LNG/LPG bases**, large-scale power generation, semiconductors (specialty gases) |
 | `msds` | Chemical substance data management (16 sections) | All industries (whenever chemicals are handled) |
-| `training` | Safety training management (OSHA-KR Art 13/29/31/32/114) | All industries |
+| `training` | Safety training management (OSHA-KR Art 29 incl. §3 special education /31/32/114) | All industries |
 | `contractor-safety` | Contractor safety management (TAR/Major Turnaround surge scenarios) | Chemical plants, gas terminals, power generation during scheduled turnarounds |
 | `occupational-health` | Occupational health surveillance (TAR/Major Turnaround health screening) | Chemical plants, gas terminals, power generation during scheduled turnarounds |
 | `risk-assessment` | Workplace risk assessment methodology (OSHA-KR Art 36 위험성평가; daily/change risk assessment, job-safety-analysis, risk register) | All industries (mandatory baseline) |

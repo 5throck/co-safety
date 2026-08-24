@@ -12,8 +12,8 @@ This workflow manages the identification, delivery, recording, and verification 
    - **신규채용 시 교육** (new employee training): minimum 8 hours (office) / 16 hours (manufacturing/hazardous)
    - **정기 교육** (periodic training): minimum 6 hours per quarter for manufacturing workers
    - **작업내용 변경 시 교육** (job change training): minimum 2 hours when work content changes
-   - **특별교육** (special training): minimum 16 hours for workers assigned to 39 designated high-risk work types
-2. **산업안전보건법 제31조 (특별안전보건교육 — 위험작업)** — Article 31 mandates special safety and health training for workers assigned to designated hazardous work types.
+   - **특별교육** (special training, 법 제29조 제3항 + 규칙 §26·별표 4): minimum 16 hours for workers assigned to 39 designated high-risk work types
+2. **산업안전보건법 시행규칙 제26조 (교육시간 및 교육내용 등)** — Rule §26 defines 특별교육 as the hazardous-work additional education under 법 제29조 제3항 and prescribes hours/content (별표 4/5). Anchor note (2026-08-24): the formerly cited "Article 31" is 건설업 기초안전보건교육 for construction day laborers — NOT the manufacturing special education.
 3. **중대재해처벌법 제8조 (안전보건교육의 수강)** — Article 8 requires business owners to secure worker attendance of the mandated safety and health education.
 
 Employers must maintain training records including attendance, curriculum, and trainer qualifications.

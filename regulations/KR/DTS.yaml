@@ -8,9 +8,9 @@ primary_law:
   name_ko: 약사법
   name_en: Pharmaceutical Affairs Act
   articles:
-    - article: "43의2"
-      topic_ko: 의약품 유통이력 추적 의무
-      topic_en: Mandatory pharmaceutical distribution history tracking
+    - article: "47의3"
+      topic_ko: 의약품관리종합정보센터의 지정·운영 등 (공급 내역 제출 등 유통정보 수집)
+      topic_en: Designation/operation of the Integrated Drug Management Information Center (distribution info collection incl. supply-detail submission)
 delegated_legislation:
   - name_ko: 의약품 추적관리에 관한 규정 (MFDS 고시)
     name_en: Regulations on Drug Tracking Management (MFDS Notice)
@@ -39,4 +39,4 @@ key_data_points:
   - 유통단계 (Distribution stage)
   - 거래일자 (Transaction date)
   - 사업자등록번호 (Business registration number)
-last_updated: "2026-06-17"
+last_updated: "2026-08-24"

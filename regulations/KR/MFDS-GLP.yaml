@@ -18,8 +18,8 @@ key_articles:
     scope: 시험의 최종 책임자
   - topic: QAU (Quality Assurance Unit)
     scope: 독립 품질보증 부서
-  - topic: Raw data 보존
-    scope: 최소 10년 (의약품의 경우 제품 허가 취소 후 5년까지)
+  - topic: Raw data (시험기초자료) 보존
+    scope: 해당 의약품등의 품목허가일부터 3년간 보관 (의약품등의안전에관한규칙 제38조제1항제4호, 고시 제32조 보관 위임)
 applicable_to:
   - 의약품 제조/수입 허가용 비임상 안전성 시험
   - 독성시험 기관 (급성/아급성/만성/발암성/재생독성 등)
@@ -30,7 +30,7 @@ international_alignment:
     alignment_level: full (MAD — Mutual Acceptance of Data)
 mfds_glp_certification:
   authority: MFDS
-  validity_years: 3
-  renewal_required: true
-  scope: 의약품 비임상시험 수행 기관
-last_updated: "2026-06-17"
+  periodic_inspection_years: 2
+  inspection_cycle_extension_allowed: true
+  scope: 의약품 비임상시험 수행 기관 (지정 유효기간 규정 없음 — 고시 제39조① 2년 주기 정기 실태조사)
+last_updated: "2026-08-24"

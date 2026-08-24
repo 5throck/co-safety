@@ -7,9 +7,9 @@ title_en: Electrical Safety Management Act
 primary_law:
   name_ko: 전기안전관리법
   articles:
-    - article: "16"
+    - article: "12"
       topic_ko: 전기설비 안전점검
-    - article: "29"
+    - article: "22"
       topic_ko: 전기안전관리자 선임
 voltage_classification:
   low: "400V 이하"
@@ -18,10 +18,10 @@ voltage_classification:
   extra_high: "154kV 이상 (345kV/765kV 송전)"
 inspection_cycles:
   regular_self: 월 1회
-  kesco_periodic: 연 1회 (특수 2년)
+  kesco_periodic: 일반용전기설비 정기점검 1~3년 (다중이용·제조업 등 1년, 학교 2년, 기타 3년 — 시행규칙 제12조)
 key_hazards:
   - 감전 (electric shock)
   - 아크 플래시 (arc flash)
   - 활선 작업 사고
   - 정전 영향
-last_updated: "2026-06-18"
+last_updated: "2026-08-24"

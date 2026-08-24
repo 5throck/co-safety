@@ -41,7 +41,7 @@ ls workflows/domains/industry/     # 산업 운영 (건설, 가스, 발전 등)
 3. **화학물질 승인** — 한국 규제 대조
    ```
    → msds-agent가 chemical-approval 워크플로우 실행
-   → 확인: 취급금지물질(산안법 제113조), TCCL, K-REACH
+   → 확인: 취급금지물질(산안법 제117조), 화학물질관리법, K-REACH
    ```
 
 4. **PSM 영향 평가** — covered process인 경우 PSI 업데이트

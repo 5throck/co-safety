@@ -171,8 +171,9 @@ industries:
       Lithium-ion battery manufacturing is not governed by a single dedicated
       statute. The composite anchor is DSSMA (flammable electrolyte solvents),
       CCA (chemical accident prevention), and ESCA (high-voltage formation,
-      charging, testing). Also strongly relevant: OSHA-KR Art 99 (fall
-      prevention) and Art 101 (electrical hazard) for cell-stack assembly.
+      charging, testing). Also strongly relevant: OSHA-KR Art 38 (site safety
+      measures; fall/electrical detail in OSHSR Ch.6 — 추락 §42, 감전 §301-323)
+      for cell-stack assembly.
     verification:
       verified_via:
         - legalize-kr  # DSSMA, CCA, ESCA Arts confirmed via parse_law_structure
@@ -311,8 +312,9 @@ industries:
       No dedicated datacenter statute. Composite anchor: ESCA (high-voltage
       electrical safety for UPS, switchgear, transformers), DSSMA (diesel fuel
       for backup generators, lead-acid/lithium UPS batteries), BFS (fire
-      suppression systems, smoke management). Also relevant: OSHA-KR Art 101
-      (electrical hazard) and Art 99 (fall prevention during racking/cabling).
+      suppression systems, smoke management). Also relevant: OSHA-KR Art 38
+      (site safety measures — 감전 §301-323·누전차단기 §304, 추락 §42 per OSHSR
+      Ch.6) during racking/cabling work.
     verification:
       verified_via:
         - legalize-kr  # ESCA, DSSMA, BFS Arts confirmed via parse_law_structure
@@ -432,12 +434,9 @@ industries:
         abbreviation: OSHA-KR
         statute_file: OSHA-KR.yaml
         key_articles:
-          - article: "99"
-            topic_ko: 추락 방지 (컨테이너 크레인/하역 작업)
-            topic_en: Fall prevention (container crane and handling work)
-          - article: "100"
-            topic_ko: 붕괴 방지 (야드 화물 적치)
-            topic_en: Collapse prevention (yard cargo stacking)
+          - article: "38"
+            topic_ko: "안전조치 (적하하역·야드 적치 추락·붕괴 방지 — 세부기준 규칙 Ch.6: 추락 §42, 붕괴/굴착 §154·339)"
+            topic_en: Safety measures for crane/handling and yard-stacking hazards (fall §42, collapse §154·339 per OSHSR Ch.6)
       - name_ko: 위험물안전관리법
         abbreviation: DSSMA
         statute_file: Hazardous-Materials-Safety-Control.yaml
@@ -479,12 +478,9 @@ industries:
         abbreviation: OSHA-KR
         statute_file: OSHA-KR.yaml
         key_articles:
-          - article: "99"
-            topic_ko: 추락 방지 (전차선/선로 작업)
-            topic_en: Fall prevention (catenary and track work)
-          - article: "101"
-            topic_ko: 감전 위험 방지 (25kV 전차선)
-            topic_en: Electrical-hazard prevention (25kV catenary)
+          - article: "38"
+            topic_ko: "안전조치 (전차선/선로 작업 추락·감전 방지 — 세부기준 규칙 Ch.6: 추락 §42, 감전 §301-323·누전차단기 §304)"
+            topic_en: Safety measures for catenary/track work (fall §42, electric-shock §301-323·ELCB §304 per OSHSR Ch.6)
     sapa:
       ref: universal_anchors.sapa
     osha_kr_anchor:
@@ -558,8 +554,9 @@ industries:
       Semiconductor fabs are chemical-intensive (CCA), gas-intensive (HPGSCA —
       silane, arsine, phosphine, hydrogen), and dangerous-goods-intensive
       (DSSMA — pyrophoric liquids, combustible metals). No dedicated statute —
-      composite anchor required. Also relevant: OSHA-KR Art 101 (electrical
-      hazard), Art 99 (fall prevention during tool install/maintenance).
+      composite anchor required. Also relevant: OSHA-KR Art 38 (site safety
+      measures — electrical/fall detail in OSHSR Ch.6: 감전 §301-323·§304,
+      추락 §42) during tool install/maintenance.
     verification:
       verified_via:
         - legalize-kr  # CCA Art 23/24 + HPGSCA Art 11/13/15/24/26 confirmed via parse_law_structure (HPGSCA indexed under "고압가스안전관리법"; MST 283919, lawIdCode 001850)
@@ -579,15 +576,9 @@ industries:
       abbreviation: OSHA-KR
       statute_file: OSHA-KR.yaml
       key_articles:
-        - article: "99"
-          topic_ko: 추락 방지 (도크/선체 작업)
-          topic_en: Fall prevention (dock and hull work)
-        - article: "100"
-          topic_ko: 붕괴 방지 (블록 탑재)
-          topic_en: Collapse prevention (block erection)
-        - article: "101"
-          topic_ko: 감전 위험 방지 (용접/절단)
-          topic_en: Electrical-hazard prevention (welding/cutting)
+        - article: "38"
+          topic_ko: "안전조치 (도크/선체 추락·블록 탑재 붕괴·용접/절단 감전 방지 — 세부기준 규칙 Ch.6: 추락 §42, 붕괴 §154·339, 감전 §301-323·누전차단기 §304)"
+          topic_en: Site safety measures for dock/hull falls, block-erection collapse, and welding/cutting shock (OSHSR Ch.6 — fall §42, collapse §154·339, electric-shock §301-323·ELCB §304)
     adjacent_laws:
       - name_ko: 위험물안전관리법
         abbreviation: DSSMA
@@ -651,15 +642,9 @@ industries:
       abbreviation: OSHA-KR
       statute_file: OSHA-KR.yaml
       key_articles:
-        - article: "99"
-          topic_ko: 추락 방지 (고로/전로 작업)
-          topic_en: Fall prevention (blast furnace / converter work)
-        - article: "100"
-          topic_ko: 붕괴 방지 (원료 야드)
-          topic_en: Collapse prevention (raw-material yard)
-        - article: "101"
-          topic_ko: 감전 위험 방지 (고전압 설비)
-          topic_en: Electrical-hazard prevention (high-voltage equipment)
+        - article: "38"
+          topic_ko: "안전조치 (고로/전로 추락·원료 야드 붕괴·고전압 설비 감전 방지 — 세부기준 규칙 Ch.6: 추락 §42, 붕괴 §154·339, 감전 §301-323·누전차단기 §304)"
+          topic_en: Site safety measures for furnace falls, raw-material-yard collapse, and high-voltage shock (OSHSR Ch.6 — fall §42, collapse §154·339, electric-shock §301-323·ELCB §304)
     adjacent_laws:
       - name_ko: 고압가스 안전관리 및 사업법
         abbreviation: HPGSCA
@@ -782,7 +767,7 @@ gaps:
       Shipbuilding has no single dedicated safety statute in Korea. The
       composite anchor (OSHA-KR + DSSMA + HPGSCA) is sufficient for the >=3
       legal_sources invariant, but a Shipbuilding-Safety.yaml convenience file
-      could group the shipyard-specific OSHA-KR articles (Art 99/100/101) and
+      could group the shipyard-specific OSHA-KR articles (Art 38 + OSHSR Ch.6) and
       document the block-erection, dry-dock, and painting hazards.
     recommendation: Optional — no action required for Phase 0. Consider in Phase 2 if shipbuilding-domain workflows need a unified reference.
 
@@ -873,7 +858,7 @@ gaps:
     impact: Affects battery, datacenter, semicon, shipbuilding, steelmaking, waste.
     recommendation: SGM/PM should add Art 15 and Art 17 to legal-glossary.yaml DSSMA entry. Out of scope for this task.
 
-last_updated: "2026-08-07"
+last_updated: "2026-08-24"
 
 ###############################################################################
 # End of file

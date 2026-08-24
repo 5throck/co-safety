@@ -86,7 +86,7 @@ What happens at scaffold/audit time:
 2. It then applies the cosmetics overrides: the `signature_hazard` is set, and `화장품법 Article 5` is **appended** to `legal_basis` (de-duplicated).
 3. The resulting effective schema is what `safety-audit.ts` and the runtime layer treat as the cosmetics TBM definition.
 
-For contrast, the **preserved-override** pattern (when an industry keeps genuinely non-generalizable content) is `ehsconst`: it references the shared TBM but overrides `evidence_model` to `ehsconst-tbm-record.json` and adds `건설기술진흥법 Article 24` + `중대재해처벌법 Article 7` via `legal_basis.add`. See [`REFERENCE-SPEC.md §5`](./REFERENCE-SPEC.md#5-preserved-overrides-do-not-collapse-into-the-shared-base).
+For contrast, the **preserved-override** pattern (when an industry keeps genuinely non-generalizable content) is `ehsconst`: it references the shared TBM but overrides `evidence_model` to `ehsconst-tbm-record.json` and adds `건설기술진흥법 Article 24` + `중대재해처벌법 Article 5` via `legal_basis.add`. See [`REFERENCE-SPEC.md §5`](./REFERENCE-SPEC.md#5-preserved-overrides-do-not-collapse-into-the-shared-base).
 
 ---
 

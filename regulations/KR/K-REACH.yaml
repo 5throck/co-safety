@@ -9,20 +9,26 @@ primary_law:
   name_en: Act on the Registration and Evaluation of Chemicals
   articles:
     - article: "10"
-      topic_ko: 기존 화학물질 연간 1톤 이상 제조·수입 신고
-      topic_en: Annual ≥1 ton existing chemical reporting
+      topic_ko: 화학물질의 등록 등 (연간 1톤 이상 신규·기존화학물질 제조·수입 전 등록, 등록유예기간 중 기존화학물질 신고 포함)
+      topic_en: Registration of new/existing chemicals ≥1 t/y before manufacture or import (incl. reporting during existing-chemical grace period)
     - article: "11"
-      topic_ko: 신규 화학물질 제조·수입 전 등록
-      topic_en: Pre-manufacture/import new chemical registration
+      topic_ko: 화학물질의 등록 등 면제
+      topic_en: Exemptions from registration and reporting
     - article: "12"
-      topic_ko: 위해성 평가 대상 물질 지정
-      topic_en: Hazardous assessment target designation
-    - article: "13"
-      topic_ko: 영업비밀 보호
-      topic_en: Trade secret protection (CBI)
+      topic_ko: 변경등록ㆍ변경신고 등
+      topic_en: Change registration and change reporting
     - article: "14"
-      topic_ko: 위해우려화학물질 지정 및 관리
-      topic_en: Hazardous Concern Substance designation and management
+      topic_ko: 화학물질의 등록 등 신청 시 제출 자료
+      topic_en: Data required for registration/reporting applications
+    - article: "24"
+      topic_ko: 위해성평가
+      topic_en: Risk assessment
+    - article: "25"
+      topic_ko: 허가물질의 지정
+      topic_en: Designation of approval substances (pre-market approval for chemicals of risk concern)
+    - article: "45"
+      topic_ko: 자료의 보호 (영업비밀 보호)
+      topic_en: Protection of submitted data (CBI/trade secret protection)
 related_laws:
   - name_ko: 유해화학물질 관리법 (TCCL)
     name_en: Toxic Chemicals Control Law (legacy, partially integrated)
@@ -33,16 +39,21 @@ registration_thresholds:
   existing_chemicals:
     annual_tonnage_required: 1.0
     unit: ton
-    deadline: "annually by March 31"
+    grace_period_deadlines:
+      - band_ko: 연간 10톤 이상 100톤 미만
+        deadline: "2027-12-31"
+      - band_ko: 연간 1톤 이상 10톤 미만
+        deadline: "2030-12-31"
+    basis: 시행령 제10조 (기존화학물질의 등록유예기간 등)
   new_chemicals:
     pre_registration_required: true
-    lead_time_days: 90
+    lead_time_days: null
 key_obligations:
   - chemical_inventory_annual_reporting
   - new_chemical_pre_registration
   - risk_assessment_cooperation
   - trade_secret_proper_handling
-  - hazardous_concern_substance_designation_compliance
+  - approval_substance_designation_compliance
 applicable_to:
   - chemical_manufacturers
   - chemical_importers
@@ -53,7 +64,10 @@ international_alignment:
     alignment_level: inspired_by
 enforcement_agency: ME (Ministry of Environment) / Korea Environmental Industry & Technology Institute (KEITI)
 recent_amendments:
+  - year: "2025"
+    summary: 전문개정 (공포 2025-11-11, 공포번호 21132) — 조문 체계 전면 재편, 2026-05-12 시행; 등록·신고 절차를 제10조로 통합하고 자료보호는 제45조로 이동, 현행 본문에는 위해우려화학물질 규정이 없으며 제25조 허가물질 체계 신설
+    impact: 조문 번호 전면 변경 — 구 제10~14조 인용은 재검증 필요
   - year: "2024"
     summary: 연간 신고 물질 확대, 위해성 평가 강화
     impact: 등록 대상 물질 증가
-last_updated: "2026-06-17"
+last_updated: "2026-08-24"

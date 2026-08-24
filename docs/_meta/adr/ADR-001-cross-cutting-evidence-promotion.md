@@ -13,6 +13,8 @@
 Safety OS evidence models are organized by domain (`evidence-models/domains/`). Some evidence types — such as TBM (Tool Box Meeting) and LOTO (Lockout/Tagout) — appear across multiple domains with significant field overlap:
 
 - **TBM** appeared in ehschem, ehsconst, gasterm, steelmaking, shipbuilding, and other domains. Each domain model duplicated ~70% of the same fields (meeting_date, attendees, topics, legal_basis) while adding domain-specific provisions (SAPA Art.12 for construction, gas leak procedures for gasterm, etc.).
+
+> Correction (2026-08-24): "SAPA Art.12" in this historical narrative is now anchored as SAPA Art.5 (도급·용역·위탁 안전·보건 확보의무 — the construction contractor-tier duty); text preserved verbatim as decision history.
 - **LOTO** appears in psm (the primary, most complete model), ehschem, ehsconst, gasterm, steelmaking, and shipbuilding. The psm-loto-record.json is the most comprehensive, but each domain has its own partial version with domain-specific energy types and isolation procedures.
 
 Without a shared base, any update to common fields (e.g., adding a new energy type to the enum, changing the legal_basis format) required touching every domain model independently — a violation of DRY and a source of schema drift.
@@ -93,6 +95,8 @@ The shared base is created as an OPTION for future adoption. Migration of domain
 
 ### Alternative 2: Merge all domain models into one (replace, not supplement)
 - **Rejected**: Domain models contain domain-specific provisions (e.g., psm-loto has `tar_id` for turnaround tracking, ehsconst has SAPA Art.12 references) that don't belong in a shared base. Merging would lose domain precision.
+
+> Correction (2026-08-24): the "SAPA Art.12 references" cited here are now cited as SAPA Art.5 (contractor-tier assurance duty); narrative preserved verbatim as decision history.
 
 ### Alternative 3: Use JSON Schema `$ref` from domain models to shared base
 - **Rejected for now**: Too invasive for a pilot. Would require modifying existing domain models. Can be the migration strategy in a future decision.

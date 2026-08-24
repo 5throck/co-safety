@@ -21,7 +21,7 @@ lifecycle:
 ### Primary Laws
 - **고압가스 안전 관리 및 사업법 (HPGSCA) Article 13 & Article 17** — 특수가스(자연발화성/독성) 저장, 가성소다 및 대형 가스 캐비닛 안전 관리 의무.
 - **화학물질관리법 (CCA) Article 20 & Article 23** — 유해화학물질(불산 HF 등) 취급시설 기준 및 사고대비물질 안전관리계획.
-- **산업안전보건법 (OSHA-KR) Article 36 & Article 110** — 위험성평가 및 특수가스/화학물질 MSDS 게시 의무.
+- **산업안전보건법 (OSHA-KR) Article 36 & Article 110** — 위험성평가 및 특수가스/화학물질 MSDS 작성·제출 의무 (게시·교육 = 제114조).
 
 ### Adjacent Laws
 - **중대재해처벌법 (SAPA) Article 4** — 반도체/디스플레이 사업장 안전보건 관리체계 구축.

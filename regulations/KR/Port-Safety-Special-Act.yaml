@@ -95,8 +95,8 @@ related_rule:
   name_ko: 항만안전특별법 시행령 / 시행규칙 (해양수산부령)
   abbreviation: PSSA-Enforcement
 key_hazards:
-  - 컨테이너 크레인/양하기 추락 (container crane / gantry fall — OSHA-KR Art 99 overlap)
-  - 야드 화물 적치 붕괴 (yard cargo stacking collapse — OSHA-KR Art 100 overlap)
+  - 컨테이너 크레인/양하기 추락 (container crane / gantry fall — OSHA-KR Art 38 + OSHSR Ch.6 §42 overlap)
+  - 야드 화물 적치 붕괴 (yard cargo stacking collapse — OSHA-KR Art 38 + OSHSR Ch.6 §154·339 overlap)
   - 지게차/운반차량 보행자 충돌 (forklift / powered-truck pedestrian struck-by)
   - 도크 가장자리 추락 (dock-edge fall into water)
   - 위험물 항만하역 화재/폭발/독성 노출 (dangerous-cargo port-handling fire/explosion/toxic exposure — DSSMA Art 20 overlap)

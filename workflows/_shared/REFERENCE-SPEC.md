@@ -164,8 +164,8 @@ Certain industry variants contain non-generalizable content and MUST be preserve
 
 | Industry | Workflow | Preservation reason |
 |----------|----------|---------------------|
-| `ehsconst` (construction) | `tbm` | Retains `ehsconst-tbm-record.json` evidence model (SAPA Art.12 contractor tier, 건설기술진흥법 Art 24 construction-only provisions). Override `evidence_model` + `legal_basis.add` (건설기술진흥법 Art 24, SAPA Art 7). |
-| `ehsconst` (construction) | `permit-to-work-construction` | Construction-specific permit regime (OSHA-KR Art 98, 건설공사 작업허가제 기준). Not generalizable — see §7 Gap Register. |
+| `ehsconst` (construction) | `tbm` | Retains `ehsconst-tbm-record.json` evidence model (SAPA Art.5 subcontractor assurance duty / contractor tier, 건설기술진흥법 Art 24 construction-only provisions). Override `evidence_model` + `legal_basis.add` (건설기술진흥법 Art 24, SAPA Art 5). |
+| `ehsconst` (construction) | `permit-to-work-construction` | Construction-specific permit regime (OSHA-KR Art 38 + 건설공사 작업허가제 기준; anchor corrected from legacy Art 98, 2026-08-24). Not generalizable — see §7 Gap Register. |
 
 The migration scripts (Phase 1/2) MUST detect these and emit the corresponding `overrides` block automatically.
 

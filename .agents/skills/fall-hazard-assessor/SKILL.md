@@ -116,4 +116,4 @@ Returns assessment report:
 - **Escalation**: 난간/안전대 누락 시 작업 중지
 
 ## Legal Disclaimer
-> 자동화 평가 보조. 최종 안전조치 결정은 안전관리자 + 안전감리 권한 per 산업안전보건법 Article 99.
+> 자동화 평가 보조. 최종 안전조치 결정은 안전관리자 + 안전감리 권한 per 산업안전보건법 Article 38 (+안전감리 제도).

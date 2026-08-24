@@ -6,8 +6,9 @@ applicability: mandatory
 workflow_type: core
 
 legal_basis:
-  - OSHA-KR Article 110
-  - OSHA-KR Article 112
+  - OSHA-KR Article 110 (물질안전보건자료 작성·제출)
+  - 산업안전보건법 시행규칙 제156조 (MSDS 작성방법 및 기재사항)
+  - OSHA-KR Article 114 (게시)
   - UN GHS Rev 9 (2021)
 industry_profile: chemical-handling
 agent: msds-agent

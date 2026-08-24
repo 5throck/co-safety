@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "chemical-approval-record.json",
   "title": "Chemical Approval Record",
-  "description": "Evidence model for new chemical introduction approval records per OSHA-KR Article 113 + TCCL.",
+  "description": "Evidence model for new chemical introduction approval records per OSHA-KR Articles 117-118 (substance bans/permits) + TCCL.",
   "version": "1.0.0",
   "type": "object",
   "required": [
@@ -42,7 +42,7 @@
       "properties": {
         "prohibited_substance": {
           "type": "boolean",
-          "description": "취급금지물질 under OSHA-KR Article 113"
+          "description": "취급금지물질 under OSHA-KR Article 117"
         },
         "permission_required": {
           "type": "boolean",
@@ -119,7 +119,7 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: OSHA-KR Article 110 (MSDS preparation) or Article 243 (GHS classification) or Article 111/112 (MSDS content/submission). Adjacent laws may include: K-REACH Articles 10-14 (chemical registration/evaluation), TCCL/CCA (화학물질관리법 — toxic chemical management), UN GHS Rev 9 (2021) (international classification standard).",
+      "description": "Multi-source legal basis. Primary: OSHA-KR Article 110 (MSDS preparation/submission) or Article 104 (hazard-factor/GHS classification basis) or Article 111/112 (provision to transferees / partial non-disclosure approval); format & content per 산업안전보건법 시행규칙 제156조. Adjacent laws may include: K-REACH Articles 10-14 (chemical registration/evaluation), TCCL/CCA (화학물질관리법 — toxic chemical management), UN GHS Rev 9 (2021) (international classification standard).",
       "examples": [
         [
           "OSHA-KR Art.110 §1",
@@ -127,12 +127,12 @@
           "UN GHS Rev 9"
         ],
         [
-          "OSHA-KR Art.243 §1",
+          "OSHA-KR Art.104 §1",
           "CCA Art.20",
           "UN GHS Rev 9"
         ],
         [
-          "OSHA-KR Art.112 §1",
+          "산업안전보건법 시행규칙 Art.156 §1",
           "K-REACH Art.13",
           "UN GHS Rev 9"
         ]

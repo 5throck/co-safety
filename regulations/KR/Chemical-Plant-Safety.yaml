@@ -13,9 +13,9 @@ primary_laws:
     scope: 화학물질 등록/평가
   - name: 위험물안전관리법
     scope: 위험물 저장/취급 (지정수량 이상)
-  - name: 대기환경보전법 / 수질환경보전법
+  - name: 대기환경보전법 / 물환경보전법
     scope: 배출 허용 기준
 v1_scope:
   includes: [refining, petrochemical, specialty_chemicals]
   excludes: [inorganic, pharmaceutical_chemicals]
-last_updated: "2026-06-18"
+last_updated: "2026-08-24"
