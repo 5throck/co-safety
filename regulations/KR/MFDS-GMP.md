@@ -3,23 +3,23 @@
 > **Source MCP**: `mcp-kr-legislation`
 > **Jurisdiction**: Republic of Korea
 > **Regulator**: Ministry of Food and Drug Safety (MFDS / 식품의약품안전처)
-> **Last Updated**: 2026-06-17
+> **Last Updated**: 2026-08-24
 
 ---
 
 ## 1. Primary Legal Basis
 
-### 1.1 약사법 (Pharmaceutical Affairs Act) Article 34
+### 1.1 약사법 (Pharmaceutical Affairs Act) Article 37
 
-의약품 제조업 관리 의무화 — pharmaceutical manufacturers must comply with GMP standards delegated by MFDS.
+의약품등의 제조 관리의무 — pharmaceutical manufacturing managers (제조관리자) must observe the Presidential-Decree-prescribed manufacturing management duties: worker supervision, quality control, and facility management.
 
-- **Korean text reference**: 약사법 제34조 (의약품의 제조관리기준 등)
+- **Korean text reference**: 약사법 제37조 (의약품등의 제조 관리의무)
 - **English summary**: Mandatory GMP for pharmaceutical manufacturing
 - **Enforcement agency**: MFDS
 
-### 1.2 Delegated Legislation: 의약품 등의 기준 및 규정 (MFDS Notice)
+### 1.2 Delegated Legislation: 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 (Presidential Decree)
 
-The technical GMP requirements are codified in MFDS Notice 「의약품 등의 기준 및 규정」, which is updated periodically. This is the operational reference for all GMP workflows in safety-os.
+The technical GMP requirements are codified in Annex 1 (별표 1) 「의약품 제조 및 품질관리기준」 of Presidential Decree 총리령 「의약품 등의 안전에 관한 규칙」. Operational detail is delegated to MFDS Notice 「의약품 제조 및 품질관리에 관한 규정」 (식품의약품안전처 고시 제2024-87호). This is the operational reference for all GMP workflows in safety-os.
 
 ---
 
@@ -36,17 +36,17 @@ Korean GMP (KP-GMP) is harmonized with the following international frameworks:
 
 ---
 
-## 3. Key Articles (의약품등기준규정)
+## 3. Key Articles (총리령 「의약품 등의 안전에 관한 규칙」 별표 1)
 
-| Article | Topic (Korean) | Topic (English) | Safety-OS Workflow Reference |
+| Anchor (별표 1) | Topic (Korean) | Topic (English) | Safety-OS Workflow Reference |
 |---------|----------------|-----------------|------------------------------|
-| Article 12 | 제조관리기준 | Manufacturing Control Standards | All gmp-* workflows |
-| Article 15 | 자체점검 | Self-Inspection | `workflows/gmp/self-inspection/` |
-| Article 16 | 적격성평가 | Qualification | `workflows/gmp/equipment-qualification/` |
-| Article 17 | 밸리데이션 | Validation | `workflows/gmp/cleaning-validation/`, `workflows/gmp/csv-validation/` |
-| Article 18 | 변경관리 | Change Control | `workflows/gmp/change-control/` |
-| Article 19 | 이상관리 및 시정조치 | Deviation Management and CAPA | `workflows/gmp/deviation-capa/` |
-| Article 20 | 안정성 시험 | Stability Testing | `workflows/gmp/stability/` |
+| 별표 1 제8호 | 제조관리 | Manufacturing Control Standards | All gmp-* workflows |
+| 별표 1 제13호 | 자율점검 | Self-Inspection | `workflows/gmp/self-inspection/` |
+| 별표 1 제6호 | 적격성평가 | Qualification | `workflows/gmp/equipment-qualification/` |
+| 별표 1 제6호 | 밸리데이션 (6.1~6.6) | Validation | `workflows/gmp/cleaning-validation/`, `workflows/gmp/csv-validation/` |
+| 별표 1 제12호 | 변경관리 | Change Control | `workflows/gmp/change-control/` |
+| 별표 1 제7.3호 | 이상관리 및 시정조치 | Deviation Management and CAPA | `workflows/gmp/deviation-capa/` |
+| 별표 1 제7.2호 | 안정성 시험 | Stability Testing | `workflows/gmp/stability/` |
 
 Additional topics covered by KP-GMP that map to GMP workflows:
 - Batch Manufacturing Records (BMR) → `workflows/gmp/batch-mfg/`
@@ -71,8 +71,8 @@ Per ICH Q10, the Pharmaceutical Quality System (PQS) consists of five pillars:
 
 Unlike PSM (which references OSHA-KR Article 44 as a single source), GMP workflows in safety-os must declare **multi-source legal_basis** per the architecture decision (2026-06-17 meeting). Each workflow must reference at minimum:
 
-- `약사법` Article 34 (Korean statutory basis)
-- `의약품등기준규정` relevant article (Korean delegated legislation)
+- `약사법` Article 37 (Korean statutory basis)
+- 「의약품 등의 안전에 관한 규칙」 별표 1 relevant 호 (Korean delegated legislation)
 - One or more international alignment sources (PIC/S, ICH Q7/Q9/Q10)
 
 This is enforced by the extended `safety-audit.ts` GMP validation logic.

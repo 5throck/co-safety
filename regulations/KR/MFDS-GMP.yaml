@@ -2,8 +2,8 @@ source_mcp: mcp-kr-legislation
 jurisdiction: KR
 regulator: MFDS (Ministry of Food and Drug Safety / 식품의약품안전처)
 framework: KP-GMP
-title_ko: 의약품 등의 기준 및 규정
-title_en: Standards and Specifications for Pharmaceuticals, etc.
+title_ko: 의약품 등의 안전에 관한 규칙 별표 1 「의약품 제조 및 품질관리기준」
+title_en: Rule on the Safety of Pharmaceuticals, etc. — Annex 1 Pharmaceutical Manufacturing and Quality Control Standards
 primary_law:
   name_ko: 약사법
   name_en: Pharmaceutical Affairs Act
@@ -11,11 +11,33 @@ primary_law:
   summary_ko: GMP 제조업 관리 의무화 (제37조 의약품등의 제조 관리의무)
   summary_en: Mandatory GMP for pharmaceutical manufacturing
 delegated_legislation:
-  - name_ko: 의약품 등의 기준 및 규정
-    name_en: Standards and Specifications for Pharmaceuticals, etc.
-    mfds_notice: 식약처 고시 (latest revision)
+  - name_ko: 의약품 등의 안전에 관한 규칙
+    name_en: Rule on the Safety of Pharmaceuticals, etc.
+    decree: 총리령 제2100호 (2026-03-05 공포·시행)
+    annex: 별표 1 「의약품 제조 및 품질관리기준」(제4조제1항제6호가목, 같은 호다목부터 마목까지, 제48조제5호가목, 같은 호 다목부터 마목까지 및 같은 조 제6호, 제9호, 제9호의2 관련)
     scope: 제조 품질관리 기준 (GMP)
-    status: "[UNVERIFIED — 별표 1 text] legacy 고시 citation; per law.go.kr KP-GMP requirements reside in 「의약품 등의 안전에 관한 규칙」(총리령) 별표 1「의약품 제조 및 품질관리기준」 — cache (.cache/legalize-kr/kr/의약품등의안전에관한규칙/총리령.md) holds 별표 as download links only, no inline text"
+    status: "VERIFIED 2026-08-24 — 별표 1 top-level 호 structure acquired from law.go.kr official attachment PDFs (current flSeq=162113631, 시행 2026-03-05; <개정 2022.12.29.> flSeq=149321933 — identical headings). Cache mirror (.cache/legalize-kr/kr/의약품등의안전에관한규칙/총리령.md) holds 별표 as download links only."
+    legacy_note: "Legacy 고시 「의약품등의기준및규정」 citation retired — its GMP text now resides in 총리령 별표 1; operational detail delegated to 고시 「의약품 제조 및 품질관리에 관한 규정」(식품의약품안전처 고시 제2024-87호, 시행 2024-12-30, cached at .cache/admrule-kr/국무총리/식품의약품안전처/고시/)"
+    annex_structure:
+      - "제1호 용어의 정의"
+      - "제2호 시설 및 환경의 관리 (2.1 시설관리 / 2.2 자동화장치 등의 관리 / 2.3 환경관리)"
+      - "제3호 조직 (3.1 조직의 구성 / 3.2 제조부서 책임자 / 3.3 품질(보증)부서 책임자 / 3.4 위원회)"
+      - "제4호 기준서 (4.1 제품표준서 / 4.2 품질관리기준서 / 4.3 제조관리기준서 / 4.4 제조위생관리기준서)"
+      - "제5호 문서 (5.1 문서의 작성 / 5.2 문서의 관리)"
+      - "제6호 밸리데이션 (6.1 밸리데이션의 대상 / 6.2 공정 밸리데이션 / 6.3 시험방법 밸리데이션 / 6.4 세척 밸리데이션 / 6.5 제조지원설비 밸리데이션 / 6.6 컴퓨터시스템 밸리데이션)"
+      - "제7호 품질관리 (7.1 시험관리 / 7.2 안정성 시험 / 7.3 제품품질평가)"
+      - "제8호 제조관리 (8.1 제조공정관리 / 8.2 포장공정관리 / 8.3 반품 및 재포장)"
+      - "제9호 제조위생관리 (9.1 작업원의 위생 / 9.2 작업소의 위생관리 / 9.3 제조설비의 세척)"
+      - "제10호 원자재 및 제품의 관리 (10.1 입고관리 / 10.2 보관관리 / 10.3 원생약의 보관관리 / 10.4 출고관리)"
+      - "제11호 불만처리 및 제품회수"
+      - "제12호 변경관리"
+      - "제13호 자율점검"
+      - "제14호 교육 및 훈련"
+      - "제15호 실태조사 등 (15.1 평가 / 15.2 판정 / 15.3 삭제 <2022.12.29.> / 15.4 기타)"
+  - name_ko: 의약품 제조 및 품질관리에 관한 규정
+    name_en: Regulation on Pharmaceutical Manufacturing and Quality Control
+    mfds_notice: 식품의약품안전처 고시 제2024-87호 (시행 2024-12-30)
+    scope: 규칙 별표 1·1의2·4의2 기준 실시 세부사항 (적합판정 절차, 무균/생물유래/원료의약품 등 특수 제조 기준 별표 1~18)
 international_alignment:
   - framework: PIC/S GMP
     reference: PE 009 Annexes
@@ -29,31 +51,39 @@ international_alignment:
   - framework: ICH Q10
     reference: Pharmaceutical Quality System
     alignment_level: adopted
-# Numbering-scheme conflict: prior 조-based anchors could not be verified — KP-GMP
-# requirements use 호-numbering under 의약품등의안전에관한규칙 별표 1, not 조 articles.
-key_articles_note: "key_articles = ICH-Q10-mapped internal taxonomy; statutory anchor = 의약품등의안전에관한규칙 별표 1 (호-numbering), pending notice-text acquisition [UNVERIFIED — 별표 1 text]"
+# key_articles re-keyed 2026-08-24 from ICH-Q10-mapped internal taxonomy ids to
+# statutory anchors under 의약품등의안전에관한규칙 별표 1 (호-numbering), verified
+# against law.go.kr official attachment text. Prior taxonomy_id values retained
+# in legacy_taxonomy_id for workflow traceability.
 key_articles:
-  - taxonomy_id: "12"
-    topic_ko: 제조관리기준
+  - article: "별표 1 제8호"
+    topic_ko: 제조관리
     topic_en: Manufacturing Control Standards
-  - taxonomy_id: "15"
-    topic_ko: 자체점검
+    legacy_taxonomy_id: "12"
+  - article: "별표 1 제13호"
+    topic_ko: 자율점검
     topic_en: Self-Inspection
-  - taxonomy_id: "16"
-    topic_ko: 적격성평가
+    legacy_taxonomy_id: "15"
+  - article: "별표 1 제6호"
+    topic_ko: "적격성평가 (세부기준: 고시 「의약품 제조 및 품질관리에 관한 규정」 별표 13)"
     topic_en: Qualification
-  - taxonomy_id: "17"
-    topic_ko: 밸리데이션
+    legacy_taxonomy_id: "16"
+  - article: "별표 1 제6호"
+    topic_ko: 밸리데이션 (6.1~6.6)
     topic_en: Validation
-  - taxonomy_id: "18"
+    legacy_taxonomy_id: "17"
+  - article: "별표 1 제12호"
     topic_ko: 변경관리
     topic_en: Change Control
-  - taxonomy_id: "19"
-    topic_ko: 이상관리 및 시정조치
+    legacy_taxonomy_id: "18"
+  - article: "별표 1 제7.3호"
+    topic_ko: 이상관리 및 시정조치 (일탈·기준일탈 조사와 시정조치 기록은 제7.3호 제품품질평가에 규정)
     topic_en: Deviation Management and CAPA
-  - taxonomy_id: "20"
+    legacy_taxonomy_id: "19"
+  - article: "별표 1 제7.2호"
     topic_ko: 안정성 시험
     topic_en: Stability Testing
+    legacy_taxonomy_id: "20"
 applicable_to:
   - pharmaceutical_manufacturing
   - biological_products

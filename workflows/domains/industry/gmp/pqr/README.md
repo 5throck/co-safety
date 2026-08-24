@@ -1,7 +1,7 @@
 # 제품품질평가 (Product Quality Review) Workflow
 
 ## 1. Objective
-Conduct annual review of all GMP-regulated drug products to verify consistency of existing manufacturing processes, identify trends, and implement product/process improvements, per KP-GMP 의약품등기준규정 Article 12 and ICH Q7/Q10.
+Conduct annual review of all GMP-regulated drug products to verify consistency of existing manufacturing processes, identify trends, and implement product/process improvements, per 의약품 등의 안전에 관한 규칙 별표 1 제7.3호 (제품품질평가) and ICH Q7/Q10.
 
 ## 2. Applicability
 This workflow applies to all commercialized drug products manufactured under the `pharma-general` profile. PQR is conducted annually for each product.

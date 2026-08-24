@@ -9,7 +9,7 @@ source_mcp: mcp-kr-legislation  # curated reference glossary; statute content so
 # (agents/*.md Section A Legal Basis blocks, workflows/**/schema.yaml legal_basis fields,
 # regulations/KR/*.yaml). Articles NOT referenced anywhere in the codebase are omitted;
 # accuracy over completeness. Unverified entries are explicitly commented.
-version: 1.0.7
+version: 1.0.8
 last_updated: 2026-08-24
 
 # =============================================================================
@@ -160,7 +160,8 @@ statutes:
     abbreviation: PAA
     regulator: MFDS (식품의약품안전처)
     articles:
-      - { number: "제34조",     topic_en: "Mandatory GMP for pharmaceutical manufacturing" }
+      - { number: "제34조",     topic_en: "Clinical trial plan approval (임상시험의 계획 승인 등)" }
+      - { number: "제37조",     topic_en: "Manufacturing management obligation for pharmaceuticals, etc. (의약품등의 제조 관리의무) — statutory GMP manufacturing anchor" }
       - { number: "제43조의2",  topic_en: "Mandatory pharmaceutical distribution management (의약품 유통관리 의무화)" }
       - { number: "제43조의3",  topic_en: "Pharmaceutical recall duty (의약품 회수 의무)" }
       - { number: "제69조",     topic_en: "Clinical Trial Application (CTA) approval required" }
@@ -168,19 +169,26 @@ statutes:
       - { number: "제73조의3",  topic_en: "Pharmaceutical re-evaluation (의약품 재평가)" }
       - { number: "제34조의3",  topic_en: "Designation of non-clinical test-conducting institutions (비임상시험실시기관 지정)" }
 
-  의약품등기준규정:
-    english: Standards and Specifications for Pharmaceuticals, etc. (KP-GMP delegated regulation)
+  의약품등의안전에관한규칙:
+    english: Rule on the Safety of Pharmaceuticals, etc. (Presidential Decree; Annex 1 hosts KP-GMP)
     abbreviation: KP-GMP
     regulator: MFDS (식품의약품안전처)
-    note: "Delegated regulation under 약사법 Article 34. Cited as KP-GMP."
+    note: "총리령 under 약사법 Article 37. Manufacturing-quality requirements are codified in Annex 1 (별표 1 「의약품 제조 및 품질관리기준」) using 호-numbering; operational detail is delegated to MFDS Notice No. 2024-87 (「의약품 제조 및 품질관리에 관한 규정」). Re-keyed 2026-08-24 from the retired '의약품등기준규정' 조12~20 scheme; see regulations/KR/MFDS-GMP.yaml for the full annex structure."
     articles:
-      - { number: "제12조", topic_en: "Manufacturing Control Standards (제조관리기준) / PQR / supplier qualification" }
-      - { number: "제15조", topic_en: "Self-Inspection (자체점검)" }
-      - { number: "제16조", topic_en: "Qualification (적격성평가) — equipment" }
-      - { number: "제17조", topic_en: "Validation (밸리데이션) — incl. cleaning & CSV" }
-      - { number: "제18조", topic_en: "Change Control (변경관리)" }
-      - { number: "제19조", topic_en: "Deviation Management and CAPA (이상관리 및 시정조치)" }
-      - { number: "제20조", topic_en: "Stability (안정성) — shelf-life data" }
+      - { number: "별표 1 제6호",   topic_en: "Validation & Qualification incl. cleaning and CSV (밸리데이션·적격성평가)" }
+      - { number: "별표 1 제7호",   topic_en: "Quality Control (품질관리)" }
+      - { number: "별표 1 제7.2호", topic_en: "Stability Testing (안정성시험)" }
+      - { number: "별표 1 제7.3호", topic_en: "Product Quality Review — deviation/CAPA records regulated here (제품품질평가)" }
+      - { number: "별표 1 제8호",   topic_en: "Manufacturing Control (제조관리)" }
+      - { number: "별표 1 제10호",  topic_en: "Raw Material & Product Management (원자재 및 제품의 관리)" }
+      - { number: "별표 1 제12호",  topic_en: "Change Control (변경관리)" }
+      - { number: "별표 1 제13호",  topic_en: "Self-Inspection (자율점검)" }
+
+  의약품등기준규정:
+    english: Standards and Specifications for Pharmaceuticals, etc. (RETIRED citation alias — do not cite in new work)
+    abbreviation: KP-GMP (legacy)
+    regulator: MFDS (식품의약품안전처)
+    note: "Retired legacy instrument name formerly cited as 'delegated regulation under 약사법 Article 34' with a 조12~20 article scheme. Its GMP text now resides in 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 (see that entry); operational detail moved to MFDS Notice No. 2024-87. Key retained solely as a citation-compatibility alias so historical strings (CHANGELOG, memory archives) keep stripping cleanly in validate-md-language.ts."
 
   화학물질관리법:
     english: Chemicals Control Act

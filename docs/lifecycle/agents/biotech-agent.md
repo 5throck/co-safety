@@ -18,4 +18,4 @@ Agent tier: Medium (claude / gemini-cli / antigravity per runtime frontmatter)
 - [x] Domain skill `bsl-lab-aerosol-control-planner` exists at `skills/domains/industry/biotech/bsl-lab-aerosol-control-planner/SKILL.md`
 - [x] All 5 evidence schemas in `evidence-models/domains/industry/biotech/` enforce `legal_basis` `minItems: 3` per the Section A multi-source policy
 - [x] PM Gateway Enforcement banner present in Section C with dispatch trigger list ("바이오 CDMO", "배양기", "LMO", "생물안전", "bioreactor", "BSL")
-- [x] Section A legal basis cites LMO Act Art 22/24 + 약사법 Art 34 (KP-GMP) + OSHA-KR Art 38/39, with SAPA Art 4 as adjacent anchor
+- [x] Section A legal basis cites LMO Act Art 22/24 + 약사법 Art 37 (KP-GMP) + OSHA-KR Art 38/39, with SAPA Art 4 as adjacent anchor

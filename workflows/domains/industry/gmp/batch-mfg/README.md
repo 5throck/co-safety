@@ -1,7 +1,7 @@
 # 제조 및 포장기록 (Batch Manufacturing Records) Workflow
 
 ## 1. Objective
-Document complete manufacturing and packaging history of each batch to ensure traceability, compliance, and product quality, per KP-GMP 의약품등기준규정 Article 12 and ICH Q7.
+Document complete manufacturing and packaging history of each batch to ensure traceability, compliance, and product quality, per 의약품 등의 안전에 관한 규칙 별표 1 제8호 (제조관리) and ICH Q7.
 
 ## 2. Applicability
 This workflow applies to all pharmaceutical batch manufacturing and packaging operations under the `pharma-general` profile.

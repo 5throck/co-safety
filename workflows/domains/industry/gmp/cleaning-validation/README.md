@@ -1,7 +1,7 @@
 # 세정 밸리데이션 (Cleaning Validation) Workflow
 
 ## 1. Objective
-Establish documented evidence that cleaning procedures consistently remove residues (active ingredients, detergents, bioburden) to predetermined acceptance levels, preventing cross-contamination between products, per KP-GMP 의약품등기준규정 Article 17 and PIC/S cleaning validation guidance.
+Establish documented evidence that cleaning procedures consistently remove residues (active ingredients, detergents, bioburden) to predetermined acceptance levels, preventing cross-contamination between products, per 의약품 등의 안전에 관한 규칙 별표 1 제6호 (세척 밸리데이션) and PIC/S cleaning validation guidance.
 
 ## 2. Applicability
 This workflow applies to all GMP-regulated shared (multi-product) manufacturing equipment under the `pharma-general` profile. Single-product dedicated equipment may have reduced scope.

@@ -1,7 +1,7 @@
 # 컴퓨터 시스템 적합성평가 (Computer System Validation) Workflow
 
 ## 1. Objective
-Establish and maintain documented evidence that computerized systems used in GMP-regulated activities are fit for intended use, with appropriate controls for data integrity, audit trails, and electronic signatures, per KP-GMP 의약품등기준규정 Article 17, 21 CFR Part 11, and GAMP 5.
+Establish and maintain documented evidence that computerized systems used in GMP-regulated activities are fit for intended use, with appropriate controls for data integrity, audit trails, and electronic signatures, per 의약품 등의 안전에 관한 규칙 별표 1 제6호 (컴퓨터시스템 밸리데이션), 21 CFR Part 11, and GAMP 5.
 
 ## 2. Applicability
 This workflow applies to all GxP-regulated computerized systems under the `pharma-general` profile:

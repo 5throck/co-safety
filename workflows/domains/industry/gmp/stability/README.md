@@ -1,7 +1,7 @@
 # 안정성 시험 (Stability Testing) Workflow
 
 ## 1. Objective
-Generate stability data to establish and verify drug product shelf-life, storage conditions, and quality over time, per KP-GMP 의약품등기준규정 Article 20 and ICH Q1A/Q1E.
+Generate stability data to establish and verify drug product shelf-life, storage conditions, and quality over time, per 의약품 등의 안전에 관한 규칙 별표 1 제7.2호 (안정성 시험) and ICH Q1A/Q1E.
 
 ## 2. Applicability
 This workflow applies to all GMP-regulated drug products, APIs, and intermediates under the `pharma-general` profile. Covers registration stability, commitment stability, and ongoing stability programs.

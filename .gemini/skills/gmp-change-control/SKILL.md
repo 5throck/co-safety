@@ -3,7 +3,7 @@ name: gmp-change-control
 owner: gmp-agent
 scope: workspace
 status: active
-description: Manage GMP Change Control (변경관리) workflows per KP-GMP 의약품등기준규정 Article 18 + ICH Q10. Pattern reused from psm-moc with quality impact assessment extension.
+description: Manage GMP Change Control (변경관리) workflows per 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제12호 (변경관리) + ICH Q10. Pattern reused from psm-moc with quality impact assessment extension.
 version: "1.0"
 created: 2026-06-17
 last_updated: 2026-07-09
@@ -16,9 +16,9 @@ metadata:
     - 품질변경
     - gmp change
   legal_basis:
-    - 의약품등기준규정 Article 18 (변경관리)
+    - 의약품 등의 안전에 관한 규칙 별표 1 제12호 (변경관리)
     - ICH Q10 Section 3 (Quality Management System - Change Management)
-    - KP-GMP 시행규칙 제58조 (변경관리)
+    - 약사법 Article 37 (의약품등의 제조 관리의무)
 ---
 
 # GMP Change Control (변경관리) Skill

@@ -22,7 +22,7 @@
 ### 2.1 제약 & 바이오 (GxP) 도메인 (5개)
 | 도메인 ID | 도메인 명칭 | 주관 법령 / 규격 | 담당 에이전트 | 대표 워크플로우 |
 |----------|-----------|----------------|--------------|----------------|
-| `gmp` | 의약품 제조 품질 | 약사법 제34조, KP-GMP, PIC/S | [gmp-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/gmp/gmp-agent.md) | `change-control`, `deviation-capa`, `batch-mfg`, `cleaning-validation` |
+| `gmp` | 의약품 제조 품질 | 약사법 제37조, KP-GMP, PIC/S | [gmp-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/gmp/gmp-agent.md) | `change-control`, `deviation-capa`, `batch-mfg`, `cleaning-validation` |
 | `gdp` | 의약품 유통/물류 | 약사법 제43조의2, KGDP | [gdp-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/gdp/gdp-agent.md) | `dts-tracking`, `temperature-excursion`, `product-recall` |
 | `glp` | 비임상시험 | 약사법 제34조의3, OECD GLP | [glp-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/glp/glp-agent.md) | `study-protocol`, `data-integrity`, `qau-inspection` |
 | `gcp` | 임상시험 관리 | 약사법 제34조, ICH E6(R3) | [gcp-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/gcp/gcp-agent.md) | `protocol-deviation`, `sae-reporting`, `icf-verification` |
@@ -59,4 +59,4 @@
 | `railway` | 철도/교통 인프라 | 철도안전법 제45조, 전기안전법 | [railway-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/railway/railway-agent.md) | `catenary-high-voltage-safety`, `rail-track-confined-maintenance` |
 | `waste` | 폐기물/수자원 | 폐기물관리법 제13조, 하수도법 제19조 | [waste-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/waste/waste-agent.md) | `sewage-confined-h2s-prevent`, `incinerator-shredder-loto` |
 | `defense` | 방위산업/화약 | 총포화약법 제9조, 방위사업법 제18조 | [defense-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/defense/defense-agent.md) | `explosive-propellant-handling`, `missile-cryogenic-high-pressure` |
-| `biotech` | 바이오 CDMO | LMO법 제22조, 약사법 제34조 | [biotech-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/biotech/biotech-agent.md) | `bioreactor-sterilization-safety`, `lmo-biohazard-containment` |
+| `biotech` | 바이오 CDMO | LMO법 제22조, 약사법 제37조 | [biotech-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/industry/biotech/biotech-agent.md) | `bioreactor-sterilization-safety`, `lmo-biohazard-containment` |

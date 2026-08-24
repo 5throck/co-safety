@@ -12,15 +12,15 @@ description: "Good Manufacturing Practice (GMP) specialist — manages pharmaceu
 lifecycle:
   phase: production
   created: 2026-06-17
-  last_updated: 2026-06-17
+  last_updated: 2026-08-24
   governance: docs/lifecycle/agents/gmp-agent.md
 ---
 
 ## Section A — Legal Basis
 
 ### Primary Laws
-- **약사법 (Pharmaceutical Affairs Act) Article 34** — GMP 제조업 관리 의무화: Pharmaceutical manufacturers must comply with GMP standards. This is the primary statutory mandate.
-- **의약품 등의 기준 및 규정 (Standards and Specifications for Pharmaceuticals, etc.)** — MFDS delegated legislation codifying technical GMP requirements (Articles 12, 15, 16, 17, 18, 19, 20).
+- **약사법 (Pharmaceutical Affairs Act) Article 37** — 의약품등의 제조 관리의무: the manufacturing-management duty (제조관리자 supervision of personnel, quality control, and facility management per Presidential Decree) grounding GMP compliance. This is the primary statutory mandate.
+- **총리령 「의약품 등의 안전에 관한 규칙」 별표 1 「의약품 제조 및 품질관리기준」 (Pharmaceutical Manufacturing and Quality Control Standards, Presidential Decree Annex 1)** — decree annex codifying technical GMP requirements (제8호 제조관리, 제13호 자율점검, 제6호 밸리데이션·적격성평가, 제12호 변경관리, 제7.3호 이상관리 및 시정조치, 제7.2호 안정성 시험); operational detail delegated to MFDS Notice 「의약품 제조 및 품질관리에 관한 규정」.
 
 ### Adjacent Laws
 - **ICH Q7** — Active Pharmaceutical Ingredients GMP standard (adopted in Korea).

@@ -17,9 +17,9 @@ metadata:
     - 품질위해관리
     - 위해관리
   legal_basis:
-    - 의약품등기준규정 Article 16 (품질관리)
+    - 의약품 등의 안전에 관한 규칙 별표 1 제7호 (품질관리)
     - ICH Q9 (Quality Risk Management)
-    - KP-GMP 시행규칙 제16조 (품질위해관리)
+    - 약사법 Article 37 (의약품등의 제조 관리의무)
 ---
 
 # GMP Quality Risk Management (ICH Q9) Skill

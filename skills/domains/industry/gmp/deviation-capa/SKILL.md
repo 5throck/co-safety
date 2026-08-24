@@ -3,7 +3,7 @@ name: gmp-deviation-capa
 owner: gmp-agent
 scope: workspace
 status: active
-description: Manage GMP Deviation (이상관리) and CAPA (시정예방조치) workflows per KP-GMP 의약품등기준규정 Article 19 + ICH Q10.
+description: Manage GMP Deviation (이상관리) and CAPA (시정예방조치) workflows per 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제7.3호 + ICH Q10.
 version: "1.0"
 created: 2026-06-17
 last_updated: 2026-07-09
@@ -18,9 +18,9 @@ metadata:
     - oos
     - out of specification
   legal_basis:
-    - 의약품등기준규정 Article 19 (이상 및 시정예방조치)
+    - 의약품 등의 안전에 관한 규칙 별표 1 제7.3호 (이상 및 시정예방조치)
     - ICH Q10 Section 2 (Quality System - Corrective and Preventive Action)
-    - KP-GMP 시행규칙 제62조 (이상조사)
+    - 약사법 Article 37 (의약품등의 제조 관리의무)
 ---
 
 # GMP Deviation & CAPA (이상관리 및 시정예방조치) Skill
@@ -55,7 +55,7 @@ This skill manages the end-to-end lifecycle of GMP deviations and corresponding 
 - `gmp-capa-record.json` — one per CAPA (a deviation may have multiple CAPAs)
 
 Common fields required:
-- `legal_basis`: array (KP-GMP Article 19 + ICH Q10 minimum)
+- `legal_basis`: array (총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제7.3호 + ICH Q10 minimum)
 - `e_signature`, `qrm_assessment`, `nomenclature`, `audit_trail`
 
 ## Integration Points

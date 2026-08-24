@@ -1,7 +1,7 @@
 # 자체점검 (Self-Inspection) Workflow
 
 ## 1. Objective
-Verify GMP compliance through structured internal audits, identify non-conformances, and implement corrective actions to maintain the Pharmaceutical Quality System, per KP-GMP 의약품등기준규정 Article 15 and PIC/S PE 009 Chapter 9.
+Verify GMP compliance through structured internal audits, identify non-conformances, and implement corrective actions to maintain the Pharmaceutical Quality System, per 의약품 등의 안전에 관한 규칙 별표 1 제13호 (자율점검) and PIC/S PE 009 Chapter 9.
 
 ## 2. Applicability
 This workflow applies to all GMP-regulated operations at pharmaceutical manufacturing sites under the `pharma-general` profile.
