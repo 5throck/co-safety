@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-24T00:19:46.344Z
+**Generated**: 2026-08-24T01:20:00.898Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -20,7 +20,7 @@
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
 | _core/pm | agents/_core/pm.md | high | opus | 2026-08-23 |
-| _core/safety-governance-manager | agents/_core/safety-governance-manager.md | high | opus | 2026-08-23 |
+| _core/safety-governance-manager | agents/_core/safety-governance-manager.md | high | opus | 2026-08-24 |
 | _core/safety-workflow-manager | agents/_core/safety-workflow-manager.md | high | opus | 2026-08-19 |
 | _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-23 |
@@ -28,22 +28,22 @@
 | _shared/contractor-safety-agent | agents/_shared/contractor-safety-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/disaster-response-agent | agents/_shared/disaster-response-agent.md | high | opus | 2026-08-23 |
 | _shared/docs-writer | agents/_shared/docs-writer.md | medium | sonnet | 2026-08-19 |
-| _shared/emergency-agent | agents/_shared/emergency-agent.md | high | opus | 2026-08-23 |
+| _shared/emergency-agent | agents/_shared/emergency-agent.md | high | opus | 2026-08-24 |
 | _shared/incident-investigation-agent | agents/_shared/incident-investigation-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/legal-agent | agents/_shared/legal-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/occupational-health-agent | agents/_shared/occupational-health-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/reporting-agent | agents/_shared/reporting-agent.md | medium | sonnet | 2026-08-19 |
 | _shared/risk-assessment-agent | agents/_shared/risk-assessment-agent.md | medium | sonnet | 2026-08-23 |
-| domains/functional/msds/msds-agent | agents/domains/functional/msds/msds-agent.md | medium | sonnet | 2026-08-23 |
+| domains/functional/msds/msds-agent | agents/domains/functional/msds/msds-agent.md | medium | sonnet | 2026-08-24 |
 | domains/functional/psm/psm-agent | agents/domains/functional/psm/psm-agent.md | medium | sonnet | 2026-08-23 |
-| domains/functional/training/training-agent | agents/domains/functional/training/training-agent.md | medium | sonnet | 2026-08-23 |
+| domains/functional/training/training-agent | agents/domains/functional/training/training-agent.md | medium | sonnet | 2026-08-24 |
 | domains/industry/battery/battery-agent | agents/domains/industry/battery/battery-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/biotech/biotech-agent | agents/domains/industry/biotech/biotech-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/cosmetics/cosmetics-agent | agents/domains/industry/cosmetics/cosmetics-agent.md | medium | sonnet | 2026-08-19 |
-| domains/industry/datacenter/datacenter-agent | agents/domains/industry/datacenter/datacenter-agent.md | medium | sonnet | 2026-08-19 |
+| domains/industry/datacenter/datacenter-agent | agents/domains/industry/datacenter/datacenter-agent.md | medium | sonnet | 2026-08-24 |
 | domains/industry/defense/defense-agent | agents/domains/industry/defense/defense-agent.md | medium | sonnet | 2026-08-23 |
 | domains/industry/ehschem/ehschem-agent | agents/domains/industry/ehschem/ehschem-agent.md | medium | sonnet | 2026-08-19 |
-| domains/industry/ehsconst/ehsconst-agent | agents/domains/industry/ehsconst/ehsconst-agent.md | medium | sonnet | 2026-08-23 |
+| domains/industry/ehsconst/ehsconst-agent | agents/domains/industry/ehsconst/ehsconst-agent.md | medium | sonnet | 2026-08-24 |
 | domains/industry/food/food-agent | agents/domains/industry/food/food-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/gasterm/gasterm-agent | agents/domains/industry/gasterm/gasterm-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/gcp/gcp-agent | agents/domains/industry/gcp/gcp-agent.md | medium | sonnet | 2026-08-19 |
@@ -55,7 +55,7 @@
 | domains/industry/meddevice/meddevice-agent | agents/domains/industry/meddevice/meddevice-agent.md | medium | sonnet | 2026-08-23 |
 | domains/industry/powergen/powergen-agent | agents/domains/industry/powergen/powergen-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/railway/railway-agent | agents/domains/industry/railway/railway-agent.md | medium | sonnet | 2026-08-19 |
-| domains/industry/semicon/semicon-agent | agents/domains/industry/semicon/semicon-agent.md | medium | sonnet | 2026-08-19 |
+| domains/industry/semicon/semicon-agent | agents/domains/industry/semicon/semicon-agent.md | medium | sonnet | 2026-08-24 |
 | domains/industry/shipbuilding/shipbuilding-agent | agents/domains/industry/shipbuilding/shipbuilding-agent.md | medium | sonnet | 2026-08-23 |
 | domains/industry/steelmaking/steelmaking-agent | agents/domains/industry/steelmaking/steelmaking-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/waste/waste-agent | agents/domains/industry/waste/waste-agent.md | medium | sonnet | 2026-08-23 |

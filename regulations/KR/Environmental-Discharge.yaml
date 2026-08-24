@@ -9,5 +9,5 @@ scope:
   water: 수질오염물질 (BOD, COD, 중금속, 유기화합물)
   noise_vibration: 소음·진동
 permit_required: true
-self_monitoring: 월 1회 (배출 시설별)
+self_monitoring: "시설 규모별 상이 (대기: 대기환경보전법 시행규칙 별표 11 비고 횟수 산정; 수질: 법령상 고정 주기 없음 — 측정기기 상시측정 또는 사업자 재량 측정)"
 last_updated: "2026-08-24"
