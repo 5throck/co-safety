@@ -1,7 +1,7 @@
 # GHS 위해성 분류 (GHS Hazard Classification) Workflow
 
 ## 1. Objective
-Apply GHS Rev 9 (2021) classification rules to chemical substances and mixtures per OSHA-KR Article 243 (mandatory GHS classification).
+Apply GHS Rev 9 (2021) classification rules to chemical substances and mixtures per OSHA-KR Article 104 (유해인자의 분류기준 — statutory GHS anchor; delegated criteria in 산업안전보건법 시행규칙 별표 18). The formerly cited "Article 243" was a legacy pre-2008 article number that no longer exists in the current statute.
 
 ## 2. Applicability
 All chemicals under the `chemical-handling` profile requiring GHS classification for labeling, SDS, and worker notification.

@@ -21,7 +21,7 @@ metadata:
     - confined area painting O2 deficiency
     - DSSMA Article 5 도장 위험물
     - DSSMA Article 27 응급조치
-    - OSHA-KR Article 110 MSDS 작성
+    - OSHA-KR Article 110 물질안전보건자료(MSDS) 작성·제출
     - SAPA Article 5 도급 사업주
 ---
 
@@ -79,7 +79,7 @@ entire spray crew + mixer + supervisor before evacuation is possible.
   응급조치·통보 및 조치명령: emergency response for fire/explosion;
   mandatory notification and corrective-order authority
 - **OSHA-KR Art 38** — 안전조치 (universal worker-safety measures)
-- **OSHA-KR Art 110** — MSDS 작성·비치 (paint and thinner MSDS must be
+- **OSHA-KR Art 110** — 물질안전보건자료 작성·제출 (paint/thinner MSDS submission
   on-site and consulted for solvent-specific PPE / first-aid)
 - **SAPA Art 5** — 도급·하도급 사업주 (outsourcing safety; painting is
   the most heavily subcontracted trade in Korean shipyards — virtually
@@ -302,7 +302,7 @@ entire spray crew + mixer + supervisor before evacuation is possible.
     "위험물안전관리법 (DSSMA) Article 5 — 도장/도포 작업 위험물 취급",
     "위험물안전관리법 (DSSMA) Article 27 — 응급조치·통보 및 조치명령 (화재/폭발 대응)",
     "산업안전보건법 (OSHA-KR) Article 38 — 유해물·위험물 취급 안전조치",
-    "산업안전보건법 (OSHA-KR) Article 110 — MSDS 작성·비치",
+    "산업안전보건법 (OSHA-KR) Article 110 — 물질안전보건자료 작성·제출",
     "산업안전보건법 (OSHA-KR) Article 125 — 작업환경측정",
     "중대재해처벌법 (SAPA) Article 5 — 도급·하도급 사업주 안전보건 확보 의무"
   ],
@@ -319,7 +319,7 @@ entire spray crew + mixer + supervisor before evacuation is possible.
 - **위험물안전관리법 (DSSMA) Article 27** — 응급조치·통보 및 조치명령
   (emergency response, notification, and corrective orders for fire/
   explosion) — UNCITED by existing WFs, newly activated
-- **산업안전보건법 (OSHA-KR) Article 110** — MSDS 작성·비치 (paint/thinner
+- **산업안전보건법 (OSHA-KR) Article 110** — 물질안전보건자료 작성·제출 (paint/thinner
   MSDS mandatory on-site)
 - **산업안전보건법 (OSHA-KR) Article 125** — 작업환경측정 (periodic solvent-
   vapor air monitoring for chronic-exposure compliance)
@@ -383,7 +383,7 @@ would invoke the confined-space WF's permit + atmosphere regime).
 
 vs. `shipbuilding-welding-fume-gas-safety` (sister new WF): that
 addresses WELDING-fume particulate (Mn/Cr6+) + gas-cylinder + arc
-(고압가스 안전 관리 및 사업법 (HPGSCA) Art 11/13/15/24/26 + OSHA Art 101). This skill addresses PAINTING-vapor
+(고압가스 안전 관리 및 사업법 (HPGSCA) Art 11/13/15/24/26 + OSHA Art 38 + OSHSR 전기·화재 기준). This skill addresses PAINTING-vapor
 liquid solvent + LEL flammability (DSSMA Art 5/27). Different chemical
 profile (solid particulate + ozone vs. liquid solvent + flammability),
 different fire risk geometry (spark ignition vs. LEL cloud), different

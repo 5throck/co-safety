@@ -5,7 +5,7 @@
   "description": "workflows/domains/functional/msds/chemical-approval/schema.yaml cited '유해화학물질 관리법 (TCCL)', a statute documented in K-REACH.yaml as status: partially_superseded — largely absorbed into 화학물질관리법 (CCA). Schema cited a legacy/superseded statute name.",
   "legal_basis": [
     "화학물질관리법 (CCA) 제20조",
-    "산업안전보건법 제113조",
+    "산업안전보건법 제117조·제118조",
     "중대재해처벌법 제4조"
   ],
   "severity": "critical",

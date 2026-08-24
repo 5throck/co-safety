@@ -44,7 +44,7 @@
 | `glp` | T3 | Non-Clinical Laboratory Studies / OECD | 8 |
 | `gcp` | T3 | Clinical Trial Management / ICH E6(R3) | 8 |
 | `gvp` | T3 | Post-Market Pharmacovigilance / ICH E2 | 8 |
-| `ehsconst` | T3 | Construction Safety / SAPA Article 12 | 9 |
+| `ehsconst` | T3 | Construction Safety / SAPA Article 5 | 9 |
 | `ehschem` | T2 | Chemical Plant / Refining·Petrochemical·Specialty | 9 |
 | `gasterm` | T3 | Gas Terminal / LNG·LPG·Hydrogen | 13 |
 | `powergen` | T3 | Power Generation / Thermal·Renewable (nuclear excluded) | 9 |

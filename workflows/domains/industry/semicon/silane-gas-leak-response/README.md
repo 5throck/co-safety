@@ -68,7 +68,7 @@
 | 위험물안전관리법 | DSSMA | Act on the Safety Control of Dangerous Goods |
 
 ## 7. 규제 참고사항 (Regulatory Notes)
-반도체 팹은 화학물질 다량 사용(CCA), 가스 다량 사용(HPGSCA — 실란·아르신·포스핀·수소), 위험물 다량 사용(DSSMA — 발화성 액체·가연성 금속)이 결합된 환경이다. 전용 법령은 없으며 복합 통제 앵커가 필요하다. 추가 관련: 산업안전보건법 Article 101(감전 위험), Article 99(도구 설치·유지보수 시 추락 방지). **HPGSCA 인용 주의**: `schema.yaml`의 HPGSCA 인용(Art 11/13/15/24/26)은 compliance-agent가 실시간 MCP `legalize_kr`(law.go.kr 원문, 권위 있음) 검증을 거친 **remediated 조문**이다 — 기존 앵커가 삭제 조문인 Art 14(1999.2.8 삭제)와 주제 불일치 Art 17(용기등의 검사, NOT 안전관리자)/Art 28(한국가스안전공사의 설립, NOT 응급조치)을 인용하던 것을, `legalize_kr`에서 Art 11/13/15/24/26이 실효 조문임을 확인하여 정정하였다(MST 283919, lawIdCode 001850). 참고로 `kr_safety` 카탈로그는 HPGSCA에 대해 stale하여 삭제된 Art 14를 여전히 인덱싱하므로, HPGSCA 검증 시에는 `legalize_kr`을 우선한다.
+반도체 팹은 화학물질 다량 사용(CCA), 가스 다량 사용(HPGSCA — 실란·아르신·포스핀·수소), 위험물 다량 사용(DSSMA — 발화성 액체·가연성 금속)이 결합된 환경이다. 전용 법령은 없으며 복합 통제 앵커가 필요하다. 추가 관련: 산업안전보건법 Article 38(감전·추락 등 위해 방지 안전조치 — 도구 설치·유지보수 포함). **HPGSCA 인용 주의**: `schema.yaml`의 HPGSCA 인용(Art 11/13/15/24/26)은 compliance-agent가 실시간 MCP `legalize_kr`(law.go.kr 원문, 권위 있음) 검증을 거친 **remediated 조문**이다 — 기존 앵커가 삭제 조문인 Art 14(1999.2.8 삭제)와 주제 불일치 Art 17(용기등의 검사, NOT 안전관리자)/Art 28(한국가스안전공사의 설립, NOT 응급조치)을 인용하던 것을, `legalize_kr`에서 Art 11/13/15/24/26이 실효 조문임을 확인하여 정정하였다(MST 283919, lawIdCode 001850). 참고로 `kr_safety` 카탈로그는 HPGSCA에 대해 stale하여 삭제된 Art 14를 여전히 인덱싱하므로, HPGSCA 검증 시에는 `legalize_kr`을 우선한다.
 
 ## 8. 검증 이력 (Verification History)
 이전 버전의 본 README는 §6에서 HPGSCA Article 14/17/28을 `[UNVERIFIED — 전문가 재검증 필요]`로 표기하고, 본 절에 `legalize_kr.parse_law_structure`이 `[]`를 반환했다는 미검증 노트를 게시하고 있었다. 해당 플래그는 **STALE**이다.

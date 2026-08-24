@@ -6,10 +6,10 @@ This workflow governs the systematic inspection of manufacturing equipment to ve
 
 ## 2. Legal Basis (legal_basis)
 
-**legal_basis: 산업안전보건법 제93조 (안전검사), 산업안전보건법 제108조 (자율안전확인)**
+**legal_basis: 산업안전보건법 제93조 (안전검사), 산업안전보건법 제89조 (자율안전확인의 신고)** — 앵커 정정(2026-08-24): 자율안전확인은 현행법 제89-92조이며, 구(舊) "제108조" 표기는 조번호 잔류 오류.
 
 - Article 93 mandates that certain categories of high-risk machinery and equipment (압력용기, 크레인, 리프트, 곤돌라, 국소 배기장치 등) undergo statutory safety inspections (안전검사) by an accredited inspection body at prescribed intervals.
-- Article 108 requires manufacturers and importers of self-certified safety equipment (자율안전확인 대상 기계·기구) to confirm and declare compliance with safety standards before supply.
+- Article 89 requires manufacturers and importers of self-certified safety equipment (자율안전확인 대상 기계·기구) to confirm and declare compliance with safety standards before supply.
 - Operators and employers have an ongoing duty to maintain equipment in safe condition between statutory inspections.
 
 ## 3. Trigger Conditions

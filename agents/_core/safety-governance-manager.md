@@ -21,7 +21,7 @@ lifecycle:
 
 - **Occupational Safety and Health Act (OSHA-KR) Article 15** — Safety and Health Management Director: The safety and health manager must establish and implement safety management systems and policies.
 - **Serious Accidents Punishment Act (SAPA)** — Duty to secure safety and health: Organizations must establish goals, targets, and budgets for safety and health management.
-- **Occupational Safety and Health Act (OSHA-KR) Article 14** — Safety and Health Management Regulations: Organizations must create, maintain, and follow documented safety and health management rules.
+- **Occupational Safety and Health Act (OSHA-KR) Article 14** — Annual safety/health plan — board report & approval: CEOs of covered companies must establish an annual safety and health plan (costs, facilities, personnel), report it to the board of directors, obtain approval, and faithfully implement it. (Anchor corrected 2026-08-24 — SHM regulations are Arts 25-26, not Art 14.)
 
 ---
 

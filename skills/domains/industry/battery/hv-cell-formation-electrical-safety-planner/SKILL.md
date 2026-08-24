@@ -18,7 +18,7 @@ metadata:
     - 전기안전관리자 선임 배터리
     - ESCA Article 16 전기재해 예방
     - ESCA Article 22 battery safety manager
-    - OSHA-KR Article 101 감전 위험 방지
+    - 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준
     - aging room thermal interlock
     - DC arc flash battery
 ---
@@ -39,7 +39,7 @@ The battery industry anchor
 **ESCA Article 22 (전기안전관리자 선임)** as adjacent laws — cited by ZERO
 existing battery workflows prior to the `battery-cell-formation-electrical-
 safety` workflow (Task 21, 2026-08-07). The anchor notes also name
-**OSHA-KR Article 101 (감전 위험 방지)** for cell-stack assembly. This skill
+**산업안전보건법 Article 38 (안전조치 — 감전 위험 방지)** for cell-stack assembly. This skill
 operationalizes those three uncited articles into a deployable safety plan.
 
 ## Korean Battery HV Electrical Context
@@ -66,7 +66,7 @@ not contain a sustained DC arc.
   mandatory electrical-disaster-prevention safety measures
 - **ESCA Art 22** (UNCITED by existing WFs) — 전기안전관리자 선임: Electrical
   Safety Manager must be appointed and must sign off on HV work
-- **OSHA-KR Art 101** (named in anchor notes) — 감전 위험 방지: electrical-
+- **OSHA-KR Article 38** (corrected anchor) — 감전 등 안전조치: electrical-
   shock hazard prevention
 - **DSSMA Art 5** — 위험물 저장·취급 기술기준 (electrolyte solvent storage,
   overlapping chemical-energy control)
@@ -199,7 +199,7 @@ not contain a sustained DC arc.
   "regulatory_basis": [
     "전기안전관리법 (ESCA) Article 16 — 전기재해 예방을 위한 안전조치",
     "전기안전관리법 (ESCA) Article 22 — 전기안전관리자 선임",
-    "산업안전보건법 (OSHA-KR) Article 101 — 감전 위험 방지",
+    "산업안전보건법 (OSHA-KR) Article 38 — 감전 등 위해 방지 안전조치",
     "위험물안전관리법 (DSSMA) Article 5 — 위험물 저장·취급 기술기준",
     "중대재해처벌법 (SAPA) Article 4 — 사업주 안전보장 의무"
   ],
@@ -214,7 +214,7 @@ not contain a sustained DC arc.
   work)
 - **전기안전관리법 (ESCA) Article 22** — 전기안전관리자 선임 (Electrical
   Safety Manager must be appointed; signs off on HV LOTO plans)
-- **산업안전보건법 (OSHA-KR) Article 101** — 감전 위험 방지 (electrical-shock
+- **산업안전보건법 (OSHA-KR) Article 38** — 감전 등 위해 방지 안전조치 (electrical-shock
   hazard prevention)
 - **KOSHA 안전검사 합격품** — DC arc-flash suits and dielectric gloves must
   carry the KOSHA certification mark

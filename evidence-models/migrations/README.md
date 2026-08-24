@@ -49,7 +49,7 @@ not require a migration script. No breaking (rename/type-change/new-required/rem
   The `qualified_training_types` enum gained `job_transfer` (additive enum extension aligning it
   with the training-type enums already used by `training-record.json` and
   `training-curriculum-record.json`); `legal_basis` examples were re-grounded on the articles
-   cited by `regulations/KR/OSHA-KR-Training.yaml` (Art.13/29/31/32/114 + SAPA Art.4/5).
+   cited by `regulations/KR/OSHA-KR-Training.yaml` (Art.16/29/31/32/114 + SAPA Art.4/5; 2026-08-24 anchor correction — Art.13 응급조치 claim removed, special education = Art.29③ + 규칙 §26).
 
 - `_shared/base/common.schema.json` is at **v1.1.0** (2026-08-23): additive-only minor bump —
   new shared definitions `agent_id` (kebab-case agent identifier pattern) and `workflow_id`

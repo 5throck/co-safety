@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-This workflow guides the continuous monitoring of training completion rates, overdue workers, and compliance gaps across all mandated education types (regular, special, supervisor, new hire, MSDS). It applies to all industries supported by this workflow profile: chemical, gas_terminal, power_generation, construction, medical_device, pharma, and manufacturing. The workflow produces a structured compliance record that satisfies 산업안전보건법 Articles 29 and 15 requirements and supports employer obligations under 중대재해처벌법 Article 7.
+This workflow guides the continuous monitoring of training completion rates, overdue workers, and compliance gaps across all mandated education types (regular, special, supervisor, new hire, MSDS). It applies to all industries supported by this workflow profile: chemical, gas_terminal, power_generation, construction, medical_device, pharma, and manufacturing. The workflow produces a structured compliance record that satisfies 산업안전보건법 Articles 29 and 15 requirements and supports employer obligations under 중대재해처벌법 Article 8 (안전보건교육의 수강).
 
 ## 2. Legal Basis (legal_basis)
 

@@ -42,7 +42,7 @@
 | `glp` | 비임상시험 / OECD GLP | 8 |
 | `gcp` | 임상시험 관리 / ICH E6(R3) | 8 |
 | `gvp` | 시판 후 약물감시 / ICH E2 | 8 |
-| `ehsconst` | 건설안전 / SAPA 제12조 | 9 |
+| `ehsconst` | 건설안전 / SAPA 제5조 | 9 |
 | `ehschem` | 화학공장 / 정유·석유화학·정밀화학 | 8 |
 | `gasterm` | 가스터미널 / LNG·LPG·수소 | 12 |
 | `powergen` | 발전설비 / 화력·신재생 (원자력 제외) | 8 |

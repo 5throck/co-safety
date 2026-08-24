@@ -33,9 +33,9 @@
    4. **관리 조치 (Administrative)**: 안전작업허가서(화기/도장), 교대 TBM, 환기 가동 후 작업 개시, 화기 작업 동시 병행 금지.
    5. **PPE**: 송기마스크(supplied-air respirator)·유기가스용 반면마스크, 화학보호복, 안면보호구, 정전기 제거화(최후 수단).
 3. **가연성 증기 통제 (Flammable vapor LEL control)**: 환기 가동 후 작업 전·중 LEL 가스농도 측정, LEL 25% 도달 시 작업 중지, 점화원(전기·화기·정전기) 통제. 위험물안전관리법 Article 5(위험물 저장·취급)과 연계.
-4. **유기용제 노출 통제 (Solvent vapor exposure control)**: 국소 배기장치 가동, 작업환경측정, 송기마스크 착용, MSDS 기반 허용농도 준수. 산업안전보건법 Article 110(MSDS 작성·비치)과 연계.
-5. **밀폐구역 산소결핍 통제 (Confined-area O2 deficiency)**: 탱크·블록 내부 도장 시 사전 산소농도(19.5~23.5%)·가스농도 측정, 환기, 구조 감시자 외부 배치. 산업안전보건법 Article 99(추락·접근 통제) 및 산업안전보건법 Article 100(붕괴·구조물 안전)과 연계.
-6. **정전기·점화원 통제 (Static/ignition-source control)**: 도장베이 내 모든 전기 설비 폭발방전 등급(Ex), 작업자 정전기 제거 매트·접지, 화기 작업 동시 금지. 산업안전보건법 Article 101(감전·화기 위험)과 연계.
+4. **유기용제 노출 통제 (Solvent vapor exposure control)**: 국소 배기장치 가동, 작업환경측정, 송기마스크 착용, MSDS 기반 허용농도 준수. 산업안전보건법 Article 110(물질안전보건자료 작성·제출)과 연계.
+5. **밀폐구역 산소결핍 통제 (Confined-area O2 deficiency)**: 탱크·블록 내부 도장 시 사전 산소농도(19.5~23.5%)·가스농도 측정, 환기, 구조 감시자 외부 배치. 산업안전보건법 Article 38(추락·접근 통제) 및 산업안전보건법 OSHSR 제6장(붕괴·구조물 안전)과 연계.
+6. **정전기·점화원 통제 (Static/ignition-source control)**: 도장베이 내 모든 전기 설비 폭발방전 등급(Ex), 작업자 정전기 제거 매트·접지, 화기 작업 동시 금지. 산업안전보건법 안전보건기준에관한규칙(감전·화기 위험)과 연계.
 7. **화재·폭발 비상 대응 (Fire/explosion emergency response)**: 가스 알람·화재 감지 시 즉시 작업 중지·전원 차단·대피·소화 설비 작동, 외부 소방 통보 절차 사전 정립. 위험물안전관리법 Article 27(응급조치)과 연계.
 8. **고압가스 설비 통제 (High-pressure gas facility control)**: 무기 질소·이산화탄소 불활성 가스(inert gas) 사용 시 고압가스 안전관리 및 사업법 Article 11(안전관리규정), Article 13(시설·용기의 안전유지), Article 15(안전관리자 선임), Article 24(허가관청 등의 조치), Article 26(사고 통보)과 연계.
 9. **기록 및 감사 (Recordkeeping & audit)**: 아래 §5의 증거 기록 생성, 안전작업허가서·가스농도 측정 로그·작업환경측정 결과·MSDS 비치 기록 보관.
@@ -56,9 +56,9 @@
 - 중대재해처벌법 Article 5
 - 중대재해처벌법 Article 6
 - 중대재해처벌법 Article 7
-- 산업안전보건법 Article 99
-- 산업안전보건법 Article 100
-- 산업안전보건법 Article 101
+- 산업안전보건법 Article 38 (추락 등 위해 방지 안전조치)
+- 안전보건기준에관한규칙 제6장 제2절 (붕괴 등에 의한 위험 방지)
+- 안전보건기준에관한규칙 (감전 등 전기 재해 방지 기준)
 - 위험물안전관리법 Article 5
 - 위험물안전관리법 Article 27
 - 고압가스 안전관리 및 사업법 Article 11
@@ -76,7 +76,7 @@
 | 고압가스 안전 관리 및 사업법 | HPGSCA | High-Pressure Gas Safety Control and Business Act |
 
 ## 7. 규제 참고사항 (Regulatory Notes)
-선박 도장/코팅 작업을 전속 규율하는 단일 법령(조선 안전법)은 존재하지 않는다. 복합 통제 앵커: 위험물안전관리법(DSSMA — 가연성 도료·신너 등 위험물 저장·취급 Article 5, 응급조치 Article 27), 고압가스 안전 관리 및 사업법(HPGSCA — inert gas·분사 가스 설비, 안전관리규정 Article 11, 시설·용기의 안전유지 Article 13, 안전관리자 선임 Article 15, 허가관청 등의 조치 Article 24, 사고 통보 Article 26), 산업안전보건법(OSHA-KR — 도장 근로자 안전, 추락 Article 99, 붕괴 Article 100, 감전·화기 Article 101, MSDS Article 110). 중대재해처벌법(SAPA) Article 4~7은 사업주 안전보건 확보 의무의 일반적 근거이다. **HPGSCA 인용 주의**: `schema.yaml`의 HPGSCA 인용(Art 11/13/15/24/26)은 compliance-agent가 실시간 MCP `legalize_kr`(law.go.kr 원문, 권위 있음) 검증을 거친 **remediated 조문**이다 — 기존 앵커가 삭제 조문인 Art 14(1999.2.8 삭제)와 주제 불일치 Art 17/28을 인용하던 것을, `legalize_kr`에서 Art 11/13/15/24/26이 실효 조문임을 확인하여 정정하였다. 참고로 `kr_safety` 카탈로그는 HPGSCA에 대해 stale하여 삭제된 Art 14를 여전히 인덱싱하므로, HPGSCA 검증 시에는 `legalize_kr`을 우선한다. 본 워크플로우의 핵심 차별점은 **도장베이/샵 시설의 LEL 인화 폭발 + 만성 용제 노출**이라는 복합 위해로, 탱크 내부 진입 질식(`ship-tank-confined-space`)과 범위가 구별된다.
+선박 도장/코팅 작업을 전속 규율하는 단일 법령(조선 안전법)은 존재하지 않는다. 복합 통제 앵커: 위험물안전관리법(DSSMA — 가연성 도료·신너 등 위험물 저장·취급 Article 5, 응급조치 Article 27), 고압가스 안전 관리 및 사업법(HPGSCA — inert gas·분사 가스 설비, 안전관리규정 Article 11, 시설·용기의 안전유지 Article 13, 안전관리자 선임 Article 15, 허가관청 등의 조치 Article 24, 사고 통보 Article 26), 산업안전보건법(OSHA-KR — 도장 근로자 안전, 추락 Article 38, 붕괴 OSHSR 제6장, 감전·화기 안전조치 Article 38 + 규칙, MSDS 작성·제출 Article 110 + 게시·교육 Article 114). 중대재해처벌법(SAPA) Article 4~7은 사업주 안전보건 확보 의무의 일반적 근거이다. **HPGSCA 인용 주의**: `schema.yaml`의 HPGSCA 인용(Art 11/13/15/24/26)은 compliance-agent가 실시간 MCP `legalize_kr`(law.go.kr 원문, 권위 있음) 검증을 거친 **remediated 조문**이다 — 기존 앵커가 삭제 조문인 Art 14(1999.2.8 삭제)와 주제 불일치 Art 17/28을 인용하던 것을, `legalize_kr`에서 Art 11/13/15/24/26이 실효 조문임을 확인하여 정정하였다. 참고로 `kr_safety` 카탈로그는 HPGSCA에 대해 stale하여 삭제된 Art 14를 여전히 인덱싱하므로, HPGSCA 검증 시에는 `legalize_kr`을 우선한다. 본 워크플로우의 핵심 차별점은 **도장베이/샵 시설의 LEL 인화 폭발 + 만성 용제 노출**이라는 복합 위해로, 탱크 내부 진입 질식(`ship-tank-confined-space`)과 범위가 구별된다.
 
 ## 8. 외주 안전 안내 (Outsourcing Note)
 조선소 도장·코팅 작업은 외주 도장 전문업체 비중이 압도적으로 높아 중대재해처벌법 Article 5(도급·하도급 사업주 안전보건 확보 의무)가 특히 중요하다. 한국 조선업의 대형 도장 화재 참사 다수가 외주 도장반 작업 중 발생했다. 원청사(조선소)는 외주 도장업체에 본 워크플로우의 환기·가스검지·정전기 통제·송기마스크 지급·안전작업허가 연동을 하도급 단계까지 적용하도록 해야 하며, 다수 외주업체가 동일 도장베이를 교차 사용할 때 작업 범위 중첩·화기 작업 동시 금지 책임 소재를 명확히 해야 한다.

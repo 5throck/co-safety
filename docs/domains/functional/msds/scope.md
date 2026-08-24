@@ -27,7 +27,7 @@ Mirrors PSM/GMP module architecture with **new domain-onboarding SOP** applied (
 
 ### v1 Coverage (Korea)
 - **OSHA-KR Articles 110-114**: MSDS preparation, posting, labeling
-- **OSHA-KR Article 243**: Mandatory GHS classification
+- **OSHA-KR Article 104**: Hazard-factor classification criteria — statutory GHS anchor (시행규칙 별표 18; former legacy "Article 243" removed)
 - **K-REACH Articles 10-14**: Chemical registration, evaluation, hazardous substance management
 - **TCCL (유해화학물질관리법)**: Toxic substance management (integrated with K-REACH)
 - **GHS Rev 9** (2021): International standard, Korean baseline since 2023
@@ -46,12 +46,12 @@ Mirrors PSM/GMP module architecture with **new domain-onboarding SOP** applied (
 
 | Workflow | Type | Legal Basis |
 |----------|------|-------------|
-| msds-intake | core | OSHA-KR Art 110 + GHS Rev 9 |
-| ghs-classification | core | OSHA-KR Art 243 + GHS Rev 9 |
-| chemical-approval | core | OSHA-KR Art 113 + TCCL + GHS |
+| msds-intake | core | OSHA-KR Art 110 + 시행규칙 §156 + GHS Rev 9 |
+| ghs-classification | core | OSHA-KR Art 104 + 시행규칙 별표18 + GHS Rev 9 |
+| chemical-approval | core | OSHA-KR Arts 117-118 + CCA + GHS |
 | chemical-inventory | core | K-REACH Art 10 + OSHA-KR Art 110 |
 | kreach-registration | core | K-REACH Art 11 + ME 고시 |
-| hazard-labeling | core | OSHA-KR Art 114 + GHS Rev 9 |
+| hazard-labeling | core | OSHA-KR Art 115 + 시행규칙 §170 + GHS Rev 9 |
 | **chemical-spill-reference** | **reference** | OSHA-KR Art 110 + 위험물안전관리법 |
 
 **Reference workflow** dispatches to emergency-agent for execution; MSDS provides Section 6 data only.

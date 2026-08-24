@@ -44,8 +44,8 @@ anchor, (c) hot-aisle / cold-aisle geometry restricts ladder placement, and
 
 The datacenter industry anchor
 (`regulations/KR/industry-regulatory-anchors.yaml` lines 309-315) names two
-OSHA-KR hazards: **Art 99 (추락 방지 — fall prevention during racking/cabling)**
-and Art 101 (electrical). Art 99 is the only anchor-cited datacenter hazard
+OSHA-KR hazards: **Article 38 (추락 방지 포함 안전조치 — fall prevention during racking/cabling)**
+and OSHSR electrical standards. Article 38 is the only anchor-cited datacenter hazard
 with no corresponding workflow or skill prior to the
 `rack-cabling-fall-protection` workflow (Task A-04, 2026-08-07).
 
@@ -117,7 +117,7 @@ unplanned descent onto hard slab or rack corners.
 
 ### 4. Administrative controls
 
-- **Work-permit (작업허가서)** for any work above 2 m per OSHA-KR Art 99
+- **Work-permit (작업허가서)** for any work above 2 m per OSHA-KR Article 38
 - **Tool-box talk (TBM)** before each shift — see shared TBM workflow
 - **Buddy system** — second worker as spotter + 119 caller
 - **De-energize adjacent busway** if work reaches within 1 m of live 208/400 V
@@ -177,7 +177,7 @@ unplanned descent onto hard slab or rack corners.
   },
   "rescue_plan_ref": "DC-1-ERP-2026-suspension-trauma",
   "regulatory_basis": [
-    "산업안전보건법 (OSHA-KR) Article 99 — 추락 방지",
+    "산업안전보건법 (OSHA-KR) Article 38 — 추락 등 위해 방지 안전조치",
     "전기안전관리법 (ESCA) Article 16 — 전기재해 예방 안전조치",
     "중대재해처벌법 (SAPA) Article 4 — 사업주 안전보장 의무"
   ],
@@ -187,7 +187,7 @@ unplanned descent onto hard slab or rack corners.
 
 ## Korean-Specific Standards
 
-- **산업안전보건법 (OSHA-KR) Article 99** — 작업장 추락 방지 조치 (mandatory
+- **산업안전보건법 (OSHA-KR) Article 38** — 작업장 추락 등 안전조치 (mandatory
   fall-prevention measures; 2 m threshold for active protection)
 - **KOSHA 안전검사 합격품** — harnesses, lanyards, SRLs must carry the KOSHA
   certification mark
@@ -224,6 +224,6 @@ permit references.
 ## Legal Disclaimer
 
 > 자동화 계획 보조. 최종 추락 방지 조치 결정은 안전관리자 + 전기안전관리자 권한
-> per 산업안전보건법 (OSHA-KR) Article 99 and 전기안전관리법 (ESCA) Article 16.
+> per 산업안전보건법 (OSHA-KR) Article 38 and 전기안전관리법 (ESCA) Article 16.
 > Anchor ratings and busway de-energization status MUST be verified by a
 > qualified electrical safety manager before work begins.

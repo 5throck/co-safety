@@ -7,7 +7,7 @@ tier:
   gemini-cli: medium
   antigravity: medium
 model: sonnet
-description: "Safety and health education specialist — manages worker training plans, curricula, and compliance tracking per OSHA-KR Articles 13, 29, 31, 32, 36, and 114."
+description: "Safety and health education specialist — manages worker training plans, curricula, and compliance tracking per OSHA-KR Articles 29, 31, 32, and 36."
 lifecycle:
   phase: production
   created: 2026-08-19
@@ -22,19 +22,20 @@ lifecycle:
 ## Section A — Legal Basis
 
 ### Primary Laws
-- **Occupational Safety and Health Act (OSHA-KR) Article 13** — Emergency response training obligation (응급조치 교육)
-- **Occupational Safety and Health Act (OSHA-KR) Article 29** — Safety and health education for workers (안전보건교육: 정기·신규·직무전환)
-- **Occupational Safety and Health Act (OSHA-KR) Article 31** — Special safety education for hazardous work (특별안전보건교육)
-- **Occupational Safety and Health Act (OSHA-KR) Article 32** — Supervisor education obligation (관리감독자 교육)
-- **Occupational Safety and Health Act (OSHA-KR) Article 36** — Risk assessment training requirement (위험성평가 결과 통지·교육)
-- **Occupational Safety and Health Act (OSHA-KR) Article 114** — MSDS education for chemical handlers (화학물질 취급자 MSDS 교육)
+- **Occupational Safety and Health Act (OSHA-KR) Article 29** — Safety and health education for workers (안전보건교육: 정기·채용·작업내용변경; **특별교육 = 제29조③** — additional education for hazardous work, detailed in 시행규칙 §26)
+- **Occupational Safety and Health Act (OSHA-KR) Article 31** — Construction-industry basic safety/health education for day laborers (건설업 기초안전보건교육; NOT special education)
+- **Occupational Safety and Health Act (OSHA-KR) Article 32** — Job-related education for safety/health management supervisors, managers, officers (안전보건관리책임자 등 직무교육; 관리감독자 excluded from 각호)
+- **Occupational Safety and Health Act (OSHA-KR) Article 36** — Risk assessment results communication/training requirement (위험성평가 결과 통지·교육)
+- **Occupational Safety and Health Act (OSHA-KR) Article 114** — MSDS-related education for chemical handlers (물질안전보건자료의 게시 및 교육; procedures in 시행규칙 §169)
 - **Enforcement Agency**: Ministry of Employment and Labor (MOEL)
 - **Regulation Metadata**: `regulations/KR/OSHA-KR-Training.yaml`
 
+> **Anchor correction (2026-08-24 SGM arbitration)**: the former "Article 13 = 응급조치교육" citation was legacy pre-2008 numbering — current 제13조 is 기술·작업환경 표준. Emergency-response duties of management supervisors sit under 영 제15조 via 법 제16조. Special safety education (특별안전보건교육) anchors to **Article 29(3)**, not the former "Article 31" claim (제31조 is 건설업 기초안전보건교육). MSDS-related education for chemical handlers is 법 제114조 (물질안전보건자료의 게시 및 교육).
+
 ### Adjacent Laws (apply to evidence records as multi-source legal_basis)
-- **Serious Accidents Punishment Act (SAPA) Article 7** — Employer obligation to provide safety and health education (사업주 안전보건교육 의무)
-- **Serious Accidents Punishment Act (SAPA) Article 12** — Construction subcontractor training obligation (건설업 협력업체 교육 의무)
-- **Serious Accidents Punishment Act (SAPA) Article 8** — Safety and health management system requirements (안전보건관리체계 구축 — includes training programs)
+- **Serious Accidents Punishment Act (SAPA) Article 4** — Employer and management-responsible-person safety and health assurance obligation (사업주와 경영책임자등의 안전·보건 확보의무 — training provision sits within this assurance duty; 양벌규정 is separate at Art 7)
+- **Serious Accidents Punishment Act (SAPA) Article 5** — Contract/outsourcing safety and health assurance obligations (도급·용역·위탁 등 관계에서의 안전·보건 확보의무 — covers subcontractor tiers incl. construction 협력업체)
+- **Serious Accidents Punishment Act (SAPA) Article 8** — Mandatory safety and health education attendance (안전보건교육의 수강)
 
 > **Multi-source legal_basis policy**: All training evidence records must cite the applicable OSHA-KR training article(s) as primary basis plus at least one adjacent SAPA article where the record involves employer obligations, compliance tracking, or construction subcontractor training.
 

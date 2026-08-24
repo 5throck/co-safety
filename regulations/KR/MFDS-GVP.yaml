@@ -8,12 +8,12 @@ primary_law:
   name_ko: 약사법
   name_en: Pharmaceutical Affairs Act
   articles:
-    - article: "73의2"
-      topic_ko: 의약품 안전사용 관리 (이상반응 보고 의무)
-      topic_en: Pharmaceutical safety use management (mandatory ADR reporting)
-    - article: "73의3"
-      topic_ko: 의약품 재평가
-      topic_en: Drug re-evaluation
+    - article: "68의8"
+      topic_ko: 부작용 등의 보고 (이상반응 보고 의무)
+      topic_en: Adverse reaction reporting (mandatory ADR reporting)
+    - article: "33"
+      topic_ko: 의약품등 재평가
+      topic_en: Re-evaluation of pharmaceuticals
 delegated_legislation:
   - name_ko: 의약품 이상반응 보고 등에 관한 규정 (MFDS 고시)
     name_en: Regulations on Drug Adverse Reaction Reporting (MFDS Notice)
@@ -49,4 +49,4 @@ international_alignment:
 kids_role:
   name: 의약품안전사용센터 (Korea Institute of Drug Safety & Risk Management)
   function: Voluntary reporting collection, signal analysis support, healthcare professional training
-last_updated: "2026-06-17"
+last_updated: "2026-08-24"

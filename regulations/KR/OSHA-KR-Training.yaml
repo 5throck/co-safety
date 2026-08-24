@@ -7,14 +7,14 @@ title_en: OSHA-KR Training Provisions
 primary_law:
   name_ko: 산업안전보건법
   articles:
-    - article: "13"
-      topic_ko: 응급조치 교육
+    - article: "16"
+      topic_ko: 관리감독자 (교육·지도 및 응급조치 — 영 제15조)
     - article: "29"
-      topic_ko: 안전보건교육 (정규/신규/직무전환)
+      topic_ko: 안전보건교육 (신규/정기/직무전환/특별 — 제29조 제3항)
     - article: "31"
-      topic_ko: 특별안전보건교육 (위험작업)
+      topic_ko: 건설업 기초안전보건교육 (일용근로자)
     - article: "32"
-      topic_ko: 관리감독자 교육
+      topic_ko: 안전보건관리책임자 등에 대한 직무교육
     - article: "114"
       topic_ko: MSDS 교육 (화학물질 취급자)
-last_updated: "2026-06-19"
+last_updated: "2026-08-24"

@@ -9,8 +9,8 @@ source_mcp: mcp-kr-legislation  # curated reference glossary; statute content so
 # (agents/*.md Section A Legal Basis blocks, workflows/**/schema.yaml legal_basis fields,
 # regulations/KR/*.yaml). Articles NOT referenced anywhere in the codebase are omitted;
 # accuracy over completeness. Unverified entries are explicitly commented.
-version: 1.0.6
-last_updated: 2026-08-07
+version: 1.0.7
+last_updated: 2026-08-24
 
 # =============================================================================
 # KOREAN STATUTES (validator allowlist — keys are the exact Korean strings used
@@ -80,18 +80,19 @@ statutes:
     abbreviation: OSHA-KR
     regulator: MOEL (고용노동부)
     articles:
-      - { number: "제13조",  topic_en: "First-aid equipment and measures (구급설비/구급조치)" }
-      - { number: "제14조",  topic_en: "Safety and Health Management Regulations (rules creation / BoD approval of safety plan)" }
+      - { number: "제13조",  topic_en: "Technical and work-environment standards issued/guided by MOEL (기술 또는 작업환경에 관한 표준) — NOT first-aid/emergency education" }
+      - { number: "제14조",  topic_en: "Annual safety/health plan — board report & approval (안전·보건 계획 이사회 보고·승인); SHM regulations are Arts 25-26" }
       - { number: "제15조",  topic_en: "Safety and Health Management Supervisor (안전보건관리책임자) duties" }
       - { number: "제16조",  topic_en: "Management Supervisor (관리감독자) duties" }
       - { number: "제17조",  topic_en: "Safety Manager appointment" }
       - { number: "제24조",  topic_en: "Occupational Safety and Health Committee" }
-      - { number: "제29조",  topic_en: "Worker safety and health education (근로자 안전보건교육)" }
-      - { number: "제31조",  topic_en: "Special safety and health training for hazardous work (특별안전보건교육 위험작업)" }
-      - { number: "제32조",  topic_en: "Supervisor education / workplace safety measures (관리감독자 교육 / 작업장 안전조치)" }
+      - { number: "제29조",  topic_en: "Worker safety and health education (근로자 안전보건교육); special education for hazardous work = Art 29(3) + OSHSR §26" }
+      - { number: "제31조",  topic_en: "Construction-industry basic safety and health education for day laborers (건설업 기초안전보건교육) — NOT special education" }
+      - { number: "제32조",  topic_en: "Job-related education for safety/health management supervisors, safety/health managers, officers (안전보건관리책임자 등 직무교육; 관리감독자 excluded)" }
       - { number: "제36조",  topic_en: "Risk assessment (위험성평가 실시)" }
-      - { number: "제38조",  topic_en: "Safety measures (안전조치)" }
+      - { number: "제38조",  topic_en: "Safety measures (안전조치) — general basis for fall/collapse/electrical hazard prevention; technical detail in OSHSR" }
       - { number: "제39조",  topic_en: "Health measures (보건조치)" }
+      - { number: "제42조",  topic_en: "Preparation/submission of hazard-prevention plans for construction (유해위험방지계획서의 작성·제출)" }
       - { number: "제44조",  topic_en: "Process Safety Management (PSM) for covered processes" }
       - { number: "제51조",  topic_en: "Suspension of Work by Employer" }
       - { number: "제52조",  topic_en: "Suspension of Work by Workers" }
@@ -100,24 +101,28 @@ statutes:
       - { number: "제61조",  topic_en: "Safety and Health Measures in Contracted Projects" }
       - { number: "제62조",  topic_en: "Safety/health cooperation obligations" }
       - { number: "제63조",  topic_en: "Ordering party's safety and health measures (도급인의 안전보건조치)" }
+      - { number: "제89조",  topic_en: "Voluntary safety confirmation — declaration (자율안전확인의 신고; Arts 89-92)" }
       - { number: "제93조",  topic_en: "Safety inspection (안전검사)" }
-      - { number: "제98조",  topic_en: "Permit-to-work / mechanical accident prevention" }
-      - { number: "제99조",  topic_en: "Fall prevention (추락방지)" }
-      - { number: "제100조", topic_en: "Collapse prevention" }
-      - { number: "제101조", topic_en: "Electrical hazard prevention (전기위해 방지)" }
-      - { number: "제103조", topic_en: "Safety and Health Management Plan (안전보건관리계획)" }
-      - { number: "제108조", topic_en: "Voluntary safety confirmation (자율안전확인)" }
-      - { number: "제110조", topic_en: "MSDS preparation and posting duty" }
-      - { number: "제111조", topic_en: "Substances subject to MSDS submission" }
-      - { number: "제112조", topic_en: "MSDS format and required content (GHS 16 sections)" }
-      - { number: "제113조", topic_en: "Prohibited, permission-required, and harmful substances" }
-      - { number: "제114조", topic_en: "Warning label attachment duty (경고표지 부착 의무)" }
+      - { number: "제98조",  topic_en: "Safety inspection under voluntary inspection programs (자율검사프로그램에 따른 안전검사) — NOT permit-to-work" }
+      - { number: "제99조",  topic_en: "Revocation of voluntary-inspection-program recognition (자율검사프로그램 인정의 취소 등) — NOT fall prevention" }
+      - { number: "제100조", topic_en: "Voluntary safety inspection institutions (자율안전검사기관) — NOT collapse prevention" }
+      - { number: "제101조", topic_en: "Performance tests, etc. (성능시험 등) — NOT electrical hazard prevention" }
+      - { number: "제103조", topic_en: "Comprehensive management of machinery safety information (유해·위험기계등 안전 정보 종합관리) — NOT SHM plan" }
+      - { number: "제104조", topic_en: "Hazard-factor classification criteria (유해인자의 분류기준) — statutory GHS anchor, delegated detail in 산업안전보건법 시행규칙 별표 18" }
+      - { number: "제108조", topic_en: "Hazard investigation of new chemical substances (신규화학물질의 유해성·위험성 조사); voluntary safety confirmation is Arts 89-92" }
+      - { number: "제110조", topic_en: "MSDS preparation & submission to MOEL (물질안전보건자료의 작성·제출); posting/keeping = Art 114" }
+      - { number: "제111조", topic_en: "MSDS provision duty to transferees/recipients (물질안전보건자료의 제공)" }
+      - { number: "제112조", topic_en: "Partial non-disclosure approval for trade secrets (일부 비공개 승인 등); MSDS format/content = OSHSR §156" }
+      - { number: "제113조", topic_en: "Information submission by agents appointed by overseas manufacturers (국외제조자 선임 대리인 정보제출); substance bans/permits = Arts 117-118" }
+      - { number: "제114조", topic_en: "MSDS posting & worker education (물질안전보건자료의 게시 및 교육); warning labels = Art 115" }
+      - { number: "제115조", topic_en: "Warning labels on containers of MSDS-subject substances (용기 등의 경고표시)" }
+      - { number: "제117조", topic_en: "Prohibition of manufacture/import etc. of hazardous/dangerous substances (유해·위험물질의 제조 등 금지)" }
+      - { number: "제118조", topic_en: "Permission for manufacture/import etc. of hazardous/dangerous substances (유해·위험물질의 제조 등 허가)" }
       - { number: "제125조", topic_en: "Work Environment Measurement" }
       - { number: "제129조", topic_en: "Worker Health Examination — General" }
       - { number: "제130조", topic_en: "Worker Health Examination — Special" }
       - { number: "제155조", topic_en: "MOEL workplace inspection authority" }
-      - { number: "제243조", topic_en: "Mandatory GHS classification (GHS 분류 의무화)" }
-    note: "KOSHA GUIDE Z-40-2022 (Lockout/Tagout — 자물쇠와 표지판 작업) supplements OSHA-KR equipment safety provisions."
+    note: "KOSHA GUIDE Z-40-2022 (Lockout/Tagout — 자물쇠와 표지판 작업) supplements OSHA-KR equipment safety provisions. 2026-08-24 SGM arbitration: legacy pre-2008-numbering drift corrected — 제13조 (was first-aid), 제31조 (was special education), 제32조 (was supervisor education), 제98-103 (were fall/collapse/electrical/PTW/SHM-plan), 제110-114 (MSDS topic off-by-one), 제243 removed (non-existent; statute ends at Art 175). GHS anchor = Art 104 + 시행규칙 별표18; MSDS procedures = 시행규칙 §156-169."
 
   중대재해처벌법:
     english: Serious Accidents Punishment Act

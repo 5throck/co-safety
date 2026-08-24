@@ -41,7 +41,7 @@ ls workflows/domains/industry/     # Industry operations (construction, gas, pow
 3. **Chemical Approval** — Verify against Korean regulations
    ```
    → msds-agent runs chemical-approval workflow
-   → Checks: prohibited substances (OSHA-KR Art 113), TCCL, K-REACH
+   → Checks: prohibited substances (OSHA-KR Art 117), CCA, K-REACH
    ```
 
 4. **PSM Impact** — If covered process, update PSI

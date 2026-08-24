@@ -22,7 +22,7 @@ Construction safety domain for Korean construction industry, addressing high-ris
 
 | # | Workflow | Type | Key Topic |
 |---|----------|------|-----------|
-| 1 | safety-management-plan | core | 안전보건관리계획 수립/갱신 (Article 103) |
+| 1 | safety-management-plan | core | 유해위험방지계획서 작성·제출 (Article 42) |
 | 2 | daily-safety-inspection | core | 일일 안전점검 |
 | 3 | fall-prevention | core | 추락 방지 (사망 1위, ~42%) |
 | 4 | collapse-prevention | core | 붕괴 방지 (거푸집/굴착/가설) |

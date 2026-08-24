@@ -52,9 +52,9 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 - 중대재해처벌법 Article 5
 - 중대재해처벌법 Article 6
 - 중대재해처벌법 Article 7
-- 산업안전보건법 Article 99
-- 산업안전보건법 Article 100
-- 산업안전보건법 Article 101
+- 산업안전보건법 Article 38 (추락 등 위해 방지 안전조치)
+- 안전보건기준에관한규칙 제6장 제2절 (붕괴 등에 의한 위험 방지)
+- 안전보건기준에관한규칙 (감전 등 전기 재해 방지 기준)
 - 고압가스 안전관리 및 사업법 Article 11
 - 고압가스 안전관리 및 사업법 Article 13
 - 고압가스 안전관리 및 사업법 Article 15
@@ -72,7 +72,7 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 | 위험물안전관리법 | DSSMA | Dangerous Substances Safety Management Act |
 
 ## 7. Regulatory Notes
-No single dedicated statute governs steelmaking. Composite anchor: 산업안전보건법 (OSHA-KR — risk assessment, safety measures, fall (Art 99), collapse (Art 100), electrical (Art 101), and the general basis for work-environment-measurement and special-health-exam duties), 고압가스 안전관리 및 사업법 (HPGSCA — safety-management regulations (Art 11), facility/container safety maintenance (Art 13), Safety Manager appointment (Art 15), corrective measures (Art 24), and accident notification (Art 26) for coke-oven-gas manifold and storage facilities), and 위험물안전관리법 (DSSMA — storage and handling standards (Art 5) and emergency measures / corrective orders (Art 27) for coal, coke, and coal-tar dangerous goods). Conceptually, OSHA-KR work-environment-measurement (Art 125 family) and special health examination (Art 130 family) are the natural anchors for coke-oven PAH industrial-hygiene control; however, this workflow's `schema.yaml` legal_basis uses the composite auto-filled anchor set listed above.
+No single dedicated statute governs steelmaking. Composite anchor: 산업안전보건법 (OSHA-KR — risk assessment, safety measures, fall/collapse/electrical (Art 38 + OSHSR) (Art 101), and the general basis for work-environment-measurement and special-health-exam duties), 고압가스 안전관리 및 사업법 (HPGSCA — safety-management regulations (Art 11), facility/container safety maintenance (Art 13), Safety Manager appointment (Art 15), corrective measures (Art 24), and accident notification (Art 26) for coke-oven-gas manifold and storage facilities), and 위험물안전관리법 (DSSMA — storage and handling standards (Art 5) and emergency measures / corrective orders (Art 27) for coal, coke, and coal-tar dangerous goods). Conceptually, OSHA-KR work-environment-measurement (Art 125 family) and special health examination (Art 130 family) are the natural anchors for coke-oven PAH industrial-hygiene control; however, this workflow's `schema.yaml` legal_basis uses the composite auto-filled anchor set listed above.
 
 ## 8. Outsourcing Note
 Coke-oven refractory repair, lancing, and door maintenance are heavily outsourced to specialty refractory contractors, making 중대재해처벌법 (SAPA) Article 5 (outsourcing/contract safety obligation) especially relevant. The commissioning client (the steel mill) must ensure this workflow's controls (PAH exposure monitoring, heat-shield PPE, gas-detection evacuation procedures) are applied by refractory and maintenance subcontractors down the contracting chain.

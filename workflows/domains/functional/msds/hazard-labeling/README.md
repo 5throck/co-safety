@@ -1,7 +1,7 @@
 # GHS 경고 라벨링 (GHS Hazard Labeling) Workflow
 
 ## 1. Objective
-Generate and verify GHS-compliant warning labels for chemical containers, packaging, and storage areas per OSHA-KR Article 114 (warning label attachment) and UN GHS Rev 9 label elements.
+Generate and verify GHS-compliant warning labels for chemical containers, packaging, and storage areas per OSHA-KR Article 115 (용기 등의 경고표시 — warning labels on containers/packages) and UN GHS Rev 9 label elements.
 
 ## 2. Applicability
 All chemical containers, packages, and storage areas at site facilities under the `chemical-handling` profile.
@@ -22,7 +22,7 @@ All chemical containers, packages, and storage areas at site facilities under th
 
 ### Step 3: Label Design
 - Apply Korean bilingual label format (Korean primary, English secondary).
-- Comply with size requirements per OSHA-KR Article 114 Enforcement Rule.
+- Comply with size requirements per 산업안전보건법 시행규칙 제170조 (경고표시 방법 및 기재항목 — delegated under OSHA-KR Article 115; 규격·그림문자 등 per MOEL 고시).
 - Include required pictograms at minimum sizes.
 
 ### Step 4: Generation
@@ -60,4 +60,4 @@ Generate `hazard-label-record.json` with substance ID, label elements, generatio
 - 0 unlabeled/mislabeled containers during self-inspection
 
 ## 7. Legal Disclaimer
-> Workflow automation assistance only. Final label approval requires qualified EHS professional verification per OSHA-KR Article 114.
+> Workflow automation assistance only. Final label approval requires qualified EHS professional verification per OSHA-KR Article 115.

@@ -24,15 +24,15 @@ This is an **industry-unique workflow** — a steelmaking-specific mechanical an
 | Industrial Health & Safety Committee | Post-incident review of crush / burn / collapse incidents and near-misses, improves protective measures |
 
 ## 4. Procedure
-1. **Risk assessment**: Identify nip points, rotating parts, hot surfaces, falling objects, and heavy-load stack-collapse hazards at each roll stand, ROT, coiler, and coil yard. Aligns with 산업안전보건법 (OSHA-KR) Article 36 (risk assessment) and Article 98 (mechanical/equipment safety measures and permit-to-work).
+1. **Risk assessment**: Identify nip points, rotating parts, hot surfaces, falling objects, and heavy-load stack-collapse hazards at each roll stand, ROT, coiler, and coil yard. Aligns with 산업안전보건법 (OSHA-KR) Article 36 (risk assessment) and Article 38 (mechanical/equipment safety measures and permit-to-work basis).
 2. **Apply the hierarchy of controls**:
    1. **Elimination**: Introduce automated roll-changers and robotic greasing, unmanned scale removal and surface-defect inspection, and automated coil strapping/transport.
    2. **Engineering**: Fixed roll-stand guards, light curtains, and full-line emergency-stop pull-cords; ROT covers and scale-flush recovery; coil anti-collision shock chocks and chasers; coil-yard stacking saddles with height limits.
-   3. **Administrative**: Safe-work permit (mechanical/burn/heavy load), LOTO during roll change and greasing (산업안전보건법 Article 98), shift-change TBM, coil-yard stacking-height and spacing rules, access control to burn-hazard zones.
+   3. **Administrative**: Safe-work permit (mechanical/burn/heavy load), LOTO during roll change and greasing (산업안전보건법 Article 38), shift-change TBM, coil-yard stacking-height and spacing rules, access control to burn-hazard zones.
    4. **PPE**: Heat-resistant and burn-protection clothing, cut-resistant gloves, face shield and safety glasses, safety footwear and hearing protection (last resort).
-3. **Mechanical crush / entanglement control**: During roll-stand and coiler maintenance, apply LOTO, prohibit guard removal, and keep clear of pinch rolls during cleaning and greasing. Aligns with 산업안전보건법 (OSHA-KR) Article 100 (collapse prevention — coil stacks) and Article 98.
+3. **Mechanical crush / entanglement control**: During roll-stand and coiler maintenance, apply LOTO, prohibit guard removal, and keep clear of pinch rolls during cleaning and greasing. Aligns with 산업안전보건기준에관한규칙 Ch.6 §2 (collapse prevention — coil stacks) and OSHA-KR Article 38.
 4. **Hot-contact and scale-fly control**: Confirm slab/coil temperature before approach, mandatorily wear face protection in scale-flush zones, and observe cooling wait-times to prevent contact with hot surfaces. Field application of the risk-assessment duty (Art 36) and safety-measures duty (Art 38).
-5. **Coil-stack collapse control**: Stack coils in stable trapezoidal patterns within the maximum height, mandatorily apply strapping, and re-inspect after earthquake or crane-impact events. Aligns with 산업안전보건법 (OSHA-KR) Article 100 (collapse prevention).
+5. **Coil-stack collapse control**: Stack coils in stable trapezoidal patterns within the maximum height, mandatorily apply strapping, and re-inspect after earthquake or crane-impact events. Aligns with 산업안전보건기준에관한규칙 Ch.6 §2 (collapse prevention).
 6. **Emergency response**: On crush entanglement, do not reverse the roll; apply LOTO and execute heavy-lift rescue. On burn, immediately cool and call first aid. On coil collapse, secure against secondary collapse before approach.
 7. **Recordkeeping & audit**: Generate the evidence record (§5); retain safe-work permits, LOTO records, guard-inspection sheets, coil-yard stacking inspection logs, and incident / near-miss records.
 
@@ -52,9 +52,9 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 - 중대재해처벌법 Article 5
 - 중대재해처벌법 Article 6
 - 중대재해처벌법 Article 7
-- 산업안전보건법 Article 99
-- 산업안전보건법 Article 100
-- 산업안전보건법 Article 101
+- 산업안전보건법 Article 38 (추락 등 위해 방지 안전조치)
+- 안전보건기준에관한규칙 제6장 제2절 (붕괴 등에 의한 위험 방지)
+- 안전보건기준에관한규칙 (감전 등 전기 재해 방지 기준)
 - 고압가스 안전관리 및 사업법 Article 11
 - 고압가스 안전관리 및 사업법 Article 13
 - 고압가스 안전관리 및 사업법 Article 15
@@ -72,7 +72,7 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 | 위험물안전관리법 | DSSMA | Dangerous Substances Safety Management Act |
 
 ## 7. Regulatory Notes
-No single dedicated statute governs steelmaking. Composite anchor: 산업안전보건법 (OSHA-KR — risk assessment (Art 36), incident recording and reporting (Art 57), fall (Art 99), collapse (Art 100 — the natural anchor for coil-stack collapse), electrical (Art 101), and mechanical/equipment safety measures and permit-to-work (Art 98 family)), 고압가스 안전관리 및 사업법 (HPGSCA — safety-management regulations (Art 11), facility/container safety maintenance (Art 13), Safety Manager appointment (Art 15), corrective measures (Art 24), and accident notification (Art 26) for the high-pressure-gas and hydraulic systems accompanying the rolling line), and 위험물안전관리법 (DSSMA — storage and handling standards (Art 5) and emergency measures (Art 27) for rolling-oil and lubricant dangerous goods). This workflow's `schema.yaml` legal_basis uses the composite auto-filled anchor set listed above.
+No single dedicated statute governs steelmaking. Composite anchor: 산업안전보건법 (OSHA-KR — risk assessment (Art 36), incident recording and reporting (Art 57), fall/collapse/electrical safety measures (Art 38 with OSHSR Ch.6 — the natural anchor for coil-stack collapse), and mechanical/equipment permit-to-work practice (Art 38 + KOSHA guidance)), 고압가스 안전관리 및 사업법 (HPGSCA — safety-management regulations (Art 11), facility/container safety maintenance (Art 13), Safety Manager appointment (Art 15), corrective measures (Art 24), and accident notification (Art 26) for the high-pressure-gas and hydraulic systems accompanying the rolling line), and 위험물안전관리법 (DSSMA — storage and handling standards (Art 5) and emergency measures (Art 27) for rolling-oil and lubricant dangerous goods). This workflow's `schema.yaml` legal_basis uses the composite auto-filled anchor set listed above.
 
 ## 8. Outsourcing Note
 Roll change, greasing, and equipment maintenance on the rolling line are heavily outsourced to specialty equipment-maintenance contractors, making 중대재해처벌법 (SAPA) Article 5 (outsourcing/contract safety obligation) especially relevant. The commissioning client (the steel mill) must ensure equipment-maintenance, coil-transport, and yard-management subcontractors apply this workflow's controls (LOTO, guard inspection, coil-stacking rules, burn-protection clothing) down the contracting chain.

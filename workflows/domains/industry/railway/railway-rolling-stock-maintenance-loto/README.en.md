@@ -31,9 +31,9 @@ This is an **industry-unique workflow** — the only workflow in the codebase th
    4. **Administrative**: Safe-work permit (electrical/mechanical/vehicle), shift-change TBM, keep-out enforcement on adjacent tracks during maintenance.
    5. **PPE**: Insulating gloves/footwear/face shield (electrical), fall-protection harness (rooftop), hard hat/dust mask (pit).
 3. **Vehicle immobilization and movement control**: After inbound, apply wheel chocks on both sides of front/rear axles, engage hand brake, open master-controller cut-out, and affix "Maintenance in Progress — Keep Out" Lockout/Tagout devices. Aligns with 철도안전법 (RSA) Article 48 (railway protection and order maintenance).
-4. **Catenary/energized parts control**: For rooftop work, de-energize, ground, and Lockout/Tagout the target track; lower the pantograph; verify zero residual energy. Aligns with 산업안전보건법 (OSHA-KR) Article 101 (electrical-hazard prevention).
+4. **Catenary/energized parts control**: For rooftop work, de-energize, ground, and Lockout/Tagout the target track; lower the pantograph; verify zero residual energy. Aligns with 산업안전보건법 (OSHA-KR) Article 38 (safety measures — electrical-hazard prevention).
 5. **Bogey / heavy-lift safety**: Observe crane/lift rated-capacity markings, inspect lifting-sling adequacy, exclude personnel below the lift, and prevent unbalanced loading.
-6. **Undercarriage pit work**: Re-confirm vehicle immobilization before pit entry; secure ventilation, lighting, and emergency escape routes; evacuate immediately if lift support becomes unstable. Aligns with 산업안전보건법 (OSHA-KR) Article 99 (fall prevention — pit/rooftop).
+6. **Undercarriage pit work**: Re-confirm vehicle immobilization before pit entry; secure ventilation, lighting, and emergency escape routes; evacuate immediately if lift support becomes unstable. Aligns with 산업안전보건법 (OSHA-KR) Article 38 (safety measures — fall prevention at pit/rooftop).
 7. **Emergency response**: Pre-establish procedures for immediate work stoppage, evacuation, and rescue/ambulance callout on accidental vehicle movement, collision, electrocution, or fall.
 8. **Recordkeeping & audit**: Generate the evidence record (§5); retain permits, inspection sheets, and vehicle-immobilization verification logs.
 
@@ -55,8 +55,8 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 - 중대재해처벌법 Article 7
 - 철도안전법 Article 45
 - 철도안전법 Article 48
-- 산업안전보건법 Article 99
-- 산업안전보건법 Article 101
+- 산업안전보건법 Article 38 (추락 등 위해 방지 안전조치)
+- 안전보건기준에관한규칙 (감전 등 전기 재해 방지 기준)
 
 ### Gloss
 | Korean | Abbreviation | English |
@@ -66,7 +66,7 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 | 철도안전법 | RSA | Railway Safety Act |
 
 ## 7. Regulatory Notes
-No single dedicated statute governs rolling-stock depot maintenance. Composite anchor: 철도안전법 (RSA — track/depot operating standards, railway-protection-zone restrictions Article 45, railway protection and order maintenance Article 48) as the baseline, overlaid with 산업안전보건법 (OSHA-KR — maintenance-worker protection, fall prevention Article 99, electrical-hazard prevention Article 101). 중대재해처벌법 (SAPA) Articles 4–7 supply the general employer safety-assurance duty. The defining feature of this workflow is **moving-vehicle (rolling-stock) LOTO**, distinct from fixed-plant LOTO (steelmaking molten-metal/furnace, waste incinerator/shredder): the primary purpose of vehicle LOTO is prevention of accidental movement and adjacent-track access control, not equipment energy isolation. Bridge/viaduct work (RSA Art 45) and track/tunnel work (RSA Art 48) are covered by separate workflows (`railway-bridge-viaduct-fall-prevention`, `rail-track-confined-maintenance`).
+No single dedicated statute governs rolling-stock depot maintenance. Composite anchor: 철도안전법 (RSA — track/depot operating standards, railway-protection-zone restrictions Article 45, railway protection and order maintenance Article 48) as the baseline, overlaid with 산업안전보건법 (OSHA-KR — maintenance-worker protection, fall/electrical safety measures Article 38 with OSHSR standards). 중대재해처벌법 (SAPA) Articles 4–7 supply the general employer safety-assurance duty. The defining feature of this workflow is **moving-vehicle (rolling-stock) LOTO**, distinct from fixed-plant LOTO (steelmaking molten-metal/furnace, waste incinerator/shredder): the primary purpose of vehicle LOTO is prevention of accidental movement and adjacent-track access control, not equipment energy isolation. Bridge/viaduct work (RSA Art 45) and track/tunnel work (RSA Art 48) are covered by separate workflows (`railway-bridge-viaduct-fall-prevention`, `rail-track-confined-maintenance`).
 
 ## 8. Outsourcing Note
 Rolling-stock heavy maintenance (overhaul) and depot-facility maintenance are heavily outsourced, making 중대재해처벌법 (SAPA) Article 5 (outsourcing/contract safety obligation) especially relevant. The operator (railway corporation or private operator) must ensure this workflow's vehicle-immobilization and Lockout/Tagout controls are applied by maintenance contractors and facility subcontractors down the contracting chain. Where multiple contractors work simultaneously inside the same depot, the scope overlap and adjacent-track access-control responsibilities must be explicitly assigned.

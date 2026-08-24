@@ -21,7 +21,7 @@ lifecycle:
 ### Primary Laws
 - **전기안전관리법 (ESCA) Article 16 & Article 29** — 전기설비 정기검사 및 전기안전관리자 선임/안전점검 의무.
 - **전기사업법 (EUA) Article 65** — 고전압 수전 설비 및 발전기 전기안전 기준.
-- **산업안전보건법 (OSHA-KR) Article 36 & Article 101** — 위험성평가 및 전기위해 방지 조치.
+- **산업안전보건법 (OSHA-KR) Article 36 & Article 38** — 위험성평가 및 전기위해 방지 등 안전조치 (+안전보건기준에관한규칙).
 
 ### Adjacent Laws
 - **중대재해처벌법 (SAPA) Article 4** — 데이터센터 사업장 안전보건 의무 이행.

@@ -49,7 +49,7 @@ TBM (Tool Box Meeting, 작업 전 안전점검회의) — 일일 작업 시작 �
 ### 보존되는 산업별 변형 (Preserved Industry Variants)
 다음 산업 변형은 Phase 1/2 마이그레이션 시에도 반드시 override로 보존해야 합니다 (본직 이유로 공통 기반으로 흡수되지 않음):
 
-- **ehsconst (건설)** — `ehsconst-tbm-record.json` 전용 증거 모델 유지. 사유: SAPA Article 12 도급업체 층위(contractor tier) 및 건설기술진흥법 Article 24의 건설 전용 규정이 공통 기반에 포함되지 않음. 건설업은 본 공통 기반을 참조하되 `evidence_model`과 추가 `legal_basis`(건설기술진흥법 Art 24, SAPA Art 7)을 override로 유지합니다.
+- **ehsconst (건설)** — `ehsconst-tbm-record.json` 전용 증거 모델 유지. 사유: SAPA Article 5 도급업체 층위(contractor tier) 및 건설기술진흥법 Article 24의 건설 전용 규정이 공통 기반에 포함되지 않음. 건설업은 본 공통 기반을 참조하되 `evidence_model`과 추가 `legal_basis`(건설기술진흥법 Art 24, SAPA Art 5)을 override로 유지합니다.
 
 ## 7. 참조 산업 (Consumed By)
 본 공통 TBM은 다음 15개 산업에서 참조합니다 (Phase 1/2 마이그레이션 예정 — Phase 0에서는 기존 per-industry 워크플로우를 유지):

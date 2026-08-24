@@ -1,14 +1,14 @@
 source_mcp: mcp-kr-legislation
 jurisdiction: KR
-regulator: MOTIE / KEA (한국에너지공단)
+regulator: MCEE (기후에너지환경부) / KEA (한국에너지공단)
 framework: Renewable-Energy-Act
 title_ko: 신에너지 및 재생에너지 개발·이용·보급 촉진법
 title_en: New and Renewable Energy Act
 primary_law:
   name_ko: 신에너지 및 재생에너지 개발·이용·보급 촉진법
   articles:
-    - article: "12"
-      topic_ko: 신재생에너지 시설 안전
+    - article: "13"
+      topic_ko: 신·재생에너지 설비의 인증 (안전)
 renewable_categories:
   - solar_PV (태양광)
   - wind (풍력)
@@ -30,4 +30,4 @@ special_safety_concerns:
     - 리튬이온 화재 (Thermal Runaway)
     - 가스 폭발
     - 재발화 (물 소화 시 화학반응)
-last_updated: "2026-06-18"
+last_updated: "2026-08-24"

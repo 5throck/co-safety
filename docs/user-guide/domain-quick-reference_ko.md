@@ -11,7 +11,7 @@
 |----------|-----------|----------------|--------------|----------------|
 | `psm` | 공정안전관리 | 산안법 제44조 (OSHA 14요소) | [psm-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/functional/psm/psm-agent.md) | `loto-lockout-tagout`, `moc-change-management`, `pha-hazard-analysis` |
 | `msds` | 화학물질 안전 | 산안법 제110조 (GHS Rev 9) | [msds-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/functional/msds/msds-agent.md) | `msds-parsing`, `ghs-classification`, `chemical-approval` |
-| `training` | 안전보건교육 | 산안법 제29/31조, 중재법 제8조 | [training-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/functional/training/training-agent.md) | `regular-safety-training`, `special-safety-training`, `supervisor-training` |
+| `training` | 안전보건교육 | 산안법 제29조(특별교육=③)/31조, 중재법 제8조 | [training-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/domains/functional/training/training-agent.md) | `regular-safety-training`, `special-safety-training`, `supervisor-training` |
 | `contractor-safety` | 계약자 안전 | 산안법 제63조 (TAR Surge) | [contractor-safety-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/_shared/contractor-safety-agent.md) | `tar-contractor-surge-management` |
 | `occupational-health` | 근로자 건강 | 산안법 제129/130조 | [occupational-health-agent](file:///c:/git/ai_workspace/Projects/safety_os/agents/_shared/occupational-health-agent.md) | `tar-health-screening` |
 

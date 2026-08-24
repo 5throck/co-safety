@@ -121,7 +121,7 @@ const RAW_DOMAINS: DomainConfig[] = [
         name: 'training',
         tier: 'functional',
         required_evidence_fields: ['record_id', 'legal_basis'],
-        description: 'Safety Training Management (OSHA-KR Art 13, 29, 31, 32, 36, 114 + SAPA Art 7, 8, 12)',
+        description: 'Safety Training Management (OSHA-KR Art 13, 29, 31, 32, 36, 114 + SAPA Art 4 employer safety-health assurance duty, Art 5 subcontractor assurance duty, Art 8 safety-health education completion)',
     },
     {
         name: 'contractor-safety',

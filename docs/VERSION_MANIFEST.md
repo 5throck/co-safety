@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-23T21:14:28.041Z
+**Generated**: 2026-08-24T00:19:46.344Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -22,10 +22,10 @@
 | _core/pm | agents/_core/pm.md | high | opus | 2026-08-23 |
 | _core/safety-governance-manager | agents/_core/safety-governance-manager.md | high | opus | 2026-08-23 |
 | _core/safety-workflow-manager | agents/_core/safety-workflow-manager.md | high | opus | 2026-08-19 |
-| _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-08-19 |
+| _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/compliance-agent | agents/_shared/compliance-agent.md | medium | sonnet | 2026-08-23 |
-| _shared/contractor-safety-agent | agents/_shared/contractor-safety-agent.md | medium | sonnet | 2026-08-19 |
+| _shared/contractor-safety-agent | agents/_shared/contractor-safety-agent.md | medium | sonnet | 2026-08-23 |
 | _shared/disaster-response-agent | agents/_shared/disaster-response-agent.md | high | opus | 2026-08-23 |
 | _shared/docs-writer | agents/_shared/docs-writer.md | medium | sonnet | 2026-08-19 |
 | _shared/emergency-agent | agents/_shared/emergency-agent.md | high | opus | 2026-08-23 |
@@ -58,7 +58,7 @@
 | domains/industry/semicon/semicon-agent | agents/domains/industry/semicon/semicon-agent.md | medium | sonnet | 2026-08-19 |
 | domains/industry/shipbuilding/shipbuilding-agent | agents/domains/industry/shipbuilding/shipbuilding-agent.md | medium | sonnet | 2026-08-23 |
 | domains/industry/steelmaking/steelmaking-agent | agents/domains/industry/steelmaking/steelmaking-agent.md | medium | sonnet | 2026-08-19 |
-| domains/industry/waste/waste-agent | agents/domains/industry/waste/waste-agent.md | medium | sonnet | 2026-08-19 |
+| domains/industry/waste/waste-agent | agents/domains/industry/waste/waste-agent.md | medium | sonnet | 2026-08-23 |
 
 ---
 
@@ -80,7 +80,7 @@
 | compliance-gap | 1.0.0 | .claude/skills/compliance-gap/SKILL.md | both | 컴플라이언스 갭, compliance gap, 준법 감시, 법률 검토, regulatory compliance, 규제 준수, 법적 요건, legal requirement review | compliance-agent |
 | construction-permit-overview | 1.0.0 | .claude/skills/construction-permit-overview/SKILL.md | both | construction permit, permit lifecycle, gas terminal construction, KGS inspection, 가스시설 공사, 공사허가, 검사일정, 건설인허가 | gasterm-agent |
 | contractor-onboarding | 1.0.0 | .claude/skills/contractor-onboarding/SKILL.md | both | 협력업체 온보딩, contractor onboarding, 도급업체 안전교육, 협력업체 자격심사, site access approval, 안전교육 이수확인, 도급 안전관리 | contractor-safety-agent |
-| cosmetics-solvent-exposure-monitor | 1.0 | .claude/skills/cosmetics-solvent-exposure-monitor/SKILL.md | both | 화장품 용제 노출, cosmetics solvent exposure, ethanol IPA inhalation, 에탄올 이소프로판올 흡입 노출, volatile raw material monitoring, OEL exposure assessment cosmetics, ventilation verification 향료 솔벤트, biological monitoring cosmetics, respirator selection 유기용제, OSHA-KR MSDS Article 110 | cosmetics-agent |
+| cosmetics-solvent-exposure-monitor | 1.0 | .claude/skills/cosmetics-solvent-exposure-monitor/SKILL.md | both | 화장품 용제 노출, cosmetics solvent exposure, ethanol IPA inhalation, 에탄올 이소프로판올 흡입 노출, volatile raw material monitoring, OEL exposure assessment cosmetics, ventilation verification 향료 솔벤트, biological monitoring cosmetics, respirator selection 유기용제, OSHA-KR Article 110 (MSDS 작성·제출) | cosmetics-agent |
 | dangerous-cargo-handling-planner | 1.0 | .claude/skills/dangerous-cargo-handling-planner/SKILL.md | both | 항만 위험물 하역 안전, IMDG dangerous cargo handling, 위험물 컨테이너 적치, dangerous goods container stowage, IMDG 클래스 분류, IMDG class segregation, 유독가스 흡입 노출 항만, toxic gas inhalation port, 항만하역 위험물 누출 대응, PSSA Article 8 위험물 하역, DSSMA Article 20 위험물 운반, IMDG EmS MFAG response | logistics-agent |
 | documentation-writing | 1.0.0 | .claude/skills/documentation-writing/SKILL.md | both | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | N/A |
 | dts-verification | 1.0 | .claude/skills/dts-verification/SKILL.md | both | DTS 바코드 검증, DTS verification, 의약품 유통관리, RFID 검증, MFDS DTS센터, 위변조 의약품 조사, GS1 데이터매트릭스 | gdp-agent |
@@ -97,7 +97,7 @@
 | gmp-deviation-capa | 1.0 | .claude/skills/gmp-deviation-capa/SKILL.md | both | gmp deviation, gmp capa, deviation, 이상관리, 시정예방조치, oos, out of specification | gmp-agent |
 | gmp-qrm | 1.0 | .claude/skills/gmp-qrm/SKILL.md | both | quality risk management, qrm, fmea, risk assessment, 품질위해관리, 위해관리 | gmp-agent |
 | hazop-analysis | 1.1.0 | .claude/skills/hazop-analysis/SKILL.md | both | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
-| hv-cell-formation-electrical-safety-planner | 1.0 | .claude/skills/hv-cell-formation-electrical-safety-planner/SKILL.md | both | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, OSHA-KR Article 101 감전 위험 방지, aging room thermal interlock, DC arc flash battery | battery-agent |
+| hv-cell-formation-electrical-safety-planner | 1.0 | .claude/skills/hv-cell-formation-electrical-safety-planner/SKILL.md | both | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준, aging room thermal interlock, DC arc flash battery | battery-agent |
 | iso14971-risk-scorer | 1.0 | .claude/skills/iso14971-risk-scorer/SKILL.md | both | ISO 14971, 위해 추정, risk estimation, 심각도 발생확률 매트릭스, severity probability matrix, 잔여위험, residual risk, ALARP | meddevice-agent |
 | landfill-methane-anaerobic-explosion-planner | 1.0 | .claude/skills/landfill-methane-anaerobic-explosion-planner/SKILL.md | both | 매립지 메탄 가스 폭발, landfill methane CH4 explosion, 혐기소화 소화조 biogas, anaerobic digestion biogas, 침출수 화학적 위해, leachate chemical hazard landfill, 사면 붕괴 매립지, landfill slope collapse, 매립지 깊은 화재 소방, deep seated landfill fire, 가스 추출정 LEL 모니터링, gas extraction well LEL monitoring, WCA Article 25 폐기물처리업 허가, BFS Article 16 소방활동, Sudokwon Landfill safety | waste-agent |
 | legalize-kr-sync | 1.0.0 | skills/legalize-kr-sync/SKILL.md | workspace | clone legalize-kr, fetch laws, sync korean laws | safety-workflow-manager |
@@ -108,7 +108,7 @@
 | mid-construction-inspection | 1.0.0 | .claude/skills/mid-construction-inspection/SKILL.md | both | mid-construction inspection, construction inspection, 중간검사, 공사검사, 현장검사 | gasterm-agent |
 | msds-parser | 1.0 | .claude/skills/msds-parser/SKILL.md | both | MSDS 파싱, MSDS parser, SDS 16항목, 물질안전보건자료, GHS 16-section, msds-record.json, 공급자 MSDS 양식 | msds-agent |
 | munitions-magazine-storage-safety-planner | 1.0 | .claude/skills/munitions-magazine-storage-safety-planner/SKILL.md | both | 탄약 마가진 저장 안전, munitions magazine storage safety, 화약류 안전거리 Q-D, quantity-distance siting explosives, 호환성 그룹 분리 저장, compatibility group segregation, UN hazard division 1.1 1.2 1.3, sympathetic detonation prevention, 화약류안전관리자 선임, FSESA Article 23 explosives safety manager, 마가진 낙뢰 정전기 대책, magazine lightning protection | defense-agent |
-| painting-coating-fire-toxic-planner | 1.0 | .claude/skills/painting-coating-fire-toxic-planner/SKILL.md | both | 조선 도장 작업 화재 폭발, ship painting coating fire, 선박 도료 가연성 증기 LEL, paint vapor LEL explosion shipyard, 유기용제 흡입 노출 도장, solvent vapor inhalation painting, 도장 베이 화재 대응, paint bay fire response, 밀폐구역 도장 산소결핍, confined area painting O2 deficiency, DSSMA Article 5 도장 위험물, DSSMA Article 27 응급조치, OSHA-KR Article 110 MSDS 작성, SAPA Article 5 도급 사업주 | shipbuilding-agent |
+| painting-coating-fire-toxic-planner | 1.0 | .claude/skills/painting-coating-fire-toxic-planner/SKILL.md | both | 조선 도장 작업 화재 폭발, ship painting coating fire, 선박 도료 가연성 증기 LEL, paint vapor LEL explosion shipyard, 유기용제 흡입 노출 도장, solvent vapor inhalation painting, 도장 베이 화재 대응, paint bay fire response, 밀폐구역 도장 산소결핍, confined area painting O2 deficiency, DSSMA Article 5 도장 위험물, DSSMA Article 27 응급조치, OSHA-KR Article 110 물질안전보건자료(MSDS) 작성·제출, SAPA Article 5 도급 사업주 | shipbuilding-agent |
 | permit-to-work | 1.0.1 | .claude/skills/permit-to-work/SKILL.md | both | 작업허가서, permit to work, PTW, hot work permit, 화기작업, 밀폐공간작업, confined space | safety-workflow-manager |
 | platform-command-lifecycle-manager | 1.0.0 | .claude/skills/platform-command-lifecycle-manager/SKILL.md | both | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
 | platform-skill-lifecycle-manager | 1.0.0 | .claude/skills/platform-skill-lifecycle-manager/SKILL.md | both | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
@@ -123,7 +123,7 @@
 | rack-fall-protection-planner | 1.0 | .claude/skills/rack-fall-protection-planner/SKILL.md | both | 데이터센터 추락 방지, 서버 랙 설치 작업, rack install fall protection, overhead cabling work-at-height, top-of-rack 작업, 제상플로어 접근, raised-floor tile handling, datacenter work-at-height plan, 랙 설치 사다리 선택, rack anchor point rating | datacenter-agent |
 | research-analysis | 1.0.0 | .claude/skills/research-analysis/SKILL.md | both | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | N/A |
 | risk-assessment | 1.0.0 | .claude/skills/risk-assessment/SKILL.md | both | 위험성평가, risk assessment, hazard identification, 위험 평가, 작업위험성분석 | risk-assessment-agent |
-| rolling-stock-maintenance-loto-planner | 1.0 | .claude/skills/rolling-stock-maintenance-loto-planner/SKILL.md | both | 철도 차량사업소 차량 정비 LOTO, rolling stock depot maintenance, EMU 객차 정비 차량 이동 잠금, rolling stock vehicle movement lockout, bogey 대차 리프팅 크레인, bogey heavy lift rigging, 밑바닥 pit 작업 차량 압사, undercarriage pit work crush, 차량 지붕 추락 방지, roof fall prevention rolling stock, 철도 안전관리자 정비 허가, RSA Article 48 철도 보호, OSHA-KR Article 99 추락 방지 전차선, wheel chock derail brake scotch | railway-agent |
+| rolling-stock-maintenance-loto-planner | 1.0 | .claude/skills/rolling-stock-maintenance-loto-planner/SKILL.md | both | 철도 차량사업소 차량 정비 LOTO, rolling stock depot maintenance, EMU 객차 정비 차량 이동 잠금, rolling stock vehicle movement lockout, bogey 대차 리프팅 크레인, bogey heavy lift rigging, 밑바닥 pit 작업 차량 압사, undercarriage pit work crush, 차량 지붕 추락 방지, roof fall prevention rolling stock, 철도 안전관리자 정비 허가, RSA Article 48 철도 보호, OSHA-KR Article 38 추락 방지 포함 안전조치 (전차선), wheel chock derail brake scotch | railway-agent |
 | root-cause-analysis | 1.0.0 | .claude/skills/root-cause-analysis/SKILL.md | both | 근본원인분석, root cause analysis, RCA, 5 whys, fishbone diagram, 사고조사, CAPA 수립 | incident-investigation-agent |
 | sae-causality-assessor | 1.0 | .claude/skills/sae-causality-assessor/SKILL.md | both | SAE 인과성 평가, causality assessment, ImPACT, WHO-UMC, Naranjo algorithm, ICH E2A, 중대이상반응 인과관계, 이상반응 인과성 | gcp-agent |
 | safety-inspection-validator | 1.0 | .claude/skills/safety-inspection-validator/SKILL.md | both | 안전점검 결과 검증, safety inspection findings, 지적사항 분류, CAPA, 시정조치, Critical Major Minor 분류, 건설 안전점검 | ehsconst-agent |

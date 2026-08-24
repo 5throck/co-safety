@@ -30,7 +30,7 @@ This is an **industry-unique workflow** — a port-logistics-specific vehicle-pe
    3. **Active protection**: Vehicle-pedestrian proximity detection and collision-warning systems (Pedestrian Detection), automatic braking, beacons, and rear-view cameras.
    4. **Administrative**: Pedestrian-vehicle separation SOPs, licensing and safety training, spotter assignment, speed limits and one-way traffic.
    5. **PPE**: HVVA vest (Class 2/3), hard hat, safety footwear (last resort).
-3. **Vehicle safety control**: Per 산업안전보건법 (OSHA-KR) Article 99 (fall/load-drop prevention) and Article 100 (vehicle and machine safety devices) — pre-use checks (brakes, beacons, horn, rear-view camera), rated-load compliance, forks carried low.
+3. **Vehicle safety control**: Per 산업안전보건법 (OSHA-KR) Article 38 (safety measures — fall/load-drop prevention) and 안전보건기준에관한규칙 (machinery safety-device standards) — pre-use checks (brakes, beacons, horn, rear-view camera), rated-load compliance, forks carried low.
 4. **Traffic-pedestrian separation**: Physically separate vehicle and pedestrian routes; post spotters and require stop-and-go at crossings; mark no-crossing zones.
 5. **Visibility-limited operations**: Ensure illumination for night/severe-weather work; check rotating beacons and work lights; mandate HVVA vests; activate rear-approach alarms.
 6. **Emergency response**: On collision or tip-over, immediately rescue, provide first aid, and call 119; prevent further load drop on tip-over; pre-establish scene preservation and investigation procedures.
@@ -57,8 +57,8 @@ Source: `regulations/KR/industry-regulatory-anchors.yaml` (Task A-03). The citat
 - 항만안전특별법 Article 6
 - 항만안전특별법 Article 8
 - 항만안전특별법 Article 9
-- 산업안전보건법 Article 99
-- 산업안전보건법 Article 100
+- 산업안전보건법 Article 38 (추락·낙하 등 위해 방지 안전조치)
+- 안전보건기준에관한규칙 제6장 제2절 (붕괴 등에 의한 위험 방지)
 - 위험물안전관리법 Article 20
 
 ### Gloss

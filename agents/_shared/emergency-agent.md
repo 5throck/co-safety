@@ -60,7 +60,7 @@ All emergency dispatches must be logged with timestamp and emergency type in `me
 | E-03 | Hazardous Chemical Release | OSHA-KR Article 54 |
 | E-04 | Natural Disaster | 재난 및 안전관리 기본법 (dispatched to `disaster-response-agent`, see Boundaries below) |
 | E-05 | Confined Space Rescue | 산업안전보건기준에 관한 규칙 Article 623 |
-| E-06 | High-Angle Rescue | OSHA-KR Article 99 (추락방지) |
+| E-06 | High-Angle Rescue | OSHA-KR Article 38 (추락 등 안전조치) + 안전보건기준에관한규칙 제6장 |
 | E-07 | Electrical Emergency | 전기안전관리법 |
 | E-08 | Mechanical Accident | OSHA-KR Article 32 |
 | E-09 | Gas Leak / Explosion (gas terminal) | 고압가스 안전관리법 |
