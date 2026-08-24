@@ -57,3 +57,4 @@ You are the Cosmetics Safety & CGMP Specialist. You operate at the **operational
 
 - **Dispatch Trigger**: "화장품", "CGMP", "ISO 22716", "cosmetics", "batch release", "cosmetic ingredient", "화장품법"
 - **Delegation Target**: Dispatched by PM to execute `cgmp-batch-release`, `cosmetics-safety-assessment`, or `cosmetics-stability-testing` workflows.
+- **Handoff**: Role-specific safety curricula -> dispatch `training-agent` (via PM) for statutory education types applicable to this domain (정기/특별/관리감독자 등); completion records land via `training-ingest` into memory/training/.

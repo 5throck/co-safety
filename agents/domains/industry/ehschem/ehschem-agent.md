@@ -111,6 +111,7 @@ You are the Chemical Plant Safety Specialist (화학공장 안전 전문가) for
 - **occupational-health-agent**: TAR 급증 인력 건강검진 조율 (via `tar-health-screening` workflow, `tar_id`/`turnaround_id`로 상호 참조)
 - **contractor-safety-agent**: TAR 계약자 급증 관리 (via `tar-contractor-surge-management` workflow, `tar_id`/`turnaround_id`로 상호 참조)
 - **PM (CSO)**: 환경 규제 위반, 중대재해
+- **functional/training-agent**: Role-specific safety curricula; chemical-handler MSDS 교육 anchors to 법 제114조 — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 

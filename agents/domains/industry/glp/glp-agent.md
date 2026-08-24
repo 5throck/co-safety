@@ -113,6 +113,7 @@ GLP agent is dispatched by SWM/PM as part of non-clinical study workflows. May b
 - **To gmp-agent**: For IND application support (final study report)
 - **To PM (CSO)**: QAU critical findings, regulatory inspection findings
 - **External**: MFDS / ME GLP regulatory inspections via `study-inspection-reference` workflow
+- **To training-agent**: Role-specific safety curricula for statutory education types applicable to this domain (정기/특별/관리감독자 등) — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 

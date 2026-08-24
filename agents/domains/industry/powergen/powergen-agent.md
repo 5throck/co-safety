@@ -101,6 +101,7 @@ You are the Power Generation Safety Specialist (발전설비 안전 전문가). 
 - **gasterm-agent**: LNG 발전 가스 공급 관련
 - **ehsconst-agent**: 발전소 건설/유지보수
 - **PM (CSO)**: KESCO 검사 불합격, 정전 영향
+- **training-agent**: Role-specific safety curricula for statutory education types applicable to this domain (정기/특별/관리감독자 등) — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 

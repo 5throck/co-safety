@@ -76,6 +76,7 @@ lifecycle:
   - Escalate to the Emergency Agent if an imminent process safety incident or hazard is detected.
   - Escalate to PM (CSO) immediately for regulatory non-compliance issues or missing legal_basis fields.
   - Handoff to `ehsconst-agent` for joint TBM (Tool Box Meeting) when LOTO procedures affect construction or contractor workers on-site.
+  - Handoff to `training-agent` (via PM) for statutory worker-training curricula (OSHA-KR Article 29) when PSM workflows identify training gaps; completion records land via `training-ingest` into memory/training/.
 
 ## PM-ONLY INVOCATION
 This agent is dispatched ONLY through PM.

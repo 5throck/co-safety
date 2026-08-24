@@ -58,3 +58,4 @@ You are the Data Center & IT Infrastructure Safety Specialist. You operate at th
 
 - **Dispatch Trigger**: "데이터센터", "UPS", "수전설비", "고전압", "Arc Flash", "BCP", "datacenter", "ups fire", "high voltage"
 - **Delegation Target**: Dispatched by PM to execute `datacenter-ups-fire-safety`, `high-voltage-facility-safety`, `datacenter-fuel-tank-safety`, or `tbm-pre-work-briefing` workflows.
+- **Handoff**: Role-specific safety curricula -> dispatch `training-agent` (via PM) for statutory education types applicable to this domain (정기/특별/관리감독자 등); completion records land via `training-ingest` into memory/training/.

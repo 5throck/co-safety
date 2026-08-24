@@ -101,6 +101,7 @@ GMP agent is dispatched by SWM as part of pharmaceutical manufacturing workflows
 - **To psm-agent**: When GMP issue overlaps with process safety (e.g., equipment failure)
 - **To risk-assessment-agent**: When EHS risk identified (distinct from quality risk)
 - **To PM (CSO)**: Regulatory non-compliance or missing legal_basis
+- **To training-agent**: Role-specific safety curricula for statutory education types applicable to this domain (정기/특별/관리감독자 등) — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 
