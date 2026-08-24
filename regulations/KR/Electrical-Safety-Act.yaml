@@ -12,12 +12,13 @@ primary_law:
     - article: "22"
       topic_ko: 전기안전관리자 선임
 voltage_classification:
-  low: "400V 이하"
-  medium: "400V ~ 22kV"
-  high: "22kV ~ 154kV"
-  extra_high: "154kV 이상 (345kV/765kV 송전)"
+  low: "저압 — 직류 1.5kV 이하, 교류 1kV 이하"
+  medium: "고압 — 직류 1.5kV 초과 / 교류 1kV 초과 ~ 7kV 이하"
+  high: "특고압 — 7kV 초과"
+  extra_high: "법정 구분 아님(송전선로 실무 등급 154kV/345kV/765kV — 법상 모두 특고압); evidence-models powergen voltage_class 스키마 호환용으로 유지"
+  source: "전기사업법 제67조에 따른 전기설비기술기준 고시 제3조② (기후에너지환경부 고시 2025-18, 2025-10-01 시행). 종전 '400V 이하 / 400V~22kV / 22~154kV' 경계 표기는 법령 근거 없음"
 inspection_cycles:
-  regular_self: 월 1회
+  regular_self: "정기점검 주기는 월차/분기/반기 등으로 전기안전관리자가 안전관리규정에 정함 (전기안전관리법 시행규칙 제30조②7호·③, 전기안전관리자의 직무에 관한 고시 제2조6호·제3조②). 태양광발전·ESS·풍력·연료전지·수력발전·전기자동차 충전시설 및 무정전전원장치는 월차 점검 의무 (직무고시 제3조③·⑤) — 종전 '월 1회' 획일 표기는 법령 근거 없음"
   kesco_periodic: 일반용전기설비 정기점검 1~3년 (다중이용·제조업 등 1년, 학교 2년, 기타 3년 — 시행규칙 제12조)
 key_hazards:
   - 감전 (electric shock)

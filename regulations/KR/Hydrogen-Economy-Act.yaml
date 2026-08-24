@@ -17,5 +17,8 @@ hydrogen_specifics:
   detonation_range: "18.3-59%"
   embrittlement: "금속 취성 발생 가능"
   flame_invisible: "육안으로 화염 안 보임 — UV/IR 검출기 필수"
-charging_station_distance: "15-30m (학교/병원 등)"
+charging_station_distance:
+  governing_documents: "수소경제법 시행규칙 제44조 → 별표 5 (수소연료사용시설의 시설기준·기술기준 — 거리 수치표는 이미지 별표로 캐시 텍스트 미포함); 세부 규격·수치는 법 제48조에 따라 가스기술기준위원회 상세기준(KGS Code)으로 정하고 기후에너지환경부장관 승인·공고"
+  verified_special_rules: "융·복합충전소 및 패키지형, 이동식 수소연료 충전시설의 시설기준 등에 관한 특례기준(산업통상부 고시 2025-76): 처리·저장설비~사업소경계 규정거리 8m(상용압력 >40MPa)/6m(≤40MPa), 도로경계 5m, 철도 30m, 화기 8m/6m. 수소자동차 충전소시설기준 및 기술기준 등에 관한 특례기준(R&D용): 이동 충전차량~보호시설 17m(1종)/12m(2종)"
+  prior_value_note: "종전 '15-30m (학교/병원 등)' 수치는 캐시 어느 문서에서도 확인 불가 — 삭제"
 last_updated: "2026-08-24"
