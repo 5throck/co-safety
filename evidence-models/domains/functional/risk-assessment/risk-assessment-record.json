@@ -3,7 +3,7 @@
   "$id": "risk-assessment-record.json",
   "title": "Workplace Risk Assessment Record",
   "description": "Structured risk assessment record per OSHA-KR Article 36 (위험성평가 실시). Documents hazard identification, risk scoring, and control measures for workplace tasks.",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "type": "object",
   "required": [
     "record_id",
@@ -262,15 +262,11 @@
       "description": "Reference to the originating incident/RCA record (e.g. memory/incidents/ or FIND-YYYY-NNNN), required in practice when assessment_type is 'post_incident'. Added v1.1.0."
     },
     "related_assessment_ref": {
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "References to related specialist assessment outputs (e.g. fall-hazard-assessor, ess-fire-risk-assessor, psm-agent HAZOP/PHA records) that inform or overlap with this assessment. Added v1.1.0.",
-      "default": null
+      "description": "References to related specialist assessment outputs (e.g. fall-hazard-assessor, ess-fire-risk-assessor, psm-agent HAZOP/PHA records) that inform or overlap with this assessment. Added v1.1.0. Nullable union normalized to plain array in v3.0.0 (field is optional; absence conveys none)."
     },
     "legal_basis": {
       "type": "array",

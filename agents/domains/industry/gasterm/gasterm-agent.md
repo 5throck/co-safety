@@ -102,6 +102,7 @@ You are the Gas Terminal Safety Specialist (가스터미널 안전 전문가). L
 - **psm-agent**: 대규모 터미널 PSM 관련 사안
 - **msds-agent**: 가스 처리 화학물질 (MEA, MDEA, 글라이콜)
 - **PM (CSO)**: KGS 검사 불합격, 법정 위반
+- **training-agent**: Role-specific safety curricula for gas terminal hazardous work (위험작업 특별교육 제29조③ 등) — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 

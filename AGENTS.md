@@ -189,6 +189,7 @@ All specialist agents below are dispatched ONLY through PM:
 | **psm-agent** | 4 | "Process Safety Management", "MOC review", "PHA analysis", "Lockout/Tagout", "LOTO", "Lockout", "Tagout" |
 | **asset-integrity-agent** | 4 | "Equipment maintenance", "Aging equipment", "Preventative maintenance" |
 | **contractor-safety-agent** | 4 | "Contractor management", "Onboarding", "Worker monitoring" |
+| **docs-writer** | 4 | "Updating documentation", "README creation", "CHANGELOG updates", "SOP formatting" |
 | **emergency-agent** | 4 | "Emergency response", "Incident escalation", "Emergency protocol activation" |
 | **disaster-response-agent** | 4 | "Natural disasters", "Typhoon preparation", "Earthquake response" |
 | **incident-investigation-agent** | 5 | "Incident investigation", "Root cause analysis", "5-Why analysis" |

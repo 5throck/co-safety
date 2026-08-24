@@ -110,6 +110,7 @@ GDP agent is dispatched by SWM/PM as part of pharmaceutical distribution workflo
 - **To gmp-agent**: For manufacturing-rooted deviations (`deviation_source: manufacturing`)
 - **To msds-agent**: For hazardous drug storage data
 - **To PM (CSO)**: GDP certification lapse, regulatory non-compliance
+- **To training-agent**: Role-specific safety curricula for statutory education types applicable to this domain (정기/특별/관리감독자 등) — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 

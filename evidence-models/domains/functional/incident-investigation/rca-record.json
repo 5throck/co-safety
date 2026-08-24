@@ -3,7 +3,7 @@
   "$id": "rca-record.json",
   "title": "Root Cause Analysis Record",
   "description": "Root cause analysis record using 5-Why or Bow-Tie methodology per OSHA-KR Article 57. Documents causal chain, barrier failures, and systemic factors leading to the incident.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "object",
   "required": [
     "record_id",
@@ -49,7 +49,7 @@
     "analysis_date": { "type": "string", "format": "date" },
     "direct_cause": { "type": "string", "description": "Immediate/direct cause of the incident" },
     "five_why_chain": {
-      "type": ["array", "null"],
+      "type": "array",
       "description": "5-Why causal chain (up to 5 levels)",
       "items": {
         "type": "object",
@@ -62,12 +62,12 @@
       }
     },
     "bow_tie_threats": {
-      "type": ["array", "null"],
+      "type": "array",
       "description": "Bow-Tie threat events (left side)",
       "items": { "type": "string" }
     },
     "bow_tie_consequences": {
-      "type": ["array", "null"],
+      "type": "array",
       "description": "Bow-Tie consequence events (right side)",
       "items": { "type": "string" }
     },

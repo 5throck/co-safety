@@ -124,6 +124,7 @@ MSDS agent is dispatched by SWM/PM as part of chemical management workflows. May
 - **To occupational-health-agent**: Provides OEL/toxicology data; OH agent handles monitoring
 - **To risk-assessment-agent**: Provides hazard data for job hazard analysis (JHA)
 - **To PM (CSO)**: Regulatory non-compliance or missing legal_basis
+- **To training-agent**: Role-specific safety curricula; MSDS handler education anchors to 법 제114조 (게시 및 교육) — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 

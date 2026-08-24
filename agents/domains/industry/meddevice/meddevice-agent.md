@@ -81,6 +81,7 @@ lifecycle:
 - functional/glp-agent: 생물적합성 시험
 - risk-assessment-agent: workforce/process risk assessments route there; device risk stays here (ISO 14971 via `iso14971-risk-scorer`)
 - PM (CSO): MFDS 위해사항 신고, KGMP-MD 부적합
+- training-agent: role-specific safety curricula for statutory education types applicable to this domain (정기/특별/관리감독자 등) — dispatch via PM; completion records land via `training-ingest` into memory/training/.
 
 ### Tools Used
 

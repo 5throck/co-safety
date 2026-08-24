@@ -157,6 +157,27 @@ not require a migration script. No breaking (rename/type-change/new-required/rem
   (it was created, with the handoff field and `legal_basis.minItems: 3` already present, in the
   same commit that bumped its 7 siblings v1.0.0 → v1.1.0, so it never joined that cohort).
 
+- `domains/functional/risk-assessment/risk-assessment-record.json` is at **v3.0.0** (2026-08-24):
+  breaking change — `related_assessment_ref` type narrowed from the draft-07 union
+  `["array", "null"]` (with `"default": null`) to plain `"type": "array"` with
+  `items: {"type": "string"}`. Triggers rule 2 (type change): explicit `null` is no longer
+  accepted; the field remains optional, so absence conveys none and `"default": null` was
+  redundant. Rationale: some strict draft-07 validators reject array-typed unions, and
+  `scripts/lib/evidence-validator.ts` dispatches on strict string-typed `schema.type`, so the
+  union form silently skipped item validation entirely — normalization re-enables it. No
+  `v2-to-v3.ts` script was created: a search of `memory/` on 2026-08-24 confirmed zero RA-
+  record instances exist, so there is no data to transform and a script would be a no-op.
+
+- `domains/functional/incident-investigation/rca-record.json` is at **v2.0.0** (2026-08-24):
+  breaking change — same union normalization as risk-assessment-record.json v3.0.0 above:
+  `five_why_chain`, `bow_tie_threats`, and `bow_tie_consequences` narrowed from
+  `["array", "null"]` to plain `"type": "array"` (items unchanged). All three are optional,
+  method-specific fields whose siblings (`failed_barriers`, `contributing_factors`,
+  `root_causes`) already use plain array typing — absence conveys not-applicable for the
+  non-selected RCA methodology. Triggers rule 2 (type change). No `v1-to-v2.ts` script was
+  created: a search of `memory/` on 2026-08-24 confirmed zero RCA- record instances exist,
+  so there is no data to transform and a script would be a no-op.
+
 ## When to Create a Migration
 
 1. A field is **renamed** across evidence model schemas
