@@ -5,8 +5,8 @@ status: active
 applicability: mandatory
 workflow_type: core
 legal_basis:
-  - 약사법 Article 34
-  - 의약품등기준규정 Article 12 (PQR)
+  - 약사법 Article 37
+  - 의약품 등의 안전에 관한 규칙 별표 1 제7.3호 (제품품질평가)
   - ICH Q7 (API GMP)
   - ICH Q10 (Pharmaceutical Quality System)
 industry_profile: pharma-general

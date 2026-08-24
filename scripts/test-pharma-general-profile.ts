@@ -148,7 +148,7 @@ console.log(`\n${CYAN}[T-07] Agent legal basis${RESET}`);
 try {
     const agentContent = fs.readFileSync(agentPath, 'utf-8');
     const hasLegalBasis = agentContent.includes('## Section A — Legal Basis');
-    const referencesPharmaLaw = agentContent.includes('약사법') && agentContent.includes('Article 34');
+    const referencesPharmaLaw = agentContent.includes('약사법') && agentContent.includes('Article 37');
     const referencesICH = agentContent.includes('ICH Q7') || agentContent.includes('ICH Q9') || agentContent.includes('ICH Q10');
     const referencesPICS = agentContent.includes('PIC/S');
 

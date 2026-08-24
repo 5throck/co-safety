@@ -178,6 +178,20 @@ not require a migration script. No breaking (rename/type-change/new-required/rem
   created: a search of `memory/` on 2026-08-24 confirmed zero RCA- record instances exist,
   so there is no data to transform and a script would be a no-op.
 
+- `domains/industry/gmp/gmp-*-record.json` (all 11 models) remain at **v1.0.0** (2026-08-24):
+  corrective citation re-anchoring only — NO version bump, no migration script. The
+  `legal_basis` descriptions and `examples[]` strings were re-grounded from the retired
+  "약사법 Article 34 + 의약품등기준규정 Art.N" citation scheme onto 약사법 Article 37
+  (의약품등의 제조 관리의무) + 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 호-numbering,
+  remapped via `regulations/KR/MFDS-GMP.yaml` `key_articles[].legacy_taxonomy_id`
+  (12→제8호, 15→제13호, 16/17→제6호, 18→제12호, 19→제7.3호, 20→제7.2호). Exception: the two
+  `gmp-change-control-record.json` examples citing legacy Art.19/Art.20 were aligned to
+  별표 1 제12호 (변경관리) instead of a literal 19→제7.3호 remap, matching that schema's own
+  rewritten change-control description and its workflow anchor. No field was renamed,
+  re-typed, added to `required[]`, or removed; `minItems: 3` and array structure preserved;
+  example strings are non-normative documentation, so all instances remain valid unmodified.
+  A search of `memory/` on 2026-08-24 confirmed zero GMP-* record instances exist.
+
 ## When to Create a Migration
 
 1. A field is **renamed** across evidence model schemas

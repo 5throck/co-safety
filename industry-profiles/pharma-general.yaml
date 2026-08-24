@@ -4,12 +4,13 @@ name: pharma-general
 display_name: "제약 (Pharmaceutical Manufacturing - General GMP)"
 version: "1.0"
 status: active
-last_updated: 2026-08-06
+last_updated: 2026-08-24
 industry_tier: industry
 agent: gmp-agent
 legal_basis:
-  - 약사법 (Pharmaceutical Affairs Act) Article 34
-  - 의약품 등의 기준 및 규정 (MFDS Notice)
+  - 약사법 (Pharmaceutical Affairs Act) Article 37
+  - 의약품 등의 안전에 관한 규칙 별표 1 (Presidential Decree — Pharmaceutical Manufacturing and Quality Control Standards)
+  - 의약품 제조 및 품질관리에 관한 규정 (MFDS Notice No. 2024-87)
   - ICH Q7 (API GMP)
   - ICH Q9 (Quality Risk Management)
   - ICH Q10 (Pharmaceutical Quality System)

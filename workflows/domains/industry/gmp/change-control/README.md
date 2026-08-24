@@ -1,7 +1,7 @@
 # 변경관리 (Change Control) Workflow
 
 ## 1. Objective
-Ensure that all changes to facilities, equipment, processes, materials, documentation, or organization affecting GMP compliance are properly evaluated, approved, implemented, and documented before execution, per KP-GMP 의약품등기준규정 Article 18 and ICH Q10.
+Ensure that all changes to facilities, equipment, processes, materials, documentation, or organization affecting GMP compliance are properly evaluated, approved, implemented, and documented before execution, per 의약품 등의 안전에 관한 규칙 별표 1 제12호 (변경관리) and ICH Q10.
 
 ## 2. Applicability
 This workflow applies to all GMP-regulated changes at pharmaceutical manufacturing sites under the `pharma-general` profile, except replacements-in-kind (RIK).

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "gmp-equipment-qualification-record.json",
   "title": "GMP Equipment Qualification Record",
-  "description": "Evidence model for GMP Equipment Qualification (설비 적격성평가) records. v1 per KP-GMP 의약품등기준규정 Article 16 + ICH Q7/Q10.",
+  "description": "Evidence model for GMP Equipment Qualification (설비 적격성평가) records. v1 per KP-GMP 「의약품 등의 안전에 관한 규칙」 별표 1 제6호 (적격성평가) + ICH Q7/Q10.",
   "version": "1.0.0",
   "type": "object",
   "required": [
@@ -158,20 +158,20 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: Pharmaceutical Affairs Act (약사법) Article 34 (GMP manufacturing obligation) and MFDS delegated legislation (의약품등기준규정). Adjacent laws may include: ICH Q7 (API GMP), ICH Q9 (Quality Risk Management), ICH Q10 (Pharmaceutical Quality System), PIC/S PE 009 (harmonized GMP).",
+      "description": "Multi-source legal basis. Primary: Pharmaceutical Affairs Act (약사법) Article 37 (manufacturing management obligation for pharmaceuticals, 의약품등의 제조 관리의무) and Presidential Decree Annex 1 (총리령 「의약품 등의 안전에 관한 규칙」 별표 1; operational detail in MFDS Notice No. 2024-87). Adjacent laws may include: ICH Q7 (API GMP), ICH Q9 (Quality Risk Management), ICH Q10 (Pharmaceutical Quality System), PIC/S PE 009 (harmonized GMP).",
       "examples": [
         [
-          "약사법 Art.34",
-          "의약품등기준규정 Art.12",
+          "약사법 Art.37",
+          "의약품 등의 안전에 관한 규칙 별표 1 제8호",
           "ICH Q7"
         ],
         [
-          "약사법 Art.34",
-          "의약품등기준규정 Art.16",
+          "약사법 Art.37",
+          "의약품 등의 안전에 관한 규칙 별표 1 제6호",
           "ICH Q10"
         ],
         [
-          "약사법 Art.34",
+          "약사법 Art.37",
           "PIC/S PE 009-1",
           "ICH Q9"
         ]

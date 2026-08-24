@@ -1,7 +1,7 @@
 # 설비 적격성평가 (Equipment Qualification) Workflow
 
 ## 1. Objective
-Establish and maintain documented evidence that equipment is properly installed, operates correctly, and consistently performs within established limits, per KP-GMP 의약품등기준규정 Article 16 and ICH Q7.
+Establish and maintain documented evidence that equipment is properly installed, operates correctly, and consistently performs within established limits, per 의약품 등의 안전에 관한 규칙 별표 1 제6호 (적격성평가) and ICH Q7.
 
 ## 2. Applicability
 This workflow applies to all GMP-regulated manufacturing equipment, analytical instruments, and utility systems under the `pharma-general` profile.
@@ -27,7 +27,7 @@ This workflow applies to all GMP-regulated manufacturing equipment, analytical i
 - Typically 3 consecutive successful runs.
 
 ### Step 6: Calibration & Preventive Maintenance
-- Establish calibration schedule per KP-GMP Article 16.
+- Establish calibration schedule per 의약품 등의 안전에 관한 규칙 별표 1 제6호.
 - Define preventive maintenance schedule.
 - Generate evidence in `gmp-equipment-qualification-record.json`.
 

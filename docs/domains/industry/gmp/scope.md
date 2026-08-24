@@ -26,7 +26,7 @@ This document defines the v1 scope of the Good Manufacturing Practice (GMP) modu
 ## 3. Regulatory Scope
 
 ### 3.1 v1 Coverage
-- **Base framework**: KP-GMP (`약사법` Article 34 + `의약품등기준규정`)
+- **Base framework**: KP-GMP (`약사법` Article 37 + 총리령 「의약품 등의 안전에 관한 규칙」 별표 1)
 - **International alignment**: PIC/S PE 009 + ICH Q7/Q9/Q10
 - **Industry profile**: `pharma-general` (general pharmaceuticals only)
 

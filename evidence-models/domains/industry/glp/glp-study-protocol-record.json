@@ -105,12 +105,12 @@
       "description": "Multi-source legal basis. Primary: 약사법 (Pharmaceutical Affairs Act — basis for MFDS GLP) and 비임상시험 관리기준 (MFDS GLP standards). Adjacent laws may include: K-REACH (chemical hazard assessment requires GLP studies), 화학물질 위해성평가 시험기관 관리기준 (ME/환경부 GLP), OECD GLP Principles C(97)186/Final (international MAD).",
       "examples": [
         [
-          "약사법 Art.34",
+          "약사법 Art.34-3",
           "MFDS GLP 고시",
           "OECD GLP C(97)186"
         ],
         [
-          "약사법 Art.34",
+          "약사법 Art.34-3",
           "K-REACH Art.13",
           "OECD GLP C(97)186"
         ],

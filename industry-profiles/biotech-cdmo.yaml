@@ -9,7 +9,7 @@ industry_tier: industry
 agent: biotech-agent
 legal_basis:
   - 유전자재조합생물체의 국가간 이동 등에 관한 법률 (LMO Act) Article 22 & Article 24
-  - 약사법 (PA) Article 34 & KP-GMP
+  - 약사법 (PA) Article 37 & KP-GMP
   - 산업안전보건법 (OSHA-KR) Article 38 & Article 39
   - 중대재해처벌법 (SAPA) Article 4
 key_hazards:
@@ -19,6 +19,6 @@ key_hazards:
 description: "GxP and EHS safety profile for biopharmaceutical CDMO commercial manufacturing, large-scale bioreactor SIP sterilization, and Biosafety Level (BSL) 2-3 laboratories."
 applicable_laws:
   - 유전자재조합생물체의 국가간 이동 등에 관한 법률 Article 22
-  - 약사법 Article 34
+  - 약사법 Article 37
   - 산업안전보건법 Article 38
   - 중대재해처벌법 Article 4

@@ -1,7 +1,7 @@
 # 이상관리 및 시정예방조치 (Deviation Management and CAPA) Workflow
 
 ## 1. Objective
-Identify, document, investigate, and resolve deviations from approved procedures or specifications, and implement corrective and preventive actions (CAPA) to eliminate root causes, per KP-GMP 의약품등기준규정 Article 19 and ICH Q10.
+Identify, document, investigate, and resolve deviations from approved procedures or specifications, and implement corrective and preventive actions (CAPA) to eliminate root causes, per 의약품 등의 안전에 관한 규칙 별표 1 제7.3호 (이상관리 및 시정조치) and ICH Q10.
 
 ## 2. Applicability
 This workflow applies to all GMP-regulated operations at pharmaceutical manufacturing sites under the `pharma-general` profile. Covers planned and unplanned deviations, out-of-specification (OOS) events, and adverse trends.

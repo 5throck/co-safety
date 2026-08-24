@@ -39,7 +39,7 @@ This guide organizes the domains into a **3-tier classification system**.
 
 | Domain | Industry | Integrated regulations |
 |--------|----------|------------------------|
-| `gmp` | Pharmaceutical manufacturing quality | 약사법 (Pharmaceutical Affairs Act) Art 34, PIC/S, ICH Q7/Q9/Q10 |
+| `gmp` | Pharmaceutical manufacturing quality | 약사법 (Pharmaceutical Affairs Act) Art 37, PIC/S, ICH Q7/Q9/Q10 |
 | `gdp` | Pharmaceutical distribution quality | 약사법 Art 47, EU GDP Guidelines |
 | `glp` | Non-clinical study management | 비임상시험관리기준 (Non-clinical Study Management Standards), OECD GLP |
 | `gcp` | Clinical trial management | 약사법 Art 34의2, ICH E6(R3) |

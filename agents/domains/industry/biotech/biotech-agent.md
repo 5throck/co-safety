@@ -20,7 +20,7 @@ lifecycle:
 
 ### Primary Laws
 - **유전자재조합생물체의 국가간 이동 등에 관한 법률 (LMO Act) Article 22 & Article 24** — LMO 연구시설/생산시설 신고 및 바이오안전 준수.
-- **약사법 (PA) Article 34 & KP-GMP** — 생물학적제제 제조 및 청정구역 무균성 확보.
+- **약사법 (PA) Article 37 & KP-GMP** — 생물학적제제 제조 및 청정구역 무균성 확보.
 - **산업안전보건법 (OSHA-KR) Article 38 & Article 39** — 증기 보일러/압력용기 안전 및 유해생물인자 보건조치.
 
 ### Adjacent Laws

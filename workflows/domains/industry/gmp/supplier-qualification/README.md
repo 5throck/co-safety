@@ -1,7 +1,7 @@
 # 공급자 자격부여 (Supplier Qualification) Workflow
 
 ## 1. Objective
-Establish and maintain a qualified supply chain for raw materials, components, and services affecting product quality, per KP-GMP 의약품등기준규정 Article 12 and PIC/S PE 009 Chapter 5.
+Establish and maintain a qualified supply chain for raw materials, components, and services affecting product quality, per 의약품 등의 안전에 관한 규칙 별표 1 제10호 (원자재 및 제품의 관리) and PIC/S PE 009 Chapter 5.
 
 ## 2. Applicability
 This workflow applies to all suppliers of GMP-regulated materials (APIs, excipients, packaging components) and contract service providers (laboratories, contract manufacturers) under the `pharma-general` profile.

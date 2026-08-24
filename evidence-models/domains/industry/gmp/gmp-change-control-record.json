@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "gmp-change-control-record.json",
   "title": "GMP Change Control Record",
-  "description": "Evidence model for GMP Change Control (변경관리) records. v1 per KP-GMP 의약품등기준규정 Article 18 + ICH Q10.",
+  "description": "Evidence model for GMP Change Control (변경관리) records. v1 per KP-GMP 「의약품 등의 안전에 관한 규칙」 별표 1 제12호 (변경관리) + ICH Q10.",
   "version": "1.0.0",
   "type": "object",
   "required": [
@@ -125,22 +125,22 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Primary: 약사법 Article 34 (GMP change control obligation) and ICH Q10 §3.2.4 (change management in pharmaceutical quality system). Adjacent laws may include: ICH Q9 (quality risk management for change impact assessment), 의약품등기준규정 (MFDS delegated legislation for change control procedures), PIC/S PE 009 (harmonized GMP change management).",
+      "description": "Multi-source legal basis. Primary: 약사법 Article 37 (GMP manufacturing management obligation) and ICH Q10 §3.2.4 (change management in pharmaceutical quality system). Adjacent laws may include: ICH Q9 (quality risk management for change impact assessment), 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제12호 (change control), PIC/S PE 009 (harmonized GMP change management).",
       "examples": [
         [
-          "약사법 Art.34",
+          "약사법 Art.37",
           "ICH Q10 §3.2.4",
           "ICH Q9"
         ],
         [
-          "약사법 Art.34",
-          "의약품등기준규정 Art.19",
+          "약사법 Art.37",
+          "의약품 등의 안전에 관한 규칙 별표 1 제7.3호",
           "ICH Q10"
         ],
         [
           "ICH Q10 §3.2.4",
           "PIC/S PE 009-1",
-          "의약품등기준규정 Art.20"
+          "의약품 등의 안전에 관한 규칙 별표 1 제7.2호"
         ]
       ]
     },
