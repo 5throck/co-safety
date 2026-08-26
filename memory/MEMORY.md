@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-08-26](2026-08-26.md) | chore(cleanup): L3-to-variant promotion pre-flight cleanup |
 | [2026-08-24](2026-08-24.md) | fix(regulations): early SGM revalidation of stale cohort and base index arbitration against statute cache |
 | [2026-08-23](2026-08-23.md) | fix(governance): remediate project-review findings - citation integrity, gate enforcement, schema hardening |
 | [2026-08-21](2026-08-21.md) | docs: manually upgrade docs/context.md to v2.4 (no co-safety variant template exists yet) |

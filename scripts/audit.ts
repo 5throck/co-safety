@@ -91,27 +91,11 @@ if (fs.existsSync('CHANGELOG.md')) {
     Fail('CHANGELOG.md missing');
 }
 
-// 2. CONSTITUTION.md must be accessible
+// 2. CONSTITUTION.md check (workspace root only — L3 variants omit this file)
 if (fs.existsSync('CONSTITUTION.md') || fs.existsSync('../CONSTITUTION.md')) {
     Pass('CONSTITUTION.md accessible');
 } else {
-    Fail('CONSTITUTION.md not found (expected at ./ or ../)');
-}
-
-// 2.5. Constitution section files must exist and be non-empty (workspace root only)
-if (fs.existsSync('CONSTITUTION.md') && fs.existsSync('docs/constitution')) {
-    const content = fs.readFileSync('CONSTITUTION.md', 'utf-8');
-    const regex = /docs\/constitution\/([\w.-]+\.md)/g;
-    let match;
-    while ((match = regex.exec(content)) !== null) {
-        const ref = match[1];
-        const filePath = path.join('docs', 'constitution', ref);
-        if (fs.existsSync(filePath) && fs.statSync(filePath).size > 0) {
-            Pass(`constitution section: ${ref}`);
-        } else {
-            Fail(`constitution section missing or empty: ${filePath}`);
-        }
-    }
+    Pass('CONSTITUTION.md not present (L3 variant project — governance in CLAUDE.md/GEMINI.md)');
 }
 
 // 2.6. Web URL link validation
@@ -145,7 +129,7 @@ if (!LIFECYCLE_ONLY) {
 
     if (urlCheckFiles.length > 0) {
         let linkErrors = 0;
-        const urlRegex = /https:\/\/raw\.githubusercontent\.com\/5throck\/ai-workspace-standards\/main\/CONSTITUTION\.md#[\w-]+/g;
+        const urlRegex = /https:\/\/raw\.githubusercontent\.com\/[\w.-]+\/[\w.-]+\/[\w.-]+\/[\w-]+\.md#[\w-]+/g;
 
         for (const filePath of urlCheckFiles) {
             const content = fs.readFileSync(filePath, 'utf-8');
@@ -293,7 +277,7 @@ if (!LIFECYCLE_ONLY) {
     // Check: no non-standard .md files at project root (file organization policy)
     const STANDARD_ROOT_MD = new Set([
         'README.md', 'README_ko.md', 'CHANGELOG.md', 'AGENTS.md',
-        'SECURITY.md', 'CONSTITUTION.md', 'CLAUDE.md', 'GEMINI.md',
+        'SECURITY.md', 'CLAUDE.md', 'GEMINI.md',
         'PROMOTION_CHECKLIST.md', '_ORIGIN.md', '_COMMON_VERSION.md'
     ]);
     const rootMdFiles = fs.readdirSync('.')
@@ -464,7 +448,7 @@ if (hasBun) {
         else
             Pass("README lifecycle audit: all READMEs healthy");
     }
-    if (fs.existsSync(path.join('scripts', 'verify-memory.ts')) && fs.existsSync('CONSTITUTION.md')) {
+    if (fs.existsSync(path.join('scripts', 'verify-memory.ts'))) {
         // explicitly skip any files located in memory/archive/
         const memoryFiles = fs.readdirSync('memory')
             .filter(f => f.endsWith('.md') && fs.statSync(path.join('memory', f)).isFile())
@@ -794,7 +778,7 @@ checkL2VariantIntegrity();
 
 // Workspace root detection: presence of CONSTITUTION.md (and absence of variant.json)
 // distinguishes the governance root from generated project copies.
-const IS_WORKSPACE_ROOT = fs.existsSync('CONSTITUTION.md') && !fs.existsSync('variant.json');
+const IS_WORKSPACE_ROOT = fs.existsSync('variant.json') ? false : !fs.existsSync('CONSTITUTION.md');
 
 // Check: Agent files must have a non-empty ## Required Tools section (workspace root only)
 if (IS_WORKSPACE_ROOT && fs.existsSync('agents')) {

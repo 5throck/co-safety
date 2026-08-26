@@ -8,14 +8,9 @@
 
 ## Architecture: Tier 1 (Bootstrap) vs Tier 2 (Bun/TypeScript)
 
-This project has not adopted a TypeScript-only policy — both tiers are legitimate and in active use:
+This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts` executed via Bun. Legacy `.sh`/`.ps1` scripts were removed on 2026-08-26.
 
-### Tier 1: Bootstrap & Native Scripts (`.sh` / `.ps1`)
-- **Purpose**: Environment setup, bootstrapping, or scenarios where no external runtime (Bun/Node) is guaranteed yet (e.g. installing Bun itself).
-- **Examples**: `install-bun.sh/.ps1`, `setup.sh/.ps1`, `upgrade-project.sh/.ps1`, `cleanup-completed-md.sh/.ps1`.
-- Some Tier 1 scripts are thin wrappers delegating to a Tier 2 `.ts` equivalent (see `pair` column) and are individually marked deprecated in favor of the `.ts` version; others (e.g. `audit.sh`/`audit.ps1`) are genuine standalone parallel implementations kept for environments without Bun.
-
-### Tier 2: Ops & Automation Scripts (Bun/TypeScript)
+### Ops & Automation Scripts (Bun/TypeScript)
 - **Purpose**: Everyday pipeline tasks — audits, syncing, agent/skill lifecycle management, dispatch orchestration.
 - **Execution**: `bun scripts/<name>.ts`.
 
@@ -94,27 +89,9 @@ This project has not adopted a TypeScript-only policy — both tiers are legitim
 | `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
-| `audit.sh` | — | — | active | — | — | — | — |
-| `audit.ps1` | — | — | active | — | — | — | — |
-| `cleanup-completed-md.sh` | — | — | active | — | — | — | — |
-| `cleanup-completed-md.ps1` | — | — | active | — | — | — | — |
-| `install-bun.sh` | — | — | active | — | — | — | — |
-| `install-bun.ps1` | — | — | active | — | — | — | — |
-| `setup.sh` | — | — | active | — | — | — | — |
-| `setup.ps1` | — | — | active | — | — | — | — |
-| `upgrade-project.sh` | — | 1.1.0 | active | — | — | — | — |
-| `upgrade-project.ps1` | — | 1.1.0 | active | — | — | — | — |
-| `gen-pr-body.sh` | — | — | deprecated | 2026-08-29 | — | — | gen-pr-body.ts |
-| `gen-pr-body.ps1` | — | — | deprecated | 2026-08-29 | — | — | gen-pr-body.ts |
-| `sync-md.sh` | — | — | active | — | — | — | — |
-| `sync-md.ps1` | — | — | deprecated | 2026-08-29 | — | — | sync-md.ts |
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
-- `audit.sh` / `audit.ps1`: genuine standalone parallel implementations of `audit.ts`'s checks for non-Bun environments — NOT thin wrappers, so no `pair` relationship.
-- `sync-md.sh`: standalone implementation, NOT deprecated (no deprecation marker in file) — distinct from `sync-md.ps1`, which IS a deprecated thin wrapper around `sync-md.ts`.
-- `gen-pr-body.sh` / `gen-pr-body.ps1`: both are deprecated thin wrappers delegating to `gen-pr-body.ts` (removal date 2026-08-29 per their own headers).
-- `.sh`/`.ps1` files without an `@version` header are not scanned by the version-header check (only `.ts` files are) — version column is `—` for those without one.
 
 ---
 
