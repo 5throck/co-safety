@@ -2,10 +2,10 @@
   "name": "co-safety",
   "displayName": "Safety OS",
   "description": "EHS (Environmental Health & Safety) AI Agent platform for South Korea regulatory compliance",
-  "type": "security",
+  "variantType": "safety",
   "status": "beta",
   "version": "0.1.0",
-  "inherits_common": "1.0.0",
+  "inherits_common": "templates/common",
   "agent_overrides": {
     "pm": {
       "type": "additive",
@@ -21,28 +21,28 @@
         "name": "risk-assessment",
         "layer": "root",
         "used_by_agents": ["risk-assessment-agent", "safety-workflow-manager"],
-        "legal_basis": "산업안전보건법 제36조",
+        "legal_basis": "\uc0b0\uc5c5\uc548\uc804\ubcf4\uc874\ubc95 \uc81c36\uc870",
         "platform_parity": "not-required"
       },
       {
         "name": "permit-to-work",
         "layer": "root",
         "used_by_agents": ["safety-workflow-manager", "risk-assessment-agent"],
-        "legal_basis": "산업안전보건법 제38조",
+        "legal_basis": "\uc0b0\uc5c5\uc548\uc804\ubcf4\uc874\ubc95 \uc81c38\uc870",
         "platform_parity": "not-required"
       },
       {
         "name": "emergency-response",
         "layer": "root",
         "used_by_agents": ["emergency-agent"],
-        "legal_basis": "산업안전보건법 제54조",
+        "legal_basis": "\uc0b0\uc5c5\uc548\uc804\ubcf4\uc874\ubc95 \uc81c54\uc870",
         "platform_parity": "not-required"
       },
       {
         "name": "compliance-gap",
         "layer": "root",
         "used_by_agents": ["compliance-agent"],
-        "legal_basis": "산업안전보건법 전반",
+        "legal_basis": "\uc0b0\uc5c5\uc548\uc804\ubcf4\uc874\ubc95 \uc804\ubc18",
         "platform_parity": "not-required"
       }
     ]
