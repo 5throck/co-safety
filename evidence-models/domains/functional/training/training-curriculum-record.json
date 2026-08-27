@@ -40,6 +40,9 @@
         ["OSHA-KR Art.114 §1", "OSHA-KR Art.29 §1", "SAPA Art.4"],
         ["OSHA-KR Art.29 §1", "OSHA-KR Art.36 §1", "PIPA Art.16 §1"]
       ]
-    }
+    },
+    "e_signature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/e_signature" },
+    "nomenclature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/nomenclature" },
+    "audit_trail": { "$ref": "../../../_shared/base/common.schema.json#/definitions/audit_trail" }
   }
 }

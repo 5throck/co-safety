@@ -192,6 +192,22 @@ not require a migration script. No breaking (rename/type-change/new-required/rem
   example strings are non-normative documentation, so all instances remain valid unmodified.
   A search of `memory/` on 2026-08-24 confirmed zero GMP-* record instances exist.
 
+- `_shared/base/finding.schema.json` is at **v3.0.0** (2026-08-26): breaking change —
+  `audit_trail` (`$ref` to `common.schema.json#/definitions/audit_trail`) added to
+  `required[]`. Triggers rule 3 (field added to required). No migration script: all 9 FIND
+  instance records in `memory/findings/` were backfilled inline in the same session. Each
+  backfilled `audit_trail` takes `created_at`/`created_by` verbatim from the record file's
+  creation commit (`git log --diff-filter=A` → 2026-07-11T10:14:39+09:00, author Mark Park)
+  with provenance `derived_from_git_history`, and carries an explicit
+  `migration.action: "legacy_backfill"` marker. Zero-fabrication rule respected: no timestamp
+  or author was invented, and the records' business dates (`date`, status/completion dates)
+  were not reused as system timestamps.
+
+- `_shared/base/corrective-action.schema.json` is at **v3.0.0** (2026-08-26): same breaking
+  change (`audit_trail` added to `required[]`, rule 3) and same inline git-history backfill
+  applied to all 9 CA instance records in `memory/corrective-actions/` (identical creation
+  commit and provenance markers).
+
 ## When to Create a Migration
 
 1. A field is **renamed** across evidence model schemas

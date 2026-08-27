@@ -16,7 +16,14 @@ metadata:
     - 시정조치
     - Critical Major Minor 분류
     - 건설 안전점검
+  legal_basis:
+    - "산업안전보건법 제42조 (유해위험방지계획서의 작성·제출)"
+    - "산업안전보건법 제38조 (건설공사 안전조치)"
+    - "산업안전보건법 제67조 (건설공사 발주자 산업재해 예방 조치)"
+    - "중대재해처벌법 제4조 (사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Safety Inspection Validator Skill
 

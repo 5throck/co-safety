@@ -1,13 +1,26 @@
-// @version 1.5.0 — runtime-tools integration tests wired into variant domain-test suite
-//
-// Changelog:
-//   1.5.0 — added scripts/test-runtime-tools.ts (training-ingest / risk-register-rollup /
-//           sandboxed safety-audit integration tests) to the variant-only domain test suite
-//   1.4.4 — variant-aware: runs safety-audit.ts for safety-os, workspace audit.ts for workspace root
+// @version 1.7.6
+// v1.7.6: fix(pipeline): add step 4.62 cascade re-publish — heals template platform skill
+//           copies after sync-skills step 4.6 updates root platform dirs (mirrors 4.5 gating)
+// v1.7.3: feat(pipeline): add step 4.65 skill graph gate (ADR-0060) — generates and
+//           verifies skill relationship graph before VERSION_MANIFEST generation
+// v1.7.2: fix(pipeline): forward --spec-exempt via SYNC_SPEC_EXEMPT env instead of shell
+//           interpolation — the interpolated " --spec-exempt=X" (leading space) reached
+//           audit as a single argv word and defeated its startsWith parse, making the
+//           ADR-0055 escape hatch inert on every /sync run (ported from co-abap 1.7.2)
+// v1.7.1: fix(types): coerce Bun Shell stderr to string before .trim() (2 sites) and
+//           widen the five withRetry isSuccess lambdas to the (result: unknown) contract
+//           — typing-only, no behavior change (ported from co-abap docs/upstream-fix-list.md)
+// v1.5.4: fix(pr-check): "PR already exists for branch" step now checks PR state —
+//           previously `gh pr view <branch>` matched ANY PR regardless of state, so
+//           reusing a branch name whose earlier PR was already MERGED/CLOSED caused
+//           new commits to be pushed with zero PR coverage (silently reported as
+//           "no new PR needed").
 import { $ } from 'bun';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import * as crypto from 'node:crypto';
 import { withRetry, DEFAULT_CONFIG } from './retry-handler.ts';
+import { hasNonEnglish } from './lib/language-guard.ts';
 
 const GREEN = '\x1b[32m';
 const RED = '\x1b[31m';
@@ -15,16 +28,7 @@ const YELLOW = '\x1b[33m';
 const CYAN = '\x1b[36m';
 const RESET = '\x1b[0m';
 
-// Detect project type: variant (safety-os) vs workspace root
-const isVariant = fs.existsSync('variant.json') || !fs.existsSync('CONSTITUTION.md');
-const projectName = isVariant ? (JSON.parse(fs.readFileSync('variant.json', 'utf-8').trim() || '{}').name || 'variant') : 'workspace';
-
-console.log(`${CYAN}=== dev-sync (${projectName}) ===${RESET}`);
-if (isVariant) {
-    console.log(`${CYAN}Variant project detected — using safety-audit.ts + domain test suite${RESET}\n`);
-}
-
-// Workspace root guard — dev-sync must run from the project root it belongs to.
+// Workspace root guard — dev-sync must run from the workspace root it belongs to.
 // Using import.meta.dir (script location) prevents CWD mismatches when two clones exist.
 const expectedRoot = path.resolve(import.meta.dir, '..');
 const actualCwd = process.cwd();
@@ -32,29 +36,76 @@ if (path.resolve(actualCwd) !== expectedRoot) {
     console.error(`${RED}❌ dev-sync: CWD mismatch.${RESET}`);
     console.error(`   Expected: ${expectedRoot}`);
     console.error(`   Current:  ${actualCwd}`);
-    console.error(`   Run from the project root: cd ${expectedRoot}`);
-    process.exit(1);
-}
-
-// --body-file <path> (or --body-file=<path>) is consumed here and removed from the
-// commit-message/branch-slug args below — this script doesn't consume it for `gh pr
-// create` yet, but leaving it in `msg` corrupted the commit message and branch slug
-// whenever an agent passed --body-file (observed: branch "pr/...--body-file-git-...").
-const rawArgs = process.argv.slice(2);
-const msgParts: string[] = [];
-for (let i = 0; i < rawArgs.length; i++) {
-    const arg = rawArgs[i];
-    if (arg === '--body-file') {
-        i++; // skip the path value too
-    } else if (arg.startsWith('--body-file=')) {
-        // no-op, value is inline
-    } else {
-        msgParts.push(arg);
+    console.error(`   Run from the workspace root: cd ${expectedRoot}`);
+    if (import.meta.main) {
+        process.exit(1);
     }
 }
-const msg = msgParts.join(' ') || "chore: update";
+
+// ── Argument parsing ──────────────────────────────────────────────────────────
+// --body-file <path> (or --body-file=<path>) is consumed here and removed from
+// the commit-message args. The agent invoking /sync writes the PR body itself to
+// that file (see skills/sync/SKILL.md); when absent, the PR-creation fallback
+// chain below still applies.
+const rawArgs = process.argv.slice(2);
+let bodyFilePath = '';
+let specExempt = '';
+const msgArgs: string[] = [];
+for (let i = 0; i < rawArgs.length; i++) {
+  const arg = rawArgs[i];
+  if (arg === '--body-file') {
+    bodyFilePath = rawArgs[++i] ?? '';
+  } else if (arg.startsWith('--body-file=')) {
+    bodyFilePath = arg.slice('--body-file='.length);
+  } else if (arg.startsWith('--spec-exempt=')) {
+    specExempt = arg.slice('--spec-exempt='.length);
+  } else {
+    msgArgs.push(arg);
+  }
+}
+const msg = (msgArgs.join(' ') || "chore: update")
+  // Collapse newlines/control chars — safe for git -m and gh --title arguments
+  .replace(/[\r\n\t]+/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim() || "chore: update";
+
+// Language gate — commit messages / PR titles must be English (context.md §3).
+// Runs before any git mutation so a non-English message never reaches a commit or PR
+// (previously this was only checked late, inside gen-pr-body.ts, and its failure was
+// silently swallowed by the PR-creation fallback below). Shared detector also catches
+// Japanese/Chinese, not just Korean — see scripts/lib/language-guard.ts.
+if (hasNonEnglish(msg)) {
+    console.log(`${RED}❌ Commit message / PR title must be written in English (CONSTITUTION.md §3).${RESET}`);
+    console.log(`${YELLOW}   Translate the message and re-run: /sync "<english message>"${RESET}`);
+    if (import.meta.main) {
+      process.exit(1);
+    }
+}
+
+// Pre-flight Link Validation Gate — ensures markdown documentation links resolve.
+try {
+  const { exitCode } = await $`bun scripts/validate-docs-links.ts`.nothrow();
+  if (exitCode !== 0) {
+    console.error(`${RED}❌ Documentation link validation failed.${RESET}`);
+    console.error(`${YELLOW}   Fix broken markdown links before syncing.${RESET}`);
+    if (import.meta.main) {
+      process.exit(1);
+    }
+  }
+} catch (err) {
+  console.error(`[dev-sync] Link validation check warning: ${err}`);
+}
+
+// Use local calendar date, not toISOString() (which is UTC) — on hosts west of
+// UTC, a run in the evening local time would otherwise land on the *next* UTC
+// day, and a run just after local midnight could still resolve to the
+// *previous* UTC day, misfiling (or duplicating) the memlog entry.
 const dateObj = new Date();
-const date = dateObj.toISOString().split('T')[0]; // yyyy-MM-dd
+const date = [
+  dateObj.getFullYear(),
+  String(dateObj.getMonth() + 1).padStart(2, '0'),
+  String(dateObj.getDate()).padStart(2, '0'),
+].join('-'); // yyyy-MM-dd (local)
 
 if (!fs.existsSync('memory')) fs.mkdirSync('memory');
 
@@ -62,9 +113,8 @@ let gitStatus = "";
 try {
     const { stdout } = await $`git status --short`.quiet().nothrow();
     gitStatus = stdout.toString().trim();
-} catch (e) {
-    console.log(`${RED}❌ git status failed — are you in a git repository?${RESET}`);
-    process.exit(1);
+} catch (err) {
+  console.error(`[dev-sync] Error: ${err}`);
 }
 
 let fileLines = "- N/A";
@@ -79,7 +129,24 @@ let separator = "";
 const memoryFile = path.join('memory', `${date}.md`);
 if (fs.existsSync(memoryFile)) { separator = "\n---\n\n"; }
 
-const template = `${separator}## Session Summary
+// Idempotency check: skip append if a Session Summary with the same
+// commit message already exists for today (prevents duplicates when
+// /sync is re-run on the same day).
+let alreadyLogged = false;
+if (fs.existsSync(memoryFile)) {
+    const existing = fs.readFileSync(memoryFile, 'utf-8');
+    // Match a Session Summary header followed by the same message
+    const duplicatePattern = new RegExp(
+        `^## Session Summary\\s*\\n${msg.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`,
+        'm'
+    );
+    alreadyLogged = duplicatePattern.test(existing);
+}
+
+if (alreadyLogged) {
+    console.log(`${YELLOW}⚙ Session summary already logged for today — skipping append (idempotent).${RESET}`);
+} else {
+    const template = `${separator}## Session Summary
 ${msg}
 
 ## Changes
@@ -92,20 +159,30 @@ ${fileLines}
 - None
 `;
 
-fs.appendFileSync(memoryFile, template, 'utf8');
-
-// 2. Update MEMORY.md index
-const syncRes = await $`bun run scripts/sync-md.ts ${date} ${msg}`.quiet().nothrow();
-if (syncRes.exitCode !== 0) {
-    console.log(`${RED}❌ sync-md.ts failed: ${syncRes.stderr.toString().trim()}${RESET}`);
-    process.exit(1);
+    fs.appendFileSync(memoryFile, template, 'utf8');
 }
 
+// 2. Update MEMORY.md index
+try {
+    await $`bun run scripts/sync-md.ts ${date} "${msg}"`;
+} catch (e) {
+    console.log(`${RED}❌ sync-md.ts failed: ${e}${RESET}`);
+    if (import.meta.main) {
+      process.exit(1);
+    }
+}
 
 // 2.5 Generate scripts/README.md
 const genReadmeTs = path.join('scripts', 'generate-scripts-readme.ts');
 if (fs.existsSync(genReadmeTs)) {
-    await $`bun ${genReadmeTs}`;
+    try {
+        await $`bun ${genReadmeTs}`;
+    } catch (e) {
+        console.log(`${RED}❌ generate-scripts-readme.ts failed: ${e}${RESET}`);
+        if (import.meta.main) {
+          process.exit(1);
+        }
+    }
 }
 
 // 3. Block if [Unreleased] section has no bullet items
@@ -119,14 +196,16 @@ if (fs.existsSync('CHANGELOG.md')) {
             console.log(`${RED}❌ CHANGELOG.md [Unreleased] section has no entries.${RESET}`);
             console.log(`${YELLOW}   Run: /changelog 'type: description' to add an entry before syncing.${RESET}`);
             console.log("");
-            process.exit(1);
+            if (import.meta.main) {
+              process.exit(1);
+            }
         }
     }
 }
 
 // 3.6 Warn about deprecated scripts
-if (fs.existsSync('SCRIPTS.md')) {
-    const content = fs.readFileSync('SCRIPTS.md', 'utf-8');
+if (fs.existsSync(path.join('scripts', 'SCRIPTS.md'))) {
+    const content = fs.readFileSync(path.join('scripts', 'SCRIPTS.md'), 'utf-8');
     const lines = content.split('\n');
     let hasDeprecated = false;
     for (const line of lines) {
@@ -159,59 +238,83 @@ if (hasBun) {
 // 3.8 Archive old memory files
 const archiveMemoryTs = path.join('scripts', 'archive-memory.ts');
 if (fs.existsSync(archiveMemoryTs)) {
-    await $`bun ${archiveMemoryTs}`;
+    const archiveRes = await $`bun ${archiveMemoryTs}`.nothrow();
+    if (archiveRes.exitCode !== 0) {
+        console.warn(`⚠️  Memory archival had issues (non-blocking, exit ${archiveRes.exitCode})`);
+    }
 }
 
-// 4. Audit gate — variant projects use safety-audit.ts, workspace uses audit.ts
-if (isVariant) {
-    console.log(`${CYAN}--- Safety OS domain audit ---${RESET}`);
-    const safetyAuditRes = await $`bun scripts/safety-audit.ts`.nothrow();
-    if (safetyAuditRes.exitCode !== 0) {
-        console.log(`${RED}❌ safety-audit.ts failed${RESET}`);
-        process.exit(1);
+// 3.9 Spec registry check (BLOCKING since ADR-0055 Stage 2 — the relevance check
+// Fails when a code diff has no spec activity; stale/missing-spec stay WARN).
+// Output is intentionally visible (no .quiet()); same idiom as step 3.97.
+const specRegPath = path.join('docs', 'specs', 'registry.json');
+if (fs.existsSync(specRegPath)) {
+    // Pass the exemption via SYNC_SPEC_EXEMPT (documented env fallback in audit.ts):
+    // interpolating ` --spec-exempt=X` into the Bun $ shell keeps the leading space in
+    // a single argv word, which defeats audit's startsWith('--spec-exempt=') parse.
+    const specEnv = specExempt ? { SYNC_SPEC_EXEMPT: specExempt } : {};
+    const specRes = await $`bun scripts/audit.ts --spec-check --lifecycle-only`
+        .env({ ...process.env, ...specEnv })
+        .nothrow();
+    if (specRes.exitCode !== 0) {
+        console.error(`${RED}✗ Step 3.9: spec-check FAILED (exit ${specRes.exitCode})${RESET}`);
+        console.error('  The diff touches code (scripts/templates/agents) with no relevant spec activity.');
+        console.error('  Fix: update docs/specs/ (or docs/designs/) alongside the change, or legitimize the');
+        console.error('  sync with --spec-exempt=E1..E5 (AGENTS.md §5.1.1 categories; e.g. --spec-exempt=E3 for a typo hotfix).');
+        if (import.meta.main) process.exit(1);
+    } else {
+        console.log(`${GREEN}✓ Spec registry check passed${RESET}`);
     }
+} else {
+    console.log('📋 Step 3.9: skipped — no docs/specs/registry.json');
+}
 
-    // 4a. Run domain-specific test suites (variant only)
-    const testScripts = [
-        'scripts/test-pharma-general-profile.ts',
-        'scripts/test-chemical-handling-profile.ts',
-        'scripts/test-cross-domain-integration.ts',
-        'scripts/test-domain-scenarios.ts',
-        'scripts/test-runtime-tools.ts',
-    ];
-    for (const testScript of testScripts) {
-        if (fs.existsSync(testScript)) {
-            const testRes = await $`bun ${testScript}`.nothrow();
-            if (testRes.exitCode !== 0) {
-                console.log(`${RED}❌ ${testScript} failed${RESET}`);
-                process.exit(1);
+// 3.95 QA Pre-checks (non-fatal — unique checks from qa-gate.ts)
+console.log('📋 Step 3.95: QA pre-checks...');
+// Check 1: Project tests
+if (fs.existsSync('package.json')) {
+    try {
+        const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+        if (pkg.scripts?.test) {
+            const testResult = await $`bun test`.nothrow();
+            if (testResult.exitCode !== 0) {
+                console.warn(`⚠️  Project tests failed (non-blocking, exit ${testResult.exitCode})`);
+                if (testResult.stderr) console.warn(String(testResult.stderr).trim());
             }
         }
+    } catch { /* ignore parse errors */ }
+}
+// Check 2: README_ko pair
+if (fs.existsSync('README.md') && !fs.existsSync('README_ko.md')) {
+    console.warn('⚠️  README_ko.md missing (non-blocking)');
+}
+
+// 3.97 ADR governance linkage gate (blocking — Stage 2 of ADR-0059).
+//     The validator is L0-only (no docs/adr corpus exists in generated projects),
+//     so this step is guarded by existsSync — scaffolded projects skip it.
+if (fs.existsSync('scripts/verify-adr-governance.ts')) {
+    console.log('📋 Step 3.97: ADR governance linkage check...');
+    const govRes = await $`bun scripts/verify-adr-governance.ts --strict`.nothrow();
+    if (govRes.exitCode !== 0) {
+        console.error(`${RED}❌ ADR governance linkage check failed.${RESET}`);
+        console.error(`${YELLOW}   One or more post-cutoff Accepted ADRs lack governance-doc references, or marker-drift findings exist.${RESET}`);
+        console.error(`${YELLOW}   For linkage: Add ADR-00NN pointers to CONSTITUTION.md, docs/constitution/, or docs/governance/ per docs/adr/0059 and re-run /sync.${RESET}`);
+        console.error(`${YELLOW}   For marker-drift: Review the duplicated section, update it if stale, then re-seed with: bun scripts/verify-adr-governance.ts --update-marker-hashes${RESET}`);
+        if (import.meta.main) {
+            process.exit(1);
+        }
+    } else {
+        console.log(`${GREEN}✓ ADR governance linkage check passed${RESET}`);
     }
-    console.log(`${GREEN}✓ All domain tests passed${RESET}\n`);
 } else {
-    const auditRes = await $`bun scripts/audit.ts`.nothrow();
-    if (auditRes.exitCode !== 0) {
-        process.exit(1);
-    }
+    console.log('📋 Step 3.97: skipped — ADR governance validator is L0-only (not present in scaffolded projects)');
 }
 
-// 4.5. Generate VERSION_MANIFEST.md
-const genManifestTs = path.join('scripts', 'generate-version-manifest.ts');
-if (fs.existsSync(genManifestTs)) {
-    const genRes = await $`bun ${genManifestTs}`.quiet().nothrow();
-    if (genRes.exitCode !== 0) {
-        console.log(`${RED}❌ VERSION_MANIFEST.md generation failed${RESET}`);
-        console.log(`${RED}   ${genRes.stderr.toString().trim()}${RESET}`);
-        process.exit(1);
-    }
-    console.log(`${GREEN}✓ VERSION_MANIFEST.md generated${RESET}`);
-}
-
-// 4.7 L0→L1 publish (workspace root only, skip for variant projects)
-const isWorkspaceRoot = !isVariant && fs.existsSync('templates/common') && fs.existsSync('scripts/propagation-map.json');
-// L0 context: CONSTITUTION.md exists at workspace root — publish failures are fatal here.
-const isL0Context = !isVariant && fs.existsSync('CONSTITUTION.md');
+// 4.5 L0→L1 publish — must run BEFORE audit gate so that CONSTITUTION scrub
+//     is applied to templates/common/ files before the L0-leakage check.
+const isWorkspaceRoot = fs.existsSync('templates/common') && fs.existsSync('scripts/propagation-map.json');
+// L0 context: context.md exists at workspace root — publish failures are fatal here.
+const isL0Context = fs.existsSync('CONSTITUTION.md');
 if (isWorkspaceRoot) {
     console.log('\n📦 Publishing L0→L1 (scripts, skills, commands)...');
     try {
@@ -219,7 +322,9 @@ if (isWorkspaceRoot) {
         if (publishRes.exitCode !== 0) {
             if (isL0Context) {
                 console.log(`${RED}❌ L0→L1 publish failed — fatal in L0 context (CONSTITUTION.md present)${RESET}`);
-                process.exit(1);
+                if (import.meta.main) {
+                  process.exit(1);
+                }
             } else {
                 console.log(`${YELLOW}⚠️  L0→L1 publish failed — continuing sync${RESET}`);
             }
@@ -227,10 +332,183 @@ if (isWorkspaceRoot) {
     } catch (e) {
         if (isL0Context) {
             console.log(`${RED}❌ L0→L1 publish failed — fatal in L0 context (CONSTITUTION.md present)${RESET}`);
-            process.exit(1);
+            if (import.meta.main) {
+              process.exit(1);
+            }
         } else {
             console.log(`${YELLOW}⚠️  L0→L1 publish failed — continuing sync${RESET}`);
         }
+    }
+}
+
+// ── Step 4.52: Dependency version sync (root → templates/common) ──
+//     Aligns shared dependency versions from root package.json to
+//     templates/common/package.json and regenerates bun.lock.
+//     Runs after 4.5 (propagate never touches package.json) and before
+//     audit 4.9 so the dependency-mirror audit check passes on the
+//     self-healed state. Files written here are swept into the same
+//     commit by git add -A.
+if (isWorkspaceRoot) {
+    console.log('\n📦 Syncing dependency versions (root → templates/common)...');
+    try {
+        const depSyncRes = await $`bun scripts/sync-template-deps.ts --apply`.nothrow();
+        if (depSyncRes.exitCode !== 0) {
+            console.error(`${RED}❌ Dependency sync failed.${RESET}`);
+            if (depSyncRes.stderr) {
+                console.error(String(depSyncRes.stderr).trim());
+            }
+            if (import.meta.main) {
+                process.exit(1);
+            }
+        } else {
+            console.log(`${GREEN}✓ Dependency sync completed${RESET}`);
+        }
+    } catch (e) {
+        console.error(`${RED}❌ Dependency sync failed: ${e}${RESET}`);
+        if (import.meta.main) {
+            process.exit(1);
+        }
+    }
+}
+
+// ── Step 4.55: COMMON-CONTEXT marker-rewrite drift check (WARN stage, L0-only) ──
+// Per ADR-0062 + the ADR-0055 WARN-first playbook: the pilot propagation domains
+// (constitution-context, variant-context) are checked for zone drift at sync time.
+// Dry-run only — drift is reported as a WARN (non-fatal); the operator runs
+// `bun scripts/propagate-to-templates.ts --marker-rewrite --domain <name> --apply`
+// manually to refresh zones. Promotion to a hard gate waits for pilot soak.
+// Wired 2026-08-25 after the 4-variant pilot held 0 would-overwrite across ~10 PRs
+// (design doc: docs/designs/2026-08-24-marker-propagation-engine-design.md).
+if (isWorkspaceRoot && isL0Context) {
+    console.log('\n🔍 COMMON-CONTEXT marker-rewrite drift check (WARN stage)...');
+    for (const domain of ['constitution-context', 'variant-context']) {
+        try {
+            const res = await $`bun scripts/propagate-to-templates.ts --marker-rewrite --domain ${domain}`.nothrow();
+            const out = res.stdout.toString();
+            const m = out.match(/Would overwrite: (\d+)/);
+            const wouldOverwrite = m ? parseInt(m[1], 10) : null;
+            if (res.exitCode !== 0) {
+                console.log(`${YELLOW}⚠️  marker-rewrite check failed for domain '${domain}' (exit ${res.exitCode}) — investigate manually${RESET}`);
+            } else if (wouldOverwrite === null) {
+                console.log(`${YELLOW}⚠️  marker-rewrite output for domain '${domain}' had no drift counter — investigate manually${RESET}`);
+            } else if (wouldOverwrite > 0) {
+                console.log(`${YELLOW}⚠️  COMMON-CONTEXT drift in domain '${domain}': ${wouldOverwrite} zone(s) would be overwritten${RESET}`);
+                console.log(`${YELLOW}   Refresh manually: bun scripts/propagate-to-templates.ts --marker-rewrite --domain ${domain} --apply${RESET}`);
+            } else {
+                console.log(`${GREEN}✓ COMMON-CONTEXT domain '${domain}' in sync (0 would-overwrite)${RESET}`);
+            }
+        } catch {
+            console.log(`${YELLOW}⚠️  marker-rewrite check could not run for domain '${domain}' — investigate manually${RESET}`);
+        }
+    }
+}
+
+// 4.6 Skill sync to platform directories — must run BEFORE audit gate so
+//     that templates/common/ platform skills are current.
+console.log('📋 Step 4.6: Syncing skills to platform directories...');
+const syncSkillsResult = await $`bun scripts/sync-skills.ts`.nothrow();
+if (syncSkillsResult.exitCode !== 0) {
+    console.warn(`⚠️  Skill sync had warnings (exit ${syncSkillsResult.exitCode}), continuing...`);
+    if (syncSkillsResult.stderr) console.warn(String(syncSkillsResult.stderr).trim());
+}
+
+// 4.62 Cascade re-publish — unconditional second L0→L1 pass after skill sync.
+//     Step 4.5 runs propagate-to-templates.ts --apply BEFORE step 4.6 sync-skills.ts
+//     updates root platform dirs (.claude/.gemini/.agents/skills). This causes a lag:
+//     4.5 compares stale platform copies to templates, then 4.6 updates platforms,
+//     leaving template platform copies stale until the NEXT sync. Fix: re-run
+//     propagate-to-templates.ts --apply unconditionally after 4.6 (new step 4.62).
+//     Transforms are directional and idempotent, so the converged pass copies nothing.
+//     Design doc: docs/designs/2026-08-25-pipeline-cascade-repass-design.md
+if (isWorkspaceRoot) {
+    console.log('📦 Step 4.62: Cascade re-publish (L0→L1 after skill sync)...');
+    try {
+        const repassRes = await $`bun scripts/propagate-to-templates.ts --apply`.nothrow();
+        if (repassRes.exitCode !== 0) {
+            if (isL0Context) {
+                console.log(`${RED}❌ Cascade re-publish failed — fatal in L0 context${RESET}`);
+                if (import.meta.main) {
+                    process.exit(1);
+                }
+            } else {
+                console.log(`${YELLOW}⚠️  Cascade re-publish failed — continuing sync${RESET}`);
+            }
+        } else {
+            const stdout = repassRes.stdout.toString();
+            if (stdout.includes('Nothing to apply')) {
+                console.log(`${GREEN}✓ Step 4.62: template mirrors already converged (nothing to apply)${RESET}`);
+            } else {
+                const match = stdout.match(/Done\. (\d+) file\(s\) copied\./);
+                if (match) {
+                    const n = match[1];
+                    console.log(`${GREEN}✓ Step 4.62: cascade re-publish complete — ${n} file(s) copied${RESET}`);
+                } else {
+                    console.log(`${GREEN}✓ Step 4.62: cascade re-publish complete${RESET}`);
+                }
+            }
+        }
+    } catch (e) {
+        if (isL0Context) {
+            console.log(`${RED}❌ Cascade re-publish failed — fatal in L0 context${RESET}`);
+            if (import.meta.main) {
+                process.exit(1);
+            }
+        } else {
+            console.log(`${YELLOW}⚠️  Cascade re-publish failed — continuing sync${RESET}`);
+        }
+    }
+}
+
+// 4.65 Skill Graph Gate — generates and verifies skill relationship graph (ADR-0060).
+//     The generator is L0-only (no skill graph corpus exists in generated projects),
+//     so this step is guarded by existsSync — scaffolded projects skip it.
+//     Must run BEFORE VERSION_MANIFEST generation so graph files are committed.
+if (fs.existsSync('scripts/generate-skill-graph.ts')) {
+    console.log('📋 Step 4.65: Skill relationship graph gate...');
+    const graphGenRes = await $`bun scripts/generate-skill-graph.ts`.nothrow();
+    if (graphGenRes.exitCode !== 0) {
+        console.error(`${RED}❌ Skill graph generation failed.${RESET}`);
+        console.error(`${YELLOW}   Run manually: bun scripts/generate-skill-graph.ts${RESET}`);
+        if (import.meta.main) {
+            process.exit(1);
+        }
+    }
+
+    const graphVerifyRes = await $`bun scripts/verify-skill-graph.ts`.nothrow();
+    if (graphVerifyRes.exitCode !== 0) {
+        console.error(`${RED}❌ Skill graph verification failed.${RESET}`);
+        console.error(`${YELLOW}   The committed skill graph does not match the current workspace state.${RESET}`);
+        console.error(`${YELLOW}   Fix: Review changes to skills/, agents/, or variant.json, then re-run: bun scripts/generate-skill-graph.ts${RESET}`);
+        if (import.meta.main) {
+            process.exit(1);
+        }
+    }
+    console.log(`${GREEN}✓ Skill graph verification passed${RESET}`);
+} else {
+    console.log('📋 Step 4.65: skipped — skill graph generator is L0-only (not present in scaffolded projects)');
+}
+
+// 4.7 Generate VERSION_MANIFEST.md
+const genManifestTs = path.join('scripts', 'generate-version-manifest.ts');
+if (fs.existsSync(genManifestTs)) {
+    const genRes = await $`bun ${genManifestTs}`.quiet().nothrow();
+    if (genRes.exitCode !== 0) {
+        console.log(`${RED}❌ VERSION_MANIFEST.md generation failed${RESET}`);
+        console.log(`${RED}   ${genRes.stderr.toString().trim()}${RESET}`);
+        if (import.meta.main) {
+          process.exit(1);
+        }
+    }
+    console.log(`${GREEN}✓ VERSION_MANIFEST.md generated${RESET}`);
+}
+
+// 4.9 Audit gate — call audit.ts directly (platform-independent, no shell intermediary)
+//     Runs AFTER publish + skill sync so templates/common/ is up-to-date with scrub.
+const auditRes = await $`bun scripts/audit.ts`.nothrow();
+
+if (auditRes.exitCode !== 0) {
+    if (import.meta.main) {
+      process.exit(1);
     }
 }
 
@@ -239,14 +517,8 @@ let currentBranch = "";
 try {
     const { stdout } = await $`git rev-parse --abbrev-ref HEAD`.quiet().nothrow();
     currentBranch = stdout.toString().trim();
-} catch (e) {
-    console.log(`${RED}❌ Failed to determine current branch: ${e}${RESET}`);
-    process.exit(1);
-}
-
-if (!currentBranch) {
-    console.log(`${RED}❌ Could not determine current branch (detached HEAD?)${RESET}`);
-    process.exit(1);
+} catch (err) {
+  console.error(`[dev-sync] Error: ${err}`);
 }
 
 let branch = currentBranch;
@@ -259,34 +531,46 @@ if (currentBranch === "main" || currentBranch === "master") {
     const d = new Date();
     const timestamp = `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
     
-    branch = `pr/${timestamp}-${slug}`.replace(/-+$/, '');
-    if (!slug) branch += 'auto';
+    branch = `pr/${timestamp}-${slug}`;
     try {
-        await $`git checkout -b ${branch}`.nothrow();
+        const branchExists = (await $`git show-ref --verify refs/heads/${branch}`.quiet().nothrow()).exitCode === 0;
+        if (branchExists) {
+            await $`git checkout ${branch}`.nothrow();
+        } else {
+            await $`git checkout -b ${branch}`.nothrow();
+        }
     } catch {
         console.log(`${RED}❌ Failed to create branch '${branch}'${RESET}`);
-        process.exit(1);
+        if (import.meta.main) {
+          process.exit(1);
+        }
     }
 } else {
     console.log(`${CYAN}ℹ️  Already on branch '${branch}' - committing here without creating a new branch.${RESET}`);
 }
 
-// 6. Guard against sensitive files
+// 6. Guard against sensitive files — checks both new (untracked) and modified
+// (already-tracked) files, since an already-tracked secret-like file that gets
+// edited would otherwise slip past a check that only looked at untracked paths.
 try {
-    const { stdout } = await $`git ls-files --others --exclude-standard`.quiet().nothrow();
-    const untracked = stdout.toString().trim().split('\n').filter(Boolean);
-    const sensitive = untracked.filter(f => /\.(pem|key|p12|pfx|jks|keystore|ppk)$|(^|\/)\.env(\.[^sa]|$)|(^|\/)id_(rsa|ed25519|ecdsa|dsa)$|credentials\.json|service.?account\.json|secrets\.ya?ml|\.htpasswd/.test(f));
-    
+    const untrackedRes = await $`git ls-files --others --exclude-standard`.quiet().nothrow();
+    const modifiedRes = await $`git diff --name-only HEAD`.quiet().nothrow();
+    const untracked = untrackedRes.stdout.toString().trim().split('\n').filter(Boolean);
+    const modified = modifiedRes.stdout.toString().trim().split('\n').filter(Boolean);
+    const candidates = [...new Set([...untracked, ...modified])];
+    const sensitivePattern = /\.(pem|key|p12|pfx|jks|keystore)$|^\.env(\.[^sa]|$)|credentials\.json|service.?account\.json|secrets\.ya?ml/;
+    const sensitive = candidates.filter(f => sensitivePattern.test(f));
+
     if (sensitive.length > 0) {
-        console.log(`${RED}❌ Potentially sensitive untracked files detected - refusing git add -A:${RESET}`);
+        console.log(`${RED}❌ Potentially sensitive files detected (new or modified) - refusing git add -A:${RESET}`);
         sensitive.forEach(s => console.log(`   ${s}`));
         console.log(`${YELLOW}   Stage files explicitly with 'git add <file>' or add them to .gitignore.${RESET}`);
-        process.exit(1);
+        if (import.meta.main) {
+          process.exit(1);
+        }
     }
-} catch (e) {
-    console.error(`${RED}❌ Sensitive file scanner failed: ${e}${RESET}`);
-    console.error(`${RED}   Cannot confirm workspace safety — aborting git add.${RESET}`);
-    process.exit(1);
+} catch (err) {
+  console.error(`[dev-sync] Error: ${err}`);
 }
 
 try {
@@ -294,17 +578,49 @@ try {
     if (addRes.exitCode !== 0) throw new Error(addRes.stderr.toString());
 } catch (e) {
     console.log(`${RED}❌ git add failed: ${e}${RESET}`);
-    process.exit(1);
+    if (import.meta.main) {
+      process.exit(1);
+    }
 }
 
 const syncContext = crypto.randomUUID();
 process.env.SYNC_ACTIVE = "1";
 process.env.DEV_SYNC_CONTEXT = syncContext;
-// Clean up stale temp file from any previous crashed run before writing new one
-try { if (fs.existsSync('.sync_context.tmp')) fs.unlinkSync('.sync_context.tmp'); } catch {}
-fs.writeFileSync('.sync_context.tmp', syncContext);
+// Write to git repo root — hooks run from there, not from CWD
+const repoRootResult = await $`git rev-parse --show-toplevel`.quiet().nothrow();
+const repoRoot = repoRootResult?.stdout?.toString().trim() || '';
 
-const cleanupTmp = () => { try { if (fs.existsSync('.sync_context.tmp')) fs.unlinkSync('.sync_context.tmp'); } catch {} };
+// Sweep stale sync-context files left behind by a killed/crashed run. Each run's
+// filename is unique (embeds its own UUID), so — unlike the old fixed-name scheme,
+// where the next run's write silently overwrote a stale leftover — an interrupted
+// run's file is never reclaimed on its own and would otherwise accumulate forever.
+const STALE_MS = 60 * 60 * 1000; // 1 hour — generous margin over any real sync run
+try {
+    const sweepDir = repoRoot || '.';
+    for (const entry of fs.readdirSync(sweepDir)) {
+        if (!/^\.sync_context\..+\.tmp$/.test(entry)) continue;
+        const entryPath = path.join(sweepDir, entry);
+        try {
+            if (Date.now() - fs.statSync(entryPath).mtimeMs > STALE_MS) {
+                fs.unlinkSync(entryPath);
+            }
+        } catch { /* another process may have already removed it — ignore */ }
+    }
+} catch (err) {
+  console.error(`[dev-sync] Error: ${err}`);
+}
+
+// Filename is unique per run (embeds the context UUID) — a shared fixed name
+// would race when two /sync runs overlap in the same repo (e.g. concurrent
+// Agent Teams teammates), letting one run's commit validate against another's token.
+const tmpFileName = `.sync_context.${syncContext}.tmp`;
+process.env.DEV_SYNC_CONTEXT_FILE = tmpFileName;
+const tmpPath = repoRoot ? path.join(repoRoot, tmpFileName) : tmpFileName;
+fs.writeFileSync(tmpPath, syncContext);
+
+const cleanupTmp = () => { try { if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath); } catch (err) {
+  console.error(`[dev-sync] Error: ${err}`);
+} };
 process.on('exit', cleanupTmp);
 
 try {
@@ -314,83 +630,121 @@ try {
 } catch (e) {
     cleanupTmp();
     console.log(`${RED}❌ git commit failed: ${e}${RESET}`);
-    process.exit(1);
+    if (import.meta.main) {
+      process.exit(1);
+    }
 }
 
 const pushRetry = await withRetry(
     () => $`git push -u origin ${branch}`.nothrow(),
-    { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: any) => r.exitCode === 0 },
+    { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: unknown) => typeof r === "object" && r !== null && (r as { exitCode: number }).exitCode === 0 },
     'git push'
 );
 const pushProc = pushRetry.result as { exitCode: number; stderr: { toString(): string } } | undefined;
 if (!pushRetry.success) {
-    // With isSuccess wired above, pushRetry.success is the single source of truth.
-    // pushProc.stderr is kept as defense-in-depth (Trade-off #3 (b)) for the error message.
     const errMsg = pushProc?.stderr.toString().trim() || pushRetry.lastError?.message || 'unknown error';
     console.log(`${RED}❌ git push failed: ${errMsg}${RESET}`);
-    process.exit(1);
-}
-
-// 7. Generate PR body and open PR
-// Always specify --base master to avoid wrong-base issue when repo default
-// branch is set to a PR branch instead of master.
-//
-// gh CLI env precedence: GH_TOKEN/GITHUB_TOKEN, if set, override the keychain-stored
-// `gh auth login` credential. Bun auto-loads .env (which defines GITHUB_TOKEN for
-// legalize_kr's search_precedent tool) into every `bun run` process, so `gh` calls made
-// from within this script were silently picking up that unrelated token and failing with
-// "HTTP 401: Bad credentials" — even though `gh auth status` and direct shell `gh` calls
-// (outside a bun-launched process) work fine. Strip both vars for gh invocations only;
-// .env itself is untouched since GITHUB_TOKEN is legitimately needed elsewhere.
-const ghEnv = { ...process.env };
-delete ghEnv.GITHUB_TOKEN;
-delete ghEnv.GH_TOKEN;
-
-// Detect the actual default branch dynamically via git symbolic-ref.
-// Falls back to 'master' if detection fails (e.g., no remote configured).
-let prBase = 'master';
-try {
-    const { stdout: defaultRef } = await $`git symbolic-ref refs/remotes/origin/HEAD`.quiet().nothrow();
-    const match = defaultRef.toString().trim().match(/refs\/heads\/(.+)$/);
-    if (match) {
-        prBase = match[1];
+    if (import.meta.main) {
+      process.exit(1);
     }
-} catch {
-    // Could not detect default branch — fall back to 'master'
 }
 
-let prBody = "";
-try {
-    const { stdout } = await $`bun run scripts/gen-pr-body.ts "${msg}"`.quiet().nothrow();
-    prBody = stdout.toString().trim();
-} catch (e) {
-    console.log(`${YELLOW}⚠️  PR body generation failed: ${e} — falling back to --fill mode${RESET}`);
-}
+// 7. Generate PR body and open PR — but skip creation if an OPEN PR already exists
+// for this branch (e.g. re-running /sync to push a follow-up commit onto an open PR).
+// The push above already updated it; calling `gh pr create` again would just fail
+// with "a pull request ... already exists", masking the fact that the commit/push
+// actually succeeded.
+// `gh pr view <branch>` resolves to ANY PR for that branch regardless of state —
+// on a reused branch name whose earlier PR was already MERGED/CLOSED, that lookup
+// still "succeeds" and this step would wrongly report "no new PR needed" while the
+// new commits sit with zero PR coverage. Must check state explicitly.
+const existingPrRes = await $`gh pr view ${branch} --json url,state --jq "if .state == \"OPEN\" then .url else \"\" end"`.quiet().nothrow();
+const existingPrUrl = existingPrRes.exitCode === 0 ? existingPrRes.stdout.toString().trim() : '';
 
-let prCreateRetry: Awaited<ReturnType<typeof withRetry>>;
-if (prBody) {
-    prCreateRetry = await withRetry(
-        () => $`gh pr create --base ${prBase} --title ${msg} --body ${prBody}`.env(ghEnv).nothrow(),
-        { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: any) => r.exitCode === 0 },
-        'gh pr create'
-    );
-} else if (fs.existsSync(path.join('.github', 'pull_request_template.md'))) {
-    const prTpl = fs.readFileSync(path.join('.github', 'pull_request_template.md'), 'utf-8');
-    prCreateRetry = await withRetry(
-        () => $`gh pr create --base ${prBase} --title ${msg} --body ${prTpl}`.env(ghEnv).nothrow(),
-        { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: any) => r.exitCode === 0 },
-        'gh pr create'
-    );
+if (existingPrUrl) {
+    console.log(`${GREEN}✓ PR already exists for '${branch}' — commit pushed, no new PR needed:${RESET}`);
+    console.log(`  ${existingPrUrl}`);
 } else {
-    prCreateRetry = await withRetry(
-        () => $`gh pr create --base ${prBase} --fill`.env(ghEnv).nothrow(),
-        { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: any) => r.exitCode === 0 },
-        'gh pr create'
-    );
-}
+    // PR body selection:
+    //   1. --body-file provided by the agent (skills/sync/SKILL.md) → validate
+    //      English, submit via `gh pr create --body-file` (no shell escaping).
+    //   2. gen-pr-body.ts template fallback (commit message + file list).
+    //   3. .github/pull_request_template.md.
+    //   4. gh pr create --fill.
+    let prBody = "";
+    let bodySourceFile = "";
+    if (bodyFilePath) {
+        if (!fs.existsSync(bodyFilePath)) {
+            console.log(`${YELLOW}⚠️  --body-file not found (${bodyFilePath}) — falling back to template/--fill${RESET}`);
+        } else {
+            const agentBody = fs.readFileSync(bodyFilePath, 'utf-8').trim();
+            if (!agentBody) {
+                console.log(`${YELLOW}⚠️  --body-file is empty — falling back to template/--fill${RESET}`);
+            } else {
+                // Same English gate as the commit message above.
+                if (hasNonEnglish(agentBody)) {
+                    console.log(`${RED}❌ Agent-written PR body must be written in English (CONSTITUTION.md §3).${RESET}`);
+                    console.log(`${YELLOW}   Regenerate the body in English and re-run /sync.${RESET}`);
+                    if (import.meta.main) {
+                        process.exit(1);
+                    }
+                }
+                prBody = agentBody;
+                bodySourceFile = bodyFilePath;
+            }
+        }
+    }
 
-if (!prCreateRetry.success) {
-    const errMsg = prCreateRetry.lastError?.message || 'unknown error';
-    console.log(`${RED}❌ gh pr create failed: ${errMsg}${RESET}`);
-    process.exit(1);
+    if (!prBody) {
+        // Note: msg already passed the language gate above, so a non-zero exit here
+        // means gen-pr-body.ts hit a non-language failure — safe to fall back to the
+        // template/--fill paths below, but surface the reason instead of silently
+        // swallowing it.
+        try {
+            const genRes = await $`bun run scripts/gen-pr-body.ts "${msg}"`.quiet().nothrow();
+            if (genRes.exitCode !== 0) {
+                console.log(`${YELLOW}⚠️  gen-pr-body.ts failed — falling back to template/--fill:${RESET}`);
+                console.log(genRes.stderr.toString().trim());
+            }
+            prBody = genRes.stdout.toString().trim();
+        } catch (err) {
+            console.error(`[dev-sync] Error: ${err}`);
+        }
+    }
+
+    let prCreateRetry: Awaited<ReturnType<typeof withRetry>>;
+    if (bodySourceFile) {
+        prCreateRetry = await withRetry(
+            () => $`gh pr create --title ${msg} --body-file ${bodySourceFile}`.nothrow(),
+            { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: unknown) => typeof r === "object" && r !== null && (r as { exitCode: number }).exitCode === 0 },
+            'gh pr create'
+        );
+    } else if (prBody) {
+        prCreateRetry = await withRetry(
+            () => $`gh pr create --title ${msg} --body ${prBody}`.nothrow(),
+            { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: unknown) => typeof r === "object" && r !== null && (r as { exitCode: number }).exitCode === 0 },
+            'gh pr create'
+        );
+    } else if (fs.existsSync(path.join('.github', 'pull_request_template.md'))) {
+        const prTpl = fs.readFileSync(path.join('.github', 'pull_request_template.md'), 'utf-8');
+        prCreateRetry = await withRetry(
+            () => $`gh pr create --title ${msg} --body ${prTpl}`.nothrow(),
+            { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: unknown) => typeof r === "object" && r !== null && (r as { exitCode: number }).exitCode === 0 },
+            'gh pr create'
+        );
+    } else {
+        prCreateRetry = await withRetry(
+            () => $`gh pr create --fill`.nothrow(),
+            { ...DEFAULT_CONFIG, maxRetries: 3, initialDelay: 1000, isSuccess: (r: unknown) => typeof r === "object" && r !== null && (r as { exitCode: number }).exitCode === 0 },
+            'gh pr create'
+        );
+    }
+
+    if (!prCreateRetry.success) {
+        const errMsg = prCreateRetry.lastError?.message || 'unknown error';
+        console.log(`${RED}❌ gh pr create failed: ${errMsg}${RESET}`);
+        if (import.meta.main) {
+          process.exit(1);
+        }
+    }
 }

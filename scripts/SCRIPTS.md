@@ -35,15 +35,15 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.0 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
-| `audit.ts` | — | 2.6.5 | active | — | — | — | — |
+| `audit.ts` | — | 2.24.0 | active | — | — | — | — |
+| `audit-variant.ts` | — | 1.0.0 | active | — | — | — | — |
 | `check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.5.0 | active | — | — | — | — |
+| `dev-sync.ts` | — | 1.7.6 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.0.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.0.0 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.0.0 | active | — | — | — | — |
 | `domain-config.ts` | — | 1.5.0 | active | — | — | — | — |
-| `fetch-legalize.ts` | — | 1.0.0 | active | — | — | — | — |
 | `gen-pr-body.ts` | — | 1.2.0 | active | — | — | — | — |
 | `generate-scripts-readme.ts` | — | 1.1.0 | active | — | — | — | — |
 | `generate-version-manifest.ts` | — | 1.0.7 | active | — | — | — | — |
@@ -52,7 +52,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `readme-lifecycle-audit.ts` | — | 1.0.2 | active | — | — | — | — |
 | `retry-handler.ts` | — | 1.0.2 | active | — | — | — | — |
 | `risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
-| `safety-audit.ts` | — | 4.7.0 | active | — | — | — | — |
+| `safety-audit.ts` | — | 4.10.1 | active | — | — | — | — |
 | `scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
 | `skill-dependency-analysis.ts` | — | 1.0.0 | active | — | — | — | — |
 | `skill-lifecycle-audit.ts` | — | 1.1.4 | active | — | — | — | — |
@@ -60,13 +60,13 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `sync-agent-status.ts` | — | 1.0.0 | active | — | — | — | — |
 | `sync-md.ts` | — | 1.3.3 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.0.0 | active | — | — | — | — |
-| `sync-skills.ts` | — | 1.3.0 | active | — | — | — | — |
+| `sync-skills.ts` | — | 1.4.0 | active | — | — | — | — |
 | `team-builder.ts` | — | 1.2.0 | active | — | — | — | — |
 | `test-chemical-handling-profile.ts` | — | 1.0.0 | active | — | — | — | — |
 | `test-cross-domain-integration.ts` | — | 1.0.0 | active | — | — | — | — |
 | `test-domain-scenarios.ts` | — | 1.1.0 | active | — | — | — | — |
 | `test-pharma-general-profile.ts` | — | 1.0.0 | active | — | — | — | — |
-| `test-runner.ts` | — | 1.1.0 | active | — | — | — | — |
+| `test-runner.ts` | — | 1.2.0 | active | — | — | — | — |
 | `test-runtime-tools.ts` | — | 1.0.0 | active | — | — | — | — |
 | `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
 | `training-ingest.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -81,14 +81,19 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-skills.ts` | — | 1.1.0 | active | — | — | — | — |
 | `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/encoding-utils.ts` | — | 1.0.0 | active | — | — | — | — |
+| `lib/encoding-utils.ts` | — | 1.1.0 | active | — | — | — | — |
 | `lib/error-handling.ts` | — | 1.1.0 | active | — | — | — | — |
 | `lib/evidence-validator.ts` | — | 1.0.0 | active | — | — | — | — |
+| `lib/language-guard.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/mcp-cache.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/pipeline-state.ts` | — | 1.1.0 | active | — | — | — | — |
 | `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
+| `helpers/context-sections.ts` | — | 1.0.0 | active | — | — | — | — |
+| `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
+| `helpers/security-validator.ts` | — | 1.1.0 | active | — | — | — | — |
+| `migrate-registry-to-coordinates.ts` | — | 1.0.2 | active | — | — | — | — |
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.

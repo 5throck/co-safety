@@ -4,11 +4,17 @@
  * Distributes skills from the SSOT (skills/) to .claude/skills/, .gemini/skills/, and .agents/skills/
  * Phase 2: Syncs shortcut skills from .agents/skills/ back to .claude/skills/ and .gemini/skills/
  * Also creates platform command files from SSOT stubs if not already present.
- * @version 1.3.0
+ * v1.4.0 (2026-08-26): Added pre-sync [DRIFT] detection — the sha256 of each
+ *   SSOT SKILL.md is compared against its deployed platform copies
+ *   (.claude/skills/, .gemini/skills/, .agents/skills/) and any content
+ *   mismatch is reported before syncing. Non-destructive: sync proceeds
+ *   regardless.
+ * @version 1.4.0
  */
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import * as crypto from 'node:crypto';
 
 const scriptDir     = import.meta.dir;
 const workspaceRoot = path.resolve(scriptDir, '..');
@@ -84,6 +90,39 @@ function extractSkillName(filePath: string): string | null {
   return null;
 }
 
+// Compute sha256 of a file's bytes; null when unreadable
+function sha256File(filePath: string): string | null {
+  try {
+    return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+  } catch {
+    return null;
+  }
+}
+
+// Drift check (v1.4.0): compare the SSOT SKILL.md content hash against each
+// deployed platform copy. Missing copies are NOT drift (the sync below creates
+// them); byte-level differences are. Reporting only — sync always proceeds.
+function reportDrift(skillName: string, ssotSkillMd: string): void {
+  const ssotHash = sha256File(ssotSkillMd);
+  if (!ssotHash) return;
+  const platformTargets: Array<[string, string]> = [
+    ['.claude/skills/', claudeSkills],
+    ['.gemini/skills/', geminiSkills],
+    ['.agents/skills/', agentsSkills],
+  ];
+  const driftedPlatforms: string[] = [];
+  for (const [label, targetDir] of platformTargets) {
+    const deployedSkillMd = path.join(targetDir, skillName, 'SKILL.md');
+    if (!fs.existsSync(deployedSkillMd)) continue;
+    if (sha256File(deployedSkillMd) !== ssotHash) {
+      driftedPlatforms.push(label);
+    }
+  }
+  if (driftedPlatforms.length > 0) {
+    console.warn(`  [DRIFT] ${skillName}: deployed copy differs from SSOT in ${driftedPlatforms.join(', ')} — re-syncing from SSOT`);
+  }
+}
+
 const skillFiles = findSkillFiles(ssotSkills);
 
 for (const skillMdPath of skillFiles) {
@@ -93,6 +132,9 @@ for (const skillMdPath of skillFiles) {
     console.warn(`  [WARN] Could not extract skill name from: ${skillMdPath}`);
     continue;
   }
+
+  // Drift check before copies — non-destructive, sync still runs afterward
+  reportDrift(skillName, skillMdPath);
 
   // Copy to .claude/skills/
   const claudeTarget = path.join(claudeSkills, skillName);

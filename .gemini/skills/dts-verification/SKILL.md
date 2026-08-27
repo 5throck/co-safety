@@ -16,7 +16,14 @@ metadata:
     - MFDS DTS센터
     - 위변조 의약품 조사
     - GS1 데이터매트릭스
+  legal_basis:
+    - 약사법 제47조의3
+    - 약사법 제43조의2
+    - 약사법 제43조의3
+    - 의약품 등 추적관리에 관한 규정(식약처 고시)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # DTS Verification Skill
 

@@ -27,7 +27,7 @@
  * Usage:
  *   bun scripts/risk-register-rollup.ts --facility <id> --manager-id <id> \
  *       --signer-id <id> --signed-at <YYYY-MM-DD> \
- *       [--year YYYY] [--control-status implemented|in_progress|overdue|not_required] \
+ *       [--year YYYY] [--control-status planned|in_progress|implemented|overdue|not_required|na] \
  *       [--dry-run]
  *
  * @version 1.0.0
@@ -42,7 +42,7 @@ const REG_DIR = 'memory/registers';
 const RR_SCHEMA_PATH = 'evidence-models/domains/functional/risk-assessment/risk-register-record.json';
 const CREATED_BY = 'risk-register-rollup';
 const LEGAL_BASIS = ['산업안전보건법 Article 36', '중대재해처벌법 Article 4', 'MOEL 위험성평가 고시'];
-const CONTROL_STATUSES = ['implemented', 'in_progress', 'overdue', 'not_required'];
+const CONTROL_STATUSES = ['planned', 'in_progress', 'implemented', 'overdue', 'not_required', 'na'];
 
 interface Options {
     facility: string;
@@ -66,7 +66,7 @@ Required:
 
 Optional:
   --year YYYY             Only include assessments with this assessment_date year
-  --control-status <s>    control_status for NEW entries only (default: in_progress)
+  --control-status <s>    control_status for NEW entries only (default: planned; conservative — never overstates progress)
   --dry-run               Print the full plan; write nothing
 `.trim();
 }
@@ -78,7 +78,7 @@ function parseArgs(argv: string[]): Options {
         signerId: null,
         signedAt: null,
         year: null,
-        controlStatus: 'in_progress',
+        controlStatus: 'planned',
         dryRun: false,
     };
     const need = (flag: string, i: number): string => {

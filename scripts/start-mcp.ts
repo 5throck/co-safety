@@ -6,9 +6,7 @@ import { spawn } from "child_process";
 import path from "path";
 
 const servers = [
-  "mcp/kr-safety-regs/index.ts",
-  "mcp/legalize-kr/index.ts",
-  "mcp/kr-legislation/index.ts"
+  "mcp/kr-safety-regs/index.ts"
 ];
 
 console.log("Starting mock MCP servers...");

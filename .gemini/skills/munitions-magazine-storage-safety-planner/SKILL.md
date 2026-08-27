@@ -21,7 +21,15 @@ metadata:
     - FSESA Article 23 explosives safety manager
     - 마가진 낙뢰 정전기 대책
     - magazine lightning protection
+  legal_basis:
+    - "총포·도검·화약류 등 단속법 제9조 (화약류 취급제한)"
+    - "총포·도검·화약류 등 단속법 제23조 (화약류 안전관리자)"
+    - "방위사업법 제53조 (방위산업체 안전관리) [UNVERIFIED-via-legalize-kr-full-text]"
+    - "산업안전보건법 제36조 (위험성평가)"
+    - "중대재해처벌법 제4조 (사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Munitions Magazine Storage Safety Planner Skill
 

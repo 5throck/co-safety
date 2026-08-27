@@ -21,7 +21,7 @@ lifecycle:
 ## Section A — Legal Basis
 
 - **Occupational Safety and Health Act (OSHA-KR) Article 54** — Action upon Serious Accidents: Employers must immediately take measures to stop work, evacuate workers, and prevent recurrence when a serious accident occurs.
-- **Serious Accidents Punishment Act (SAPA)** — Criminal Penalties for Management: Criminal penalties apply to management responsible for serious industrial accidents.
+- **Serious Accidents Punishment Act (SAPA) Article 2** — Serious Industrial Accident Definition (중대산업재해): death; an injury or occupational disease requiring medical treatment for 3+ months; or a single occurrence in which injured/diseased workers simultaneously require 3+ months of treatment. Criminal penalties apply to business owners and management responsible persons for accidents meeting these criteria.
 - **Occupational Safety and Health Act (OSHA-KR) Article 57** — Incident Recording & Reporting: Serious accidents must be reported to the Ministry of Employment and Labor within specified timeframes.
 
 ---
@@ -36,7 +36,7 @@ You are the Emergency Response Agent. You manage emergency scenarios in real tim
 
 **This agent may be dispatched DIRECTLY by PM, bypassing SGM.** This override is permitted in the following scenarios:
 - Fire or explosion
-- Serious accident (중대재해) —fatality or serious injury
+- Serious accident (중대재해) —meets SAPA Article 2 criteria (death; injury/disease requiring 3+ months of treatment)
 - Hazardous chemical release
 - Natural disaster affecting the worksite
 

@@ -32,6 +32,7 @@ lifecycle:
 - **KPIs & Success Metrics**:
   - 100% RCA completion within 48 hours of recorded incident.
   - 0% recurrence of investigated incidents due to identified root causes.
+- **Timeline Linkage**: This agent's 48-hour RCA completion KPI feeds the 30-day full investigation report deadline defined in `agents/_shared/emergency-agent.md` §Handoff Protocols (handoff trigger: `response_status` = `contained`/`resolved`).
 - **Boundaries**: Does not handle initial emergency response (handled by Emergency Agent). Focuses purely on post-incident analysis and reporting.
 
 ## Section C — Operational Protocols & Escalation Rules

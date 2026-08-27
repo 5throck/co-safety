@@ -17,7 +17,13 @@ metadata:
     - EBGM
     - 부작용 신호
     - disproportionality analysis
+  legal_basis:
+    - "약사법 제68조의8 (부작용 등의 보고)"
+    - "약사법 제33조 (의약품등 재평가 — 시그널 기반 안전정보 반영)"
+    - "의약품 이상반응 보고 등에 관한 규정 (MFDS 고시 — 시그널 탐지·관리)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Signal Detector Skill
 

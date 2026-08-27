@@ -39,7 +39,7 @@ Define fallback behaviors if execution fails.
 ## Deployed Skills List
 - `compliance-gap`
 - `emergency-response`
-- `legalize-kr-sync`
+- `legalize-kr-sync` (removed 2026-08-26 — superseded by `k-law`)
 - `permit-to-work`
 - `risk-assessment`
 - `hazop-analysis`

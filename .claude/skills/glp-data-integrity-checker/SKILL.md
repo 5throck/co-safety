@@ -17,7 +17,14 @@ metadata:
     - OECD GLP Section 9
     - 감사증적
     - audit trail
+  legal_basis:
+    - OECD GLP Principles Section 9 (ALCOA+)
+    - 비임상시험 관리기준(식약처 고시)
+    - 환경부 GLP 고시
+    - 약사법
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # GLP Data Integrity Checker Skill
 

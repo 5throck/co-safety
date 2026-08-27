@@ -1,6 +1,6 @@
 # KP-GMP Regulatory Reference (Korean Good Manufacturing Practice)
 
-> **Source MCP**: `mcp-kr-legislation`
+> **Source MCP**: `mcp-kr-legislation` *(historical provenance — server removed 2026-08-26; re-verify via the k-law skill, 법제처 Open API)*
 > **Jurisdiction**: Republic of Korea
 > **Regulator**: Ministry of Food and Drug Safety (MFDS / 식품의약품안전처)
 > **Last Updated**: 2026-08-24

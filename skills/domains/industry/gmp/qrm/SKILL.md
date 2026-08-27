@@ -22,6 +22,8 @@ metadata:
     - 약사법 Article 37 (의약품등의 제조 관리의무)
 ---
 
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
+
 # GMP Quality Risk Management (ICH Q9) Skill
 
 ## Overview

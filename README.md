@@ -161,25 +161,22 @@ cd ..
 
 ### Step 2 — Configure `.env`
 
-Open `.env` and fill in the two keys. Both are **free** — no paid plans required.
+Open `.env` and fill in the key. It is **free** — no paid plan required.
 
 ```env
 # 1) 국가법령정보센터 Open API OC key
 #    → https://www.law.go.kr/LSO/openApi/openApiOcPage.do
-#    → Required: enables real-time Korean law queries (mcp_kr_legislation server)
+#    → Required: enables real-time Korean law queries via the k-law skill —
+#      the sole live statute source for Safety OS agents
+#    → OC signup approval takes 1-2 business days; request the key before starting
 LAW_API_OC=your_oc_key_here
-
-# 2) GitHub Personal Access Token (no scopes needed — public repo read only)
-#    → https://github.com/settings/tokens
-#    → Optional: enables legal precedent search (legalize_kr server)
-#    → If unset: precedent search is disabled, all other features work normally
-GITHUB_TOKEN=your_github_token_here
 ```
 
 | Key | Required? | What it enables |
 |-----|:---------:|-----------------|
-| `LAW_API_OC` | **Yes** | Real-time Korean legislation API (법령 목록, 개정 이력, 조문 해석) |
-| `GITHUB_TOKEN` | No | Legal precedent search via GitHub API. Without it, everything else still works. |
+| `LAW_API_OC` | **Yes** | Real-time Korean legislation API via the k-law skill (법령 목록, 개정 이력, 조문 해석) |
+
+> `GITHUB_TOKEN` was only used by the removed `legalize_kr` MCP server (precedent search); the block was removed from `.env.sample` on 2026-08-26. Existing users may drop it from `.env`.
 
 ### Step 3 — Verify Installation
 
@@ -189,15 +186,13 @@ bun scripts/safety-audit.ts              # 640+ files, 0 errors
 
 ### Step 4 — Start Using with AI Tools
 
-Open this project directory in Claude Code or Gemini CLI. The `.mcp.json` file is auto-detected — **3 MCP servers start automatically**, providing live Korean regulatory data:
+Open this project directory in Claude Code or Gemini CLI. The `.mcp.json` file is auto-detected — **1 MCP server starts automatically**, providing Korean regulatory index data:
 
 | MCP Server | Tools | Purpose |
 |------------|-------|---------|
 | `kr_safety` | 5 tools | Korean safety regulations search (OSHA-KR, SAPA, CCA), compliance gap analysis |
-| `legalize_kr` | 6 tools | Korean law structure parsing, version comparison, precedent search |
-| `mcp_kr_legislation` | 5 tools | Real-time legislation from 국가법령정보센터 API |
 
-No additional MCP configuration needed — just start chatting with your AI agent.
+Statute content queries go through the `k-law` skill (법제처 Open API). No additional MCP configuration needed — just start chatting with your AI agent.
 
 > **Minimum viable setup**: Clone → `bun install` in `scripts/` → set `LAW_API_OC` → done.
 

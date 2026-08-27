@@ -19,7 +19,15 @@ metadata:
     - 고압가스 사고 응급조치
     - HPGSCA Article 26
     - sub-fab evacuation
+  legal_basis:
+    - 고압가스안전관리법 제26조 (사고의 통보 등)
+    - 위험물안전관리법 제27조 (응급조치·통보 및 조치명령)
+    - 산업안전보건법 제36조 (위험성평가)
+    - 산업안전보건법 제110조 (MSDS 작성·비치 의무)
+    - 중대재해처벌법 제4조 (사업주와 경영책임자등의 안전 및 보건 확보의무)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Pyrophoric Gas Emergency Responder Skill
 
@@ -205,7 +213,7 @@ any other existing semicon skill.
   "regulatory_basis": [
     "고압가스 안전관리 및 사업법 (HPGSCA) Article 26 — 사고의 통보 등",
     "위험물안전관리법 (DSSMA) Article 27 — 응급조치·통보 및 조치명령",
-    "화학물질관리법 (CCA) Article 24 — 취급시설 관리 기준",
+    "화학물질관리법 (CCA) Article 40 — 사고대비물질의 관리기준",
     "산업안전보건법 (OSHA-KR) Article 36 — 위험성평가",
     "중대재해처벌법 (SAPA) Article 4 — 사업주 안전보장 의무"
   ],

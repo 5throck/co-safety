@@ -371,7 +371,7 @@ if (regFilesAfterMerge.length === 1) {
         (merged.risk_entries ?? []).length === 3,
         `got ${(merged.risk_entries ?? []).length}`);
     record('T-09e', 'new entry appended with default control_status',
-        added?.current_risk_level === 'medium' && added?.control_status === 'in_progress',
+        added?.current_risk_level === 'medium' && added?.control_status === 'planned',
         `level=${added?.current_risk_level ?? '(missing)'}, status=${added?.control_status ?? '(missing)'}`);
 } else {
     record('T-09c', 'human-set control_status preserved', false, 'register file missing');

@@ -9,8 +9,8 @@
 | [2026-08-23](2026-08-23.md) | fix(governance): remediate project-review findings - citation integrity, gate enforcement, schema hardening |
 | [2026-08-21](2026-08-21.md) | docs: manually upgrade docs/context.md to v2.4 (no co-safety variant template exists yet) |
 | [2026-08-19](2026-08-19.md) | fix(scripts): recursively scan agents/ in validate-agents.ts and backfill lifecycle governance for all 40 agents |
-| [2026-08-17](2026-08-17.md) | fix(git): add merge=union drivers to .gitattributes to prevent CHANGELOG/memory conflicts |
-| [2026-08-14](2026-08-14.md) | --body-file .git/sync-pr-body.md  |
+| [2026-08-17](archive/2026-08-17.md) | fix(git): add merge=union drivers to .gitattributes to prevent CHANGELOG/memory conflicts |
+| [2026-08-14](archive/2026-08-14.md) | fix(scripts): update script/skill-lifecycle-manager SKILL.md across platforms; fix body-file arg leaking into commit message and branch slug |
 | [2026-08-07](archive/2026-08-07.md) | industry-maturity |
 | [2026-08-06](archive/2026-08-06.md) | fix(project-review): PM-led remediation & Phase A status update |
 | [2026-08-03](archive/2026-08-03.md) | refactor(scripts): sync gen-pr-body to 1.2.0 - remove claude -p AI mode |

@@ -17,7 +17,13 @@ metadata:
     - 냉장유통
     - excursion event
     - 안정성 데이터 검토
+  legal_basis:
+    - "약사법 제47조 (의약품등의 판매 질서 — 유통품질관리기준 준수)"
+    - "약사법 제39조 (위해의약품등의 회수)"
+    - "의약품 유통관리 기준 (MFDS 고시 — 온도·콜드체인 보관 및 운송 기준)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Temperature Excursion Analyzer Skill
 

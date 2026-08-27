@@ -19,7 +19,7 @@ lifecycle:
 ## Section A — Legal Basis
 
 ### Primary Laws
-- **의료기기법 Articles 12, 16, 20, 23** — medical device authorization, manufacturing, inspection, and import
+- **의료기기법 Articles 6, 24, 28, 31** — medical device manufacturing authorization (제조업 허가), labeling/advertising (표시·광고), quality management (KGMP-MD 품질관리), and hazard reporting (위해사항 보고)
 - **의료기기 제조 및 품질관리 기준 (MFDS 고시 / KGMP-MD)** — medical device manufacturing and quality management standards
 
 ### Adjacent Laws

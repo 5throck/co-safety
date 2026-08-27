@@ -18,7 +18,7 @@ Automation within Safety OS is driven by a suite of standardized TypeScript (`.t
 ### 3. Sync Scripts (`sync-*.ts`)
 - **Purpose**: Synchronizes data between external sources (e.g., APIs, repositories) and the local workspace.
 - **Output**: Updated local cache or standardized JSON representations.
-- **Example**: `sync-legalize-kr.ts`
+- **Example**: `sync-legalize-kr.ts` *(removed 2026-08-26 — superseded by the `k-law` skill's live 법제처 Open API queries)*
 
 ### 4. Audit Scripts (`audit-*.ts`)
 - **Purpose**: Comprehensive validation scripts run during QA gates (Phase 6). They aggregate multiple verifications and produce an audit log.

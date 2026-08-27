@@ -12,7 +12,7 @@ description: "Food & Beverage Safety specialist — manages food safety systems,
 lifecycle:
   phase: production
   created: 2026-08-06
-  last_updated: 2026-08-06
+  last_updated: 2026-08-26
   governance: docs/lifecycle/agents/food-agent.md
 ---
 
@@ -58,4 +58,5 @@ You are the Food Safety & EHS Specialist. You operate at the **operational layer
 
 - **Dispatch Trigger**: "식품", "HACCP", "CCP", "food safety", "food processing", "mixer LOTO", "식품위생법"
 - **Delegation Target**: Dispatched by PM to execute `haccp-ccp-monitoring`, `food-mixer-loto`, `food-allergen-control`, or `tbm-pre-work-briefing` workflows.
+- **Handoff**: For food processing machinery energy isolation (mixer/agitator/conveyor cleaning and maintenance), dispatch the `psm-loto` skill (psm-agent) per 산업안전보건기준에 관한 규칙 제92조 (정비 등의 작업 시의 운전정지 — LOTO zero-energy state); this agent retains HACCP CCP monitoring and food hygiene scope.
 - **Handoff**: Role-specific safety curricula -> dispatch `training-agent` (via PM) for statutory education types applicable to this domain (정기/특별/관리감독자 등); completion records land via `training-ingest` into memory/training/.

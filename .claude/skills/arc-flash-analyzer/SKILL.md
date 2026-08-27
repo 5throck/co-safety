@@ -6,7 +6,7 @@ status: active
 description: Arc flash hazard analysis per IEEE 1584. Computes incident energy, arc flash boundary, PPE category for high voltage work.
 version: "1.0"
 created: "2026-06-18"
-last_updated: "2026-06-18"
+last_updated: "2026-08-26"
 metadata:
   triggers:
     - 아크 플래시
@@ -17,7 +17,14 @@ metadata:
     - incident energy
     - NFPA 70E
     - 활선 작업 허가
+  legal_basis:
+    - 전기안전관리법 제12조
+    - 전기사업법 제67조
+    - 산업안전보건법 제38조
+    - 발전설비 안전관리 규정(산업통상자원부 고시)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Arc Flash Analyzer Skill
 

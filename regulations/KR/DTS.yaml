@@ -1,42 +1,73 @@
-source_mcp: mcp-kr-legislation
+# ── Registry schema v2 (mode: coordinates) ───────────────────────────────────
+# This file maps article numbers to official titles ONLY. Article content is
+# never cached here — fetch live from the 법제처 k-law API at point of use.
+# Migrated by migrate-registry-to-coordinates.ts on 2026-08-26
+schema_version: 2
+mode: coordinates
 jurisdiction: KR
-regulator: MFDS (Ministry of Food and Drug Safety / 식품의약품안전처)
 framework: DTS
-title_ko: 의약품 추적관리 (Drug Tracking System)
-title_en: Drug Tracking System (DTS)
-primary_law:
-  name_ko: 약사법
-  name_en: Pharmaceutical Affairs Act
-  articles:
-    - article: "47의3"
-      topic_ko: 의약품관리종합정보센터의 지정·운영 등 (공급 내역 제출 등 유통정보 수집)
-      topic_en: Designation/operation of the Integrated Drug Management Information Center (distribution info collection incl. supply-detail submission)
-delegated_legislation:
-  - name_ko: 의약품 추적관리에 관한 규정 (MFDS 고시)
-    name_en: Regulations on Drug Tracking Management (MFDS Notice)
-    scope: DTS 대상 품목, 바코드/RFID 규격, 데이터 전송
-mandated_items:
-  - category: 전문의약품 (Ethical drugs)
-    mandate_date: "2015-02-04"
-  - category: 항생제 (Antibiotics)
-    mandate_date: "2015-02-04"
-  - category: 부작용 모니터링 의약품 (Adverse event monitoring drugs)
-    mandate_date: "2019-01-01"
-  - category: 마약류 (Narcotics)
-    mandate_date: "2022-01-01"
-  - category: 17개 지정 품목군 (17 designated categories)
-    mandate_date: "2022-06-01"
-tracking_technologies:
-  - GS1 DataMatrix 2D barcode
-  - RFID (Radio Frequency Identification)
-data_submission:
-  authority: MFDS DTS Center
-  frequency: real_time (유통 단계별)
-  method: API / 웹 포털
-key_data_points:
-  - 표준코드 (Standard code - GTIN)
-  - 제조번호/Batch number
-  - 유통단계 (Distribution stage)
-  - 거래일자 (Transaction date)
-  - 사업자등록번호 (Business registration number)
-last_updated: "2026-08-24"
+law_name: 동물 약국 및 동물용 의약품등의 제조업ㆍ수입자와 판매업의 시설 기준령
+law_name_en: null
+abbreviation: null
+mst: "256347"
+enforced_from: null
+agency: null
+tier: 1
+regulator: MFDS (Ministry of Food and Drug Safety / 식품의약품안전처)
+articles:
+  - "no": "1"
+    title: 목적
+    checked_at: "2026-08-26"
+  - "no": "2"
+    title: 정의
+    checked_at: "2026-08-26"
+  - "no": "3"
+    title: 동물 약국의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "4"
+    title: 동물용 의약품 제조소의 시설 기준 등
+    checked_at: "2026-08-26"
+  - "no": "5"
+    title: 동물용 의약품 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "6"
+    title: 완제품 동물용 의약품 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "7"
+    title: 무균제제 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "8"
+    title: 생물학적제제 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "9"
+    title: 원료 동물용 의약품 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "10"
+    title: 동물용 의약품 보관소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "11"
+    title: 동물용 의약품 시험실의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "12"
+    title: 동물용 의약외품 제조소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "13"
+    title: 동물용 의약품등의 제조 또는 시험의 위탁
+    checked_at: "2026-08-26"
+  - "no": "14"
+    title: 제조시설 및 기구의 다른 용도 이용
+    checked_at: "2026-08-26"
+  - "no": "15"
+    title: 동물용 의약품등 수입자의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "16"
+    title: 동물용 의약품 도매상 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "17"
+    title: 시설 및 기구의 종류 등
+    checked_at: "2026-08-26"
+source_verification:
+  method: k-law-live
+  checked_at: "2026-08-26"
+  next_review: "2027-02-22"
+last_updated: "2026-08-26"

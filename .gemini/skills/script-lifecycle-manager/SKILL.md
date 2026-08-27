@@ -19,9 +19,11 @@ metadata:
     - manage scripts
 ---
 
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
+
 ## Overview
 
-This skill provides a systematic approach to managing the lifecycle of automation scripts (`scripts/*.sh`, `scripts/*.ps1`, `scripts/*.ts`) in accordance with CONSTITUTION.md §6.5. It ensures scripts are properly registered in `SCRIPTS.md`, have strict version bumps, handle dependencies, and follow deprecation protocols (90-day notice).
+This skill provides a systematic approach to managing the lifecycle of automation scripts (`scripts/*.sh`, `scripts/*.ps1`, `scripts/*.ts`) in accordance with `docs/context.md` (Lifecycle Management rules). It ensures scripts are properly registered in `SCRIPTS.md`, have strict version bumps, handle dependencies, and follow deprecation protocols (90-day notice).
 
 ## When to Use This Skill
 

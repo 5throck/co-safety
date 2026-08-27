@@ -16,7 +16,14 @@ metadata:
     - GHS 16-section
     - msds-record.json
     - 공급자 MSDS 양식
+  legal_basis:
+    - "산업안전보건법 제110조 (물질안전보건자료 작성·제출 의무)"
+    - "산업안전보건법 제111조 (물질안전보건자료 제공 의무)"
+    - "산업안전보건법 제104조 (유해인자 분류기준 — 시행규칙 별표 18, GHS Rev 9)"
+    - "산업안전보건법 시행규칙 제156조·제160조 (MSDS 작성방법·기재사항 및 제공)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # MSDS Parser Skill (Hybrid: Rule + ML Fallback)
 

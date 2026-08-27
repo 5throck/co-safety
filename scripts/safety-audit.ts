@@ -77,8 +77,53 @@
  *   with identical unique coverage). Survey of all 213 validated schemas
  *   found every distinct applicable_industries value already present in
  *   KNOWN_INDUSTRIES (21/21), so domain-config.ts needed no additions.
+ * v4.8.0 (2026-08-26): Extended the legal-basis gate to two previously
+ *   unchecked surfaces, both emitted as WARN-only initially (phased rollout
+ *   per the v4.5.0 staleness precedent — visible in CI without breaking it):
+ *   (a) SKILL.md frontmatter — every skill under skills/ (SSOT) and
+ *   .agents/skills/, de-duplicated by frontmatter `name:` (SSOT wins), must
+ *   declare a legal_basis array with >= 3 entries; (b) variant.json
+ *   skill_manifest.variant_specific[*].legal_basis must be an array of >= 3
+ *   strings, each citing a specific article (제N조 / Article N); vague
+ *   citations containing '전반' are flagged.
+ * v4.9.0 (2026-08-26): Skill legal-basis gate noise reduction — skills whose
+ *   frontmatter declares metadata.type: 'process' (platform tooling: meeting,
+ *   sync, project-review, translate, team-builder, agent/script/skill lifecycle
+ *   managers) are now exempt from the statutory gate. These skills orchestrate
+ *   AI-team workflows, not EHS regulatory obligations, so a >= 3 Korean-statute
+ *   floor does not apply. The gate stays fully active for all EHS/domain skills.
+ * v4.9.1 (2026-08-26): Gate parser resolves legal_basis tolerantly — accepts
+ *   the array at top-level OR nested inside the frontmatter metadata: block
+ *   (the convention used by daily/risk-assessment and
+ *   shipbuilding/painting-coating-fire-toxic-planner), eliminating ~52 false
+ *   missing-field warnings. SPECIFIC_ARTICLE_RE extended to accept named
+ *   ministerial instruments: 「...」 bracketed titles and entries citing
+ *   고시 / 지침 / 별표 (e.g. '고용노동부 고시 「사업장 위험성평가에 관한 지침」').
+ * v4.10.0 (2026-08-26): Live-primary coordinate registry migration support
+ *   (all WARN-only, zero-error by construction): (a) skill-gate exemption
+ *   extended to frontmatter metadata.type: 'legal-research' (k-law research
+ *   instrument — alongside the existing 'process' exemption); (b) coordinate
+ *   registry migration tracking over regulations/KR/*.yaml — files declaring
+ *   top-level `mode: coordinates` are counted against the KR total and, while
+ *   unconverted files remain, ONE aggregate warning is emitted
+ *   ('X/Y converted to coordinate mode'); tolerant of the concurrent pilot
+ *   conversion (OSHA-KR/SAPA), never per-file, never an error; (c) aggregate
+ *   coordinate-freshness warning — coordinate-mode files whose
+ *   source_verification.checked_at predates their own next_review date, or
+ *   is older than 180 days when no review date exists, are counted with up
+ *   to 3 example filenames — a coordinate file is overdue when its
+ *   source_verification.checked_at predates its own next_review date once
+ *   that review window has passed, or is older than 180 days when no review
+ *   date exists. Legacy-mode files bypass the freshness check
+ *   entirely (their v4.5.0 last_updated staleness logic is untouched).
+ * v4.10.1 (2026-08-26): source_mcp provenance check retired — the
+ *   mcp_kr_legislation MCP server was removed 2026-08-26 (superseded by
+ *   the k-law skill, 법제처 Open API). v2 coordinate registries are now
+ *   validated via source_verification (non-empty method + parseable
+ *   checked_at). Legacy `source_mcp`/`last_updated` fields are tolerated
+ *   in legacy-mode files without error.
  *
- * @version 4.7.0
+ * @version 4.10.1
  */
 
 import * as fs from 'node:fs';
@@ -323,6 +368,24 @@ for (const file of schemaFiles) {
 const regDir = path.join(ROOT, 'regulations');
 const regFiles = walkDirExt(regDir, '.yaml');
 
+// ── Coordinate registry mode tracking (v4.10.0, WARN-only aggregate) ────────
+// During the live-primary registry migration, regulations/KR/*.yaml files may
+// be legacy or `mode: coordinates`. Both modes are tolerated (the pilot
+// conversion of OSHA-KR/SAPA runs concurrently): counts feed a single
+// aggregate migration warning plus an aggregate coordinate-freshness warning.
+// This check can never produce an error.
+const COORDINATE_STALE_DAYS = 180;
+const coordinateTracker = { total: 0, converted: 0, stale: [] as string[] };
+
+function toDate(value: unknown): Date | null {
+    if (value instanceof Date) return Number.isNaN(value.getTime()) ? null : value;
+    if (typeof value === 'string') {
+        const parsed = new Date(value);
+        return Number.isNaN(parsed.getTime()) ? null : parsed;
+    }
+    return null;
+}
+
 for (const file of regFiles) {
     totalChecked++;
     const content = fs.readFileSync(file, 'utf-8');
@@ -333,14 +396,64 @@ for (const file of regFiles) {
             errors.push(`${rel}: empty or invalid yaml`);
             continue;
         }
-        if (doc.source_mcp !== 'mcp-kr-legislation') {
-            errors.push(`${rel}: missing or incorrect source_mcp (expected 'mcp-kr-legislation')`);
+        // v4.10.1: provenance validation via source_verification. The
+        // mcp_kr_legislation MCP server was removed 2026-08-26 (superseded by
+        // the k-law skill — 법제처 Open API), so the legacy `source_mcp`
+        // field is no longer validated and remains tolerated in legacy-mode
+        // files without error. v2 coordinate registries must carry
+        // source_verification with a non-empty method and a parseable
+        // checked_at.
+        if (doc.mode === 'coordinates') {
+            const method = doc.source_verification?.method;
+            if (typeof method !== 'string' || method.trim() === '') {
+                errors.push(`${rel}: v2 coordinate registry requires non-empty source_verification.method`);
+            }
+            if (toDate(doc.source_verification?.checked_at) === null) {
+                errors.push(`${rel}: v2 coordinate registry requires parseable source_verification.checked_at`);
+            }
         }
         // v4.5.0: staleness reporting — warnings only, never counted as errors.
         checkRegulationStaleness(rel, doc.last_updated);
+        // v4.10.0: coordinate-mode tracking + freshness — legacy files skip
+        // this block entirely; their staleness logic above is untouched.
+        if (rel.startsWith('regulations/KR/')) {
+            const basename = rel.split('/').pop() ?? '';
+            if (['legal-glossary.yaml', 'industry-regulatory-anchors.yaml', 'Environmental-Discharge.yaml', 'Chemical-Plant-Safety.yaml'].includes(basename)) {
+                continue;
+            }
+            coordinateTracker.total++;
+            if (doc.mode === 'coordinates') {
+                coordinateTracker.converted++;
+                const checkedAt = toDate(doc.source_verification?.checked_at);
+                const nextReview = toDate(doc.source_verification?.next_review ?? doc.next_review);
+                if (checkedAt !== null) {
+                    // Overdue when the declared review window has been crossed
+                    // without a fresher re-check (checked_at predates a
+                    // next_review that has since passed), or when no review
+                    // date exists and the last check is >180 days old.
+                    const crossed = nextReview !== null
+                        && nextReview.getTime() < Date.now()
+                        && checkedAt.getTime() < nextReview.getTime();
+                    const aged = nextReview === null
+                        && (Date.now() - checkedAt.getTime()) / 86400000 > COORDINATE_STALE_DAYS;
+                    if (crossed || aged) coordinateTracker.stale.push(rel);
+                }
+            }
+        }
     } catch (e: any) {
         errors.push(`${rel}: YAML parsing error - ${e.message}`);
     }
+}
+
+// v4.10.0: ONE aggregate migration warning (only while X < Y — silent once the
+// conversion completes) and ONE aggregate coordinate-freshness warning with up
+// to 3 example filenames — never per-file spam.
+if (coordinateTracker.total > 0 && coordinateTracker.converted < coordinateTracker.total) {
+    warnings.push(`regulation registries: ${coordinateTracker.converted}/${coordinateTracker.total} converted to coordinate mode (migration pending — see docs/_meta/registry-schema-v2.md)`);
+}
+if (coordinateTracker.stale.length > 0) {
+    const examples = coordinateTracker.stale.slice(0, 3).map(r => r.split('/').pop()).join(', ');
+    warnings.push(`coordinate-mode registries: ${coordinateTracker.stale.length} overdue for source re-verification (e.g. ${examples})`);
 }
 
 // ── scan evidence-models ──────────────────────────────────────────────────────
@@ -631,6 +744,120 @@ if (fs.existsSync(sharedDocsDir)) {
     }
 }
 
+// ── Skill legal_basis gate (v4.8.0, WARN-phase rollout) ──────────────────────
+// Extends the CSO legal-basis floor to SKILL.md frontmatter — previously only
+// workflow schemas, evidence models, and regulations were scanned. Scans the
+// SSOT (skills/) plus the .agents/skills/ shortcut layer, de-duplicating by
+// frontmatter `name:` (SSOT wins). Emitted as WARNINGS initially: 43 of 62
+// skills currently lack the field, so ERROR severity would break CI on day
+// one; this mirrors the v4.5.0 staleness precedent (WARN now, promote later).
+console.log(`${CYAN}--- Skill legal_basis gate ---${RESET}`);
+
+const MIN_SKILL_LEGAL_BASIS = 3;
+
+function parseSkillFrontmatter(filePath: string): { name: string | null; fm: any } {
+    try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+        if (!match) return { name: null, fm: null };
+        const fm = yaml.load(match[1]) as any;
+        const name = fm && typeof fm.name === 'string' ? fm.name : null;
+        return { name, fm };
+    } catch {
+        return { name: null, fm: null };
+    }
+}
+
+const skillGateEntries = new Map<string, { rel: string; fm: any }>();
+for (const file of [
+    ...walkDirExact(path.join(ROOT, 'skills'), 'SKILL.md'),
+    ...walkDirExact(path.join(ROOT, '.agents', 'skills'), 'SKILL.md'),
+]) {
+    const { name, fm } = parseSkillFrontmatter(file);
+    // Dedupe key: frontmatter name; fall back to repo-relative path when the
+    // frontmatter is unparseable so the file still gets audited exactly once.
+    const key = name ?? relPath(file);
+    if (!skillGateEntries.has(key)) {
+        skillGateEntries.set(key, { rel: relPath(file), fm });
+    }
+}
+
+let skillGateChecked = 0;
+let skillGateSkipped = 0;
+for (const entry of skillGateEntries.values()) {
+    const { rel, fm } = entry;
+    // v4.9.0/v4.10.0: platform-tooling exemptions — process-type skills
+    // orchestrate AI-team workflows; legal-research-type skills are k-law
+    // research instruments. Neither is a regulated EHS activity, so the
+    // statute floor does not apply to them.
+    const fmType = fm?.metadata?.type ?? fm?.type;
+    if (fmType === 'process' || fmType === 'legal-research') {
+        skillGateSkipped++;
+        continue;
+    }
+    skillGateChecked++;
+    if (!fm || typeof fm !== 'object') {
+        warnings.push(`${rel}: SKILL.md has no parsable YAML frontmatter (legal_basis unverifiable)`);
+        continue;
+    }
+    const lb = (Array.isArray(fm?.legal_basis)) ? fm.legal_basis : (Array.isArray(fm?.metadata?.legal_basis) ? fm.metadata.legal_basis : null);
+    if (!Array.isArray(lb)) {
+        warnings.push(`${rel}: SKILL.md frontmatter missing legal_basis array (≥${MIN_SKILL_LEGAL_BASIS} entries required)`);
+    } else if (lb.length < MIN_SKILL_LEGAL_BASIS) {
+        warnings.push(`${rel}: SKILL.md legal_basis has ${lb.length} ${lb.length === 1 ? 'entry' : 'entries'} (< ${MIN_SKILL_LEGAL_BASIS})`);
+    }
+}
+totalChecked += skillGateChecked;
+if (skillGateSkipped > 0) {
+    console.log(`  (${skillGateSkipped} process/legal-research-type platform skills exempt from the statutory gate)`);
+}
+
+// ── variant.json skill_manifest validation (v4.8.0, WARN-phase rollout) ──────
+// C-1 validator half: skill_manifest.variant_specific[*].legal_basis must be
+// an array of >= 3 strings, each citing a specific article (제N조 / Article N);
+// vague values containing '전반' are flagged. Scalar legacy strings are coerced
+// to a 1-item list so entry-level checks still produce actionable findings.
+console.log(`${CYAN}--- variant.json skill_manifest gate ---${RESET}`);
+
+const MIN_VARIANT_LEGAL_BASIS = 3;
+const SPECIFIC_ARTICLE_RE = /제\s*\d+\s*조(의\s*\d+)?|\bArticle\s+\d+|「[^」]*」|(?:고시|지침|별표)/i;
+
+const variantJsonPath = path.join(ROOT, 'variant.json');
+if (fs.existsSync(variantJsonPath)) {
+    totalChecked++;
+    try {
+        const doc = JSON.parse(fs.readFileSync(variantJsonPath, 'utf-8'));
+        const variants = doc?.skill_manifest?.variant_specific;
+        if (variants !== undefined && variants !== null && !Array.isArray(variants)) {
+            warnings.push(`variant.json: skill_manifest.variant_specific is not an array`);
+        } else if (Array.isArray(variants)) {
+            for (const v of variants) {
+                const name = v && typeof v.name === 'string' ? v.name : '<unnamed>';
+                const label = `variant.json: skill_manifest.variant_specific[${name}].legal_basis`;
+                const lb = v?.legal_basis;
+                const items = Array.isArray(lb) ? lb : (lb === undefined || lb === null ? [] : [lb]);
+                if (!Array.isArray(lb)) {
+                    warnings.push(`${label}: must be an array of strings (found ${items.length === 0 ? 'nothing' : typeof items[0] === 'string' ? 'a bare string' : typeof lb})`);
+                }
+                if (items.length < MIN_VARIANT_LEGAL_BASIS) {
+                    warnings.push(`${label}: has ${items.length} ${items.length === 1 ? 'entry' : 'entries'} (< ${MIN_VARIANT_LEGAL_BASIS})`);
+                }
+                for (const item of items) {
+                    const s = String(item);
+                    if (!SPECIFIC_ARTICLE_RE.test(s)) {
+                        warnings.push(`${label}: entry does not cite a specific article (제N조 / Article N) - '${s}'`);
+                    }
+                    if (typeof item === 'string' && item.includes('전반')) {
+                        warnings.push(`${label}: vague citation ('전반') - '${item}'`);
+                    }
+                }
+            }
+        }
+    } catch (e: any) {
+        errors.push(`variant.json: JSON parsing error - ${e.message}`);
+    }
+}
+
 // ── Final report ──────────────────────────────────────────────────────────────
 
 const wfReport = Object.entries(domainCounts).map(([k, v]) => `${v.workflows} ${k}`).join(', ');
@@ -642,9 +869,10 @@ console.log(`  evidence-models/  : ${evidenceFiles.length} .json file(s) (${evRe
 const memReport = memoryRecordChecks.map(c => `${memoryRecordCounts[c.label]} ${c.unit}`).join(', ');
 console.log(`  memory records    : ${memReport}\n`);
 
-// ── Staleness warnings summary (v4.5.0) — informational, does not affect exit ─
+// ── Warnings summary (v4.5.0 staleness, v4.8.0 skill/variant gates) ──────────
+// Informational review-debt — never affects the error count or exit code.
 if (warnings.length > 0) {
-    console.log(`${YELLOW}⚠ ${warnings.length} regulation staleness warning(s) (WARN-only — not counted as errors):${RESET}`);
+    console.log(`${YELLOW}⚠ ${warnings.length} warning(s) (WARN-only — not counted as errors):${RESET}`);
     for (const w of warnings) {
         console.log(`${YELLOW}  - ${w}${RESET}`);
     }

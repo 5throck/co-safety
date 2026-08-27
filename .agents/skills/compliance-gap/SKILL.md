@@ -23,6 +23,8 @@ metadata:
 scope: workspace
 ---
 
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
+
 # Compliance Gap Analysis
 
 ## When to Use
@@ -38,7 +40,7 @@ Invoke this skill when: a new regulation is enacted or amended, a periodic compl
    - 화학물질등록·평가 등에 관한 법률 (K-REACH) — if applicable (hazardous/toxic chemical management provisions formerly under 유해화학물질관리법 (TCCL), which K-REACH partially supersedes per `regulations/KR/K-REACH.yaml`)
    - Other sector-specific regulations as identified
 
-2. **Live Regulation Verification** — Before gap analysis, verify article numbers and content are current using the `kr_safety` and `legalize_kr` MCP tools (live law lookup) rather than static indexes alone, per the compliance-agent Workflow Pattern (`agents/_shared/compliance-agent.md` §Workflow Pattern, step 2). This project has a history of mis-citations that live verification catches.
+2. **Live Regulation Verification** — Before gap analysis, verify article numbers and content are current using the `k-law` skill (법제처 Open API live lookup; `kr_safety` MCP as secondary) rather than static indexes alone, per the compliance-agent Workflow Pattern (`agents/_shared/compliance-agent.md` §Workflow Pattern, step 2). This project has a history of mis-citations that live verification catches.
 
 3. **Current State Assessment** — For each applicable regulation, document the current compliance state: systems in place, records available, responsible persons assigned, training completed.
 

@@ -28,6 +28,8 @@ metadata:
     - 중대재해처벌법 제4조 (사업주 및 경영책임자 안전보건 확보의무)
 ---
 
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
+
 ## tar-planning
 
 ### Purpose

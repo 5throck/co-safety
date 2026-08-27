@@ -1,39 +1,286 @@
-source_mcp: mcp-kr-legislation
+# ── Registry schema v2 (mode: coordinates) ───────────────────────────────────
+# This file maps article numbers to official titles ONLY. Article content is
+# never cached here — fetch live from the 법제처 k-law API at point of use.
+# Migrated by migrate-registry-to-coordinates.ts on 2026-08-26
+schema_version: 2
+mode: coordinates
 jurisdiction: KR
-regulator: 산업통상부 / KGS
 framework: LPG-Safety-Business
-title_ko: 액화석유가스의 안전관리 및 사업법
-title_en: LPG Safety Management and Business Act
-primary_law:
-  name_ko: 액화석유가스의 안전관리 및 사업법
-  articles:
-    - article: "29"
-      topic_ko: 자동차에 대한 LPG 충전행위의 제한 (충전소 안전)
-    - article: "8"
-      topic_ko: LPG 저장소 설치 허가 (저장 기준)
-    - article: "34"
-      topic_ko: 안전관리자 선임 (LPG)
-    - article: "45"
-      topic_ko: 상세기준 위임 — 시설·기술·검사 세부기준 (KGS Code)
-    - article: "36"
-      topic_ko: 안전성 확인 및 완성검사 (공사인허가·완성검사)
-charging_stations:
-  count_korea: 1200+
-  regulatory_distance:
-    basis: "저장설비~보호시설·사업소경계 거리표는 액화석유가스의 안전관리 및 사업법 시행규칙 별표 4(충전)·별표 5(저장소)에 규정 — 허가관청이 경계측량 성과도로 거리 확보를 확인 (시행규칙 제11조③)"
-    status: "VERIFIED 2026-08-24 — 이미지 별표였던 별표 4·5 전문을 law.go.kr 공식 첨부 PDF에서 pypdf 텍스트 추출로 취득 (<개정 2025.11.28.> 현행본; 별표 4 PDF flSeq=160060781, 별표 5 PDF flSeq=160060881) [Source: https://www.law.go.kr/LSW/flDownload.do?flSeq=160060781 , https://www.law.go.kr/LSW/flDownload.do?flSeq=160060881 ; accessed 2026-08-24]"
-    verified_distances:
-      byeol4_charging_facilities: "별표 4 제1호가목(용기충전): 저장설비→사업소 경계 저장능력별 24m(≤10톤)/27m(10–20)/30m(20–30)/33m(30–40)/36m(40–200)/39m(>200톤), 지하설치·액중펌프는 ×0.7; 충전설비→사업소 경계 24m 이상, 충전기→도로 경계선 4m 이상; 자동차 고정탱크 정차위치 중심→사업소 경계 24m, 정차위치 바깥면→도로 경계선 2.5m; 저장·가스설비→화기취급장소 8m 우회거리"
-      byeol4_vehicle_refueling: "별표 4 제2호가목(자동차에 고정된 용기 충전): 저장설비·충전설비→보호시설 저장능력별 제1종 17m(≤10톤)/21m/24m/27m/30m(>40톤), 제2종 12/14/16/18/20m; 지하설치 시 1/2 (1999-04-01 이전 설치 시설 한정 경과규정)"
-      byeol5_storage: "별표 5 제1호가목(일반집단공급·저장소): 저장설비(소형저장탱크 제외) 바깥면→사업소 경계 저장능력별 17m(≤10톤)/21m(10–20)/24m(20–30)/27m(30–40)/30m(>40톤), 지하설치 시 1/2; 화기 8m 우회거리 또는 유동방지 조치; 소형저장탱크 가스충전구→토지경계선 0.5m(<1천kg)/3.0m(1–2천kg)/5.5m(≥2천kg), 탱크간 0.3/0.5/0.5m, 건축물 개구부 0.5/3.0/3.5m"
-      legacy_claim_check: "종전 '15-50m (학교/병원 등)' 수치는 별표 4·5 어디에도 없음 확인 — 거리표는 모두 저장능력 계단식(경계·보호시설 기준)이며 학교/병원 개별 열은 존재하지 않음 (삭제 판정 재확인)"
-    kgs_delegation_note: "세부 시공·검사 방법론은 법 제45조 상세기준(KGS Code, 산업통상부 공고 2020-271) 위임 — 법정거리 자체는 상기 시행규칙 별표 수치표가 근거"
-kgs_code_delegation:
-  description: "액화석유가스의 안전관리 및 사업법 제45조에 따라 가스기술기준위원회(KGS Code 체계)가 시설·기술·검사의 상세기준을 정하고 산업통상부장관의 승인을 받음"
-  covered_by_kgs_code: true
-permit_procedure:
-  pre_review: "한국가스안전공사 기술검토 — 허가신청 첨부서류 (시행규칙 제15조①, 별지 제16호서식; 종전 '별지 제8호서식' 표기는 가스용품 제조사업 변경신고서로 오기)"
-  safety_confirmation: "공정별 안전성 확인 — 저장탱크 지하매설 직전 공정 등 4개 공정 (법 제36조①, 시행규칙 제51조①); '중간검사' 용어는 고압가스법 계열 표현으로 LPG법에는 없음"
-  completion_inspection: "허가관청(시장·군수·구청장 등)의 완성검사를 한국가스안전공사에 위탁하여 실시, 합격증명서도 공사 사장 발급 (법 제36조②, 시행령 제32조③4호, 시행규칙 제51조③·⑤) — KGS 입회 관행은 시행령 제32조③의 법정 위탁으로 확인"
-  periodic_inspection: "완성검사증명서 최초 발급일 기준 매 1년(전후 30일 이내), 허가관청 검사를 한국가스안전공사에 위탁 (법 제37조①, 시행규칙 제52조③, 시행령 제32조③6호)"
-last_updated: "2026-08-24"
+law_name: 액화석유가스의 안전관리 및 사업법
+law_name_en: null
+abbreviation: null
+mst: "276549"
+enforced_from: null
+agency: null
+tier: 1
+regulator: 산업통상부 / KGS
+articles:
+  - "no": "1"
+    title: 목적
+    checked_at: "2026-08-26"
+  - "no": "2"
+    title: 정의
+    checked_at: "2026-08-26"
+  - "no": "3"
+    title: 액화석유가스 수급상황에 대한 예측
+    checked_at: "2026-08-26"
+  - "no": "3"
+    title: 액화석유가스 이용ㆍ보급 시책
+    checked_at: "2026-08-26"
+  - "no": "4"
+    title: 다른 법률과의 관계
+    checked_at: "2026-08-26"
+  - "no": "5"
+    title: 사업의 허가 등
+    checked_at: "2026-08-26"
+  - "no": "6"
+    title: 허가의 기준
+    checked_at: "2026-08-26"
+  - "no": "7"
+    title: 결격사유
+    checked_at: "2026-08-26"
+  - "no": "8"
+    title: 저장소의 설치 허가
+    checked_at: "2026-08-26"
+  - "no": "9"
+    title: 액화석유가스 위탁운송사업자의 등록
+    checked_at: "2026-08-26"
+  - "no": "10"
+    title: 외국가스용품의 제조등록
+    checked_at: "2026-08-26"
+  - "no": "11"
+    title: 사업 개시 등의 신고
+    checked_at: "2026-08-26"
+  - "no": "12"
+    title: 사업자등의 지위 승계
+    checked_at: "2026-08-26"
+  - "no": "13"
+    title: 허가ㆍ등록의 취소 등
+    checked_at: "2026-08-26"
+  - "no": "14"
+    title: 과징금
+    checked_at: "2026-08-26"
+  - "no": "15"
+    title: 외국가스용품 제조자의 등록 취소 등
+    checked_at: "2026-08-26"
+  - "no": "16"
+    title: 처분효과의 승계
+    checked_at: "2026-08-26"
+  - "no": "17"
+    title: 액화석유가스 수출입업의 등록
+    checked_at: "2026-08-26"
+  - "no": "18"
+    title: 조건부 등록
+    checked_at: "2026-08-26"
+  - "no": "19"
+    title: 사업의 개시ㆍ휴업 및 폐업의 신고
+    checked_at: "2026-08-26"
+  - "no": "20"
+    title: 액화석유가스 비축의무
+    checked_at: "2026-08-26"
+  - "no": "21"
+    title: 등록의 취소 등
+    checked_at: "2026-08-26"
+  - "no": "22"
+    title: 과징금
+    checked_at: "2026-08-26"
+  - "no": "23"
+    title: 충전량 등의 표시
+    checked_at: "2026-08-26"
+  - "no": "23"
+    title: 액화석유가스 충전사업자의 정량 공급 의무 등
+    checked_at: "2026-08-26"
+  - "no": "24"
+    title: 판매 등의 방법
+    checked_at: "2026-08-26"
+  - "no": "25"
+    title: 공급규정
+    checked_at: "2026-08-26"
+  - "no": "26"
+    title: 액화석유가스의 품질 유지
+    checked_at: "2026-08-26"
+  - "no": "27"
+    title: 액화석유가스의 품질검사
+    checked_at: "2026-08-26"
+  - "no": "28"
+    title: ""
+    checked_at: "2026-08-26"
+  - "no": "29"
+    title: 자동차에 대한 액화석유가스 충전행위의 제한
+    checked_at: "2026-08-26"
+  - "no": "30"
+    title: 공급자의 의무
+    checked_at: "2026-08-26"
+  - "no": "30"
+    title: 가스사용시설의 안전관리업무 대행
+    checked_at: "2026-08-26"
+  - "no": "31"
+    title: 안전관리규정
+    checked_at: "2026-08-26"
+  - "no": "32"
+    title: 시설과 용기의 안전 유지
+    checked_at: "2026-08-26"
+  - "no": "33"
+    title: 시설의 개선과 안전 유지
+    checked_at: "2026-08-26"
+  - "no": "34"
+    title: 안전관리자
+    checked_at: "2026-08-26"
+  - "no": "34"
+    title: 시설공사계획의 승인 등
+    checked_at: "2026-08-26"
+  - "no": "34"
+    title: 공공용 토지의 사용
+    checked_at: "2026-08-26"
+  - "no": "35"
+    title: 시설의 시공ㆍ관리 및 시공기록 등의 보존ㆍ제출
+    checked_at: "2026-08-26"
+  - "no": "36"
+    title: 안전성 확인 및 완성검사
+    checked_at: "2026-08-26"
+  - "no": "36"
+    title: 시공감리
+    checked_at: "2026-08-26"
+  - "no": "37"
+    title: 정기검사 및 수시검사
+    checked_at: "2026-08-26"
+  - "no": "38"
+    title: 정밀안전진단 및 안전성평가
+    checked_at: "2026-08-26"
+  - "no": "39"
+    title: 가스용품의 수입 및 검사
+    checked_at: "2026-08-26"
+  - "no": "40"
+    title: 가스용품의 안전성 확보 등
+    checked_at: "2026-08-26"
+  - "no": "41"
+    title: 안전교육
+    checked_at: "2026-08-26"
+  - "no": "42"
+    title: ""
+    checked_at: "2026-08-26"
+  - "no": "43"
+    title: ""
+    checked_at: "2026-08-26"
+  - "no": "44"
+    title: 액화석유가스 사용시설의 설치와 검사 등
+    checked_at: "2026-08-26"
+  - "no": "44"
+    title: 사용시설의 안전장치 등
+    checked_at: "2026-08-26"
+  - "no": "45"
+    title: 상세기준
+    checked_at: "2026-08-26"
+  - "no": "46"
+    title: 안전 관리 등의 개선을 위한 지원
+    checked_at: "2026-08-26"
+  - "no": "47"
+    title: 액화석유가스 소형저장탱크와 배관망 설치 사업 및 안전관리 체계 조성의 지원
+    checked_at: "2026-08-26"
+  - "no": "48"
+    title: 허가관청 등의 조치
+    checked_at: "2026-08-26"
+  - "no": "49"
+    title: 액화석유가스 자동차 충전사업소에서의 흡연 금지
+    checked_at: "2026-08-26"
+  - "no": "49"
+    title: 액화석유가스배관에 대한 정보 지원
+    checked_at: "2026-08-26"
+  - "no": "49"
+    title: 액화석유가스배관 매설상황 확인
+    checked_at: "2026-08-26"
+  - "no": "49"
+    title: 가스안전 영향평가
+    checked_at: "2026-08-26"
+  - "no": "49"
+    title: 굴착공사의 협의ㆍ순회점검
+    checked_at: "2026-08-26"
+  - "no": "49"
+    title: 액화석유가스배관 손상방지기준의 준수
+    checked_at: "2026-08-26"
+  - "no": "49"
+    title: 액화석유가스배관의 안전조치 등
+    checked_at: "2026-08-26"
+  - "no": "50"
+    title: 사업자단체의 설립
+    checked_at: "2026-08-26"
+  - "no": "51"
+    title: 사업
+    checked_at: "2026-08-26"
+  - "no": "52"
+    title: 공제사업
+    checked_at: "2026-08-26"
+  - "no": "53"
+    title: 조정명령
+    checked_at: "2026-08-26"
+  - "no": "54"
+    title: 지도ㆍ감독
+    checked_at: "2026-08-26"
+  - "no": "55"
+    title: 보고와 조사 등
+    checked_at: "2026-08-26"
+  - "no": "56"
+    title: 사고의 통보 등
+    checked_at: "2026-08-26"
+  - "no": "57"
+    title: 보험가입
+    checked_at: "2026-08-26"
+  - "no": "57"
+    title: 다른 자의 토지 사용
+    checked_at: "2026-08-26"
+  - "no": "58"
+    title: 판매가격의 보고 및 공개 등
+    checked_at: "2026-08-26"
+  - "no": "59"
+    title: 청문
+    checked_at: "2026-08-26"
+  - "no": "60"
+    title: 수수료 등
+    checked_at: "2026-08-26"
+  - "no": "61"
+    title: 권한의 위임ㆍ위탁
+    checked_at: "2026-08-26"
+  - "no": "62"
+    title: 처분의 요구 등
+    checked_at: "2026-08-26"
+  - "no": "63"
+    title: 벌칙 적용에서의 공무원 의제
+    checked_at: "2026-08-26"
+  - "no": "64"
+    title: 「석유 및 석유대체연료 사업법」의 준용
+    checked_at: "2026-08-26"
+  - "no": "65"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "66"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "67"
+    title: ""
+    checked_at: "2026-08-26"
+  - "no": "68"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "69"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "69"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "70"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "71"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "72"
+    title: 양벌규정
+    checked_at: "2026-08-26"
+  - "no": "73"
+    title: 과태료
+    checked_at: "2026-08-26"
+source_verification:
+  method: k-law-live
+  checked_at: "2026-08-26"
+  next_review: "2027-02-22"
+last_updated: "2026-08-26"

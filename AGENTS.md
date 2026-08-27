@@ -11,11 +11,12 @@
 
 ---
 
-## Agent Roster
+## §1: Agent Ecosystem Overview
 
 > Safety OS agents only. Workspace-root agents (auditor, lifecycle-manager, architect, etc.)
 > are not included — they operate at L0 level and are not deployed in this L3 project.
 
+<!-- VARIANT-AGENTS-START -->
 ### Orchestration
 
 | Agent | File | Tier | Role |
@@ -58,10 +59,10 @@
 
 | Agent | File | Tier | Role |
 |-------|------|------|------|
-| EHSChem Agent | [`agents/domains/industry/ehschem/ehschem-agent.md`](agents/domains/industry/ehschem/ehschem-agent.md) | Medium | Chemical Plant Safety specialist (정유/석유화학/정밀화학); industry coordinator dispatching to PSM/MSDS/Emergency services |
-| EHSConst Agent | [`agents/domains/industry/ehsconst/ehsconst-agent.md`](agents/domains/industry/ehsconst/ehsconst-agent.md) | Medium | Construction Safety specialist; manages safety plans, fall/collapse prevention, and SAPA Article 5 (도급·하도급 안전보건 확보의무) compliance per OSHA-KR construction provisions |
-| GasTerm Agent | [`agents/domains/industry/gasterm/gasterm-agent.md`](agents/domains/industry/gasterm/gasterm-agent.md) | Medium | Gas Terminal Safety specialist (LNG/LPG/수소 기지 및 충전소); KGS compliance, leak detection, and emergency preparedness |
-| PowerGen Agent | [`agents/domains/industry/powergen/powergen-agent.md`](agents/domains/industry/powergen/powergen-agent.md) | Medium | Power Generation Safety specialist (화력/신재생 발전설비); boiler/turbine, high-voltage electrical, and ESS fire safety (원자력 제외) |
+| EHSChem Agent | [`agents/domains/industry/ehschem/ehschem-agent.md`](agents/domains/industry/ehschem/ehschem-agent.md) | Medium | Chemical Plant Safety specialist (`정유/석유화학/정밀화학`); industry coordinator dispatching to PSM/MSDS/Emergency services |
+| EHSConst Agent | [`agents/domains/industry/ehsconst/ehsconst-agent.md`](agents/domains/industry/ehsconst/ehsconst-agent.md) | Medium | Construction Safety specialist; manages safety plans, fall/collapse prevention, and SAPA Article 5 (`도급·하도급 안전보건확보의무`) compliance per OSHA-KR construction provisions |
+| GasTerm Agent | [`agents/domains/industry/gasterm/gasterm-agent.md`](agents/domains/industry/gasterm/gasterm-agent.md) | Medium | Gas Terminal Safety specialist (`LNG/LPG/수소 기지 및 충전소`); KGS compliance, leak detection, and emergency preparedness |
+| PowerGen Agent | [`agents/domains/industry/powergen/powergen-agent.md`](agents/domains/industry/powergen/powergen-agent.md) | Medium | Power Generation Safety specialist (`화력/신재생 발전설비`); boiler/turbine, high-voltage electrical, and ESS fire safety (`원자력 제외`) |
 
 ### GxP Domains
 
@@ -103,13 +104,26 @@
 
 ---
 
-## PM Gateway Policy
+<!-- VARIANT-AGENTS-END -->
+
+## §2: Individual Agent Definitions
+
+<!-- VARIANT-AGENT-DETAILS-START -->
+Full agent definitions live in `agents/` — every Safety OS agent file follows the mandatory
+3-Section structure (**A** Legal Basis / **B** Role & Responsibilities / **C** Operational
+Protocols & Escalation Rules). Governance records live in `docs/lifecycle/agents/`.
+<!-- VARIANT-AGENT-DETAILS-END -->
+
+---
+
+## §3: PM Gateway Workflow
 
 **Single Point of Entry**: PM is the ONLY agent that users may directly invoke.
 All specialist agents require PM dispatch - enforced at 4 levels.
 
 ### PM Direct Execution Scope
 
+<!-- VARIANT-SUBAGENT-ROSTER-START -->
 PM is an escalation gateway, not an executor. The following whitelist defines what PM may execute directly.
 
 | Category | Tools | Scope |
@@ -118,19 +132,24 @@ PM is an escalation gateway, not an executor. The following whitelist defines wh
 | Conditional | Write, Edit | `memory/*.md` and `CHANGELOG.md` only |
 | Conditional | Bash | Read-only: `git status/diff/log`, `bun scripts/audit.ts`, `bun scripts/safety-audit.ts`, `ls`, `cat` |
 | Forbidden | Write, Edit (other paths), Bash (write/execute) | Must delegate to specialist |
+<!-- VARIANT-SUBAGENT-ROSTER-END -->
 
-When a specialist agent's required tool is denied, PM applies the [Permission Denial Protocol](agents/pm.md#permission-denial-protocol) — never substitutes for the specialist.
+When a specialist agent's required tool is denied, PM applies the [Permission Denial Protocol](agents/_core/pm.md#permission-denial-protocol) — never substitutes for the specialist.
 
 ### Enforcement Layers
+<!-- VARIANT-ROLE-BOUNDARY-START -->
 1. **Tool-Level**: Agent tool rejects non-PM specialist calls (hard enforcement)
 2. **System Prompt-Level**: CLAUDE.md/GEMINI.md rules loaded first
 3. **Agent File-Level**: All specialists have "PM-ONLY INVOCATION" section
 4. **QA Gate-Level**: Auditor detects bypass in Phase 6 QA
+<!-- VARIANT-ROLE-BOUNDARY-END -->
 
 ### Specialist Agent Dispatch Flow
+<!-- VARIANT-PHASE-GATE-START -->
 ```
 User Request → PM Triage → Design Approval → Specialist Dispatch → QA Gate → Finalization
 ```
+<!-- VARIANT-PHASE-GATE-END -->
 
 ### Dispatch Trigger Precedence
 
@@ -152,16 +171,17 @@ When a user request matches triggers for multiple agents, PM resolves routing us
 | Trigger Term(s) | Primary Owner | Secondary / Consulted |
 |-----------------|---------------|----------------------|
 | LOTO, lockout, tagout | psm-agent (`psm-loto` skill) | steelmaking-agent, food-agent, waste-agent, shipbuilding-agent (industry-specific LOTO) |
-| compliance, 규제 | compliance-agent | All domain agents (industry-specific compliance); gmp-agent, glp-agent (GxP compliance) |
-| risk assessment, 위험성평가 | risk-assessment-agent (`risk-assessment` skill) | psm-agent (PHA), meddevice-agent (ISO 14971), ehschem-agent (process hazard screening), gmp-agent (QRM) |
-| emergency, 사고, 화재, incident | emergency-agent (`emergency-response` skill) | gasterm-agent (gas leak), powergen-agent (ESS fire), domain agents (site-specific) |
-| MSDS, 화학물질, hazardous chemicals | msds-agent (`msds-parser`, `ghs-classifier` skills) | ehschem-agent, semicon-agent (special gas), battery-agent (NMP/recycling) |
-| training, 교육 | training-agent | contractor-safety-agent (onboarding training), domain agents (role-specific curricula) |
-| audit, 검사, inspection readiness | audit-agent (`audit-preparation` skill) | gasterm-agent (KGS inspection), glp-agent (QAU), gmp-agent (self-inspection) |
-| contractor, 하도급 | contractor-safety-agent (`contractor-onboarding` skill) | ehsconst-agent (건설 하도급), shipbuilding-agent (SAPA Art. 5) |
-| TBM, tool box meeting | `tool-box-meeting` skill (safety-workflow-manager) | ehsconst-agent (건설 TBM profile) |
+| compliance, `규제` | compliance-agent | All domain agents (industry-specific compliance); gmp-agent, glp-agent (GxP compliance) |
+| risk assessment, `위험성평가` | risk-assessment-agent (`risk-assessment` skill) | psm-agent (PHA), meddevice-agent (ISO 14971), ehschem-agent (process hazard screening), gmp-agent (QRM) |
+| emergency, `사고`, `화재`, incident | emergency-agent (`emergency-response` skill) | gasterm-agent (gas leak), powergen-agent (ESS fire), domain agents (site-specific) |
+| MSDS, `화학물질`, hazardous chemicals | msds-agent (`msds-parser`, `ghs-classifier` skills) | ehschem-agent, semicon-agent (special gas), battery-agent (NMP/recycling) |
+| training, `교육` | training-agent | contractor-safety-agent (onboarding training), domain agents (role-specific curricula) |
+| audit, `검사`, inspection readiness | audit-agent (`audit-preparation` skill) | gasterm-agent (KGS inspection), glp-agent (QAU), gmp-agent (self-inspection) |
+| contractor, `하도급` | contractor-safety-agent (`contractor-onboarding` skill) | ehsconst-agent (`건설 하도급`), shipbuilding-agent (SAPA Art. 5) |
+| TBM, tool box meeting | `tool-box-meeting` skill (safety-workflow-manager) | ehsconst-agent (`건설` TBM profile) |
 | turnaround, TAR | ehschem-agent (`tar-planning` skill) | psm-agent (PSSR), contractor-safety-agent (surge management) |
-| fall hazard, 추락 | ehsconst-agent (`fall-hazard-assessor` skill) | risk-assessment-agent (cross-site scoring) |
+| fall hazard, `추락` | ehsconst-agent (`fall-hazard-assessor` skill) | risk-assessment-agent (cross-site scoring) |
+| `법령 조회`, `판례`, `법령해석례`, `별표서식`, law lookup | legal-agent (`k-law`) | compliance-agent (gap-analysis verification), msds-agent (GHS/MSDS anchors) |
 
 ### Execution Plan Boilerplate
 
@@ -175,6 +195,7 @@ For full execution plan format, mandatory criteria, platform parity, and example
 
 ### Specialist Agent Roster (PM-ONLY INVOCATION)
 
+<!-- VARIANT-DISPATCH-TRIGGERS-START -->
 All specialist agents below are dispatched ONLY through PM:
 
 | Agent | Phase | Dispatch Trigger |
@@ -196,30 +217,31 @@ All specialist agents below are dispatched ONLY through PM:
 | **audit-agent** | 5-6 | "Audit preparation", "Evidence traceability", "Regulatory inspection readiness" |
 | **occupational-health-agent** | 4 | "Health checkup", "Occupational disease", "Ergonomics" |
 | **msds-agent** | 4 | "MSDS", "Hazardous chemicals", "Chemical approval" |
-| **ehschem-agent** | 4 | "화학공장", "정유", "석유화학", "정밀화학", "chemical plant", "refinery", "petrochemical", "turnaround", "TAR" |
-| **ehsconst-agent** | 4 | "건설안전", "construction safety", "안전보건관리계획", "추락 방지", "붕괴 방지", "TBM", "Tool Box Meeting", "건설 PTW", "안전감리", "안전관리비", "하도급 안전", "건설 중대재해" |
-| **gasterm-agent** | 4 | "가스터미널", "LNG", "LPG", "수소 충전소", "가스 저장탱크", "가스 누출", "KGS 검사", "고압가스" |
-| **powergen-agent** | 4 | "발전소", "발전설비", "터빈", "보일러", "고압 전기", "송전", "변전", "풍력", "태양광", "ESS", "에너지저장" |
+| **ehschem-agent** | 4 | "`화학공장`", "`정유`", "`석유화학`", "`정밀화학`", "chemical plant", "refinery", "petrochemical", "turnaround", "TAR" |
+| **ehsconst-agent** | 4 | "`건설안전`", "construction safety", "`안전보건관리계획`", "`추락 방지`", "`붕괴 방지`", "TBM", "Tool Box Meeting", "`건설 PTW`", "`안전감리`", "`안전관리비`", "`하도급 안전`", "`건설 중대재해`" |
+| **gasterm-agent** | 4 | "`가스터미널`", "LNG", "LPG", "`수소 충전소`", "`가스 저장탱크`", "`가스 누출`", "`KGS 검사`", "`고압가스`" |
+| **powergen-agent** | 4 | "`발전소`", "`발전설비`", "`터빈`", "`보일러`", "`고압 전기`", "`송전`", "`변전`", "`풍력`", "`태양광`", "ESS", "`에너지저장`" |
 | **gmp-agent** | 4 | "GMP", "batch record", "validation", "change control", "deviation", "CAPA", "self-inspection", "quality risk", "supplier qualification", "stability testing" |
-| **glp-agent** | 4 | "GLP", "비임상시험", "non-clinical", "독성시험", "toxicology", "Study Director", "QAU", "Quality Assurance Unit", "OECD MAD", "test article" |
-| **gdp-agent** | 4 | "GDP", "의약품 유통", "냉장 유통", "cold chain", "DTS", "추적관리", "warehouse", "storage", "transportation", "recall", "returned goods" |
-| **gcp-agent** | 4 | "GCP", "임상시험", "clinical trial", "IRB", "생명윤리", "informed consent", "CRA", "monitoring", "SAE", "SUSAR", "ICF", "SDV", "CSR" |
-| **gvp-agent** | 4 | "GVP", "약물감시", "pharmacovigilance", "ICSR", "ADR", "이상반응", "signal detection", "PBRER", "PSUR", "RMP", "Risk Management Plan", "PMS", "재평가", "Drug Safety Officer", "DSUR" |
-| **meddevice-agent** | 4 | "의료기기", "medical device", "KGMP-MD", "ISO 13485", "ISO 14971", "설계관리", "멸균 밸리데이션", "의료기기 회수" |
-| **food-agent** | 4 | "식품", "HACCP", "CCP", "food safety", "food processing", "mixer LOTO", "식품위생법" |
-| **cosmetics-agent** | 4 | "화장품", "CGMP", "ISO 22716", "cosmetics", "batch release", "cosmetic ingredient", "화장품법" |
-| **semicon-agent** | 4 | "반도체", "디스플레이", "클린룸", "특수가스", "불산", "SiH4", "NF3", "semiconductor", "cleanroom", "special gas" |
-| **battery-agent** | 4 | "이차전지", "배터리", "열폭주", "폐배터리", "리사이클링", "NMP", "battery", "thermal runaway", "recycling" |
-| **shipbuilding-agent** | 4 | "조선", "해양플랜트", "선박 탱크", "밀폐공간 질식", "골리앗 크레인", "shipbuilding", "confined space", "ship tank" |
-| **steelmaking-agent** | 4 | "철강", "제련", "용광로", "전기로", "용융물", "부생가스", "CO가스", "steelmaking", "blast furnace", "molten metal" |
-| **datacenter-agent** | 4 | "데이터센터", "UPS", "수전설비", "고전압", "Arc Flash", "BCP", "datacenter", "ups fire", "high voltage" |
-| **logistics-agent** | 4 | "항만물류", "물류센터", "port logistics", "gantry crane", "AGV", "냉동창고", "항만안전특별법" |
-| **railway-agent** | 4 | "철도", "전차선", "25kV", "선로 정비", "railway", "catenary", "철도안전법" |
-| **waste-agent** | 4 | "폐기물", "하수처리장", "황화수소", "소각로", "waste", "sewage", "H2S asphyxiation", "폐기물관리법", "하수도법" |
-| **defense-agent** | 4 | "방위산업", "화약", "추진제", "유도무기", "defense", "explosive", "propellant", "방위사업법" |
-| **biotech-agent** | 4 | "바이오 CDMO", "배양기", "LMO", "생물안전", "biotech", "bioreactor", "biohazard", "BSL" |
+| **glp-agent** | 4 | "GLP", "`비임상시험`", "non-clinical", "`독성시험`", "toxicology", "Study Director", "QAU", "Quality Assurance Unit", "OECD MAD", "test article" |
+| **gdp-agent** | 4 | "GDP", "`의약품 유통`", "`냉장 유통`", "cold chain", "DTS", "`추적관리`", "warehouse", "storage", "transportation", "recall", "returned goods" |
+| **gcp-agent** | 4 | "GCP", "`임상시험`", "clinical trial", "IRB", "`생명윤리`", "informed consent", "CRA", "monitoring", "SAE", "SUSAR", "ICF", "SDV", "CSR" |
+| **gvp-agent** | 4 | "GVP", "`약물감시`", "pharmacovigilance", "ICSR", "ADR", "`이상반응`", "signal detection", "PBRER", "PSUR", "RMP", "Risk Management Plan", "PMS", "`재평가`", "Drug Safety Officer", "DSUR" |
+| **meddevice-agent** | 4 | "`의료기기`", "medical device", "KGMP-MD", "ISO 13485", "ISO 14971", "`설계관리`", "`멸균 밸리데이션`", "`의료기기 회수`" |
+| **food-agent** | 4 | "`식품`", "HACCP", "CCP", "food safety", "food processing", "mixer LOTO", "`식품위생법`" |
+| **cosmetics-agent** | 4 | "`화장품`", "CGMP", "ISO 22716", "cosmetics", "batch release", "cosmetic ingredient", "`화장품법`" |
+| **semicon-agent** | 4 | "`반도체`", "`디스플레이`", "`클린룸`", "`특수가스`", "`불산`", "SiH4", "NF3", "semiconductor", "cleanroom", "special gas" |
+| **battery-agent** | 4 | "`이차전지`", "`배터리`", "`열폭주`", "`폐배터리`", "`리사이클링`", "NMP", "battery", "thermal runaway", "recycling" |
+| **shipbuilding-agent** | 4 | "`조선`", "`해양플랜트`", "`선박 탱크`", "`밀폐공간 질식`", "`골리앗 크레인`", "shipbuilding", "confined space", "ship tank" |
+| **steelmaking-agent** | 4 | "`철강`", "`제련`", "`용광로`", "`전기로`", "`용융물`", "`부생가스`", "`CO가스`", "steelmaking", "blast furnace", "molten metal" |
+| **datacenter-agent** | 4 | "`데이터센터`", "UPS", "`수전설비`", "`고전압`", "Arc Flash", "BCP", "datacenter", "ups fire", "high voltage" |
+| **logistics-agent** | 4 | "`항만물류`", "`물류센터`", "port logistics", "gantry crane", "AGV", "`냉동창고`", "`항만안전특별법`" |
+| **railway-agent** | 4 | "`철도`", "`전차선`", "25kV", "`선로 정비`", "railway", "catenary", "`철도안전법`" |
+| **waste-agent** | 4 | "`폐기물`", "`하수처리장`", "`황화수소`", "`소각로`", "waste", "sewage", "H2S asphyxiation", "`폐기물관리법`", "`하수도법`" |
+| **defense-agent** | 4 | "`방위산업`", "`화약`", "`추진제`", "`유도무기`", "defense", "explosive", "propellant", "`방위사업법`" |
+| **biotech-agent** | 4 | "`바이오 CDMO`", "`배양기`", "LMO", "`생물안전`", "biotech", "bioreactor", "biohazard", "BSL" |
 
 **IMPORTANT**: Do NOT invoke any specialist agent directly. All requests must go through PM.
+<!-- VARIANT-DISPATCH-TRIGGERS-END -->
 
 ---
 
@@ -257,7 +279,7 @@ Human operational documentation for Korean EHS/GxP practitioners — workflow RE
 
 ---
 
-## Skills
+## §6: Skills
 
 | Skill | Owner | Description |
 |-------|-------|-------------|
@@ -266,29 +288,29 @@ Human operational documentation for Korean EHS/GxP practitioners — workflow RE
 | project-review | pm | Comprehensive parallel review by specialist agents — produces prioritized improvement plan |
 | compliance-gap | compliance-agent | Trigger compliance gap analysis against applicable EHS regulations |
 | emergency-response | emergency-agent | Trigger emergency response protocol on incident, fire, spill, or injury report |
-| legalize-kr-sync | safety-workflow-manager | Fetches the legalize-kr repository into a local cache directory for accessing Korean law data |
+| k-law | legal-agent | Query `법제처` National Law Information Center Open API (statutes, precedents, administrative rules, interpretation cases, attached forms); live-primary content source under the 2026-08-26 coordinate-registry architecture |
 | permit-to-work | safety-workflow-manager | Trigger permit-to-work (PTW) issuance workflow for high-risk or non-routine work |
 | tool-box-meeting | safety-workflow-manager | Trigger pre-work Tool Box Meeting (TBM) — cross-industry daily safety briefing with per-domain legal profiles (ehschem/gasterm/steelmaking/shipbuilding/powergen/waste/defense/semicon/battery/biotech/datacenter/logistics/railway/food) |
 | risk-assessment | risk-assessment-agent | Trigger risk assessment workflow for hazard identification and scoring |
 | hazop-analysis | psm-agent | Support execution of HAZOP procedures |
 | psm-moc | psm-agent | Generate Management of Change (MOC) packages |
-| psm-loto | psm-agent | Execute Lockout/Tagout (LOTO) procedure verification per KOSHA GUIDE Z-40-2022 and 안전보건기준규칙 Article 92 |
+| psm-loto | psm-agent | Execute Lockout/Tagout (LOTO) procedure verification per KOSHA GUIDE Z-40-2022 and `안전보건기준규칙` Article 92 |
 | tar-planning | ehschem-agent | Chemical plant turnaround (TAR) shutdown planning — pre-TAR risk assessment, PSSR, contractor surge management |
 | root-cause-analysis | incident-investigation-agent | Execute 5-Why / RCA / Bow-Tie investigations |
 | audit-preparation | audit-agent | Generate audit preparation checklists |
 | contractor-onboarding | contractor-safety-agent | Handle contractor onboarding and training packages |
 | asset-integrity-check | asset-integrity-agent | Generate equipment preventative maintenance plans |
 | chemical-risk-assessment | msds-agent | Scenario-based chemical risk assessment combining GHS hazard data with exposure evaluation |
-| ghs-classifier | msds-agent | Apply GHS Rev 9 (2021) classification rules to chemical substances and mixtures per OSHA-KR Article 243 |
+| ghs-classifier | msds-agent | Apply GHS Rev 9 (2021) classification rules to chemical substances and mixtures per OSHA-KR Article 104 |
 | msds-parser | msds-agent | Parse MSDS/SDS documents into structured GHS 16-section records (hybrid rule-based + ML fallback) |
 | environmental-compliance-checker | ehschem-agent | Check environmental discharge compliance for chemical plants (air/water/noise/vibration) |
 | process-hazard-screening | ehschem-agent | Initial hazard screening for chemical plant processes; dispatches detailed PHA to PSM service |
 | fall-hazard-assessor | ehsconst-agent | Assess fall hazards at construction sites — leading edge identification, protection hierarchy, rescue plan |
 | safety-inspection-validator | ehsconst-agent | Validate construction safety inspections per OSHA-KR construction provisions |
-| gas-dispersion-analyzer | gasterm-agent | Model gas dispersion after leak for emergency response (LNG/LPG/수소 characteristics) |
-| tank-integrity-validator | gasterm-agent | Validate LNG/LPG/수소 storage tank structural integrity (pressure/temperature/corrosion/fatigue) |
+| gas-dispersion-analyzer | gasterm-agent | Model gas dispersion after leak for emergency response (LNG/LPG/`수소` characteristics) |
+| tank-integrity-validator | gasterm-agent | Validate LNG/LPG/`수소` storage tank structural integrity (pressure/temperature/corrosion/fatigue) |
 | construction-permit-overview | gasterm-agent | Orchestrate full construction/permit lifecycle (3-phase KGS Code inspection) |
-| pre-construction-technical-review | gasterm-agent | Execute KGS Code pre-construction technical review (시설·기술 기준) |
+| pre-construction-technical-review | gasterm-agent | Execute KGS Code pre-construction technical review (`시설·기술 기준`) |
 | mid-construction-inspection | gasterm-agent | Execute KGS on-site mid-construction inspection |
 | completion-inspection | gasterm-agent | Execute KGS on-site completion inspection and permit issuance |
 | protocol-deviation-analyzer | gcp-agent | Analyze clinical trial protocol deviations per ICH E6(R3); classify severity and recommend CAPA |
@@ -297,9 +319,9 @@ Human operational documentation for Korean EHS/GxP practitioners — workflow RE
 | temperature-excursion-analyzer | gdp-agent | Analyze temperature excursion events in cold chain pharmaceutical distribution |
 | glp-data-integrity-checker | glp-agent | Validate ALCOA+ data integrity principles for GLP raw data per OECD GLP Section 9 |
 | glp-study-protocol-validator | glp-agent | Validate study protocol compliance with OECD GLP Section 8 requirements |
-| gmp-change-control | gmp-agent | Manage GMP Change Control (변경관리) workflows per KP-GMP + ICH Q10 |
-| gmp-deviation-capa | gmp-agent | Manage GMP Deviation (이상관리) and CAPA (시정예방조치) workflows per KP-GMP + ICH Q10 |
-| gmp-qrm | gmp-agent | ICH Q9 Quality Risk Management (품질 위해 관리) cross-cutting skill for pharmaceutical manufacturing |
+| gmp-change-control | gmp-agent | Manage GMP Change Control (`변경관리`) workflows per KP-GMP + ICH Q10 |
+| gmp-deviation-capa | gmp-agent | Manage GMP Deviation (`이상관리`) and CAPA (`시정예방조치`) workflows per KP-GMP + ICH Q10 |
+| gmp-qrm | gmp-agent | ICH Q9 Quality Risk Management (`품질 위해 관리`) cross-cutting skill for pharmaceutical manufacturing |
 | benefit-risk-assessor | gvp-agent | Integrated benefit-risk assessment per EU GVP Module 12 (PrOACT-URL, BRAT, MCDA) |
 | signal-detector | gvp-agent | Statistical signal detection in pharmacovigilance case database (PRR, ROR, BCPNN, EBGM) |
 | iso14971-risk-scorer | meddevice-agent | ISO 14971 risk estimation and scoring for medical devices (Severity x Probability matrix) |
@@ -308,7 +330,7 @@ Human operational documentation for Korean EHS/GxP practitioners — workflow RE
 
 ---
 
-## Universal Baseline Behaviors
+## §7: Universal Baseline Behaviors
 
 All agents, regardless of their role, must adhere to the following:
 
@@ -326,52 +348,53 @@ All agents, regardless of their role, must adhere to the following:
 ## Regulatory Scope
 
 > Law text is retrieved live via MCP — this section defines **which regulations are in scope** and their authority tier.
-> Live queries: `mcp_kr_legislation` (real-time API), `legalize_kr` (git mirror), `kr_safety` (OSHA-KR/SAPA index).
+> Live queries: `k-law` skill (`법제처` Open API — sole live CONTENT source) and `kr_safety` MCP (OSHA-KR/SAPA index).
+> legalize_kr and mcp_kr_legislation MCP servers were removed 2026-08-26 (k-law supersedes both); regulations/KR/*.yaml are coordinate registries.
 
 ### Tier 1 — Core Statutes
 
 | Law | Abbreviation | Enforcement Agency |
 |-----|-------------|-------------------|
-| 산업안전보건법 (Occupational Safety and Health Act) | OSHA-KR | 고용노동부 |
-| 중대재해처벌법 (Serious Accidents Punishment Act) | SAPA | 고용노동부 |
+| `산업안전보건법` (Occupational Safety and Health Act) | OSHA-KR | `고용노동부` |
+| `중대재해처벌법` (Serious Accidents Punishment Act) | SAPA | `고용노동부` |
 
-### Tier 2 — Presidential Decrees (시행령)
+### Tier 2 — Presidential Decrees (`시행령`)
 
 | Decree | Parent Statute |
 |--------|---------------|
-| 산업안전보건법 시행령 | OSHA-KR |
-| 산업안전보건법 시행규칙 | OSHA-KR |
-| 중대재해처벌법 시행령 | SAPA |
+| `산업안전보건법` 시행령 | OSHA-KR |
+| `산업안전보건법` 시행규칙 | OSHA-KR |
+| `중대재해처벌법` 시행령 | SAPA |
 
-### Tier 3 — Ministerial Ordinances & Notices (시행규칙/고시)
+### Tier 3 — Ministerial Ordinances & Notices (`시행규칙/고시`)
 
 | Ordinance | Parent Statute |
 |-----------|---------------|
-| 산업안전보건기준에 관한 규칙 (안전보건규칙) | OSHA-KR |
-| 공정안전관리 고시 (PSM고시) | OSHA-KR 제44조 |
+| `산업안전보건기준에 관한 규칙` (안전보건규칙) | OSHA-KR |
+| `공정안전관리 고시` (PSM고시) | OSHA-KR 제44조 |
 
 ### Tier 4 — Related Statutes
 
 | Law | Domain |
 |-----|--------|
-| 화학물질관리법 (CCA) | Chemical Safety |
-| 고압가스안전관리법 | High-Pressure Gas |
-| 위험물안전관리법 | Hazardous Materials |
-| 소방기본법 | Fire Safety |
-| 건설산업기본법 | Construction |
-| 근로기준법 | Labor Standards |
-| 연구실안전법 | Lab Safety |
-| 전기안전관리법 | Electrical Safety |
-| 대기환경보전법 | Air Quality |
-| 물환경보전법 | Water Quality |
-| 폐기물관리법 | Waste Management |
-| 토양환경보전법 | Soil Environment |
-| 소음진동관리법 | Noise & Vibration |
-| 자연환경보전법 | Nature Conservation |
-| 해양환경보전법 | Marine Environment |
-| 원자력안전법 | Nuclear Safety |
-| 승강기안전관리법 | Elevator Safety |
-| 건축법 | Building Code |
+| `화학물질관리법` (CCA) | Chemical Safety |
+| `고압가스안전관리법` | High-Pressure Gas |
+| `위험물안전관리법` | Hazardous Materials |
+| `소방기본법` | Fire Safety |
+| `건설산업기본법` | Construction |
+| `근로기준법` | Labor Standards |
+| `연구실안전법` | Lab Safety |
+| `전기안전관리법` | Electrical Safety |
+| `대기환경보전법` | Air Quality |
+| `물환경보전법` | Water Quality |
+| `폐기물관리법` | Waste Management |
+| `토양환경보전법` | Soil Environment |
+| `소음진동관리법` | Noise & Vibration |
+| `자연환경보전법` | Nature Conservation |
+| `해양환경보전법` | Marine Environment |
+| `원자력안전법` | Nuclear Safety |
+| `승강기안전관리법` | Elevator Safety |
+| `건축법` | Building Code |
 
 ---
 

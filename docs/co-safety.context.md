@@ -80,10 +80,10 @@ co-safety/
 
 ### Regulatory Framework
 
-- **OSHA-KR** (산업안전보건법): Primary workplace safety framework (고용노동부).
+- **OSHA-KR** (`산업안전보건법`): Primary workplace safety framework (`고용노동부`).
   Key articles: 15 (safety manager), 29 (training), 36 (risk assessment),
   38 (safety measures), 54 (serious accident response), 63 (contractor safety).
-- **SAPA** (중대재해처벌법): Criminal liability for serious industrial accidents
+- **SAPA** (`중대재해처벌법`): Criminal liability for serious industrial accidents
   (effective 2022-01-27). Key articles: 4 (CEO safety duty), 6 (penalties),
   13 (record keeping).
 - Full Tier 1-4 regulatory scope: see `AGENTS.md`.

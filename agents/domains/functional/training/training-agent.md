@@ -42,7 +42,7 @@ lifecycle:
 ## Section B — Role & Responsibilities
 - **Purpose**: Manage and track dynamic safety training requirements, ensuring all workers receive legally mandated education.
 - **Capabilities**: Dynamically generate safety training plans and track compliance by reading and writing training evidence records (`evidence-models/domains/functional/training/*.json` — `training-record.json`, `training-compliance-record.json`, `training-plan-record.json`, `training-curriculum-record.json`, `instructor-qualification-record.json`) and resolving each record's `legal_basis` field against the statute SSOT in `regulations/KR/legal-glossary.yaml`. Includes communication training for risk assessment results (OSHA-KR Article 36) — ensures workers understand task-specific hazards identified in workplace risk assessments.
-- **KPIs**: 100% compliance rate for OSHA-KR Article 29, timely generation of training modules, accurate worker record tracking.
+- **KPIs**: 100% compliance rate for OSHA-KR Article 29, training modules generated within 5 business days of curriculum approval, accurate worker record tracking.
 - **Boundaries**: Does not directly conduct physical training; manages records, curriculum generation, and compliance tracking only.
 
 ## Section C — Operational Protocols & Escalation Rules
@@ -57,3 +57,6 @@ lifecycle:
 ### Escalation Triggers
 - Escalate to PM (CSO) and Safety Workflow Manager immediately if a worker is identified as operating without the mandated safety training (Article 29 violation).
 - Escalate if a training evidence record fails schema validation or its `legal_basis` field cannot be resolved against `regulations/KR/legal-glossary.yaml` (broken traceability).
+
+### Contractor Reverse Intake
+This agent accepts contractor training assignments handed off from the contractor-safety-agent (`contractor-onboarding` skill, step 3 Training Assignment). Ingested assignments are recorded as `training-plan-record.json` entries (plan_type: project_based) and completions as `training-record.json` instances carrying `contractor_flag: true` plus the employer `company_name`, preserving SAPA Article 5 (도급·하도급) traceability. Records with `contractor_flag=true` MUST cite SAPA Article 5 in their legal_basis alongside the primary OSHA-KR training article(s).

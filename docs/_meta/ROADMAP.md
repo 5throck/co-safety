@@ -63,7 +63,7 @@ Apply the ADR-001 promotion pattern to additional cross-cutting concerns:
 - [x] PM-ONLY INVOCATION enforcement (P1-3 — 3 shared agents fixed)
 - [x] TBM dispatch ambiguity (P1-2 — 14 agents de-duplicated)
 - [ ] Dispatch trigger precedence rules (P2-3 — document in AGENTS.md)
-- [ ] Glossary article accuracy sweep (recurring — verify all article descriptions against legalize-kr)
+- [ ] Glossary article accuracy sweep (recurring — verify all article descriptions against k-law live, 법제처 Open API)
 
 ## Governance Cadence
 
@@ -93,7 +93,7 @@ Apply the ADR-001 promotion pattern to additional cross-cutting concerns:
 
 ## Backlog (Unprioritized)
 
-- Automated glossary article verification script (validate descriptions against legalize-kr)
+- Automated glossary article verification script (validate descriptions against k-law live, 법제처 Open API)
 - Domain-specific skill generation for the 12 newer domains (logistics, railway, waste, defense, biotech, battery, shipbuilding, steelmaking, datacenter, semicon, food, cosmetics)
 - Evidence model DRY consolidation (reduce inline field duplication)
 - Multi-language expansion beyond ko/en (ja, zh-CN per i18n locale structure)

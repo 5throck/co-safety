@@ -6,7 +6,7 @@ status: active
 description: Manage GMP Deviation (이상관리) and CAPA (시정예방조치) workflows per 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제7.3호 + ICH Q10.
 version: "1.0"
 created: 2026-06-17
-last_updated: 2026-07-09
+last_updated: 2026-08-26
 metadata:
   type: domain
   triggers:
@@ -22,6 +22,8 @@ metadata:
     - ICH Q10 Section 2 (Quality System - Corrective and Preventive Action)
     - 약사법 Article 37 (의약품등의 제조 관리의무)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # GMP Deviation & CAPA (이상관리 및 시정예방조치) Skill
 
@@ -55,7 +57,7 @@ This skill manages the end-to-end lifecycle of GMP deviations and corresponding 
 - `gmp-capa-record.json` — one per CAPA (a deviation may have multiple CAPAs)
 
 Common fields required:
-- `legal_basis`: array (총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제7.3호 + ICH Q10 minimum)
+- `legal_basis`: array with min 3 sources (universal DEFAULT_MIN_LEGAL_BASIS, `scripts/domain-config.ts`) — e.g., 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제7.3호 + ICH Q10 + 약사법 Article 37
 - `e_signature`, `qrm_assessment`, `nomenclature`, `audit_trail`
 
 ## Integration Points

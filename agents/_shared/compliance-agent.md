@@ -79,7 +79,7 @@ Dispatched by SWM (standard workflows) or SGM (regulatory update impact requests
 ### Workflow Pattern
 
 1. Read applicable regulation files from `regulations/KR/legal-glossary.yaml` and the relevant `regulations/KR/*.yaml` domain file matching `legal_basis` field. (`workflows/compliance/` is reserved for future structured per-domain checklists — it does not yet contain content; do not rely on it until populated.)
-2. Verify article numbers/content are current using the `kr_safety` and `legalize_kr` MCP tools (live law lookup) rather than the glossary alone when precision matters — this project has a history of mis-citations that live verification catches (see `memory/findings/compliance-gap-2026-07-05-all-domains.md`).
+2. Verify article numbers/content are current against live law rather than the glossary alone when precision matters — primary: the `k-law` skill (법제처 Open API, live-primary content source per the 2026-08-26 coordinate-registry architecture), following the same protocol family as the Legal Agent's Live Statute Resolution Protocol (`agents/_shared/legal-agent.md`); fallback (k-law unavailable): `kr_safety` MCP; otherwise mark `[UNVERIFIED]`. Record MST + `시행일자` for each verified anchor. This project has a history of mis-citations that live verification catches (see `memory/findings/compliance-gap-2026-07-05-all-domains.md`).
 3. Execute gap analysis against provided current state
 4. Categorize findings: Critical (Violation) / Major (Improvement needed) / Minor (Recommendation)
 5. Write gap report to `memory/findings/compliance-<date>-<id>.md`
@@ -92,8 +92,8 @@ Dispatched by SWM (standard workflows) or SGM (regulatory update impact requests
 | Read | `regulations/`, `workflows/compliance/`, `industry-profiles/` |
 | Write | `memory/findings/` (compliance gap reports) |
 | Bash | `bun scripts/safety-audit.ts` (schema validation) |
-| `mcp__kr_safety__search_osha_regulations`, `mcp__kr_safety__check_compliance_gaps` | Live OSHA-KR regulation lookup and gap checking |
-| `mcp__legalize_kr__*` | Live Korean statute verification (article numbers, amendment history) |
+| `k-law` skill | Primary live statute verification (법제처 Open API; requires `LAW_API_OC`) — anchor re-check per Workflow Pattern step 2 |
+| `mcp__kr_safety__search_osha_regulations`, `mcp__kr_safety__check_compliance_gaps` | Fallback OSHA-KR regulation lookup and gap checking (when k-law unavailable) |
 
 ---
 

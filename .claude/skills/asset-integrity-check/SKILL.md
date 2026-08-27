@@ -15,7 +15,14 @@ metadata:
     - NDT 검사
     - 배관 건전성
     - mechanical integrity
+  legal_basis:
+    - 산업안전보건법 제93조 (기계·기구 점검)
+    - 산업안전보건법 제44조 (설비 완전성)
+    - 산업안전보건법 제38조
+    - 중대재해처벌법 제4조
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 # Asset Integrity Check Skill
 
 ## Overview

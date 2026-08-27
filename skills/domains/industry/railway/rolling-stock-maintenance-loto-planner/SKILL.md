@@ -23,7 +23,14 @@ metadata:
     - RSA Article 48 철도 보호
     - OSHA-KR Article 38 추락 방지 포함 안전조치 (전차선)
     - wheel chock derail brake scotch
+  legal_basis:
+    - "철도안전법 제48조 (철도 보호 및 질서유지를 위한 금지행위)"
+    - "산업안전보건기준에 관한 규칙 제92조 (LOTO — 에너지원 차단·작업 정지)"
+    - "산업안전보건법 제38조 (추락 등 안전조치 — 차량 지붕·pit 추락 방지)"
+    - "중대재해처벌법 제4조 (사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Rolling Stock Maintenance LOTO Planner Skill
 

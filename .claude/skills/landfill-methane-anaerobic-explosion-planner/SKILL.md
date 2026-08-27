@@ -24,7 +24,15 @@ metadata:
     - WCA Article 25 폐기물처리업 허가
     - BFS Article 16 소방활동
     - Sudokwon Landfill safety
+  legal_basis:
+    - 폐기물관리법 제25조
+    - 소방기본법 제16조
+    - 폐기물관리법 제13조
+    - 산업안전보건법 제38조
+    - 중대재해처벌법 제4조
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Landfill Methane Anaerobic Explosion Planner Skill
 

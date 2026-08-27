@@ -1,52 +1,73 @@
-source_mcp: mcp-kr-legislation
+# ── Registry schema v2 (mode: coordinates) ───────────────────────────────────
+# This file maps article numbers to official titles ONLY. Article content is
+# never cached here — fetch live from the 법제처 k-law API at point of use.
+# Migrated by migrate-registry-to-coordinates.ts on 2026-08-26
+schema_version: 2
+mode: coordinates
 jurisdiction: KR
-regulator: MFDS (식품의약품안전처)
 framework: KGVP
-title_ko: 의약품 안전사용 관리 및 이상반응 보고
-title_en: Pharmaceutical Safety Use Management and Adverse Reaction Reporting (KGVP)
-primary_law:
-  name_ko: 약사법
-  name_en: Pharmaceutical Affairs Act
-  articles:
-    - article: "68의8"
-      topic_ko: 부작용 등의 보고 (이상반응 보고 의무)
-      topic_en: Adverse reaction reporting (mandatory ADR reporting)
-    - article: "33"
-      topic_ko: 의약품등 재평가
-      topic_en: Re-evaluation of pharmaceuticals
-delegated_legislation:
-  - name_ko: 의약품 이상반응 보고 등에 관한 규정 (MFDS 고시)
-    name_en: Regulations on Drug Adverse Reaction Reporting (MFDS Notice)
-    scope: KGVP — ICSR, signal detection, PBRER, RMP, PMS
-  - name_ko: 의약품 재평가 규정
-    name_en: Drug Re-evaluation Regulations
-    scope: 5-7년 주기 재평가
-key_topics:
-  - individual_case_safety_reports (ICSR)
-  - signal_detection_management
-  - periodic_benefit_risk_evaluation (PBRER)
-  - risk_management_plan (RMP)
-  - post_marketing_surveillance (PMS)
-  - re_evaluation_5to7_year_cycle
-  - labeling_safety_updates
-reporting_channels:
-  - mandatory_professional: 의료진 의무 보고 (15일 이내)
-  - voluntary_healthcare: KIDS voluntary reporting (Korea Institute of Drug Safety)
-  - patient_direct: 환자 직접 보고
-reporting_timelines:
-  expedited_serious: "15 days from awareness"
-  annual_aggregate: "PBRER annually"
-international_alignment:
-  - framework: ICH E2 series
-    references: [E2A, E2B(R3), E2C(R2), E2D, E2E, E2F]
-    alignment_level: full
-  - framework: EU GVP
-    reference: Modules 1-16
-    alignment_level: harmonized
-  - framework: WHO-UMC
-    reference: Uppsala Monitoring Centre
-    alignment_level: data_sharing
-kids_role:
-  name: 의약품안전사용센터 (Korea Institute of Drug Safety & Risk Management)
-  function: Voluntary reporting collection, signal analysis support, healthcare professional training
-last_updated: "2026-08-24"
+law_name: 동물 약국 및 동물용 의약품등의 제조업ㆍ수입자와 판매업의 시설 기준령
+law_name_en: null
+abbreviation: null
+mst: "256347"
+enforced_from: null
+agency: null
+tier: 1
+regulator: MFDS (식품의약품안전처)
+articles:
+  - "no": "1"
+    title: 목적
+    checked_at: "2026-08-26"
+  - "no": "2"
+    title: 정의
+    checked_at: "2026-08-26"
+  - "no": "3"
+    title: 동물 약국의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "4"
+    title: 동물용 의약품 제조소의 시설 기준 등
+    checked_at: "2026-08-26"
+  - "no": "5"
+    title: 동물용 의약품 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "6"
+    title: 완제품 동물용 의약품 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "7"
+    title: 무균제제 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "8"
+    title: 생물학적제제 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "9"
+    title: 원료 동물용 의약품 작업소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "10"
+    title: 동물용 의약품 보관소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "11"
+    title: 동물용 의약품 시험실의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "12"
+    title: 동물용 의약외품 제조소의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "13"
+    title: 동물용 의약품등의 제조 또는 시험의 위탁
+    checked_at: "2026-08-26"
+  - "no": "14"
+    title: 제조시설 및 기구의 다른 용도 이용
+    checked_at: "2026-08-26"
+  - "no": "15"
+    title: 동물용 의약품등 수입자의 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "16"
+    title: 동물용 의약품 도매상 시설 기준
+    checked_at: "2026-08-26"
+  - "no": "17"
+    title: 시설 및 기구의 종류 등
+    checked_at: "2026-08-26"
+source_verification:
+  method: k-law-live
+  checked_at: "2026-08-26"
+  next_review: "2027-02-22"
+last_updated: "2026-08-26"

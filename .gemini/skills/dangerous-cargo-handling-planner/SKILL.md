@@ -21,7 +21,14 @@ metadata:
     - PSSA Article 8 위험물 하역
     - DSSMA Article 20 위험물 운반
     - IMDG EmS MFAG response
+  legal_basis:
+    - 항만안전특별법 제8조
+    - 항만안전특별법 제9조
+    - 위험물안전관리법 제20조
+    - 중대재해처벌법 제5조
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Dangerous Cargo Handling Planner Skill
 

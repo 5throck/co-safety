@@ -32,7 +32,7 @@ In the Safety OS ecosystem, the PM agent assumes the critical role of Chief Safe
 
 The Safety Governance Manager is responsible for the strategic alignment of the organization's EHS objectives with regulatory requirements.
 
-*   **KPI Definition**: The SGM defines and tracks safety Key Performance Indicators (KPIs) such as Incident Frequency Rates and Audit Pass Rates. See `docs/governance/kpi-definitions.md` for the current KPI set (LTIFR, Audit Pass Rate, Corrective Action Closure Rate).
+*   **KPI Definition**: The SGM defines and tracks safety Key Performance Indicators (KPIs) such as Incident Frequency Rates and Audit Pass Rates. See `docs/governance/kpi-definitions.md` for the current KPI set: six core KPIs (LTIFR, Audit Pass Rate, Corrective Action Closure Rate, TRIR, LTIR, Near-Miss Reporting Rate) plus SAPA compliance metrics (SAPA-Qualifying Incident Count, `sapa_qualifying` Field Completeness).
 *   **Compliance Strategy**: It translates abstract regulatory requirements (like SAPA's mandate for an occupational safety and health management system) into concrete objectives.
 *   **Annual Planning**: The SGM assists in generating annual safety plans and distributing safety targets across different organizational units.
 *   **Policy Output**: Approved policies are written to `policies/` per the naming convention documented in `policies/README.md`.
@@ -57,11 +57,11 @@ Agent teams in Safety OS are assembled dynamically based on the requirements of 
 
 Document governance is a critical component of regulatory compliance. Safety OS enforces strict rules on document creation, modification, and storage.
 
-*   **Language Policy**: All workspace documentation files must be written in English, with explicit exceptions for recognized locale translation zones (e.g., `ko/`).
+*   **Language Policy**: Documentation language follows the layered policy defined in the workspace `AGENTS.md` (§Language Policy): Layer A mandates English for system/governance/agent files consumed by AI tooling, while Layer C keeps human operational documents (e.g., approved policies in `policies/`) Korean-canonical; recognized locale translation zones (e.g., `ko/`) remain exceptions.
 *   **Evidence Traceability**: All generated records (evidence models) must include a timestamp, agent ID, workflow ID, and the legal basis.
 *   **Centralized Storage**: Documents are organized into designated directories (`docs/` for analysis, `memory/` for session logs and evidence), preventing fragmentation.
 *   **Version Control**: Immutable audit trails are maintained by ensuring that approved documents are version-controlled and changes are tracked through automated QA gates.
 
 ## 3.7 Public Data Attribution
 
-Whenever legal data from `Legalize KR` or `mcp-kr-legislation` is used, the system must automatically append the following text to outputs or UIs: "본 데이터는 대한민국 법제처/국가법령정보센터의 데이터를 기반으로 함".
+Whenever legal data from the `k-law` skill (법제처 Open API) or the `kr_safety` MCP is used, the system must automatically append the following text to outputs or UIs: "본 데이터는 대한민국 법제처/국가법령정보센터의 데이터를 기반으로 함". (The former `Legalize KR` and `mcp-kr-legislation` MCP servers were removed 2026-08-26 — superseded by k-law.)

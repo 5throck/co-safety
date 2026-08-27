@@ -1,42 +1,160 @@
-source_mcp: mcp-kr-legislation
+# ── Registry schema v2 (mode: coordinates) ───────────────────────────────────
+# This file maps article numbers to official titles ONLY. Article content is
+# never cached here — fetch live from the 법제처 k-law API at point of use.
+# Migrated by migrate-registry-to-coordinates.ts on 2026-08-26
+schema_version: 2
+mode: coordinates
 jurisdiction: KR
-regulator: NFA (소방청) / MOIS (행정안전부)
 framework: Hazardous-Materials-Safety-Control
-title_ko: 위험물안전관리법
-title_en: Act on the Prevention of Hazards from Dangerous Materials (DSSMA / Hazardous Materials Safety Control Act)
-description: |
-  Heavily cited phantom law (40+ codebase citations across battery, datacenter,
-  ehschem, gasterm, powergen, psm, msds domains). Governs storage/handling of
-  flammable/combustible hazardous materials (NMP electrolyte, fuel oil, solvents).
-primary_law:
-  name_ko: 위험물안전관리법
-  abbreviation: DSSMA
-  articles:
-    - article: "5"
-      topic_ko: 위험물의 저장 및 취급의 제한
-      topic_en: Restrictions on storage and handling of hazardous materials
-    - article: "6"
-      topic_ko: 위험물시설의 설치 및 변경 등
-      topic_en: Installation and modification of hazardous materials facilities
-    - article: "13"
-      topic_ko: 과징금처분
-      topic_en: Administrative surcharge (penalty) for violations
-    - article: "18"
-      topic_ko: 정기점검 및 정기검사
-      topic_en: Periodic inspection and examination of facilities
-    - article: "22의2"
-      topic_ko: 위험물 누출 등의 사고 조사
-      topic_en: Investigation of hazardous material leak/spill incidents
-    - article: "27"
-      topic_ko: 응급조치·통보 및 조치명령
-      topic_en: Emergency measures, notification, and corrective orders
+law_name: 위험물안전관리법
+law_name_en: null
+abbreviation: null
+mst: "259933"
+enforced_from: null
+agency: null
+tier: 1
+regulator: NFA (소방청) / MOIS (행정안전부)
+articles:
+  - "no": "1"
+    title: 목적
+    checked_at: "2026-08-26"
+  - "no": "2"
+    title: 정의
+    checked_at: "2026-08-26"
+  - "no": "3"
+    title: 적용제외
+    checked_at: "2026-08-26"
+  - "no": "3"
+    title: 국가의 책무
+    checked_at: "2026-08-26"
+  - "no": "4"
+    title: 지정수량 미만인 위험물의 저장ㆍ취급
+    checked_at: "2026-08-26"
+  - "no": "5"
+    title: 위험물의 저장 및 취급의 제한
+    checked_at: "2026-08-26"
+  - "no": "6"
+    title: 위험물시설의 설치 및 변경 등
+    checked_at: "2026-08-26"
+  - "no": "7"
+    title: 군용위험물시설의 설치 및 변경에 대한 특례
+    checked_at: "2026-08-26"
+  - "no": "8"
+    title: 탱크안전성능검사
+    checked_at: "2026-08-26"
+  - "no": "9"
+    title: 완공검사
+    checked_at: "2026-08-26"
+  - "no": "10"
+    title: 제조소등 설치자의 지위승계
+    checked_at: "2026-08-26"
+  - "no": "11"
+    title: 제조소등의 폐지
+    checked_at: "2026-08-26"
+  - "no": "11"
+    title: 제조소등의 사용 중지 등
+    checked_at: "2026-08-26"
+  - "no": "12"
+    title: 제조소등 설치허가의 취소와 사용정지 등
+    checked_at: "2026-08-26"
+  - "no": "13"
+    title: 과징금처분
+    checked_at: "2026-08-26"
+  - "no": "14"
+    title: 위험물시설의 유지ㆍ관리
+    checked_at: "2026-08-26"
+  - "no": "15"
+    title: 위험물안전관리자
+    checked_at: "2026-08-26"
+  - "no": "16"
+    title: 탱크시험자의 등록 등
+    checked_at: "2026-08-26"
+  - "no": "17"
+    title: 예방규정
+    checked_at: "2026-08-26"
+  - "no": "18"
+    title: 정기점검 및 정기검사
+    checked_at: "2026-08-26"
+  - "no": "19"
+    title: 자체소방대
+    checked_at: "2026-08-26"
+  - "no": "19"
+    title: 제조소등에서의 흡연 금지
+    checked_at: "2026-08-26"
+  - "no": "20"
+    title: 위험물의 운반
+    checked_at: "2026-08-26"
+  - "no": "21"
+    title: 위험물의 운송
+    checked_at: "2026-08-26"
+  - "no": "22"
+    title: 출입ㆍ검사 등
+    checked_at: "2026-08-26"
+  - "no": "22"
+    title: 위험물 누출 등의 사고 조사
+    checked_at: "2026-08-26"
+  - "no": "23"
+    title: 탱크시험자에 대한 명령
+    checked_at: "2026-08-26"
+  - "no": "24"
+    title: 무허가장소의 위험물에 대한 조치명령
+    checked_at: "2026-08-26"
+  - "no": "25"
+    title: 제조소등에 대한 긴급 사용정지명령 등
+    checked_at: "2026-08-26"
+  - "no": "26"
+    title: 저장ㆍ취급기준 준수명령 등
+    checked_at: "2026-08-26"
+  - "no": "27"
+    title: 응급조치ㆍ통보 및 조치명령
+    checked_at: "2026-08-26"
+  - "no": "28"
+    title: 안전교육
+    checked_at: "2026-08-26"
+  - "no": "29"
+    title: 청문
+    checked_at: "2026-08-26"
+  - "no": "30"
+    title: 권한의 위임ㆍ위탁
+    checked_at: "2026-08-26"
+  - "no": "31"
+    title: 수수료 등
+    checked_at: "2026-08-26"
+  - "no": "32"
+    title: 벌칙적용에 있어서의 공무원 의제
+    checked_at: "2026-08-26"
+  - "no": "33"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "34"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "34"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "34"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "35"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "36"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "37"
+    title: 벌칙
+    checked_at: "2026-08-26"
+  - "no": "38"
+    title: 양벌규정
+    checked_at: "2026-08-26"
+  - "no": "39"
+    title: 과태료
+    checked_at: "2026-08-26"
+source_verification:
+  method: k-law-live
+  checked_at: "2026-08-26"
+  next_review: "2027-02-22"
+last_updated: "2026-08-26"
 related_rule:
   name_ko: 위험물안전관리법 시행령 / 시행규칙
   abbreviation: DSSMA-Enforcement
-key_hazards:
-  - 인화성 물질 화재/폭발 (flammable material fire/explosion)
-  - 저장탱크 누출/붕괴 (storage tank leak/collapse)
-  - NMP 전해액 인화 (NMP electrolyte flammability — battery)
-  - 중유/경유 저장탱크 화재 (fuel oil storage tank fire — datacenter/powergen)
-designated_quantities: 지정수량 (designated quantity) per schedule — handling above threshold requires permit
-last_updated: "2026-08-06"

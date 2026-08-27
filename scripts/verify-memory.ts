@@ -197,7 +197,9 @@ function verify(explicitFiles?: string[]): boolean {
       }
     }
   } else {
-    warnings.push("MEMORY.md not found — run `bun run scripts/sync-md.ts "YYYY-MM-DD" "initialize"` to initialize");
+    warnings.push(
+      `MEMORY.md not found — run \`bun run scripts/sync-md.ts "YYYY-MM-DD" "initialize"\` to initialize`
+    );
   }
 
   // Output
