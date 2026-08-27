@@ -23,4 +23,4 @@ This appendix catalogs the core South Korean EHS regulations tracked by the Safe
 | Article 4(1)3 | Compliance with Orders from Administrative Agencies | Compliance Agent |
 | Article 4(1)4 | Fulfillment of Obligations under Safety Laws | Audit Agent |
 
-*Note: This registry is managed dynamically by the `legal-agent` syncing with the `legalize-kr` repository.*
+*Note: This registry is managed dynamically by the `legal-agent` via the `k-law` skill (법제처 Open API live queries). The former `legalize-kr` repository-sync workflow was removed 2026-08-26.*

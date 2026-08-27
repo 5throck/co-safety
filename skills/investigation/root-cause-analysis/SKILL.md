@@ -14,7 +14,13 @@ metadata:
     - fishbone diagram
     - 사고조사
     - CAPA 수립
+  legal_basis:
+    - "산업안전보건법 제57조 (산업재해 조사·기록)"
+    - "산업안전보건법 제36조 (위험성평가 — CAPA 연계)"
+    - "중대재해처벌법 제4조 (사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 # Root Cause Analysis (RCA) Skill
 
 ## Overview

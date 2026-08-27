@@ -27,7 +27,7 @@
 - 도시가스사업법 Article 17-5
 
 ## 6. 규제 참고사항 (Regulatory Notes)
-HPGSCA 인용은 compliance-agent가 실시간 MCP legalize_kr 검증을 거친 remediated 조문(Art 11/13/15/24/26)이다 — kr_safety 카탈로그는 HPGSCA에 대해 stale(삭제된 Art 14 인덱싱)하므로 legalize_kr을 우선한다.
+HPGSCA 인용은 compliance-agent가 실시간 MCP legalize_kr 검증을 거친 remediated 조문(Art 11/13/15/24/26)이다 — kr_safety 카탈로그는 HPGSCA에 대해 stale(삭제된 Art 14 인덱싱)하므로 k-law 스킬(법제처 Open API)을 우선한다.
 
 ## 7. 법적 면책 고지
 > 본 시스템은 워크플로우 자동화 지원만 제공하며, 최종 판단은 자격을 갖춘 가스안전관리자 및 한국가스안전공사(KGS) 검사관의 검토가 필요합니다. 공사인허가는 지자체의 권한입니다.

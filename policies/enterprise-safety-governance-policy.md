@@ -1,3 +1,8 @@
+---
+lang: ko
+lang_reason: legal # 한국 법령(OSHA-KR/SAPA) 조항 인용이 본문 전체에 걸쳐 필수적인 정책 문서
+---
+
 # 전사 안전보건 거버넌스 정책 (Enterprise Safety Governance Policy)
 
 - **문서 번호**: POL-001
@@ -18,7 +23,7 @@
 적용 대상 산업 프로파일 (`industry-profiles/`, 26개 — `_schema.yaml`은 스키마 템플릿으로 제외):
 - 화학: `chemical.yaml`, `chemical-plant.yaml`, `chemical-handling.yaml`
 - 건설·중공업: `construction.yaml`, `shipbuilding-heavy.yaml`, `steelmaking-heavy.yaml`
-- 제조·첨단: `manufacturing.yaml`, `semiconductor.yaml`, `semicon-cleanroom.yaml`, `battery-manufacturing.yaml`, `datacenter.yaml`, `datacenter-infrastructure.yaml`
+- 제조·첨단: `manufacturing.yaml`, `semiconductor.yaml`, `semicon-cleanroom.yaml`, `battery-manufacturing.yaml`, `datacenter.yaml`, `datacenter-infrastructure.yaml`, `defense-aerospace.yaml`
 - 의약품·GxP: `pharma-general.yaml`, `pharma-distribution.yaml`, `pharma-laboratory.yaml`, `pharmacovigilance.yaml`, `clinical-research.yaml`, `medical-device.yaml`, `biotech-cdmo.yaml`, `cosmetics-cgmp.yaml`, `food-gxp.yaml`
 - 인프라·환경: `logistics-port.yaml`, `railway-transit.yaml`, `waste-water-environmental.yaml`
 - 공통: `training-management.yaml`
@@ -120,3 +125,4 @@
 | 버전 | 일자 | 변경 내용 | 승인자 |
 |---|---|---|---|
 | 1.0.0 | 2026-07-22 | 최초 제정 (First CSO-approved policy) | SGM |
+| 1.1.0 | 2026-08-24 | §1 적용 대상 프로파일 열거를 `industry-profiles/` 현행 26개 기준으로 갱신 (분류별 재편 및 `defense-aerospace.yaml` 추가) | SGM |

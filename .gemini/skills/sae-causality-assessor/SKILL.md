@@ -17,7 +17,13 @@ metadata:
     - ICH E2A
     - 중대이상반응 인과관계
     - 이상반응 인과성
+  legal_basis:
+    - "약사법 제34조의2 (임상시험 중 이상반응 기록·보고)"
+    - "생명윤리 및 안전에 관한 법률 제13조 (기관위원회 IRB 보고) [UNVERIFIED — see anchor table]"
+    - "의약품 임상시험 관리기준 (MFDS 고시 — SAE/SUSAR 인과성 평가 및 보고)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # SAE Causality Assessor Skill
 

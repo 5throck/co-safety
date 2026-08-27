@@ -19,7 +19,14 @@ metadata:
     - hot surface PPE
     - Class F Class K fire
     - 식품 제조 열 설비
+  legal_basis:
+    - "소방기본법 제16조 (소방활동 — 조리유·건조기 화재 진압 대응)"
+    - "산업안전보건법 제38조 (안전조치 — 고온 설비 화상·화재 예방)"
+    - "식품위생법 제48조 (HACCP 적용 — 열공정 관리) [UNVERIFIED-via-legalize-kr-full-text]"
+    - "중대재해처벌법 제4조 (사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Thermal Burn Prevention Planner Skill
 

@@ -1,172 +1,93 @@
-source_mcp: mcp-kr-legislation
+# ── Registry schema v2 (mode: coordinates) ───────────────────────────────────
+# This file maps article numbers to official titles ONLY. Article content is
+# never cached here — fetch live from the 법제처 k-law API at point of use.
+# Spec: docs/_meta/registry-schema-v2.md
+schema_version: 2
+mode: coordinates
+
 jurisdiction: KR
 regulator: MOEL / KOSHA
 framework: OSHA-KR
-title_ko: 산업안전보건법 (전체 조항 정본)
-title_en: Occupational Safety and Health Act (OSHA-KR) — Canonical Base
+law_name: 산업안전보건법
+law_name_en: Occupational Safety and Health Act
+abbreviation: OSHA-KR
+mst: null            # 법제처 법령일련번호 — filled by first k-law live pull (Phase 4)
+enforced_from: null  # not recorded in prior cache — Phase 4 live pull fills
+agency: 고용노동부
+tier: 1
+
 description: >
-  Canonical, cross-domain base regulation file consolidating every 산업안전보건법 article
-  cited anywhere in the Safety OS codebase (workflows/**/schema.yaml legal_basis fields,
-  agents/*.md Section A Legal Basis blocks). Domain-specific sub-variant files
-  (OSHA-KR-Construction.yaml, OSHA-KR-MSDS.yaml, OSHA-KR-Training.yaml) narrow this list
-  to the articles relevant to their domain — this file is the single source of truth for
-  the full set. See regulations/KR/legal-glossary.yaml for the underlying provenance data
-  this file is generated from.
-primary_law:
-  name_ko: 산업안전보건법
-  name_en: Occupational Safety and Health Act
-  abbreviation: OSHA-KR
-  articles:
-    - article: "13"
-      topic_ko: 기술 또는 작업환경에 관한 표준 (지도·권고)
-      topic_en: Technical and work-environment standards issued/guided by MOEL
-    - article: "14"
-      topic_ko: 안전·보건 계획 수립 및 이사회 보고·승인 (안전보건관리규정은 제25·26조)
-      topic_en: Annual safety/health plan — board report & approval (SHM regulations = Arts 25-26)
-    - article: "15"
-      topic_ko: 안전보건관리책임자 직무
-      topic_en: Safety and Health Management Supervisor duties
-    - article: "16"
-      topic_ko: 관리감독자 직무
-      topic_en: Management Supervisor duties
-    - article: "17"
-      topic_ko: 안전관리자 선임
-      topic_en: Safety Manager appointment
-    - article: "24"
-      topic_ko: 산업안전보건위원회
-      topic_en: Occupational Safety and Health Committee
-    - article: "29"
-      topic_ko: 근로자 안전보건교육 (특별교육=제29조③ + 규칙 §26)
-      topic_en: Worker safety and health education (special education = Art 29(3) + OSHSR §26)
-    - article: "31"
-      topic_ko: 건설업 기초안전보건교육 (일용근로자; 특별교육 아님)
-      topic_en: Construction-industry basic safety and health education for day laborers (NOT special education)
-    - article: "32"
-      topic_ko: 안전보건관리책임자 등에 대한 직무교육 (책임자/안전/보건/담당자 — 관리감독자 제외)
-      topic_en: Job education for safety/health management supervisors, managers, officers (management supervisors excluded)
-    - article: "36"
-      topic_ko: 위험성평가 실시
-      topic_en: Risk assessment
-    - article: "38"
-      topic_ko: 안전조치 (추락·붕괴·감전 등 위험방지의 일반 근거)
-      topic_en: Safety measures — general statutory basis for fall/collapse/electrical hazard prevention
-    - article: "39"
-      topic_ko: 보건조치
-      topic_en: Health measures
-    - article: "42"
-      topic_ko: 유해위험방지계획서의 작성·제출 (건설)
-      topic_en: Preparation/submission of hazard-prevention plans (construction)
-    - article: "44"
-      topic_ko: 공정안전관리 (PSM 대상 공정)
-      topic_en: Process Safety Management (PSM) for covered processes
-    - article: "51"
-      topic_ko: 사업주에 의한 작업중지
-      topic_en: Suspension of Work by Employer
-    - article: "52"
-      topic_ko: 근로자에 의한 작업중지
-      topic_en: Suspension of Work by Workers
-    - article: "54"
-      topic_ko: 중대재해 발생 시 조치 (작업중지, 대피, 재발방지)
-      topic_en: Action upon Serious Accidents (stop work, evacuate, prevent recurrence)
-    - article: "57"
-      topic_ko: 산업재해 기록·보고 (3년 보존)
-      topic_en: Incident Recording & Reporting (retain 3 years)
-    - article: "61"
-      topic_ko: 도급 사업 안전보건 조치
-      topic_en: Safety and Health Measures in Contracted Projects
-    - article: "62"
-      topic_ko: 안전보건 협조 의무
-      topic_en: Safety/health cooperation obligations
-    - article: "63"
-      topic_ko: 도급인의 안전보건조치
-      topic_en: Ordering party's safety and health measures
-    - article: "89"
-      topic_ko: 자율안전확인의 신고
-      topic_en: Voluntary safety confirmation — declaration
-    - article: "93"
-      topic_ko: 안전검사
-      topic_en: Safety inspection
-    - article: "98"
-      topic_ko: 자율검사프로그램에 따른 안전검사 (허가대상작업 아님)
-      topic_en: Safety inspection under voluntary inspection programs (NOT permit-to-work)
-    - article: "99"
-      topic_ko: 자율검사프로그램 인정의 취소 등 (추락방지 아님)
-      topic_en: Revocation of voluntary-inspection-program recognition (NOT fall prevention)
-    - article: "100"
-      topic_ko: 자율안전검사기관 (붕괴방지 아님)
-      topic_en: Voluntary safety inspection institutions (NOT collapse prevention)
-    - article: "101"
-      topic_ko: 성능시험 등 (전기위해 방지 아님)
-      topic_en: Performance tests, etc. (NOT electrical hazard prevention)
-    - article: "103"
-      topic_ko: 유해·위험기계등의 안전 관련 정보의 종합관리 (안전보건관리계획 아님)
-      topic_en: Comprehensive management of machinery safety information (NOT SHM plan)
-    - article: "104"
-      topic_ko: 유해인자의 분류기준 (GHS 분류 근거; 시행규칙 별표18)
-      topic_en: Hazard-factor classification criteria — GHS basis (OSH Ordinance 별표 18)
-    - article: "108"
-      topic_ko: 신규화학물질의 유해성·위험성 조사
-      topic_en: Hazard investigation of new chemical substances (자율안전확인은 제89조)
-    - article: "110"
-      topic_ko: 물질안전보건자료(MSDS) 작성·제출 (게시·비치=제114조)
-      topic_en: MSDS preparation & submission to MOEL (posting/keeping = Art 114)
-    - article: "111"
-      topic_ko: 물질안전보건자료의 제공 (양수인 등에게 제공 의무)
-      topic_en: MSDS provision duty to transferees/recipients
-    - article: "112"
-      topic_ko: 물질안전보건자료 일부 비공개 승인 등 (영업비밀; 양식·기재사항=규칙 §156)
-      topic_en: Partial non-disclosure approval for trade secrets (format/content = OSHSR §156)
-    - article: "113"
-      topic_ko: 국외제조자가 선임한 자에 의한 정보 제출 등 (금지/허가=제117·118조)
-      topic_en: Information submission by agents appointed by overseas manufacturers (bans/permits = Arts 117-118)
-    - article: "114"
-      topic_ko: 물질안전보건자료의 게시 및 교육 (경고표시=제115조)
-      topic_en: MSDS posting & worker education (warning labels = Art 115)
-    - article: "115"
-      topic_ko: 물질안전보건자료대상물질 용기 등의 경고표시
-      topic_en: Warning labels on containers/packages of MSDS-subject substances
-    - article: "117"
-      topic_ko: 유해·위험물질의 제조 등 금지
-      topic_en: Prohibition of manufacture/import etc. of hazardous/dangerous substances
-    - article: "118"
-      topic_ko: 유해·위험물질의 제조 등 허가
-      topic_en: Permission for manufacture/import etc. of hazardous/dangerous substances
-    - article: "125"
-      topic_ko: 작업환경측정
-      topic_en: Work Environment Measurement
-    - article: "129"
-      topic_ko: 일반건강진단
-      topic_en: Worker Health Examination — General
-    - article: "130"
-      topic_ko: 특수건강진단
-      topic_en: Worker Health Examination — Special
-    - article: "155"
-      topic_ko: 고용노동부 작업장 감독 권한
-      topic_en: MOEL workplace inspection authority
+  Cross-domain base coordinate registry consolidating every 산업안전보건법 article cited
+  anywhere in the Safety OS codebase (workflows/**/schema.yaml legal_basis fields,
+  agents/*.md Section A blocks). Domain sub-variant files narrow this set per domain.
+  Content authority is the k-law live API — this file asserts existence and title only.
+
+articles:
+  - { no: "13",  title: "기술 또는 작업환경에 관한 표준", checked_at: "2026-08-26" }
+  - { no: "14",  title: "안전·보건 계획 수립 및 이사회 보고·승인", checked_at: "2026-08-26" }
+  - { no: "15",  title: "안전보건관리책임자 직무", checked_at: "2026-08-26" }
+  - { no: "16",  title: "관리감독자 직무", checked_at: "2026-08-26" }
+  - { no: "17",  title: "안전관리자 선임", checked_at: "2026-08-26" }
+  - { no: "24",  title: "산업안전보건위원회", checked_at: "2026-08-26" }
+  - { no: "29",  title: "근로자 안전보건교육", checked_at: "2026-08-26" }
+  - { no: "31",  title: "건설업 기초안전보건교육", checked_at: "2026-08-26" }
+  - { no: "32",  title: "안전보건관리책임자 등에 대한 직무교육", checked_at: "2026-08-26" }
+  - { no: "36",  title: "위험성평가 실시", checked_at: "2026-08-26" }
+  - { no: "38",  title: "안전조치", checked_at: "2026-08-26" }
+  - { no: "39",  title: "보건조치", checked_at: "2026-08-26" }
+  - { no: "42",  title: "유해위험방지계획서의 작성·제출 (건설)", checked_at: "2026-08-26" }
+  - { no: "44",  title: "공정안전관리", checked_at: "2026-08-26" }
+  - { no: "51",  title: "사업주에 의한 작업중지", checked_at: "2026-08-26" }
+  - { no: "52",  title: "근로자에 의한 작업중지", checked_at: "2026-08-26" }
+  - { no: "54",  title: "중대재해 발생 시 조치", checked_at: "2026-08-26" }
+  - { no: "57",  title: "산업재해 기록·보고 (3년 보존)", checked_at: "2026-08-26" }
+  - { no: "61",  title: "도급 사업 안전보건 조치", checked_at: "2026-08-26" }
+  - { no: "62",  title: "안전보건 협조 의무", checked_at: "2026-08-26" }
+  - { no: "63",  title: "도급인의 안전보건조치", checked_at: "2026-08-26" }
+  - { no: "89",  title: "자율안전확인의 신고", checked_at: "2026-08-26" }
+  - { no: "93",  title: "안전검사", checked_at: "2026-08-26" }
+  - { no: "98",  title: "자율검사프로그램에 따른 안전검사", checked_at: "2026-08-26" }
+  - { no: "99",  title: "자율검사프로그램 인정의 취소 등", checked_at: "2026-08-26" }
+  - { no: "100", title: "자율안전검사기관", checked_at: "2026-08-26" }
+  - { no: "101", title: "성능시험 등", checked_at: "2026-08-26" }
+  - { no: "103", title: "유해·위험기계등의 안전 관련 정보의 종합관리", checked_at: "2026-08-26" }
+  - { no: "104", title: "유해인자의 분류기준 (시행규칙 별표18)", checked_at: "2026-08-26" }
+  - { no: "108", title: "신규화학물질의 유해성·위험성 조사", checked_at: "2026-08-26" }
+  - { no: "110", title: "물질안전보건자료(MSDS) 작성·제출", checked_at: "2026-08-26" }
+  - { no: "111", title: "물질안전보건자료의 제공", checked_at: "2026-08-26" }
+  - { no: "112", title: "물질안전보건자료 일부 비공개 승인 등", checked_at: "2026-08-26" }
+  - { no: "113", title: "국외제조자가 선임한 자에 의한 정보 제출 등", checked_at: "2026-08-26" }
+  - { no: "114", title: "물질안전보건자료의 게시 및 교육", checked_at: "2026-08-26" }
+  - { no: "115", title: "물질안전보건자료대상물질 용기 등의 경고표시", checked_at: "2026-08-26" }
+  - { no: "117", title: "유해·위험물질의 제조 등 금지", checked_at: "2026-08-26" }
+  - { no: "118", title: "유해·위험물질의 제조 등 허가", checked_at: "2026-08-26" }
+  - { no: "125", title: "작업환경측정", checked_at: "2026-08-26" }
+  - { no: "129", title: "일반건강진단", checked_at: "2026-08-26" }
+  - { no: "130", title: "특수건강진단", checked_at: "2026-08-26" }
+  - { no: "155", title: "고용노동부 작업장 감독 권한", checked_at: "2026-08-26" }
+
 related_rule:
   name_ko: 안전보건기준에관한규칙
   abbreviation: OSHA-KR-Rules
-  note: >
-    Also cited in codebase as '산업안전보건기준에 관한 규칙' (OSHSR) — same rule, name-string
-    variant; entries consolidated in regulations/KR/legal-glossary.yaml rather than duplicated
-    here.
+  note: Also cited as '산업안전보건기준에 관한 규칙' (OSHSR) — same rule, name-string variant.
   articles:
-    - article: "92"
-      topic_ko: 제로에너지상태 확보 (LOTO)
-      topic_en: Zero Energy State — Lockout/Tagout
-    - article: "618"
-      topic_ko: 밀폐공간 정의
-      topic_en: Confined space — definitions
-    - article: "623"
-      topic_ko: 감시인의 배치 등
-      topic_en: Confined space — watcher/monitor assignment
+    - { no: "92",  title: "제로에너지상태 확보 (LOTO)", checked_at: "2026-08-26" }
+    - { no: "618", title: "밀폐공간 정의", checked_at: "2026-08-26" }
+    - { no: "623", title: "감시인의 배치 등", checked_at: "2026-08-26" }
+
 domain_sub_variants:
   - regulations/KR/OSHA-KR-Construction.yaml
   - regulations/KR/OSHA-KR-MSDS.yaml
   - regulations/KR/OSHA-KR-Training.yaml
+
 related_decree:
   name_ko: 산업안전보건법 시행령
   name_en: Enforcement Decree of the Occupational Safety and Health Act
   abbreviation: OSHA-KR-Decree
   file: regulations/KR/OSHA-KR-Decree.yaml
-last_updated: "2026-08-24"
+
+source_verification:
+  method: cache-arbitration   # verified against cached statute truth 2026-08-26; k-law live re-check pending (Phase 4)
+  checked_at: "2026-08-26"
+
+last_updated: "2026-08-26"

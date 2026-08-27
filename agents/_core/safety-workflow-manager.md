@@ -13,7 +13,7 @@ description: "Harness Prompt agent —operational safety workflow execution, dyn
 lifecycle:
   phase: production
   created: 2026-06-04
-  last_updated: 2026-06-04
+  last_updated: 2026-08-26
   governance: docs/lifecycle/agents/safety-workflow-manager.md
 ---
 

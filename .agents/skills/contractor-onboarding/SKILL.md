@@ -14,7 +14,13 @@ metadata:
     - site access approval
     - 안전교육 이수확인
     - 도급 안전관리
+  legal_basis:
+    - 중대재해처벌법 제5조 (도급·하도급 안전보건 확보의무)
+    - 산업안전보건법 제38조 (안전조치)
+    - 산업안전보건법 제36조 (위험성평가)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 # Contractor Onboarding Skill
 
 ## Overview

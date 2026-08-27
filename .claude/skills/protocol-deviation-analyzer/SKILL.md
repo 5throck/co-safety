@@ -17,7 +17,14 @@ metadata:
     - IRB 보고
     - KGCP
     - 임상시험 이탈
+  legal_basis:
+    - "약사법 제34조 (임상시험의 계획 승인 등)"
+    - "약사법 제34조의2 (임상시험실시기관 지정 — 이상반응 기록·보고 포함)"
+    - "생명윤리 및 안전에 관한 법률 제13조 (기관위원회 IRB) [UNVERIFIED — see anchor table]"
+    - "의약품 임상시험 관리기준 (MFDS 고시 — KGCP 프로토콜 준수 및 중요 이탈 보고)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Protocol Deviation Analyzer Skill
 

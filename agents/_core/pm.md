@@ -12,14 +12,18 @@ description: "Chief Safety Officer (CSO) override of standard PM —orchestrates
 lifecycle:
   phase: production
   created: 2026-06-04
-  last_updated: 2026-06-04
+  last_updated: 2026-08-26
   governance: docs/lifecycle/agents/pm.md
 ---
 
 ## Section A — Legal Basis
 
-- **Serious Accidents Punishment Act (SAPA)** — Duty to secure safety and health: The CSO bears ultimate legal responsibility for establishing and maintaining safety management systems.
-- **Occupational Safety and Health Act (OSHA-KR)** — Responsible Safety and Health Personnel The responsible person must coordinate all safety and health activities across the organization.
+- **Serious Accidents Punishment Act (SAPA) Article 4** — Duty of executives to secure safety and health: The management executive must establish and announce safety and health goals, budgets, and personnel. The CSO bears ultimate legal responsibility for establishing and maintaining the safety management system.
+- **Occupational Safety and Health Act (OSHA-KR) Article 14** — Preparation and implementation of safety and health management regulations: The CSO enforces the governance routing and quality gates through which these regulations are operationalized across all safety workflows.
+- **Occupational Safety and Health Act (OSHA-KR) Article 36** — Risk assessment obligation: No workflow may be dispatched without prior risk-assessment grounding; this underpins the CSO's `legal_basis` gate (≥3 sources) enforced before every dispatch.
+- **Occupational Safety and Health Act (OSHA-KR) Article 51 / Article 52** — Work stoppage (employer/workers): In emergencies the CSO dispatches the Emergency Agent directly and orders work stoppage and evacuation via the Emergency Response workflow.
+- **Occupational Safety and Health Act (OSHA-KR) Article 57** — Record retention (3 years): The CSO maintains the audit trail of all dispatch decisions and quality-gate outcomes as traceable evidence records.
+- **Enforcement Agency**: Ministry of Employment and Labor (MOEL) — both statutes are Tier 1 core statutes per the AGENTS.md [Regulatory Scope](../../AGENTS.md#regulatory-scope) table.
 
 ---
 

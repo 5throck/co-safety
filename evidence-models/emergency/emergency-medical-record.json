@@ -9,6 +9,7 @@
   "properties": {
     "record_id": { "type": "string", "pattern": "^EMRG-MED-[0-9]{4}-[0-9]{4}$" },
     "incident_id": { "type": "string", "description": "Unique incident identifier" },
+    "workflow_id": { "$ref": "../_shared/base/common.schema.json#/definitions/workflow_id", "description": "Optional workflow execution reference ('<slug>' or '<domain>/<slug>', e.g. 'emergency-response' or 'emergency/medical'). Never invent an ID to satisfy this field." },
     "incident_type": {
       "type": "string",
       "enum": ["cardiac_arrest", "anaphylaxis", "severe_burn", "severe_laceration", "heat_stroke", "hypothermia", "chemical_poisoning", "stroke", "other"]

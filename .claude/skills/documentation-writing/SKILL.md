@@ -17,6 +17,8 @@ metadata:
     - technical writing
 ---
 
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
+
 ## Overview
 
 This skill provides comprehensive documentation writing capabilities, from technical guides to user-friendly manuals. It ensures documentation is clear, well-structured, accessible, and appropriately targeted to the intended audience.

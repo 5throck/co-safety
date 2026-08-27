@@ -19,8 +19,11 @@ metadata:
   legal_basis:
     - 산업안전보건법 제38조 (안전조치)
     - 산업안전보건법 제39조 (건강조치)
+    - 중대재해처벌법 제4조 (사업주와 경영책임자등의 안전 및 보건 확보의무)
 scope: workspace
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Permit to Work
 
@@ -70,5 +73,6 @@ Close-Out Sign-Off: <name> — <date>
 
 - 산업안전보건법 제38조 mandates that employers implement safety measures for work with risk of falls, collapse, fire, or explosion.
 - 산업안전보건법 제39조 mandates health protection measures for work involving hazardous substances or conditions.
+- 중대재해처벌법 제4조 obligates business owners and management responsible persons to establish safety and health management systems; the PTW system is a core administrative control within that obligation for non-routine high-risk work.
 - PTW systems are considered a best-practice administrative control under these articles. Permits must not be back-dated or issued after work commences.
 - This skill provides workflow assistance only and does not constitute legal advice.

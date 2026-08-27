@@ -23,7 +23,15 @@ metadata:
     - OSHA-KR Article 130 특수건강진단
     - DSSMA Article 5 코크스 위험물
     - 특수건강진단 코크스로 작업자
+  legal_basis:
+    - 산업안전보건법 제125조 (작업환경측정)
+    - 산업안전보건법 제130조 (특수건강진단)
+    - 위험물안전관리법 제5조
+    - 산업안전보건법 제38조
+    - 중대재해처벌법 제4조
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Coke Oven PAH Heat Stress Planner Skill
 
@@ -379,7 +387,7 @@ tracked steelmaking hazard worldwide.
   - `tool-box-meeting` (TBM) — pre-work briefing record
 - **Escalation**: If 작업환경측정 result exceeds 50% of the regulatory
   limit, OR any worker's special-health-exam shows abnormal urinary
-  1-hydroxypyrene (>4.4 μmol/mol Cr), OR WBGT exceeds 32 °C (heat-stroke
+  1-hydroxypyrene (>4.4 umol/mol Cr), OR WBGT exceeds 32 °C (heat-stroke
   threshold in impermeable PPE), OR CO monitor reads >25 ppm, halt oven-
   top work and escalate to mill 안전관리자 + occupational-health physician
   before resumption. No PPE-only fallback exists for chronic PAH

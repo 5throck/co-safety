@@ -1,4 +1,6 @@
-source_mcp: mcp-kr-legislation  # curated reference glossary; statute content sourced from Korean legislation
+source_verification:
+  method: manual-curation
+  checked_at: "2026-08-26"
 # Legal & Regulatory Glossary — Safety OS
 # Single source of truth: Korean statute proper noun → English gloss + abbreviation + article citations.
 # Consumed by: validate-md-language.ts (Korean allowlist via `statutes` keys), authors (citation consistency).

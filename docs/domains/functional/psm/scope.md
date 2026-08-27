@@ -71,13 +71,15 @@ Facilities handling hazardous substances at or above threshold quantities — in
 | `eap-emergency-planning` | Element 9: Emergency Planning & Response | OSHA-KR Art 44 |
 | `incident-investigation-psm` | Element 11: Incident Investigation | OSHA-KR Art 44 |
 | `psm-compliance-audit` | Element 12: Compliance Audits | OSHA-KR Art 44 |
-| `employee-participation` | Element 4: Employee Participation | OSHA-KR Art 44 |
+| `employee-participation` | Element 13: Employee Participation | OSHA-KR Art 44 |
 | `hot-work-permit` | Element 10: Hot Work Permits | OSHA-KR Art 44 |
 | `loto-lockout-tagout` | — | OSHA-KR Art 38 + 안전보건규칙 Art 92 |
 | `psm-worker-training` | Element 4: Training | OSHA-KR Art 44 |
 | `trade-secrets-management` | Element 14: Trade Secrets | OSHA-KR Art 44 |
 
 > Elements 4 (Training), 10 (Hot Work Permits), 13 (Employee Participation) were originally planned for v1.1 but have been implemented ahead of schedule.
+
+> **Framework reconciliation — Korean 12-element vs US 14-element mapping**: AGENTS.md describes the statutory Korean framework as "12 elements of OSHA-KR Article 44" (산안법 제44조 + 시행령 공정안전관리 기준·고시). This document instead maps its workflows onto the **US OSHA 29 CFR 1910.119 14-element taxonomy** as the workflow-coverage checklist, which is normative *for this inventory*; for evidence-record `legal_basis`, the Korean Article 44 framework remains the binding obligation. The 12 Korean management elements cover the same subject matter as US elements 1-13; US element 14 (Trade Secrets) is carried here as a standalone workflow. Element numbers in §4.1 follow this document's own sequence (see footnote above: Training = 4, Hot Work Permits = 10, Employee Participation = 13) and do not replicate the CFR's literal section order.
 
 ### 4.2 Evidence Models (15)
 

@@ -21,7 +21,14 @@ metadata:
     - LMO법 Article 22 밀폐관리
     - 생물유해인자 취급 작업
     - biohazard agent lab practice
+  legal_basis:
+    - 산업안전보건법 제39조
+    - 산업안전보건법 제38조
+    - 중대재해처벌법 제4조
+    - 생물안전법 제13조 [UNVERIFIED]
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # BSL Lab Aerosol Control Planner Skill
 

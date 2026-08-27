@@ -23,7 +23,15 @@ metadata:
     - DSSMA Article 27 응급조치
     - OSHA-KR Article 110 물질안전보건자료(MSDS) 작성·제출
     - SAPA Article 5 도급 사업주
+  legal_basis:
+    - "위험물안전관리법 제5조 (도장·도포 작업 위험물 저장 및 취급)"
+    - "위험물안전관리법 제27조 (응급조치·통보 및 조치명령)"
+    - "산업안전보건법 제38조 (추락 등 안전조치 — 도장 베이 가연성 증기 환기 및 화기 관리)"
+    - "산업안전보건법 제110조 (물질안전보건자료 작성·제출 — 용제 MSDS)"
+    - "중대재해처벌법 제5조 (도급·하도급 사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Painting Coating Fire Toxic Planner Skill
 

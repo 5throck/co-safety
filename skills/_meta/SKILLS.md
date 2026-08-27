@@ -20,7 +20,6 @@
 | `create-variant` | 1.0.1 | active | L0 | pm | 2026-06-05 | — | Workspace operator only — not deployed to L2 |
 | `emergency-response` | 1.0.0 | active | L0+L1 | emergency-agent | 2026-06-20 | — | Emergency response — incident dispatch |
 | `hazop-analysis` | 1.0.0 | active | L0+L1 | psm-agent | 2026-06-20 | — | Investigation — HAZOP / PSM hazard analysis |
-| `legalize-kr-sync` | 1.0.0 | active | L0+L1 | safety-workflow-manager | 2026-06-20 | — | Tooling — Korean law repo sync |
 | `meeting-facilitation` | 1.4.0 | active | L0+L1 | pm | 2026-06-05 | — | — |
 | `permit-to-work` | 1.0.0 | active | L0+L1 | safety-workflow-manager | 2026-06-20 | — | EHS daily ops — permit-to-work issuance |
 | `project-review` | 1.0.0 | active | L0+L1 | pm | 2026-05-30 | — | — |

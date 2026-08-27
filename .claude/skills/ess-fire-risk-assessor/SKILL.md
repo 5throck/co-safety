@@ -17,7 +17,15 @@ metadata:
     - energy storage system fire
     - MPSL 인증
     - 에너지저장장치 화재위험
+  legal_basis:
+    - 전기사업법 제67조 (전기설비 안전관리 기술기준)
+    - 전기안전관리법 제12조 (전기설비 안전점검)
+    - 신재생에너지 개발·이용·보급 촉진법 제13조 (신·재생에너지 설비의 인증 — 안전)
+    - 산업안전보건법 제38조 (안전조치)
+    - 중대재해처벌법 제4조 (사업주와 경영책임자등의 안전 및 보건 확보의무)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # ESS Fire Risk Assessor Skill
 

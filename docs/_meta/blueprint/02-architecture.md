@@ -160,7 +160,7 @@ These are the core technologies driving the day-to-day operations, orchestration
 
 ### Extended Stack (Domain Specific)
 Technologies tailored specifically for the South Korean EHS context and specialized industry workflows:
-- **mcp-kr-legislation:** A custom, proprietary MCP server providing agents with direct querying capabilities against the South Korean legislative database. It allows agents to pull exact, up-to-date article texts from OSHA-KR and SAPA, guaranteeing that the mandatory `legal_basis` requirement is grounded in current law.
+- **kr_safety MCP + k-law skill:** `kr_safety` is a custom MCP server indexing OSHA-KR/SAPA/CCA articles for search and compliance-gap analysis; the `k-law` skill (법제처 Open API) provides live querying against the South Korean legislative database. Together they let agents pull exact, up-to-date article texts from OSHA-KR and SAPA, guaranteeing that the mandatory `legal_basis` requirement is grounded in current law. (The former `legalize_kr` and `mcp_kr_legislation` MCP servers were removed 2026-08-26 — superseded by k-law.)
 - **K-Skill Architecture:** A specialized suite of MCP tools and predefined markdown workflows adapted for local business practices. This includes standardized risk assessment matrices formatted for the Ministry of Employment and Labor (MOEL) and automated translation layers handling the crossover between English documentation requirements and Korean operational interfaces.
 
 ### Future Stack

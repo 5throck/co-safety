@@ -1,17 +1,9 @@
-# Safety OS project settings
 {
+  "_comment": "Safety OS project settings — variant-specific overrides vs L1 (templates/common). The former '#' header comment broke strict JSON parity validation (P-01 parses both platform settings with JSON.parse).",
   "mcpServers": {
     "kr_safety": {
       "command": "bun",
       "args": ["run", "--env-file", ".env", "./mcp/kr-safety-regs/index.ts"]
-    },
-    "legalize_kr": {
-      "command": "bun",
-      "args": ["run", "--env-file", ".env", "./mcp/legalize-kr/index.ts"]
-    },
-    "mcp_kr_legislation": {
-      "command": "bun",
-      "args": ["run", "--env-file", ".env", "./mcp/kr-legislation/index.ts"]
     }
   },
   "hooks": {

@@ -19,6 +19,8 @@ metadata:
     - 산업안전보건법 제155조 (고용노동부 작업장 감독 권한)
     - 중대재해처벌법 제4조 (안전·보건 확보 의무)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 # Audit Preparation Skill
 
 ## Overview

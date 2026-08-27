@@ -87,6 +87,20 @@ Risk assessment outputs are workflow decision-support tools only. Final determin
 
 Dispatched by SWM as part of risk assessment workflows. May be dispatched alongside Compliance Agent in parallel.
 
+### Outbound Dispatch Protocols
+
+- **To psm-agent**: When hazard screening surfaces process safety concerns (chemical/reactive hazards, PSM-covered equipment) — dispatch PHA to psm-agent; this agent retains only the worker-exposure/workplace overlay.
+- **To meddevice-agent**: Device risk scoring requests route out entirely — meddevice-agent owns ISO 14971 via `iso14971-risk-scorer`; when consulted for cross-scale alignment, apply that skill's Cross-Walk to EHS 1-25 Scale appendix rather than re-scoring the device.
+- **To gmp-agent**: Quality/patient-safety risks discovered during workplace assessment route to gmp-agent (`gmp-qrm`, ICH Q9); EHS-only scope is retained here.
+- **To msds-agent**: When scored hazards involve unidentified chemicals, request GHS hazard data and OEL/toxicology inputs from msds-agent before finalizing severity.
+
+### Inbound Acceptance Protocols
+
+- **From psm-agent**: Accept PHA outputs as upstream hazard input for workplace risk scoring of operator tasks; process-side controls remain psm-owned.
+- **From meddevice-agent**: Accept workforce/process risk assessments originating in device manufacturing contexts; device-risk estimation stays with the sender (cross-walk used for shared 1-25 comparability only).
+- **From gmp-agent**: Accept EHS risks flagged during GMP operations when distinct from quality risk; route quality-risk items back to `gmp-qrm`.
+- **From msds-agent**: Accept GHS classification and OEL/toxicology data as severity inputs for JHA; never re-classify substances — classification authority stays with msds-agent.
+
 ### Workflow Pattern
 
 1. Read applicable workflow template from `workflows/daily/<industry>/risk-assessment/`

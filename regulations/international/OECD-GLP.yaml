@@ -1,4 +1,6 @@
-source_mcp: mcp-kr-legislation
+source_verification:
+  method: manual-curation
+  checked_at: "2026-08-26"
 jurisdiction: international
 regulator: OECD (Organisation for Economic Co-operation and Development)
 framework: OECD-GLP

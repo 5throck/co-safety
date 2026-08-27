@@ -16,7 +16,7 @@
 *   **Objective**: Establish the core architecture, repository structure, and initial agent definitions.
 *   **Key Deliverables**:
     *   Project scaffolding and directory structure.
-    *   Base platform configuration (`CONSTITUTION.md`, `AGENTS.md`).
+    *   Base platform configuration (`docs/context.md`, `AGENTS.md`).
     *   Initial PM (CSO) agent deployment and gateway enforcement testing.
 *   **Scope**: Internal engineering team focus.
 

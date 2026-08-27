@@ -20,6 +20,10 @@ management commitments approved by the CSO (PM). They are distinct from:
 `policies/<industry-profile>-<policy-topic>-policy.md`, e.g.
 `policies/chemical-handling-risk-tolerance-policy.md`.
 
+Umbrella policies covering all industry profiles are a sanctioned variant of this
+convention and use `<CODE>-<topic>-policy.md`, e.g.
+`policies/enterprise-safety-governance-policy.md` (`POL-001`).
+
 ## Structure
 
 Each policy document should include:
@@ -33,5 +37,5 @@ Each policy document should include:
 6. **Review Cadence** — when this policy is next due for review
 
 One policy is in force: `POL-001` (`enterprise-safety-governance-policy.md`,
-v1.0.0, approved 2026-07-22); SGM should add further policies here as they are
-approved.
+v1.1.0, approved 2026-07-22, last revised 2026-08-24); SGM should add further
+policies here as they are approved.

@@ -19,7 +19,14 @@ metadata:
     - datacenter work-at-height plan
     - 랙 설치 사다리 선택
     - rack anchor point rating
+  legal_basis:
+    - "산업안전보건법 제38조 (안전조치 — 추락 위험 방지 포함)"
+    - "산업안전보건기준에 관한 규칙 제42조 (추락의 방지 — 난간·추락방호망·안전대)"
+    - "전기안전관리법 제16조 (전기재해 예방을 위한 안전조치 — 활선 인접 랙 작업)"
+    - "중대재해처벌법 제4조 (사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Rack Fall Protection Planner Skill
 

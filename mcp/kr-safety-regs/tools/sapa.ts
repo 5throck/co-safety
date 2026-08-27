@@ -23,7 +23,7 @@ export async function getSapaRequirements(industry?: string): Promise<object> {
 
   const requirements = extractSapaRequirements(json);
 
-  // OC=test는 IP 등록 없이 차단됨 — 빈 결과 대신 mock fallback 제공 (mcp/kr-legislation/tools/current-law.ts와 동일 패턴)
+  // OC=test는 IP 등록 없이 차단됨 — 빈 결과 대신 mock fallback 제공
   if (requirements.length === 0) {
     log.warn(`API returned empty result for industry "${industry ?? '전체'}" (OC key may not be registered or reachable). Falling back to mock data.`);
     return mockSapaData(industry);

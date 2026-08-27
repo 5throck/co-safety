@@ -17,7 +17,14 @@ metadata:
     - 위해편익 균형
     - PBRER 재평가
     - RMP 재평가
+  legal_basis:
+    - 약사법 제73조의2
+    - 약사법 제73조의3
+    - ICH E2C(R2)
+    - EU GVP Module XII
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Benefit-Risk Assessor Skill
 

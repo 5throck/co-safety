@@ -21,7 +21,14 @@ metadata:
     - 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준
     - aging room thermal interlock
     - DC arc flash battery
+  legal_basis:
+    - 전기안전관리법 제16조
+    - 전기안전관리법 제22조
+    - 산업안전보건법 제38조
+    - 중대재해처벌법 제4조
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # HV Cell Formation Electrical Safety Planner Skill
 

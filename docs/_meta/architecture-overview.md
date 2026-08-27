@@ -142,7 +142,7 @@ Industry Domain Agent (coordinator)
 `safety-audit.ts` v4.3.0 validates:
 - **191 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
 - **160 evidence models** ($ref resolution, domain-specific common fields)
-- **31 regulations** (source_mcp validation)
+- **31 regulations** (source_verification validation on coordinate-mode files)
 - **Role separation**: risk-assessment-agent ↔ gmp-qrm, and risk-assessment-agent ↔ psm-agent
 - **30 domain-specific validations** (8 functional + 22 industry)
 

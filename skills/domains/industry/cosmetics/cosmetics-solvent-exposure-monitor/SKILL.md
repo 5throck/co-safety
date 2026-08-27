@@ -19,7 +19,14 @@ metadata:
     - biological monitoring cosmetics
     - respirator selection 유기용제
     - OSHA-KR Article 110 (MSDS 작성·제출)
+  legal_basis:
+    - 산업안전보건법 제110조 (MSDS)
+    - 산업안전보건법 제125조
+    - 산업안전보건법 제36조
+    - 화장품법 제5조
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Cosmetics Solvent Exposure Monitor Skill
 

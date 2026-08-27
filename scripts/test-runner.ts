@@ -1,6 +1,7 @@
 /**
  * test-runner.ts — Test Runner for TypeScript Test Suites
- * @version 1.1.0
+ * @version 1.2.0 (2026-08-26: removed kr-legislation + legalize-kr smoke tests —
+ *   those MCP servers were deleted; k-law skill supersedes them. kr_safety retained.)
  */
 import { execSync } from 'child_process';
 import { readdirSync } from 'fs';
@@ -84,8 +85,9 @@ export async function runTests(suiteName: string): Promise<boolean> {
 // functions directly (no live network calls — MOCK_API=true forces the
 // mock/fallback path where a server supports it; kr-safety-regs's
 // search_osha_regulations uses its offline Tier-1 static article index
-// regardless of MOCK_API, and legalize-kr's metadata lookup only reads the
-// local repo cache, so no live API calls are made by any test below).
+// regardless of MOCK_API, so no live API calls are made by any test below).
+// Note: legalize-kr and kr-legislation smoke tests were removed 2026-08-26
+// along with those MCP servers (superseded by the k-law skill).
 
 interface McpSmokeTest {
   name: string;
@@ -97,43 +99,6 @@ function assert(condition: boolean, message: string): void {
 }
 
 const mcpSmokeTests: McpSmokeTest[] = [
-  // --- kr-legislation ---
-  {
-    name: 'kr-legislation.get_current_law',
-    run: async () => {
-      const { getCurrentLaw } = await import('../mcp/kr-legislation/tools/current-law.js');
-      const result = await getCurrentLaw();
-      assert(Array.isArray(result) && result.length > 0, 'expected non-empty array');
-      assert('lawId' in (result[0] as object) && 'lawName' in (result[0] as object), 'missing lawId/lawName fields');
-    },
-  },
-  {
-    name: 'kr-legislation.get_law_amendments',
-    run: async () => {
-      const { getLawAmendments } = await import('../mcp/kr-legislation/tools/amendments.js');
-      const result = await getLawAmendments('산업안전보건법');
-      assert(Array.isArray(result) && result.length > 0, 'expected non-empty array');
-      assert('source' in (result[0] as object), 'missing source field');
-    },
-  },
-  {
-    name: 'kr-legislation.interpret_regulation',
-    run: async () => {
-      const { interpretRegulation } = await import('../mcp/kr-legislation/tools/interpret.js');
-      const result: any = await interpretRegulation('산업안전보건법 제38조');
-      assert(typeof result === 'object' && result !== null, 'expected object result');
-      assert('articleId' in result && 'source' in result, 'missing articleId/source fields');
-    },
-  },
-  {
-    name: 'kr-legislation.get_compliance_guide',
-    run: async () => {
-      const { getComplianceGuide } = await import('../mcp/kr-legislation/tools/guide.js');
-      const result: any = await getComplianceGuide('위험성평가');
-      assert(typeof result === 'object' && result !== null, 'expected object result');
-      assert('topic' in result && 'relevantLaws' in result, 'missing topic/relevantLaws fields');
-    },
-  },
   // --- kr-safety-regs ---
   {
     name: 'kr-safety-regs.search_osha_regulations',
@@ -160,18 +125,6 @@ const mcpSmokeTests: McpSmokeTest[] = [
       const result: any = await checkComplianceGaps('제36조', ['안전보건관리체계']);
       assert(typeof result === 'object' && result !== null, 'expected object result');
       assert('totalRequired' in result && 'gaps' in result && 'compliant' in result, 'missing totalRequired/gaps/compliant fields');
-    },
-  },
-  // --- legalize-kr ---
-  {
-    name: 'legalize-kr.get_law_metadata',
-    run: async () => {
-      const { getLawMetadata } = await import('../mcp/legalize-kr/tools/metadata.js');
-      const result: any = await getLawMetadata('산업안전보건법');
-      assert(typeof result === 'object' && result !== null, 'expected object result');
-      // Tolerant of the local legalize-kr repo cache not being synced yet
-      // (getLawMetadata degrades to { error } instead of hitting the network).
-      assert('lawId' in result || 'error' in result, 'missing lawId/error fields');
     },
   },
 ];

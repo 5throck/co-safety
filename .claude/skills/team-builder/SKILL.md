@@ -11,6 +11,7 @@ scope: common
 owner: pm
 prerequisites: none
 metadata:
+  type: process
   triggers:
     - 새 팀 구성
     - 에이전트팀 변경
@@ -20,6 +21,8 @@ metadata:
     - team proposal generation
     - consulting team design
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 ## Overview
 

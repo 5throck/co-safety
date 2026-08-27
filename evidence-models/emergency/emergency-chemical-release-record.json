@@ -9,6 +9,7 @@
   "properties": {
     "record_id": { "type": "string", "pattern": "^EMRG-CHEM-[0-9]{4}-[0-9]{4}$" },
     "incident_id": { "type": "string", "description": "Unique incident identifier" },
+    "workflow_id": { "$ref": "../_shared/base/common.schema.json#/definitions/workflow_id", "description": "Optional workflow execution reference ('<slug>' or '<domain>/<slug>', e.g. 'emergency-response' or 'emergency/chemical-release'). Never invent an ID to satisfy this field." },
     "incident_type": {
       "type": "string",
       "enum": ["gas_leak", "liquid_spill", "dust_release", "vapor_release", "explosive_release"]

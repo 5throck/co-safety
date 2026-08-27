@@ -1,7 +1,8 @@
 # PROMOTION_CHECKLIST.md — Phase B Promotion Conditions
 
-All 7 conditions below must be satisfied before `Projects/safety_os/` can be promoted to
-`templates/co-safety/` via `scripts/l2-to-variant-pipeline.ts`.
+All 7 conditions below must be satisfied before `Projects/co-safety/` can be promoted to
+`templates/co-safety/` via `scripts/l3-to-variant-pipeline.ts` (implemented at the workspace root,
+v1.13.0 — L3 project-to-beta-variant promotion; Condition 7 confirmed 2026-08-26, Condition 6 parity runs post-pipeline).
 
 > **Scope note**: Condition 1 covers only the **7 CSO-critical core agents** (PM/CSO,
 > governance, workflow, compliance, risk, emergency, audit) that gate Phase B promotion.
@@ -20,8 +21,8 @@ All 7 conditions below must be satisfied before `Projects/safety_os/` can be pro
 | 3 | Manufacturing daily workflows x 6 completed (each with `legal_basis` field) | `bun scripts/safety-audit.ts` — 0 missing legal_basis | ✅ Done |
 | 4 | `scripts/safety-audit.ts` passes with 0 legal_basis missing (project-wide) | Run `bun scripts/safety-audit.ts` — exit code 0 | ✅ Done |
 | 5 | AGENTS.md updated with Safety agent roster (28 agents registered) | `bun scripts/agent-verify.ts` — all registered agents present | ✅ Done |
-| 6 | Platform parity validated (CLAUDE.md and GEMINI.md `## Safety OS Context` headings match) | `bun scripts/validate-templates.ts --variant co-safety` — P-01 check passes | Pending — `templates/co-safety/` does not exist yet; parity has never been run against a promoted variant |
-| 7 | `_ORIGIN.md` Phase B manual steps documented and reviewed by user | Human review — check `_ORIGIN.md` §Manual Phase B Steps is complete | Pending — confirm with user before promotion |
+| 6 | Platform parity validated (CLAUDE.md and GEMINI.md `## Safety OS Context` headings match) | `bun scripts/validate-templates.ts --variant co-safety` — P-01 check passes | ✅ Done — 2026-08-27: promotion completed via L0 defect fixes (generate-variant v1.15.0 nested-roster mkdir + immediate-parent skill grouping; audit.ts v2.24.0 nested-SSOT skills check; l3-to-variant-pipeline v1.13.1 outputPath fix); `validate-templates --variant co-safety` exit 0, 0 errors, P-01 parity PASS, Variant Contract 11/11, WS-11 bilingual user-guide pair authored; non-vacuous (checks executed against templates/co-safety, 73 skills validated). Known follow-up (does not gate Condition 6): workspace-root `audit.ts` language validation reports 182 Korean-content violations in templates/co-safety (Korea-only domain content — Korean dispatch triggers, statutory citations, bilingual workflow docs); needs a workspace language-policy decision (per-variant ko-allowlist vs `lang: ko` legal exceptions) |
+| 7 | `_ORIGIN.md` Phase B manual steps documented and reviewed by user | Human review — check `_ORIGIN.md` §Manual Phase B Steps is complete | ✅ Done — user confirmed promotion in session 2026-08-26 ("templates에 variant로 반영" instruction); §Manual Phase B Steps reviewed — complete, no MCP-server references remain |
 
 ## Agent Checklist (Condition 1) — Core 7 (CSO-critical)
 
@@ -85,24 +86,28 @@ Manufacturing daily workflows — each must have `legal_basis` field:
 
 ## Remaining Steps Before Phase B
 
-### Condition 6 — Platform Parity
+### Condition 6 — Platform Parity ✅ Done (2026-08-27)
 ```bash
 # From workspace root (C:\git\ai_workspace):
 bun scripts/validate-templates.ts --variant co-safety
-# Note: templates/co-safety/ does not exist yet — this can only be run
-# after the Phase B pipeline (scripts/l2-to-variant-pipeline.ts) creates it.
-# No prior parity run has been recorded for this variant.
+# PASSED 2026-08-27: exit 0, 0 errors, P-01 parity PASS, Variant Contract 11/11,
+# WS-11 user-guide pair present. Unblocked by L0 defect fixes: generate-variant
+# v1.15.0 (nested-roster mkdir + immediate-parent skill grouping + pm.md L0-only
+# field strip + WS-09 alias heading matching), audit.ts v2.24.0 (nested-SSOT
+# skills registry check), l3-to-variant-pipeline v1.13.1 (outputPath join fix).
+# templates/co-safety/ created: 41 nested agent files, 73 skills, variant.json
+# (39 agents / 4 variant_specific skills, beta 0.1.0).
 ```
 
-### Condition 7 — Human Review
-Review `_ORIGIN.md` §Manual Phase B Steps and confirm all manual copy items are understood.
-Status has not been confirmed by the user as of this checklist revision — re-confirm before
-promotion.
+### Condition 7 — Human Review ✅ Done
+`_ORIGIN.md` §Manual Phase B Steps reviewed 2026-08-26 — all manual copy items understood,
+no MCP-server references remain. User confirmed promotion in the same session
+("templates에 variant로 반영").
 
 ## How to Run Verification
 
 ```bash
-# From C:\git\ai_workspace\Projects\safety_os\
+# From C:\git\ai_workspace\Projects\co-safety\
 bun scripts/agent-verify.ts           # Condition 1 & 5
 bun scripts/validate-skills.ts        # Condition 2
 bun scripts/safety-audit.ts           # Conditions 3 & 4

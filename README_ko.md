@@ -149,25 +149,20 @@ cd ..
 
 ### Step 2 — `.env` 설정
 
-`.env` 파일을 열고 2개 키를 입력합니다. 모두 **무료**입니다.
+`.env` 파일을 열고 키를 입력합니다. **무료**입니다.
 
 ```env
 # 1) 국가법령정보센터 Open API OC 키
 #    → https://www.law.go.kr/LSO/openApi/openApiOcPage.do
-#    → 필수: 한국 법령 실시간 조회 (mcp_kr_legislation 서버)
+#    → 필수: k-law 스킬을 통한 한국 법령 실시간 조회 (Safety OS의 유일한 실시간 법령 소스)
 LAW_API_OC=your_oc_key_here
-
-# 2) GitHub Personal Access Token (스코프 불필요 — 공개 저장소 읽기 전용)
-#    → https://github.com/settings/tokens
-#    → 선택사항: 판례 검색 기능 (legalize_kr 서버)
-#    → 미설정 시: 판례 검색만 비활성화, 나머지 기능은 정상 동작
-GITHUB_TOKEN=your_github_token_here
 ```
 
 | 키 | 필수 여부 | 용도 |
 |----|:---------:|------|
-| `LAW_API_OC` | **필수** | 국가법령정보센터 실시간 법령 API (법령 목록, 개정 이력, 조문 해석) |
-| `GITHUB_TOKEN` | 선택 | GitHub API 기반 판례 검색. 미설정해도 나머지 기능은 모두 정상 작동합니다. |
+| `LAW_API_OC` | **필수** | k-law 스킬을 통한 국가법령정보센터 실시간 법령 API (법령 목록, 개정 이력, 조문 해석) |
+
+> `GITHUB_TOKEN`은 제거된 `legalize_kr` MCP 서버(판례 검색) 전용이었습니다. 2026-08-26부로 `.env.sample`에서 삭제되었으며, 기존 사용자는 `.env`에서 제거해도 됩니다.
 
 ### Step 3 — 설치 확인
 
@@ -177,15 +172,13 @@ bun scripts/safety-audit.ts              # 640+ 파일 검증, 0 오류
 
 ### Step 4 — AI 툴에서 사용하기
 
-Claude Code 또는 Gemini CLI에서 프로젝트 디렉토리를 엽니다. `.mcp.json` 파일이 자동으로 감지되어 **3개 MCP 서버가 자동 기동**됩니다 — 실시간 한국 규제 데이터를 사용할 수 있습니다:
+Claude Code 또는 Gemini CLI에서 프로젝트 디렉토리를 엽니다. `.mcp.json` 파일이 자동으로 감지되어 **1개 MCP 서버가 자동 기동**됩니다 — 한국 규제 인덱스 데이터를 사용할 수 있습니다:
 
 | MCP 서버 | 도구 수 | 용도 |
 |----------|--------|------|
 | `kr_safety` | 5개 | 한국 안전 규제 검색 (OSHA-KR, SAPA, CCA), 컴플라이언스 갭 분석 |
-| `legalize_kr` | 6개 | 한국 법령 구조 분석, 버전 비교, 판례 검색 |
-| `mcp_kr_legislation` | 5개 | 국가법령정보센터 실시간 법령 API |
 
-별도 MCP 설정 불필요 — AI 에이전트와 대화를 시작하면 됩니다.
+법령 원문 조회는 `k-law` 스킬(법제처 Open API)을 통해 수행됩니다. 별도 MCP 설정 불필요 — AI 에이전트와 대화를 시작하면 됩니다.
 
 > **최소 설정**: Clone → `scripts/`에서 `bun install` → `LAW_API_OC` 입력 → 완료.
 

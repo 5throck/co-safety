@@ -16,8 +16,15 @@ metadata:
     - 시험책임자
     - Study Director
     - 시험물질 특성
-    - 보존기간 10년
+    - 보존기간 3년
+  legal_basis:
+    - OECD GLP Principles Section 8
+    - 비임상시험 관리기준(식약처 고시)
+    - 환경부 GLP 고시
+    - K-REACH
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # GLP Study Protocol Validator Skill
 

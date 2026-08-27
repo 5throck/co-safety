@@ -41,6 +41,8 @@ metadata:
 scope: workspace
 ---
 
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
+
 # Tool Box Meeting (TBM)
 
 ## Overview
@@ -143,4 +145,4 @@ Example industry_specific_fields:
 
 ## Legal Disclaimer
 
-This skill provides workflow assistance only and does not constitute legal advice. Legal basis citations must reference specific articles from applicable Korean EHS laws (OSHA-KR, SAPA, domain-specific acts) and must satisfy the ≥3 source multi-source policy. Verify current article numbers against `regulations/KR/` YAML files or `legalize_kr` MCP before regulatory inspection.
+This skill provides workflow assistance only and does not constitute legal advice. Legal basis citations must reference specific articles from applicable Korean EHS laws (OSHA-KR, SAPA, domain-specific acts) and must satisfy the ≥3 source multi-source policy. Verify current article numbers against `regulations/KR/` coordinate registries or `k-law` live lookup before regulatory inspection.

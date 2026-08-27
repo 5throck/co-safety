@@ -4,9 +4,9 @@ owner: msds-agent
 scope: workspace
 status: active
 description: Scenario-based chemical risk assessment combining hazard data (GHS classification) with exposure evaluation. Outputs risk characterization with control recommendations.
-version: "1.0"
+version: "1.1"
 created: 2026-06-17
-last_updated: 2026-06-17
+last_updated: 2026-08-26
 metadata:
   triggers:
     - 화학물질 위험성평가
@@ -17,7 +17,14 @@ metadata:
     - 허용기준 초과
     - OEL DNEL
     - 신규화학물질 도입승인
+  legal_basis:
+    - 산업안전보건법 제36조 (위험성평가 의무)
+    - 산업안전보건법 제104조 (유해인자의 분류기준 — GHS 분류 근거; 시행규칙 별표 18)
+    - 산업안전보건법 제110조 (물질안전보건자료 작성·제출 — 유해성 데이터 입력 근거)
+    - 고용노동부 고시 「사업장 위험성평가에 관한 지침」 (노출 기반 위험성평가 방법론)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Chemical Risk Assessment Skill
 
@@ -109,6 +116,7 @@ Per hierarchy of controls:
 
 - **Input from**: `msds-record.json` (hazard data), `chemical-approval` workflow (use scenario)
 - **Output to**: `chemical-approval-record.json` (risk assessment attachment)
+- **Register write-through**: Characterized risks must additionally create/update `risk-register-record.json` entries per OSHA-KR Article 36 register completeness — one register entry per substance/scenario with `source_assessment_ref` pointing at the originating record and `control_status` initialized to `planned` (conservative default: progress is advanced only by human review, per the canonical control_status lifecycle in that schema).
 - **Handoff to**: `occupational-health-agent` (for monitoring planning if approved)
 
 ## Confidence Levels

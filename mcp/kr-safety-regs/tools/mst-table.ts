@@ -3,8 +3,9 @@
  * Used by Tier 2 (full-law full-text search) in the hybrid search pipeline.
  *
  * Values verified live against law.go.kr's lawService.do endpoint.
- * Duplicated from kr-legislation/tools/amendments.ts to avoid cross-server imports
- * (kr-safety-regs and kr-legislation are independent MCP server processes).
+ * Originally duplicated from the kr-legislation MCP server (removed
+ * 2026-08-26, superseded by the k-law skill) to keep server processes
+ * independent — this copy is now the sole owner.
  */
 
 /** MST code → Korean statute name */

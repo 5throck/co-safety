@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-26T08:24:09.162Z
+**Generated**: 2026-08-26T16:59:25.255Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -74,7 +74,7 @@
 | audit-preparation | 1.0.0 | .claude/skills/audit-preparation/SKILL.md | both | 감사 준비, audit preparation, 규제 감사, OSHA-KR 감사, 중대재해처벌법 감사 대응, 증적자료 취합, regulatory inspection readiness | audit-agent |
 | benefit-risk-assessor | 1.0 | .claude/skills/benefit-risk-assessor/SKILL.md | both | 편익위해평가, benefit-risk assessment, PrOACT-URL, BRAT, MCDA, 위해편익 균형, PBRER 재평가, RMP 재평가 | gvp-agent |
 | bsl-lab-aerosol-control-planner | 1.0 | .claude/skills/bsl-lab-aerosol-control-planner/SKILL.md | both | BSL-2 BSL-3 실험실 에어로졸, bsl lab bioaerosol control, 생물안전캐비닛 BSC 작업, biological safety cabinet certification, 원심분리 에어로졸 밀폐, centrifuge sealed cup aerosol, 샤프스 재해 예방, sharps injury prevention needlestick, BSA Article 13 IRB 심의, LMO법 Article 22 밀폐관리, 생물유해인자 취급 작업, biohazard agent lab practice | biotech-agent |
-| chemical-risk-assessment | 1.0 | .claude/skills/chemical-risk-assessment/SKILL.md | both | 화학물질 위험성평가, chemical risk assessment, 노출평가, exposure assessment, RCR, 허용기준 초과, OEL DNEL, 신규화학물질 도입승인 | msds-agent |
+| chemical-risk-assessment | 1.1 | .claude/skills/chemical-risk-assessment/SKILL.md | both | 화학물질 위험성평가, chemical risk assessment, 노출평가, exposure assessment, RCR, 허용기준 초과, OEL DNEL, 신규화학물질 도입승인 | msds-agent |
 | coke-oven-pah-heat-stress-planner | 1.0 | .claude/skills/coke-oven-pah-heat-stress-planner/SKILL.md | both | 코크스로 작업 PAH 발암물질, coke oven PAH carcinogen, 코올타르피치 휘발성 유기화합물, coal tar pitch volatile CTPV, 노정 극고온 열스트레스, oven top heat stress steelmaking, 코크스로 가스 누출, coke oven gas leak, IARC Group 1 코크스 배출물, IARC Group 1 coke oven emissions, OSHA-KR Article 125 작업환경측정, OSHA-KR Article 130 특수건강진단, DSSMA Article 5 코크스 위험물, 특수건강진단 코크스로 작업자 | steelmaking-agent |
 | completion-inspection | 1.0.0 | .claude/skills/completion-inspection/SKILL.md | both | completion inspection, final inspection, permit issuance, 완성검사, 최종검사, 사용전검사 | gasterm-agent |
 | compliance-gap | 1.0.0 | .claude/skills/compliance-gap/SKILL.md | both | 컴플라이언스 갭, compliance gap, 준법 감시, 법률 검토, regulatory compliance, 규제 준수, 법적 요건, legal requirement review | compliance-agent |
@@ -92,16 +92,16 @@
 | gas-dispersion-analyzer | 1.0 | .claude/skills/gas-dispersion-analyzer/SKILL.md | both | 가스 확산 모델, gas dispersion, 가스 누출 시나리오, LNG LPG 누출, 수소 누출 확산, BLEVE, 대피 반경 산정, Gaussian dispersion model | gasterm-agent |
 | ghs-classifier | 1.0 | .claude/skills/ghs-classifier/SKILL.md | both | GHS 분류, GHS classification, 유해성 분류, H-Statement, 위험문구, 예방조치문구, P-Statement, GHS Rev 9 | msds-agent |
 | glp-data-integrity-checker | 1.0 | .claude/skills/glp-data-integrity-checker/SKILL.md | both | ALCOA+, data integrity, 데이터 무결성, GLP 원시자료, raw data, OECD GLP Section 9, 감사증적, audit trail | glp-agent |
-| glp-study-protocol-validator | 1.0 | .claude/skills/glp-study-protocol-validator/SKILL.md | both | 시험계획서 검증, study protocol validation, GLP protocol, OECD GLP Section 8, 시험책임자, Study Director, 시험물질 특성, 보존기간 10년 | glp-agent |
+| glp-study-protocol-validator | 1.0 | .claude/skills/glp-study-protocol-validator/SKILL.md | both | 시험계획서 검증, study protocol validation, GLP protocol, OECD GLP Section 8, 시험책임자, Study Director, 시험물질 특성, 보존기간 3년 | glp-agent |
 | gmp-change-control | 1.0 | .claude/skills/gmp-change-control/SKILL.md | both | gmp change control, change control, 변경관리, 품질변경, gmp change | gmp-agent |
 | gmp-deviation-capa | 1.0 | .claude/skills/gmp-deviation-capa/SKILL.md | both | gmp deviation, gmp capa, deviation, 이상관리, 시정예방조치, oos, out of specification | gmp-agent |
 | gmp-qrm | 1.0 | .claude/skills/gmp-qrm/SKILL.md | both | quality risk management, qrm, fmea, risk assessment, 품질위해관리, 위해관리 | gmp-agent |
 | hazop-analysis | 1.1.0 | .claude/skills/hazop-analysis/SKILL.md | both | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
 | hv-cell-formation-electrical-safety-planner | 1.0 | .claude/skills/hv-cell-formation-electrical-safety-planner/SKILL.md | both | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준, aging room thermal interlock, DC arc flash battery | battery-agent |
-| iso14971-risk-scorer | 1.0 | .claude/skills/iso14971-risk-scorer/SKILL.md | both | ISO 14971, 위해 추정, risk estimation, 심각도 발생확률 매트릭스, severity probability matrix, 잔여위험, residual risk, ALARP | meddevice-agent |
+| iso14971-risk-scorer | 1.1 | .claude/skills/iso14971-risk-scorer/SKILL.md | both | ISO 14971, 위해 추정, risk estimation, 심각도 발생확률 매트릭스, severity probability matrix, 잔여위험, residual risk, ALARP | meddevice-agent |
+| k-law | 1.0.0 | skills/k-law/SKILL.md | workspace | k-law, /k-law, `법령`, `법률`, `법령정보`, `법령검색`, `판례`, law, statute, legal search, Korea law | strategy-analyst |
+| k-law | 1.0.0 | .claude/skills/k-law/SKILL.md | both | k-law, /k-law, `법령`, `법률`, `법령정보`, `법령검색`, `판례`, law, statute, legal search, Korea law | strategy-analyst |
 | landfill-methane-anaerobic-explosion-planner | 1.0 | .claude/skills/landfill-methane-anaerobic-explosion-planner/SKILL.md | both | 매립지 메탄 가스 폭발, landfill methane CH4 explosion, 혐기소화 소화조 biogas, anaerobic digestion biogas, 침출수 화학적 위해, leachate chemical hazard landfill, 사면 붕괴 매립지, landfill slope collapse, 매립지 깊은 화재 소방, deep seated landfill fire, 가스 추출정 LEL 모니터링, gas extraction well LEL monitoring, WCA Article 25 폐기물처리업 허가, BFS Article 16 소방활동, Sudokwon Landfill safety | waste-agent |
-| legalize-kr-sync | 1.0.0 | skills/legalize-kr-sync/SKILL.md | workspace | clone legalize-kr, fetch laws, sync korean laws | safety-workflow-manager |
-| legalize-kr-sync | 1.0.0 | .claude/skills/legalize-kr-sync/SKILL.md | both | clone legalize-kr, fetch laws, sync korean laws | safety-workflow-manager |
 | meeting | 1.5.0 | .claude/skills/meeting/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
 | meeting-facilitation | 1.5.0 | skills/meeting-facilitation/SKILL.md | workspace | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
 | meeting-facilitation | 1.5.0 | .claude/skills/meeting-facilitation/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
@@ -158,7 +158,7 @@
 | agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | N/A |
 | analyze-git-history.ts | 1.0.0 | scripts/analyze-git-history.ts | child_process |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
-| audit.ts | 2.6.5 | scripts/audit.ts | bun |
+| audit.ts | 2.24.0 | scripts/audit.ts | bun |
 | auto-executor.ts | 1.0.0 | scripts/lib/auto-executor.ts | N/A |
 | check-pm-approval.ts | 1.0.1 | scripts/check-pm-approval.ts | N/A |
 | checkpoint-manager.ts | 1.0.0 | scripts/lib/checkpoint-manager.ts | N/A |
@@ -171,11 +171,11 @@
 | encoding-utils.ts | 1.0.0 | scripts/lib/encoding-utils.ts | fs, path |
 | error-handling.ts | 1.1.0 | scripts/lib/error-handling.ts | N/A |
 | evidence-validator.ts | 1.0.0 | scripts/lib/evidence-validator.ts | N/A |
-| fetch-legalize.ts | 1.0.0 | scripts/fetch-legalize.ts | child_process, fs, path |
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-scripts-readme.ts | 1.1.0 | scripts/generate-scripts-readme.ts | N/A |
 | generate-version-manifest.ts | 1.0.7 | scripts/generate-version-manifest.ts | bun |
 | mcp-cache.ts | 1.0.0 | scripts/lib/mcp-cache.ts | N/A |
+| migrate-registry-to-coordinates.ts | N/A | scripts/migrate-registry-to-coordinates.ts | js-yaml |
 | new-domain.ts | 1.0.1 | scripts/new-domain.ts | N/A |
 | pipeline-state.ts | 1.1.0 | scripts/lib/pipeline-state.ts | fs, path |
 | plan-parser.ts | 1.0.0 | scripts/lib/plan-parser.ts | fs, js-yaml |
@@ -185,7 +185,7 @@
 | readme-lifecycle-audit.ts | 1.0.2 | scripts/readme-lifecycle-audit.ts | N/A |
 | retry-handler.ts | 1.0.2 | scripts/retry-handler.ts | N/A |
 | risk-register-rollup.ts | 1.0.0 | scripts/risk-register-rollup.ts | N/A |
-| safety-audit.ts | 4.7.0 | scripts/safety-audit.ts | js-yaml |
+| safety-audit.ts | 4.10.1 | scripts/safety-audit.ts | js-yaml |
 | scaffold-industry.ts | 0.1.1 | scripts/scaffold-industry.ts | js-yaml |
 | skill-dependency-analysis.ts | 1.0.0 | scripts/skill-dependency-analysis.ts | N/A |
 | skill-lifecycle-audit.ts | 1.1.4 | scripts/skill-lifecycle-audit.ts | N/A |
@@ -193,13 +193,13 @@
 | sync-agent-status.ts | 1.0.0 | scripts/sync-agent-status.ts | N/A |
 | sync-md.ts | 1.3.3 | scripts/sync-md.ts | N/A |
 | sync-skill-status.ts | 1.0.0 | scripts/sync-skill-status.ts | N/A |
-| sync-skills.ts | 1.3.0 | scripts/sync-skills.ts | N/A |
+| sync-skills.ts | 1.4.0 | scripts/sync-skills.ts | N/A |
 | team-builder.ts | 1.2.0 | scripts/team-builder.ts | fs, path |
 | test-chemical-handling-profile.ts | 1.0.0 | scripts/test-chemical-handling-profile.ts | js-yaml |
 | test-cross-domain-integration.ts | 1.0.0 | scripts/test-cross-domain-integration.ts | js-yaml |
 | test-domain-scenarios.ts | 1.1.0 | scripts/test-domain-scenarios.ts | N/A |
 | test-pharma-general-profile.ts | 1.0.0 | scripts/test-pharma-general-profile.ts | js-yaml |
-| test-runner.ts | 1.1.0 | scripts/test-runner.ts | child_process, fs, path |
+| test-runner.ts | N/A | scripts/test-runner.ts | child_process, fs, path |
 | test-runtime-tools.ts | 1.0.0 | scripts/test-runtime-tools.ts | N/A |
 | training-ingest.ts | 1.0.0 | scripts/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |

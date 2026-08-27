@@ -17,7 +17,14 @@ metadata:
     - KGS 코드
     - 압력용기 검사
     - 부식 피로 검증
+  legal_basis:
+    - "고압가스 안전관리법 제13조 (시설·용기의 안전유지)"
+    - "고압가스 안전관리법 제11조 (안전관리규정 — 저장탱크 안전유지 계획)"
+    - "고압가스 안전관리법 제22조의2 (시설·기술·검사 상세기준 위임 — KGS Code)"
+    - "중대재해처벌법 제4조 (사업주 안전보건 확보의무)"
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Tank Integrity Validator Skill
 

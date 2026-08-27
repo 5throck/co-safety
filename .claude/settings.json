@@ -1,5 +1,11 @@
 {
   "effortLevel": "high",
+  "mcpServers": {
+    "kr_safety": {
+      "command": "bun",
+      "args": ["run", "--env-file", ".env", "./mcp/kr-safety-regs/index.ts"]
+    }
+  },
   "permissions": {
     "allow": [
       "Bash(bun scripts/audit.ts *)",

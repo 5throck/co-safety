@@ -91,6 +91,14 @@
       "type": "integer",
       "minimum": 0
     },
+    "attendee_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Structured attendee list — worker IDs or TRAIN-* training-record.json references (attendance traceability)"
+    },
     "attendance_rate_pct": {
       "type": "number",
       "minimum": 0,
@@ -106,6 +114,13 @@
     "absentees_follow_up": {
       "type": "boolean",
       "description": "결근자 별도 교육 실시 여부"
+    },
+    "makeup_training_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reference to the training-record.json instance (TRAIN-*) covering absentees' make-up briefing (결근자 별도교육); required when absentees_follow_up=true"
     },
     "risk_assessment_ref": {
       "type": [

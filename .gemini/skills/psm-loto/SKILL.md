@@ -9,7 +9,7 @@ description: >
   and return-to-service protocols are followed for hazardous energy sources.
 version: 1.0.0
 created: 2026-07-09
-last_updated: 2026-07-11
+last_updated: 2026-08-26
 metadata:
   type: domain
   triggers:
@@ -23,12 +23,14 @@ metadata:
     - 로크아웃
     - 태그아웃
   legal_basis:
-    - 산업안전보건법 제44조 (공정안전관리 — 위험에너지 통제/LOTO)
+    - 산업안전보건법 제44조 (공정안전관리 — linked via PSM 고시 work-permit requirements; the direct LOTO duty basis is 안전보건기준에관한규칙 제92조)
     - 산업안전보건법 제38조 (작업 전 안전조치 — Pre-work Safety Measures)
     - 안전보건기준에관한규칙 제92조 (위험에너지에 의한 위험방지 — 정비 등 작업 시 운전정지 등)
     - 중대재해처벌법 제5조 (도급 근로자 안전조치 의무 — KOSHA GUIDE Z-40-2022 §7.4)
     - KOSHA GUIDE Z-40-2022
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 ## psm-loto
 

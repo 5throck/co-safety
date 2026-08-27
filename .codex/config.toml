@@ -10,17 +10,10 @@ sap_allowed_packages = [
 ]
 
 # MCP servers — mirrors .gemini/settings.json MCP configuration
+# legalize_kr and mcp_kr_legislation removed 2026-08-26 (superseded by k-law skill)
 [mcp_servers.kr_safety]
 command = "bun"
 args = ["run", "--env-file", ".env", "./mcp/kr-safety-regs/index.ts"]
-
-[mcp_servers.legalize_kr]
-command = "bun"
-args = ["run", "--env-file", ".env", "./mcp/legalize-kr/index.ts"]
-
-[mcp_servers.mcp_kr_legislation]
-command = "bun"
-args = ["run", "--env-file", ".env", "./mcp/kr-legislation/index.ts"]
 
 # Safety restrictions
 [restrictions]

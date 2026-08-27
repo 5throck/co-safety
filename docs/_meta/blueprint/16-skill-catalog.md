@@ -13,9 +13,7 @@ This document serves as the comprehensive catalog of all verified skills availab
    - **Owner**: emergency-agent
    - **Description**: Activates emergency response protocols upon receiving an incident, fire, spill, or injury report.
 
-3. **legalize-kr-sync**
-   - **Owner**: safety-workflow-manager
-   - **Description**: Fetches the legalize-kr repository into a local cache for accessing up-to-date Korean law data.
+3. **legalize-kr-sync** — *removed 2026-08-26, superseded by the `k-law` skill (법제처 National Law Information Center Open API live queries)*
 
 4. **permit-to-work**
    - **Owner**: safety-workflow-manager

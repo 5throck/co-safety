@@ -17,7 +17,14 @@ metadata:
     - 예방조치문구
     - P-Statement
     - GHS Rev 9
+  legal_basis:
+    - 산업안전보건법 제104조
+    - 산업안전보건법 시행규칙 별표 18
+    - 산업안전보건법 제110조
+    - UN GHS Rev 9 (2021)
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # GHS Classifier Skill (Rev 9 Ruleset)
 

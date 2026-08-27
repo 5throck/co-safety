@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "training-record.json",
   "title": "Training Record",
-  "description": "Safety training completion record per OSHA-KR Articles 13, 29, 31, 32, 114.",
+  "description": "Safety training completion record per OSHA-KR Articles 29, 31, 32, 114. Emergency-response (응급조치) education anchors to Article 29(3)-related provisions; the legacy Article 13 citation is invalid (current 제13조 = 기술·작업환경 표준 — see training-agent.md 2026-08-24 anchor correction).",
   "version": "1.0.0",
   "type": "object",
   "required": ["record_id", "training_type", "trainee_id", "completion_date", "hours_completed", "result", "legal_basis", "e_signature", "nomenclature", "audit_trail"],
@@ -27,6 +27,8 @@
     "industry_specific": { "type": ["string", "null"], "description": "If industry-specific (e.g., construction TBM)" },
     "next_training_due": { "type": "string", "format": "date" },
     "retraining_required": { "type": "boolean" },
+    "contractor_flag": { "type": "boolean", "default": false, "description": "True if trainee is a subcontractor/contractor worker (도급·하도급 인력) — reverse-intake from contractor-safety-agent; SAPA Article 5 traceability" },
+    "company_name": { "type": ["string", "null"], "description": "Trainee employer name (협력업체명) — required when contractor_flag=true" },
     "training_location": { "type": "string" },
     "training_method": { "type": "string", "enum": ["classroom", "online", "on_the_job", "field", "vr_ar"] },
     "legal_basis": {
@@ -41,6 +43,8 @@
         ["OSHA-KR Art.29 §1", "SAPA Art.4", "PIPA Art.15 §1", "PIPA Art.21 §1"]
       ]
     },
+    "agent_id": { "$ref": "../../../_shared/base/common.schema.json#/definitions/agent_id", "description": "Optional: agent attribution (e.g., training-agent). Omit when unknown — zero-fabrication rule; must match audit_trail.created_by when an audit trail is present." },
+    "workflow_id": { "$ref": "../../../_shared/base/common.schema.json#/definitions/workflow_id", "description": "Optional: originating workflow execution (e.g., 'functional/training'). Never invent an ID to satisfy this field." },
     "e_signature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/e_signature" },
     "nomenclature": { "$ref": "../../../_shared/base/common.schema.json#/definitions/nomenclature" },
     "audit_trail": { "$ref": "../../../_shared/base/common.schema.json#/definitions/audit_trail" }

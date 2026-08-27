@@ -17,7 +17,13 @@ metadata:
     - 환경보전법 준수
     - 배출 규제 준수
     - environmental discharge compliance
+  legal_basis:
+    - 대기환경보전법 (배출허용기준, 시행규칙 별표 11)
+    - 물환경보전법
+    - 소음진동관리법
 ---
+
+audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Environmental Compliance Checker Skill
 

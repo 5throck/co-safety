@@ -1,46 +1,70 @@
-source_mcp: mcp-kr-legislation
+# ── Registry schema v2 (mode: coordinates) ───────────────────────────────────
+# This file maps article numbers to official titles ONLY. Article content is
+# never cached here — fetch live from the 법제처 k-law API at point of use.
+# Migrated by migrate-registry-to-coordinates.ts on 2026-08-26
+schema_version: 2
+mode: coordinates
 jurisdiction: KR
-regulator: MOEL (고용노동부)
 framework: SAPA-Construction
-title_ko: 중대재해처벌법 건설업 적용 조항
-title_en: Serious Accidents Punishment Act — Construction-Relevant Provisions
-description: >
-  Construction-narrowed view of 중대재해처벌법, reconciled against the canonical index
-  (regulations/KR/SAPA.yaml) with .cache/legalize-kr/kr/중대재해처벌등에관한법률/법률.md
-  (MST 228817) as arbiter. IMPORTANT: SAPA contains NO construction-specific
-  special-provision article (건설특례) — the former "Article 12 건설업 특례" claim in this
-  file was a mis-citation. Construction relevance comes from Art 3 scope thresholds,
-  Art 5 contract/subcontract obligations, and SAPA 시행령 Art 4(9) contractor-selection
-  criteria (see regulations/KR/SAPA-Decree.yaml).
-primary_law:
-  name_ko: 중대재해처벌법
-  name_en: SAPA
-  articles:
-    - article: "3"
-      topic_ko: 적용범위
-      topic_en: Application scope — construction projects of individual business owners below thresholds excluded; phase-in for 공사금액 50억원 미만 construction per Addendum Art 1
-    - article: "4"
-      topic_ko: 사업주와 경영책임자등의 안전 및 보건 확보의무
-      topic_en: Employer obligations — safety and health management system establishment and implementation
-    - article: "5"
-      topic_ko: 도급·용역·위탁 등 관계에서의 안전·보건 확보의무
-      topic_en: Prime-contractor obligations toward subcontractor workers (원도급–하도급 chain) where the site is under the contractor's substantive control
-    - article: "6"
-      topic_ko: 중대산업재해 사업주와 경영책임자등의 처벌
-      topic_en: Punishment for serious industrial accidents (death — ≥1 yr imprisonment or ≤KRW 1bn fine; injury/disease — ≤7 yrs or ≤KRW 100m)
-    - article: "7"
-      topic_ko: 중대산업재해의 양벌규정
-      topic_en: Dual liability — corporate penalty ≤KRW 5bn (death cases) / ≤KRW 1bn (injury·disease cases)
-serious_accident_threshold:
-  fatality: "사망자 1명 이상 발생"
-  serious_injury: "동일한 사고로 6개월 이상 치료가 필요한 부상자 2명 이상 발생"
-  occupational_disease: "동일한 유해요인으로 급성중독 등 대통령령으로 정하는 직업성 질병자가 1년 이내에 3명 이상 발생"
-construction_specific_obligations:
-  ordering_party: 발주처 (안전관리체계 구축, 원도급자 선정 기준)
-  prime_contractor: 원도급자 (하도급자 관리, 안전관리비 집행)
-  subcontractor: 하도급자 (자체 안전관리)
-penalties:
-  individual_death_case: "1년 이상 징역 또는 10억원 이하 벌금 (징역과 벌금 병과 가능) — 제6조제1항"
-  individual_injury_or_disease_case: "7년 이하 징역 또는 1억원 이하 벌금 — 제6조제2항"
-  corporate_dual_liability: "법인 벌금 50억원 이하 (사망) / 10억원 이하 (부상·질병) — 제7조 양벌규정"
-last_updated: "2026-08-23"
+law_name: 중대재해 처벌 등에 관한 법률
+law_name_en: null
+abbreviation: null
+mst: "228817"
+enforced_from: null
+agency: null
+tier: 1
+regulator: MOEL (고용노동부)
+articles:
+  - "no": "1"
+    title: 목적
+    checked_at: "2026-08-26"
+  - "no": "2"
+    title: 정의
+    checked_at: "2026-08-26"
+  - "no": "3"
+    title: 적용범위
+    checked_at: "2026-08-26"
+  - "no": "4"
+    title: 사업주와 경영책임자등의 안전 및 보건 확보의무
+    checked_at: "2026-08-26"
+  - "no": "5"
+    title: 도급, 용역, 위탁 등 관계에서의 안전 및 보건 확보의무
+    checked_at: "2026-08-26"
+  - "no": "6"
+    title: 중대산업재해 사업주와 경영책임자등의 처벌
+    checked_at: "2026-08-26"
+  - "no": "7"
+    title: 중대산업재해의 양벌규정
+    checked_at: "2026-08-26"
+  - "no": "8"
+    title: 안전보건교육의 수강
+    checked_at: "2026-08-26"
+  - "no": "9"
+    title: 사업주와 경영책임자등의 안전 및 보건 확보의무
+    checked_at: "2026-08-26"
+  - "no": "10"
+    title: 중대시민재해 사업주와 경영책임자등의 처벌
+    checked_at: "2026-08-26"
+  - "no": "11"
+    title: 중대시민재해의 양벌규정
+    checked_at: "2026-08-26"
+  - "no": "12"
+    title: 형 확정 사실의 통보
+    checked_at: "2026-08-26"
+  - "no": "13"
+    title: 중대산업재해 발생사실 공표
+    checked_at: "2026-08-26"
+  - "no": "14"
+    title: 심리절차에 관한 특례
+    checked_at: "2026-08-26"
+  - "no": "15"
+    title: 손해배상의 책임
+    checked_at: "2026-08-26"
+  - "no": "16"
+    title: 정부의 사업주 등에 대한 지원 및 보고
+    checked_at: "2026-08-26"
+source_verification:
+  method: k-law-live
+  checked_at: "2026-08-26"
+  next_review: "2027-02-22"
+last_updated: "2026-08-26"

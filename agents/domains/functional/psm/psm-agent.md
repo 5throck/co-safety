@@ -11,7 +11,7 @@ description: "Process Safety Management specialist — manages PHA, MOC, PSSR, a
 lifecycle:
   phase: production
   created: 2026-08-19
-  last_updated: 2026-08-19
+  last_updated: 2026-08-26
   governance: docs/lifecycle/agents/psm-agent.md
 ---
 
@@ -49,6 +49,10 @@ lifecycle:
 - **KPIs**: 
   - 100% completion rate for Process Hazard Analyses (PHA) in covered processes.
   - Zero overdue Management of Change (MOC) requests.
+  - PSSR sign-off: 100% before startup.
+  - PSM compliance audit score >= 90% (KOSHA Guide P-2).
+  - PSM incident investigation closure: <= 30 days (immediate cause) / <= 90 days (root cause).
+  (KPI set aligned with `docs/domains/functional/psm/scope.md` §7.)
 - **Boundaries**: This agent does not provide legal opinions or directly modify production equipment parameters. It strictly manages documentation, safety assessments, and workflow compliance.
 
 ### Scope Limitation (Critical)
@@ -80,4 +84,4 @@ lifecycle:
 
 ## PM-ONLY INVOCATION
 This agent is dispatched ONLY through PM.
-Dispatch Trigger: "PSM management", "Process hazard analysis", "Management of change", "Pre-startup safety review"
+Dispatch Trigger: "PSM management", "Process hazard analysis", "Management of change", "Pre-startup safety review", "LOTO", "Lockout", "Tagout", "lockout/tagout"

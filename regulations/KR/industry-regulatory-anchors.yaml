@@ -1,7 +1,9 @@
 ###############################################################################
 # Industry Regulatory Anchor Table (Action Item A-03, Phase 0)
 ###############################################################################
-source_mcp: mcp-kr-legislation
+source_verification:
+  method: manual-curation
+  checked_at: "2026-08-26"
 jurisdiction: KR
 regulator: MOEL (고용노동부) / ME (환경부) / NFDS (소방청) / industry-specific
 framework: Industry-Regulatory-Anchors
@@ -505,12 +507,12 @@ industries:
       abbreviation: CCA
       statute_file: CCA-Chemical-Control.yaml
       key_articles:
-        - article: "23"
-          topic_ko: 화학사고예방관리계획서 작성·제출
-          topic_en: Chemical Accident Prevention Management Plan
-        - article: "24"
-          topic_ko: 취급시설의 배치·설치 및 관리 기준
-          topic_en: Handling-facility layout, installation, and management standards
+        - article: "39"
+          topic_ko: 사고대비물질의 지정
+          topic_en: Designation of accident-preparedness substances
+        - article: "40"
+          topic_ko: 사고대비물질의 관리기준 (취급시설의 배치·설치 및 관리 포함)
+          topic_en: Accident-preparedness substance management standards (incl. handling-facility layout, installation, and management)
     adjacent_laws:
       - name_ko: 고압가스 안전관리 및 사업법
         abbreviation: HPGSCA
@@ -559,7 +561,7 @@ industries:
       추락 §42) during tool install/maintenance.
     verification:
       verified_via:
-        - legalize-kr  # CCA Art 23/24 + HPGSCA Art 11/13/15/24/26 confirmed via parse_law_structure (HPGSCA indexed under "고압가스안전관리법"; MST 283919, lawIdCode 001850)
+        - legalize-kr  # CCA Art 39/40 + HPGSCA Art 11/13/15/24/26 confirmed via parse_law_structure (HPGSCA indexed under "고압가스안전관리법"; MST 283919, lawIdCode 001850)
       unverified: []
       remediation_note: |
         2026-08-07 (semicon HPGSCA remediation): HPGSCA articles re-verified live — Art 14 (deleted 1999.2.8),
