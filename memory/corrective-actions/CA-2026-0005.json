@@ -12,7 +12,7 @@
   "due_date": "2026-07-05",
   "completed_date": "2026-07-05",
   "status": "verified",
-  "verification_note": "bun scripts/safety-audit.ts re-run after fix — 618 files checked, 0 errors.",
+  "verification_note": "bun scripts/co-safety/safety-audit.ts re-run after fix — 618 files checked, 0 errors.",
   "audit_trail": {
     "created_at": "2026-07-11T10:14:39+09:00",
     "created_by": "Mark Park",

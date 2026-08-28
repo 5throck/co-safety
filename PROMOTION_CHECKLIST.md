@@ -18,8 +18,8 @@ v1.13.0 — L3 project-to-beta-variant promotion; Condition 7 confirmed 2026-08-
 |---|-----------|--------------|--------|
 | 1 | Core 7 agents defined with 3-Section structure (A/B/C) | `bun scripts/agent-verify.ts` passes with 0 errors | ✅ Done |
 | 2 | 6 core `SKILL.md` files completed (4 daily + emergency + compliance-gap) | `bun scripts/validate-skills.ts` passes | ✅ Done |
-| 3 | Manufacturing daily workflows x 6 completed (each with `legal_basis` field) | `bun scripts/safety-audit.ts` — 0 missing legal_basis | ✅ Done |
-| 4 | `scripts/safety-audit.ts` passes with 0 legal_basis missing (project-wide) | Run `bun scripts/safety-audit.ts` — exit code 0 | ✅ Done |
+| 3 | Manufacturing daily workflows x 6 completed (each with `legal_basis` field) | `bun scripts/co-safety/safety-audit.ts` — 0 missing legal_basis | ✅ Done |
+| 4 | `scripts/co-safety/safety-audit.ts` passes with 0 legal_basis missing (project-wide) | Run `bun scripts/co-safety/safety-audit.ts` — exit code 0 | ✅ Done |
 | 5 | AGENTS.md updated with Safety agent roster (28 agents registered) | `bun scripts/agent-verify.ts` — all registered agents present | ✅ Done |
 | 6 | Platform parity validated (CLAUDE.md and GEMINI.md `## Safety OS Context` headings match) | `bun scripts/validate-templates.ts --variant co-safety` — P-01 check passes | ✅ Done — 2026-08-27: promotion completed via L0 defect fixes (generate-variant v1.15.0 nested-roster mkdir + immediate-parent skill grouping; audit.ts v2.24.0 nested-SSOT skills check; l3-to-variant-pipeline v1.13.1 outputPath fix); `validate-templates --variant co-safety` exit 0, 0 errors, P-01 parity PASS, Variant Contract 11/11, WS-11 bilingual user-guide pair authored; non-vacuous (checks executed against templates/co-safety, 73 skills validated). Known follow-up (does not gate Condition 6): workspace-root `audit.ts` language validation reports 182 Korean-content violations in templates/co-safety (Korea-only domain content — Korean dispatch triggers, statutory citations, bilingual workflow docs); needs a workspace language-policy decision (per-variant ko-allowlist vs `lang: ko` legal exceptions) |
 | 7 | `_ORIGIN.md` Phase B manual steps documented and reviewed by user | Human review — check `_ORIGIN.md` §Manual Phase B Steps is complete | ✅ Done — user confirmed promotion in session 2026-08-26 ("templates에 variant로 반영" instruction); §Manual Phase B Steps reviewed — complete, no MCP-server references remain |
@@ -110,7 +110,7 @@ no MCP-server references remain. User confirmed promotion in the same session
 # From C:\git\ai_workspace\Projects\co-safety\
 bun scripts/agent-verify.ts           # Condition 1 & 5
 bun scripts/validate-skills.ts        # Condition 2
-bun scripts/safety-audit.ts           # Conditions 3 & 4
+bun scripts/co-safety/safety-audit.ts           # Conditions 3 & 4
 ```
 
 ```bash

@@ -181,7 +181,7 @@ LAW_API_OC=your_oc_key_here
 ### Step 3 — Verify Installation
 
 ```bash
-bun scripts/safety-audit.ts              # 640+ files, 0 errors
+bun scripts/co-safety/safety-audit.ts              # 640+ files, 0 errors
 ```
 
 ### Step 4 — Start Using with AI Tools
@@ -211,8 +211,8 @@ bun skills/domains/industry/ehsconst/fall-hazard-assessor/fall-hazard-assessor.t
 ### Test Suites
 
 ```bash
-bun scripts/test-domain-scenarios.ts                # 5 real-world scenarios (56 checks)
-bun scripts/test-cross-domain-integration.ts        # cross-domain integrity (8 checks)
+bun scripts/co-safety/test-domain-scenarios.ts                # 5 real-world scenarios (56 checks)
+bun scripts/co-safety/test-cross-domain-integration.ts        # cross-domain integrity (8 checks)
 ```
 
 ### Sync Pipeline (commit + push + PR)
@@ -253,4 +253,4 @@ Safety OS is licensed under the [GNU Affero General Public License v3.0](LICENSE
 
 This system provides workflow automation assistance only. Regulatory interpretation and final compliance decisions are the responsibility of qualified legal/EHS/GxP professionals.
 
-*Last Updated: 2026-08-07*
+*Last Updated: 2026-08-28*

@@ -120,7 +120,7 @@ The statute YAML (`High-Pressure-Gas-Safety.yaml`) and glossary both carry the 6
 
 ## 5. Quality gate
 
-- **`bun scripts/safety-audit.ts`**: see §6 below for the executed result (this findings file is written BEFORE the audit run; the audit result will be appended or reported to the dispatching PM).
+- **`bun scripts/co-safety/safety-audit.ts`**: see §6 below for the executed result (this findings file is written BEFORE the audit run; the audit result will be appended or reported to the dispatching PM).
 - **VERBATIM consistency**: each README §6 matches its schema `legal_basis` exactly (verified by construction — both were edited to the same 5-article set with the same statute-name string).
 - **legal_basis ≥ 3 entries**: all 4 schemas maintain ≥3 entries (minimum is 7 after remediation; see §2.2 table).
 - **No `[UNVERIFIED]` markers remain** on HPGSCA citations in any semicon file.
@@ -132,7 +132,7 @@ The statute YAML (`High-Pressure-Gas-Safety.yaml`) and glossary both carry the 6
 - `mcp__legalize_kr__parse_law_structure("고압가스안전관리법")` — live law.go.kr full-text verification (MST 283919, lawIdCode 001850). Output grepped for article headers to confirm titles.
 - `Read` + `Grep` — `regulations/KR/*.yaml`, workflow schemas, READMEs.
 - `Edit` — remediation of 8 files (1 anchor + 4 schemas + 2 READMEs + 1 glossary).
-- `bun scripts/safety-audit.ts` — final quality gate (executed by dispatching PM or this agent at end of task).
+- `bun scripts/co-safety/safety-audit.ts` — final quality gate (executed by dispatching PM or this agent at end of task).
 
 ---
 

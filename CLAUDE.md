@@ -393,7 +393,7 @@ The following lifecycle rules apply **in addition to** the standard rules in §1
 
 | Modified file(s) | Required follow-up actions |
 |-----------------|---------------------------|
-| `workflows/**/*.md` | Run `scripts/safety-audit.ts` — verify 0 missing `legal_basis` fields |
+| `workflows/**/*.md` | Run `scripts/co-safety/safety-audit.ts` — verify 0 missing `legal_basis` fields |
 | `agents/*.md` | Verify Section A (Legal Basis) is present and references applicable law articles |
 | `evidence-models/**/*.json` | Bump semver version field + create migration script in `evidence-models/migrations/` (only required for breaking changes — see `evidence-models/migrations/README.md` §When to Create a Migration; additive-only optional fields do not require one) |
 

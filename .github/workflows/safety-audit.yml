@@ -39,7 +39,7 @@ jobs:
         run: cd scripts && bun install
 
       - name: Run safety-audit
-        run: bun scripts/safety-audit.ts
+        run: bun scripts/co-safety/safety-audit.ts
 
       - name: Check scope-doc coverage
         run: |
@@ -150,4 +150,4 @@ jobs:
         run: cd scripts && bun install
 
       - name: Final audit gate
-        run: bun scripts/safety-audit.ts
+        run: bun scripts/co-safety/safety-audit.ts

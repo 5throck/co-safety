@@ -12,9 +12,9 @@ Full-repo audit of `legal_basis` citation presence, accuracy, and substantive fi
 - Energy/construction/chemical industry domains: ehsconst (9), gasterm (12), powergen (8), ehschem (8), meddevice (8) — 45 workflows
 - Emergency (9) + daily/manufacturing (6) + daily `_INDEX.md` stubs (4) — 19 items
 
-**Total: 138 workflow definitions reviewed** against `regulations/KR/legal-glossary.yaml` (canonical citation source), `regulations/KR/*.yaml` / `regulations/international/*.yaml` detail files, and `scripts/domain-config.ts` policy (`min_legal_basis >= 3` universal, `>= 2` for `workflow_type: reference`).
+**Total: 138 workflow definitions reviewed** against `regulations/KR/legal-glossary.yaml` (canonical citation source), `regulations/KR/*.yaml` / `regulations/international/*.yaml` detail files, and `scripts/co-safety/domain-config.ts` policy (`min_legal_basis >= 3` universal, `>= 2` for `workflow_type: reference`).
 
-**Method note**: `bun scripts/safety-audit.ts` could not be executed directly — the CLI Bash tool's Git Bash invocation was broken in this session. The script's validation logic (read from source) was replicated manually/by dispatched agents instead of run mechanically. Recommend re-running `bun scripts/safety-audit.ts` in a working shell to confirm the mechanical (presence/count/schema) checks match this audit's findings before closing this report.
+**Method note**: `bun scripts/co-safety/safety-audit.ts` could not be executed directly — the CLI Bash tool's Git Bash invocation was broken in this session. The script's validation logic (read from source) was replicated manually/by dispatched agents instead of run mechanically. Recommend re-running `bun scripts/co-safety/safety-audit.ts` in a working shell to confirm the mechanical (presence/count/schema) checks match this audit's findings before closing this report.
 
 ## Gap Summary
 
@@ -76,7 +76,7 @@ Full-repo audit of `legal_basis` citation presence, accuracy, and substantive fi
 | 7 | Gap-14, 15 | Reconcile Art 31 glossary/training-file discrepancy; add missing statute entries (생명윤리법, EU GDP, EU GVP, etc.) to glossary | docs-writer | Minor |
 | 8 | Gap-16 | Strengthen thin PSM citations using `loto-lockout-tagout` as template | psm-agent | Minor |
 | 9 | Gap-17, 18, 19 | Normalize GMP `workflow_type` field; add article to `glp/study-protocol`; reconcile daily/manufacturing schema↔README sync gaps | docs-writer | Minor |
-| 10 | — | Re-run `bun scripts/safety-audit.ts` in a working shell to confirm mechanical presence/count checks corroborate this manual audit | PM/CSO | Housekeeping |
+| 10 | — | Re-run `bun scripts/co-safety/safety-audit.ts` in a working shell to confirm mechanical presence/count checks corroborate this manual audit | PM/CSO | Housekeeping |
 
 ## MCP Verification Addendum (2026-07-05, later same day)
 
@@ -118,7 +118,7 @@ All action items from both meetings (`memory/meeting-2026-07-05-legal-citation-a
 | 16 (PSM thin citations) | Tracked as non-blocking backlog: `memory/backlog/psm-citation-thinness.md` | 📋 Backlogged (by design) |
 | 17, 18, 19 (GMP workflow_type field, glp/study-protocol bare citation, daily/manufacturing schema↔README sync) | **Not yet executed this batch** — still open, Minor priority | ❌ Open |
 
-**Verification**: `bun scripts/safety-audit.ts` re-run after all fixes — **618 files checked, 0 errors**.
+**Verification**: `bun scripts/co-safety/safety-audit.ts` re-run after all fixes — **618 files checked, 0 errors**.
 
 **Remaining open items for a future batch**: ~~Gap-4 (trade-secrets-management naming), Gap-10 (환경보전법 precision), Gap-15 remainder (5 more glossary entries), Gap-17/18/19 (structural/Minor hygiene)~~ — **all closed 2026-07-05 (batch 2)**, see below.
 
@@ -133,9 +133,9 @@ All action items from both meetings (`memory/meeting-2026-07-05-legal-citation-a
 | 18 (glp/study-protocol bare 약사법 citation) | Verified delegating article via law.go.kr web search: **약사법 Article 34-3** (Designation of non-clinical test-conducting institutions) — now cited specifically | ✅ Closed |
 | 19 (daily/manufacturing schema↔README sync, 3 files) | `equipment-inspection` and `permit-to-work` schemas updated to include the second article already discussed in their README; `safety-patrol` schema corrected from the loosely-fitting 제62조 to 제15조/제16조 per the README's own stated legal basis | ✅ Closed |
 
-**Verification**: `bun scripts/safety-audit.ts` re-run after all Batch 2 fixes — **618 files checked, 0 errors**.
+**Verification**: `bun scripts/co-safety/safety-audit.ts` re-run after all Batch 2 fixes — **618 files checked, 0 errors**.
 
-**Outstanding**: none. Gap-16 (PSM citation thinness) has also now been closed — see `memory/backlog/psm-citation-thinness.md` for the resolution. All 10 thin PSM workflows upgraded to a 3-source `legal_basis`; a bonus finding during this pass also caught and fixed the same SAPA Article 7→4 mis-citation (previously fixed in the emergency cluster) in 3 PSM workflows that had been mis-assessed as "OK" by the original audit (`eap-emergency-planning`, `incident-investigation-psm`, `psm-compliance-audit`). Re-verified via `bun scripts/safety-audit.ts`: 618 files, 0 errors.
+**Outstanding**: none. Gap-16 (PSM citation thinness) has also now been closed — see `memory/backlog/psm-citation-thinness.md` for the resolution. All 10 thin PSM workflows upgraded to a 3-source `legal_basis`; a bonus finding during this pass also caught and fixed the same SAPA Article 7→4 mis-citation (previously fixed in the emergency cluster) in 3 PSM workflows that had been mis-assessed as "OK" by the original audit (`eap-emergency-planning`, `incident-investigation-psm`, `psm-compliance-audit`). Re-verified via `bun scripts/co-safety/safety-audit.ts`: 618 files, 0 errors.
 
 ## Approval
 
