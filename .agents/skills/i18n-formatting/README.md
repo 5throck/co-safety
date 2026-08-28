@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Locale-specific formatting rules: date/time notation, number and
+Locale-specific formatting rules: date/time notation, number and currency formatting, units of measure, Korean-scale numerals, and print paper sizes. Use when: writing dates or numbers for a specific locale, formatting currency for a market, choosing metric or imperial units, applying Korean large-number scales, or picking a paper size.
 
 - **Scope**: `common`
 - **Version**: 1.0.0

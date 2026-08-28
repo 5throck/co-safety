@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Chemical plant turnaround (TAR) shutdown planning — pre-TAR risk assessment,
+Chemical plant turnaround (TAR) shutdown planning — pre-TAR risk assessment, PSSR (Pre-Startup Safety Review), contractor surge management, and safe work planning for refinery, petrochemical, and fine chemical facilities.
 
 - **Scope**: `workspace`
 - **Version**: 1.1.0
