@@ -4,7 +4,7 @@
 
 ## 목적
 
-Manages the creation, registration, and propagation of platform commands in .claude/commands/ and .gemini/commands/ directories. Use when: adding new commands, ensuring parity between Claude and Gemini command directories, or propagating commands to templates/common/.
+`.claude/commands/`와 `.gemini/commands/` 디렉터리의 플랫폼 명령어 생성, 등록, 전파를 관리합니다. 새 명령어를 추가할 때, Claude와 Gemini 명령어 디렉터리 간 동일성을 보장할 때, 또는 명령어를 templates/common/으로 전파할 때 사용합니다.
 
 - **스코프(scope)**: `common`
 - **버전**: 1.0.0

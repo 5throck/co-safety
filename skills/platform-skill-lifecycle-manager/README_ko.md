@@ -4,7 +4,7 @@
 
 ## 목적
 
-Manages the creation, versioning, and propagation of platform skills in .claude/skills/ and .gemini/skills/ directories. Use when: creating new platform skills, updating platform skill versions, or ensuring propagation to templates/common/.
+`.claude/skills/`와 `.gemini/skills/` 디렉터리의 플랫폼 스킬 생성, 버전 관리, 전파를 관리합니다. 새 플랫폼 스킬을 생성할 때, 플랫폼 스킬 버전을 업데이트할 때, templates/common/으로의 전파를 보장할 때 사용합니다.
 
 - **스코프(scope)**: `common`
 - **버전**: 1.0.0
