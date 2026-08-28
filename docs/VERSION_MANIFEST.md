@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-28T15:03:55.865Z
+**Generated**: 2026-08-28T15:04:08.181Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -20,7 +20,7 @@
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
 | _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-08-28 |
-| _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-23 |
+| _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-28 |
 | _shared/compliance-agent | agents/_shared/compliance-agent.md | medium | sonnet | 2026-08-28 |
 | _shared/contractor-safety-agent | agents/_shared/contractor-safety-agent.md | medium | sonnet | 2026-08-28 |
 | _shared/disaster-response-agent | agents/_shared/disaster-response-agent.md | high | opus | 2026-08-28 |
