@@ -6,7 +6,7 @@ Canonical bucket for machine-validated safety findings.
 
 | Pattern | Meaning |
 |---------|---------|
-| `FIND-YYYY-NNNN.json` | Canonical finding records, schema-validated by `scripts/safety-audit.ts` against `evidence-models/_shared/base/finding.schema.json` (v2.x). **Only `*.json` in this directory are audit inputs.** |
+| `FIND-YYYY-NNNN.json` | Canonical finding records, schema-validated by `scripts/co-safety/safety-audit.ts` against `evidence-models/_shared/base/finding.schema.json` (v2.x). **Only `*.json` in this directory are audit inputs.** |
 | `*.md` | Historical session-analysis notes predating the JSON finding convention, retained for context. Not validated by the audit; not evidence records. |
 
 ## Retained analysis notes (referenced by committed files — do not relocate)

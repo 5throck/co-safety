@@ -91,7 +91,7 @@ lang_reason: legal # 한국 법령(OSHA-KR/SAPA) 조항 인용이 본문 전체�
 | KPI | 연계 방식 |
 |---|---|
 | **1. LTIFR (Lost Time Injury Frequency Rate)** | 본 정책 §2-1(위험성평가 선행), §2-4(작업중지) 이행 수준이 저하되면 LTIFR이 목표치(< 1.0)를 초과하는 선행지표로 나타난다. LTIFR이 목표치의 2배를 초과하는 월이 발생하면 SGM 정책 재검토가 트리거된다 (kpi-definitions.md §1 Escalation). |
-| **2. Audit Pass Rate** | 본 정책 §2-3의 `legal_basis` ≥3 요건은 `bun scripts/safety-audit.ts`가 강제하는 하드 컴플라이언스 게이트(목표 100%, 0 errors)와 직접 일치한다. 워크플로우가 이 요건을 충족하지 못하면 Audit Pass Rate가 하락하고, 오류 3건 이상 발생 시 `project-review`가 자동 트리거된다. |
+| **2. Audit Pass Rate** | 본 정책 §2-3의 `legal_basis` ≥3 요건은 `bun scripts/co-safety/safety-audit.ts`가 강제하는 하드 컴플라이언스 게이트(목표 100%, 0 errors)와 직접 일치한다. 워크플로우가 이 요건을 충족하지 못하면 Audit Pass Rate가 하락하고, 오류 3건 이상 발생 시 `project-review`가 자동 트리거된다. |
 | **3. Corrective Action Closure Rate** | 본 정책 §2-6의 증거 추적성 요구는 시정조치 기록(`memory/corrective-actions/*.json`)의 완결성을 뒷받침하며, 목표(≥90% 기한 내 종결) 미달 시 본 정책의 재검토 트리거가 된다. |
 
 주 연계 KPI: **LTIFR** 및 **Audit Pass Rate** (본 정책은 이 두 KPI를 직접 개선하기 위해 제정됨).

@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-28T14:53:05.490Z
+**Generated**: 2026-08-28T15:04:08.181Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -20,7 +20,7 @@
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
 | _shared/asset-integrity-agent | agents/_shared/asset-integrity-agent.md | medium | sonnet | 2026-08-28 |
-| _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-23 |
+| _shared/audit-agent | agents/_shared/audit-agent.md | medium | sonnet | 2026-08-28 |
 | _shared/compliance-agent | agents/_shared/compliance-agent.md | medium | sonnet | 2026-08-28 |
 | _shared/contractor-safety-agent | agents/_shared/contractor-safety-agent.md | medium | sonnet | 2026-08-28 |
 | _shared/disaster-response-agent | agents/_shared/disaster-response-agent.md | high | opus | 2026-08-28 |
@@ -200,11 +200,11 @@
 | agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | N/A |
 | analyze-git-history.ts | 1.0.2 | scripts/analyze-git-history.ts | child_process |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
-| audit-variant.ts | 1.0.0 | scripts/audit-variant.ts | bun |
+| audit-variant.ts | 1.0.0 | scripts/co-safety/audit-variant.ts | bun |
 | audit.ts | 2.27.0 | scripts/audit.ts | bun |
 | auth.ts | 1.0.0 | scripts/lib/auth.ts | N/A |
 | auto-executor.ts | 1.0.0 | scripts/lib/auto-executor.ts | N/A |
-| check-pm-approval.ts | 1.0.1 | scripts/check-pm-approval.ts | N/A |
+| check-pm-approval.ts | 1.0.1 | scripts/co-safety/check-pm-approval.ts | N/A |
 | checkpoint-manager.ts | 1.0.0 | scripts/lib/checkpoint-manager.ts | N/A |
 | cleanup-completed-md.ts | 1.1.0 | scripts/cleanup-completed-md.ts | N/A |
 | clear-pm-approval.ts | 1.0.0 | scripts/clear-pm-approval.ts | N/A |
@@ -215,7 +215,7 @@
 | dispatch-parallel.ts | 1.0.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.0.1 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.0.0 | scripts/dispatch.ts | N/A |
-| domain-config.ts | 1.5.0 | scripts/domain-config.ts | N/A |
+| domain-config.ts | 1.5.0 | scripts/co-safety/domain-config.ts | N/A |
 | encoding-utils.ts | 1.1.0 | scripts/lib/encoding-utils.ts | fs, path |
 | error-handling.ts | 1.3.0 | scripts/lib/error-handling.ts | N/A |
 | evidence-validator.ts | 1.0.0 | scripts/lib/evidence-validator.ts | N/A |
@@ -231,8 +231,8 @@
 | mcp-cache.ts | 1.0.0 | scripts/lib/mcp-cache.ts | N/A |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | merge-frontmatter.ts | 1.8.6 | scripts/helpers/merge-frontmatter.ts | fs, js-yaml, path |
-| migrate-registry-to-coordinates.ts | N/A | scripts/migrate-registry-to-coordinates.ts | js-yaml |
-| new-domain.ts | 1.0.1 | scripts/new-domain.ts | N/A |
+| migrate-registry-to-coordinates.ts | N/A | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
+| new-domain.ts | 1.0.1 | scripts/co-safety/new-domain.ts | N/A |
 | pipeline-state.ts | 1.1.1 | scripts/lib/pipeline-state.ts | fs, path |
 | plan-parser.ts | 1.0.0 | scripts/lib/plan-parser.ts | fs, js-yaml |
 | platform-context.ts | 1.0.0 | scripts/lib/platform-context.ts | bun, os |
@@ -245,28 +245,28 @@
 | readme-lifecycle-audit.ts | 1.0.4 | scripts/readme-lifecycle-audit.ts | N/A |
 | render-pdf-deck.ts | 1.0.0 | scripts/render-pdf-deck.ts | N/A |
 | retry-handler.ts | 1.0.2 | scripts/retry-handler.ts | N/A |
-| risk-register-rollup.ts | 1.0.0 | scripts/risk-register-rollup.ts | N/A |
-| safety-audit.ts | 4.10.1 | scripts/safety-audit.ts | js-yaml |
-| scaffold-industry.ts | 0.1.1 | scripts/scaffold-industry.ts | js-yaml |
+| risk-register-rollup.ts | 1.0.0 | scripts/co-safety/risk-register-rollup.ts | N/A |
+| safety-audit.ts | 4.10.1 | scripts/co-safety/safety-audit.ts | js-yaml |
+| scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | js-yaml |
 | security-validator.ts | 1.1.0 | scripts/helpers/security-validator.ts | fs, path |
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun |
 | skill-dependency-analysis.ts | 1.0.0 | scripts/skill-dependency-analysis.ts | N/A |
 | skill-lifecycle-audit.ts | 1.3.0 | scripts/skill-lifecycle-audit.ts | N/A |
 | ssrf.ts | 1.1.0 | scripts/lib/ssrf.ts | N/A |
-| start-mcp.ts | 1.0.0 | scripts/start-mcp.ts | child_process, path |
+| start-mcp.ts | 1.0.0 | scripts/co-safety/start-mcp.ts | child_process, path |
 | sync-agent-status.ts | 1.0.1 | scripts/sync-agent-status.ts | N/A |
 | sync-md.ts | 1.3.3 | scripts/sync-md.ts | N/A |
 | sync-skill-status.ts | 1.0.1 | scripts/sync-skill-status.ts | N/A |
 | sync-skills.ts | 1.4.1 | scripts/sync-skills.ts | N/A |
 | team-builder.ts | 1.2.1 | scripts/team-builder.ts | N/A |
 | template-utils.ts | 1.1.1 | scripts/helpers/template-utils.ts | N/A |
-| test-chemical-handling-profile.ts | 1.0.0 | scripts/test-chemical-handling-profile.ts | js-yaml |
-| test-cross-domain-integration.ts | 1.0.0 | scripts/test-cross-domain-integration.ts | js-yaml |
-| test-domain-scenarios.ts | 1.1.0 | scripts/test-domain-scenarios.ts | N/A |
-| test-pharma-general-profile.ts | 1.0.0 | scripts/test-pharma-general-profile.ts | js-yaml |
+| test-chemical-handling-profile.ts | 1.0.0 | scripts/co-safety/test-chemical-handling-profile.ts | js-yaml |
+| test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | js-yaml |
+| test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | N/A |
+| test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | js-yaml |
 | test-runner.ts | N/A | scripts/test-runner.ts | child_process, fs, path |
-| test-runtime-tools.ts | 1.0.0 | scripts/test-runtime-tools.ts | N/A |
-| training-ingest.ts | 1.0.0 | scripts/training-ingest.ts | N/A |
+| test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | N/A |
+| training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
 | validate-agents.ts | 1.1.1 | scripts/validate-agents.ts | N/A |
 | validate-doc-folder.ts | 1.1.0 | scripts/validate-doc-folder.ts | fs, path |

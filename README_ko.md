@@ -167,7 +167,7 @@ LAW_API_OC=your_oc_key_here
 ### Step 3 — 설치 확인
 
 ```bash
-bun scripts/safety-audit.ts              # 640+ 파일 검증, 0 오류
+bun scripts/co-safety/safety-audit.ts              # 640+ 파일 검증, 0 오류
 ```
 
 ### Step 4 — AI 툴에서 사용하기
@@ -197,8 +197,8 @@ bun skills/domains/industry/ehsconst/fall-hazard-assessor/fall-hazard-assessor.t
 ### 테스트 스위트
 
 ```bash
-bun scripts/test-domain-scenarios.ts                # 5개 실전 시나리오 (56 검증)
-bun scripts/test-cross-domain-integration.ts        # 도메인 간 통합 무결성 (8 검증)
+bun scripts/co-safety/test-domain-scenarios.ts                # 5개 실전 시나리오 (56 검증)
+bun scripts/co-safety/test-cross-domain-integration.ts        # 도메인 간 통합 무결성 (8 검증)
 ```
 
 ### 동기화 파이프라인 (commit + push + PR)
@@ -239,4 +239,4 @@ Safety OS는 [GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0)에 따
 
 본 시스템은 워크플로우 자동화 지원만 제공합니다. 규제 해석 및 최종 컴플라이언스 판단은 자격을 갖춘 법률/EHS/GxP 전문가의 책임입니다.
 
-*Last Updated: 2026-08-06*
+*Last Updated: 2026-08-28*

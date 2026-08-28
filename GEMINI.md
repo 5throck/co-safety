@@ -139,7 +139,7 @@ The platform supports **Reactive Wakeup**: you do not need to poll or query task
 #### Phase 4 Execution Loop
 See [AGENTS.md - Subagent Roster](AGENTS.md#subagent-roster) for the complete agent list:
 1.  The dispatched Phase 4 specialist (e.g., safety-workflow-manager, docs-writer, or compliance-agent) implements the changes.
-2.  **PM** verifies against acceptance criteria by running `bun scripts/safety-audit.ts` directly.
+2.  **PM** verifies against acceptance criteria by running `bun scripts/co-safety/safety-audit.ts` directly.
 3.  **Quality gate (audit script)** validates compliance.
 
 > Loop and correct if review errors are flagged - maximum **3 iterations** before escalating to the user.
@@ -398,7 +398,7 @@ The following lifecycle rules apply **in addition to** the standard rules in §7
 
 | Modified file(s) | Required follow-up actions |
 |-----------------|---------------------------|
-| `workflows/**/*.md` | Run `scripts/safety-audit.ts` — verify 0 missing `legal_basis` fields |
+| `workflows/**/*.md` | Run `scripts/co-safety/safety-audit.ts` — verify 0 missing `legal_basis` fields |
 | `agents/*.md` | Verify Section A (Legal Basis) is present and references applicable law articles |
 | `evidence-models/**/*.json` | Bump semver version field + create migration script in `evidence-models/migrations/` (only required for breaking changes — see `evidence-models/migrations/README.md` §When to Create a Migration; additive-only optional fields do not require one) |
 

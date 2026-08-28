@@ -205,7 +205,7 @@ See [docs/context.md](context.md) for the skill-lifecycle registration details.
 
 #### Pluggable Variant Audit Hook
 
-A mechanism that allows variant-specific validation checks to be executed during the synchronization and validation pipeline without modifying core script files (e.g., `dev-sync.ts`, `audit.ts`). Variant-specific audits are placed in `scripts/audit-variant.ts`. If this script is present, the core validation runner (`audit.ts`) dynamically detects and executes it. Any non-zero exit code from `audit-variant.ts` will fail the audit gate.
+A mechanism that allows variant-specific validation checks to be executed during the synchronization and validation pipeline without modifying core script files (e.g., `dev-sync.ts`, `audit.ts`). Variant-specific audits are placed in `scripts/co-safety/audit-variant.ts`. If this script is present, the core validation runner (`audit.ts`) dynamically detects and executes it. Any non-zero exit code from `audit-variant.ts` will fail the audit gate.
 <!-- COMMON-CONSTITUTION:END -->
 
 ---
@@ -440,7 +440,7 @@ This is enforced automatically via hooks on Claude Code CLI (configurable `--mod
 ### Sequential Branch Dependency & Pipeline Integrity (ADR-0038)
 
 - **Sequential PR Merge Rule**: Before executing `/sync` to open a new PR while a prior PR from the same session is unmerged, merge the prior PR first. Shared pipeline files (`CHANGELOG.md`, `memory/YYYY-MM-DD.md`, `VERSION_MANIFEST.md`) are updated on every commit, so parallel branches conflict by default.
-- **Pluggable Variant Audit Hook**: Core scripts (`scripts/dev-sync.ts`, `scripts/audit.ts`) are immutable across variants. Projects requiring custom validation rules must implement them in `scripts/audit-variant.ts`.
+- **Pluggable Variant Audit Hook**: Core scripts (`scripts/dev-sync.ts`, `scripts/audit.ts`) are immutable across variants. Projects requiring custom validation rules must implement them in `scripts/co-safety/audit-variant.ts`.
 
 See the workspace governance documentation (Governance Enforcement Layers) and ADR-0021 (Platform Settings Parity Policy) in the workspace root repository for full specification — not linked here since this file's relative path to the workspace root differs across project depths (L2 vs. L3) and after Phase B promotion.
 

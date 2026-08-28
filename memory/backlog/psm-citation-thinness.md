@@ -22,7 +22,7 @@ source: memory/findings/compliance-gap-2026-07-05-all-domains.md (Gap-16), memor
 - `workflows/domains/functional/psm/hot-work-permit/schema.yaml`
 - `workflows/domains/functional/psm/psm-worker-training/schema.yaml`
 
-This is **not a defect** — PSM is exempt from the array/count `legal_basis` policy (`skip_workflow_validation: true` in `scripts/domain-config.ts`) and every citation checked was accurate. It is, however, substantively thinner than sibling PSM workflows (`eap-emergency-planning`, `incident-investigation-psm`, `psm-compliance-audit`, `trade-secrets-management`, `loto-lockout-tagout`) which cite 3-4 well-matched, multi-source citations.
+This is **not a defect** — PSM is exempt from the array/count `legal_basis` policy (`skip_workflow_validation: true` in `scripts/co-safety/domain-config.ts`) and every citation checked was accurate. It is, however, substantively thinner than sibling PSM workflows (`eap-emergency-planning`, `incident-investigation-psm`, `psm-compliance-audit`, `trade-secrets-management`, `loto-lockout-tagout`) which cite 3-4 well-matched, multi-source citations.
 
 ## Why this was NOT bundled into the Critical/Major remediation cycle
 
@@ -63,4 +63,4 @@ All 10 workflows upgraded to a 3-source `legal_basis` array (OSHA-KR Article 44 
 
 **Bonus finding during this pass**: the three "template" workflows this backlog cited as good examples (`eap-emergency-planning`, `incident-investigation-psm`, `psm-compliance-audit`) turned out to have the same 중대재해처벌법 Article 7→4 mis-citation already fixed elsewhere in the 2026-07-05 remediation — they were mis-assessed as "OK" by the original audit pass. Corrected as part of this batch.
 
-Verified via `bun scripts/safety-audit.ts`: 618 files, 0 errors.
+Verified via `bun scripts/co-safety/safety-audit.ts`: 618 files, 0 errors.

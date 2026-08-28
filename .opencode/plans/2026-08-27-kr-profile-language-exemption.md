@@ -57,7 +57,7 @@ Verify: baseline run (no co-safety locales yet) must produce identical 182-viola
    - Tooling: k-law (MUST for statutory verification; LAW_API_OC required), kr_safety MCP
 2. `variant.json`: add `"country_config": { "profiles_dir": "docs/countries", "supported": ["KR"], "default": "KR", "locales": ["ko"] }` (near skill_manifest; preserve all keys).
 3. Protected-path backtick cleanup (never exempt): `AGENTS.md`, `docs/co-safety.context.md`, `CLAUDE.md`, `GEMINI.md` — wrap bare Korean fragments in backticks preserving tables/meaning. Skip clean files. Do NOT touch YAML frontmatter values in other files / locale files.
-4. Verify project: `bun scripts/safety-audit.ts` 0 errors; `bun scripts/audit.ts` 0 FAIL.
+4. Verify project: `bun scripts/co-safety/safety-audit.ts` 0 errors; `bun scripts/audit.ts` 0 FAIL.
 
 ## Phase 3 — Template regeneration + verification
 

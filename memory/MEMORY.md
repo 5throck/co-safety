@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-08-29](2026-08-29.md) | chore: apply scripts/co-safety nested layout convention (15 variant scripts moved) |
 | [2026-08-28](2026-08-28.md) | fix(agents): flatten agents/_core, dedupe pm.md, move CSO content to docs |
 | [2026-08-26](2026-08-26.md) | chore(cleanup): L3-to-variant promotion pre-flight cleanup |
 | [2026-08-24](2026-08-24.md) | fix(regulations): early SGM revalidation of stale cohort and base index arbitration against statute cache |
