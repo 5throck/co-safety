@@ -1,4 +1,15 @@
-// @version 1.7.6
+// @version 1.7.8
+// v1.7.8: feat(skill-graph): step 4.65 scope loop (ADR-0060 Amendment 2) — after the L0
+//           unified graph gate, generate+verify every template scope (templates/common +
+//           templates/co-*) so each variant template ships its own docs/skill-graph.json;
+//           workspace-root-gated on templates/common so scaffolded projects never enter
+//           the loop (their own local graph comes from the existing guarded calls).
+//           Corrected the stale "generator is L0-only" comment.
+// v1.7.7: fix(pipeline): step 3.95 QA pre-check ran bare `bun test` instead of `bun run test`
+//           (the package.json script) — bare `bun test` recursively scans the whole CWD tree,
+//           pulling in every nested Projects/*/ repo's test suite (Playwright visual regression,
+//           MCP integration tests, etc.), turning a non-fatal check into a multi-minute noisy
+//           detour. `bun run test` correctly delegates to the scoped `test-runner.ts integration`.
 // v1.7.6: fix(pipeline): add step 4.62 cascade re-publish — heals template platform skill
 //           copies after sync-skills step 4.6 updates root platform dirs (mirrors 4.5 gating)
 // v1.7.3: feat(pipeline): add step 4.65 skill graph gate (ADR-0060) — generates and
@@ -75,7 +86,7 @@ const msg = (msgArgs.join(' ') || "chore: update")
 // silently swallowed by the PR-creation fallback below). Shared detector also catches
 // Japanese/Chinese, not just Korean — see scripts/lib/language-guard.ts.
 if (hasNonEnglish(msg)) {
-    console.log(`${RED}❌ Commit message / PR title must be written in English (CONSTITUTION.md §3).${RESET}`);
+    console.log(`${RED}❌ Commit message / PR title must be written in English (context.md §3).${RESET}`);
     console.log(`${YELLOW}   Translate the message and re-run: /sync "<english message>"${RESET}`);
     if (import.meta.main) {
       process.exit(1);
@@ -276,7 +287,15 @@ if (fs.existsSync('package.json')) {
     try {
         const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
         if (pkg.scripts?.test) {
-            const testResult = await $`bun test`.nothrow();
+            // Bare `bun test` (no path) recursively scans the entire CWD tree for *.test.ts,
+            // which includes every nested Projects/*/ repo (separate git repos scaffolded
+            // from templates/ — see README.md § Repository Structure). That pulled in
+            // unrelated suites (Playwright visual-regression, MCP integration, etc.) from
+            // other projects, making this non-fatal check take many minutes and print noise
+            // irrelevant to this repo. `bun run test` invokes the actual package.json script
+            // (`bun scripts/test-runner.ts integration`), which is already correctly scoped
+            // to this repo's own tests/ directory.
+            const testResult = await $`bun run test`.nothrow();
             if (testResult.exitCode !== 0) {
                 console.warn(`⚠️  Project tests failed (non-blocking, exit ${testResult.exitCode})`);
                 if (testResult.stderr) console.warn(String(testResult.stderr).trim());
@@ -459,10 +478,14 @@ if (isWorkspaceRoot) {
     }
 }
 
-// 4.65 Skill Graph Gate — generates and verifies skill relationship graph (ADR-0060).
-//     The generator is L0-only (no skill graph corpus exists in generated projects),
-//     so this step is guarded by existsSync — scaffolded projects skip it.
-//     Must run BEFORE VERSION_MANIFEST generation so graph files are committed.
+// 4.65 Skill Graph Gate — generates and verifies skill relationship graph (ADR-0060
+//     + Amendment 2). At the workspace root this covers the L0 unified graph plus a
+//     generate+verify loop over every template scope (templates/common and
+//     templates/co-* ship their own docs/skill-graph.json). Scaffolded projects have
+//     no templates/ directory, so the scope loop skips; the project's own local
+//     graph is emitted by the same guarded calls below (run-context auto-detection
+//     tags project assets L3). Must run BEFORE VERSION_MANIFEST generation so graph
+//     files are committed.
 if (fs.existsSync('scripts/generate-skill-graph.ts')) {
     console.log('📋 Step 4.65: Skill relationship graph gate...');
     const graphGenRes = await $`bun scripts/generate-skill-graph.ts`.nothrow();
@@ -483,9 +506,36 @@ if (fs.existsSync('scripts/generate-skill-graph.ts')) {
             process.exit(1);
         }
     }
+
+    // Template scopes (workspace root only — projects have no templates/ directory).
+    if (fs.existsSync('templates/common')) {
+        const scopes = ['common'];
+        for (const entry of fs.readdirSync('templates', { withFileTypes: true })) {
+            if (entry.isDirectory() && entry.name.startsWith('co-')) scopes.push(entry.name);
+        }
+        for (const scope of scopes) {
+            const scopeGenRes = await $`bun scripts/generate-skill-graph.ts --scope ${scope}`.nothrow();
+            if (scopeGenRes.exitCode !== 0) {
+                console.error(`${RED}❌ Skill graph generation failed for scope: ${scope}.${RESET}`);
+                if (import.meta.main) {
+                    process.exit(1);
+                }
+            }
+            const scopeVerifyRes = await $`bun scripts/verify-skill-graph.ts --scope ${scope}`.nothrow();
+            if (scopeVerifyRes.exitCode !== 0) {
+                console.error(`${RED}❌ Skill graph verification failed for scope: ${scope}.${RESET}`);
+                console.error(`${YELLOW}   Fix: bun scripts/generate-skill-graph.ts --scope ${scope}${RESET}`);
+                if (import.meta.main) {
+                    process.exit(1);
+                }
+            }
+        }
+        console.log(`${GREEN}✓ Skill graph scope artifacts verified (${scopes.length} scopes)${RESET}`);
+    }
+
     console.log(`${GREEN}✓ Skill graph verification passed${RESET}`);
 } else {
-    console.log('📋 Step 4.65: skipped — skill graph generator is L0-only (not present in scaffolded projects)');
+    console.log('📋 Step 4.65: skipped — skill graph generator not present in this context');
 }
 
 // 4.7 Generate VERSION_MANIFEST.md

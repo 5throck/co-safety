@@ -1,4 +1,4 @@
-// @version 1.1.1
+// @version 1.4.0
 import { $ } from "bun";
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join } from "path";
@@ -119,8 +119,23 @@ async function runStaticAudit(): Promise<number> {
                 console.error(`        README.md content_hash:          ${enHash}`);
                 console.error(`        README_ko.md translated_from_hash: ${koHash}`);
                 errors++;
+            } else if (enHash === "PLACEHOLDER") {
+                // Sentinel value — tracking never activated for this pair (ADR-0013)
+                console.log(`\x1b[32m[PASS]\x1b[0m ${dir}: READMEs present; hash-sync tracking not active (see ADR-0013).`);
             } else {
-                console.log(`\x1b[32m[PASS]\x1b[0m ${dir}: READMEs are synchronized (hash: ${enHash.slice(0, 12)}…).`);
+                // Drift check: the stored content_hash must match the recomputed body hash.
+                // Without this, a README body edit that skips the hash refresh leaves both
+                // hashes equally stale and the pair comparison above silently passes.
+                const bodyHash = computeContentHash(enPath);
+                if (enHash !== bodyHash) {
+                    console.error(`\x1b[31m[FAIL]\x1b[0m ${dir}: README.md body has changed since content_hash was recorded — hash is stale.`);
+                    console.error(`        stored content_hash:     ${enHash}`);
+                    console.error(`        recomputed body hash:    ${bodyHash}`);
+                    console.error(`        Fix: bun scripts/verify-readme-sync.ts --update-hashes, then mirror the new hash into README_ko.md translated_from_hash.`);
+                    errors++;
+                } else {
+                    console.log(`\x1b[32m[PASS]\x1b[0m ${dir}: READMEs are synchronized (hash: ${enHash.slice(0, 12)}…).`);
+                }
             }
         } else if (!enExists && !koExists) {
             if (dir !== ".") {
@@ -186,8 +201,9 @@ async function runDynamicAudit(): Promise<number> {
                     errors++;
                 }
             } else if (!enStaged && koStaged) {
-                console.error(`\x1b[31m[FAIL]\x1b[0m ${koFile} is staged, but ${enFile} is NOT staged!`);
-                errors++;
+                // README_ko.md changed alone is valid (e.g. translation-only fix).
+                // Warn but don't block — hash-sync tracking will catch stale translations.
+                console.warn(`\x1b[33m[WARN]\x1b[0m ${koFile} is staged, but ${enFile} is NOT staged — translation-only update assumed.`);
             } else {
                 // Both staged — verify content_hash == translated_from_hash
                 const enHash = getFrontmatterField(enFile, "content_hash");
@@ -224,6 +240,96 @@ async function runUpdateHashes(): Promise<void> {
     console.log("\nDone. Remember to also update translated_from_hash in README_ko.md files after translation.");
 }
 
+/**
+ * Updates translated_from_hash in a user-guide_ko.md file.
+ * Creates frontmatter if absent. Idempotent.
+ */
+function updateUserGuideHash(variantDir: string): void {
+    const enPath = join(variantDir, "docs/user-guide.md");
+    const koPath = join(variantDir, "docs/user-guide_ko.md");
+
+    if (!existsSync(enPath) || !existsSync(koPath)) {
+        return;
+    }
+
+    const enHash = computeContentHash(enPath);
+    const raw = readFileSync(koPath, "utf-8");
+
+    // Preserve original line endings (CRLF vs LF)
+    const lineEnding = /\r\n/.test(raw) ? "\r\n" : "\n";
+
+    if (extractFrontmatter(raw)) {
+        // Replace existing translated_from_hash value (hash chars only, so a
+        // trailing \r on CRLF lines survives), or insert the key on its own
+        // line before the closing ---
+        let updated: string;
+        if (/^translated_from_hash:\s*[0-9a-f]/m.test(raw)) {
+            updated = raw.replace(/^(translated_from_hash:\s*)[0-9a-f]+(\r?)$/m, `$1${enHash}$2`);
+        } else {
+            const insert = `translated_from_hash: ${enHash}${lineEnding}`;
+            updated = raw.replace(/^(---\r?\n[\s\S]*?)(---)/m, `$1${insert}$2`);
+        }
+        writeFileSync(koPath, updated, "utf-8");
+    } else {
+        // No frontmatter — prepend one with line ending preserved
+        const fm = `---${lineEnding}translated_from_hash: ${enHash}${lineEnding}---${lineEnding}`;
+        writeFileSync(koPath, fm + raw, "utf-8");
+    }
+
+    console.log(`\x1b[32m[UPDATED]\x1b[0m ${koPath} → translated_from_hash: ${enHash.slice(0, 12)}…`);
+}
+
+/**
+ * Audits user-guide.md ↔ user-guide_ko.md pairs for translated_from_hash synchronization.
+ * Reports FAIL and affects exit code (FAIL stage per ADR-0055 playbook after WARN soak).
+ */
+async function runUserGuideHashAudit(): Promise<number> {
+    console.log("\n=== User-guide translated_from_hash (FAIL stage) ===");
+    let failures = 0;
+    let passed = 0;
+
+    for (const variantDir of variantDirs) {
+        const enPath = join(variantDir, "docs/user-guide.md");
+        const koPath = join(variantDir, "docs/user-guide_ko.md");
+
+        const enExists = existsSync(enPath);
+        const koExists = existsSync(koPath);
+
+        if (!enExists || !koExists) {
+            // Skip variants without user-guide pairs
+            continue;
+        }
+
+        const koHash = getFrontmatterField(koPath, "translated_from_hash");
+
+        if (koHash === null) {
+            console.error(`\x1b[31m[FAIL]\x1b[0m ${variantDir}: user-guide pair missing translated_from_hash (run with --update-hashes to seed)`);
+            failures++;
+            continue;
+        }
+
+        const enHash = computeContentHash(enPath);
+
+        if (enHash !== koHash) {
+            console.error(`\x1b[31m[FAIL]\x1b[0m ${variantDir}: user-guide_ko.md translated_from_hash is stale — EN guide changed since translation`);
+            console.error(`        user-guide.md current hash:          ${enHash}`);
+            console.error(`        user-guide_ko.md translated_from_hash: ${koHash}`);
+            failures++;
+        } else {
+            console.log(`\x1b[32m[PASS]\x1b[0m ${variantDir}: user-guide hashes synchronized (${enHash.slice(0, 12)}…)`);
+            passed++;
+        }
+    }
+
+    if (failures === 0 && passed === 0) {
+        console.log(`\x1b[33m[SKIP]\x1b[0m No user-guide pairs found.`);
+    } else {
+        console.log(`\nUser-guide hash audit: ${passed} passed, ${failures} failure(s) (FAIL stage per ADR-0055)`);
+    }
+
+    return failures;
+}
+
 async function main() {
     const args = process.argv;
     const isPreCommit = args.includes("--pre-commit");
@@ -231,12 +337,20 @@ async function main() {
 
     if (isUpdateHashes) {
         await runUpdateHashes();
+        console.log("\n=== Updating translated_from_hash in all user-guide_ko.md files ===");
+        for (const variantDir of variantDirs) {
+            updateUserGuideHash(variantDir);
+        }
+        console.log("\nDone. User-guide hashes updated.");
         process.exit(0);
     }
 
     let totalErrors = 0;
 
     totalErrors += await runStaticAudit();
+
+    // User-guide audit runs at FAIL stage — promoted 2026-08-24 after WARN soak completed through #647 with zero warnings
+    totalErrors += await runUserGuideHashAudit();
 
     if (isPreCommit) {
         totalErrors += await runDynamicAudit();

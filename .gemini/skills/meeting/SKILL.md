@@ -19,8 +19,6 @@ metadata:
     - facilitate meeting
 ---
 
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
-
 This is a shortcut alias for the `meeting-facilitation` skill. The actual implementation resides in `.claude/commands/meeting.md` and `.gemini/commands/meeting.md`.
 
 ## When to Use

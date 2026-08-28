@@ -156,15 +156,21 @@ The PM agent uses the platform's **native subagent dispatch and plan mode** for 
 <!-- COMMON-GEMINI:START -->
 ### 4. Language Policy for Documentation
 
-Safety OS is a Korea-only EHS/GxP compliance platform. **Korean is the default documentation language.** English is used ONLY where a specific justification applies:
+All `.md` files you create or modify MUST be in English, except in `ko/` or `locales/ko/` directories (Korean translation zones) or when explicitly declared as a Korean legal/regulatory content exception.
 
-- **Layer A — English required (internationalization)**: governance/system/agent files consumed by cross-platform AI agents and tooling — `CLAUDE.md`, `GEMINI.md`, `AGENTS.md`, `CONSTITUTION.md`, `README.md`, `agents/*.md`, `SKILL.md`, command files, code/scripts/code comments, schema keys, evidence-model JSON keys, `CHANGELOG.md`, and git artifacts (commit messages, PR titles/descriptions, branch names). These stay English for AI-agent instruction clarity, L1–L2 fork platform parity, and international audit interoperability.
-- **Layer B — International-regulation content (English-preferred)**: documentation whose source is an international standard — ICH (E6/E2), OECD GLP (MAD), GHS Rev 9, PIC/S GDP, ISO 13485/14971. Applies to domains `gcp`, `gvp`, `glp`, `meddevice`, and the GHS portions of `msds`.
-- **Layer C — Korean canonical (default)**: human operational documentation for Korean EHS/GxP practitioners — workflow READMEs, domain scope documents, user guides, tutorials, scenario walkthroughs. No internationalization or international-regulation justification applies, so Korean is the natural and correct language.
+- README.md, CLAUDE.md, GEMINI.md, AGENTS.md, context.md, CHANGELOG.md — English only
+- All documentation in docs/, agents/, skills/ — English only
+- Git commit messages, PR titles, PR descriptions — English only
+- Branch names — English only
+- Code comments — English (unless documenting locale-specific logic)
 
-**Korean statute proper nouns are always preserved as Korean + English gloss** (e.g., `산업안전보건법 (OSHA-KR) Art 36`). Statute names and article citations are never translation targets — translating them breaks audit-trail traceability. The canonical statute → English gloss mapping is maintained in `regulations/KR/legal-glossary.yaml` (single source of truth for consistent citations).
-
-**Bilingual zones retained**: `docs/_shared/` paired convention (`<name>.md` English base + `<name>_ko.md` Korean mirror), and `ko/`, `locales/ko/` directories.
+#### Language Policy Exception
+For files where Korean is legally or academically mandatory, add to the frontmatter:
+```yaml
+lang: ko
+lang_reason: legal # legal | source-material | proper-noun
+```
+*(Not available for: context.md, CLAUDE.md, GEMINI.md, AGENTS.md, or any variant context.md)*
 <!-- COMMON-GEMINI:END -->
 
 ### 5. Agent Dispatch Rules
@@ -282,79 +288,45 @@ Explicit invocation: `/meeting "topic" [--agents a,b] [--rounds N] [--dialogue]`
 ---
 
 <!-- COMMON-GEMINI:START -->
-### 6. Workspace & Template Boundary Policy
+## Execution Plan Boilerplate
 
-- **Strict CWD Isolation**: When modifying templates (in `templates/`), you MUST strictly limit your working directory (CWD) to the specific template folder.
-- **No Cross-Modification**: Modifying workspace root files and template files in a single task or session is forbidden. Keep workspace root changes and template changes completely isolated.
+The execution plan table format, the Design Gate (Row 0) rule, exemption categories, and the `/sync`-as-final-step rule are the Single Source of Truth in **[AGENTS.md §5.1 Standard Execution Plan Template](AGENTS.md#51-standard-execution-plan-template)** and **[§5.1.1 Design Gate Exemptions](AGENTS.md#511-design-gate-exemptions)** — do not restate them here.
+
+> **Note (Antigravity-specific)**: Use the literal Gemini model ID (e.g. `gemini-3.1-pro`) in the `Model` column, not a Claude-style short alias.
+
+**Antigravity execution**: Use `invoke_subagent` for specialist dispatch. See §3 (Subagent Instantiation & Async Orchestration) in this file.
 <!-- COMMON-GEMINI:END -->
 
 <!-- COMMON-GEMINI:START -->
-### 7. Lifecycle Management Rules
+## Git & PR Additions (Gemini)
 
-> ⚠️ If unsure whether a change requires lifecycle updates, run `bun scripts/audit.ts` before committing. Do NOT skip this step.
+All shared Git/PR rules are in [docs/context.md](docs/context.md). Gemini-specific additions:
 
-When modifying files, apply the following rules **before** running `/sync` or committing:
-
-| Modified file(s) | Required follow-up actions |
-|-----------------|---------------------------|
-| `scripts/*.ts` | 1. Bump `@version` in file header  2. Update version in `scripts/SCRIPTS.md`  3. Copy file to `templates/common/scripts/` and update `templates/common/scripts/SCRIPTS.md` |
-| `templates/` (any file) | Run `bun scripts/tag-template.ts` to publish a new `template-v{VERSION}` git tag — only after all template changes are committed and verified via `bun scripts/audit.ts` |
-| `agents/*.md` | Update `AGENTS.md` roster table — run `bun run agent:verify` to check |
-| `AGENTS.md` | Update `templates/co-*/AGENTS.md` if variant contains `pm` agent entry — run `bun run agent:verify` to check |
-| `skills/*/SKILL.md` or `.claude/skills/*/SKILL.md` | Update `AGENTS.md § Skills` table — run `bun scripts/skill-lifecycle-audit.ts` to check |
-| `templates/common/scripts/*.ts` | Update version entry in `templates/common/scripts/SCRIPTS.md` |
-| `CLAUDE.md` or `GEMINI.md` | 1. Apply identical change to the counterpart file (Platform Documentation Parity — CONSTITUTION.md §10)  2. Manually propagate to all `templates/*/CLAUDE.md` and `templates/*/GEMINI.md`  3. Run `bun scripts/validate-templates.ts` — must pass P-01 platform parity check |
-| `.claude/settings.json` | 1. Apply **shared** tier changes (mcpServers, hooks.SessionStart, hooks.PostToolUse) to `.gemini/settings.json`  2. **claude_only** tier changes (permissions, env, teammateMode, hooks.TeammateIdle/TaskCreated/TaskCompleted) do NOT require `.gemini/settings.json` update  3. Propagate to `templates/common/.claude/settings.json`  4. Propagate to all 4 variant `templates/<variant>/.claude/settings.json`  5. See `docs/templates/common-contract.json § platform_settings` for tier classification |
-| `.gemini/settings.json` | 1. Apply **shared** tier changes to `.claude/settings.json`  2. **gemini_only** tier changes do NOT require `.claude/settings.json` update  3. Propagate to all 4 variant `templates/<variant>/.gemini/settings.json` |
-| `.claude/commands/*.md` | 1. Add identical file to `templates/common/.claude/commands/`  2. If not `gemini-parity: skip`, also add to `.gemini/commands/` and `templates/common/.gemini/commands/` |
-| `.claude/skills/*/SKILL.md` | 1. Add identical file to `templates/common/.claude/skills/`  2. If not `gemini-parity: skip`, also add to `.gemini/skills/` and `templates/common/.gemini/skills/` |
-| `.gemini/commands/*.md` | Add identical file to `templates/common/.gemini/commands/` |
-| `.gemini/skills/*/SKILL.md` | Add identical file to `templates/common/.gemini/skills/` |
-| `.agents/skills/*/SKILL.md` | 1. Source SSOT is `skills/` — `.agents/skills/` is the **Antigravity shortcut-skill layer**, auto-mirrored by `bun scripts/sync-skills.ts` (do NOT hand-edit)  2. After adding/modifying any `skills/*/SKILL.md`, run `bun scripts/sync-skills.ts` to propagate to `.claude/skills/`, `.gemini/skills/`, AND `.agents/skills/`  3. `.agents/skills.json` registry is regenerated by the same script — do NOT hand-edit |
-
-**Verification** (run after any of the above):
-```bash
-bun scripts/audit.ts                  # full workspace audit including lifecycle sync
-bun scripts/lifecycle-sync-audit.ts   # layer sync check (scripts + SCRIPTS.md versions)
-```
-
-> Full rules: [Agent Lifecycle, Skill Lifecycle, Script Lifecycle](#7-lifecycle-management-rules)
-
-### 10.5 Platform Feature Matrix
-
-Safety OS runs on four client surfaces. When a feature is unavailable on a platform, use the documented manual alternative.
-
-| Capability | Claude Code | Claude Desktop App | Antigravity | Antigravity CLI |
-|-----------|:-----------:|:------------------:|:-----------:|:---------------:|
-| **PostToolUse hooks** | ✅ auto-runs audit | ❌ | ❌ | ❌ |
-| **SessionStart hook** | ✅ | ❌ | ❌ | ❌ |
-| **Subagent dispatch** | `Agent` tool | ❌ (no subagents) | `invoke_subagent` | `invoke_subagent` |
-| **Slash commands** | `.claude/commands/*.md` | ❌ | intercept → `.gemini/commands/` | intercept → `.gemini/commands/` |
-| **Skill discovery** | `.claude/skills/` | `.claude/skills/` | `.gemini/skills/` + `.agents/skills/` | `.gemini/skills/` + `.agents/skills/` |
-| **`.agents/` shortcut layer** | — | — | ✅ | ✅ |
-| **MCP servers** | ✅ `.claude/settings.json` | ✅ | ✅ `.gemini/settings.json` | ✅ |
-| **Background tasks** | ✅ | ❌ | ❌ | ❌ |
-| **Git auto-commit on `/sync`** | ✅ via hook | manual | manual | manual/scriptable |
-
-**Manual alternatives when a feature is unavailable:**
-- **No PostToolUse hooks** (Desktop App, Antigravity, CLI): Manually run `bun scripts/audit.ts` after edits, and run commits at task boundaries.
-- **No subagent dispatch** (Desktop App): Use single-agent mode — PM executes specialist workflows directly via skill invocation.
-- **No slash commands** (Desktop App): Invoke skills by name via natural language (e.g., "run the sync skill").
-- **Model tier mapping**: Agent frontmatter defines `tier: {claude, gemini-cli, antigravity}` — each platform reads its own tier field. See AGENTS.md agent roster for the 3-tier system.
-
+- **Platform Hook Support**: Gemini CLI supports BeforeTool/AfterTool/PreCompress hooks (stdin(JSON) → stdout(JSON)). AfterTool runs `bun scripts/hooks/post-write-lifecycle-check.ts --platform gemini` after every write_file/replace_file_content/multi_replace_file_content. Antigravity does NOT fire hooks (VS Code extension limitation). Claude Desktop App uses bundled CLI (hooks should fire per Anthropic docs, but workspace testing observed intermittent behavior). If hooks are not firing in your environment, run `bun scripts/hooks/post-write-lifecycle-check.ts` manually before committing.
+- **Commit Protection (SYNC_ACTIVE)**: Direct `git commit` or `git push` calls via `run_command` are **FORBIDDEN**. The pre-commit hook blocks direct commits unless executed through `/sync`. Never manipulate environment variables (e.g., `$env:SYNC_ACTIVE=1; git commit`) to bypass QA gates. If you see `[FAIL] Direct git commits are restricted`, run `/sync \"type: description\"` instead. **`--no-verify` is forbidden** — it bypasses secret scanning and all quality gates.
+- **Sequential Branch Dependency Rule**: Before running `/sync` to open a new PR while a prior PR from the same session is still open and unmerged, merge the prior PR first (or explicitly justify parallel branching in a plan/design doc). `dev-sync.ts` touches shared pipeline files (CHANGELOG.md, memory logs, VERSION_MANIFEST.md, generated READMEs) on every commit, so unmerged parallel branches conflict by default, not by exception. Full rule: context.md §3.3.
+- **PR Language**: Governed by [docs/context.md](docs/context.md). All PR titles, bodies, and review comments must be written in English - no exceptions.
+- **Windows: Git Bash required**: `.githooks/` hook files are Unix shell scripts. Windows users must have Git Bash installed. Run `git config core.hooksPath .githooks` to activate hooks. All `scripts/` operational scripts are TypeScript (`.ts`) — run via `bun scripts/<name>.ts`. No `.sh/.ps1` counterparts (ADR-0036).
 <!-- COMMON-GEMINI:END -->
 
 ---
 
 <!-- COMMON-GEMINI:START -->
-## Git & PR Additions (Gemini)
+## Pre-Edit Quality Gate (All Platforms)
 
-All shared Git/PR rules are in [Git & PR Additions](#git--pr-additions-gemini). Gemini-specific additions:
+Before editing any file for the **FIRST time in a session**, the agent MUST:
 
-- **PostToolUse Limitation**: PostToolUse hooks are **disabled** in Gemini/Antigravity sessions. Manually execute `dev-sync` or audit scripts `bun scripts/audit.ts` after local edits, and run commits at task boundaries.
-- **Commit Protection (SYNC_ACTIVE)**: Direct `git commit` or `git push` calls via `run_command` are **FORBIDDEN**. The pre-commit hook blocks direct commits unless executed through `/sync`. Never manipulate environment variables (e.g., `$env:SYNC_ACTIVE=1; git commit`) to bypass QA gates. If you see `[FAIL] Direct git commits are restricted`, run `/sync "type: description"` instead. **`--no-verify` is forbidden** — it bypasses secret scanning and all quality gates.
-- **PR Language**: Governed by [Git & PR Additions - PR Language](#git--pr-additions-gemini). All PR titles, bodies, and review comments must be written in English - no exceptions.
-- **Windows: Git Bash required**: `.githooks/` hook files are Unix shell scripts. Windows users must have Git Bash installed. Run `git config core.hooksPath .githooks` to activate hooks. `.ps1` counterparts exist for `scripts/` Tier 1 scripts but not all hooks.
+1. Search for all files that import or require the target file
+2. Identify data schemas, interfaces, and type definitions the file exports
+3. Review the user's instructions for explicit scope constraints
+4. Briefly summarize findings (1-3 sentences) before proceeding
+
+| Platform | Enforcement | Details |
+|----------|:-----------:|---------|
+| Gemini CLI | ✅ Hook (automatic) | BeforeTool `deny` mode — blocked until agent investigates |
+| Antigravity | ✅ Prompt (manual) | Hooks do not fire — agent self-enforces |
+
+If the hook is not active (Antigravity), agents must still follow the 4-step process before making first edits.
 <!-- COMMON-GEMINI:END -->
 
 ## Agent Teams vs. Antigravity Agent Manager
@@ -395,7 +367,7 @@ Antigravity does not have `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` or `teammateMod
 
 ---
 
-*Last Updated: 2026-07-09 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
+*Last Updated: 2026-08-28 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
 
 ---
 
@@ -417,8 +389,8 @@ In this project, the PM agent acts as **Chief Safety Officer (CSO)**. This overr
 ### Domain
 
 South Korea EHS (Environmental Health & Safety) compliance:
-- **산업안전보건법** (Occupational Safety and Health Act, OSHA-KR)
-- **중대재해처벌법** (Serious Accidents Punishment Act, SAPA)
+- **Occupational Safety and Health Act** (OSHA-KR; KO name in docs/glossary/kr-safety-glossary.md)
+- **Serious Accidents Punishment Act** (SAPA; KO name in docs/glossary/kr-safety-glossary.md)
 
 ### Safety OS Lifecycle Rules
 
@@ -435,7 +407,7 @@ The following lifecycle rules apply **in addition to** the standard rules in §7
 > **Regulatory interpretation is user responsibility. This system provides workflow automation
 > assistance only, not legal advice.**
 >
-> All references to Korean law (산업안전보건법, 중대재해처벌법) are for workflow documentation
+> All references to Korean law (OSHA-KR, SAPA — official KO names in docs/glossary/kr-safety-glossary.md) are for workflow documentation
 > purposes only. The accuracy and applicability of regulatory references must be verified by a
 > qualified legal or EHS professional before operational use. The AI agents in this system do not
 > provide legal opinions.

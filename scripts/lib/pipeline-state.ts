@@ -4,7 +4,7 @@
  * Rollback capability and intermediate state persistence.
  * Addresses Risk #5: Rollback Capability.
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @Risk #5: Rollback Capability (P1 - High)
  */
 
@@ -32,7 +32,7 @@ export interface PipelineState {
   startedAt: string;
   completedAt?: string;
   variantName: string;
-  l2ProjectPath?: string;
+  l3ProjectPath?: string;
   rollbackActions: RollbackAction[];
   context: Record<string, unknown>;
 }
@@ -48,13 +48,13 @@ const STATE_FILE = join(STATE_DIR, 'current-state.json');
  * Initialize pipeline state
  * @version 1.1.0
  */
-export function initializeState(variantName: string, l2ProjectPath?: string): PipelineState {
+export function initializeState(variantName: string, l3ProjectPath?: string): PipelineState {
   const state: PipelineState = {
     status: 'in_progress',
     currentPhase: 'adr_validation' as ErrorPhase,
     startedAt: new Date().toISOString(),
     variantName,
-    l2ProjectPath,
+    l3ProjectPath,
     rollbackActions: [],
     context: {},
   };
@@ -244,7 +244,7 @@ export async function executeRollback(): Promise<boolean> {
     rollbackPipeline();
     console.log('\n??Rollback complete');
   } else {
-    console.log('\n?�️  Rollback completed with errors');
+    console.log('\n⚠️  Rollback completed with errors');
   }
 
   return success;
@@ -275,16 +275,16 @@ async function executeRollbackAction(action: RollbackAction): Promise<void> {
 
     case 'modify_file':
       // Restore from backup (would need backup mechanism)
-      console.warn(`?�️  Cannot restore file without backup: ${target}`);
+      console.warn(`⚠️  Cannot restore file without backup: ${target}`);
       break;
 
     case 'update_registry':
       // Restore registry from backup
-      console.warn(`?�️  Cannot restore registry without backup: ${target}`);
+      console.warn(`⚠️  Cannot restore registry without backup: ${target}`);
       break;
 
     default:
-      console.warn(`?�️  Unknown rollback action: ${actionType} on ${target}`);
+      console.warn(`⚠️  Unknown rollback action: ${actionType} on ${target}`);
   }
 }
 
@@ -296,7 +296,7 @@ async function executeRollbackAction(action: RollbackAction): Promise<void> {
  * Clear pipeline state
  * @version 1.1.0
  */
-export function clearState(): void {
+export async function clearState(): Promise<void> {
   if (existsSync(STATE_FILE)) {
     await $`rm ${STATE_FILE}`.quiet();
   }
@@ -318,7 +318,7 @@ export function getStateSummary(): string | null {
     `Started: ${state.startedAt}`,
     state.completedAt ? `Completed: ${state.completedAt}` : null,
     `Variant: ${state.variantName}`,
-    state.l2ProjectPath ? `L2 Project: ${state.l2ProjectPath}` : null,
+    state.l3ProjectPath ? `L3 Project: ${state.l3ProjectPath}` : null,
     `Rollback Actions: ${state.rollbackActions.length}`,
   ].filter(Boolean) as string[];
 

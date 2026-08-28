@@ -9,14 +9,8 @@
  *   bun scripts/readme-lifecycle-audit.ts
  *   bun scripts/readme-lifecycle-audit.ts --json   # JSON output
  *
- * @version 1.0.2
- * @last_updated 2026-07-03
- *
- * v1.0.2 (2026-07-03): Fixed false-positive workspace-root README section requirements
- *   firing on L2 projects (e.g. Projects/<name>/) that ship their own lightweight
- *   CONSTITUTION.md governance-index stub. IS_WORKSPACE_ROOT now also requires that the
- *   parent directory is not "Projects/", and the per-file isWorkspaceRoot check now
- *   respects that flag instead of matching on relPath alone.
+ * @version 1.0.4
+ * @last_updated 2026-08-20
  * @license MIT
  */
 
@@ -57,11 +51,7 @@ const colors = {
 
 const ROOT = cwd();
 const CONSTITUTION_FILE = join(ROOT, 'CONSTITUTION.md');
-// L2 projects under Projects/<name>/ may ship their own lightweight CONSTITUTION.md
-// (a governance-index stub pointing at their own CLAUDE.md/GEMINI.md/AGENTS.md) —
-// that is NOT the true workspace root, so exclude directories nested under "Projects/".
-const IS_NESTED_PROJECT = basename(dirname(ROOT)) === 'Projects';
-const IS_WORKSPACE_ROOT = existsSync(CONSTITUTION_FILE) && !IS_NESTED_PROJECT;
+const IS_WORKSPACE_ROOT = existsSync(CONSTITUTION_FILE);
 
 // Required sections for workspace root and templates
 const REQUIRED_SECTIONS_ROOT = [
@@ -140,7 +130,11 @@ function findReadmeFiles(dir: string): string[] {
         continue;
       }
 
-      // Skip templates subdirectories (already handled separately)
+      // Skip templates subdirectories.
+      // README *standard* conformance (required sections, status line, agent-table schema,
+      // EN/KO parity) for templates/co-* variants is owned SOLELY by validate-templates.ts
+      // Check WS-08 — see docs/governance/variant-contract.md "README Standard". This audit
+      // intentionally skips templates/ to avoid a second, drifting copy of the header list.
       if (IS_WORKSPACE_ROOT && dir.startsWith(join(ROOT, 'templates'))) {
         continue;
       }
@@ -252,9 +246,12 @@ function auditReadmes(jsonMode = false): AuditResult {
   for (const readmeFile of readmeFiles) {
     const relPath = relative(ROOT, readmeFile).replace(/\\/g, '/');
     const isKorean = readmeFile.endsWith('README_ko.md');
-    // Only the true workspace-root EN README requires specific sections;
+    // Only the workspace-root EN README requires specific sections;
     // KO variants are checked via i18n consistency, templates/README.md has its own structure.
-    const isWorkspaceRoot = relPath === 'README.md' && IS_WORKSPACE_ROOT;
+    // Gate on IS_WORKSPACE_ROOT (context.md presence) too — relPath alone matches
+    // any project's own root README.md, which wrongly pulled every L3 project's README
+    // into the stricter workspace-root section requirements.
+    const isWorkspaceRoot = IS_WORKSPACE_ROOT && relPath === 'README.md';
     const sections = parseSections(readmeFile);
 
     // Check required sections (EN workspace root only — skip KO and templates/README)
@@ -410,7 +407,9 @@ Checks:
 
 Platform: ${PLATFORM}
   `);
-  process.exit(0);
+  if (import.meta.main) {
+    process.exit(0);
+  }
 }
 
 const result = auditReadmes(jsonMode);
@@ -421,4 +420,6 @@ if (jsonMode) {
   printResults(result);
 }
 
-process.exit(result.errors.length > 0 ? 1 : 0);
+if (import.meta.main) {
+  process.exit(result.errors.length > 0 ? 1 : 0);
+}

@@ -231,3 +231,57 @@ dispatch triggers: `AGENTS.md` Specialist Agent Roster.
 
   Omitting `model` causes the subagent to silently inherit the parent session's model regardless of the tier written in the plan table. Verify the `model` argument (e.g. `model = "haiku"`) is present on every `Agent()` call before dispatching — do not rely on `subagent_type` alone.
 - *Phase Gate for New File Design*: Any new workflow file, evidence schema, or regulation metadata requires SGM review (equivalent to architect Phase 1-2) before SWM executes.
+
+<!-- VARIANT-INJECT: agents -->
+
+```text
+PM (CSO — Chief Safety Officer)
+  Governance track : PM → SGM → strategic decisions
+  Operations track : PM → SWM → specialist agents
+  Emergency track  : PM → emergency-agent  [SGM bypassed]
+```
+
+40 specialist agents: 2 orchestration (SGM, SWM), 9 functional (compliance,
+legal, risk, reporting, training, PSM, asset integrity, contractor, occupational
+health, MSDS), 22 industry (EHSChem, EHSConst, GasTerm, PowerGen, GMP, GLP,
+GDP, GCP, GVP, MedDevice, Food, Cosmetics, Semicon, Battery, Shipbuilding,
+Steel, DataCenter, Logistics, Railway, Waste, Defense, Biotech), 1 shared docs-writer,
+2 audit/emergency, 2 GxP lifecycle. Full roster: `AGENTS.md`.
+<!-- END VARIANT-INJECT -->
+
+
+<!-- VARIANT-INJECT: skills -->
+
+Variant-specific workflow skills with `legal_basis` traceability:
+
+| Skill | Used By Agents | Legal Basis |
+|-------|---------------|-------------|
+| risk-assessment | risk-assessment-agent, SWM | OSHA-KR Art 36 |
+| permit-to-work | SWM, risk-assessment-agent | OSHA-KR Art 38 |
+| emergency-response | emergency-agent | OSHA-KR Art 54 |
+| compliance-gap | compliance-agent | OSHA-KR (general) |
+
+Plus 30+ domain-specific skills (arc-flash-analyzer, gas-dispersion-analyzer,
+ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
+<!-- END VARIANT-INJECT -->
+
+
+<!-- VARIANT-INJECT: guidelines [REQUIRED] -->
+## Domain Guidelines
+
+1. **`legal_basis` field is mandatory** in every workflow record
+2. **Regulation content**: store metadata/references only — never embed full statutory text
+3. **Evidence schemas** (`evidence-models/_shared/base/`): semver bump + migration required on change
+4. **Legal interpretation**: user/organization responsibility — system provides automation assistance, not legal advice
+5. **Computational integrity**: skills performing safety-critical calculations
+   (arc-flash IEEE 1584, gas dispersion, tank integrity, ESS thermal runaway)
+   MUST delegate to external tools — never estimate directly
+6. **Country profile**: co-safety currently supports only the KR jurisdiction
+   (`variant.json` `country_config.supported: ["KR"]`, default `KR`) — see
+   `docs/countries/KR.md` for the active profile and `common/docs/country-profiles.md`
+   for the mechanism. `regulations/KR/` holds Korea-specific regulation metadata
+   (`regulations/international/` is jurisdiction-neutral and always ships); the
+   `k-law` skill (inherited from `templates/common/`, KR-scoped per
+   `docs/workspace-schema.json`'s `country_scoped_assets`) provides statutory
+   research and is pruned from region-neutral scaffolds
+<!-- END VARIANT-INJECT -->

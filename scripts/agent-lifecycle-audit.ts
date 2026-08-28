@@ -9,14 +9,9 @@
  *   bun scripts/agent-lifecycle-audit.ts
  *   bun scripts/agent-lifecycle-audit.ts --json   # JSON output
  *
- * @version 1.1.3
- * @last_updated 2026-07-03
- *
- * v1.1.2 (2026-07-03): Fixed Check 5 false-positive "not registered in AGENTS.md" for
- *   nested-directory agent projects (agents/_shared/, agents/domains/**; formerly also
- *   agents/_core/ before the 2026-08-28 flattening of pm/SGM/SWM to agents/*.md)
- *   — registeredAgents held path-based keys (e.g. "_core/pm") while agentName was a bare
- *   basename ("pm"), so the comparison never matched. Now checks both forms.
+ * @version 1.1.5
+ * @l2-propagate false
+ * @last_updated 2026-06-02
  * @license MIT
  */
 
@@ -88,7 +83,8 @@ function getRegisteredAgents(): Set<string> {
     return agents;
   }
 
-  const content = readFileSync(AGENTS_FILE, 'utf-8');
+  // Strip HTML comments so placeholder/example rows (e.g. VARIANT-AGENTS scaffolding) aren't mistaken for real registrations
+  const content = readFileSync(AGENTS_FILE, 'utf-8').replace(/<!--[\s\S]*?-->/g, '');
 
   // Extract agent names from markdown table links
   const matches = content.matchAll(/\[([^\]]+)\]\(agents\/([^)]+)\.md\)/g);
@@ -118,19 +114,25 @@ function parseAgentFrontmatter(filePath: string): AgentFrontmatter | null {
       const colonIndex = line.indexOf(':');
       if (colonIndex === -1) continue;
 
+      const indent = line.search(/\S/);
       const key = line.slice(0, colonIndex).trim();
       const value = line.slice(colonIndex + 1).trim();
 
       // Track if we're entering or leaving a tier block
-      if (key === 'tier' && value === '') {
+      if (key === 'tier' && value === '' && indent === 0) {
         inTierBlock = true;
-        currentIndentation = line.search(/\S/); // Get indentation level
+        currentIndentation = indent; // Get indentation level
         continue;
       }
 
       // Check if we've left the tier block (decreased indentation or new top-level key)
-      if (inTierBlock && line.search(/\S/) <= currentIndentation && key !== 'claude' && key !== 'antigravity' && key !== 'gemini-cli') {
+      if (inTierBlock && indent <= currentIndentation && key !== 'claude' && key !== 'antigravity' && key !== 'gemini-cli') {
         inTierBlock = false;
+      }
+
+      // Ignore nested keys unless we are parsing the tier block
+      if (!inTierBlock && indent > 0) {
+        continue;
       }
 
       if (value.startsWith('[') && value.endsWith(']')) {
@@ -164,8 +166,8 @@ function findAgentFiles(dir: string): string[] {
 
   if (!existsSync(dir)) return agents;
 
-  // At workspace root: only scan agents/ directory
-  if (IS_WORKSPACE_ROOT && dir === ROOT) {
+  // If project root has an agents/ directory, only scan that (avoids false positives in docs/, etc.)
+  if (dir === ROOT) {
     const agentsDir = join(dir, 'agents');
     if (existsSync(agentsDir)) {
       return findAgentFiles(agentsDir);
@@ -226,7 +228,14 @@ function findSkillFiles(dir: string): string[] {
 
   if (!existsSync(dir)) return skills;
 
-  const entries = readdirSync(dir, { withFileTypes: true });
+  let entries;
+  try {
+    entries = readdirSync(dir, { withFileTypes: true });
+  } catch (err) {
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code === 'EPERM' || code === 'EACCES') return skills; // skip inaccessible dirs (e.g. test scaffolds)
+    throw err;
+  }
 
   for (const entry of entries) {
     const fullPath = join(dir, entry.name);
@@ -328,14 +337,7 @@ function auditAgents(jsonMode = false): AuditResult {
     }
 
     // Check 5: Agent not registered in AGENTS.md
-    // registeredAgents stores the AGENTS.md link path relative to "agents/" (e.g. "_core/pm"
-    // for a nested-directory project, or just "pm" for a flat one). Compare against both the
-    // basename and the "agents/"-relative path so both conventions match correctly.
-    const agentsDirIdx = relPath.indexOf('agents/');
-    const registeredPathKey = agentsDirIdx !== -1
-      ? relPath.slice(agentsDirIdx + 'agents/'.length).replace(/\.md$/, '')
-      : agentName;
-    if (!registeredAgents.has(agentName) && !registeredAgents.has(registeredPathKey) && frontmatter.status !== 'archived') {
+    if (!registeredAgents.has(agentName) && frontmatter.status !== 'archived') {
       warnings.push({
         level: 'warning',
         file: relPath,
@@ -498,7 +500,9 @@ Checks:
 
 Platform: ${PLATFORM}
   `);
-  process.exit(0);
+  if (import.meta.main) {
+    process.exit(0);
+  }
 }
 
 const result = auditAgents(jsonMode);
@@ -509,5 +513,7 @@ if (jsonMode) {
   printResults(result);
 }
 
-process.exit(result.errors.length > 0 ? 1 : 0);
+if (import.meta.main) {
+  process.exit(result.errors.length > 0 ? 1 : 0);
+}
 

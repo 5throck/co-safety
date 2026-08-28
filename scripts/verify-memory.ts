@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
  * verify-memory.ts — Memory Log Format Verifier
- * @version 1.0.0
+ * @version 1.1.0
  *
  * Validates that memory/*.md session logs follow the mandatory 4-section format
  * and that MEMORY.md index is in sync with actual files on disk.
@@ -17,6 +17,7 @@
 
 import { readFileSync, readdirSync, existsSync } from "fs";
 import { join } from "path";
+import { die } from "./lib/error-handling.ts";
 
 // ── Configuration ────────────────────────────────────────────────────────────
 
@@ -197,9 +198,7 @@ function verify(explicitFiles?: string[]): boolean {
       }
     }
   } else {
-    warnings.push(
-      `MEMORY.md not found — run \`bun run scripts/sync-md.ts "YYYY-MM-DD" "initialize"\` to initialize`
-    );
+    warnings.push("MEMORY.md not found — run `bash scripts/sync-md.sh` to initialize");
   }
 
   // Output
@@ -276,8 +275,13 @@ if (args.includes("--report")) {
   report();
 } else if (args.includes("--verify") || args.length === 0 || fileArgs.length > 0) {
   const ok = verify(fileArgs.length > 0 ? fileArgs : undefined);
-  process.exit(ok ? 0 : 1);
+  if (import.meta.main) {
+    process.exit(ok ? 0 : 1);
+  }
 } else {
-  console.error(`Usage: bun scripts/verify-memory.ts [--verify | --report] [file...]`);
-  process.exit(1);
+  if (import.meta.main) {
+    die(`Usage: bun scripts/verify-memory.ts [--verify | --report] [file...]`, 1);
+  } else {
+    console.error(`Usage: bun scripts/verify-memory.ts [--verify | --report] [file...]`);
+  }
 }

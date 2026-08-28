@@ -1,4 +1,6 @@
 ---
+lang: ko
+lang_reason: legal
 name: risk-assessment
 description: Trigger risk assessment workflow for hazard identification and scoring
 owner: risk-assessment-agent

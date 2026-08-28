@@ -1,38 +1,107 @@
 #!/usr/bin/env bash
-# commit-msg — Enforce English-only commit messages
-# Blocks Korean (and other CJK) characters in commit messages.
-
 set -euo pipefail
+# commit-msg: auto-log memory + CHANGELOG on every direct git commit.
+# Receives the commit message file path as $1.
+# Runs AFTER pre-commit, so the message is guaranteed to be available.
 
-RED='\033[0;31m'
-YELLOW='\033[0;33m'
-RESET='\033[0m'
+COMMIT_MSG_FILE="$1"
+COMMIT_MSG=$(head -1 "$COMMIT_MSG_FILE" | sed 's/[[:space:]]*$//')
+COMMIT_BODY=$(tail -n +2 "$COMMIT_MSG_FILE" | sed -e '1,/^$/d' -e '/^#/d' | sed 's/^[[:space:]]*//' | head -5)
 
-MSG_FILE="$1"
-COMMIT_MSG=$(cat "$MSG_FILE" 2>/dev/null || echo "")
+# Skip empty, Merge, WIP, fixup!, squash! commits
+[ -z "$COMMIT_MSG" ] && exit 0
+echo "$COMMIT_MSG" | grep -qE "^Merge|^WIP|^fixup!|^squash!" && exit 0
 
-# Skip comments and empty lines
-BODY=$(echo "$COMMIT_MSG" | grep -v '^#' | grep -v '^$' | tr -d '\n' || true)
-
-# Check for Korean characters (Hangul Syllables + Jamo)
-if echo "$BODY" | grep -qP '[\x{AC00}-\x{D7AF}\x{1100}-\x{11FF}\x{3130}-\x{318F}\x{A960}-\x{A97F}\x{D7B0}-\x{D7FF}]'; then
-    echo ""
-    echo "${RED}[FAIL] Korean characters detected in commit message.${RESET}"
-    echo "${YELLOW}All commit messages must be in English.${RESET}"
-    echo ""
-    echo "Message:"
-    echo "$COMMIT_MSG" | head -5
-    echo ""
+# ── Enforce English Only ───────────────────────────────────────────────────────
+# Uses language-guard.ts (Korean + Japanese + Chinese detection + code-block stripping).
+# Falls back to python3 Korean-only regex if bun is unavailable.
+if command -v bun >/dev/null 2>&1; then
+  if ! bun -e "
+    import { readFileSync } from 'fs';
+    import { hasNonEnglish } from './scripts/lib/language-guard.ts';
+    const text = readFileSync(process.argv[1], 'utf-8');
+    process.exit(hasNonEnglish(text) ? 1 : 0);
+  " "$COMMIT_MSG_FILE"; then
+    echo -e "\033[31m[FAIL]\033[0m Non-English characters detected in commit message."
+    echo "       Workspace policy requires all commit messages must be in English."
     exit 1
+  fi
+elif command -v python3 >/dev/null 2>&1; then
+  # Fallback: Korean-only regex (narrower than language-guard.ts)
+  if ! python3 -c "import sys,re; data=open(sys.argv[1],encoding='utf-8').read(); sys.exit(1) if re.search(r'[가-힣ᄀ-ᇿ㄰-㆏]',data) else sys.exit(0)" "$COMMIT_MSG_FILE"; then
+    echo -e "\033[31m[FAIL]\033[0m Non-English characters detected in commit message."
+    echo "       Workspace policy requires all commit messages must be in English."
+    exit 1
+  fi
+else
+  echo "[WARN] bun and python3 not found — non-English check skipped." >&2
 fi
 
-# Check for Japanese Hiragana/Katakana
-if echo "$BODY" | grep -qP '[\x{3040}-\x{309F}\x{30A0}-\x{30FF}]'; then
-    echo ""
-    echo "${RED}[FAIL] Japanese characters detected in commit message.${RESET}"
-    echo "${YELLOW}All commit messages must be in English.${RESET}"
-    echo ""
-    exit 1
+TODAY=$(date +%Y-%m-%d)
+mkdir -p memory
+
+STAGED=$(git diff --cached --name-only)
+
+# ── Extract decisions from commit body (look for "Decided:", "Choice:", etc.) ─
+DECISIONS=""
+if echo "$COMMIT_BODY" | grep -qiE "decided:|choice:|selected:|chose:|why:|because"; then
+  DECISIONS=$(echo "$COMMIT_BODY" | grep -iE "decided:|choice:|selected:|chose:|why:|because" | head -2 | sed 's/^[^:]*: //')
 fi
+
+# ── Extract issues/blockers from commit body ────────────────────────────────
+ISSUES=""
+if echo "$COMMIT_BODY" | grep -qiE "issue:|bug:|fix:|problem:|blocker:|error:|fail"; then
+  ISSUES=$(echo "$COMMIT_BODY" | grep -iE "issue:|bug:|fix:|problem:|blocker:|error:|fail" | head -2 | sed 's/^[^:]*: //')
+fi
+
+# ── Build purpose from commit body (first non-empty line) ───────────────────
+if [ -n "$COMMIT_BODY" ]; then
+  PURPOSE=$(echo "$COMMIT_BODY" | head -1)
+else
+  case "$COMMIT_MSG" in
+    feat:*)     PURPOSE="Feature implementation: ${COMMIT_MSG#feat: }" ;;
+    fix:*)      PURPOSE="Bug fix: ${COMMIT_MSG#fix: }" ;;
+    refactor:*) PURPOSE="Refactoring: ${COMMIT_MSG#refactor: }" ;;
+    docs:*)     PURPOSE="Documentation update: ${COMMIT_MSG#docs: }" ;;
+    test:*)     PURPOSE="Test improvement: ${COMMIT_MSG#test: }" ;;
+    chore:*)    PURPOSE="Maintenance task: ${COMMIT_MSG#chore: }" ;;
+    *)          PURPOSE="${COMMIT_MSG}" ;;
+  esac
+fi
+
+# ── Auto-append memory log in mandatory 4-section format ─────────────────────
+# (skip if dev-sync already wrote an entry for this commit message today)
+if ! grep -qxF "$COMMIT_MSG" "memory/$TODAY.md" 2>/dev/null; then
+  SEPARATOR=""
+  [ -f "memory/$TODAY.md" ] && SEPARATOR=$'\n---\n\n'
+
+  # Build file list as markdown bullets (exclude memory/ self-references)
+  FILE_BULLETS=$(echo "$STAGED" | grep -v "^memory/" | sed 's/^/- `/' | sed 's/$/`/' 2>/dev/null || true)
+  [ -z "$(echo "${FILE_BULLETS}" | tr -d '[:space:]')" ] && FILE_BULLETS="- N/A"
+
+  DECISIONS_BLOCK="- None"
+  if [ -n "$DECISIONS" ]; then
+    DECISIONS_BLOCK=$(printf '%s' "$DECISIONS" | sed 's/^/- /')
+  fi
+
+  ISSUES_BLOCK="- None"
+  if [ -n "$ISSUES" ]; then
+    ISSUES_BLOCK=$(printf '%s' "$ISSUES" | sed 's/^/- /')
+  fi
+
+  printf '%s## Session Summary\n%s\n\n## Changes\n%s\n\n## Decisions\n%s\n\n## Open Issues\n%s\n' \
+    "$SEPARATOR" \
+    "$COMMIT_MSG" \
+    "$FILE_BULLETS" \
+    "$DECISIONS_BLOCK" \
+    "$ISSUES_BLOCK" \
+    >> "memory/$TODAY.md"
+fi
+
+# ── Auto-update MEMORY.md index ───────────────────────────────────────────────
+if [ -f "scripts/sync-md.ts" ]; then
+  bun scripts/sync-md.ts "$TODAY" "$COMMIT_MSG" 2>/dev/null || true
+fi
+
 
 exit 0

@@ -1,4 +1,6 @@
 ---
+lang: ko
+lang_reason: legal
 name: risk-assessment-agent
 role: specialist
 status: active

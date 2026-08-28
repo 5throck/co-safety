@@ -1,4 +1,6 @@
 ---
+lang: ko
+lang_reason: legal
 name: safety-governance-manager
 alias: SGM
 role: specialist

@@ -1,20 +1,20 @@
-# Safety OS — Project Context
+# [Project Name] — Project Context
 
 > Shared reference for all AI tools (Claude Code, Gemini CLI, Antigravity).
 > Tool-specific behaviors: CLAUDE.md (Claude Code), GEMINI.md (Gemini/Antigravity).
 > Variant-specific configuration (tech stack, agents, skills, scripts, workflow):
->   → docs/co-safety.context.md
+>   → docs/<variant-name>.context.md
 >
 > ⚠️ This file is IMMUTABLE after project creation.
->    All project-specific changes belong in docs/co-safety.context.md
+>    All project-specific changes belong in docs/<variant-name>.context.md
 
 ---
 
 ## Project Overview
 
-EHS (Environmental Health & Safety) AI agent platform automating South Korea regulatory compliance workflows.
+[One-sentence description of what this project does and who it's for.]
 
-**Type**: mcp
+**Type**: web | cli | api | mcp
 **Status**: Active development
 
 ---
@@ -27,8 +27,8 @@ This project follows the workspace-wide 3-Tier model architecture to decouple ag
 The mapping is immutable per generation:
 
 **Gemini Tier Mapping (3.x Generation):**
-- **High**: `gemini-3.1-pro` (Complex reasoning, planning, PM/Architect)
-- **Medium**: `gemini-3.7-flash` (Reviews, testing, QA)
+- **High**: `gemini-3.1-pro` (Complex reasoning, planning, architecture)
+- **Medium**: `gemini-3.7-flash` (Orchestration, coordination, reviews, testing, QA)
 - **Low**: `gemini-3.7-flash` (Fast, repetitive execution)
 
 **Claude Tier Mapping:**
@@ -36,12 +36,14 @@ The mapping is immutable per generation:
 - **Medium**: `claude-sonnet-5-0`
 - **Low**: `claude-haiku-4-5`
 
+Tier layering: the workspace-root PM stays High (workspace governance and design adjudication); template PMs are Medium (project orchestration). A variant whose PM must own design adjudication re-declares `tier: high` in its own `agents/pm.md` frontmatter.
+
 Standard directory layout for all projects in this workspace:
 
 ```
 <project-root>/
 ├── src/          # Source code
-├── docs/         # context.md (this file) + co-safety.context.md + ADRs
+├── docs/         # context.md (this file) + <variant>.context.md + ADRs
 ├── scripts/      # Automation scripts (TypeScript, .ts via bun)
 ├── memory/       # Session logs (MEMORY.md index + daily logs)
 ├── agents/       # Role-based agent definitions
@@ -60,7 +62,7 @@ Standard directory layout for all projects in this workspace:
 | File | Purpose |
 |------|---------|
 | `docs/context.md` | This file — immutable project identity |
-| `docs/co-safety.context.md` | Variant config — tech stack, agents, skills, scripts, workflow |
+| `docs/<variant>.context.md` | Variant config — tech stack, agents, skills, scripts, workflow |
 | `CLAUDE.md` | Claude Code session behavior and slash commands |
 | `GEMINI.md` | Gemini CLI / Antigravity session behavior |
 | `AGENTS.md` | Canonical agent index (auto-loaded by Claude Code) |
@@ -127,11 +129,28 @@ Every entry under `[Unreleased]` MUST include a PR reference:
 - Short description of change (#PR-number)
 ```
 
+### Country Profiles (`docs/countries/`)
+
+If the project was scaffolded with a target country (`--country <CODE>`),
+`docs/countries/ACTIVE.md` points at the active profile (`docs/countries/<CODE>.md`) —
+advisory jurisdiction knowledge (regulatory framework, operational formats, language
+defaults, tooling) loaded at Phase 0 intake. With no country selected, the project is
+region-neutral: agents confirm the applicable jurisdiction with the client before
+assuming one. Convention: [`docs/country-profiles.md`](country-profiles.md).
+
+### Architecture Decision Records (`docs/adr/`)
+
+Project-level architecture decisions live in `docs/adr/NNNN-<slug>.md` (seeded with a
+README describing the format). One decision per file; immutable once accepted — reversal
+is a NEW record naming its predecessor via `Supersedes:`. Gate-moment rulings (gate
+approvals, escalations, go/no-go) additionally emit a decision record at
+`docs/decisions/DEC-YYYYMMDD-NN.md` — see the `decision-record` skill.
+
 ### Language Policy
 
 | Content | Language |
 |---------|----------|
-| Conversational replies to user | Korean (default) |
+| Conversational replies to user | Match the user's language; when an active country profile defines a communication default (KR: Korean), follow it |
 | Code, config, commit messages | English only |
 | PR titles, bodies, branch names | English only |
 | CHANGELOG.md entries | English only |
@@ -151,10 +170,49 @@ lang_reason: legal # legal | source-material | proper-noun
 
 All text files (Markdown, scripts) must be saved as **UTF-8 (without BOM)**.
 
+<!-- COMMON-CONSTITUTION:START -->
+#### Language Policy Exception — Korean Legal/Regulatory Content
+
+The English-only policy admits a narrow exception for files where Korean is legally
+or academically mandatory. To declare an exception, add to the file's frontmatter:
+
+```yaml
+lang: ko
+lang_reason: legal   # legal | source-material | proper-noun
+```
+
+The allowable values for `lang_reason` are:
+- `legal`: Statutory texts, ordinances, regulations, contracts where the Korean original has legal force.
+- `source-material`: Primary source quotations where English translation would compromise academic accuracy or meaning.
+- `proper-noun`: Files dominated by Korean proper nouns (e.g., institution names, person names).
+
+Exception is NOT available for: context.md, CLAUDE.md, GEMINI.md, AGENTS.md,
+or any variant context.md file — these core governance/routing docs must stay
+single-source English regardless of a project's domain. agents/*.md and
+skills/*.md MAY use the exception: a project whose real-world domain requires
+Korean (e.g. citing Korean statutes, bilingual client-facing skill docs) may
+declare `lang: ko` + a valid `lang_reason` in frontmatter.
+
+#### Non-English Reference Material in Skills
+
+`skills/*.md` may declare the `lang: ko` + `lang_reason` exception directly (see above) when the skill's own content is genuinely Korean-language. For a large or purely-tabular non-English reference (a terminology glossary, a mapping of official source-language field/status names) that would otherwise bloat `SKILL.md`, prefer keeping it out of Markdown entirely:
+
+- Store the non-English content in a **non-Markdown reference file** (e.g. `references/terms-ko.json`, `references/glossary-ko.csv`) under `skills/<name>/references/`. `bun scripts/validate-md-language.ts` only scans `*.md` files, so non-Markdown reference assets fall outside the English-only policy and may contain the source language directly, without frontmatter.
+- `SKILL.md` itself stays English-only and simply points to the reference file (e.g. "See `references/terms-ko.json` for the Korean-original DART terminology mapping").
+- This is the general mechanism for any skill needing source-language reference data — not specific to Korean.
+
+See [docs/context.md](context.md) for the skill-lifecycle registration details.
+
+#### Pluggable Variant Audit Hook
+
+A mechanism that allows variant-specific validation checks to be executed during the synchronization and validation pipeline without modifying core script files (e.g., `dev-sync.ts`, `audit.ts`). Variant-specific audits are placed in `scripts/audit-variant.ts`. If this script is present, the core validation runner (`audit.ts`) dynamically detects and executes it. Any non-zero exit code from `audit-variant.ts` will fail the audit gate.
+<!-- COMMON-CONSTITUTION:END -->
+
 ---
 
 ## Coding Guidelines
 
+<!-- COMMON-CONTEXT:START -->
 This project follows the workspace coding standards defined in the project's Coding Guidelines section.
 
 Key rules:
@@ -162,6 +220,7 @@ Key rules:
 - Git hook scripts in `.githooks/` remain Unix shell (`.sh`) for git compatibility
 - All text files saved as **UTF-8 (without BOM)**
 - Commit messages and PR artifacts in **English only**
+<!-- COMMON-CONTEXT:END -->
 
 ---
 
@@ -223,7 +282,7 @@ Research results must follow the File Organization Policy:
 
 ## Computational Integrity Standards
 
-For domains requiring high-precision or safety-critical numerical computation, **AI must NOT perform calculations directly**. Delegate to validated external tools instead.
+For domains requiring high-precision or safety-critical numerical computation, **AI must NOT perform calculations directly**. Delegate to validated external tools instead. This applies to ALL reported numbers: aggregations, statistics, percentages, and metrics in any deliverable must be computed by executed code (bun/TypeScript scripts), never by the AI performing arithmetic directly.
 
 ### When External Tools Are Mandatory (Class A)
 
@@ -256,6 +315,7 @@ Use an external computation tool when the task involves ANY of the following:
 
 | Scenario | Approach |
 |----------|----------|
+| Aggregation / statistics / metrics in any deliverable (counts, sums, averages, percentages) | Executed code (bun/TypeScript script) — mandatory |
 | Order-of-magnitude check or hypothesis formation | AI direct — label clearly as **approximate** |
 | Any Class A domain computation | External tool — mandatory |
 | Result to be cited, reported, or acted upon | External tool — mandatory |
@@ -266,7 +326,7 @@ Use an external computation tool when the task involves ANY of the following:
 
 ## Git / PR Workflow
 
-<!-- intentional-duplicate: workspace standards §3 — maintained locally for AI context proximity; update when source changes -->
+<!-- intentional-duplicate: workspace standards §3 — maintained locally for AI context proximity; source: docs/constitution/03-pr-workflow.md; hash: e43638d6 -->
 
 ```
 /sync "feat: description"
@@ -282,6 +342,23 @@ Use an external computation tool when the task involves ANY of the following:
 > All PR titles, bodies, and review comments must be in **English**.
 
 ---
+
+## Scripts
+
+<!-- Source Layer: L0 = templates/common (SSOT) | L1 = workspace root | L2 = project-local -->
+<!-- Status: active | deprecated | experimental -->
+
+| Script | Type | Entrypoint | Source Layer | Status |
+|--------|------|------------|-------------|--------|
+| `audit` | Tier 2 | `package.json` (`bun run audit`) | L0 | active |
+| `dev-sync` | Tier 2 | `package.json` (`bun run dev-sync`) | L0 | active |
+| `sync-md` | Tier 2 | `package.json` (`bun run sync-md`) | L0 | active |
+
+> See SCRIPTS.md in templates/common/scripts/ for full lifecycle registry.
+
+### Hybrid Scripting
+All scripts are TypeScript (`.ts`) executed via Bun — no `.sh`/`.ps1` counterparts (ADR-0036).
+
 
 ## Lifecycle Management
 
@@ -369,4 +446,4 @@ See the workspace governance documentation (Governance Enforcement Layers) and A
 
 ---
 
-*context.md version: 2.4 — manually upgraded from v2.0 (no templates/co-safety/ variant exists yet, so upgrade-project.ts's standard --variant path doesn't apply); real project description, title, and `**Type**: mcp` preserved, all other content taken from the current common template (model tier pins updated to current generation — the old `gemini-3.5-flash`/`claude-opus-4-7`/`claude-sonnet-4-6` values were staleness, not a deliberate divergence worth keeping)*
+*context.md version: 2.5 — promoted "Scripts" section from 7 variants (co-consult, co-design, co-develop, co-export, co-game, co-security, co-work)*
