@@ -33,9 +33,9 @@ Each core agent file must contain Sections A, B, and C:
 
 | Agent File | Section A | Section B | Section C | Status |
 |-----------|-----------|-----------|-----------|--------|
-| `agents/_core/pm.md` (CSO override) | ✅ | ✅ | ✅ | ✅ Done |
-| `agents/_core/safety-governance-manager.md` | ✅ | ✅ | ✅ | ✅ Done |
-| `agents/_core/safety-workflow-manager.md` | ✅ | ✅ | ✅ | ✅ Done |
+| `agents/pm.md` (extends stub) + `docs/co-safety.context.md` (CSO override, Section A/B/C) | ✅ | ✅ | ✅ | ✅ Done |
+| `agents/safety-governance-manager.md` | ✅ | ✅ | ✅ | ✅ Done |
+| `agents/safety-workflow-manager.md` | ✅ | ✅ | ✅ | ✅ Done |
 | `agents/_shared/compliance-agent.md` | ✅ | ✅ | ✅ | ✅ Done |
 | `agents/_shared/risk-assessment-agent.md` | ✅ | ✅ | ✅ | ✅ Done |
 | `agents/_shared/emergency-agent.md` | ✅ | ✅ | ✅ | ✅ Done |

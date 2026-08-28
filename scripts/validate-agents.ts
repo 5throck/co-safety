@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
  * Agent Lifecycle Validation Script
- * @version 1.1.0
+ * @version 1.1.1
  *
  * Validates all agents/**\/*.md files for required lifecycle frontmatter
  * and checks governance records in docs/lifecycle/agents/*.md
@@ -11,9 +11,11 @@
  * 2. Governance record validation: docs/lifecycle/agents/*.md must have detailed documentation
  *
  * v1.1.0 (2026-08-19): agents/ is now recursively scanned (safety_os nests agent
- *   definitions under agents/_core/, agents/_shared/, agents/domains/functional/,
- *   agents/domains/industry/) — the previous single-level readdirSync silently
- *   scanned an empty top-level directory and reported a false 0-checked pass.
+ *   definitions under agents/_shared/, agents/domains/functional/, agents/domains/industry/,
+ *   plus flat core files directly under agents/ — pm.md, safety-governance-manager.md,
+ *   safety-workflow-manager.md, formerly agents/_core/ before the 2026-08-28 flattening)
+ *   — the previous single-level readdirSync silently scanned an empty top-level
+ *   directory and reported a false 0-checked pass.
  *
  * Usage:
  *   bun scripts/validate-agents.ts
@@ -31,7 +33,7 @@ function isAgentFile(filename: string): boolean {
 }
 
 // Recursively collect agent .md files under a directory, returning paths
-// relative to AGENTS_DIR (e.g. "_core/pm.md").
+// relative to AGENTS_DIR (e.g. "pm.md", or "_shared/audit-agent.md" for nested ones).
 function collectAgentFiles(dir: string, baseDir: string): string[] {
   const results: string[] = [];
   for (const entry of readdirSync(dir)) {

@@ -9,11 +9,12 @@
  *   bun scripts/agent-lifecycle-audit.ts
  *   bun scripts/agent-lifecycle-audit.ts --json   # JSON output
  *
- * @version 1.1.2
+ * @version 1.1.3
  * @last_updated 2026-07-03
  *
  * v1.1.2 (2026-07-03): Fixed Check 5 false-positive "not registered in AGENTS.md" for
- *   nested-directory agent projects (agents/_core/, agents/_shared/, agents/domains/**)
+ *   nested-directory agent projects (agents/_shared/, agents/domains/**; formerly also
+ *   agents/_core/ before the 2026-08-28 flattening of pm/SGM/SWM to agents/*.md)
  *   — registeredAgents held path-based keys (e.g. "_core/pm") while agentName was a bare
  *   basename ("pm"), so the comparison never matched. Now checks both forms.
  * @license MIT

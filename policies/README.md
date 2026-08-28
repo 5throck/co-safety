@@ -1,7 +1,7 @@
 # policies/
 
 Output directory for approved safety policy documents produced by the
-Safety Governance Manager (SGM) — see `agents/_core/safety-governance-manager.md`
+Safety Governance Manager (SGM) — see `agents/safety-governance-manager.md`
 §Section C Core Workflow, step 4 ("Write approved policy to `policies/`").
 
 ## Purpose

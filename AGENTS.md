@@ -21,15 +21,15 @@
 
 | Agent | File | Tier | Role |
 |-------|------|------|------|
-| **PM / Chief Safety Officer (CSO)** | [`agents/_core/pm.md`](agents/_core/pm.md) | High | PM override — acts as CSO; orchestrates EHS agent team; enforces legal_basis gate on all workflows |
+| **PM / Chief Safety Officer (CSO)** | [`agents/pm.md`](agents/pm.md) (extends stub) + [`docs/co-safety.context.md`](docs/co-safety.context.md) (CSO Runtime Definition) | High | PM override — acts as CSO; orchestrates EHS agent team; enforces legal_basis gate on all workflows |
 | Documentation Writer | [`agents/_shared/docs-writer.md`](agents/_shared/docs-writer.md) | Medium | Formats official documentation; enforces English-only policy and specific translation zones |
 
 ### Safety Management
 
 | Agent | File | Tier | Role |
 |-------|------|------|------|
-| Safety Governance Manager | [`agents/_core/safety-governance-manager.md`](agents/_core/safety-governance-manager.md) | High | Strategy, KPIs, and compliance objectives; owns annual safety targets and SAPA compliance metrics |
-| Safety Workflow Manager | [`agents/_core/safety-workflow-manager.md`](agents/_core/safety-workflow-manager.md) | High | Operational dispatch; orchestrates daily workflow agents; manages agent teams for manufacturing floor |
+| Safety Governance Manager | [`agents/safety-governance-manager.md`](agents/safety-governance-manager.md) | High | Strategy, KPIs, and compliance objectives; owns annual safety targets and SAPA compliance metrics |
+| Safety Workflow Manager | [`agents/safety-workflow-manager.md`](agents/safety-workflow-manager.md) | High | Operational dispatch; orchestrates daily workflow agents; manages agent teams for manufacturing floor |
 | Training Agent | [`agents/domains/functional/training/training-agent.md`](agents/domains/functional/training/training-agent.md) | Medium | Manages safety training requirements; tracks compliance via training evidence records + `legal_basis` traceability; generates curricula |
 | PSM Agent | [`agents/domains/functional/psm/psm-agent.md`](agents/domains/functional/psm/psm-agent.md) | Medium | PSM Specialist Agent; oversees 12 elements of OSHA-KR Article 44 |
 | Asset Integrity Agent | [`agents/_shared/asset-integrity-agent.md`](agents/_shared/asset-integrity-agent.md) | Medium | Asset integrity specialist; preventative maintenance and aging equipment management |
@@ -112,6 +112,14 @@
 Full agent definitions live in `agents/` — every Safety OS agent file follows the mandatory
 3-Section structure (**A** Legal Basis / **B** Role & Responsibilities / **C** Operational
 Protocols & Escalation Rules). Governance records live in `docs/lifecycle/agents/`.
+
+**Exception — PM**: `agents/pm.md` is an `extends`-based override stub (extends the
+workspace-common `agents/pm.md` for generic PM Gateway mechanics — Permission Denial
+Protocol, Meeting Facilitation, Design Gate, Antigravity tool equivalents — and applies
+only the `governance_workflow` / `agent_roster` / `dispatch_protocol` variant sections
+inline). PM's own CSO-specific 3-Section content is **not** duplicated here either — it
+lives in `docs/co-safety.context.md` under "CSO Runtime Definition (Section A/B/C)",
+matching the same pattern used by the `templates/co-safety/` template SSOT.
 <!-- VARIANT-AGENT-DETAILS-END -->
 
 ---
@@ -134,7 +142,7 @@ PM is an escalation gateway, not an executor. The following whitelist defines wh
 | Forbidden | Write, Edit (other paths), Bash (write/execute) | Must delegate to specialist |
 <!-- VARIANT-SUBAGENT-ROSTER-END -->
 
-When a specialist agent's required tool is denied, PM applies the [Permission Denial Protocol](agents/_core/pm.md#permission-denial-protocol) — never substitutes for the specialist.
+When a specialist agent's required tool is denied, PM applies the [Permission Denial Protocol](agents/pm.md#permission-denial-protocol) — never substitutes for the specialist.
 
 ### Enforcement Layers
 <!-- VARIANT-ROLE-BOUNDARY-START -->

@@ -22,10 +22,13 @@ if [ "${SYNC_ACTIVE:-}" != "1" ]; then
     exit 1
 fi
 
-# Verify context file contains a valid UUID matching DEV_SYNC_CONTEXT
-CONTEXT_FILE=".sync_context.tmp"
+# Verify context file contains a valid UUID matching DEV_SYNC_CONTEXT.
+# dev-sync.ts writes a per-run unique filename (.sync_context.<uuid>.tmp, exported as
+# DEV_SYNC_CONTEXT_FILE) to avoid races between concurrent /sync runs; fall back to the
+# old fixed name for compatibility with any caller that doesn't set the env var.
+CONTEXT_FILE="${DEV_SYNC_CONTEXT_FILE:-.sync_context.tmp}"
 if [ ! -f "$CONTEXT_FILE" ]; then
-    echo "${RED}[FAIL] Missing .sync_context.tmp — cannot verify sync context.${RESET}"
+    echo "${RED}[FAIL] Missing $CONTEXT_FILE — cannot verify sync context.${RESET}"
     exit 1
 fi
 

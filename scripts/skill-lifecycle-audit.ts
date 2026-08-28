@@ -10,7 +10,7 @@
  *   bun scripts/skill-lifecycle-audit.ts --fix    # Auto-fix simple issues
  *   bun scripts/skill-lifecycle-audit.ts --json   # JSON output
  *
- * @version 1.1.4
+ * @version 1.1.5
  * @last_updated 2026-06-20
  * @license MIT
  */
@@ -89,7 +89,7 @@ function getAgentRegistry(): AgentRegistry {
 
   const content = readFileSync(AGENTS_FILE, 'utf-8');
 
-  // Extract agent names from markdown links (e.g. [`agents/pm.md`](agents/pm.md), or [](agents/_core/pm.md)).
+  // Extract agent names from markdown links (e.g. [`agents/pm.md`](agents/pm.md), or [](agents/_shared/audit-agent.md)).
   // match[2] is the link path relative to agents/; take the basename so nested paths
   // (agents/_shared/audit-agent.md, agents/domains/industry/gmp/gmp-agent.md) resolve to the bare name.
   const agentMatches = content.matchAll(/\[([^\]]*)\]\(agents\/([^)]+)\.md\)/g);
@@ -168,7 +168,7 @@ function findSkillFiles(dir: string, baseDir: string = ROOT): string[] {
 }
 
 // Memoized recursive scan of agents/ — collects <name>.md basenames across the whole tree
-// (_core/, _shared/, domains/<tier>/<name>/). Resolves owners regardless of nesting depth.
+// (flat core files, _shared/, domains/<tier>/<name>/). Resolves owners regardless of nesting depth.
 let _agentFileNames: Set<string> | null = null;
 function getAgentFileNames(): Set<string> {
   if (_agentFileNames) return _agentFileNames;
@@ -198,7 +198,7 @@ function agentExists(owner: string, registry: AgentRegistry): boolean {
   const agentPath = join(ROOT, '.claude', 'agents', `${owner}.md`);
   if (existsSync(agentPath)) return true;
 
-  // Recursive scan of agents/ handles _core/, _shared/, domains/<tier>/<name>/ nesting
+  // Recursive scan of agents/ handles flat core files, _shared/, domains/<tier>/<name>/ nesting
   return getAgentFileNames().has(`${owner}.md`);
 }
 
