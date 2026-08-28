@@ -152,7 +152,18 @@ Some workflows don't execute directly — they **dispatch** to another agent:
 | major-chemical-incident-reference (ehschem) | emergency-agent | Major chemical incident |
 | device-recall-reference (meddevice) | emergency-agent | Device recall/FSCA |
 
-## 7. Governance & KPIs
+## 7. Live Statute Lookup (k-law)
+
+All statute-text lookups are resolved live through the **`k-law` skill** (법제처 National Law Information Center Open API) — no MCP configuration or slash command needed; just ask your agent about a law, precedent, administrative rule, or attached form and it fires automatically.
+
+- **Prerequisite**: `LAW_API_OC` must be set in `.env` (see README §2; approval takes 1-2 business days). Without it, citations are marked `[UNVERIFIED]` instead of being live-verified.
+- **Owning agent**: `legal-agent` treats k-law as its live-first source for statute confirmation; PM automatically dispatches `법령 조회`/`판례`/`법령해석례`/`별표서식` requests to legal-agent.
+- **Relationship to the `kr_safety` MCP**: `kr_safety` indexes OSHA-KR/SAPA/CCA articles for search and compliance-gap analysis; k-law fetches the actual **article text** (including amendment history) live from 법제처. The two are complementary, not redundant.
+- **Prior architecture**: the `legalize_kr` and `mcp_kr_legislation` MCP servers were removed 2026-08-26 and fully superseded by k-law. `regulations/KR/*.yaml` are coordinate registries (metadata, not statute text) — article content is always resolved live via k-law.
+
+See `docs/_shared/mcp-integration-guide.md` for details.
+
+## 8. Governance & KPIs
 
 The Safety Governance Manager (SGM) operates at the strategic layer — it defines policy and KPI targets that operational agents (SWM and specialist agents) execute against:
 
@@ -160,6 +171,6 @@ The Safety Governance Manager (SGM) operates at the strategic layer — it defin
 - **`docs/governance/kpi-definitions.md`** — current KPI set: **LTIFR** (Lost Time Injury Frequency Rate), **Audit Pass Rate** (from `bun scripts/safety-audit.ts` output), and **Corrective Action Closure Rate** (from `memory/corrective-actions/*.json` records). Each KPI definition includes its formula, data source, target threshold, and escalation trigger.
 - **Traceability chain**: `memory/findings/FIND-YYYY-NNNN.json` → `memory/corrective-actions/CA-YYYY-NNNN.json`, conforming to `evidence-models/_shared/base/finding.schema.json` and `corrective-action.schema.json`.
 
-## 8. Legal Disclaimer
+## 9. Legal Disclaimer
 
 > Safety OS provides workflow automation assistance only, not legal advice. All regulatory references must be verified by qualified EHS/GxP/legal professionals. The system does NOT make compliance decisions — it supports documentation and process management.
