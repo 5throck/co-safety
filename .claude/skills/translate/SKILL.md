@@ -1,34 +1,32 @@
 ---
 name: translate
 description: Translation helper for README and documentation files with diff preview and guidance
-version: 1.0.0
+version: 1.0.1
 owner: pm
-tier:
-  claude: medium
-  antigravity: medium
-  gemini-cli: medium
-lifecycle:
-  phase: production
-  created: 2026-05-30
-  last_updated: 2026-05-30
 status: active
+last_reviewed: 2026-08-24
+last_updated: 2026-08-24
 scope: common
 metadata:
   type: process
   triggers:
     - translate
     - translation
-    - localize
     - Korean translation
 ---
 
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
-
 ## Purpose
 
-Provides translation helpers for README and documentation files with diff preview, synchronization checking, and translation guidance. 
+Provides translation helpers for README and documentation files with diff preview, synchronization checking, and translation guidance.
 
 **This is NOT an automatic translation tool** - it's a **helper tool** that assists translators in identifying changes and managing translation work systematically.
+
+**Scope boundary**: this skill is a file-translation process helper (hash sync, diff preview).
+Questions about locale configuration (BCP 47 IDs, collation), locale-specific formatting
+(dates, numbers, currency, units), or text layout/encoding (RTL, scripts, fonts) belong to
+the i18n asset suite — see the workspace constitution §4.4 "I18N Asset Suite" (governance
+corpus) and the i18n skills of the same suite. The `localize` trigger was removed from
+this skill for that reason (2026-08-24).
 
 ## Implementation
 
@@ -284,67 +282,3 @@ done
 - **readme-lifecycle-audit.ts**: Audits README lifecycle state
 
 ---
-
-## 한국어 설명 (Korean Documentation)
-
-### 목적 (Purpose)
-
-이 도구는 다음과 같은 상황에서 번역자를 지원합니다:
-
-- **원본 README.md가 업데이트되었을 때**: 어떤 부분이 변경되었는지 확인
-- **번역 파일 동기화 상태 확인**: 원본과 번역본의 내용이 일치하는지 검증
-- **번역 가이드 제공**: 변경된 섹션을 명확히 표시하고 다음 단계 안내
-
-### 기본 사용법 (Basic Usage)
-
-**기본 명령어**:
-```bash
-/translate
-```
-
-기본값:
-- 원본 파일: `README.md`
-- 번역 파일: `README_ko.md`
-
-**다른 파일 번역**:
-```bash
-/translate CONTRIBUTING.md CONTRIBUTING_ko.md
-```
-
-**미리보기 모드**:
-```bash
-/translate --dry-run
-```
-
-파일을 실제로 수정하지 않고 변경사항만 확인합니다.
-
-### 일반적인 워크플로우 (Common Workflows)
-
-**번역 업데이트**:
-1. `/translate --dry-run`으로 변경사항 확인
-2. Diff 미리보기 검토
-3. 번역 파일 업데이트
-4. `bun scripts/verify-readme-sync.ts --update-hashes` 실행
-
-**새 번역 파일 생성**:
-1. `cp README.md README_ko.md`
-2. 번역 파일 편집
-3. `bun scripts/verify-readme-sync.ts --update-hashes` 실행
-
-### 문제 해결 (Troubleshooting)
-
-**해시 불일치**:
-```
-⚠️  Warning: Content hashes are out of sync!
-```
-
-**해결책**:
-```bash
-bun scripts/verify-readme-sync.ts --update-hashes
-```
-
-### 팁과 모범 사례 (Tips and Best Practices)
-
-- 정기적으로 `/translate --dry-run` 실행
-- 용어 일관성 유지
-- 기술적 의미 정확하게 전달

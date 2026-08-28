@@ -10,13 +10,13 @@
  *   bun scripts/skill-lifecycle-audit.ts --fix    # Auto-fix simple issues
  *   bun scripts/skill-lifecycle-audit.ts --json   # JSON output
  *
- * @version 1.1.5
- * @last_updated 2026-06-20
+ * @version 1.3.0
+ * @last_updated 2026-08-16
  * @license MIT
  */
 
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
+import { join, dirname, relative, basename } from 'node:path';
 import { cwd } from 'node:process';
 
 interface SkillFrontmatter {
@@ -66,6 +66,26 @@ const ROOT = cwd();
 const AGENTS_FILE = join(ROOT, 'AGENTS.md');
 const CONSTITUTION_FILE = join(ROOT, 'CONSTITUTION.md');
 
+// A skill's `scope` may be 'workspace' (L0-only), 'common' (L0+L1, shared across
+// all variants), or the literal name of the variant it belongs to (L0+L1+L2) —
+// see scripts/helpers/layer-filter.ts. `variant` itself is also accepted as a
+// generic placeholder for skills not yet tied to one specific variant name.
+const CURRENT_VARIANT_NAME = basename(ROOT);
+// Root-level (L0) skills in skills/ may declare a specific variant's name as
+// their scope even though the audit always runs from workspace root (where
+// CURRENT_VARIANT_NAME resolves to the workspace folder name, never a co-*
+// name) — so known variant directory names must be accepted too.
+const KNOWN_VARIANT_NAMES = (() => {
+  const templatesDir = join(ROOT, 'templates');
+  if (!existsSync(templatesDir)) return [] as string[];
+  return readdirSync(templatesDir, { withFileTypes: true })
+    .filter(e => e.isDirectory() && e.name.startsWith('co-'))
+    .map(e => e.name);
+})();
+function isValidScope(scope: string): boolean {
+  return ['workspace', 'common', 'variant', CURRENT_VARIANT_NAME, ...KNOWN_VARIANT_NAMES].includes(scope);
+}
+
 // Detect if we're at workspace root or in a sub-project
 const IS_WORKSPACE_ROOT = existsSync(CONSTITUTION_FILE);
 
@@ -89,13 +109,10 @@ function getAgentRegistry(): AgentRegistry {
 
   const content = readFileSync(AGENTS_FILE, 'utf-8');
 
-  // Extract agent names from markdown links (e.g. [`agents/pm.md`](agents/pm.md), or [](agents/_shared/audit-agent.md)).
-  // match[2] is the link path relative to agents/; take the basename so nested paths
-  // (agents/_shared/audit-agent.md, agents/domains/industry/gmp/gmp-agent.md) resolve to the bare name.
-  const agentMatches = content.matchAll(/\[([^\]]*)\]\(agents\/([^)]+)\.md\)/g);
+  // Extract agent names from markdown table
+  const agentMatches = content.matchAll(/\[([^\]]+)\]\(agents\/([^)]+)\.md\)/g);
   for (const match of agentMatches) {
-    const agentName = match[2].split('/').pop();
-    if (agentName) registry.agents.push(agentName);
+    registry.agents.push(match[1]);
   }
 
   return registry;
@@ -104,13 +121,13 @@ function getAgentRegistry(): AgentRegistry {
 // Parse YAML frontmatter from SKILL.md
 function parseFrontmatter(filePath: string): SkillFrontmatter | null {
   try {
-    const content = readFileSync(filePath, 'utf-8');
-    const frontmatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    const content = readFileSync(filePath, 'utf-8').replace(/\r\n/g, '\n');
+    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
 
     if (!frontmatterMatch) return null;
 
     const frontmatter: Record<string, unknown> = {};
-    const lines = frontmatterMatch[1].split(/\r?\n/);
+    const lines = frontmatterMatch[1].split('\n');
 
     for (const line of lines) {
       const colonIndex = line.indexOf(':');
@@ -151,6 +168,9 @@ function findSkillFiles(dir: string, baseDir: string = ROOT): string[] {
       if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
       // Skip agent directories (they don't contain skills)
       if (entry.name === 'agents') continue;
+      // Skip documentation/teaching example trees — illustrative SKILL.md
+      // samples under docs/_examples/ are not real, lifecycle-managed skills.
+      if (entry.name === '_examples' && basename(dir) === 'docs') continue;
 
       // At workspace root: only scan known subdirectories
       if (IS_WORKSPACE_ROOT && dir === ROOT) {
@@ -167,39 +187,22 @@ function findSkillFiles(dir: string, baseDir: string = ROOT): string[] {
   return skills;
 }
 
-// Memoized recursive scan of agents/ — collects <name>.md basenames across the whole tree
-// (flat core files, _shared/, domains/<tier>/<name>/). Resolves owners regardless of nesting depth.
-let _agentFileNames: Set<string> | null = null;
-function getAgentFileNames(): Set<string> {
-  if (_agentFileNames) return _agentFileNames;
-  const names = new Set<string>();
-  const agentsDir = join(ROOT, 'agents');
-  if (existsSync(agentsDir)) {
-    const walk = (dir: string) => {
-      for (const entry of readdirSync(dir, { withFileTypes: true })) {
-        if (entry.isDirectory()) {
-          walk(join(dir, entry.name));
-        } else if (entry.name.endsWith('.md')) {
-          names.add(entry.name);
-        }
-      }
-    };
-    walk(agentsDir);
-  }
-  _agentFileNames = names;
-  return names;
-}
-
 // Validate agent exists
 function agentExists(owner: string, registry: AgentRegistry): boolean {
   if (registry.agents.includes(owner)) return true;
 
-  // Platform-local agent location (flat): .claude/agents/<owner>.md
-  const agentPath = join(ROOT, '.claude', 'agents', `${owner}.md`);
-  if (existsSync(agentPath)) return true;
+  const agentPath1 = join(ROOT, 'agents', `${owner}.md`);
+  const agentPath2 = join(ROOT, '.claude', 'agents', `${owner}.md`);
+  if (existsSync(agentPath1) || existsSync(agentPath2)) return true;
 
-  // Recursive scan of agents/ handles flat core files, _shared/, domains/<tier>/<name>/ nesting
-  return getAgentFileNames().has(`${owner}.md`);
+  // A root-level (L0) skill's owner may be a variant-specific agent (the
+  // skill's home domain) even though the skill itself lives in the shared
+  // skills/ directory for L1 propagation — check every variant's roster too.
+  for (const variantName of KNOWN_VARIANT_NAMES) {
+    const variantAgentPath = join(ROOT, 'templates', variantName, 'agents', `${owner}.md`);
+    if (existsSync(variantAgentPath)) return true;
+  }
+  return false;
 }
 
 // Check file modification time (safe, no shell execution)
@@ -362,15 +365,12 @@ function auditSkills(jsonMode = false): AuditResult {
         file: relPath,
         message: `scope field missing in SKILL.md frontmatter — declare scope: workspace | common | variant`,
       });
-    } else {
-      const validScopes = ['workspace', 'common', 'variant'];
-      if (!validScopes.includes(scopeMatch[1])) {
-        warnings.push({
-          level: 'warning',
-          file: relPath,
-          message: `scope field has invalid value "${scopeMatch[1]}" — must be: workspace | common | variant`,
-        });
-      }
+    } else if (!isValidScope(scopeMatch[1])) {
+      warnings.push({
+        level: 'warning',
+        file: relPath,
+        message: `scope field has invalid value "${scopeMatch[1]}" — must be: workspace | common | variant | ${CURRENT_VARIANT_NAME} | ${KNOWN_VARIANT_NAMES.join(' | ')}`,
+      });
     }
 
     if (frontmatter.requires && frontmatter.requires.length > 0) {
@@ -473,7 +473,9 @@ Checks:
 
 Platform: ${PLATFORM}
   `);
-  process.exit(0);
+  if (import.meta.main) {
+    process.exit(0);
+  }
 }
 
 const result = auditSkills(jsonMode);
@@ -484,5 +486,7 @@ if (jsonMode) {
   printResults(result);
 }
 
-process.exit(result.errors.length > 0 ? 1 : 0);
+if (import.meta.main) {
+  process.exit(result.errors.length > 0 ? 1 : 0);
+}
 

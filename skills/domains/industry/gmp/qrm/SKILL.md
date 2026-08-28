@@ -1,10 +1,12 @@
 ---
+lang: ko
+lang_reason: legal
 name: gmp-qrm
 owner: gmp-agent
 scope: workspace
 status: active
 description: ICH Q9 Quality Risk Management (품질 위해 관리) skill for pharmaceutical manufacturing. Cross-cutting methodology applied to all GMP workflows. Scope limited to product quality + patient safety risks.
-version: "1.0"
+version: "1.0.0"
 created: 2026-06-17
 last_updated: 2026-07-09
 metadata:

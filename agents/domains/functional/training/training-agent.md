@@ -1,4 +1,6 @@
 ---
+lang: ko
+lang_reason: legal
 name: training-agent
 role: specialist
 status: active

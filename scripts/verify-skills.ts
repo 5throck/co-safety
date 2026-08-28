@@ -1,12 +1,11 @@
 #!/usr/bin/env bun
 /**
  * Skill Verification Script
- * @version 1.1.0
+ * @version 1.2.0
  * Verifies all skills in skills/ directory are loadable and properly formatted
  */
 
 import path from "node:path";
-import fs from "node:fs";
 
 const scriptDir = path.dirname(import.meta.path);
 const projectRoot = path.resolve(scriptDir, "..");
@@ -29,10 +28,50 @@ interface SkillMetadata {
   triggers: string[];
 }
 
+/**
+ * B-03: Check SKILLS.md for stale 'layer' column in the ## Registry table header.
+ * Returns a WARN SkillCheck if the column is found, null otherwise.
+ */
+async function checkSkillsMdSchema(): Promise<SkillCheck | null> {
+  const skillsMdPath = path.join(projectRoot, 'skills', 'SKILLS.md');
+  const { existsSync } = await import('node:fs');
+  if (!existsSync(skillsMdPath)) return null;
+
+  try {
+    const content = await Bun.file(skillsMdPath).text();
+    const registryIndex = content.indexOf('## Registry');
+    if (registryIndex === -1) return null;
+
+    // Find the first table header line after ## Registry
+    const afterRegistry = content.substring(registryIndex);
+    const headerMatch = afterRegistry.match(/^\|.+\|/m);
+    if (!headerMatch) return null;
+
+    const headerLine = headerMatch[0].toLowerCase();
+    if (headerLine.includes('| layer ') || headerLine.includes('| layer|') || headerLine.match(/\|\s*layer\s*\|/)) {
+      return {
+        name: 'SKILLS.md schema',
+        path: skillsMdPath,
+        status: 'WARN',
+        issues: [
+          "SKILLS.md has a stale 'layer' column — this column no longer controls propagation (SKILL.md frontmatter is the SSOT). Run 'bun scripts/upgrade-project.ts <project-path>' to migrate."
+        ]
+      };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 async function main(): Promise<void> {
   console.log("🔍 Verifying Skills\n");
 
   const checks = await scanSkills();
+
+  // B-03: Check SKILLS.md for stale 'layer' column
+  const skillsMdCheck = await checkSkillsMdSchema();
+  if (skillsMdCheck) checks.push(skillsMdCheck);
 
   for (const check of checks) {
     const icon = check.status === "PASS" ? "✅" : check.status === "WARN" ? "⚠️" : "❌";
@@ -67,28 +106,61 @@ async function scanSkills(): Promise<SkillCheck[]> {
     const files: string[] = [];
     const skillsPath = path.isAbsolute(dir) ? dir : path.join(projectRoot, dir);
 
-    function walk(currentDir: string) {
-      if (!fs.existsSync(currentDir)) return;
-      for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
-        const fullPath = path.join(currentDir, entry.name);
-        if (entry.isDirectory()) {
-          if (entry.name === '_meta' || entry.name === '_archive' || entry.name.startsWith('.')) continue;
-          walk(fullPath);
-        } else if (entry.name === "SKILL.md") {
-          files.push(fullPath);
-        }
+    for await (const entry of Bun.glob(`${skillsPath}/**/*`)) {
+      if (entry.endsWith("SKILL.md")) {
+        files.push(entry);
       }
     }
-
-    walk(skillsPath);
     return files;
   }
 
   const skillFiles = await scanDirectory("skills");
+  const commonSkillFiles = await scanDirectory("templates/common/skills");
 
-  for (const skillFile of skillFiles) {
+  for (const skillFile of [...skillFiles, ...commonSkillFiles]) {
     const check = await verifySkill(skillFile);
     checks.push(check);
+  }
+
+  // A-03: L1 Orphan Check — L0 skills with l2_propagate: false or scope: workspace
+  // must NOT exist in templates/common/skills/
+  for (const l0File of skillFiles) {
+    try {
+      const content = await Bun.file(l0File).text();
+      const frontmatterStart = content.indexOf("---");
+      const frontmatterEnd = content.indexOf("---", 3);
+      if (frontmatterStart === -1 || frontmatterEnd === -1) continue;
+
+      const frontmatter = content.substring(frontmatterStart + 3, frontmatterEnd);
+
+      const l2PropagateMatch = frontmatter.match(/^l2_propagate:\s*(true|false)\b/m);
+      const scopeMatch = frontmatter.match(/^scope:\s*(\S+)/m);
+
+      const noPropagate = l2PropagateMatch && l2PropagateMatch[1] === 'false';
+      const isWorkspaceScope = scopeMatch && scopeMatch[1].toLowerCase() === 'workspace';
+
+      if (noPropagate || isWorkspaceScope) {
+        // Extract skill name from path like .../skills/audit-workspace/SKILL.md
+        const skillNameMatch = l0File.match(/skills[/\\]([^/\\]+)[/\\]SKILL\.md$/);
+        const skillName = skillNameMatch ? skillNameMatch[1] : null;
+        if (!skillName) continue;
+
+        const l1Path = path.join(projectRoot, 'templates', 'common', 'skills', skillName);
+        const { existsSync } = await import('node:fs');
+        if (existsSync(l1Path)) {
+          checks.push({
+            name: skillName,
+            path: l0File,
+            status: 'FAIL',
+            issues: [
+              `L1 orphan detected: skill has l2_propagate: false or scope: workspace in SKILL.md but exists in templates/common/skills/ — delete templates/common/skills/${skillName}/`
+            ]
+          });
+        }
+      }
+    } catch {
+      // Skip files that cannot be read
+    }
   }
 
   return checks;
@@ -164,8 +236,7 @@ async function generateSkillsIndex(checks: SkillCheck[]): Promise<void> {
   for (const [type, typeChecks] of skillsByType) {
     content += `## ${type.charAt(0).toUpperCase() + type.slice(1)}\n\n`;
     for (const check of typeChecks) {
-      const relPath = path.relative(projectRoot, check.path).replace(/\\/g, '/');
-      content += `- [${check.name}](${relPath})\n`;
+      content += `- [${check.name}](skills/${check.name}/SKILL.md)\n`;
     }
     content += "\n";
   }
@@ -207,6 +278,20 @@ async function verifySkill(skillFile: string): Promise<SkillCheck> {
           issues.push("Missing 'metadata' section");
           status = "WARN";
         }
+
+        // Check l2_propagate field for skills in templates/common/skills/
+        if (skillFile.includes('templates/common/skills') || skillFile.includes('templates\\common\\skills')) {
+          if (!frontmatter.includes('l2_propagate:')) {
+            issues.push('Missing l2_propagate field — add l2_propagate: true or l2_propagate: false to clarify L2 propagation intent');
+            if (status !== 'FAIL') status = 'WARN';
+          } else {
+            const l2Match = frontmatter.match(/^l2_propagate:\s*(true|false)\b/m);
+            if (!l2Match) {
+              issues.push('Invalid l2_propagate value — must be true or false (boolean, not quoted)');
+              if (status !== 'FAIL') status = 'WARN';
+            }
+          }
+        }
       }
     }
 
@@ -220,8 +305,7 @@ async function verifySkill(skillFile: string): Promise<SkillCheck> {
       }
     }
 
-    const metadata = extractSkillMetadata(content, skillFile);
-    const skillName = metadata.name || path.basename(path.dirname(skillFile));
+    const skillName = skillFile.match(/skills\/([^/]+)\//)?.[1] || skillFile;
 
     return {
       name: skillName,

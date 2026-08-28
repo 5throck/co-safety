@@ -1,10 +1,12 @@
 ---
+lang: ko
+lang_reason: legal
 name: iso14971-risk-scorer
 owner: meddevice-agent
 scope: workspace
 status: active
 description: ISO 14971 risk estimation and scoring for medical devices. Severity × Probability matrix, residual risk evaluation.
-version: "1.1"
+version: "1.1.0"
 created: "2026-06-18"
 last_updated: "2026-08-26"
 metadata:

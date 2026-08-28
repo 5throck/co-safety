@@ -1,9 +1,13 @@
-// @version 2.24.0
-// v2.24.0: skills registry cross-check supports nested SSOT skill layouts — a skill
-//           directory is the immediate parent of a SKILL.md, so top-level category
-//           containers (skills/<category>/<...>/<name>/SKILL.md) validate recursively
-//           per contained SKILL.md instead of failing; `_`-prefixed meta directories
-//           (skills/_meta/) are skipped. Flat layouts produce identical results.
+// @version 2.27.0
+// v2.26.0: New checkProjectDocMarkerDrift() (WARN-only, local-only) — detects when a
+//           Projects/co-*/CLAUDE.md or GEMINI.md has fewer COMMON-CLAUDE/COMMON-GEMINI managed
+//           blocks than templates/common/{CLAUDE,GEMINI}.md, meaning upgrade-project.ts has lost
+//           its merge point for that file (happened to co-price/co-abap in 2026-08 when both
+//           files were hand-rewritten without preserving the marker comments).
+// v2.25.1: (previous)
+// v2.25.0: Variant-scanning checks now skip untracked templates/co-* directories so
+//           WIP template scaffolds on disk do not block commits. Tracked variant set
+//           is computed once via git ls-files at module load.
 // v2.21.1: fix(lint+types): stripComment now strips trailing \r before matching — under
 //           core.autocrlf checkouts the $ anchors never matched, so the > nul lint flagged
 //           its own prose comments (ported from co-abap 2.21.2); validators import switched
@@ -37,6 +41,24 @@ import { sourceShellInjectionPatterns } from './helpers/security-validator.ts';
 import { splitIntoSections, getContentLines } from './helpers/context-sections.ts';
 import * as url from 'node:url';
 import { detectEncoding, detectHomoglyphs, detectZeroWidthChars, readUTF8File } from './lib/encoding-utils.ts';
+
+const _TRACKED_CO_VARIANTS: Set<string> | null = (() => {
+  try {
+    const out = execFileSync('git', ['ls-files', '--cached', '--', 'templates/'], { encoding: 'utf-8' }).trim();
+    const dirs = new Set<string>();
+    if (!out) return dirs;
+    for (const line of out.split('\n')) {
+      const m = line.match(/^templates\/(co-[^/]+)\//);
+      if (m) dirs.add(m[1]);
+    }
+    return dirs;
+  } catch { return null; }
+})();
+
+function isCoVariantTracked(name: string): boolean {
+  if (!_TRACKED_CO_VARIANTS) return true;
+  return _TRACKED_CO_VARIANTS.has(name);
+}
 
 // Check for --lifecycle-only flag
 const LIFECYCLE_ONLY = process.argv.includes('--lifecycle-only');
@@ -543,46 +565,30 @@ if (!LIFECYCLE_ONLY && fs.existsSync(path.join('scripts', 'SCRIPTS.md'))) {
     }
 }
 
-// Skills registry cross-check
-// v2.24.0: nested-SSOT support — a skill directory is the immediate parent of a
-// SKILL.md. Top-level entries without a direct SKILL.md are category containers
-// (skills/<category>/<...>/<name>/SKILL.md) and are validated recursively, one
-// Pass per contained SKILL.md (same discovery rule as sync-skills.ts).
-// `_`-prefixed top-level directories are meta directories (skills/_meta/ carries
-// SKILLS.md indexes, not skills) and are skipped. Flat layouts (skills/<name>/
-// SKILL.md) produce identical results to the previous single-level scan.
-function findNestedSkillMds(dir: string): string[] {
-    const found: string[] = [];
-    for (const entry of fs.readdirSync(dir)) {
-        const entryPath = path.join(dir, entry);
-        if (!fs.statSync(entryPath).isDirectory()) continue;
-        const nestedSkillMd = path.join(entryPath, 'SKILL.md');
-        if (fs.existsSync(nestedSkillMd)) {
-            found.push(nestedSkillMd);
-        } else {
-            found.push(...findNestedSkillMds(entryPath));
-        }
+// Skills registry cross-check (nested-layout aware: variants like co-safety group
+// skills under category directories — daily/, domains/<axis>/<domain>/, … — that
+// carry no SKILL.md themselves. A directory with no direct SKILL.md whose subtree
+// contains one is a category directory, not a broken skill.)
+function hasSkillMdRecursive(dir: string): boolean {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        if (!e.isDirectory()) continue;
+        if (fs.existsSync(path.join(dir, e.name, 'SKILL.md'))) return true;
+        if (hasSkillMdRecursive(path.join(dir, e.name))) return true;
     }
-    return found;
+    return false;
 }
 for (const skillsDir of ['skills', path.join('.claude', 'skills')]) {
     if (fs.existsSync(skillsDir)) {
         for (const dir of fs.readdirSync(skillsDir)) {
-            if (dir.startsWith('_')) continue; // meta directories carry indexes, not skills
             const fullDir = path.join(skillsDir, dir);
             if (fs.statSync(fullDir).isDirectory()) {
                 const skillMd = path.join(fullDir, 'SKILL.md');
                 if (fs.existsSync(skillMd)) {
                     Pass(`skill exists: ${skillMd}`);
+                } else if (dir === '_meta' || hasSkillMdRecursive(fullDir)) {
+                    Pass(`skill category/metadata directory: ${fullDir}${path.sep}`);
                 } else {
-                    const nested = findNestedSkillMds(fullDir);
-                    if (nested.length > 0) {
-                        for (const nestedSkillMd of nested) {
-                            Pass(`skill exists: ${nestedSkillMd}`);
-                        }
-                    } else {
-                        Fail(`skill directory missing SKILL.md: ${fullDir}${path.sep}`);
-                    }
+                    Fail(`skill directory missing SKILL.md: ${fullDir}${path.sep}`);
                 }
             }
         }
@@ -624,7 +630,7 @@ if (hasBun) {
         const { runAllValidators } = await import(validatorsUrl);
         let validatorErrors = 0;
         let validatorWarnings = 0;
-        for (const variant of fs.readdirSync('templates').filter(d => d.startsWith('co-'))) {
+        for (const variant of fs.readdirSync('templates').filter(d => d.startsWith('co-') && isCoVariantTracked(d))) {
             const variantDir = path.join('templates', variant);
             const vjPath = path.join(variantDir, 'variant.json');
             if (!fs.existsSync(vjPath)) continue;
@@ -875,7 +881,7 @@ function checkL2VariantIntegrity() {
   if (!fs.existsSync(templatesDir)) return;
 
   const variants = fs.readdirSync(templatesDir)
-    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
 
   if (variants.length === 0) return;
 
@@ -929,7 +935,7 @@ function checkVariantContextGuidelinesSection() {
   if (!fs.existsSync(templatesDir)) return;
 
   const variants = fs.readdirSync(templatesDir)
-    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
 
   if (variants.length === 0) return;
 
@@ -975,7 +981,7 @@ function checkVariantAgentSections() {
   if (!fs.existsSync(templatesDir)) return;
 
   const variants = fs.readdirSync(templatesDir)
-    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
 
   if (variants.length === 0) return;
 
@@ -1018,7 +1024,7 @@ function checkVariantSkillSections() {
   if (!fs.existsSync(templatesDir)) return;
 
   const variants = fs.readdirSync(templatesDir)
-    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
 
   if (variants.length === 0) return;
 
@@ -1072,7 +1078,7 @@ function checkVariantJsonSchema() {
   if (!fs.existsSync(schemaPath) || !fs.existsSync(templatesDir)) return;
 
   const variants = fs.readdirSync(templatesDir)
-    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+    .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
 
   if (variants.length === 0) return;
 
@@ -1310,7 +1316,7 @@ function checkShellInjectionPatterns() {
     const scanRoots = ['scripts'];
     if (fs.existsSync('templates')) {
         for (const variant of fs.readdirSync('templates')) {
-            if (!variant.startsWith('co-')) continue;
+            if (!variant.startsWith('co-') || !isCoVariantTracked(variant)) continue;
             const variantScriptsDir = path.join('templates', variant, 'scripts');
             if (fs.existsSync(variantScriptsDir)) scanRoots.push(variantScriptsDir);
         }
@@ -1427,7 +1433,7 @@ function checkVariantScriptDrift() {
     const templatesDir = path.join('templates');
     if (fs.existsSync(templatesDir)) {
         for (const variant of fs.readdirSync(templatesDir)) {
-            if (!variant.startsWith('co-')) continue;
+            if (!variant.startsWith('co-') || !isCoVariantTracked(variant)) continue;
             const variantScriptsDir = path.join(templatesDir, variant, 'scripts');
             if (!fs.existsSync(variantScriptsDir)) continue;
 
@@ -1477,6 +1483,64 @@ function checkVariantScriptDrift() {
 }
 checkVariantScriptDrift();
 
+// Project CLAUDE.md / GEMINI.md managed-block drift detection (WARN-only, local-only).
+// upgrade-project.ts syncs the COMMON-CLAUDE:START/END and COMMON-GEMINI:START/END managed
+// blocks in each project's CLAUDE.md / GEMINI.md against templates/common/{CLAUDE,GEMINI}.md.
+// If a project's file is ever hand-rewritten without preserving those markers (as happened to
+// co-price and co-abap in 2026-08), upgrade-project.ts silently loses its merge point and the
+// file drifts out of sync forever after. Projects/ is gitignored and not present in CI, so this
+// only runs against whatever `Projects/co-*` checkouts exist on the local machine.
+function checkProjectDocMarkerDrift() {
+    const projectsDir = 'Projects';
+    if (!fs.existsSync(projectsDir)) {
+        Pass('Project CLAUDE.md/GEMINI.md marker drift check: Projects/ not present locally, skipped');
+        return;
+    }
+
+    function countMarkers(filePath: string, markerLabel: string): number {
+        if (!fs.existsSync(filePath)) return -1; // file absent, not a drift signal
+        try {
+            const content = readUTF8File(filePath);
+            const matches = content.match(new RegExp(`<!-- ${markerLabel}:START -->`, 'g'));
+            return matches ? matches.length : 0;
+        } catch {
+            return -1;
+        }
+    }
+
+    const expectedClaude = countMarkers(path.join('templates', 'common', 'CLAUDE.md'), 'COMMON-CLAUDE');
+    const expectedGemini = countMarkers(path.join('templates', 'common', 'GEMINI.md'), 'COMMON-GEMINI');
+
+    let warnCount = 0;
+    for (const entry of fs.readdirSync(projectsDir)) {
+        if (!entry.startsWith('co-')) continue;
+        const projectDir = path.join(projectsDir, entry);
+        if (!fs.statSync(projectDir).isDirectory()) continue;
+
+        if (expectedClaude > 0) {
+            const actual = countMarkers(path.join(projectDir, 'CLAUDE.md'), 'COMMON-CLAUDE');
+            if (actual >= 0 && actual < expectedClaude) {
+                Warn(`CLAUDE.md drift: Projects/${entry}/CLAUDE.md has ${actual}/${expectedClaude} COMMON-CLAUDE managed blocks vs templates/common/CLAUDE.md — run 'bun scripts/upgrade-project.ts Projects/${entry}' or verify markers were not stripped by a hand rewrite.`);
+                warnCount++;
+            }
+        }
+        if (expectedGemini > 0) {
+            const actual = countMarkers(path.join(projectDir, 'GEMINI.md'), 'COMMON-GEMINI');
+            if (actual >= 0 && actual < expectedGemini) {
+                Warn(`GEMINI.md drift: Projects/${entry}/GEMINI.md has ${actual}/${expectedGemini} COMMON-GEMINI managed blocks vs templates/common/GEMINI.md — run 'bun scripts/upgrade-project.ts Projects/${entry}' or verify markers were not stripped by a hand rewrite.`);
+                warnCount++;
+            }
+        }
+    }
+
+    if (warnCount === 0) {
+        Pass('Project CLAUDE.md/GEMINI.md marker drift check: no drift found');
+    } else {
+        Warn(`Project CLAUDE.md/GEMINI.md marker drift check: ${warnCount} project file(s) drifted from the template baseline`);
+    }
+}
+checkProjectDocMarkerDrift();
+
 // Cross-variant context commonization check (WARN-only, first-pass heuristic).
 // Flags docs/<variant>.context.md sections that duplicate the SAME-heading section in
 // another variant's context.md by >50% content overlap — a candidate for promotion into
@@ -1488,7 +1552,7 @@ function checkVariantContextCommonization() {
     if (!fs.existsSync(templatesDir)) return;
 
     const variants = fs.readdirSync(templatesDir)
-        .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+        .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
     if (variants.length < 2) return; // nothing to compare cross-variant
 
     type Section = { variant: string; heading: string; lines: Set<string> };
@@ -1571,7 +1635,7 @@ function checkStalePromotedContent() {
     const templatesDir = 'templates';
     if (!fs.existsSync(templatesDir)) return;
     const variants = fs.readdirSync(templatesDir)
-        .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+        .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
     if (variants.length === 0) return;
 
     const commonSections = splitIntoSections(readUTF8File(commonContextPath));
@@ -1668,7 +1732,7 @@ if (IS_WORKSPACE_ROOT && fs.existsSync('AGENTS.md')) {
         let checkedVariants = 0;
         if (fs.existsSync(templatesDir)) {
             for (const entry of fs.readdirSync(templatesDir)) {
-                if (!entry.startsWith('co-')) continue;
+                if (!entry.startsWith('co-') || !isCoVariantTracked(entry)) continue;
                 const variantAgentsMd = path.join(templatesDir, entry, 'AGENTS.md');
                 if (!fs.existsSync(variantAgentsMd)) continue;
                 const variantContent = readUTF8File(variantAgentsMd);
@@ -1926,6 +1990,8 @@ if (!LIFECYCLE_ONLY && fs.existsSync('templates')) {
             const stat = fs.statSync(itemPath);
             if (stat.isDirectory()) {
                 if (SKIP_DIRS.has(item)) continue;
+                const dirName = path.basename(itemPath);
+                if (dirName.startsWith('co-') && !isCoVariantTracked(dirName)) continue;
                 checkLeakage(itemPath);
             } else if (stat.isFile() && itemPath.endsWith('.md')) {
                 const content = readUTF8File(itemPath);
@@ -1981,7 +2047,7 @@ if (fs.existsSync('templates')) {
     const templatesDir = 'templates';
 
     for (const entry of fs.readdirSync(templatesDir)) {
-        if (!entry.startsWith('co-')) continue;
+        if (!entry.startsWith('co-') || !isCoVariantTracked(entry)) continue;
         const variantAgentsDir = path.join(templatesDir, entry, 'agents');
         if (!fs.existsSync(variantAgentsDir)) continue;
 
@@ -2184,7 +2250,7 @@ if (!LIFECYCLE_ONLY && IS_WORKSPACE_ROOT) {
         const templatesDir = 'templates';
         if (fs.existsSync(templatesDir)) {
             const variants = fs.readdirSync(templatesDir)
-                .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory());
+                .filter(d => d.startsWith('co-') && fs.statSync(path.join(templatesDir, d)).isDirectory() && isCoVariantTracked(d));
 
             for (const variant of variants) {
                 const l2PmPath = path.join(templatesDir, variant, 'agents', 'pm.md');
@@ -2213,11 +2279,18 @@ if (!LIFECYCLE_ONLY && IS_WORKSPACE_ROOT) {
                     return false;
                 }
 
-                // L2 YAML should NOT have L0-only fields
+                // L2 YAML should NOT have L0-only fields, except `lifecycle:` for variants
+                // that ship their own recursive validate-agents.ts requiring
+                // lifecycle.phase/lifecycle.governance on every agents/**/*.md file
+                // (e.g. co-safety) — see docs/architecture/extends-pattern.md schema table.
+                const variantsAllowingLifecycle = new Set(['co-safety']);
+                const l2OnlyFields = variantsAllowingLifecycle.has(variant)
+                    ? l0OnlyFields.filter(f => f !== 'lifecycle:')
+                    : l0OnlyFields;
                 const l2YamlMatch = l2Content.match(/^---\n([\s\S]+?)\n---/);
                 if (l2YamlMatch) {
                     const l2Yaml = l2YamlMatch[1];
-                    for (const field of l0OnlyFields) {
+                    for (const field of l2OnlyFields) {
                         const fieldRegex = new RegExp(`^${field}`, 'm');
                         if (fieldRegex.test(l2Yaml)) {
                             Fail(`L2 ${variant}/agents/pm.md: contains L0-only field "${field}"`);

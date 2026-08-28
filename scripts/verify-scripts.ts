@@ -1,22 +1,20 @@
 #!/usr/bin/env bun
 /**
- * verify-scripts.ts — Script Lifecycle Registry Verifier (Standalone Variant)
- * @version 1.0.2
- * v1.0.2 (2026-07-11): walkScripts() now excludes node_modules/ and .git/ —
- *   scripts/node_modules/ (a pre-existing local install artifact) was being
- *   walked and its .ts type-definition files reported as "unregistered scripts".
+ * verify-scripts.ts — Script Lifecycle Registry Verifier
+ * @version 1.4.1
  *
  * Validates that scripts/SCRIPTS.md Registry is in sync with actual script files,
  * enforces deprecation removal dates, and blocks on security advisories.
  *
- * Adapted from workspace-root verify-scripts.ts (v1.2.2) for standalone variant
- * deployments (no templates/common/scripts/ directory).
+ * Layer-aware: auto-detects L0 (workspace root) / L1 (templates/common) /
+ * L2 (templates/co-<variant>) / L3 (Projects/<name>) context and skips
+ * L0-only registry entries outside L0.
  *
  * Usage:
- *   bun scripts/verify-scripts.ts --verify       # CI / pre-commit: fail on drift
+ *   bun scripts/verify-scripts.ts --verify       # CI / pre-commit: fail on drift; reads scripts/SCRIPTS.md
  *   bun scripts/verify-scripts.ts --generate    # Generate Registry draft from filesystem
  *   bun scripts/verify-scripts.ts --report      # Human-readable status report
- *   bun scripts/verify-scripts.ts --check-drift # No-op in standalone (exits 0)
+ *   bun scripts/verify-scripts.ts --check-drift # Detect scripts in package.json missing from scripts/ directory
  *
  * Exit codes:
  *   0 = all checks passed
@@ -32,7 +30,13 @@ import { join, dirname, relative } from "path";
 const SCRIPT_EXTENSIONS = [".sh", ".ps1", ".ts"];
 const SCRIPTS_MD_FILENAME = "SCRIPTS.md";
 
-// Resolve workspace root — look for variant.json or docs/context.md markers.
+// Resolve workspace root (this script lives in scripts/ or templates/common/scripts/,
+// templates/co-*/scripts/, or a scaffolded Projects/<name>/scripts/ — possibly detached
+// from the workspace entirely once a project has been relocated, e.g. to C:\projects\).
+// context.md marks the true L0 workspace root; variant.json / docs/context.md mark
+// a generated context root (no context.md there by design). If this script is
+// running standalone with none of these markers present, fall back to the directory
+// containing this script's own scripts/ folder.
 function findWorkspaceRoot(startDir: string): string {
   let dir = startDir;
   for (let i = 0; i < 6; i++) {
@@ -50,10 +54,66 @@ function findWorkspaceRoot(startDir: string): string {
   return dirname(startDir);
 }
 
+// Walk all the way up to the true L0 workspace root (context.md), independent of
+// findWorkspaceRoot()'s "nearest marker" stop. Returns null if the workspace root is not
+// reachable (e.g. a project relocated outside the workspace tree) — the drift check below
+// only makes sense relative to the true root, so it must be skipped in that case rather
+// than silently computing a path that can never exist.
+function findTrueWorkspaceRoot(startDir: string): string | null {
+  let dir = startDir;
+  for (let i = 0; i < 8; i++) {
+    if (existsSync(join(dir, "CONSTITUTION.md"))) return dir;
+    const parent = dirname(dir);
+    if (parent === dir) return null;
+    dir = parent;
+  }
+  return null;
+}
+
 const scriptDir = import.meta.dir;
 const workspaceRoot = findWorkspaceRoot(scriptDir);
-const scriptsDir = join(workspaceRoot, "scripts");
+const trueWorkspaceRoot = findTrueWorkspaceRoot(scriptDir);
+const scriptsDir = join(workspaceRoot, "scripts");        // L0 SSOT (or nearest context root)
+const l1TemplateDir = trueWorkspaceRoot
+  ? join(trueWorkspaceRoot, "templates", "common", "scripts")  // L1 snapshot, always resolved from the true root
+  : join(workspaceRoot, "templates", "common", "scripts");
 const scriptsMdPath = join(scriptsDir, SCRIPTS_MD_FILENAME);
+
+// ── Layer Detection ──────────────────────────────────────────────────────────
+// Determine the current execution context so that checks can be scoped. Layer
+// numbering follows context.md §Terminology Definition (L1=templates/common,
+// L2=templates/co-*, L3=Projects/*):
+// L0 = workspace root (context.md), full verification.
+// L1 = templates/common/, L2 = an official variant template (templates/co-*/),
+// L3 = a scaffolded/live project (Projects/*/, or detached elsewhere) — L1/L2/L3
+// all skip L0-only registry entries.
+//
+// When the true workspace root is reachable (this script is still nested inside it),
+// detection is precise and path-based: findWorkspaceRoot()'s "nearest marker" walk is
+// NOT used here, because it stops at the first ancestor with any marker and would
+// otherwise misdetect templates/common/ (which carries no local marker of its own) as
+// L0 by walking straight past it to the true root. Only when the true root is NOT
+// reachable (a project relocated outside the workspace tree) do we fall back to a
+// file-presence heuristic — in which case variant.json can't distinguish an L2 template
+// from an L3 Phase-A draft (create-l3-scaffold.ts writes variant.json into Projects/*/
+// too), so an unreachable-root context with variant.json is assumed L3 (the far more
+// common real-world case: a relocated project, not a relocated template).
+type ContextLayer = "L0" | "L1" | "L2" | "L3";
+
+function detectContextLayer(): ContextLayer {
+  if (trueWorkspaceRoot) {
+    const rel = relative(trueWorkspaceRoot, scriptDir).replace(/\\/g, "/");
+    if (rel === "scripts" || rel.startsWith("scripts/")) return "L0";
+    if (rel === "templates/common/scripts" || rel.startsWith("templates/common/scripts/")) return "L1";
+    if (/^templates\/co-[^/]+\/scripts(\/|$)/.test(rel)) return "L2";
+    return "L3";
+  }
+
+  if (existsSync(join(workspaceRoot, "context.md"))) return "L0"; // defensive; unreachable given the branch above
+  return "L3";
+}
+
+const contextLayer = detectContextLayer();
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -64,8 +124,8 @@ interface RegistryEntry {
   status: "active" | "deprecated" | "experimental";
   removalDate: string; // "—" or "YYYY-MM-DD"
   securityAdvisory: string; // "—" or "CVE-XXXX"
-  layer: string;
-  pair: string; // "—" or "<script-name>"
+  layer: "common" | "L0-only" | "L1-only" | "L0+L1" | "L0+L1+L2" | string;
+  pair: string;  // "—" or "<script-name>" (.sh declares its .ps1 pair)
 }
 
 // ── Registry Parser ──────────────────────────────────────────────────────────
@@ -84,6 +144,7 @@ function parseRegistry(content: string): RegistryEntry[] {
       continue;
     }
     if (inRegistry && line.startsWith("## ")) {
+      // Next section — stop
       break;
     }
     if (!inRegistry) continue;
@@ -97,12 +158,13 @@ function parseRegistry(content: string): RegistryEntry[] {
       .map((c) => c.trim());
 
     if (!headerParsed) {
-      headerParsed = true;
+      headerParsed = true; // skip header row
       continue;
     }
 
     if (cols.length < 6) continue;
 
+    // Strip backticks from script name
     const script = cols[0].replace(/`/g, "");
     const status = cols[3] as RegistryEntry["status"];
 
@@ -113,7 +175,7 @@ function parseRegistry(content: string): RegistryEntry[] {
       status,
       removalDate: cols[4],
       securityAdvisory: cols[5],
-      layer: cols[6] || "—",
+      layer: (cols[6] as RegistryEntry["layer"]) || "common",
       pair: cols[7] || "—",
     });
   }
@@ -123,18 +185,17 @@ function parseRegistry(content: string): RegistryEntry[] {
 
 // ── Filesystem Scanner ───────────────────────────────────────────────────────
 
-const EXCLUDED_DIRS = new Set(["node_modules", ".git"]);
-
 function walkScripts(dir: string): string[] {
-  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
-    entry.isDirectory()
-      ? EXCLUDED_DIRS.has(entry.name)
-        ? []
-        : walkScripts(join(dir, entry.name))
-      : SCRIPT_EXTENSIONS.some((ext) => entry.name.endsWith(ext)) && entry.name !== SCRIPTS_MD_FILENAME
-        ? [join(dir, entry.name)]
-        : []
-  );
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.isDirectory()) {
+      // Skip variant subdirectories (co-*) — they have separate sub-registries (scripts/<variant>/SCRIPTS.md)
+      if (entry.name.startsWith("co-")) return [];
+      return walkScripts(join(dir, entry.name));
+    }
+    return SCRIPT_EXTENSIONS.some((ext) => entry.name.endsWith(ext)) && entry.name !== SCRIPTS_MD_FILENAME
+      ? [join(dir, entry.name)]
+      : [];
+  });
 }
 
 function getActualScripts(): string[] {
@@ -144,16 +205,100 @@ function getActualScripts(): string[] {
     .sort();
 }
 
-// ── Drift Detection (No-op in standalone variant) ────────────────────────────
-// Standalone variants have no templates/common/scripts/ directory, so there is
-// no L0→L1 drift to check. This mode exits 0 for compatibility with callers
-// (dev-sync.ts step 3.7, audit.ts).
+// ── Layer-Aware Filtering ────────────────────────────────────────────────────
+// In L1/L2/L3 context, L0-only entries are irrelevant (their .ts files are
+// intentionally absent).  Returns true when the entry should be checked.
+
+const L0_ONLY_LAYERS = new Set(["L0", "L0-only"]);
+
+function isLayerRelevant(entry: RegistryEntry): boolean {
+  if (contextLayer === "L0") return true;
+  // In L1/L2/L3, skip entries whose layer marks them as workspace-only
+  return !L0_ONLY_LAYERS.has(entry.layer);
+}
+
+// ── Drift Detection ──────────────────────────────────────────────────────────
+
+interface DriftResult {
+  script: string;
+  l0Lines: number;
+  l1Lines: number;
+}
+
+function detectDrift(registry: RegistryEntry[]): { drifted: DriftResult[]; clean: string[] } {
+  const drifted: DriftResult[] = [];
+  const clean: string[] = [];
+
+  for (const entry of registry) {
+    if (entry.source !== "L0") continue;
+
+    const l0Path = join(scriptsDir, entry.script);       // workspace L0
+    const l1Path = join(l1TemplateDir, entry.script);    // template L1
+
+    if (!existsSync(l0Path) || !existsSync(l1Path)) continue;
+
+    let l0Content: string, l1Content: string;
+    try {
+      l0Content = readFileSync(l0Path, "utf-8");
+      l1Content = readFileSync(l1Path, "utf-8");
+    } catch (err) {
+      console.warn(`⚠️ Warning: Failed to read ${entry.script} (${err}). Skipping.`);
+      continue;
+    }
+
+    // context.md references are intentionally scrubbed in L1 (templates/common/).
+    // Normalize BOTH sides: the L1 scrub may or may not have replaced
+    // context.md (scrub misses are the L0-leakage audit check's job, not drift's).
+    const l0Normalized = l0Content.replace(/CONSTITUTION\.md/g, 'context.md');
+    const l1Normalized = l1Content.replace(/CONSTITUTION\.md/g, 'context.md');
+
+    if (l0Normalized !== l1Normalized) {
+      drifted.push({
+        script: entry.script,
+        l0Lines: l0Content.split("\n").length,
+        l1Lines: l1Content.split("\n").length,
+      });
+    } else {
+      clean.push(entry.script);
+    }
+  }
+
+  return { drifted, clean };
+}
 
 function checkDriftReport(): void {
-  console.log("\n=== Drift Check (Standalone Variant) ===\n");
-  console.log("ℹ️  No templates/common/scripts/ directory detected — drift check is N/A.\n");
-  process.exit(0);
+  if (!existsSync(scriptsMdPath)) {
+    console.error("❌ SCRIPTS.md not found. Run --generate first.");
+    process.exit(1);
+  }
+
+  const content = readFileSync(scriptsMdPath, "utf-8");
+  const registry = parseRegistry(content);
+  const { drifted, clean } = detectDrift(registry);
+
+  console.log("\n=== L0/L1 Drift Report (L0=workspace scripts/, L1=templates/common/scripts/) ===\n");
+
+  if (drifted.length === 0) {
+    console.log(`✅ No unintentional drift detected (${clean.length} L0/L1 pairs in sync)`);
+  } else {
+    console.log(`⚠️  Unintentional drift (${drifted.length} script(s)):`);
+    for (const d of drifted) {
+      const diff = d.l1Lines - d.l0Lines;
+      const sign = diff >= 0 ? "+" : "";
+      console.log(`   ${d.script}  L0: ${d.l0Lines} lines  L1: ${d.l1Lines} lines  (${sign}${diff})`);
+    }
+    console.log("\n   Fix: edit L0 (workspace scripts/) then run bun run propagate:apply to push to L1.\n");
+  }
+
+  if (clean.length > 0) {
+    console.log(`\n✅ In sync (${clean.length} script(s)):`);
+    for (const s of clean) console.log(`   ${s}`);
+  }
+
+  console.log();
+  process.exit(0); // drift is warn-only
 }
+
 
 // ── Verify Mode ──────────────────────────────────────────────────────────────
 
@@ -194,8 +339,7 @@ function verify(): boolean {
   }
   for (const script of actualScripts) {
     const baseName = script.replace(/\.(sh|ps1)$/, '');
-    const fileName = script.split(/[\\/]/).pop() || script;
-    const isOrchestrationKeyword = fileName.includes('lifecycle') || fileName.includes('verify') || fileName.includes('validate') || fileName.includes('agent-') || fileName.includes('dispatch');
+    const isOrchestrationKeyword = script.includes('lifecycle') || script.includes('verify') || script.includes('validate') || script.includes('agent-') || script.includes('dispatch');
     const isTsWrapper = !script.endsWith('.ts') && tsBaseNames.has(baseName);
     if (isOrchestrationKeyword && !script.endsWith('.ts') && !script.endsWith('.md') && !isTsWrapper) {
       errors.push(`Architecture violation: Orchestration script \`${script}\` must use Bun (.ts)`);
@@ -203,17 +347,34 @@ function verify(): boolean {
   }
 
   // Check 1: Scripts on disk but not in registry
+  // In L1/L2/L3, build a set of relevant (non-L0-only) registered names only
+  const relevantRegisteredNames = contextLayer === "L0"
+    ? registeredNames
+    : new Set(registry.filter(isLayerRelevant).map((e) => e.script));
   for (const script of actualScripts) {
-    if (!registeredNames.has(script)) {
+    if (!relevantRegisteredNames.has(script)) {
       errors.push(`Unregistered script: \`${script}\` — add to SCRIPTS.md Registry`);
     }
   }
 
   // Check 2: Scripts in registry but not on disk
+  // In L0, check all entries. In L1/L2/L3, skip L0-only entries (intentionally absent).
   for (const entry of registry) {
+    if (!isLayerRelevant(entry)) continue;
     if (!existsSync(join(scriptsDir, entry.script))) {
       errors.push(
         `Ghost entry: \`${entry.script}\` in Registry but not on disk — remove from SCRIPTS.md`
+      );
+    }
+  }
+
+  // Check 6a: L0/L1 drift (warning only — mark 'intentional' in SCRIPTS.md to suppress)
+  // In L2/L3, skip entirely — templates/common/scripts/ is not comparable from a variant template or project.
+  if (contextLayer === "L0" || contextLayer === "L1") {
+    const { drifted } = detectDrift(registry);
+    for (const d of drifted) {
+      warnings.push(
+        `L0/L1 drift: \`${d.script}\` — L0 ${d.l0Lines} lines, L1 ${d.l1Lines} lines.`
       );
     }
   }
@@ -229,7 +390,6 @@ function verify(): boolean {
   }
 
   // Check 4: Expired removal dates — hard block
-  // Check 5: deprecated without removal-date
   for (const entry of registry) {
     if (entry.status === "deprecated" && entry.removalDate !== "—" && entry.removalDate !== "") {
       if (entry.removalDate <= today) {
@@ -237,6 +397,7 @@ function verify(): boolean {
           `⏰ EXPIRED: \`${entry.script}\` removal-date ${entry.removalDate} has passed — delete this script and remove from Registry`
         );
       } else {
+        // Upcoming removal — warn only
         const daysLeft = Math.ceil(
           (new Date(entry.removalDate).getTime() - new Date(today).getTime()) /
             86400000
@@ -247,6 +408,7 @@ function verify(): boolean {
       }
     }
 
+    // Check 5: deprecated without removal-date
     if (entry.status === "deprecated" && (entry.removalDate === "—" || entry.removalDate === "")) {
       errors.push(
         `Missing removal-date for deprecated script: \`${entry.script}\` — add YYYY-MM-DD (min 90 days)`
@@ -273,7 +435,7 @@ function verify(): boolean {
     }
   }
 
-  // Check 6: pair field horizontal sync — version and status match
+  // Check 6: pair field horizontal sync — .sh declares pair, verify version match
   const byScript = new Map(registry.map(e => [e.script, e]));
   for (const entry of registry) {
     if (entry.pair === "—" || entry.pair === "") continue;
@@ -284,6 +446,7 @@ function verify(): boolean {
       );
       continue;
     }
+    // Version sync check: both files should have same major.minor version
     const [shMaj, shMin] = entry.version.split(".").map(Number);
     const [ps1Maj, ps1Min] = pairEntry.version.split(".").map(Number);
     if (shMaj !== ps1Maj || shMin !== ps1Min) {
@@ -291,6 +454,7 @@ function verify(): boolean {
         `⚠️  PAIR VERSION DRIFT: \`${entry.script}\` v${entry.version} ↔ \`${entry.pair}\` v${pairEntry.version} — consider aligning versions`
       );
     }
+    // Status sync check: both should have same status
     if (entry.status !== pairEntry.status) {
       warnings.push(
         `⚠️  PAIR STATUS DRIFT: \`${entry.script}\` (${entry.status}) ↔ \`${entry.pair}\` (${pairEntry.status}) — statuses should match`
@@ -299,7 +463,14 @@ function verify(): boolean {
   }
 
   // Output
-  console.log(`\n=== verify-scripts.ts (Standalone Variant) ===`);
+  console.log(`\n=== verify-scripts.ts ===`);
+  const contextDescriptions: Record<ContextLayer, string> = {
+    L0: "workspace root — full verification",
+    L1: "common template — L0-only entries skipped",
+    L2: "variant template — L0-only entries skipped",
+    L3: "project — L0-only entries skipped",
+  };
+  console.log(`Context: ${contextLayer} (${contextDescriptions[contextLayer]})`);
   console.log(`Registry: ${scriptsMdPath}`);
   console.log(`Scripts dir: ${scriptsDir}\n`);
 
@@ -329,6 +500,7 @@ function generate(): void {
   if (!existsSync(scriptsMdPath)) {
     console.log(`ℹ️  SCRIPTS.md not found — generating from scratch`);
   } else {
+    // Load existing registry to preserve metadata for known scripts
     const existing = readFileSync(scriptsMdPath, "utf-8");
     const existingRegistry = parseRegistry(existing);
     const existingMap = new Map(existingRegistry.map((e) => [e.script, e]));
@@ -336,11 +508,13 @@ function generate(): void {
     const rows = actualScripts.map((script) => {
       const known = existingMap.get(script);
       if (known) {
+        // Preserve existing metadata
         return `| \`${known.script}\` | ${known.source} | ${known.version} | ${known.status} | ${known.removalDate} | ${known.securityAdvisory} | ${known.layer} | ${known.pair} |`;
       }
-      return `| \`${script}\` | — | 1.0.0 | active | — | — | — | — |`;
+      return `| \`${script}\` | L0 | 1.0.0 | active | — | — | common | — |`;
     });
 
+    // Replace Registry section in existing file
     const header =
       "| script | source | version | status | removal-date | security-advisory | layer | pair |\n" +
       "|--------|--------|---------|--------|--------------|-------------------|-------|------|";
@@ -361,7 +535,7 @@ function generate(): void {
   // Fresh generate
   const rows = actualScripts
     .map(
-      (s) => `| \`${s}\` | — | 1.0.0 | active | — | — | — | — |`
+      (s) => `| \`${s}\` | L0 | 1.0.0 | active | — | — | common | — |`
     )
     .join("\n");
 

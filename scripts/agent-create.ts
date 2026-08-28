@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
  * Agent Creator CLI for Workspace Root
- * @version 1.0.0
+ * @version 1.0.1
  * Creates new agent definition files in the agents/ directory
  *
  * Usage:
@@ -12,6 +12,7 @@
 
 import path from "node:path";
 import { promises as fs } from "node:fs";
+import { existsSync } from "node:fs";
 
 const scriptDir = path.dirname(import.meta.path);
 const projectRoot = path.resolve(scriptDir, "..");
@@ -102,6 +103,26 @@ The agent produces:
 `;
 }
 
+async function supplementFromAgencyAgents(agentPath: string, options: AgentOptions): Promise<void> {
+  const agencyGeneratorPath = path.join(projectRoot, "scripts", "external", "agency-agents-generator.ts");
+  let supplementText = `\n\n## Agency-Agents Supplement\n`;
+  try {
+    await fs.access(agencyGeneratorPath);
+    console.log(`⏳ Running agency-agents generator for supplementation...`);
+    const { $ } = await import("bun");
+    const res = await $`bun ${agencyGeneratorPath} --agent ${options.name}`.nothrow();
+    if (res.exitCode === 0) {
+      supplementText += res.stdout.toString();
+    } else {
+      supplementText += `> ⚠️ Supplementation failed or returned no data.\n`;
+    }
+  } catch {
+    console.log(`⚠️ agency-agents-generator not found at ${agencyGeneratorPath}. Skipping external supplementation.`);
+    supplementText += `> ℹ️ \`agency-agents-generator.ts\` not found. Run ingest-external-skills.ts to fetch external blueprints.\n`;
+  }
+  await fs.appendFile(agentPath, supplementText, "utf-8");
+}
+
 /**
  * Create agent file
  */
@@ -117,16 +138,23 @@ async function createAgent(options: AgentOptions): Promise<void> {
     // File doesn't exist, continue
   }
 
-  // Create agent file
+  // Create agent file (Step 1: Local Draft)
   const content = getAgentTemplate(options);
   await fs.writeFile(agentPath, content, "utf-8");
+
+  // Step 2: Supplementation
+  await supplementFromAgencyAgents(agentPath, options);
 
   console.log(`✅ Agent created: ${agentPath}`);
   console.log(`\nNext steps:`);
   console.log(`  1. Edit the agent file to add role-specific content`);
   console.log(`  2. Add the agent to AGENTS.md (Agent Roster table)`);
   console.log(`  3. Add the agent to Subagent Roster table in AGENTS.md`);
-  console.log(`  4. Update CONSTITUTION.md §5.2 Role Groups if needed`);
+  if (existsSync(path.join(projectRoot, "CONSTITUTION.md"))) {
+    console.log(`  4. Update CONSTITUTION.md §5.2 Role Groups if needed`);
+  } else {
+    console.log(`  4. Update docs/context.md — Multi-Agent Architecture if needed`);
+  }
 }
 
 /**

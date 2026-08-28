@@ -1,10 +1,12 @@
 ---
+lang: ko
+lang_reason: legal
 name: signal-detector
 owner: gvp-agent
 scope: workspace
 status: active
 description: Statistical signal detection in pharmacovigilance case database. Implements PRR, ROR, BCPNN, EBGM disproportionality methods.
-version: "1.0"
+version: "1.0.0"
 created: "2026-06-17"
 last_updated: "2026-06-17"
 metadata:
