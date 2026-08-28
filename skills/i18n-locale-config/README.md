@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Locale identification and configuration: BCP 47 locale ID structure,
+Locale identification and configuration: BCP 47 locale ID structure, the language-vs-country doctrine, per-language collation order, timezone handling, and the region/language matrix. Use when: choosing a locale code, configuring locales/<lang>.json, fixing sort order for a language, or deciding which timezone a deliverable should display.
 
 - **Scope**: `common`
 - **Version**: 1.0.0

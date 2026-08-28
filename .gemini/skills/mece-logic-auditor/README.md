@@ -4,7 +4,7 @@
 
 ## Purpose
 
-MECE (Mutually Exclusive, Collectively Exhaustive) issue tree auditing and
+MECE (Mutually Exclusive, Collectively Exhaustive) issue tree auditing and strategic reasoning evaluation rules for consulting problem-solving frameworks.
 
 - **Scope**: `co-consult`
 - **Version**: 1.0.0

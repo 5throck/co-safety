@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Dual-window presenter state synchronization using browser BroadcastChannel API,
+Dual-window presenter state synchronization using browser BroadcastChannel API, syncing slide index, speaker notes, timer, current/next slide preview.
 
 - **Scope**: `co-deck`
 - **Version**: 1.0.1

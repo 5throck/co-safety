@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Defines automated WCAG 2.1 Level AA accessibility evaluation rules, DOM audit patterns,
+Defines automated WCAG 2.1 Level AA accessibility evaluation rules, DOM audit patterns, and remediation guidance using axe-core for UI components, templates, and web applications.
 
 - **Scope**: `co-design`
 - **Version**: 1.0.0

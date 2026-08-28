@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Defines Zod runtime schema validation patterns, interface boundaries,
+Defines Zod runtime schema validation patterns, interface boundaries, and contract safety rules for multi-agent architecture, IPC channels, and API endpoints.
 
 - **Scope**: `common`
 - **Version**: 1.0.0
