@@ -1,10 +1,13 @@
 ---
+scope: common
 name: documentation-writing
+status: active
 description: >
   Creates clear, accessible documentation and communications for diverse audiences.
   Use when: writing guides, creating documentation, drafting communications, or synthesizing
   complex information for technical and non-technical audiences.
 version: 1.0.0
+owner: pm
 metadata:
   type: implementation
   triggers:

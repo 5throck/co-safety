@@ -1,4 +1,5 @@
 ---
+scope: common
 name: platform-command-lifecycle-manager
 status: active
 version: 1.0.0
@@ -47,10 +48,10 @@ Use this skill when:
 ## Propagation Rule
 
 ```
-.claude/commands/<name>.md                    <- Claude Code source
-.gemini/commands/<name>.md                    <- Gemini/Antigravity (if not skip)
-templates/common/.claude/commands/<name>.md   <- Template propagation (Claude)
-templates/common/.gemini/commands/<name>.md   <- Template propagation (if not skip)
+.claude/commands/<name>.md                    ← Claude Code source
+.gemini/commands/<name>.md                    ← Gemini/Antigravity (if not skip)
+templates/common/.claude/commands/<name>.md   ← Template propagation (Claude)
+templates/common/.gemini/commands/<name>.md   ← Template propagation (if not skip)
 ```
 
 ## Verification

@@ -1,7 +1,11 @@
 ---
+scope: common
 name: finishing-a-development-branch
+status: active
 description: Workspace override — redirects all branch completion to /sync pipeline which enforces CHANGELOG, memlog, audit, and PR creation gates.
 version: 1.0.0
+owner: pm
+gemini-parity: skip
 triggers:
   - "finish branch"
   - "complete work"
@@ -14,9 +18,9 @@ triggers:
 
 audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
-# Finishing a Development Branch (Workspace Override — Gemini/Antigravity)
+# Finishing a Development Branch (Workspace Override)
 
-> **This workspace overrides the global `finishing-a-development-branch` skill for Gemini CLI and Antigravity.**
+> **This workspace overrides the global `finishing-a-development-branch` skill.**
 
 ## Why this override exists
 
@@ -24,6 +28,9 @@ This workspace enforces a single PR creation path via `/sync` to guarantee:
 - CHANGELOG.md entry exists before committing
 - Session memlog is written to `memory/YYYY-MM-DD.md`
 - `bun scripts/audit.ts` passes before any push
+- Branch is named `pr/YYYYMMDD-HHMMSS-slug` for traceability
+
+The global skill's Option 2 (push without commit) bypasses CHANGELOG and memlog requirements.
 
 ## What to do instead
 
@@ -33,7 +40,21 @@ This workspace enforces a single PR creation path via `/sync` to guarantee:
 /sync "type: description of what changed"
 ```
 
+Examples:
+```
+/sync "feat: add user authentication"
+/sync "fix: resolve null pointer in payment flow"
+/sync "docs: update API reference"
+```
+
+The `/sync` pipeline handles everything:
+1. Writes session entry to `memory/YYYY-MM-DD.md`
+2. Updates `memory/MEMORY.md` index
+3. Verifies CHANGELOG.md has an entry (blocks if missing — run `/changelog` first)
+4. Runs `bun scripts/audit.ts` (blocks on failure)
+5. Creates `pr/date-slug` branch, commits, pushes, opens GitHub PR
+
 ## Never use --no-verify
 
-`git commit --no-verify` and `git push --no-verify` via `run_command` are **forbidden**.
+`git commit --no-verify` and `git push --no-verify` are **forbidden** in this workspace.
 They bypass secret scanning (gitleaks) and all quality gates.

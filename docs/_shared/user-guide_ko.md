@@ -152,7 +152,18 @@ workflows/domains/industry/ehschem/plant-operation-safety/
 | major-chemical-incident-reference (ehschem) | emergency-agent | 주요 화학 사고 |
 | device-recall-reference (meddevice) | emergency-agent | 기기 회수/FSCA |
 
-## 7. 거버넌스 및 KPI
+## 7. 법령 실시간 조회 (k-law)
+
+모든 법조문 원문 조회는 **`k-law` 스킬**(법제처 국가법령정보센터 Open API)을 통해 실시간으로 수행됩니다 — 별도 MCP 설정이나 명령어 없이, 에이전트와 대화 중 법령·판례·행정규칙·시행규칙을 물어보면 자동으로 호출됩니다.
+
+- **사전 준비**: `.env`에 `LAW_API_OC` 키가 설정되어 있어야 합니다(README §2 참조, 발급 승인까지 1-2 영업일 소요). 키가 없으면 인용은 실시간 검증 없이 `[UNVERIFIED]`로 표시됩니다.
+- **담당 에이전트**: `legal-agent`가 k-law를 1차(live-first) 소스로 사용해 조문을 확인하며, `법령 조회`/`판례`/`법령해석례`/`별표서식` 요청은 PM이 자동으로 legal-agent에 dispatch합니다.
+- **`kr_safety` MCP와의 관계**: `kr_safety`는 OSHA-KR/SAPA/CCA 조문의 색인 검색 및 컴플라이언스 갭 분석용이고, k-law는 그 조문의 **원문**(개정 이력 포함)을 법제처에서 실시간으로 가져옵니다 — 두 시스템은 서로 대체가 아니라 보완 관계입니다.
+- **과거 아키텍처**: `legalize_kr`, `mcp_kr_legislation` MCP 서버는 2026-08-26부로 제거되었고 k-law로 완전히 통합되었습니다. `regulations/KR/*.yaml`은 좌표 레지스트리(법조문의 실제 텍스트가 아닌 메타데이터)이며, 원문은 항상 k-law를 통해 조회합니다.
+
+자세한 내용은 `docs/_shared/mcp-integration-guide_ko.md` 참조.
+
+## 8. 거버넌스 및 KPI
 
 안전거버넌스관리자(SGM)는 전략 계층에서 운영되며, SWM과 전문 에이전트가 실행할 정책과 KPI 목표를 정의합니다:
 
@@ -160,6 +171,6 @@ workflows/domains/industry/ehschem/plant-operation-safety/
 - **`docs/governance/kpi-definitions.md`** — 현재 KPI 세트: **LTIFR** (휴업재해율), **감사 통과율** (`bun scripts/safety-audit.ts` 출력 기반), **시정조치 완료율** (`memory/corrective-actions/*.json` 레코드 기반). 각 KPI 정의에는 산식, 데이터 소스, 목표 임계값, 에스컬레이션 트리거가 포함됩니다.
 - **추적성 체인**: `memory/findings/FIND-YYYY-NNNN.json` → `memory/corrective-actions/CA-YYYY-NNNN.json`, `evidence-models/_shared/base/finding.schema.json` 및 `corrective-action.schema.json` 준수.
 
-## 8. 법적 고지사항
+## 9. 법적 고지사항
 
 > Safety OS는 워크플로우 자동화 지원 기능만 제공하며, 법률 자문이 아닙니다. 모든 규제 참조 사항은 자격을 갖춘 EHS/GxP/법무 전문가가 검증해야 합니다. 본 시스템은 컴플라이언스 결정을 내리지 않으며, 문서화 및 프로세스 관리를 지원합니다.

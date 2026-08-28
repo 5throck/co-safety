@@ -1,10 +1,13 @@
 ---
+scope: common
 name: api-documentation
+status: active
 description: >
   Creates comprehensive API documentation including endpoints, parameters, authentication,
   request/response schemas, and code examples. Use when: documenting REST APIs, GraphQL
   interfaces, SDKs, or developer-facing technical specifications.
 version: 1.0.0
+owner: pm
 metadata:
   type: implementation
   triggers:
@@ -291,7 +294,7 @@ Retrieves a list of users with optional filtering.
 ```python
 import requests
 
-API_KEY = "<your-key>"
+API_KEY = "..."
 BASE_URL = "https://api.example.com/v1"
 
 def get_users(limit=20, offset=0):
