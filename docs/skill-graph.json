@@ -2,11 +2,6 @@
   "version": 1,
   "nodes": [
     {
-      "id": "accessibility-audit",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
       "id": "agent-lifecycle-manager",
       "type": "skill",
       "layer": "L3"
@@ -67,11 +62,6 @@
       "layer": "L3"
     },
     {
-      "id": "mece-logic-auditor",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
       "id": "meeting-facilitation",
       "type": "skill",
       "layer": "L3"
@@ -89,11 +79,6 @@
     {
       "id": "pm",
       "type": "agent",
-      "layer": "L3"
-    },
-    {
-      "id": "presenter-mode",
-      "type": "skill",
       "layer": "L3"
     },
     {
@@ -117,11 +102,6 @@
       "layer": "L3"
     },
     {
-      "id": "sarif-exporter",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
       "id": "script-lifecycle-manager",
       "type": "skill",
       "layer": "L3"
@@ -132,27 +112,12 @@
       "layer": "L3"
     },
     {
-      "id": "simulate-project-creation",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
       "id": "skill-lifecycle-manager",
       "type": "skill",
       "layer": "L3"
     },
     {
       "id": "standup-synthesizer",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "stride-threat-matrix",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "swe-solve",
       "type": "skill",
       "layer": "L3"
     },
@@ -282,36 +247,6 @@
       "type": "references",
       "from": "pm",
       "to": "decision-record",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "presenter-mode",
-      "to": "explain-me",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "sarif-exporter",
-      "to": "security-scan",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "sarif-exporter",
-      "to": "stride-threat-matrix",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "stride-threat-matrix",
-      "to": "sarif-exporter",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "stride-threat-matrix",
-      "to": "security-scan",
       "source": "prose"
     },
     {

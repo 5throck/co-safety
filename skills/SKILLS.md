@@ -75,5 +75,4 @@ Generated: 2026-08-26T15:58:11.646Z
 
 ## Legal-research
 
-- [k-law](skills/k-law/SKILL.md)
 
