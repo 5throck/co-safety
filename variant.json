@@ -8,9 +8,13 @@
   "inherits_common": "templates/common",
   "country_config": {
     "profiles_dir": "docs/countries",
-    "supported": ["KR"],
+    "supported": [
+      "KR"
+    ],
     "default": "KR",
-    "locales": ["ko"]
+    "locales": [
+      "ko"
+    ]
   },
   "agent_overrides": {
     "pm": {
@@ -18,7 +22,11 @@
       "reason": "co-safety overrides PM with CSO (Chief Safety Officer) role — enforces legal_basis gate on all workflows, routes strategy to SGM and operations to SWM",
       "since": "2026-06-04",
       "reviewed_by": "architect",
-      "overrides": ["agent-roster", "governance-workflow", "dispatch-protocol"]
+      "overrides": [
+        "agent-roster",
+        "governance-workflow",
+        "dispatch-protocol"
+      ]
     }
   },
   "skill_manifest": {
@@ -26,7 +34,10 @@
       {
         "name": "risk-assessment",
         "layer": "root",
-        "used_by_agents": ["risk-assessment-agent", "safety-workflow-manager"],
+        "used_by_agents": [
+          "risk-assessment-agent",
+          "safety-workflow-manager"
+        ],
         "legal_basis": [
           "산업안전보건법 제36조 (위험성평가 의무)",
           "중대재해처벌법 제4조 (안전·보건 확보 의무)",
@@ -38,7 +49,10 @@
       {
         "name": "permit-to-work",
         "layer": "root",
-        "used_by_agents": ["safety-workflow-manager", "risk-assessment-agent"],
+        "used_by_agents": [
+          "safety-workflow-manager",
+          "risk-assessment-agent"
+        ],
         "legal_basis": [
           "산업안전보건법 제38조 (안전조치)",
           "산업안전보건법 제39조 (건강조치)",
@@ -49,7 +63,9 @@
       {
         "name": "emergency-response",
         "layer": "root",
-        "used_by_agents": ["emergency-agent"],
+        "used_by_agents": [
+          "emergency-agent"
+        ],
         "legal_basis": [
           "산업안전보건법 제54조 (중대재해 발생 시 조치)",
           "중대재해처벌법 제3조 (중대재해 처리 기준)",
@@ -60,7 +76,9 @@
       {
         "name": "compliance-gap",
         "layer": "root",
-        "used_by_agents": ["compliance-agent"],
+        "used_by_agents": [
+          "compliance-agent"
+        ],
         "legal_basis": [
           "산업안전보건법 제36조 (위험성평가 의무)",
           "산업안전보건법 제57조 (사고 기록·보고)",
@@ -77,5 +95,167 @@
   },
   "createdAt": "2026-06-04",
   "phaseAComplete": true,
-  "promotionChecklist": "PROMOTION_CHECKLIST.md"
+  "promotionChecklist": "PROMOTION_CHECKLIST.md",
+  "agents": [
+    {
+      "name": "asset-integrity-agent",
+      "file": "agents/_shared/asset-integrity-agent.md"
+    },
+    {
+      "name": "audit-agent",
+      "file": "agents/_shared/audit-agent.md"
+    },
+    {
+      "name": "battery-agent",
+      "file": "agents/domains/industry/battery/battery-agent.md"
+    },
+    {
+      "name": "biotech-agent",
+      "file": "agents/domains/industry/biotech/biotech-agent.md"
+    },
+    {
+      "name": "compliance-agent",
+      "file": "agents/_shared/compliance-agent.md"
+    },
+    {
+      "name": "contractor-safety-agent",
+      "file": "agents/_shared/contractor-safety-agent.md"
+    },
+    {
+      "name": "cosmetics-agent",
+      "file": "agents/domains/industry/cosmetics/cosmetics-agent.md"
+    },
+    {
+      "name": "datacenter-agent",
+      "file": "agents/domains/industry/datacenter/datacenter-agent.md"
+    },
+    {
+      "name": "defense-agent",
+      "file": "agents/domains/industry/defense/defense-agent.md"
+    },
+    {
+      "name": "disaster-response-agent",
+      "file": "agents/_shared/disaster-response-agent.md"
+    },
+    {
+      "name": "docs-writer",
+      "file": "agents/_shared/docs-writer.md"
+    },
+    {
+      "name": "ehschem-agent",
+      "file": "agents/domains/industry/ehschem/ehschem-agent.md"
+    },
+    {
+      "name": "ehsconst-agent",
+      "file": "agents/domains/industry/ehsconst/ehsconst-agent.md"
+    },
+    {
+      "name": "emergency-agent",
+      "file": "agents/_shared/emergency-agent.md"
+    },
+    {
+      "name": "food-agent",
+      "file": "agents/domains/industry/food/food-agent.md"
+    },
+    {
+      "name": "gasterm-agent",
+      "file": "agents/domains/industry/gasterm/gasterm-agent.md"
+    },
+    {
+      "name": "gcp-agent",
+      "file": "agents/domains/industry/gcp/gcp-agent.md"
+    },
+    {
+      "name": "gdp-agent",
+      "file": "agents/domains/industry/gdp/gdp-agent.md"
+    },
+    {
+      "name": "glp-agent",
+      "file": "agents/domains/industry/glp/glp-agent.md"
+    },
+    {
+      "name": "gmp-agent",
+      "file": "agents/domains/industry/gmp/gmp-agent.md"
+    },
+    {
+      "name": "gvp-agent",
+      "file": "agents/domains/industry/gvp/gvp-agent.md"
+    },
+    {
+      "name": "incident-investigation-agent",
+      "file": "agents/_shared/incident-investigation-agent.md"
+    },
+    {
+      "name": "legal-agent",
+      "file": "agents/_shared/legal-agent.md"
+    },
+    {
+      "name": "logistics-agent",
+      "file": "agents/domains/industry/logistics/logistics-agent.md"
+    },
+    {
+      "name": "meddevice-agent",
+      "file": "agents/domains/industry/meddevice/meddevice-agent.md"
+    },
+    {
+      "name": "msds-agent",
+      "file": "agents/domains/functional/msds/msds-agent.md"
+    },
+    {
+      "name": "occupational-health-agent",
+      "file": "agents/_shared/occupational-health-agent.md"
+    },
+    {
+      "name": "pm",
+      "file": "agents/pm.md"
+    },
+    {
+      "name": "powergen-agent",
+      "file": "agents/domains/industry/powergen/powergen-agent.md"
+    },
+    {
+      "name": "psm-agent",
+      "file": "agents/domains/functional/psm/psm-agent.md"
+    },
+    {
+      "name": "railway-agent",
+      "file": "agents/domains/industry/railway/railway-agent.md"
+    },
+    {
+      "name": "reporting-agent",
+      "file": "agents/_shared/reporting-agent.md"
+    },
+    {
+      "name": "risk-assessment-agent",
+      "file": "agents/_shared/risk-assessment-agent.md"
+    },
+    {
+      "name": "safety-governance-manager",
+      "file": "agents/safety-governance-manager.md"
+    },
+    {
+      "name": "safety-workflow-manager",
+      "file": "agents/safety-workflow-manager.md"
+    },
+    {
+      "name": "semicon-agent",
+      "file": "agents/domains/industry/semicon/semicon-agent.md"
+    },
+    {
+      "name": "shipbuilding-agent",
+      "file": "agents/domains/industry/shipbuilding/shipbuilding-agent.md"
+    },
+    {
+      "name": "steelmaking-agent",
+      "file": "agents/domains/industry/steelmaking/steelmaking-agent.md"
+    },
+    {
+      "name": "training-agent",
+      "file": "agents/domains/functional/training/training-agent.md"
+    },
+    {
+      "name": "waste-agent",
+      "file": "agents/domains/industry/waste/waste-agent.md"
+    }
+  ]
 }

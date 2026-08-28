@@ -4,11 +4,11 @@ variant: co-safety
 owner: "architect"
 status: "active"
 version: "1.0.0"
-last_updated: "2026-08-26"
+last_updated: "2026-08-28"
 lifecycle:
   phase: production
   created: 2026-08-26
-  last_updated: 2026-08-26
+  last_updated: 2026-08-28
   governance: docs/lifecycle/agents/pm.md
 extends: ../../../agents/pm.md
 remove_sections:
@@ -59,8 +59,8 @@ variant_overrides:
 
 > **⚠️ Additive Override Variant**: This file overrides specific sections of the workspace PM.
 > Do NOT duplicate the entire workspace PM file. Only add variant-specific changes within the sections below.
-> The full Safety OS CSO runtime definition lives in `agents/_core/pm.md` (3-Section:
-> Legal Basis / Role & Responsibilities / Operational Protocols).
+> The full Safety OS CSO runtime definition (Legal Basis / Role & Responsibilities / Operational
+> Protocols) lives in `docs/co-safety.context.md` — "CSO Runtime Definition (Section A/B/C)".
 
 <!-- VARIANT-SECTION: governance-workflow -->
 ## Governance Workflow

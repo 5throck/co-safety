@@ -30,7 +30,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 |--------|--------|---------|--------|--------------|-------------------|-------|------|
 | `agent-create.ts` | — | 1.0.0 | active | — | — | — | — |
 | `agent-delete.ts` | — | 1.0.0 | active | — | — | — | — |
-| `agent-lifecycle-audit.ts` | — | 1.1.2 | active | — | — | — | — |
+| `agent-lifecycle-audit.ts` | — | 1.1.3 | active | — | — | — | — |
 | `agent-list.ts` | — | 1.0.0 | active | — | — | — | — |
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -55,7 +55,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `safety-audit.ts` | — | 4.10.1 | active | — | — | — | — |
 | `scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
 | `skill-dependency-analysis.ts` | — | 1.0.0 | active | — | — | — | — |
-| `skill-lifecycle-audit.ts` | — | 1.1.4 | active | — | — | — | — |
+| `skill-lifecycle-audit.ts` | — | 1.1.5 | active | — | — | — | — |
 | `start-mcp.ts` | — | 1.0.0 | active | — | — | — | — |
 | `sync-agent-status.ts` | — | 1.0.0 | active | — | — | — | — |
 | `sync-md.ts` | — | 1.3.3 | active | — | — | — | — |
@@ -70,8 +70,9 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `test-runtime-tools.ts` | — | 1.0.0 | active | — | — | — | — |
 | `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
 | `training-ingest.ts` | — | 1.0.0 | active | — | — | — | — |
-| `validate-agents.ts` | — | 1.1.0 | active | — | — | — | — |
+| `validate-agents.ts` | — | 1.1.1 | active | — | — | — | — |
 | `validate-doc-folder.ts` | — | 1.0.1 | active | — | — | — | — |
+| `validate-docs-links.ts` | — | 1.0.0 | active | — | — | — | — |
 | `validate-md-language.ts` | — | 1.4.1 | active | — | — | — | — |
 | `validate-skills.ts` | — | 1.1.0 | active | — | — | — | — |
 | `verify-agent-deliverables.ts` | — | 1.0.0 | active | — | — | — | — |
