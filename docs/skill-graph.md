@@ -20,9 +20,9 @@
 | `finishing-a-development-branch` | L3 | — | — | — | — | — |
 | `gateguard` | L3 | — | — | — | — | — |
 | `i18n-audit` | L3 | — | — | — | — | — |
-| `i18n-formatting` | L3 | i18n-specialist | — | — | — | — |
-| `i18n-layout` | L3 | i18n-specialist | — | — | — | — |
-| `i18n-locale-config` | L3 | i18n-specialist | — | — | — | — |
+| `i18n-formatting` | L3 | — | — | — | — | — |
+| `i18n-layout` | L3 | — | — | — | — | — |
+| `i18n-locale-config` | L3 | — | — | — | — | — |
 | `investigation/hazop-analysis` | L3 | — | — | — | — | — |
 | `meeting-facilitation` | L3 | — | — | — | — | — |
 | `platform-command-lifecycle-manager` | L3 | — | — | — | — | — |

@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-29T12:43:51.467Z
+**Generated**: 2026-08-29T12:49:32.114Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -8,7 +8,7 @@
 
 ## Summary
 
-- **Agents**: 41
+- **Agents**: 40
 - **Skills**: 57
 - **Scripts**: 91
 - **Commands**: 7
@@ -56,7 +56,6 @@
 | domains/industry/shipbuilding/shipbuilding-agent | agents/domains/industry/shipbuilding/shipbuilding-agent.md | medium | sonnet | 2026-08-28 |
 | domains/industry/steelmaking/steelmaking-agent | agents/domains/industry/steelmaking/steelmaking-agent.md | medium | sonnet | 2026-08-28 |
 | domains/industry/waste/waste-agent | agents/domains/industry/waste/waste-agent.md | medium | sonnet | 2026-08-28 |
-| i18n-specialist | agents/i18n-specialist.md | medium        # claude-sonnet-5-0 | inherit | 2026-08-28 |
 | pm | agents/pm.md | N/A | N/A | 2026-08-28 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | opus | 2026-08-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | opus | 2026-08-28 |
