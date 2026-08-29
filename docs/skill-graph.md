@@ -19,6 +19,7 @@
 | `explain-me` | L3 | — | — | — | — | — |
 | `finishing-a-development-branch` | L3 | — | — | — | — | — |
 | `gateguard` | L3 | — | — | — | — | — |
+| `i18n-audit` | L3 | — | — | — | — | — |
 | `i18n-formatting` | L3 | i18n-specialist | — | — | — | — |
 | `i18n-layout` | L3 | i18n-specialist | — | — | — | — |
 | `i18n-locale-config` | L3 | i18n-specialist | — | — | — | — |
@@ -30,6 +31,7 @@
 | `research-analysis` | L3 | — | — | documentation-writing (enables) | — | — |
 | `script-lifecycle-manager` | L3 | — | — | — | — | — |
 | `security-scan` | L3 | — | — | — | — | — |
+| `simulate-project-creation` | L3 | — | — | — | — | — |
 | `skill-lifecycle-manager` | L3 | — | — | script-lifecycle-manager (composes_with) | — | — |
 | `standup-synthesizer` | L3 | — | — | — | — | — |
 | `sync` | L3 | — | — | — | — | — |

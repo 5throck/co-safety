@@ -39,7 +39,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/audit-variant.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.7.8 | active | — | — | — | — |
+| `dev-sync.ts` | — | 1.8.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.0.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.0.1 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -79,7 +79,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-memory.ts` | — | 1.1.0 | active | — | — | — | — |
 | `verify-readme-sync.ts` | — | 1.4.0 | active | — | — | — | — |
 | `verify-scripts.ts` | — | 1.4.1 | active | — | — | — | — |
-| `verify-skills.ts` | — | 1.2.0 | active | — | — | — | — |
+| `verify-skills.ts` | — | 1.3.0 | active | — | — | — | — |
 | `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/encoding-utils.ts` | — | 1.1.0 | active | — | — | — | — |
@@ -98,7 +98,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `generate-skill-graph.ts` | L0 | 1.7.1 | active | —| —| L0+L1 | —|
+| `generate-skill-graph.ts` | L0 | 1.8.3 | active | —| —| L0+L1 | —|
 | `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/context-sections.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|

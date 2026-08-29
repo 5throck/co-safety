@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-29T07:44:54.266Z
+**Generated**: 2026-08-29T10:39:03.303Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -9,7 +9,7 @@
 ## Summary
 
 - **Agents**: 41
-- **Skills**: 53
+- **Skills**: 57
 - **Scripts**: 91
 - **Commands**: 7
 
@@ -83,6 +83,8 @@
 | finishing-a-development-branch | 1.0.0 | .claude/skills/finishing-a-development-branch/SKILL.md | both | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
 | gateguard | 1.0.0 | skills/gateguard/SKILL.md | workspace | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
 | gateguard | 1.0.0 | .claude/skills/gateguard/SKILL.md | both | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
+| i18n-audit | 1.0.0 | skills/i18n-audit/SKILL.md | workspace | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
+| i18n-audit | 1.0.0 | .claude/skills/i18n-audit/SKILL.md | both | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
 | i18n-formatting | 1.0.0 | skills/i18n-formatting/SKILL.md | workspace | date format, number format, currency format, unit conversion, paper size, korean numerals | pm |
 | i18n-formatting | 1.0.0 | .claude/skills/i18n-formatting/SKILL.md | both | date format, number format, currency format, unit conversion, paper size, korean numerals | pm |
 | i18n-layout | 1.0.0 | skills/i18n-layout/SKILL.md | workspace | character encoding, RTL, bidi, font selection, CRLF, BOM | pm |
@@ -104,6 +106,8 @@
 | script-lifecycle-manager | 1.2.0 | .claude/skills/script-lifecycle-manager/SKILL.md | both | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
 | security-scan | 1.0.0 | skills/security-scan/SKILL.md | workspace | security scan, scan for vulnerabilities, security check, run security | pm |
 | security-scan | 1.0.0 | .claude/skills/security-scan/SKILL.md | both | security scan, scan for vulnerabilities, security check, run security | pm |
+| simulate-project-creation | 1.0.0 | skills/simulate-project-creation/SKILL.md | workspace | simulate project, test scaffolding, dry run project creation | scaffolding-expert |
+| simulate-project-creation | 1.0.0 | .claude/skills/simulate-project-creation/SKILL.md | both | simulate project, test scaffolding, dry run project creation | scaffolding-expert |
 | skill-lifecycle-manager | 1.2.1 | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
 | skill-lifecycle-manager | 1.2.1 | .claude/skills/skill-lifecycle-manager/SKILL.md | both | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
 | standup-synthesizer | 1.0.0 | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
@@ -145,7 +149,7 @@
 | compile-tokens.ts | 1.1.0 | scripts/compile-tokens.ts | N/A |
 | context-md-schema.ts | 1.0.1 | scripts/lib/context-md-schema.ts | N/A |
 | context-sections.ts | 1.0.0 | scripts/helpers/context-sections.ts | N/A |
-| dev-sync.ts | 1.7.8 | scripts/dev-sync.ts | bun |
+| dev-sync.ts | 1.8.0 | scripts/dev-sync.ts | bun |
 | dispatch-parallel.ts | 1.0.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.0.1 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.0.0 | scripts/dispatch.ts | N/A |
@@ -158,7 +162,7 @@
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-scripts-readme.ts | 1.1.0 | scripts/generate-scripts-readme.ts | N/A |
-| generate-skill-graph.ts | 1.7.1 | scripts/generate-skill-graph.ts | js-yaml |
+| generate-skill-graph.ts | 1.8.3 | scripts/generate-skill-graph.ts | js-yaml |
 | generate-version-manifest.ts | 1.0.7 | scripts/generate-version-manifest.ts | bun |
 | language-guard.ts | 1.0.0 | scripts/lib/language-guard.ts | N/A |
 | lifecycle-sync-audit.ts | 1.5.0 | scripts/lifecycle-sync-audit.ts | N/A |
@@ -217,7 +221,7 @@
 | verify-readme-sync.ts | 1.4.0 | scripts/verify-readme-sync.ts | bun, fs, path |
 | verify-scripts.ts | 1.4.1 | scripts/verify-scripts.ts | fs, path |
 | verify-skill-graph.ts | 1.5.0 | scripts/verify-skill-graph.ts | N/A |
-| verify-skills.ts | 1.2.0 | scripts/verify-skills.ts | N/A |
+| verify-skills.ts | 1.3.0 | scripts/verify-skills.ts | N/A |
 
 ---
 
@@ -240,7 +244,7 @@
 **Checked**: Claude (.claude/) vs Gemini (.gemini/)
 
 - **Commands with parity**: 7 / 7
-- **Skills with parity**: 27 / 53
+- **Skills with parity**: 29 / 57
 
 ---
 
