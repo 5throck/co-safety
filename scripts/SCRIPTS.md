@@ -74,7 +74,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-doc-folder.ts` | — | 1.1.0 | active | — | — | — | — |
 | `validate-docs-links.ts` | — | 1.0.0 | active | — | — | — | — |
 | `validate-md-language.ts` | — | 1.8.0 | active | — | — | — | — |
-| `validate-skills.ts` | — | 1.3.0 | active | — | — | — | — |
+| `validate-skills.ts` | — | 1.3.1 | active | — | — | — | — |
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
 | `verify-memory.ts` | — | 1.1.0 | active | — | — | — | — |
 | `verify-readme-sync.ts` | — | 1.4.0 | active | — | — | — | — |
@@ -98,7 +98,8 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `generate-skill-graph.ts` | L0 | 1.7.0 | active | —| —| L0+L1 | —|
+| `generate-skill-graph.ts` | L0 | 1.7.1 | active | —| —| L0+L1 | —|
+| `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/context-sections.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `helpers/merge-frontmatter.ts` | L0 | 1.8.6 | active | —| —| L0+L1 | —|

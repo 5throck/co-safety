@@ -10,6 +10,9 @@
 |-------|-------|-------------------|--------|------------|--------|---------|
 | `agent-lifecycle-manager` | L3 | — | — | skill-lifecycle-manager (composes_with) | — | — |
 | `api-documentation` | L3 | — | — | — | — | — |
+| `daily/audit-preparation` | L3 | — | — | — | — | — |
+| `daily/compliance-gap` | L3 | — | — | — | — | — |
+| `daily/risk-assessment` | L3 | — | — | — | — | — |
 | `decision-record` | L3 | — | — | — | — | — |
 | `documentation-writing` | L3 | — | — | — | — | — |
 | `evidence-ledger` | L3 | — | — | — | — | — |
@@ -19,6 +22,7 @@
 | `i18n-formatting` | L3 | i18n-specialist | — | — | — | — |
 | `i18n-layout` | L3 | i18n-specialist | — | — | — | — |
 | `i18n-locale-config` | L3 | i18n-specialist | — | — | — | — |
+| `investigation/hazop-analysis` | L3 | — | — | — | — | — |
 | `meeting-facilitation` | L3 | — | — | — | — | — |
 | `platform-command-lifecycle-manager` | L3 | — | — | — | — | — |
 | `platform-skill-lifecycle-manager` | L3 | — | — | — | — | — |

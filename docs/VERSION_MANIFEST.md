@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-29T07:19:36.055Z
+**Generated**: 2026-08-29T07:44:54.266Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 41
 - **Skills**: 53
-- **Scripts**: 90
+- **Scripts**: 91
 - **Commands**: 7
 
 ---
@@ -158,7 +158,7 @@
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-scripts-readme.ts | 1.1.0 | scripts/generate-scripts-readme.ts | N/A |
-| generate-skill-graph.ts | 1.7.0 | scripts/generate-skill-graph.ts | js-yaml |
+| generate-skill-graph.ts | 1.7.1 | scripts/generate-skill-graph.ts | js-yaml |
 | generate-version-manifest.ts | 1.0.7 | scripts/generate-version-manifest.ts | bun |
 | language-guard.ts | 1.0.0 | scripts/lib/language-guard.ts | N/A |
 | lifecycle-sync-audit.ts | 1.5.0 | scripts/lifecycle-sync-audit.ts | N/A |
@@ -209,7 +209,8 @@
 | validate-md-language.ts | 1.8.0 | scripts/validate-md-language.ts | fs |
 | validate-model-registry.ts | N/A | scripts/validate-model-registry.ts | N/A |
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
-| validate-skills.ts | 1.3.0 | scripts/validate-skills.ts | N/A |
+| validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | js-yaml |
+| validate-skills.ts | 1.3.1 | scripts/validate-skills.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.1.0 | scripts/verify-memory.ts | fs, path |
 | verify-platform-lifecycle.ts | 1.1.2 | scripts/verify-platform-lifecycle.ts | N/A |

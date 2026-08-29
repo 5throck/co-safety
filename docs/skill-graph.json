@@ -17,6 +17,21 @@
       "layer": "L3"
     },
     {
+      "id": "daily/audit-preparation",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "daily/compliance-gap",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "daily/risk-assessment",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
       "id": "decision-record",
       "type": "skill",
       "layer": "L3"
@@ -67,8 +82,43 @@
       "layer": "L3"
     },
     {
+      "id": "investigation/hazop-analysis",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
       "id": "meeting-facilitation",
       "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "output_type.audit_findings",
+      "type": "output_type",
+      "layer": "L3"
+    },
+    {
+      "id": "output_type.governance_actions",
+      "type": "output_type",
+      "layer": "L3"
+    },
+    {
+      "id": "output_type.governance_review",
+      "type": "output_type",
+      "layer": "L3"
+    },
+    {
+      "id": "output_type.hazard_inventory",
+      "type": "output_type",
+      "layer": "L3"
+    },
+    {
+      "id": "output_type.plan_review_record",
+      "type": "output_type",
+      "layer": "L3"
+    },
+    {
+      "id": "output_type.risk_assessment_record",
+      "type": "output_type",
       "layer": "L3"
     },
     {
@@ -84,6 +134,21 @@
     {
       "id": "pm",
       "type": "agent",
+      "layer": "L3"
+    },
+    {
+      "id": "procedure.co-safety.daily-risk-assessment",
+      "type": "procedure",
+      "layer": "L3"
+    },
+    {
+      "id": "procedure.co-safety.governance-audit",
+      "type": "procedure",
+      "layer": "L3"
+    },
+    {
+      "id": "procedure.co-safety.safety-plan-review",
+      "type": "procedure",
       "layer": "L3"
     },
     {
@@ -169,6 +234,12 @@
         "field": "relates_to",
         "index": 0
       }
+    },
+    {
+      "type": "produces",
+      "from": "daily/audit-preparation",
+      "to": "output_type.governance_review",
+      "source": "procedure_schema"
     },
     {
       "type": "references",
@@ -294,10 +365,124 @@
       "source": "prose"
     },
     {
+      "type": "produces",
+      "from": "investigation/hazop-analysis",
+      "to": "output_type.hazard_inventory",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "produces",
+      "from": "meeting-facilitation",
+      "to": "output_type.governance_actions",
+      "source": "procedure_schema"
+    },
+    {
       "type": "references",
       "from": "pm",
       "to": "decision-record",
       "source": "prose"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "daily/audit-preparation",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "daily/risk-assessment",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "investigation/hazop-analysis",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "produces",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "output_type.risk_assessment_record",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "safety-governance-manager",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "safety-workflow-manager",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "safety-workflow-manager",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "daily/compliance-gap",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "meeting-facilitation",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "produces",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "output_type.audit_findings",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "pm",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "follows",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "procedure.co-safety.daily-risk-assessment",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "safety-governance-manager",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.safety-plan-review",
+      "to": "daily/audit-preparation",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "produces",
+      "from": "procedure.co-safety.safety-plan-review",
+      "to": "output_type.plan_review_record",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "enables",
+      "from": "procedure.co-safety.safety-plan-review",
+      "to": "procedure.co-safety.daily-risk-assessment",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.safety-plan-review",
+      "to": "safety-governance-manager",
+      "source": "procedure_schema"
     },
     {
       "type": "enables",
