@@ -6,34 +6,34 @@
 
 ## Skill Catalog
 
-| Skill | Layer | Required-by Agents | Phases | Relates-to |
-|-------|-------|-------------------|--------|------------|
-| `agent-lifecycle-manager` | L3 | — | — | — |
-| `api-documentation` | L3 | — | — | — |
-| `decision-record` | L3 | — | — | — |
-| `documentation-writing` | L3 | — | — | — |
-| `evidence-ledger` | L3 | — | — | — |
-| `explain-me` | L3 | — | — | — |
-| `finishing-a-development-branch` | L3 | — | — | — |
-| `gateguard` | L3 | — | — | — |
-| `i18n-formatting` | L3 | — | — | — |
-| `i18n-layout` | L3 | — | — | — |
-| `i18n-locale-config` | L3 | — | — | — |
-| `meeting-facilitation` | L3 | — | — | — |
-| `platform-command-lifecycle-manager` | L3 | — | — | — |
-| `platform-skill-lifecycle-manager` | L3 | — | — | — |
-| `project-review` | L3 | — | — | — |
-| `research-analysis` | L3 | — | — | — |
-| `script-lifecycle-manager` | L3 | — | — | — |
-| `security-scan` | L3 | — | — | — |
-| `skill-lifecycle-manager` | L3 | — | — | — |
-| `standup-synthesizer` | L3 | — | — | — |
-| `sync` | L3 | — | — | — |
-| `team-builder` | L3 | — | — | — |
-| `translate` | L3 | — | — | — |
-| `update-bun-packages` | L3 | — | — | — |
-| `validate-docs-links` | L3 | — | — | — |
-| `zod-contract-gate` | L3 | — | — | — |
+| Skill | Layer | Required-by Agents | Phases | Relates-to | Inputs | Outputs |
+|-------|-------|-------------------|--------|------------|--------|---------|
+| `agent-lifecycle-manager` | L3 | — | — | skill-lifecycle-manager (composes_with) | — | — |
+| `api-documentation` | L3 | — | — | — | — | — |
+| `decision-record` | L3 | — | — | — | — | — |
+| `documentation-writing` | L3 | — | — | — | — | — |
+| `evidence-ledger` | L3 | — | — | — | — | — |
+| `explain-me` | L3 | — | — | — | — | — |
+| `finishing-a-development-branch` | L3 | — | — | — | — | — |
+| `gateguard` | L3 | — | — | — | — | — |
+| `i18n-formatting` | L3 | i18n-specialist | — | — | — | — |
+| `i18n-layout` | L3 | i18n-specialist | — | — | — | — |
+| `i18n-locale-config` | L3 | i18n-specialist | — | — | — | — |
+| `meeting-facilitation` | L3 | — | — | — | — | — |
+| `platform-command-lifecycle-manager` | L3 | — | — | — | — | — |
+| `platform-skill-lifecycle-manager` | L3 | — | — | — | — | — |
+| `project-review` | L3 | — | — | — | — | — |
+| `research-analysis` | L3 | — | — | documentation-writing (enables) | — | — |
+| `script-lifecycle-manager` | L3 | — | — | — | — | — |
+| `security-scan` | L3 | — | — | — | — | — |
+| `skill-lifecycle-manager` | L3 | — | — | script-lifecycle-manager (composes_with) | — | — |
+| `standup-synthesizer` | L3 | — | — | — | — | — |
+| `sync` | L3 | — | — | — | — | — |
+| `team-builder` | L3 | — | — | — | — | — |
+| `translate` | L3 | — | — | documentation-writing (composes_with) | — | — |
+| `update-bun-packages` | L3 | — | — | — | — | — |
+| `validate-docs-links` | L3 | — | — | — | — | — |
+| `zod-contract-gate` | L3 | — | — | — | — | — |
 
 ## Lifecycle Phase Grouping
 
@@ -51,3 +51,22 @@ Skills used in specific lifecycle phases (from `variant.json` `skill_manifest`):
 | `supersedes` | Supersession — overrides (manual) or decision-record prose labels |
 | `references` | Backtick reference in SKILL.md/agent/ADR body prose, or DEC `knowledge_refs[]` naming an ADR |
 | `cites_skill` | Decision record `skills_used[]` validated against the skill set (ADR-0061 amendment 2026-08-25) |
+| `composes_with` | Typed `relates_to` entry — symmetric, used together in the same phase/workflow (ADR-0060 Amendment 3) |
+| `follows` | Typed `relates_to` entry — sequential/ordering relation, no dependency implication (ADR-0060 Amendment 3) |
+| `enables` | Typed `relates_to` entry — this skill's output unlocks another skill/workflow (ADR-0060 Amendment 3) |
+| `step_uses_skill` | Procedure step → skill, derived from procedure schema.yaml (Procedure Schema v1.0) |
+| `step_by_agent` | Procedure step → agent, derived from procedure schema.yaml (Procedure Schema v1.0) |
+| `produces` | Procedure or skill → output_type node, derived per the INV-4 rule (Procedure Schema v1.0) |
+
+`composes_with` edges carry `symmetric: true` in the JSON and are stored once
+(source→target as declared); consumers MUST treat them as traversable both ways.
+Every edge additionally carries a JSON-only `provenance: {file, field, index?}`
+object recording exactly which frontmatter field/entry produced it (not rendered
+in this table). `inputs`/`outputs` are opaque per-skill labels, shown in the Skill
+Catalog table above — not skill references and not yet resolved as graph edges.
+
+## Decisions & ADRs
+
+| Document | Type | Cites skills | References | Supersedes |
+|----------|------|--------------|------------|------------|
+| `adr:0001` | adr | — | — | — |

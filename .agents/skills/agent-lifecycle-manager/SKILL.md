@@ -9,6 +9,9 @@ description: >
 owner: pm
 version: 1.0.0
 last_reviewed: 2026-05-30
+relates_to:
+  - skill: skill-lifecycle-manager
+    type: composes_with
 metadata:
   type: process
   triggers:
@@ -18,8 +21,6 @@ metadata:
     - agent lifecycle
     - manage agents
 ---
-
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 ## Overview
 
@@ -84,7 +85,7 @@ tier:
 **Content Guidelines**:
 - Provide clear identity and context mapping.
 - Focus on specific behavioral guidelines and domain constraints.
-- Do NOT repeat global rules (like UTF-8 enforcement or standard PR procedures) that are already covered in `docs/context.md`.
+- Do NOT repeat global rules (like UTF-8 enforcement or standard PR procedures) that are already covered in workspace standards.
 - **If the agent role involves research, investigation, or presenting external information**: explicitly include the Source Attribution principle in the agent's constraints or behavioral guidelines — require source citation for factual claims and use `⚠️ Unverified` disclosure for unverifiable information.
 
 ---

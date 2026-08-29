@@ -1,13 +1,19 @@
 ---
-scope: common
 name: research-analysis
-status: active
 description: >
   Conducts systematic research, data synthesis, and evidence-based analysis to support
   decision-making and documentation. Use when: analyzing topics, synthesizing research,
   gathering evidence, or investigating questions for documentation or strategy.
 version: 1.0.0
+scope: common
+status: active
 owner: pm
+last_reviewed: 2026-07-19
+prerequisites: none
+relates_to:
+  - skill: documentation-writing
+    type: enables
+gemini-parity: skip
 metadata:
   type: process
   triggers:
@@ -20,13 +26,11 @@ metadata:
     - literature review
 ---
 
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
-
-## Overview
+## Context
 
 This skill provides a structured approach to conducting systematic research, analyzing information, and synthesizing findings into actionable insights. It ensures research is thorough, well-documented, and focused on answering specific questions or solving particular problems.
 
-## When to Use This Skill
+## When to Use
 
 **Information Gathering**:
 - Trigger: "Research X topic" or "Gather information on Y"
@@ -45,6 +49,8 @@ This skill provides a structured approach to conducting systematic research, ana
 - Use Case: Understanding landscape and positioning
 
 ---
+
+## Execution Steps
 
 ## Step 1: Define Research Objectives
 
@@ -239,7 +245,7 @@ This skill provides a structured approach to conducting systematic research, ana
 
 ---
 
-## Expected Outputs
+## Output Format
 
 **For Research Tasks**:
 - Research objectives and questions defined
