@@ -74,7 +74,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-doc-folder.ts` | — | 1.1.0 | active | — | — | — | — |
 | `validate-docs-links.ts` | — | 1.0.0 | active | — | — | — | — |
 | `validate-md-language.ts` | — | 1.8.0 | active | — | — | — | — |
-| `validate-skills.ts` | — | 1.1.0 | active | — | — | — | — |
+| `validate-skills.ts` | — | 1.3.0 | active | — | — | — | — |
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
 | `verify-memory.ts` | — | 1.1.0 | active | — | — | — | — |
 | `verify-readme-sync.ts` | — | 1.4.0 | active | — | — | — | — |
@@ -98,7 +98,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `generate-skill-graph.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
+| `generate-skill-graph.ts` | L0 | 1.7.0 | active | —| —| L0+L1 | —|
 | `helpers/context-sections.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `helpers/merge-frontmatter.ts` | L0 | 1.8.6 | active | —| —| L0+L1 | —|
@@ -130,7 +130,8 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-model-registry.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
 | `verify-platform-lifecycle.ts` | L0 | 1.1.2 | active | —| —| L0+L1 | —|
-| `verify-skill-graph.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
+| `verify-skill-graph.ts` | L0 | 1.5.0 | active | —| —| L0+L1 | —|
+| `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.

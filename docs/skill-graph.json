@@ -2,6 +2,11 @@
   "version": 1,
   "nodes": [
     {
+      "id": "adr:0001",
+      "type": "adr",
+      "layer": "L3"
+    },
+    {
       "id": "agent-lifecycle-manager",
       "type": "skill",
       "layer": "L3"
@@ -154,6 +159,18 @@
   ],
   "edges": [
     {
+      "type": "composes_with",
+      "from": "agent-lifecycle-manager",
+      "to": "skill-lifecycle-manager",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/agent-lifecycle-manager/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
       "type": "references",
       "from": "decision-record",
       "to": "evidence-ledger",
@@ -178,6 +195,17 @@
       "source": "prose"
     },
     {
+      "type": "used_by",
+      "from": "i18n-formatting",
+      "to": "i18n-specialist",
+      "source": "required_skills",
+      "provenance": {
+        "file": "agents/i18n-specialist.md",
+        "field": "required_skills",
+        "index": 1
+      }
+    },
+    {
       "type": "references",
       "from": "i18n-formatting",
       "to": "translate",
@@ -196,6 +224,17 @@
       "source": "prose"
     },
     {
+      "type": "used_by",
+      "from": "i18n-layout",
+      "to": "i18n-specialist",
+      "source": "required_skills",
+      "provenance": {
+        "file": "agents/i18n-specialist.md",
+        "field": "required_skills",
+        "index": 2
+      }
+    },
+    {
       "type": "references",
       "from": "i18n-layout",
       "to": "translate",
@@ -212,6 +251,17 @@
       "from": "i18n-locale-config",
       "to": "i18n-layout",
       "source": "prose"
+    },
+    {
+      "type": "used_by",
+      "from": "i18n-locale-config",
+      "to": "i18n-specialist",
+      "source": "required_skills",
+      "provenance": {
+        "file": "agents/i18n-specialist.md",
+        "field": "required_skills",
+        "index": 0
+      }
     },
     {
       "type": "references",
@@ -250,6 +300,29 @@
       "source": "prose"
     },
     {
+      "type": "enables",
+      "from": "research-analysis",
+      "to": "documentation-writing",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/research-analysis/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "composes_with",
+      "from": "skill-lifecycle-manager",
+      "to": "script-lifecycle-manager",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/skill-lifecycle-manager/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
       "type": "references",
       "from": "team-builder",
       "to": "agent-lifecycle-manager",
@@ -260,6 +333,18 @@
       "from": "team-builder",
       "to": "skill-lifecycle-manager",
       "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "translate",
+      "to": "documentation-writing",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/translate/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
     }
   ]
 }

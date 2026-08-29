@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-28T23:58:45.954Z
+**Generated**: 2026-08-29T07:19:36.055Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 41
 - **Skills**: 53
-- **Scripts**: 89
+- **Scripts**: 90
 - **Commands**: 7
 
 ---
@@ -104,14 +104,14 @@
 | script-lifecycle-manager | 1.2.0 | .claude/skills/script-lifecycle-manager/SKILL.md | both | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
 | security-scan | 1.0.0 | skills/security-scan/SKILL.md | workspace | security scan, scan for vulnerabilities, security check, run security | pm |
 | security-scan | 1.0.0 | .claude/skills/security-scan/SKILL.md | both | security scan, scan for vulnerabilities, security check, run security | pm |
-| skill-lifecycle-manager | 1.2.0 | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
-| skill-lifecycle-manager | 1.2.0 | .claude/skills/skill-lifecycle-manager/SKILL.md | both | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
+| skill-lifecycle-manager | 1.2.1 | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
+| skill-lifecycle-manager | 1.2.1 | .claude/skills/skill-lifecycle-manager/SKILL.md | both | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
 | standup-synthesizer | 1.0.0 | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
 | standup-synthesizer | 1.0.0 | .claude/skills/standup-synthesizer/SKILL.md | both | standup digest, daily standup, synthesize standup, work summary | pm |
 | sync | 1.2.2 | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
 | sync | 1.2.2 | .claude/skills/sync/SKILL.md | both | sync, /sync, commit and push, create PR | pm |
-| team-builder | 1.1.0 | skills/team-builder/SKILL.md | workspace | 새 팀 구성, 에이전트팀 변경, 신규 도메인 팀 빌딩, build new agent team, agent team benchmarking, team proposal generation, consulting team design | pm |
-| team-builder | 1.1.0 | .claude/skills/team-builder/SKILL.md | both | 새 팀 구성, 에이전트팀 변경, 신규 도메인 팀 빌딩, build new agent team, agent team benchmarking, team proposal generation, consulting team design | pm |
+| team-builder | 1.1.0 | skills/team-builder/SKILL.md | workspace | build new agent team, create agent team, agent team setup, team builder | pm |
+| team-builder | 1.1.0 | .claude/skills/team-builder/SKILL.md | both | build new agent team, create agent team, agent team setup, team builder | pm |
 | translate | 1.0.1 | skills/translate/SKILL.md | workspace | translate, translation, Korean translation | pm |
 | translate | 1.0.1 | .claude/skills/translate/SKILL.md | both | translate, translation, Korean translation | pm |
 | update-bun-packages | 1.3.0 | skills/update-bun-packages/SKILL.md | workspace | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
@@ -158,7 +158,7 @@
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-scripts-readme.ts | 1.1.0 | scripts/generate-scripts-readme.ts | N/A |
-| generate-skill-graph.ts | 1.3.0 | scripts/generate-skill-graph.ts | N/A |
+| generate-skill-graph.ts | 1.7.0 | scripts/generate-skill-graph.ts | js-yaml |
 | generate-version-manifest.ts | 1.0.7 | scripts/generate-version-manifest.ts | bun |
 | language-guard.ts | 1.0.0 | scripts/lib/language-guard.ts | N/A |
 | lifecycle-sync-audit.ts | 1.5.0 | scripts/lifecycle-sync-audit.ts | N/A |
@@ -203,18 +203,19 @@
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
 | validate-agents.ts | 1.1.1 | scripts/validate-agents.ts | N/A |
+| validate-decisions.ts | 1.0.0 | scripts/validate-decisions.ts | js-yaml |
 | validate-doc-folder.ts | 1.1.0 | scripts/validate-doc-folder.ts | fs, path |
 | validate-docs-links.ts | 1.0.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-md-language.ts | 1.8.0 | scripts/validate-md-language.ts | fs |
 | validate-model-registry.ts | N/A | scripts/validate-model-registry.ts | N/A |
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
-| validate-skills.ts | 1.1.0 | scripts/validate-skills.ts | N/A |
+| validate-skills.ts | 1.3.0 | scripts/validate-skills.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.1.0 | scripts/verify-memory.ts | fs, path |
 | verify-platform-lifecycle.ts | 1.1.2 | scripts/verify-platform-lifecycle.ts | N/A |
 | verify-readme-sync.ts | 1.4.0 | scripts/verify-readme-sync.ts | bun, fs, path |
 | verify-scripts.ts | 1.4.1 | scripts/verify-scripts.ts | fs, path |
-| verify-skill-graph.ts | 1.1.0 | scripts/verify-skill-graph.ts | N/A |
+| verify-skill-graph.ts | 1.5.0 | scripts/verify-skill-graph.ts | N/A |
 | verify-skills.ts | 1.2.0 | scripts/verify-skills.ts | N/A |
 
 ---
