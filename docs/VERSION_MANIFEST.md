@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-08-29T10:49:54.689Z
+**Generated**: 2026-08-29T12:49:32.114Z
 **Manifest Version**: 1.0
 **Location**: docs\VERSION_MANIFEST.md
 
@@ -8,7 +8,7 @@
 
 ## Summary
 
-- **Agents**: 41
+- **Agents**: 40
 - **Skills**: 57
 - **Scripts**: 91
 - **Commands**: 7
@@ -56,7 +56,6 @@
 | domains/industry/shipbuilding/shipbuilding-agent | agents/domains/industry/shipbuilding/shipbuilding-agent.md | medium | sonnet | 2026-08-28 |
 | domains/industry/steelmaking/steelmaking-agent | agents/domains/industry/steelmaking/steelmaking-agent.md | medium | sonnet | 2026-08-28 |
 | domains/industry/waste/waste-agent | agents/domains/industry/waste/waste-agent.md | medium | sonnet | 2026-08-28 |
-| i18n-specialist | agents/i18n-specialist.md | medium        # claude-sonnet-5-0 | inherit | 2026-08-28 |
 | pm | agents/pm.md | N/A | N/A | 2026-08-28 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | opus | 2026-08-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | opus | 2026-08-28 |
@@ -139,7 +138,7 @@
 | analyze-git-history.ts | 1.0.2 | scripts/analyze-git-history.ts | child_process |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
 | audit-variant.ts | 1.0.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.27.0 | scripts/audit.ts | bun |
+| audit.ts | 2.28.0 | scripts/audit.ts | bun |
 | auth.ts | 1.0.0 | scripts/lib/auth.ts | N/A |
 | auto-executor.ts | 1.0.0 | scripts/lib/auto-executor.ts | N/A |
 | check-pm-approval.ts | 1.0.1 | scripts/co-safety/check-pm-approval.ts | N/A |
@@ -219,7 +218,7 @@
 | verify-memory.ts | 1.1.0 | scripts/verify-memory.ts | fs, path |
 | verify-platform-lifecycle.ts | 1.1.2 | scripts/verify-platform-lifecycle.ts | N/A |
 | verify-readme-sync.ts | 1.4.0 | scripts/verify-readme-sync.ts | bun, fs, path |
-| verify-scripts.ts | 1.4.1 | scripts/verify-scripts.ts | fs, path |
+| verify-scripts.ts | 1.4.2 | scripts/verify-scripts.ts | fs, path |
 | verify-skill-graph.ts | 1.5.0 | scripts/verify-skill-graph.ts | N/A |
 | verify-skills.ts | 1.3.0 | scripts/verify-skills.ts | N/A |
 

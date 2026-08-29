@@ -82,11 +82,6 @@
       "layer": "L3"
     },
     {
-      "id": "i18n-specialist",
-      "type": "agent",
-      "layer": "L3"
-    },
-    {
       "id": "investigation/hazop-analysis",
       "type": "skill",
       "layer": "L3"
@@ -294,17 +289,6 @@
       "source": "prose"
     },
     {
-      "type": "used_by",
-      "from": "i18n-formatting",
-      "to": "i18n-specialist",
-      "source": "required_skills",
-      "provenance": {
-        "file": "agents/i18n-specialist.md",
-        "field": "required_skills",
-        "index": 1
-      }
-    },
-    {
       "type": "references",
       "from": "i18n-formatting",
       "to": "translate",
@@ -321,17 +305,6 @@
       "from": "i18n-layout",
       "to": "i18n-locale-config",
       "source": "prose"
-    },
-    {
-      "type": "used_by",
-      "from": "i18n-layout",
-      "to": "i18n-specialist",
-      "source": "required_skills",
-      "provenance": {
-        "file": "agents/i18n-specialist.md",
-        "field": "required_skills",
-        "index": 2
-      }
     },
     {
       "type": "references",
@@ -352,43 +325,8 @@
       "source": "prose"
     },
     {
-      "type": "used_by",
-      "from": "i18n-locale-config",
-      "to": "i18n-specialist",
-      "source": "required_skills",
-      "provenance": {
-        "file": "agents/i18n-specialist.md",
-        "field": "required_skills",
-        "index": 0
-      }
-    },
-    {
       "type": "references",
       "from": "i18n-locale-config",
-      "to": "translate",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-specialist",
-      "to": "i18n-formatting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-specialist",
-      "to": "i18n-layout",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-specialist",
-      "to": "i18n-locale-config",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-specialist",
       "to": "translate",
       "source": "prose"
     },

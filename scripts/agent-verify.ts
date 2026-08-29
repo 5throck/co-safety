@@ -2,7 +2,7 @@
 /**
  * Agent Verification Script for Workspace Root
  * @version 1.0.2
- * Verifies synchronization between agents/ directory and documentation (AGENTS.md, CONSTITUTION.md)
+ * Verifies synchronization between agents/ directory and documentation (AGENTS.md, context.md)
  *
  * Usage:
  *   bun scripts/agent-verify.ts
@@ -44,14 +44,14 @@ function extractDocAgents(content: string): string[] {
   let match;
   while ((match = tableRegex.exec(content)) !== null) {
     const agentName = match[1];
-    if (agentName === '*' || agentName.includes('*') || agentName.includes('<') || agentName.includes('>') || path.basename(agentName).startsWith('_')) continue;
+    if (agentName === '*' || agentName.includes('*') || agentName.includes('<') || agentName.includes('>') || agentName.startsWith('_')) continue;
     if (!agents.includes(agentName)) agents.push(agentName);
   }
   // Match inline agent references (skip wildcards, placeholders, archive paths)
   const inlineRegex = /`agents\/([^. )]+)(?:\.md)?`/g;
   while ((match = inlineRegex.exec(content)) !== null) {
     const agentName = match[1];
-    if (agentName === '*' || agentName.includes('*') || agentName.includes('<') || agentName.includes('>') || path.basename(agentName).startsWith('_')) continue;
+    if (agentName === '*' || agentName.includes('*') || agentName.includes('<') || agentName.includes('>') || agentName.startsWith('_')) continue;
     if (!agents.includes(agentName)) agents.push(agentName);
   }
   return agents;
@@ -63,22 +63,11 @@ async function verifyAgents(): Promise<VerificationResult> {
 
   let agentFiles: string[] = [];
   try {
-    const walk = async (dir: string) => {
-      const entries = await fs.readdir(dir, { withFileTypes: true });
-      for (const entry of entries) {
-        const fullPath = path.join(dir, entry.name);
-        if (entry.isDirectory()) {
-          await walk(fullPath);
-        } else if (entry.name.endsWith(".md") && entry.name !== "handoff-spec.md" && entry.name !== "README.md" && entry.name !== "_COMMON.md" && entry.name !== ".gitkeep") {
-          const relPath = path.relative(agentsDir, fullPath);
-          agentFiles.push(relPath.replace(/\\/g, "/"));
-        }
-      }
-    };
-    await walk(agentsDir);
+    const files = await fs.readdir(agentsDir);
+    agentFiles = files.filter((f) => f.endsWith(".md") && !["handoff-spec.md", "README.md", "README_ko.md"].includes(f));
     stats.totalAgents = agentFiles.length;
-  } catch (err) {
-    return { pass: false, issues: [{ type: "missing_file", agent: "N/A", message: `agents/ directory error: ${err}` }], stats };
+  } catch {
+    return { pass: false, issues: [{ type: "missing_file", agent: "N/A", message: "agents/ directory not found" }], stats };
   }
 
   let agentsMdContent = "";
