@@ -106,7 +106,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/pm-md-parser.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/security-validator.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/template-utils.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
-| `hooks/gateguard-fact-force.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
+| `hooks/gateguard-fact-force.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `hooks/post-write-lifecycle-check.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `hooks/pre-commit.ts` | L0 | 1.5.10 | active | —| —| L0+L1 | —|
 | `hooks/pre-push.ts` | L0 | 1.2.9 | active | —| —| L0+L1 | —|
