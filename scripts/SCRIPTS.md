@@ -50,7 +50,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/new-domain.ts` | — | 1.0.1 | active | — | — | — | — |
 | `qa-gate.ts` | — | 1.2.0 | active | — | — | — | — |
 | `readme-lifecycle-audit.ts` | — | 1.0.4 | active | — | — | — | — |
-| `retry-handler.ts` | — | 1.0.2 | active | — | — | — | — |
+| `retry-handler.ts` | — | 1.0.1 | active | — | — | — | — |
 | `co-safety/risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/safety-audit.ts` | — | 4.10.1 | active | — | — | — | — |
 | `co-safety/scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
@@ -82,7 +82,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-skills.ts` | — | 1.3.0 | active | — | — | — | — |
 | `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/encoding-utils.ts` | — | 1.1.0 | active | — | — | — | — |
+| `lib/encoding-utils.ts` | — | 1.2.0 | active | — | — | — | — |
 | `lib/error-handling.ts` | — | 1.3.0 | active | — | — | — | — |
 | `lib/evidence-validator.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/language-guard.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -93,7 +93,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
 | `helpers/context-sections.ts` | — | 1.0.0 | active | — | — | — | — |
 | `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
-| `helpers/security-validator.ts` | — | 1.1.0 | active | — | — | — | — |
+| `helpers/security-validator.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/migrate-registry-to-coordinates.ts` | — | 1.0.2 | active | — | — | — | — |
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|

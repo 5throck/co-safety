@@ -141,143 +141,6 @@ Config file: `.mcp.json` (project root) - auto-loaded by both the CLI and the De
 **Relationship to execution plan table**: teammateMode controls parallel execution mode. The execution plan table defines the multi-agent task dispatch.
 <!-- COMMON-CLAUDE:END -->
 
-### Skill Resolution Priority
-
-When a user request matches a skill trigger, apply this priority order — **enforced every session, regardless of platform**:
-
-| Priority | Source | Location |
-|----------|--------|----------|
-| **1 (highest)** | Local project skills | `skills/` (scanned recursively): flat governance skills (`skills/<name>/SKILL.md`), operational category dirs (`skills/daily/`, `skills/investigation/`, `skills/emergency/`), and `skills/domains/` |
-| **2** | Platform config skills | `.gemini/skills/` or `.claude/skills/` in the project root |
-| **3 (lowest)** | Platform-native skills | built-in plan mode and subagent capabilities (no external plugin required) |
-
-**Rule**: If a local skill's `metadata.triggers` matches the user request, use it — do **not** fall through to a global plugin with overlapping intent.
-
-**`skills/` category layout**: governance/build skills live flat at `skills/<name>/`; routine EHS operations under `skills/daily/`; hazard/incident analysis (HAZOP, RCA) under `skills/investigation/`; emergency response under `skills/emergency/`; domain-specific under `skills/domains/<tier>/<domain>/`. The `_meta/` registry (`skills/_meta/SKILLS.md`) is the path-neutral name index.
-
-**Canonical conflict — meeting vs. brainstorming**:
-
-| User says | Correct skill | Priority |
-|-----------|--------------|----------|
-| "meeting", "facilitate", "agent discussion" | `skills/meeting-facilitation` | 1 |
-| "brainstorm", "design before coding", "explore options" | platform-native plan mode / subagent skills | 3 |
-
-When ambiguous, prefer the local skill and confirm intent with the user.
-Explicit invocation: `/meeting "topic" [--agents a,b] [--rounds N] [--dialogue]`
-
-### 5. Agent Dispatch Rules
-
-**MANDATORY PM GATEWAY**: All specialist agent dispatch MUST go through PM.
-
-See [Agent Dispatch Rules (§5)](#5-agent-dispatch-rules) for the 4-level enforcement model and governance rules.
-
-#### Mandatory Execution Plan Display
-Before any multi-agent dispatch (2+ agents), PM **must** output an execution plan table in the user's active language prior to invoking the Agent tool:
-
-| # | Task | Agent | Tier | Model | Platform |
-|---|------|-------|------|-------|----------|
-| 1 | [task] | [agent] | High/Medium/Low | opus/sonnet/haiku | Both/Claude/Antigravity/L0-only |
-| N | `/sync "type(scope): message"` — lifecycle + audit + commit + push + PR | pm | Medium | claude-sonnet-4-6 | Both |
-
-State parallel vs sequential order below the table. The Agent tool must not be called until this table is visible to the user.
-*Rule: Every execution plan MUST end with `/sync` as the final step — it handles lifecycle update (VERSION_MANIFEST, SCRIPTS.md), full audit, commit, push, and PR creation in one pipeline. No separate Lifecycle Update or Final QA Audit rows are needed.*
-
-#### Phase Determination Checklist (Safety OS)
-
-| Deliverable Type | Phase | Required Agent | Tier |
-|-----------------|-------|----------------|------|
-| Safety policy / KPI / industry profile design | Phase 1-2 | SGM (Safety Governance Manager) | High |
-| Workflow execution / risk assessment / compliance check | Phase 4 | SWM (Safety Workflow Manager) | High |
-| Compliance gap analysis | Phase 4 | compliance-agent | Medium |
-| Emergency response dispatch | Direct | emergency-agent | High |
-| Safety audit / evidence review | Phase 6 | audit-agent | Medium |
-
-**Tier ceiling**: Agents may NOT be elevated beyond their defined tier. Platform column is MANDATORY in every execution plan row.
-
-#### Specialist Agent List
-All agents below require PM dispatch:
-- safety-governance-manager (SGM) — Phase 1-2 — High
-- legal-agent — Phase 1-2 — Medium
-- safety-workflow-manager (SWM) — Phase 3-4 — High
-- emergency-agent — Phase 4 — High
-- disaster-response-agent — Phase 4 — High
-- docs-writer — Phase 4 — Medium
-- compliance-agent — Phase 4 — Medium
-- risk-assessment-agent — Phase 4 — Medium
-- reporting-agent — Phase 4 — Medium
-- training-agent — Phase 4 — Medium
-- psm-agent — Phase 4 — Medium
-- asset-integrity-agent — Phase 4 — Medium
-- contractor-safety-agent — Phase 4 — Medium
-- occupational-health-agent — Phase 4 — Medium
-- msds-agent — Phase 4 — Medium
-- ehschem-agent — Phase 4 — Medium
-- ehsconst-agent — Phase 4 — Medium
-- gasterm-agent — Phase 4 — Medium
-- powergen-agent — Phase 4 — Medium
-- gmp-agent — Phase 4 — Medium
-- glp-agent — Phase 4 — Medium
-- gdp-agent — Phase 4 — Medium
-- gcp-agent — Phase 4 — Medium
-- gvp-agent — Phase 4 — Medium
-- meddevice-agent — Phase 4 — Medium
-- food-agent — Phase 4 — Medium
-- cosmetics-agent — Phase 4 — Medium
-- semicon-agent — Phase 4 — Medium
-- battery-agent — Phase 4 — Medium
-- shipbuilding-agent — Phase 4 — Medium
-- steelmaking-agent — Phase 4 — Medium
-- datacenter-agent — Phase 4 — Medium
-- logistics-agent — Phase 4 — Medium
-- railway-agent — Phase 4 — Medium
-- waste-agent — Phase 4 — Medium
-- defense-agent — Phase 4 — Medium
-- biotech-agent — Phase 4 — Medium
-- incident-investigation-agent — Phase 5 — Medium
-- audit-agent — Phase 5-6 — Medium
-
-#### Permission Denial Protocol
-
-When a specialist agent's required tool is denied by the user, PM must **not** substitute for the specialist. Instead:
-
-1. Identify the denial Type (A/B/C/D) using the classification in [`agents/pm.md`](agents/pm.md#permission-denial-protocol)
-2. Output the Escalation Template immediately
-3. Log the denial to `memory/YYYY-MM-DD.md`
-4. Halt the blocked task — do not proceed without the required tool
-
-See [`agents/pm.md` — Permission Denial Protocol](agents/pm.md#permission-denial-protocol) for the full Type classification table and Escalation Template.
-
-### 6. Native Sub-agents (`Agent` Tool)
-Use the native `Agent` tool to spawn sub-agents for parallel or isolated tasks. Sub-agents load their role-based configurations from `agents/<name>.md`.
-
-> **Agent Architecture**: See [Agent Dispatch Rules (§5)](#5-agent-dispatch-rules) for governance rules.
-> **Agent Roster**: See [AGENTS.md](AGENTS.md) for the canonical index of all available agents.
-> **docs-writer tier**: Medium (claude-sonnet-4-6) — upgraded from Low per 2026-05-28 team restructuring.
-
-**Agent Dispatch** - use the `Agent` tool (not a bash CLI command):
-```
-Agent(
-  description   = "Format official documentation",
-  prompt        = "You are the Technical Documentation Writer. [paste agents/_shared/docs-writer.md content here]\n\nTask: Format the SOP per the approved plan.",
-  subagent_type = "general-purpose",  // platform agent type; embed the agents/<name>.md role definition in the prompt
-  model         = "sonnet"  // REQUIRED — map from the dispatched agent's frontmatter tier (or the execution plan's Model column) to its short alias: High → opus, Medium → sonnet, Low → haiku. docs-writer's frontmatter declares tier.claude: medium, so it maps to sonnet. Writing a registry model ID in the execution plan table does NOT apply it; omitting this parameter silently inherits the parent session's model.
-)
-```
-
-Each implementation task follows the **Phase 4 execution loop** (see [AGENTS.md - Subagent Roster](AGENTS.md#subagent-roster)):
-1. **The dispatched Phase 4 specialist** (e.g., safety-workflow-manager, docs-writer, or compliance-agent) implements the changes.
-2. **PM** verifies against acceptance criteria by running `bun scripts/audit.ts` directly.
-3. **Quality gate (audit script)** validates compliance.
-
-> Loop and correct if review errors are flagged - maximum **3 iterations** before escalating to the user.
-
-#### Cost Optimization (3-Tier Strategy)
-The PM agent uses the platform's **native subagent dispatch and plan mode** for multi-agent harness engineering, applying a 3-tier model strategy for cost optimization:
-**Model Selection Overrides** (overridden per agent invocation when appropriate):
-- **High-tier (Design/Planning)** — `claude-opus-4-7` (Translate to `model = "opus"` in `Agent()` call): Complex analysis, architectural refactoring, or PM orchestration.
-- **Medium-tier (Review/QA)** — `claude-sonnet-4-6` (Translate to `model = "sonnet"` in `Agent()` call): Code review, testing, standard implementation logic, and quality gates. Supervises the Low-tier.
-- **Low-tier (Execution/Coding)** — `claude-haiku-4-5` (Translate to `model = "haiku"` in `Agent()` call): Simple transformations, boilerplate generation, or strictly scoped sub-agent tasks.
-
 <!-- COMMON-CLAUDE:START -->
 ### 4. Language Policy for Documentation
 
@@ -351,8 +214,6 @@ If a custom slash command or background script returns a non-zero exit code:
   * Direct push attempt to `main` (caught by `pre-push`). Fix by executing the `/sync` pipeline script which handles target branch generation and PR staging automatically.
 <!-- COMMON-CLAUDE:END -->
 
----
-
 <!-- COMMON-CLAUDE:START -->
 ### 11. Windows Platform Requirement
 
@@ -362,6 +223,16 @@ If a custom slash command or background script returns a non-zero exit code:
 - Verify: `git config core.hooksPath` should point to `.githooks/`
 - All `scripts/` operational scripts are TypeScript (`.ts`) — run via `bun scripts/<name>.ts`. No `.sh/.ps1` counterparts (ADR-0036).
 - If a hook fails on Windows with "command not found", run it via Git Bash: `"C:\Program Files\Git\bin\bash.exe" .githooks/pre-commit`
+<!-- COMMON-CLAUDE:END -->
+
+<!-- COMMON-CLAUDE:START -->
+## Git & PR Additions (Claude Code)
+
+All shared Git/PR rules are in [docs/context.md](docs/context.md). Claude Code-specific additions:
+
+- **PR Language**: Governed by [docs/context.md](docs/context.md). All PR titles, bodies, and review comments must be written in English - no exceptions.
+
+*Last Updated: 2026-09-01 — removed redundant N-1/N boilerplate rows; /sync already covers lifecycle + audit + commit + push + PR; previous: 2026-06-21 inlined N-1/N rows*
 <!-- COMMON-CLAUDE:END -->
 
 ---

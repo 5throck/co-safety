@@ -173,120 +173,6 @@ lang_reason: legal # legal | source-material | proper-noun
 *(Not available for: context.md, CLAUDE.md, GEMINI.md, AGENTS.md, or any variant context.md)*
 <!-- COMMON-GEMINI:END -->
 
-### 5. Agent Dispatch Rules
-
-See [Agent Dispatch Rules (§5)](#5-agent-dispatch-rules) for the 4-level enforcement model and governance rules.
-
-#### Mandatory Execution Plan Display
-Before any multi-agent dispatch (2+ agents), PM **must** output an execution plan table in the user's active language prior to invoking the Agent tool:
-
-| # | Task | Agent | Tier | Model | Platform |
-|---|------|-------|------|-------|----------|
-| 1 | [task] | [agent] | High/Medium/Low | high/medium/low | Both/Claude/Antigravity |
-| N | `/sync "type(scope): message"` — lifecycle + audit + commit + push + PR | pm | Medium | gemini-3.5-flash | Both |
-
-State parallel vs sequential order below the table. The Agent tool must not be called until this table is visible to the user.
-*Rule: Every execution plan MUST end with `/sync` as the final step — it handles lifecycle update, full audit, commit, push, and PR creation. No separate Lifecycle Update or Final QA Audit rows are needed.*
-
-#### Phase Determination Checklist (Safety OS)
-
-| Deliverable Type | Phase | Required Agent | Tier |
-|-----------------|-------|----------------|------|
-| Safety policy / KPI / industry profile design | Phase 1-2 | SGM (Safety Governance Manager) | High |
-| Workflow execution / risk assessment / compliance check | Phase 4 | SWM (Safety Workflow Manager) | High |
-| Compliance gap analysis | Phase 4 | compliance-agent | Medium |
-| Emergency response dispatch | Direct | emergency-agent | High |
-| Safety audit / evidence review | Phase 6 | audit-agent | Medium |
-
-**Tier ceiling**: Agents may NOT be elevated beyond their defined tier. Platform column is MANDATORY in every execution plan row.
-
-#### Specialist Agent List
-All agents below require PM dispatch:
-- safety-governance-manager (SGM) — Phase 1-2 — High
-- legal-agent — Phase 1-2 — Medium
-- safety-workflow-manager (SWM) — Phase 3-4 — High
-- emergency-agent — Phase 4 — High
-- disaster-response-agent — Phase 4 — High
-- docs-writer — Phase 4 — Medium
-- compliance-agent — Phase 4 — Medium
-- risk-assessment-agent — Phase 4 — Medium
-- reporting-agent — Phase 4 — Medium
-- training-agent — Phase 4 — Medium
-- psm-agent — Phase 4 — Medium
-- asset-integrity-agent — Phase 4 — Medium
-- contractor-safety-agent — Phase 4 — Medium
-- occupational-health-agent — Phase 4 — Medium
-- msds-agent — Phase 4 — Medium
-- ehschem-agent — Phase 4 — Medium
-- ehsconst-agent — Phase 4 — Medium
-- gasterm-agent — Phase 4 — Medium
-- powergen-agent — Phase 4 — Medium
-- gmp-agent — Phase 4 — Medium
-- glp-agent — Phase 4 — Medium
-- gdp-agent — Phase 4 — Medium
-- gcp-agent — Phase 4 — Medium
-- gvp-agent — Phase 4 — Medium
-- meddevice-agent — Phase 4 — Medium
-- food-agent — Phase 4 — Medium
-- cosmetics-agent — Phase 4 — Medium
-- semicon-agent — Phase 4 — Medium
-- battery-agent — Phase 4 — Medium
-- shipbuilding-agent — Phase 4 — Medium
-- steelmaking-agent — Phase 4 — Medium
-- datacenter-agent — Phase 4 — Medium
-- logistics-agent — Phase 4 — Medium
-- railway-agent — Phase 4 — Medium
-- waste-agent — Phase 4 — Medium
-- defense-agent — Phase 4 — Medium
-- biotech-agent — Phase 4 — Medium
-- incident-investigation-agent — Phase 5 — Medium
-- audit-agent — Phase 5-6 — Medium
-
-#### Permission Denial Protocol
-
-When a specialist agent's required tool is denied by the user, PM must **not** substitute for the specialist. Instead:
-
-1. Identify the denial Type (A/B/C/D) using the classification in [`agents/pm.md`](agents/pm.md#permission-denial-protocol)
-2. Output the Escalation Template immediately
-3. Log the denial to `memory/YYYY-MM-DD.md`
-4. Halt the blocked task — do not proceed without the required tool
-
-See [`agents/pm.md` — Permission Denial Protocol](agents/pm.md#permission-denial-protocol) for the full Type classification table and Escalation Template.
-
-#### Skill Resolution Priority
-
-When a user request matches a skill trigger, apply this priority order — **enforced every session, regardless of platform**:
-
-| Priority | Source | Location |
-|----------|--------|----------|
-| **1 (highest)** | Local project skills | `skills/` (scanned recursively): flat governance skills (`skills/<name>/SKILL.md`), operational category dirs (`skills/daily/`, `skills/investigation/`, `skills/emergency/`), and `skills/domains/` |
-| **2** | Platform config skills | `.gemini/skills/` in the project root |
-| **3 (lowest)** | Platform-native skills | built-in plan mode and subagent capabilities (no external plugin required) |
-
-**Rule**: If a local skill's `metadata.triggers` matches the user request, use it — do **not** fall through to a global plugin with overlapping intent.
-
-**`skills/` category layout**: governance/build skills live flat at `skills/<name>/`; routine EHS operations under `skills/daily/`; hazard/incident analysis (HAZOP, RCA) under `skills/investigation/`; emergency response under `skills/emergency/`; domain-specific under `skills/domains/<tier>/<domain>/`. The `_meta/` registry (`skills/_meta/SKILLS.md`) is the path-neutral name index.
-
-**Canonical conflict — meeting vs. brainstorming**:
-
-| User says | Correct skill | Priority |
-|-----------|--------------|----------|
-| "meeting", "facilitate", "agent discussion" | `skills/meeting-facilitation` | 1 |
-| "brainstorm", "design before coding", "explore options" | platform-native plan mode / subagent skills | 3 |
-
-When ambiguous, prefer the local skill and confirm intent with the user.
-Explicit invocation: `/meeting "topic" [--agents a,b] [--rounds N] [--dialogue]`
-
-> **Antigravity Command Intercept Rules**: The following slash commands are not native Antigravity UI commands. If user input begins with any of these patterns, you (the Agent) MUST immediately intercept the text pattern and seamlessly execute the corresponding `.gemini/commands/` process using the provided arguments, exactly as if the user had explicitly requested the skill by name.
->
-> | User input starts with | Execute |
->|------------------------|---------|
-> | `/meeting` | `.gemini/commands/meeting.md` |
-> | `/sync` | `.gemini/commands/sync.md` |
-> | `/project-review` | `.gemini/commands/project-review.md` |
-
----
-
 <!-- COMMON-GEMINI:START -->
 ## Execution Plan Boilerplate
 
@@ -295,6 +181,15 @@ The execution plan table format, the Design Gate (Row 0) rule, exemption categor
 > **Note (Antigravity-specific)**: Use the literal Gemini model ID (e.g. `gemini-3.1-pro`) in the `Model` column, not a Claude-style short alias.
 
 **Antigravity execution**: Use `invoke_subagent` for specialist dispatch. See §3 (Subagent Instantiation & Async Orchestration) in this file.
+<!-- COMMON-GEMINI:END -->
+
+<!-- COMMON-GEMINI:START -->
+### 6. Workspace & Template Boundary Policy
+
+- **Strict CWD Isolation**: When modifying templates (in `templates/`), you MUST strictly limit your working directory (CWD) to the specific template folder.
+- **No Cross-Modification**: Modifying workspace root files and template files in a single task or session is forbidden. Keep workspace root changes and template changes completely isolated.
+
+> For L1-L2 Fork Model and lifecycle management rules, see [docs/context.md](docs/context.md) and [docs/context.md](docs/context.md).
 <!-- COMMON-GEMINI:END -->
 
 <!-- COMMON-GEMINI:START -->
@@ -308,8 +203,6 @@ All shared Git/PR rules are in [docs/context.md](docs/context.md). Gemini-specif
 - **PR Language**: Governed by [docs/context.md](docs/context.md). All PR titles, bodies, and review comments must be written in English - no exceptions.
 - **Windows: Git Bash required**: `.githooks/` hook files are Unix shell scripts. Windows users must have Git Bash installed. Run `git config core.hooksPath .githooks` to activate hooks. All `scripts/` operational scripts are TypeScript (`.ts`) — run via `bun scripts/<name>.ts`. No `.sh/.ps1` counterparts (ADR-0036).
 <!-- COMMON-GEMINI:END -->
-
----
 
 <!-- COMMON-GEMINI:START -->
 ## Pre-Edit Quality Gate (All Platforms)
@@ -327,6 +220,27 @@ Before editing any file for the **FIRST time in a session**, the agent MUST:
 | Antigravity | ✅ Prompt (manual) | Hooks do not fire — agent self-enforces |
 
 If the hook is not active (Antigravity), agents must still follow the 4-step process before making first edits.
+<!-- COMMON-GEMINI:END -->
+
+<!-- COMMON-GEMINI:START -->
+### Custom Command Error Recovery
+If a custom slash command or background script returns a non-zero exit code:
+* **Don't bypass hooks**: Never attempt to run git commands with `--no-verify` to bypass the hook system unless under explicit, written user instruction.
+* **Code Page / UTF-8 Issues (Windows)**: If broken Korean characters or Unicode errors appear in CLI output, the Windows terminal code page (CP949) is likely the cause. Ensure `$OutputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8;` or `chcp 65001` is prepended to scripts.
+* **Diagnostic Audit**: Immediately read the failure stdout log. Common errors include:
+  * Missing staged `CHANGELOG.md` edits (caught by `pre-commit`). Fix by running `/changelog` and staging the file.
+  * Direct push attempt to `main` (caught by `pre-push`). Fix by executing the `/sync` pipeline script which handles target branch generation and PR staging automatically.
+<!-- COMMON-GEMINI:END -->
+
+<!-- COMMON-GEMINI:START -->
+### Windows Platform Requirement
+
+**Git Bash required on Windows**: This workspace uses Unix-style shell scripts (`.sh`) for `.githooks/` hook files. Windows users must have Git Bash installed and configured as the default shell for git hooks.
+
+- Git Bash ships with [Git for Windows](https://gitforwindows.org/) — install if not present.
+- Verify: `git config core.hooksPath` should point to `.githooks/`
+- All `scripts/` operational scripts are TypeScript (`.ts`) — run via `bun scripts/<name>.ts`. No `.sh/.ps1` counterparts (ADR-0036).
+- If a hook fails on Windows with "command not found", run it via Git Bash: `"C:\Program Files\Git\bin\bash.exe" .githooks/pre-commit`
 <!-- COMMON-GEMINI:END -->
 
 ## Agent Teams vs. Antigravity Agent Manager
