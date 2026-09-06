@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-09-06](2026-09-06.md) | chore: upgrade template content to current v0.6.0 wave (resync step 5) |
 | [2026-08-29](2026-08-29.md) | chore: apply scripts/co-safety nested layout convention (15 variant scripts moved) |
 | [2026-08-28](2026-08-28.md) | fix(agents): flatten agents/_core, dedupe pm.md, move CSO content to docs |
 | [2026-08-26](2026-08-26.md) | chore(cleanup): L3-to-variant promotion pre-flight cleanup |
