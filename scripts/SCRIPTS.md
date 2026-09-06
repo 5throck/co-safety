@@ -69,7 +69,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
-| `audit.ts` | — | 2.29.1 | active | — | — | — | — |
+| `audit.ts` | — | 2.29.2 | active | — | — | — | — |
 | `co-safety/audit-variant.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -167,6 +167,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-platform-lifecycle.ts` | L0 | 1.1.2 | active | —| —| L0+L1 | —|
 | `verify-skill-graph.ts` | L0 | 1.5.0 | active | —| —| L0+L1 | —|
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `upgrade-project.ts` | L0 | 1.18.0 | active | `--variant`, `--platform`, `--dry-run`, `--prune-removed`, `--rollback`, `--yes` | —| L3 | —|
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.

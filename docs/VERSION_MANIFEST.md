@@ -1,8 +1,8 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-06T08:35:57.758Z
+**Generated**: 2026-09-06T11:43:25.758Z
 **Manifest Version**: 1.0
-**Location**: docs/VERSION_MANIFEST.md
+**Location**: docs\VERSION_MANIFEST.md
 
 ---
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 40
 - **Skills**: 57
-- **Scripts**: 125
+- **Scripts**: 126
 - **Commands**: 7
 
 ---
@@ -140,7 +140,7 @@
 | apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | N/A |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
 | audit-variant.ts | 1.0.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.29.1 | scripts/audit.ts | bun |
+| audit.ts | 2.29.2 | scripts/audit.ts | bun |
 | auth.ts | 1.0.0 | scripts/lib/auth.ts | N/A |
 | auto-executor.ts | 1.0.0 | scripts/co-safety/lib/auto-executor.ts | N/A |
 | auto-executor.ts | 1.0.0 | scripts/lib/auto-executor.ts | N/A |
@@ -237,6 +237,7 @@
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
 | update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | N/A |
+| upgrade-project.ts | 1.18.0 | scripts/upgrade-project.ts | N/A |
 | validate-agents.ts | 1.1.1 | scripts/validate-agents.ts | N/A |
 | validate-decisions.ts | 1.0.0 | scripts/validate-decisions.ts | js-yaml |
 | validate-doc-folder.ts | 1.1.0 | scripts/validate-doc-folder.ts | fs, path |
