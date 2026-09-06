@@ -70,6 +70,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
 | `audit.ts` | — | 2.29.2 | active | — | — | — | — |
+| `audit-variant.ts` | L0 | 1.0.0 | active | — | — | variant | variant-specific audit hook (skill-graph drift gate) |
 | `co-safety/audit-variant.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
