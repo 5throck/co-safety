@@ -46,18 +46,6 @@ ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
 4. Every workflow record MUST include `legal_basis` (>=3 Korean EHS law articles)
 5. `scripts/co-safety/safety-audit.ts` validates `legal_basis` gate on audit runs
 
-## Domain Guidelines
-
-1. **`legal_basis` field is mandatory** in every workflow record
-2. **Regulation content**: store metadata/references only — never embed full statutory text
-3. **Evidence schemas** (`evidence-models/_shared/base/`): semver bump + migration required on change
-4. **Legal interpretation**: user/organization responsibility — system provides automation assistance, not legal advice
-5. **Computational integrity**: skills performing safety-critical calculations
-   (arc-flash IEEE 1584, gas dispersion, tank integrity, ESS thermal runaway)
-   MUST delegate to external tools — never estimate directly
-
-## File Organization Policy
-
 ```
 co-safety/
 ├── agents/              # Role-based agent definitions (flat core: pm/SGM/SWM, _shared/, domains/)
