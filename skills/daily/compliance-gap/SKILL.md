@@ -7,6 +7,7 @@ owner: compliance-agent
 status: active
 version: 1.0.0
 metadata:
+  type: workflow
   triggers:
     - 컴플라이언스 갭
     - compliance gap

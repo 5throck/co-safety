@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-08-07"
 last_updated: "2026-08-07"
 metadata:
+  type: domain
   triggers:
     - 조선 도장 작업 화재 폭발
     - ship painting coating fire

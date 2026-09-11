@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-08-07"
 last_updated: "2026-08-07"
 metadata:
+  type: domain
   triggers:
     - 식품공장 화상 예방
     - 튀김기 화재 위험

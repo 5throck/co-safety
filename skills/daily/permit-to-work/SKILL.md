@@ -7,6 +7,7 @@ owner: safety-workflow-manager
 status: active
 version: 1.0.1
 metadata:
+  type: workflow
   triggers:
     - 작업허가서
     - permit to work

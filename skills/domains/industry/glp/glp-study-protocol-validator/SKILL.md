@@ -10,6 +10,7 @@ version: "1.0.0"
 created: 2026-06-17
 last_updated: 2026-06-17
 metadata:
+  type: domain
   triggers:
     - 시험계획서 검증
     - study protocol validation

@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-06-18"
 last_updated: "2026-06-18"
 metadata:
+  type: domain
   triggers:
     - 환경 배출 기준
     - 대기오염물질 배출허용기준

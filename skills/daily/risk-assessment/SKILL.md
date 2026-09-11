@@ -7,6 +7,7 @@ owner: risk-assessment-agent
 status: active
 version: 1.0.0
 metadata:
+  type: workflow
   triggers:
     - 위험성평가
     - risk assessment

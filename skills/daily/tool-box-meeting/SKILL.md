@@ -7,6 +7,7 @@ owner: safety-workflow-manager
 status: active
 version: 1.0.0
 metadata:
+  type: workflow
   triggers:
     - TBM
     - Tool Box Meeting

@@ -8,6 +8,7 @@ scope: workspace
 status: active
 description: Manage EHS onboarding and compliance verification for contractors
 metadata:
+  type: workflow
   triggers:
     - 협력업체 온보딩
     - contractor onboarding

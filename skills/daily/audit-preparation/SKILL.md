@@ -8,6 +8,7 @@ scope: workspace
 status: active
 description: Prepare documentation and evidence for regulatory EHS audits
 metadata:
+  type: workflow
   triggers:
     - 감사 준비
     - audit preparation

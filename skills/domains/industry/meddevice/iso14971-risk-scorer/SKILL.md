@@ -10,6 +10,7 @@ version: "1.1.0"
 created: "2026-06-18"
 last_updated: "2026-08-26"
 metadata:
+  type: domain
   triggers:
     - ISO 14971
     - 위해 추정

@@ -10,6 +10,7 @@ scope: workspace
 status: active
 description: Facilitate Hazard and Operability (HAZOP) analysis for process safety management
 metadata:
+  type: workflow
   triggers:
     - HAZOP 분석
     - HAZOP analysis

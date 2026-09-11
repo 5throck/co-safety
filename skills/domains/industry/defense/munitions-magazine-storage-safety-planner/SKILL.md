@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-08-07"
 last_updated: "2026-08-07"
 metadata:
+  type: domain
   triggers:
     - 탄약 마가진 저장 안전
     - munitions magazine storage safety

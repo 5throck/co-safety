@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-06-18"
 last_updated: "2026-06-18"
 metadata:
+  type: domain
   triggers:
     - ESS 화재
     - 리튬이온 배터리 화재
