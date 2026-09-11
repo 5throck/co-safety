@@ -1,6 +1,6 @@
 # Safety OS — Architecture Overview
 
-> **Last Updated**: 2026-08-06
+> **Last Updated**: 2026-09-12
 > **Active Domains**: 30 (8 functional + 22 industry)
 > **Architecture**: 2-Tier functional × industry matrix
 
@@ -139,10 +139,10 @@ Industry Domain Agent (coordinator)
 
 ## 5. Audit System
 
-`safety-audit.ts` v4.3.0 validates:
-- **191 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
-- **160 evidence models** ($ref resolution, domain-specific common fields)
-- **31 regulations** (source_verification validation on coordinate-mode files)
+`safety-audit.ts` v4.10.1 validates:
+- **218 workflow schema.yaml** files (legal_basis ≥2/3, status, applicability) — all domain and cross-cutting workflow trees
+- **189 evidence models** ($ref resolution, domain-specific common fields)
+- **48 regulations** (source_verification validation on coordinate-mode files)
 - **Role separation**: risk-assessment-agent ↔ gmp-qrm, and risk-assessment-agent ↔ psm-agent
 - **30 domain-specific validations** (8 functional + 22 industry)
 
