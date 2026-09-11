@@ -91,7 +91,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `sync-agent-status.ts` | — | 1.0.1 | active | — | — | — | — |
 | `sync-md.ts` | — | 1.3.3 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.0.1 | active | — | — | — | — |
-| `sync-skills.ts` | — | 1.5.0 | active | — | — | — | — |
+| `sync-skills.ts` | — | 1.6.0 | active | — | — | — | — |
 | `team-builder.ts` | — | 1.3.0 | active | — | — | — | — |
 | `co-safety/test-chemical-handling-profile.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/test-cross-domain-integration.ts` | — | 1.0.0 | active | — | — | — | — |

@@ -10,37 +10,85 @@
 |-------|-------|-------------------|--------|------------|--------|---------|
 | `agent-lifecycle-manager` | L3 | — | — | skill-lifecycle-manager (composes_with) | — | — |
 | `api-documentation` | L3 | — | — | — | — | — |
-| `daily/audit-preparation` | L3 | — | — | — | — | — |
-| `daily/compliance-gap` | L3 | — | — | — | — | — |
-| `daily/risk-assessment` | L3 | — | — | — | — | — |
+| `arc-flash-analyzer` | L3 | — | — | — | — | — |
+| `asset-integrity-check` | L3 | — | — | — | — | — |
+| `audit-preparation` | L3 | — | — | — | — | — |
+| `benefit-risk-assessor` | L3 | — | — | — | — | — |
+| `bsl-lab-aerosol-control-planner` | L3 | — | — | — | — | — |
+| `chemical-risk-assessment` | L3 | — | — | — | — | — |
+| `coke-oven-pah-heat-stress-planner` | L3 | — | — | — | — | — |
+| `completion-inspection` | L3 | — | — | — | — | — |
+| `compliance-gap` | L3 | — | — | — | — | — |
+| `construction-permit-overview` | L3 | — | — | — | — | — |
+| `contractor-onboarding` | L3 | — | — | — | — | — |
+| `cosmetics-solvent-exposure-monitor` | L3 | — | — | — | — | — |
+| `dangerous-cargo-handling-planner` | L3 | — | — | — | — | — |
 | `decision-record` | L3 | — | — | — | — | — |
 | `documentation-writing` | L3 | — | — | — | — | — |
+| `dts-verification` | L3 | — | — | — | — | — |
+| `emergency-response` | L3 | — | — | — | — | — |
+| `environmental-compliance-checker` | L3 | — | — | — | — | — |
+| `ess-fire-risk-assessor` | L3 | — | — | — | — | — |
 | `evidence-ledger` | L3 | — | — | — | — | — |
 | `explain-me` | L3 | — | — | — | — | — |
+| `fall-hazard-assessor` | L3 | — | — | — | — | — |
 | `finishing-a-development-branch` | L3 | — | — | — | — | — |
+| `gas-dispersion-analyzer` | L3 | — | — | — | — | — |
 | `gateguard` | L3 | — | — | — | — | — |
+| `ghs-classifier` | L3 | — | — | — | — | — |
+| `glp-data-integrity-checker` | L3 | — | — | — | — | — |
+| `glp-study-protocol-validator` | L3 | — | — | — | — | — |
+| `gmp-change-control` | L3 | — | — | — | — | — |
+| `gmp-deviation-capa` | L3 | — | — | — | — | — |
+| `gmp-qrm` | L3 | — | — | — | — | — |
+| `hazop-analysis` | L3 | — | — | — | — | — |
+| `hv-cell-formation-electrical-safety-planner` | L3 | — | — | — | — | — |
 | `i18n-audit` | L3 | — | — | — | — | — |
 | `i18n-formatting` | L3 | — | — | — | — | — |
 | `i18n-layout` | L3 | — | — | — | — | — |
 | `i18n-locale-config` | L3 | — | — | — | — | — |
-| `investigation/hazop-analysis` | L3 | — | — | — | — | — |
+| `iso14971-risk-scorer` | L3 | — | — | — | — | — |
 | `k-dart` | L3 | — | — | k-ecos (composes_with), k-kosis (composes_with), k-law | — | — |
 | `k-ecos` | L3 | — | — | k-dart (composes_with), k-kosis (composes_with), k-opendata (composes_with) | — | — |
 | `k-kosis` | L3 | — | — | k-dart (composes_with), k-ecos (composes_with), k-law | — | — |
 | `k-krx` | L3 | — | — | k-dart (composes_with), k-ecos (composes_with), k-kosis (composes_with), k-opendata (composes_with) | — | — |
 | `k-law` | L3 | — | — | k-dart, k-kosis | — | — |
 | `k-opendata` | L3 | — | — | k-ecos (composes_with), k-kosis | — | — |
+| `landfill-methane-anaerobic-explosion-planner` | L3 | — | — | — | — | — |
 | `meeting-facilitation` | L3 | — | — | — | — | — |
+| `mid-construction-inspection` | L3 | — | — | — | — | — |
+| `msds-parser` | L3 | — | — | — | — | — |
+| `munitions-magazine-storage-safety-planner` | L3 | — | — | — | — | — |
+| `painting-coating-fire-toxic-planner` | L3 | — | — | — | — | — |
+| `permit-to-work` | L3 | safety-workflow-manager | — | — | — | — |
 | `platform-command-lifecycle-manager` | L3 | — | — | — | — | — |
 | `platform-skill-lifecycle-manager` | L3 | — | — | — | — | — |
+| `pre-construction-technical-review` | L3 | — | — | — | — | — |
+| `process-hazard-screening` | L3 | — | — | — | — | — |
 | `project-review` | L3 | — | — | — | — | — |
+| `protocol-deviation-analyzer` | L3 | — | — | — | — | — |
+| `psm-loto` | L3 | — | — | — | — | — |
+| `psm-moc` | L3 | — | — | — | — | — |
+| `pyrophoric-gas-emergency-responder` | L3 | — | — | — | — | — |
+| `rack-fall-protection-planner` | L3 | — | — | — | — | — |
 | `research-analysis` | L3 | — | — | documentation-writing (enables) | — | — |
+| `risk-assessment` | L3 | safety-workflow-manager | — | — | — | — |
+| `rolling-stock-maintenance-loto-planner` | L3 | — | — | — | — | — |
+| `root-cause-analysis` | L3 | — | — | — | — | — |
+| `sae-causality-assessor` | L3 | — | — | — | — | — |
+| `safety-inspection-validator` | L3 | — | — | — | — | — |
 | `script-lifecycle-manager` | L3 | — | — | — | — | — |
 | `security-scan` | L3 | — | — | — | — | — |
+| `signal-detector` | L3 | — | — | — | — | — |
 | `skill-lifecycle-manager` | L3 | — | — | script-lifecycle-manager (composes_with) | — | — |
 | `standup-synthesizer` | L3 | — | — | — | — | — |
 | `sync` | L3 | — | — | — | — | — |
+| `tank-integrity-validator` | L3 | — | — | — | — | — |
+| `tar-planning` | L3 | — | — | — | — | — |
 | `team-builder` | L3 | — | — | — | — | — |
+| `temperature-excursion-analyzer` | L3 | — | — | — | — | — |
+| `thermal-burn-prevention-planner` | L3 | — | — | — | — | — |
+| `tool-box-meeting` | L3 | — | — | — | — | — |
 | `translate` | L3 | — | — | documentation-writing (composes_with) | — | — |
 | `update-bun-packages` | L3 | — | — | — | — | — |
 | `validate-docs-links` | L3 | — | — | — | — | — |

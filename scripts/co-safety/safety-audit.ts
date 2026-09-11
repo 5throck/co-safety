@@ -551,12 +551,12 @@ if (fs.existsSync(riskAgentPath)) {
     }
 }
 
-const qrmSkillPath = path.join(ROOT, 'skills', 'domains', 'industry', 'gmp', 'qrm', 'SKILL.md');
+const qrmSkillPath = path.join(ROOT, 'skills', 'gmp-qrm', 'SKILL.md');
 if (fs.existsSync(qrmSkillPath)) {
     totalChecked++;
     const content = fs.readFileSync(qrmSkillPath, 'utf-8');
     if (!content.includes('risk-assessment-agent')) {
-        errors.push('skills/domains/gmp/qrm/SKILL.md: missing risk-assessment-agent scope separation reference');
+        errors.push('skills/gmp-qrm/SKILL.md: missing risk-assessment-agent scope separation reference');
     }
 }
 
