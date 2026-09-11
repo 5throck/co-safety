@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-08-07"
 last_updated: "2026-08-07"
 metadata:
+  type: domain
   triggers:
     - 항만 위험물 하역 안전
     - IMDG dangerous cargo handling

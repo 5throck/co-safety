@@ -5,6 +5,8 @@ status: active
 description: Workspace override — redirects all branch completion to /sync pipeline which enforces CHANGELOG, memlog, audit, and PR creation gates.
 version: 1.0.0
 owner: pm
+metadata:
+  type: process
 gemini-parity: skip
 triggers:
   - "finish branch"

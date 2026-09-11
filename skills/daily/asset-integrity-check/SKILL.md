@@ -8,6 +8,7 @@ scope: workspace
 status: active
 description: Coordinate mechanical integrity and preventative maintenance checks
 metadata:
+  type: workflow
   triggers:
     - 설비무결성
     - asset integrity

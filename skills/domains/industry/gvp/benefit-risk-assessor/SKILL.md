@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-06-17"
 last_updated: "2026-06-17"
 metadata:
+  type: domain
   triggers:
     - 편익위해평가
     - benefit-risk assessment

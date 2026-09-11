@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-08-07"
 last_updated: "2026-08-07"
 metadata:
+  type: domain
   triggers:
     - BSL-2 BSL-3 실험실 에어로졸
     - bsl lab bioaerosol control

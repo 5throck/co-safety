@@ -7,6 +7,7 @@ owner: emergency-agent
 status: active
 version: 1.0.1
 metadata:
+  type: workflow
   triggers:
     - 비상사태
     - emergency

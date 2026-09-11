@@ -10,6 +10,7 @@ version: "1.0.0"
 created: "2026-08-07"
 last_updated: "2026-08-07"
 metadata:
+  type: domain
   triggers:
     - 철도 차량사업소 차량 정비 LOTO
     - rolling stock depot maintenance

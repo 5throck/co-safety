@@ -10,6 +10,7 @@ version: "1.0.0"
 created: 2026-06-17
 last_updated: "2026-06-17"
 metadata:
+  type: domain
   triggers:
     - SAE 인과성 평가
     - causality assessment

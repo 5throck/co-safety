@@ -8,6 +8,7 @@ scope: workspace
 status: active
 description: Conduct Root Cause Analysis (RCA) for safety incidents
 metadata:
+  type: workflow
   triggers:
     - 근본원인분석
     - root cause analysis
