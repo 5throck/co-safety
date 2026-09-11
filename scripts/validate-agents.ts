@@ -1,52 +1,29 @@
 #!/usr/bin/env bun
 /**
  * Agent Lifecycle Validation Script
- * @version 1.1.1
+ * @version 1.2.1
  *
- * Validates all agents/**\/*.md files for required lifecycle frontmatter
+ * Validates all agents/*.md files for required lifecycle frontmatter
  * and checks governance records in docs/lifecycle/agents/*.md
  *
  * Performs two validations:
- * 1. Runtime definition validation: agents/**\/*.md must have lifecycle frontmatter
+ * 1. Runtime definition validation: agents/*.md must have lifecycle frontmatter
  * 2. Governance record validation: docs/lifecycle/agents/*.md must have detailed documentation
- *
- * v1.1.0 (2026-08-19): agents/ is now recursively scanned (safety_os nests agent
- *   definitions under agents/_shared/, agents/domains/functional/, agents/domains/industry/,
- *   plus flat core files directly under agents/ — pm.md, safety-governance-manager.md,
- *   safety-workflow-manager.md, formerly agents/_core/ before the 2026-08-28 flattening)
- *   — the previous single-level readdirSync silently scanned an empty top-level
- *   directory and reported a false 0-checked pass.
  *
  * Usage:
  *   bun scripts/validate-agents.ts
  *   bun scripts/validate-agents.ts --json
  */
 
-import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+// v1.2.1: ./validators/ is L0-only; L1/L3 project copies must not crash at import time —
+// the frontmatter schema sweep degrades to a skip when the validators are absent.
+const schemaValidatorAvailable = existsSync(join(import.meta.dir, 'validators', 'schema-validator.ts'));
+const schemaValidator = schemaValidatorAvailable ? await import('./validators/schema-validator.ts') : null;
+const parseFrontmatterYaml = schemaValidator?.parseFrontmatter;
+const validateAgentFrontmatter = schemaValidator?.validateAgentFrontmatter;
 import { cwd } from 'node:process';
-
-// Matches the workspace-root isAgentFile() exclusion rule: real agent
-// definitions only, excluding README variants and files starting with "_".
-function isAgentFile(filename: string): boolean {
-  return filename.endsWith('.md') && !/^README(_\w+)?\.md$/.test(filename) && !filename.startsWith('_');
-}
-
-// Recursively collect agent .md files under a directory, returning paths
-// relative to AGENTS_DIR (e.g. "pm.md", or "_shared/audit-agent.md" for nested ones).
-function collectAgentFiles(dir: string, baseDir: string): string[] {
-  const results: string[] = [];
-  for (const entry of readdirSync(dir)) {
-    const fullPath = join(dir, entry);
-    const stat = statSync(fullPath);
-    if (stat.isDirectory()) {
-      results.push(...collectAgentFiles(fullPath, baseDir));
-    } else if (stat.isFile() && isAgentFile(entry)) {
-      results.push(fullPath.slice(baseDir.length + 1).replace(/\\/g, '/'));
-    }
-  }
-  return results;
-}
 
 interface ValidationIssue {
   level: 'error' | 'warning';
@@ -88,7 +65,9 @@ if (!existsSync(AGENTS_DIR)) {
   console.error(`        Current directory: ${ROOT}`);
   console.error(`        Expected: a directory containing agents/`);
   console.error(`        Usage: cd <workspace-root> && bun scripts/validate-agents.ts`);
-  process.exit(1);
+  if (import.meta.main) {
+    process.exit(1);
+  }
 }
 
 const args = process.argv.slice(2);
@@ -119,13 +98,16 @@ function warn(file: string, check: string, msg: string, fix?: string) {
 
 // Normalize content: strip BOM and normalize line endings
 function normalizeContent(raw: string): string {
-  return raw.replace(/^﻿/, '').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  return raw.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 }
 
 // Parse frontmatter fields from markdown
-function parseFrontmatter(rawContent: string): Record<string, true> {
+export function parseFrontmatter(rawContent: string): Record<string, true> {
   const content = normalizeContent(rawContent);
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  // 'm' flag: frontmatter may be preceded by a leading comment line (e.g. co-deck's
+  // "# @resolved-from: ..." annotation on extends-pattern agent files), so the opening
+  // "---" isn't always the first line of the file.
+  const match = content.match(/^---\n([\s\S]*?)\n---/m);
   if (!match) return {};
 
   const fields: Record<string, true> = {};
@@ -149,9 +131,12 @@ function parseFrontmatter(rawContent: string): Record<string, true> {
 }
 
 // Check nested field existence in frontmatter
-function hasNestedField(rawContent: string, fieldPath: string): boolean {
+export function hasNestedField(rawContent: string, fieldPath: string): boolean {
   const content = normalizeContent(rawContent);
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  // 'm' flag: frontmatter may be preceded by a leading comment line (e.g. co-deck's
+  // "# @resolved-from: ..." annotation on extends-pattern agent files), so the opening
+  // "---" isn't always the first line of the file.
+  const match = content.match(/^---\n([\s\S]*?)\n---/m);
   if (!match) return false;
 
   const parts = fieldPath.split('.');
@@ -201,19 +186,21 @@ function hasNestedField(rawContent: string, fieldPath: string): boolean {
   return false;
 }
 
+// Filter predicate for agent files (exported for testability)
+export function isAgentFile(filename: string): boolean {
+  return filename.endsWith('.md') && !/^README(_\w+)?\.md$/.test(filename) && !filename.startsWith('_');
+}
+
 // Part 1: Validate runtime definitions (agents/*.md)
-function validateRuntimeDefinitions(): void {
+function validateRuntimeDefinitions(agentsDir: string = AGENTS_DIR): void {
   if (!JSON_MODE) console.log(`\n${colors.cyan}📋 Part 1: Runtime Definition Validation (agents/*.md)${colors.reset}`);
 
-  const agentFiles = collectAgentFiles(AGENTS_DIR, AGENTS_DIR);
+  const agentFiles = readdirSync(agentsDir).filter(isAgentFile);
 
   for (const file of agentFiles) {
     totalFiles++;
-    // agentName derived from the file's basename so it matches the flat
-    // governance-doc naming under docs/lifecycle/agents/<agentName>.md
-    // regardless of which nested subdirectory the runtime file lives in.
-    const agentName = file.split('/').pop()!.replace('.md', '');
-    const filePath = join(AGENTS_DIR, file);
+    const agentName = file.replace('.md', '');
+    const filePath = join(agentsDir, file);
     const rawContent = readFileSync(filePath, 'utf-8');
 
     const missingFields: string[] = [];
@@ -285,6 +272,54 @@ function validateGovernanceRecords(): void {
 }
 
 // Main
+// Security holds — an agent flagged with security_hold: true must be
+// quarantined immediately (constitution 05.6 Security Protocol): non-deprecated
+// status or a missing removal-date is a hard error, not a warning.
+function validateSecurityHolds(): void {
+  const agentsDir = AGENTS_DIR;
+  if (!existsSync(agentsDir)) return;
+  for (const entry of readdirSync(agentsDir)) {
+    if (!entry.endsWith('.md') || entry === 'README.md') continue;
+    const raw = readFileSync(join(agentsDir, entry), 'utf-8');
+    const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!fm) continue;
+    const body = fm[1];
+    if (!/^security_hold:\s*true\b/m.test(body)) continue;
+
+    const isDeprecated = /^status:\s*deprecated\b/m.test(body);
+    const hasRemovalDate = /^removal[-_]date:/m.test(body);
+    if (!isDeprecated) {
+      issues.push({ level: 'error', file: entry, check: 'security-hold-active', message: entry + ': security_hold: true but status is not deprecated — quarantine immediately (constitution 05.6 Security Protocol)' });
+    }
+    if (!hasRemovalDate) {
+      issues.push({ level: 'error', file: entry, check: 'security-hold-no-removal-date', message: entry + ': security_hold: true without a removal-date — held agents must be scheduled for removal (≤ 30 days)' });
+    }
+  }
+}
+
+// T-20260910-017: run the schema-validator rule set over workspace-root agents/ frontmatter.
+// CONSTITUTION 11.4 previously only exercised these rules per-variant (templates/co-*) via
+// runAllValidators(); root agents/*.md now get the identical required-field / status-enum /
+// tier / semver / lifecycle checks through the same exported rule functions.
+function validateAgentSchema(): void {
+  if (!existsSync(AGENTS_DIR)) return;
+  for (const entry of readdirSync(AGENTS_DIR)) {
+    if (!isAgentFile(entry)) continue;
+    const filePath = join(AGENTS_DIR, entry);
+    const content = readFileSync(filePath, 'utf-8');
+    if (!parseFrontmatterYaml || !validateAgentFrontmatter) continue; // validators absent in L1/L3 — workspace sweep covers schema checks
+    const fm = parseFrontmatterYaml(content);
+    if (Object.keys(fm).length === 0) continue; // no frontmatter — existing checks cover that
+    // extends-pattern stubs (L1/L2 pm.md) intentionally omit the full roster schema.
+    if (fm.extends) continue;
+    for (const issue of validateAgentFrontmatter(fm, entry)) {
+      const msg = `schema-validator: ${issue.message}`;
+      if (issue.severity === 'error') fail(entry, 'schema-agent', msg);
+      else warn(entry, 'schema-agent', msg);
+    }
+  }
+}
+
 function main() {
   if (!JSON_MODE) {
     console.log(`${colors.cyan}🔍 Validating agent lifecycle documentation...${colors.reset}`);
@@ -292,7 +327,9 @@ function main() {
   }
 
   validateRuntimeDefinitions();
+  validateSecurityHolds();
   validateGovernanceRecords();
+  validateAgentSchema();
 
   const errors = issues.filter(i => i.level === 'error');
   const warnings = issues.filter(i => i.level === 'warning');
@@ -333,4 +370,6 @@ function main() {
   process.exit(errors.length > 0 ? 1 : 0);
 }
 
-main();
+if (import.meta.main) {
+  main();
+}
