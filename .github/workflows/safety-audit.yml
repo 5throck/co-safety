@@ -2,9 +2,9 @@ name: Safety OS Audit
 
 on:
   push:
-    branches: [master]
+    branches: [main, master]
   pull_request:
-    branches: [master]
+    branches: [main, master]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -70,16 +70,16 @@ jobs:
         run: cd scripts && bun install
 
       - name: Run pharma-general profile test
-        run: bun scripts/test-pharma-general-profile.ts
+        run: bun scripts/co-safety/test-pharma-general-profile.ts
 
       - name: Run chemical-handling profile test
-        run: bun scripts/test-chemical-handling-profile.ts
+        run: bun scripts/co-safety/test-chemical-handling-profile.ts
 
       - name: Run cross-domain integration test
-        run: bun scripts/test-cross-domain-integration.ts
+        run: bun scripts/co-safety/test-cross-domain-integration.ts
 
       - name: Run domain scenarios test
-        run: bun scripts/test-domain-scenarios.ts
+        run: bun scripts/co-safety/test-domain-scenarios.ts
 
       - name: Run FMEA scoring skill test
         run: bun skills/domains/industry/gmp/qrm/fmea-scoring.ts

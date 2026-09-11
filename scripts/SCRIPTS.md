@@ -109,7 +109,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
 | `verify-memory.ts` | — | 1.2.0 | active | — | — | — | — |
 | `verify-readme-sync.ts` | — | 1.4.0 | active | — | — | — | — |
-| `verify-scripts.ts` | — | 1.6.0 | active | — | — | — | — |
+| `verify-scripts.ts` | — | 1.6.1 | active | — | — | — | — |
 | `verify-skills.ts` | — | 1.3.0 | active | — | — | — | — |
 | `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
