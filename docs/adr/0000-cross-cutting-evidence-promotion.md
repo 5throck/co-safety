@@ -1,4 +1,10 @@
-# ADR-001: Cross-Cutting Evidence Model Promotion Pattern
+---
+status: "Accepted"
+---
+
+# ADR-0000: Cross-Cutting Evidence Model Promotion Pattern
+
+> **File renumbered 2026-09-12**: moved from `docs/_meta/adr/ADR-001-cross-cutting-evidence-promotion.md` so the corpus lives in the tooling-indexed `docs/adr/` directory under the `NNNN-` convention (0000 = earliest decision date; the 2026-08-06 execution date below is unchanged). Historical references to "ADR-001" denote this document.
 
 **Status:** Accepted
 
@@ -106,7 +112,7 @@ The shared base is created as an OPTION for future adoption. Migration of domain
 1. **Domain migration**: Evaluate each domain's LOTO model for alignment with `_shared/loto-record.json`. Per-domain migration decisions will be documented in subsequent ADRs.
 2. **Validation tooling**: Update the evidence model audit script to check that domain models referencing the shared base are aligned (field names, types, enums match).
 3. **Future promotion candidates** (pending checklist evaluation):
-   - **Confined Space Entry** — appears in 4+ domains (ehschem, ehsconst, steelmaking, shipbuilding); high common field ratio expected
+   - **Confined Space Entry** — appears in 4+ domains (ehschem, ehsconst, steelmaking, shipbuilding); high common field ratio expected → **PROMOTED 2026-08-06** (`evidence-models/_shared/confined-space-record.json` was created alongside this ADR without its own decision record); ratified retroactively by [docs/adr/0003](0003-confined-space-evidence-promotion.md)
    - **Hot Work Permit** — appears in 4+ domains; common fields (work_type, fire_watch, permit_duration) are strong candidates
    - **Inspection** — appears in most domains but may be too generic; needs closer evaluation of whether field overlap is structural or coincidental
 

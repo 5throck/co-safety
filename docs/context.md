@@ -405,6 +405,8 @@ Use an external computation tool when the task involves ANY of the following:
 
 Skill relations are the generated projection per ADR-0060: `docs/skill-graph.json` / `skill-graph.md` — never hand-edited. Declare stable relations in SKILL.md `relates_to` (typed `{skill, type}`: relates_to / composes_with / follows / enables); put experimental relations in `docs/skill-graph.overrides.json` (`reason` + `since` required, 90-day review, `suppress: true` removes a derived edge). Relations flow variant skill → L1 or same-variant targets only. Regeneration happens at scaffold, promotion (l3 pipeline Phase 6.5), upgrade, and `/sync` step 4.65; verify with `bun scripts/verify-skill-graph.ts`.
 
+> **Projection scope (documented 2026-09-12)**: the generated graph covers (a) skills directly under `skills/` (workspace-general set), (b) top-level `agents/*.md`, (c) procedures + their `_output-types.yaml` vocabularies, and (d) skills referenced by procedure steps. Domain-fleet skills under `skills/domains/**` and skills not yet referenced by a procedure are **not** projected as nodes until they declare `relates_to` frontmatter or gain a procedure/step reference — this is generator discovery scope, not data loss. To bring a domain skill into the graph, declare typed `relates_to` in its SKILL.md.
+
 ## Scripts
 
 <!-- Source Layer: L0 = templates/common (SSOT) | L1 = workspace root | L2 = project-local -->

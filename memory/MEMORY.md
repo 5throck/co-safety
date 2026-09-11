@@ -34,3 +34,5 @@
 
 | ID | Title | Status | File |
 |----|-------|--------|------|
+
+> **Scope note (2026-09-12)**: this table is auto-managed by `verify-memory.ts` and tracks only `memory/adr-*.md` session-level records (currently none). **Project-level ADRs live in [`docs/adr/`](../docs/adr/)** — see `0000-cross-cutting-evidence-promotion.md`, `0001-skill-graph-adoption.md`, `0002-kr-k-skill-family-adoption.md`, and `0003-confined-space-evidence-promotion.md`; they are indexed in `docs/skill-graph.md` § Decisions & ADRs.
