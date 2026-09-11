@@ -64,24 +64,21 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/lib/checkpoint-manager.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `co-safety/lib/auto-executor.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `agent-delete.ts` | — | 1.0.1 | active | — | — | — | — |
-| `agent-lifecycle-audit.ts` | — | 1.2.0 | active | — | — | — | — |
+| `agent-lifecycle-audit.ts` | — | 1.2.1 | active | — | — | — | — |
 | `agent-list.ts` | — | 1.1.0 | active | — | — | — | — |
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
-| `audit.ts` | — | 2.32.0 | active | — | — | — | — |
-| `audit-variant.ts` | L0 | 1.0.0 | active | — | — | variant | variant-specific audit hook (skill-graph drift gate) |
-| `co-safety/audit-variant.ts` | — | 1.0.0 | active | — | — | — | — |
+| `audit.ts` | — | 2.34.1 | active | — | — | — | — |
+| `co-safety/audit-variant.ts` | — | 1.1.0 | active | — | — | — | — |
 | `co-safety/check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.9.0 | active | — | — | — | — |
+| `dev-sync.ts` | — | 1.10.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.1.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.1.1 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/domain-config.ts` | — | 1.5.0 | active | — | — | — | — |
 | `gen-pr-body.ts` | — | 1.2.0 | active | — | — | — | — |
-| `generate-scripts-readme.ts` | — | 1.1.0 | active | — | — | — | — |
-| `generate-version-manifest.ts` | — | 1.0.7 | active | — | — | — | — |
 | `co-safety/new-domain.ts` | — | 1.0.1 | active | — | — | — | — |
 | `qa-gate.ts` | — | 1.2.0 | active | — | — | — | — |
 | `readme-lifecycle-audit.ts` | — | 1.0.4 | active | — | — | — | — |
@@ -89,14 +86,13 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/safety-audit.ts` | — | 4.10.1 | active | — | — | — | — |
 | `co-safety/scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
-| `skill-dependency-analysis.ts` | — | 1.0.0 | active | — | — | — | — |
-| `skill-lifecycle-audit.ts` | — | 1.4.0 | active | — | — | — | — |
+| `skill-lifecycle-audit.ts` | — | 1.4.1 | active | — | — | — | — |
 | `co-safety/start-mcp.ts` | — | 1.0.0 | active | — | — | — | — |
 | `sync-agent-status.ts` | — | 1.0.1 | active | — | — | — | — |
 | `sync-md.ts` | — | 1.3.3 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.0.1 | active | — | — | — | — |
-| `sync-skills.ts` | — | 1.4.1 | active | — | — | — | — |
-| `team-builder.ts` | — | 1.2.1 | active | — | — | — | — |
+| `sync-skills.ts` | — | 1.5.0 | active | — | — | — | — |
+| `team-builder.ts` | — | 1.3.0 | active | — | — | — | — |
 | `co-safety/test-chemical-handling-profile.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/test-cross-domain-integration.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/test-domain-scenarios.ts` | — | 1.1.0 | active | — | — | — | — |
@@ -105,11 +101,11 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/test-runtime-tools.ts` | — | 1.0.0 | active | — | — | — | — |
 | `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/training-ingest.ts` | — | 1.0.0 | active | — | — | — | — |
-| `validate-agents.ts` | — | 1.1.1 | active | — | — | — | — |
+| `validate-agents.ts` | — | 1.2.1 | active | — | — | — | — |
 | `validate-doc-folder.ts` | — | 1.1.0 | active | — | — | — | — |
-| `validate-docs-links.ts` | — | 1.0.0 | active | — | — | — | — |
-| `validate-md-language.ts` | — | 1.9.0 | active | — | — | — | — |
-| `validate-skills.ts` | — | 1.4.0 | active | — | — | — | — |
+| `validate-docs-links.ts` | — | 1.1.0 | active | — | — | — | — |
+| `validate-md-language.ts` | — | 1.10.0 | active | — | — | — | — |
+| `validate-skills.ts` | — | 1.5.1 | active | — | — | — | — |
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
 | `verify-memory.ts` | — | 1.2.0 | active | — | — | — | — |
 | `verify-readme-sync.ts` | — | 1.4.0 | active | — | — | — | — |
@@ -118,22 +114,22 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/encoding-utils.ts` | — | 1.2.0 | active | — | — | — | — |
-| `lib/error-handling.ts` | — | 1.3.0 | active | — | — | — | — |
+| `lib/error-handling.ts` | — | 1.4.0 | active | — | — | — | — |
 | `lib/evidence-validator.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/language-guard.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/mcp-cache.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/pipeline-state.ts` | — | 1.1.1 | active | — | — | — | — |
+| `lib/pipeline-state.ts` | — | 1.1.2 | active | — | — | — | — |
 | `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
-| `helpers/context-sections.ts` | — | 1.1.0 | active | — | — | — | — |
+| `helpers/context-sections.ts` | — | 1.2.0 | active | — | — | — | — |
 | `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
 | `helpers/security-validator.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/migrate-registry-to-coordinates.ts` | — | 1.0.2 | active | — | — | — | — |
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `generate-skill-graph.ts` | L0 | 1.8.5 | active | —| —| L0+L1 | —|
+| `generate-skill-graph.ts` | L0 | 1.10.0 | active | —| —| L0+L1 | —|
 | `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `helpers/merge-frontmatter.ts` | L0 | 1.8.6 | active | —| —| L0+L1 | —|
@@ -142,36 +138,34 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/template-utils.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `hooks/gateguard-fact-force.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `hooks/post-write-lifecycle-check.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `hooks/pre-commit.ts` | L0 | 1.5.10 | active | —| —| L0+L1 | —|
-| `hooks/pre-push.ts` | L0 | 1.2.9 | active | —| —| L0+L1 | —|
+| `hooks/pre-commit.ts` | L0 | 1.7.0 | active | —| —| L0+L1 | —|
+| `hooks/pre-push.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `lib/auth.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/auto-executor.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/checkpoint-manager.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/context-md-schema.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `lib/encoding-utils.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
-| `lib/error-handling.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `lib/evidence-validator.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/language-guard.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/mcp-cache.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/pipeline-state.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/plan-parser.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/platform-context.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/platform-dispatcher.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/ssrf.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `lifecycle-sync-audit.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
+| `lifecycle-sync-audit.ts` | L0 | 1.7.1 | active | —| —| L0+L1 | —|
 | `md-to-ooxml.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
-| `render-pdf-deck.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `render-pdf-deck.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `setup-github-branch-protection.ts` | L0 | 1.0.1 | active | `--repo`, `--branch`, `--check` (repeatable), `--dry-run` | —| L0+L1 | —|
 | `validate-model-registry.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
 | `verify-platform-lifecycle.ts` | L0 | 1.1.2 | active | —| —| L0+L1 | —|
-| `verify-skill-graph.ts` | L0 | 1.5.0 | active | —| —| L0+L1 | —|
+| `verify-skill-graph.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `upgrade-project.ts` | L0 | 1.20.0 | active | `--variant`, `--platform`, `--dry-run`, `--prune-removed`, `--rollback`, `--yes` | —| L3 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.21.3 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.22.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.1 | active | —| —| L0+L1 | —|
+| `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
+| `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.

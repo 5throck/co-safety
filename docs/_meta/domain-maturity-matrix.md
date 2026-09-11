@@ -2,7 +2,7 @@
 
 > Tracks per-domain completeness to prioritize Phase 2 maturation work.
 > See [ROADMAP.md](ROADMAP.md) for strategic context. Updated bi-weekly.
-> Last Updated: 2026-08-07
+> Last Updated: 2026-08-27
 
 ## Maturity Tiers
 

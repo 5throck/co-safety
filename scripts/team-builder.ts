@@ -3,11 +3,11 @@
  * @description Agent team builder script — execution layer for the team-builder skill.
  *   Receives an approved proposal JSON (from skills/team-builder/SKILL.md Step 5) and
  *   executes all agent/skill changes in a fixed, safe order with checkpoint logging.
- * @version 1.2.1
+ * @version 1.3.0
  * @usage bun scripts/team-builder.ts <proposal-json-path> [--dry-run]
  */
 
-import { existsSync, mkdirSync, unlinkSync } from "node:fs";
+import { existsSync, mkdirSync, unlinkSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 
 // ─── ANSI Colors ────────────────────────────────────────────────────────────
@@ -157,10 +157,16 @@ function initCheckpoints(): Checkpoint[] {
 function loadCheckpoints(): Checkpoint[] {
   if (existsSync(CHECKPOINT_FILE)) {
     try {
-      const raw = Bun.file(CHECKPOINT_FILE).textSync();
+      // node:fs readFileSync (BunFile has no textSync) — keeps the load synchronous.
+      const raw = readFileSync(CHECKPOINT_FILE, "utf-8");
       return JSON.parse(raw) as Checkpoint[];
     } catch (err) {
-      console.error(`[team-builder] Error: ${err}`);
+      // Read/parse failure: surface it — silently discarding a saved checkpoint
+      // makes a resumed run look fresh without explanation. (A missing file is
+      // normal first-run state and stays silent — see the existsSync guard.)
+      console.warn(
+        `[team-builder] ⚠️  Could not load checkpoint file ${CHECKPOINT_FILE} — restarting with fresh checkpoints (${err instanceof Error ? err.message : String(err)})`
+      );
       return initCheckpoints();
     }
   }

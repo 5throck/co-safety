@@ -1,7 +1,7 @@
 # Safety OS — Strategic Roadmap
 
 > Living document. Updated bi-weekly during architecture review meetings.
-> Last Updated: 2026-08-06 | Owner: PM / Chief Safety Officer (CSO)
+> Last Updated: 2026-08-27 | Owner: PM / Chief Safety Officer (CSO)
 
 ## Current State (2026-08-06)
 

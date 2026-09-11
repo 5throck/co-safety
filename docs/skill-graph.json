@@ -182,11 +182,6 @@
       "layer": "L3"
     },
     {
-      "id": "simulate-project-creation",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
       "id": "skill-lifecycle-manager",
       "type": "skill",
       "layer": "L3"

@@ -31,7 +31,6 @@
 | `research-analysis` | L3 | — | — | documentation-writing (enables) | — | — |
 | `script-lifecycle-manager` | L3 | — | — | — | — | — |
 | `security-scan` | L3 | — | — | — | — | — |
-| `simulate-project-creation` | L3 | — | — | — | — | — |
 | `skill-lifecycle-manager` | L3 | — | — | script-lifecycle-manager (composes_with) | — | — |
 | `standup-synthesizer` | L3 | — | — | — | — | — |
 | `sync` | L3 | — | — | — | — | — |
@@ -55,7 +54,7 @@ Skills used in specific lifecycle phases (from `variant.json` `skill_manifest`):
 | `used_by` | Agent ↔ skill relation (from `required_skills` or `used_by_agents`) |
 | `phase` | Skill used in a lifecycle phase (from `variant.json` `skill_manifest.phases`) |
 | `supersedes` | Supersession — overrides (manual) or decision-record prose labels |
-| `references` | Backtick reference in SKILL.md/agent/ADR body prose, or DEC `knowledge_refs[]` naming an ADR |
+| `references` | Backtick reference in SKILL.md/agent/ADR body prose, DEC `knowledge_refs[]` naming an ADR, or skill → `term:` node from references/terms-ko.json (ADR-0072) |
 | `cites_skill` | Decision record `skills_used[]` validated against the skill set (ADR-0061 amendment 2026-08-25) |
 | `composes_with` | Typed `relates_to` entry — symmetric, used together in the same phase/workflow (ADR-0060 Amendment 3) |
 | `follows` | Typed `relates_to` entry — sequential/ordering relation, no dependency implication (ADR-0060 Amendment 3) |
