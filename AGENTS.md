@@ -366,6 +366,18 @@ When writing Korean documentation or Korean translation output, prefer native Ko
 | iso14971-risk-scorer | meddevice-agent | ISO 14971 risk estimation and scoring for medical devices (Severity x Probability matrix) |
 | arc-flash-analyzer | powergen-agent | Arc flash hazard analysis per IEEE 1584 (incident energy, arc flash boundary, PPE category) |
 | ess-fire-risk-assessor | powergen-agent | Lithium-ion ESS fire risk assessment (thermal runaway prediction, suppression strategy) |
+| hv-cell-formation-electrical-safety-planner | battery-agent | Plan high-voltage DC electrical safety for lithium-ion cell formation, charging, aging, and ESS facilities — busbar LOTO, charger grounding, DC arc-flash PPE per ESCA Art 22 |
+| bsl-lab-aerosol-control-planner | biotech-agent | Plan bioaerosol and sharps-injury control for BSL-2/3 lab handling of biohazardous agents — BSC selection/certification, sealed centrifuge cups, exposure surveillance |
+| cosmetics-solvent-exposure-monitor | cosmetics-agent | Plan worker inhalation-exposure monitoring for solvents and volatile raw materials in cosmetics manufacturing — air sampling, OEL comparison, ventilation, respiratory PPE |
+| rack-fall-protection-planner | datacenter-agent | Plan fall protection for datacenter white-space work-at-height — 42U-52U rack install, overhead cable trays, ladder vs. work-platform, restraint vs. arrest systems |
+| munitions-magazine-storage-safety-planner | defense-agent | Plan munitions magazine storage operations — quantity-distance siting, storage segregation, magazine housekeeping, and explosive safety margins |
+| thermal-burn-prevention-planner | food-agent | Plan worker thermal-burn and cooking-oil fire-risk prevention for industrial fryers and cooking lines |
+| dangerous-cargo-handling-planner | logistics-agent | Plan IMDG-classed dangerous-cargo port handling — class segregation, stowage assignment, and handling supervision |
+| rolling-stock-maintenance-loto-planner | railway-agent | Plan rolling-stock depot maintenance safety — vehicle movement control and energy isolation for EMU/coach/locomotive maintenance |
+| pyrophoric-gas-emergency-responder | semicon-agent | Plan and execute emergency response for pyrophoric and toxic special-gas leaks in semiconductor fabs |
+| painting-coating-fire-toxic-planner | shipbuilding-agent | Plan shipyard painting/coating bay safety — combustible paint-vapor LEL explosion prevention and solvent toxicity control |
+| coke-oven-pah-heat-stress-planner | steelmaking-agent | Plan coke-oven battery worker safety — coal-tar-pitch volatile PAH exposure and heat-stress management |
+| landfill-methane-anaerobic-explosion-planner | waste-agent | Plan landfill and anaerobic-digestion facility safety — methane LEL explosion prevention and gas monitoring |
 
 ---
 

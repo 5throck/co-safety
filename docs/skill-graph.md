@@ -80,8 +80,10 @@ Catalog table above — not skill references and not yet resolved as graph edges
 
 | Document | Type | Cites skills | References | Supersedes |
 |----------|------|--------------|------------|------------|
+| `adr:0000` | adr | — | — | — |
 | `adr:0001` | adr | — | — | — |
 | `adr:0002` | adr | — | k-dart, k-ecos, k-kosis, k-krx, k-law, k-opendata | — |
+| `adr:0003` | adr | — | — | — |
 
 ## Korean Term Vocabulary (terms-ko.json)
 
