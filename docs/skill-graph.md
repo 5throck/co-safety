@@ -24,6 +24,12 @@
 | `i18n-layout` | L3 | — | — | — | — | — |
 | `i18n-locale-config` | L3 | — | — | — | — | — |
 | `investigation/hazop-analysis` | L3 | — | — | — | — | — |
+| `k-dart` | L3 | — | — | k-ecos (composes_with), k-kosis (composes_with), k-law | — | — |
+| `k-ecos` | L3 | — | — | k-dart (composes_with), k-kosis (composes_with), k-opendata (composes_with) | — | — |
+| `k-kosis` | L3 | — | — | k-dart (composes_with), k-ecos (composes_with), k-law | — | — |
+| `k-krx` | L3 | — | — | k-dart (composes_with), k-ecos (composes_with), k-kosis (composes_with), k-opendata (composes_with) | — | — |
+| `k-law` | L3 | — | — | k-dart, k-kosis | — | — |
+| `k-opendata` | L3 | — | — | k-ecos (composes_with), k-kosis | — | — |
 | `meeting-facilitation` | L3 | — | — | — | — | — |
 | `platform-command-lifecycle-manager` | L3 | — | — | — | — | — |
 | `platform-skill-lifecycle-manager` | L3 | — | — | — | — | — |
@@ -75,3 +81,162 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | Document | Type | Cites skills | References | Supersedes |
 |----------|------|--------------|------------|------------|
 | `adr:0001` | adr | — | — | — |
+| `adr:0002` | adr | — | k-dart, k-ecos, k-kosis, k-krx, k-law, k-opendata | — |
+
+## Korean Term Vocabulary (terms-ko.json)
+
+> Source-language vocabulary quoted from `references/terms-ko.json` data files
+> (CONSTITUTION §6.7 non-Markdown reference assets). Term ids are namespaced
+> `term:<용어>` in `docs/skill-graph.json`.
+
+| Term | Layer | Referencing skills |
+|------|-------|--------------------|
+| `100대 통계지표` | L3 | `k-ecos` |
+| `balPayments` | L3 | `k-opendata` |
+| `ELW 일별매매정보` | L3 | `k-krx` |
+| `ESG` | L3 | `k-krx` |
+| `ESG 증권상품` | L3 | `k-krx` |
+| `ESG 지수` | L3 | `k-krx` |
+| `ETF 일별매매정보` | L3 | `k-krx` |
+| `ETN 일별매매정보` | L3 | `k-krx` |
+| `expDlr` | L3 | `k-opendata` |
+| `expWgt` | L3 | `k-opendata` |
+| `hsCd` | L3 | `k-opendata` |
+| `hsCode` | L3 | `k-opendata` |
+| `impDlr` | L3 | `k-opendata` |
+| `impWgt` | L3 | `k-opendata` |
+| `KOSDAQ 시리즈 일별시세정보` | L3 | `k-krx` |
+| `KOSPI 시리즈 일별시세정보` | L3 | `k-krx` |
+| `KRX 시리즈 일별시세정보` | L3 | `k-krx` |
+| `SERVICE_KEY_IS_NOT_REGISTERED_ERROR` | L3 | `k-opendata` |
+| `SERVICE_KEY_IS_NULL` | L3 | `k-opendata` |
+| `statCd` | L3 | `k-opendata` |
+| `statKor` | L3 | `k-opendata` |
+| `가구당월평균소득` | L3 | `k-ecos` |
+| `감사의견` | L3 | `k-dart` |
+| `감자` | L3 | `k-dart` |
+| `개발계정` | L3 | `k-opendata` |
+| `경제성장률(전기대비)` | L3 | `k-ecos` |
+| `경제심리지수` | L3 | `k-ecos` |
+| `공포일자` | L3 | `k-law` |
+| `국가별 수출입실적(GW)` | L3 | `k-opendata` |
+| `국내총생산(명목, 원화표시)` | L3 | `k-ecos` |
+| `국채전문유통시장 일별매매정보` | L3 | `k-krx` |
+| `금시장 일별매매정보` | L3 | `k-krx` |
+| `년간` | L3 | `k-kosis` |
+| `당기순이익` | L3 | `k-dart` |
+| `데이터가 존재하지 않습니다.` | L3 | `k-kosis` |
+| `매출액` | L3 | `k-dart` |
+| `무상증자` | L3 | `k-dart` |
+| `미등록키` | L3 | `k-dart` |
+| `반기보고서` | L3 | `k-dart` |
+| `반년` | L3 | `k-ecos` |
+| `반월` | L3 | `k-ecos` |
+| `배출권 시장 일별매매정보` | L3 | `k-krx` |
+| `법령ID` | L3 | `k-law` |
+| `법령명한글` | L3 | `k-law` |
+| `법령용어` | L3 | `k-law` |
+| `법령일련번호` | L3 | `k-law` |
+| `법령해석례` | L3 | `k-law` |
+| `법원명` | L3 | `k-law` |
+| `별표` | L3 | `k-law` |
+| `별표서식` | L3 | `k-law` |
+| `본원통화 구성내역(평잔, 원계열)` | L3 | `k-ecos` |
+| `부적정` | L3 | `k-dart` |
+| `부채총계` | L3 | `k-dart` |
+| `부칙` | L3 | `k-law` |
+| `분기` | L3 | `k-ecos`, `k-kosis` |
+| `분기보고서` | L3 | `k-dart` |
+| `분할` | L3 | `k-dart` |
+| `사건명` | L3 | `k-law` |
+| `사건번호` | L3 | `k-law` |
+| `사업보고서` | L3 | `k-dart` |
+| `사용할수없는키` | L3 | `k-dart` |
+| `사회책임투자채권 정보` | L3 | `k-krx` |
+| `서비스 통계 목록` | L3 | `k-ecos` |
+| `석유시장 일별매매정보` | L3 | `k-krx` |
+| `선고일자` | L3 | `k-law` |
+| `선물 일별매매정보` | L3 | `k-krx` |
+| `소관부처` | L3 | `k-law` |
+| `소비자동향지수` | L3 | `k-ecos` |
+| `소송` | L3 | `k-dart` |
+| `소액채권시장 일별매매정보` | L3 | `k-krx` |
+| `수출입총괄(GW)` | L3 | `k-opendata` |
+| `시도별 수출입실적(GW)` | L3 | `k-opendata` |
+| `시행일 법령` | L3 | `k-law` |
+| `시행일자` | L3 | `k-law` |
+| `신주인수권증권 일별매매정보` | L3 | `k-krx` |
+| `신주인수권증서 일별매매정보` | L3 | `k-krx` |
+| `실제지급준비액` | L3 | `k-ecos` |
+| `연` | L3 | `k-ecos` |
+| `영업이익` | L3 | `k-dart` |
+| `예금규모별 계좌수 및 금액` | L3 | `k-ecos` |
+| `예금은행 지급준비액(구기준, 평잔)` | L3 | `k-ecos` |
+| `옵션 일별매매정보` | L3 | `k-krx` |
+| `요구불예금(실세)` | L3 | `k-ecos` |
+| `운영계정` | L3 | `k-opendata` |
+| `원/달러 환율(종가)` | L3 | `k-ecos` |
+| `월` | L3 | `k-ecos` |
+| `월간` | L3 | `k-kosis` |
+| `유가증권 일별매매정보` | L3 | `k-krx` |
+| `유가증권 종목기본정보` | L3 | `k-krx` |
+| `유가증권시장` | L3 | `k-dart` |
+| `유상증자` | L3 | `k-dart` |
+| `의견거절` | L3 | `k-dart` |
+| `인구총조사 인구총표` | L3 | `k-kosis` |
+| `일` | L3 | `k-ecos` |
+| `일간` | L3 | `k-kosis` |
+| `일반상품` | L3 | `k-krx` |
+| `일반채권시장 일별매매정보` | L3 | `k-krx` |
+| `자기주식처분` | L3 | `k-dart` |
+| `자기주식취득` | L3 | `k-dart` |
+| `자본총계` | L3 | `k-dart` |
+| `자산총계` | L3 | `k-dart` |
+| `자치법규` | L3 | `k-law` |
+| `잘못된 요청 변수를 호출 하였습니다.` | L3 | `k-kosis` |
+| `적정` | L3 | `k-dart` |
+| `접근할수없는IP` | L3 | `k-dart` |
+| `정상` | L3 | `k-dart` |
+| `조문` | L3 | `k-law` |
+| `조약` | L3 | `k-law` |
+| `조회된데이터가없음` | L3 | `k-dart` |
+| `주식` | L3 | `k-krx` |
+| `주식선물(유가) 일별매매정보` | L3 | `k-krx` |
+| `주식선물(코스닥) 일별매매정보` | L3 | `k-krx` |
+| `주식옵션(유가) 일별매매정보` | L3 | `k-krx` |
+| `주식옵션(코스닥) 일별매매정보` | L3 | `k-krx` |
+| `주요사항보고서` | L3 | `k-dart` |
+| `주요지표(연간지표)` | L3 | `k-ecos` |
+| `증권상품` | L3 | `k-krx` |
+| `지수` | L3 | `k-krx` |
+| `채권` | L3 | `k-krx` |
+| `채권지수 시세정보` | L3 | `k-krx` |
+| `총계` | L3 | `k-opendata` |
+| `코넥스 일별매매정보` | L3 | `k-krx` |
+| `코넥스 종목기본정보` | L3 | `k-krx` |
+| `코넥스시장` | L3 | `k-dart` |
+| `코스닥 일별매매정보` | L3 | `k-krx` |
+| `코스닥 종목기본정보` | L3 | `k-krx` |
+| `코스닥시장` | L3 | `k-dart` |
+| `통계 세부항목 목록` | L3 | `k-ecos` |
+| `통계 조회 조건 설정` | L3 | `k-ecos` |
+| `통계메타DB` | L3 | `k-ecos` |
+| `통계목록조회` | L3 | `k-kosis` |
+| `통계설명` | L3 | `k-kosis` |
+| `통계용어사전` | L3 | `k-ecos` |
+| `통계자료조회` | L3 | `k-kosis` |
+| `통합검색` | L3 | `k-kosis` |
+| `파생상품` | L3 | `k-krx` |
+| `파생상품지수 시세정보` | L3 | `k-krx` |
+| `판결요지` | L3 | `k-law` |
+| `판례` | L3 | `k-law` |
+| `품목별 국가별 수출입실적(GW)` | L3 | `k-opendata` |
+| `품목별 수출입실적(GW)` | L3 | `k-opendata` |
+| `한국은행 기준금리` | L3 | `k-ecos` |
+| `한국은행 기준금리 및 여수신금리` | L3 | `k-ecos` |
+| `한정` | L3 | `k-dart` |
+| `합병` | L3 | `k-dart` |
+| `행정규칙` | L3 | `k-law` |
+| `헌재결정례` | L3 | `k-law` |
+| `현행법령` | L3 | `k-law` |
+| `활용신청` | L3 | `k-opendata` |

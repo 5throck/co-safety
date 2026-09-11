@@ -323,6 +323,11 @@ When writing Korean documentation or Korean translation output, prefer native Ko
 | compliance-gap | compliance-agent | Trigger compliance gap analysis against applicable EHS regulations |
 | emergency-response | emergency-agent | Trigger emergency response protocol on incident, fire, spill, or injury report |
 | k-law | legal-agent | Query the Ministry of Government Legislation National Law Information Center Open API (statutes, precedents, administrative rules, interpretation cases, attached forms); live-primary content source under the 2026-08-26 coordinate-registry architecture |
+| k-dart | compliance-agent | Query the FSS DART OpenAPI for corporate disclosures, company profiles, and financial statements — partner/contractor due diligence support; requires DART_API_KEY |
+| k-kosis | reporting-agent | Query the KOSIS (Statistics Korea) Open API for national statistics — occupational accident and industry benchmarking data for safety KPI reporting; requires KOSIS_API_KEY |
+| k-krx | compliance-agent | Query the KRX (Korea Exchange) Open API for listed-company and market data — listed partner-company monitoring; requires KRX_API_KEY |
+| k-ecos | reporting-agent | Query the Bank of Korea ECOS Open API for Korean macro-financial statistics — economic context for safety investment and reporting cycles; requires ECOS_API_KEY |
+| k-opendata | compliance-agent | Query the Korea Public Data Portal (data.go.kr) Open API gateway for government datasets, including safety and regulatory data; requires DATA_GO_KR_API_KEY |
 | permit-to-work | safety-workflow-manager | Trigger permit-to-work (PTW) issuance workflow for high-risk or non-routine work |
 | tool-box-meeting | safety-workflow-manager | Trigger pre-work Tool Box Meeting (TBM) — cross-industry daily safety briefing with per-domain legal profiles (ehschem/gasterm/steelmaking/shipbuilding/powergen/waste/defense/semicon/battery/biotech/datacenter/logistics/railway/food) |
 | risk-assessment | risk-assessment-agent | Trigger risk assessment workflow for hazard identification and scoring |
