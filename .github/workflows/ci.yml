@@ -20,10 +20,9 @@ jobs:
         with:
           bun-version: latest
 
-      # Variant projects keep their dependencies under scripts/ (scripts/package.json
-      # + scripts/bun.lock); only the L0 workspace has a root package.json.
+      # package.json lives at the repository root, not under scripts/.
       - name: Install dependencies
-        run: cd scripts && bun install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Run audit
         run: bun scripts/audit.ts

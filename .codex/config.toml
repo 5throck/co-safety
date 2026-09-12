@@ -24,3 +24,7 @@ deny_commands = [
     "git push --force",
     "git reset --hard",
 ]
+
+[mcp_servers.graft]
+command = "bunx"
+args = ["@nanonets/graft", "mcp"]
