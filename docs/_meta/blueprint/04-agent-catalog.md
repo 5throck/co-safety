@@ -2,8 +2,6 @@
 
 > **⚠️ Historical v4.0 design note (updated 2026-06):** The **CodeGraph** MCP and **Neo4j Knowledge Graph** described here were **NOT IMPLEMENTED** and have been archived (see [`_meta/archive/code-graph/README.md`](../archive/code-graph/README.md)). Live regulatory traceability uses `evidence-models/*.json` + workflow `legal_basis` fields + `regulations/KR/legal-glossary.yaml` SSOT. Graph references below are design history only.
 
-> **⚠️ Superseded catalog (2026-09-12):** this catalog describes the original 15-agent v4.0 design only. The live roster is **40 agents** — consult [`AGENTS.md §1`](../../../AGENTS.md) as the authoritative source (per-agent lifecycle records live in `docs/lifecycle/agents/`).
-
 ## Document Control
 
 | Property | Value |

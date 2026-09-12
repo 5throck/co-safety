@@ -15,7 +15,7 @@ SAE/SUSAR reporting per KGCP Article 73의2 + ICH E2A.
 
 ## 4. Workflow Steps
 1. **Event identification**: Investigator awareness.
-2. **Causality assessment**: Apply `skills/sae-causality-assessor//`.
+2. **Causality assessment**: Apply `skills/domains/gcp/sae-causality-assessor/`.
 3. **Seriousness determination**: Per ICH E2A criteria.
 4. **Expectedness determination**: Against investigator's brochure.
 5. **Reporting**: To IRB, Sponsor, MFDS per timeline.

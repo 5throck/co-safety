@@ -92,6 +92,21 @@
       "layer": "L3"
     },
     {
+      "id": "daily/audit-preparation",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "daily/compliance-gap",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "daily/risk-assessment",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
       "id": "dangerous-cargo-handling-planner",
       "type": "skill",
       "layer": "L3"
@@ -213,6 +228,11 @@
     },
     {
       "id": "i18n-locale-config",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "investigation/hazop-analysis",
       "type": "skill",
       "layer": "L3"
     },
@@ -1302,12 +1322,6 @@
       }
     },
     {
-      "type": "produces",
-      "from": "audit-preparation",
-      "to": "output_type.governance_review",
-      "source": "procedure_schema"
-    },
-    {
       "type": "references",
       "from": "bsl-lab-aerosol-control-planner",
       "to": "permit-to-work",
@@ -1404,6 +1418,12 @@
       "source": "prose"
     },
     {
+      "type": "produces",
+      "from": "daily/audit-preparation",
+      "to": "output_type.governance_review",
+      "source": "procedure_schema"
+    },
+    {
       "type": "references",
       "from": "dangerous-cargo-handling-planner",
       "to": "ghs-classifier",
@@ -1438,12 +1458,6 @@
       "from": "evidence-ledger",
       "to": "decision-record",
       "source": "prose"
-    },
-    {
-      "type": "produces",
-      "from": "hazop-analysis",
-      "to": "output_type.hazard_inventory",
-      "source": "procedure_schema"
     },
     {
       "type": "references",
@@ -1540,6 +1554,12 @@
       "from": "i18n-locale-config",
       "to": "translate",
       "source": "prose"
+    },
+    {
+      "type": "produces",
+      "from": "investigation/hazop-analysis",
+      "to": "output_type.hazard_inventory",
+      "source": "procedure_schema"
     },
     {
       "type": "composes_with",
@@ -3447,25 +3467,25 @@
     {
       "type": "step_uses_skill",
       "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "audit-preparation",
+      "to": "daily/audit-preparation",
       "source": "procedure_schema"
     },
     {
       "type": "step_uses_skill",
       "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "hazop-analysis",
+      "to": "daily/risk-assessment",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "investigation/hazop-analysis",
       "source": "procedure_schema"
     },
     {
       "type": "produces",
       "from": "procedure.co-safety.daily-risk-assessment",
       "to": "output_type.risk_assessment_record",
-      "source": "procedure_schema"
-    },
-    {
-      "type": "step_uses_skill",
-      "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "risk-assessment",
       "source": "procedure_schema"
     },
     {
@@ -3489,7 +3509,7 @@
     {
       "type": "step_uses_skill",
       "from": "procedure.co-safety.governance-audit",
-      "to": "compliance-gap",
+      "to": "daily/compliance-gap",
       "source": "procedure_schema"
     },
     {
@@ -3525,7 +3545,7 @@
     {
       "type": "step_uses_skill",
       "from": "procedure.co-safety.safety-plan-review",
-      "to": "audit-preparation",
+      "to": "daily/audit-preparation",
       "source": "procedure_schema"
     },
     {

@@ -1,7 +1,5 @@
 # Skill Catalog
 
-> **⚠️ Superseded catalog (2026-09-12):** this document lists only the original launch-era skills (with a tombstone for the removed `legalize-kr-sync`). The live registry — auto-generated from every SKILL.md frontmatter, currently ~87 skills — is [`skills/SKILLS.md`](../../../skills/SKILLS.md); skill↔agent ownership mapping lives in `AGENTS.md §6`. Consult those as the authoritative sources.
-
 ## 1. Overview
 This document serves as the comprehensive catalog of all verified skills available within the Safety OS ecosystem. Each skill is mapped to its primary owning agent and core operational objective.
 

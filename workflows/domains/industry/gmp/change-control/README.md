@@ -12,7 +12,7 @@ This workflow applies to all GMP-regulated changes at pharmaceutical manufacturi
 - Initiator submits change request with description, rationale, technical basis, and scope.
 
 ### Step 2: Impact Assessment (Quality Risk Management)
-- Apply ICH Q9 methodology via `skills/gmp-qrm//` (typically FMEA or cQRM-HAZOP).
+- Apply ICH Q9 methodology via `skills/domains/industry/gmp/qrm/` (typically FMEA or cQRM-HAZOP).
 - Document impact on: product quality, validated state, regulatory filings, stability, supplier qualification.
 
 ### Step 3: Multi-Disciplinary Review
