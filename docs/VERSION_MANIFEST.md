@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-12T01:28:07.598Z
+**Generated**: 2026-09-12T04:18:56.638Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -9,7 +9,7 @@
 ## Summary
 
 - **Agents**: 3
-- **Skills**: 88
+- **Skills**: 89
 - **Scripts**: 202
 - **Commands**: 7
 
@@ -63,6 +63,7 @@
 | gmp-change-control | 1.0.0 | active | skills/gmp-change-control/SKILL.md | workspace | gmp change control, change control, 변경관리, 품질변경, gmp change | gmp-agent |
 | gmp-deviation-capa | 1.0.0 | active | skills/gmp-deviation-capa/SKILL.md | workspace | gmp deviation, gmp capa, deviation, 이상관리, 시정예방조치, oos, out of specification | gmp-agent |
 | gmp-qrm | 1.0.0 | active | skills/gmp-qrm/SKILL.md | workspace | quality risk management, qrm, fmea, risk assessment, 품질위해관리, 위해관리 | gmp-agent |
+| graft | 1.0.1 | active | .claude/skills/graft/SKILL.md | claude | graft, repo context graph, code map, who calls, where is this implemented | N/A |
 | hazop-analysis | 1.1.0 | active | skills/hazop-analysis/SKILL.md | workspace | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
 | hv-cell-formation-electrical-safety-planner | 1.0.0 | active | skills/hv-cell-formation-electrical-safety-planner/SKILL.md | workspace | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준, aging room thermal interlock, DC arc flash battery | battery-agent |
 | i18n-audit | 1.0.0 | active | skills/i18n-audit/SKILL.md | workspace | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
@@ -139,7 +140,7 @@
 | assert.d.ts | N/A | scripts/node_modules/@types/node/assert.d.ts | N/A |
 | async_hooks.d.ts | N/A | scripts/node_modules/@types/node/async_hooks.d.ts | N/A |
 | audit-variant.ts | 1.1.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.34.1 | scripts/audit.ts | bun |
+| audit.ts | 2.36.0 | scripts/audit.ts | bun |
 | balanced-pool.d.ts | N/A | scripts/node_modules/undici-types/balanced-pool.d.ts | url |
 | buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/buffer.buffer.d.ts | N/A |
 | buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/buffer.buffer.d.ts | N/A |
@@ -176,7 +177,7 @@
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 1.0.0 | scripts/design-lint.ts | N/A |
-| dev-sync.ts | 1.12.0 | scripts/dev-sync.ts | bun |
+| dev-sync.ts | 1.13.0 | scripts/dev-sync.ts | bun |
 | dgram.d.ts | N/A | scripts/node_modules/@types/node/dgram.d.ts | N/A |
 | diagnostics_channel.d.ts | N/A | scripts/node_modules/@types/node/diagnostics_channel.d.ts | N/A |
 | diagnostics-channel.d.ts | N/A | scripts/node_modules/undici-types/diagnostics-channel.d.ts | net, url |
@@ -278,8 +279,8 @@
 | sync-agent-status.ts | 1.0.1 | scripts/sync-agent-status.ts | N/A |
 | sync-md.ts | 1.3.3 | scripts/sync-md.ts | N/A |
 | sync-skill-status.ts | 1.0.1 | scripts/sync-skill-status.ts | N/A |
-| sync-skills.ts | 1.6.0 | scripts/sync-skills.ts | N/A |
-| team-builder.ts | 1.3.0 | scripts/team-builder.ts | N/A |
+| sync-skills.ts | 1.7.0 | scripts/sync-skills.ts | N/A |
+| team-builder.ts | 1.4.0 | scripts/team-builder.ts | N/A |
 | test-chemical-handling-profile.ts | 1.0.0 | scripts/co-safety/test-chemical-handling-profile.ts | js-yaml |
 | test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | js-yaml |
 | test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | N/A |
@@ -310,7 +311,7 @@
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
 | validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | js-yaml |
 | validate-skills.ts | 1.5.1 | scripts/validate-skills.ts | N/A |
-| validate-templates.ts | 1.22.0 | scripts/validate-templates.ts | js-yaml |
+| validate-templates.ts | 1.24.0 | scripts/validate-templates.ts | js-yaml |
 | validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |
@@ -348,7 +349,7 @@
 **Checked**: Claude (.claude/) vs Gemini (.gemini/)
 
 - **Commands with parity**: 7 / 7
-- **Skills with parity**: 2 / 88 (common-template skills are parity-exempt)
+- **Skills with parity**: 2 / 89 (common-template skills are parity-exempt)
 
 ---
 
