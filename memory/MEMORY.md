@@ -5,6 +5,7 @@
 | Date | Summary |
 |------|---------|
 | [2026-09-12](2026-09-12.md) | chore: upgrade template to v0.6.0 (project-resync) |
+| [2026-09-12](2026-09-12.md) | chore: sync project-review skill updates |
 | [2026-09-06](2026-09-06.md) | chore: upgrade template content to current v0.6.0 wave (resync step 5) |
 | [2026-08-29](2026-08-29.md) | chore: apply scripts/co-safety nested layout convention (15 variant scripts moved) |
 | [2026-08-28](2026-08-28.md) | fix(agents): flatten agents/_core, dedupe pm.md, move CSO content to docs |

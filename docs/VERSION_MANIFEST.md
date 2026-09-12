@@ -1,6 +1,7 @@
 # VERSION_MANIFEST.md
 
 **Generated**: 2026-09-12T04:18:56.638Z
+**Generated**: 2026-09-12T13:23:01.417Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -118,6 +119,64 @@
 | update-bun-packages | 1.3.1 | active | skills/update-bun-packages/SKILL.md | workspace | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
 | validate-docs-links | 1.0.0 | active | skills/validate-docs-links/SKILL.md | workspace | validate links, check links, broken links, docs validation | pm |
 | zod-contract-gate | 1.0.0 | active | skills/zod-contract-gate/SKILL.md | workspace | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | architect |
+| Name | Version | Location | Platform | Triggers | Owner |
+|------|---------|----------|----------|----------|-------|
+| agent-lifecycle-manager | 1.0.0 | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
+| agent-lifecycle-manager | 1.0.0 | .claude/skills/agent-lifecycle-manager/SKILL.md | both | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
+| api-documentation | 1.0.0 | skills/api-documentation/SKILL.md | workspace | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
+| api-documentation | 1.0.0 | .claude/skills/api-documentation/SKILL.md | both | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
+| decision-record | 1.1.0 | skills/decision-record/SKILL.md | workspace | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
+| decision-record | 1.1.0 | .claude/skills/decision-record/SKILL.md | both | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
+| documentation-writing | 1.0.0 | skills/documentation-writing/SKILL.md | workspace | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
+| documentation-writing | 1.0.0 | .claude/skills/documentation-writing/SKILL.md | both | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
+| evidence-ledger | 1.1.0 | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
+| evidence-ledger | 1.1.0 | .claude/skills/evidence-ledger/SKILL.md | both | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
+| explain-me | 1.0.0 | skills/explain-me/SKILL.md | workspace | /explain-me, /reportme, make a report, create report, explain this topic | pm |
+| explain-me | 1.0.0 | .claude/skills/explain-me/SKILL.md | both | /explain-me, /reportme, make a report, create report, explain this topic | pm |
+| finishing-a-development-branch | 1.0.0 | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
+| finishing-a-development-branch | 1.0.0 | .claude/skills/finishing-a-development-branch/SKILL.md | both | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
+| gateguard | 1.0.0 | skills/gateguard/SKILL.md | workspace | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
+| gateguard | 1.0.0 | .claude/skills/gateguard/SKILL.md | both | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
+| i18n-audit | 1.0.0 | skills/i18n-audit/SKILL.md | workspace | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
+| i18n-audit | 1.0.0 | .claude/skills/i18n-audit/SKILL.md | both | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
+| i18n-formatting | 1.0.0 | skills/i18n-formatting/SKILL.md | workspace | date format, number format, currency format, unit conversion, paper size, korean numerals | pm |
+| i18n-formatting | 1.0.0 | .claude/skills/i18n-formatting/SKILL.md | both | date format, number format, currency format, unit conversion, paper size, korean numerals | pm |
+| i18n-layout | 1.0.0 | skills/i18n-layout/SKILL.md | workspace | character encoding, RTL, bidi, font selection, CRLF, BOM | pm |
+| i18n-layout | 1.0.0 | .claude/skills/i18n-layout/SKILL.md | both | character encoding, RTL, bidi, font selection, CRLF, BOM | pm |
+| i18n-locale-config | 1.0.0 | skills/i18n-locale-config/SKILL.md | workspace | locale config, locale code, BCP 47, collation, collation order, timezone | pm |
+| i18n-locale-config | 1.0.0 | .claude/skills/i18n-locale-config/SKILL.md | both | locale config, locale code, BCP 47, collation, collation order, timezone | pm |
+| meeting | 1.5.0 | .claude/skills/meeting/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
+| meeting-facilitation | 1.5.0 | skills/meeting-facilitation/SKILL.md | workspace | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
+| meeting-facilitation | 1.5.0 | .claude/skills/meeting-facilitation/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
+| platform-command-lifecycle-manager | 1.0.0 | skills/platform-command-lifecycle-manager/SKILL.md | workspace | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
+| platform-command-lifecycle-manager | 1.0.0 | .claude/skills/platform-command-lifecycle-manager/SKILL.md | both | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
+| platform-skill-lifecycle-manager | 1.0.0 | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
+| platform-skill-lifecycle-manager | 1.0.0 | .claude/skills/platform-skill-lifecycle-manager/SKILL.md | both | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
+| project-review | 1.2.0 | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
+| project-review | 1.2.0 | .claude/skills/project-review/SKILL.md | both | project review, review project, audit project, quality review | pm |
+| research-analysis | 1.0.0 | skills/research-analysis/SKILL.md | workspace | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | pm |
+| research-analysis | 1.0.0 | .claude/skills/research-analysis/SKILL.md | both | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | pm |
+| script-lifecycle-manager | 1.2.0 | skills/script-lifecycle-manager/SKILL.md | workspace | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
+| script-lifecycle-manager | 1.2.0 | .claude/skills/script-lifecycle-manager/SKILL.md | both | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
+| security-scan | 1.2.0 | skills/security-scan/SKILL.md | workspace | security scan, scan for vulnerabilities, security check, run security | pm |
+| security-scan | 1.2.0 | .claude/skills/security-scan/SKILL.md | both | security scan, scan for vulnerabilities, security check, run security | pm |
+| simulate-project-creation | 1.0.0 | .claude/skills/simulate-project-creation/SKILL.md | both | simulate project, test scaffolding, dry run project creation | scaffolding-expert |
+| skill-lifecycle-manager | 1.3.0 | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
+| skill-lifecycle-manager | 1.3.0 | .claude/skills/skill-lifecycle-manager/SKILL.md | both | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
+| standup-synthesizer | 1.0.0 | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
+| standup-synthesizer | 1.0.0 | .claude/skills/standup-synthesizer/SKILL.md | both | standup digest, daily standup, synthesize standup, work summary | pm |
+| sync | 1.3.0 | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
+| sync | 1.3.0 | .claude/skills/sync/SKILL.md | both | sync, /sync, commit and push, create PR | pm |
+| team-builder | 1.1.0 | skills/team-builder/SKILL.md | workspace | build new agent team, create agent team, agent team setup, team builder | pm |
+| team-builder | 1.1.0 | .claude/skills/team-builder/SKILL.md | both | build new agent team, create agent team, agent team setup, team builder | pm |
+| translate | 1.0.1 | skills/translate/SKILL.md | workspace | translate, translation, Korean translation | pm |
+| translate | 1.0.1 | .claude/skills/translate/SKILL.md | both | translate, translation, Korean translation | pm |
+| update-bun-packages | 1.3.0 | skills/update-bun-packages/SKILL.md | workspace | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
+| update-bun-packages | 1.3.0 | .claude/skills/update-bun-packages/SKILL.md | both | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
+| validate-docs-links | 1.0.0 | skills/validate-docs-links/SKILL.md | workspace | validate links, check links, broken links, docs validation | pm |
+| validate-docs-links | 1.0.0 | .claude/skills/validate-docs-links/SKILL.md | both | validate links, check links, broken links, docs validation | pm |
+| zod-contract-gate | 1.0.0 | skills/zod-contract-gate/SKILL.md | workspace | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | architect |
+| zod-contract-gate | 1.0.0 | .claude/skills/zod-contract-gate/SKILL.md | both | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | architect |
 
 ---
 

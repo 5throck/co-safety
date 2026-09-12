@@ -147,26 +147,6 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | Term | Layer | Referencing skills |
 |------|-------|--------------------|
 | `100대 통계지표` | L3 | `k-ecos` |
-| `balPayments` | L3 | `k-opendata` |
-| `ELW 일별매매정보` | L3 | `k-krx` |
-| `ESG` | L3 | `k-krx` |
-| `ESG 증권상품` | L3 | `k-krx` |
-| `ESG 지수` | L3 | `k-krx` |
-| `ETF 일별매매정보` | L3 | `k-krx` |
-| `ETN 일별매매정보` | L3 | `k-krx` |
-| `expDlr` | L3 | `k-opendata` |
-| `expWgt` | L3 | `k-opendata` |
-| `hsCd` | L3 | `k-opendata` |
-| `hsCode` | L3 | `k-opendata` |
-| `impDlr` | L3 | `k-opendata` |
-| `impWgt` | L3 | `k-opendata` |
-| `KOSDAQ 시리즈 일별시세정보` | L3 | `k-krx` |
-| `KOSPI 시리즈 일별시세정보` | L3 | `k-krx` |
-| `KRX 시리즈 일별시세정보` | L3 | `k-krx` |
-| `SERVICE_KEY_IS_NOT_REGISTERED_ERROR` | L3 | `k-opendata` |
-| `SERVICE_KEY_IS_NULL` | L3 | `k-opendata` |
-| `statCd` | L3 | `k-opendata` |
-| `statKor` | L3 | `k-opendata` |
 | `가구당월평균소득` | L3 | `k-ecos` |
 | `감사의견` | L3 | `k-dart` |
 | `감자` | L3 | `k-dart` |
@@ -188,11 +168,11 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `반년` | L3 | `k-ecos` |
 | `반월` | L3 | `k-ecos` |
 | `배출권 시장 일별매매정보` | L3 | `k-krx` |
-| `법령ID` | L3 | `k-law` |
 | `법령명한글` | L3 | `k-law` |
 | `법령용어` | L3 | `k-law` |
 | `법령일련번호` | L3 | `k-law` |
 | `법령해석례` | L3 | `k-law` |
+| `법령ID` | L3 | `k-law` |
 | `법원명` | L3 | `k-law` |
 | `별표` | L3 | `k-law` |
 | `별표서식` | L3 | `k-law` |
@@ -295,3 +275,23 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `헌재결정례` | L3 | `k-law` |
 | `현행법령` | L3 | `k-law` |
 | `활용신청` | L3 | `k-opendata` |
+| `balPayments` | L3 | `k-opendata` |
+| `ELW 일별매매정보` | L3 | `k-krx` |
+| `ESG` | L3 | `k-krx` |
+| `ESG 증권상품` | L3 | `k-krx` |
+| `ESG 지수` | L3 | `k-krx` |
+| `ETF 일별매매정보` | L3 | `k-krx` |
+| `ETN 일별매매정보` | L3 | `k-krx` |
+| `expDlr` | L3 | `k-opendata` |
+| `expWgt` | L3 | `k-opendata` |
+| `hsCd` | L3 | `k-opendata` |
+| `hsCode` | L3 | `k-opendata` |
+| `impDlr` | L3 | `k-opendata` |
+| `impWgt` | L3 | `k-opendata` |
+| `KOSDAQ 시리즈 일별시세정보` | L3 | `k-krx` |
+| `KOSPI 시리즈 일별시세정보` | L3 | `k-krx` |
+| `KRX 시리즈 일별시세정보` | L3 | `k-krx` |
+| `SERVICE_KEY_IS_NOT_REGISTERED_ERROR` | L3 | `k-opendata` |
+| `SERVICE_KEY_IS_NULL` | L3 | `k-opendata` |
+| `statCd` | L3 | `k-opendata` |
+| `statKor` | L3 | `k-opendata` |
