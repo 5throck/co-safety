@@ -405,7 +405,7 @@ Use an external computation tool when the task involves ANY of the following:
 
 Skill relations are the generated projection per ADR-0060: `docs/skill-graph.json` / `skill-graph.md` — never hand-edited. Declare stable relations in SKILL.md `relates_to` (typed `{skill, type}`: relates_to / composes_with / follows / enables); put experimental relations in `docs/skill-graph.overrides.json` (`reason` + `since` required, 90-day review, `suppress: true` removes a derived edge). Relations flow variant skill → L1 or same-variant targets only. Regeneration happens at scaffold, promotion (l3 pipeline Phase 6.5), upgrade, and `/sync` step 4.65; verify with `bun scripts/verify-skill-graph.ts`.
 
-> **Projection scope (updated 2026-09-12, after ADR-0074 flattening)**: the graph projects every `skills/<name>/` skill (direct children only — keep the layout flat), top-level `agents/*.md`, procedures + their `_output-types.yaml` vocabularies, and `docs/adr/NNNN-*` records. New skills must therefore be created flat at `skills/<frontmatter-name>/`; never re-introduce category subdirectories.
+> **Projection scope (updated 2026-09-12, after ADR-0075 flattening)**: the graph projects every `skills/<name>/` skill (direct children only — keep the layout flat), top-level `agents/*.md`, procedures + their `_output-types.yaml` vocabularies, and `docs/adr/NNNN-*` records. New skills must therefore be created flat at `skills/<frontmatter-name>/`; never re-introduce category subdirectories.
 
 ## Scripts
 
