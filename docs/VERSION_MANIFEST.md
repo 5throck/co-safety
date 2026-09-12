@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-12T00:57:12.507Z
+**Generated**: 2026-09-12T01:28:07.598Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -9,7 +9,7 @@
 ## Summary
 
 - **Agents**: 3
-- **Skills**: 87
+- **Skills**: 88
 - **Scripts**: 202
 - **Commands**: 7
 
@@ -29,6 +29,7 @@
 
 | Name | Version | Status | Location | Platform | Triggers | Owner |
 |------|---------|--------|----------|----------|----------|-------|
+| accessibility-audit | 1.1.0 | active | skills/accessibility-audit/SKILL.md | workspace | accessibility-audit, /accessibility-audit, axe-core audit, wcag accessibility check, wcag 2.1 aa | pm |
 | agent-lifecycle-manager | 1.0.0 | active | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
 | api-documentation | 1.0.0 | active | skills/api-documentation/SKILL.md | workspace | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
 | arc-flash-analyzer | 1.0.0 | active | skills/arc-flash-analyzer/SKILL.md | workspace | 아크 플래시, arc flash, IEEE 1584, 고압 전기 작업, PPE category, incident energy, NFPA 70E, 활선 작업 허가 | powergen-agent |
@@ -235,7 +236,7 @@
 | module.d.ts | N/A | scripts/node_modules/@types/node/module.d.ts | N/A |
 | nav-utils.ts | 1.0.0 | scripts/handbook/nav-utils.ts | N/A |
 | net.d.ts | N/A | scripts/node_modules/@types/node/net.d.ts | N/A |
-| new-domain.ts | 1.0.1 | scripts/co-safety/new-domain.ts | N/A |
+| new-domain.ts | 1.0.2 | scripts/co-safety/new-domain.ts | N/A |
 | os.d.ts | N/A | scripts/node_modules/@types/node/os.d.ts | N/A |
 | patch.d.ts | N/A | scripts/node_modules/undici-types/patch.d.ts | N/A |
 | path.d.ts | N/A | scripts/node_modules/@types/node/path.d.ts | N/A |
@@ -347,7 +348,7 @@
 **Checked**: Claude (.claude/) vs Gemini (.gemini/)
 
 - **Commands with parity**: 7 / 7
-- **Skills with parity**: 2 / 87 (common-template skills are parity-exempt)
+- **Skills with parity**: 2 / 88 (common-template skills are parity-exempt)
 
 ---
 

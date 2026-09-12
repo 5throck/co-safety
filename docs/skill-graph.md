@@ -8,6 +8,7 @@
 
 | Skill | Layer | Required-by Agents | Phases | Relates-to | Inputs | Outputs |
 |-------|-------|-------------------|--------|------------|--------|---------|
+| `accessibility-audit` | L3 | — | — | — | — | — |
 | `agent-lifecycle-manager` | L3 | — | — | skill-lifecycle-manager (composes_with) | — | — |
 | `api-documentation` | L3 | — | — | — | — | — |
 | `arc-flash-analyzer` | L3 | — | — | — | — | — |

@@ -11,7 +11,7 @@
  * Example:
  *   bun scripts/co-safety/new-domain.ts cosmetics industry cosmetics
  *
- * @version 1.0.1
+ * @version 1.0.2
  * v1.0.1 (2026-07-11): Fixed stale agent-template comment claiming "min 2 for
  *   functional" legal_basis sources — policy has required min 3 for all domains
  *   since 2026-07-05 (see domain-config.ts DEFAULT_MIN_LEGAL_BASIS).
@@ -55,7 +55,8 @@ const dirs = [
     `agents/domains/${tierPath}/${name}`,
     `docs/domains/${tierPath}/${name}`,
     `evidence-models/domains/${tierPath}/${name}`,
-    `skills/domains/${tierPath}/${name}`,
+    // skills are flat per ADR-0075 (workspace standards) — new domain skills are
+    // added at skills/<skill-name>/ with metadata.type: domain + mirror: false
     `workflows/domains/${tierPath}/${name}`,
 ];
 for (const dir of dirs) {
