@@ -96,7 +96,6 @@
 | `tool-box-meeting` | L3 | — | — | — | — | — |
 | `translate` | L3 | — | — | documentation-writing (composes_with) | — | — |
 | `update-bun-packages` | L3 | — | — | — | — | — |
-| `validate-docs-links` | L3 | — | — | — | — | — |
 | `zod-contract-gate` | L3 | — | — | — | — | — |
 
 ## Lifecycle Phase Grouping

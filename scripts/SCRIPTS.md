@@ -69,18 +69,18 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
-| `audit.ts` | — | 2.36.0 | active | — | — | — | — |
+| `audit.ts` | — | 2.37.1 | active | — | — | — | — |
 | `co-safety/audit-variant.ts` | — | 1.1.0 | active | — | — | — | — |
 | `co-safety/check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.13.0 | active | — | — | — | — |
+| `dev-sync.ts` | — | 1.14.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.1.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.1.1 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/domain-config.ts` | — | 1.5.0 | active | — | — | — | — |
 | `gen-pr-body.ts` | — | 1.2.0 | active | — | — | — | — |
 | `co-safety/new-domain.ts` | — | 1.0.2 | active | — | — | — | — |
-| `qa-gate.ts` | — | 1.2.0 | active | — | — | — | — |
+| `qa-gate.ts` | — | 1.3.0 | active | — | — | — | — |
 | `readme-lifecycle-audit.ts` | — | 1.0.4 | active | — | — | — | — |
 | `retry-handler.ts` | — | 1.1.0 | active | — | — | — | — |
 | `co-safety/risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -91,7 +91,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `sync-agent-status.ts` | — | 1.0.1 | active | — | — | — | — |
 | `sync-md.ts` | — | 1.3.3 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.0.1 | active | — | — | — | — |
-| `sync-skills.ts` | — | 1.7.0 | active | — | — | — | — |
+| `sync-skills.ts` | — | 1.8.0 | active | — | — | — | — |
 | `team-builder.ts` | — | 1.4.0 | active | — | — | — | — |
 | `co-safety/test-chemical-handling-profile.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/test-cross-domain-integration.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -104,7 +104,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-agents.ts` | — | 1.2.1 | active | — | — | — | — |
 | `validate-doc-folder.ts` | — | 1.1.0 | active | — | — | — | — |
 | `validate-docs-links.ts` | — | 1.1.0 | active | — | — | — | — |
-| `validate-md-language.ts` | — | 1.10.0 | active | — | — | — | — |
+| `validate-md-language.ts` | — | 1.11.0 | active | — | — | — | — |
 | `validate-skills.ts` | — | 1.5.1 | active | — | — | — | — |
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
 | `verify-memory.ts` | — | 1.2.0 | active | — | — | — | — |
@@ -122,7 +122,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
-| `helpers/context-sections.ts` | — | 1.2.0 | active | — | — | — | — |
+| `helpers/context-sections.ts` | — | 1.3.0 | active | — | — | — | — |
 | `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
 | `helpers/security-validator.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/migrate-registry-to-coordinates.ts` | — | 1.0.2 | active | — | — | — | — |
@@ -151,23 +151,25 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/plan-parser.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/platform-dispatcher.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/ssrf.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `lifecycle-sync-audit.ts` | L0 | 1.7.1 | active | —| —| L0+L1 | —|
+| `lifecycle-sync-audit.ts` | L0 | 1.8.0 | active | —| —| L0+L1 | —|
 | `md-to-ooxml.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `render-pdf-deck.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `setup-github-branch-protection.ts` | L0 | 1.0.1 | active | `--repo`, `--branch`, `--check` (repeatable), `--dry-run` | —| L0+L1 | —|
 | `validate-model-registry.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
-| `verify-platform-lifecycle.ts` | L0 | 1.1.2 | active | —| —| L0+L1 | —|
+| `verify-platform-lifecycle.ts` | L0 | 1.1.3 | active | —| —| L0+L1 | —|
 | `verify-skill-graph.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.24.0 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.25.1 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.1 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `spec-register.ts` | L0 | 1.1.0 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
+| `spec-register.ts` | L0 | 1.2.0 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
 | `lib/git-status.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `helpers/l0-ref-policy.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
+| `lib/constitution-scrub.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
