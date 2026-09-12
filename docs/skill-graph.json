@@ -2,6 +2,11 @@
   "version": 1,
   "nodes": [
     {
+      "id": "accessibility-audit",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
       "id": "adr:0000",
       "type": "adr",
       "layer": "L3"
