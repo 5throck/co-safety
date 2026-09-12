@@ -18,7 +18,7 @@ Generate Periodic Benefit-Risk Evaluation Report per ICH E2C(R2) annually.
 2. **Statistical analysis**: Signal detection, trend analysis.
 3. **Benefit assessment**: Efficacy data review.
 4. **Risk assessment**: New signals, ADR trends.
-5. **Integrated B/R**: Apply `skills/domains/gvp/benefit-risk-assessor/`.
+5. **Integrated B/R**: Apply `skills/benefit-risk-assessor//`.
 6. **Author PBRER**: Per ICH E2C(R2) structure.
 7. **MFDS submission**: Annual deadline.
 

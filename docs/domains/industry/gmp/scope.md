@@ -19,7 +19,7 @@ This document defines the v1 scope of the Good Manufacturing Practice (GMP) modu
 | Agent | `agents/domains/functional/psm/psm-agent.md` | `agents/domains/industry/gmp/gmp-agent.md` |
 | Workflows | `workflows/domains/functional/psm/*/` (11 directories) | `workflows/domains/industry/gmp/*/` (10 directories with `schema.yaml` + `README.md`) |
 | Evidence Models | `evidence-models/domains/functional/psm/psm-*.json` (11) | `evidence-models/domains/industry/gmp/gmp-*.json` (10) |
-| Skills | `skills/domains/functional/psm/moc/` (1) | `skills/domains/industry/gmp/change-control/`, `skills/domains/industry/gmp/deviation-capa/`, `skills/domains/industry/gmp/qrm/` (3) |
+| Skills | `skills/psm-moc//` (1) | `skills/gmp-change-control//`, `skills/gmp-deviation-capa//`, `skills/gmp-qrm//` (3) |
 
 **Pattern upgrade**: Unlike PSM (which uses flat `.md` files), GMP v1 uses the **directory + `schema.yaml` pattern** to be audit-compliant with `scripts/co-safety/safety-audit.ts`.
 
@@ -61,9 +61,9 @@ All include ALCOA+ audit trail fields. Common schema extensions defined in `evid
 - `nomenclature` (multilingual)
 
 ### 4.3 Skills (3)
-- `skills/domains/industry/gmp/change-control/` — reuses `psm-moc` pattern with quality extensions
-- `skills/domains/industry/gmp/deviation-capa/` — deviation + CAPA lifecycle
-- `skills/domains/industry/gmp/qrm/` — ICH Q9 methodology matrix (FMEA, HACCP, FTA, cQRM-HAZOP, PHA)
+- `skills/gmp-change-control//` — reuses `psm-moc` pattern with quality extensions
+- `skills/gmp-deviation-capa//` — deviation + CAPA lifecycle
+- `skills/gmp-qrm//` — ICH Q9 methodology matrix (FMEA, HACCP, FTA, cQRM-HAZOP, PHA)
 
 ### 4.4 Agent Updates
 - `agents/domains/industry/gmp/gmp-agent.md` — new

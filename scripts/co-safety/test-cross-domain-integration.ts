@@ -238,7 +238,8 @@ if (refDepthOk) {
 
 // ── T-08: 2-Tier folder structure ────────────────────────────────────────────
 console.log(`\n${CYAN}[T-08] 2-Tier folder structure (functional/ + industry/)${RESET}`);
-const tierDirs = ['agents', 'workflows', 'evidence-models', 'skills', 'docs'];
+// skills is flat per ADR-0074 (frontmatter categories, no functional/industry dirs)
+const tierDirs = ['agents', 'workflows', 'evidence-models', 'docs'];
 let structureOk = true;
 for (const top of tierDirs) {
     const funcPath = path.join(ROOT, top, 'domains', 'functional');

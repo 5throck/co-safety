@@ -15,7 +15,7 @@ Agent tier: Medium (claude / gemini-cli / antigravity per runtime frontmatter)
 - [x] Agent scope and responsibilities are documented in the runtime definition's Section A/B (or equivalent)
 - [x] Agent is listed in `AGENTS.md` roster
 - [x] All 3 declared workflows exist under `workflows/domains/industry/waste/` with `schema.yaml`: sewage-confined-h2s-prevent, incinerator-shredder-loto, tbm-pre-work-briefing (tree holds 5 scenario dirs incl. landfill-methane-anaerobic-explosion and designated-hazardous-chemical-treatment)
-- [x] Domain skill `landfill-methane-anaerobic-explosion-planner` exists at `skills/domains/industry/waste/landfill-methane-anaerobic-explosion-planner/SKILL.md`
+- [x] Domain skill `landfill-methane-anaerobic-explosion-planner` exists at `skills/landfill-methane-anaerobic-explosion-planner//SKILL.md`
 - [x] All 5 evidence schemas in `evidence-models/domains/industry/waste/` enforce `legal_basis` `minItems: 3` per the Section A multi-source policy; LOTO records additionally covered by the shared `evidence-models/_shared/loto-record.json` (minItems 3)
 - [x] PM Gateway Enforcement banner present in Section C with dispatch trigger list ("폐기물", "하수처리장", "황화수소", "소각로", "H2S asphyxiation")
 - [x] Section A legal basis cites 폐기물관리법 Art 13/25 + 하수도법 Art 19/20 + a confined-space gas-measurement provision, with SAPA Art 4 as adjacent anchor; regulation metadata at `regulations/KR/Wastes-Control-Act.yaml` and `Sewerage-Act.yaml`

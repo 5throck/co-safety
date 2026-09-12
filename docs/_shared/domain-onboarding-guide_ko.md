@@ -110,7 +110,7 @@ industry-profiles/                 # 평면 구조 (산업 ≈ 도메인이나 1
 mkdir -p agents/domains/<tier>/<name>
 mkdir -p docs/domains/<tier>/<name>
 mkdir -p evidence-models/domains/<tier>/<name>
-mkdir -p skills/domains/<tier>/<name>
+mkdir -p skills/<name>  # flat layout per ADR-0075 (frontmatter `metadata.type: domain`, `mirror: false`)
 mkdir -p workflows/domains/<tier>/<name>
 ```
 

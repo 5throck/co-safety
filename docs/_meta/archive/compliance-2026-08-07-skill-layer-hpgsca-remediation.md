@@ -35,19 +35,19 @@ Canonical statute-name form (citations) = **long form**: `고압가스 안전 �
 
 ### Tier 1 — Deleted Art 14 citations
 
-#### Defect #1 — `skills/daily/tool-box-meeting/SKILL.md` (semicon TBM row, line ~104)
+#### Defect #1 — `skills/tool-box-meeting//SKILL.md` (semicon TBM row, line ~104)
 - **Context**: semicon "Special gas cylinder" TBM. Gas cylinders ARE 용기, so Art 17 (용기등의 검사) is topically correct.
 - **Old**: `HPGSCA Art.14/17, CCA Art.20`
 - **New**: `HPGSCA Art.17 (용기등의 검사), CCA Art.20`
 - **Rationale**: Dropped deleted Art 14; retained Art 17 (verified in-force, container inspection — topically precise for gas-cylinder handling). Consistent with compact 1–2 article per-row table style.
 
-#### Defect #2 — `skills/domains/industry/shipbuilding/painting-coating-fire-toxic-planner/SKILL.md` (line ~386)
+#### Defect #2 — `skills/painting-coating-fire-toxic-planner//SKILL.md` (line ~386)
 - **Context**: Non-Duplication Justification contrasting the sister welding WF. `HPGSCA Art 14/28` (Art 14 deleted; Art 28 institutional) described the welding WF's citations.
 - **Old**: `(HPGSCA Art 14/28 + OSHA Art 101)`
 - **New**: `(고압가스 안전 관리 및 사업법 (HPGSCA) Art 11/13/15/24/26 + OSHA Art 101)`
 - **Rationale**: Aligned to the painting workflow's own authoritative remediated set (`workflows/.../shipbuilding-painting-coating-fire-toxic/README.md` §6 = HPGSCA Art 11/13/15/24/26), which the welding WF shares as the shipbuilding gas-intensive canonical set. Long statute name applied.
 
-#### Defect #3 — `skills/domains/industry/logistics/dangerous-cargo-handling-planner/SKILL.md` (line ~304)
+#### Defect #3 — `skills/dangerous-cargo-handling-planner//SKILL.md` (line ~304)
 - **Context**: Non-Duplication contrast with cold-storage ammonia refrigerant. Art 14 deleted; short statute name.
 - **Old**: `(고압가스안전관리법 Art 14 + OSHA-KR Art 39 confined-space)`
 - **New**: `(고압가스 안전 관리 및 사업법 (HPGSCA) Art 13 + OSHA-KR Art 39 confined-space)`
@@ -55,13 +55,13 @@ Canonical statute-name form (citations) = **long form**: `고압가스 안전 �
 
 ### Tier 2 — In-force Art 17/28 with wrong topic label or mismatch
 
-#### Defect #4 — `skills/daily/tool-box-meeting/SKILL.md` (gasterm TBM row, line ~98)
+#### Defect #4 — `skills/tool-box-meeting//SKILL.md` (gasterm TBM row, line ~98)
 - **Context**: gasterm "Gas pipe opening" TBM. Art 17 (용기검사) is container inspection — wrong topic for pipe/facility operation.
 - **Old**: `HPGSCA Art.17, KGS Code`
 - **New**: `HPGSCA Art.13 (시설·용기 안전유지), KGS Code`
 - **Rationale**: Art 13 (시설·용기의 안전유지) covers facility safety maintenance — the correct topical article for gas-pipe opening/operation.
 
-#### Defect #5 — `skills/domains/industry/steelmaking/coke-oven-pah-heat-stress-planner/SKILL.md` (lines ~60, ~393)
+#### Defect #5 — `skills/coke-oven-pah-heat-stress-planner//SKILL.md` (lines ~60, ~393)
 - **Context**: Coke-oven gas facility (byproduct gas). Art 17 (용기검사) mislabeled as "gas facility" — wrong topic. Process-gas piping leak detection = facility safety.
 - **Old (line 60, table)**: `HPGSCA Art 17 (gas facility)`
 - **New (line 60)**: `HPGSCA Art 13 (시설·용기의 안전유지)`
@@ -69,7 +69,7 @@ Canonical statute-name form (citations) = **long form**: `고압가스 안전 �
 - **New (line 393)**: `(HPGSCA Art 13 + OSHA Art 36/38)`
 - **Rationale**: Option (b) from the task — the byproduct-gas-leak-prevent WF addresses facility/piping integrity, which is Art 13 (facility & container safety maintenance), not Art 17 (container inspection). Label corrected to prevent misinformation.
 
-#### Defect #6 — `skills/domains/industry/semicon/pyrophoric-gas-emergency-responder/SKILL.md` (7 occurrences)
+#### Defect #6 — `skills/pyrophoric-gas-emergency-responder//SKILL.md` (7 occurrences)
 - **Context**: Pyrophoric-gas emergency responder. Art 28 = 한국가스안전공사의 설립 (KGS establishment), NOT 응급조치. The accident article is Art 26 (사고의 통보 등).
 - **Edits** (all `Article 28 (고압가스 사고 응급조치)` → `Article 26 (사고의 통보 등)`):
   | Line | Old | New |
@@ -83,7 +83,7 @@ Canonical statute-name form (citations) = **long form**: `고압가스 안전 �
   | 269-272 (Legal Disclaimer) | `Article 28 ... [UNVERIFIED] ... should be re-verified` | `Article 26 ... VERIFIED via legalize_kr (MST 283919) on 2026-08-07` |
 - **Rationale**: Art 26 (사고의 통보 등) is the verified accident-notification article (death/injury/poisoning, gas-leak explosion/fire, facility damage) — the correct citation for a pyrophoric-gas emergency-responder skill. The Korean trigger phrase `고압가스 사고 응급조치` (line 19) was RETAINED because it is a generic search hook and DSSMA Art 27 (응급조치) is also cited by this skill. UNVERIFIED disclaimers cleared (verification now complete).
 
-#### Defect #7 — `skills/domains/industry/gasterm/completion-inspection/SKILL.md` (lines ~23, ~46)
+#### Defect #7 — `skills/completion-inspection//SKILL.md` (lines ~23, ~46)
 - **Context**: SKILL had drifted from its already-remediated workflow (PR #94). Art 28 (KGS 설립) mislabeled as "완성검사" (completion inspection); short statute name.
 - **Reference**: `workflows/.../completion-inspection/schema.yaml` legal_basis (PR #94) = `고압가스 안전 관리 및 사업법 Article 22-2 + Article 13`.
 - **Old (line 23, frontmatter)**: `고압가스안전관리법 제22조의2 (기술검토), 제28조 (완성검사)`
@@ -96,7 +96,7 @@ Canonical statute-name form (citations) = **long form**: `고압가스 안전 �
 
 #### Defect #8 — gasterm construction-permit-overview family
 - **Files edited (4)**:
-  1. `skills/domains/industry/gasterm/construction-permit-overview/SKILL.md` (frontmatter lines 25–26 + table lines 49–50): `고압가스안전관리법` → `고압가스 안전 관리 및 사업법` (including 시행규칙 line)
+  1. `skills/construction-permit-overview//SKILL.md` (frontmatter lines 25–26 + table lines 49–50): `고압가스안전관리법` → `고압가스 안전 관리 및 사업법` (including 시행규칙 line)
   2. `workflows/domains/industry/gasterm/construction-permit-overview/schema.yaml` (line 9): `고압가스안전관리법 Article 22-2` → long form
   3. `workflows/domains/industry/gasterm/construction-permit-overview/README.md` (line 7): `고압가스안전관리법 제22조의2, 시행규칙 제7조` → long form
 - **Rationale**: Pure statute-name consistency. Art 22-2 verified in-force (상세기준). 시행규칙 (Enforcement Rules) is a separate subordinate regulation; long-form parent name applied consistently per task instruction.
@@ -136,15 +136,15 @@ Post-edit verification grep: no residual `고압가스안전관리법` (short fo
 
 ### SKILL source files (10) — PM must run `bun scripts/sync-skills.ts` to propagate to `.claude/skills/`, `.gemini/skills/`, `.agents/skills/`:
 
-1. `skills/daily/tool-box-meeting/SKILL.md` (defects #1, #4)
-2. `skills/domains/industry/shipbuilding/painting-coating-fire-toxic-planner/SKILL.md` (#2)
-3. `skills/domains/industry/logistics/dangerous-cargo-handling-planner/SKILL.md` (#3)
-4. `skills/domains/industry/steelmaking/coke-oven-pah-heat-stress-planner/SKILL.md` (#5)
-5. `skills/domains/industry/semicon/pyrophoric-gas-emergency-responder/SKILL.md` (#6)
-6. `skills/domains/industry/gasterm/completion-inspection/SKILL.md` (#7)
-7. `skills/domains/industry/gasterm/construction-permit-overview/SKILL.md` (#8)
-8. `skills/domains/industry/gasterm/pre-construction-technical-review/SKILL.md` (#9)
-9. `skills/domains/industry/gasterm/mid-construction-inspection/SKILL.md` (#10)
+1. `skills/tool-box-meeting//SKILL.md` (defects #1, #4)
+2. `skills/painting-coating-fire-toxic-planner//SKILL.md` (#2)
+3. `skills/dangerous-cargo-handling-planner//SKILL.md` (#3)
+4. `skills/coke-oven-pah-heat-stress-planner//SKILL.md` (#5)
+5. `skills/pyrophoric-gas-emergency-responder//SKILL.md` (#6)
+6. `skills/completion-inspection//SKILL.md` (#7)
+7. `skills/construction-permit-overview//SKILL.md` (#8)
+8. `skills/pre-construction-technical-review//SKILL.md` (#9)
+9. `skills/mid-construction-inspection//SKILL.md` (#10)
 
 ### Workflow files (6) — Tier 3 named files (no mirror propagation needed):
 

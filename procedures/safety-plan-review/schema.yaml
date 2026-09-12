@@ -15,7 +15,7 @@ preconditions:
 steps:
   - id: 1
     agent_key: safety-governance-manager
-    skill_key: daily/audit-preparation
+    skill_key: audit-preparation
     output_type: plan_review_record
     description: >
       Review the plan against applicable regulation and governance rules.

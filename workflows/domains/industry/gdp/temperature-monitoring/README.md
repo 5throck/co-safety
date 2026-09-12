@@ -10,7 +10,7 @@ All temperature-controlled storage areas and transport vehicles.
 1. **Sensor calibration**: Verify quarterly calibration.
 2. **Continuous monitoring**: 24/7 data logging at defined intervals.
 3. **Excursion detection**: Alert when temperature >spec for >X minutes.
-4. **Impact analysis**: Apply `skills/domains/gdp/temperature-excursion-analyzer/` to assess product quality impact.
+4. **Impact analysis**: Apply `skills/temperature-excursion-analyzer//` to assess product quality impact.
 5. **Decision**: Use-as-is / quarantine / destroy / return to manufacturer.
 6. **CAPA**: If root cause is GDP, internal CAPA; if manufacturing, escalate to GMP.
 

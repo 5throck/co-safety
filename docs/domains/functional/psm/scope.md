@@ -20,7 +20,7 @@ PSM is a **functional (Tier 1) domain** — it supplies PSM methodology to any i
 | Agent | 1 | `agents/domains/functional/psm/psm-agent.md` |
 | Workflows | 15 | All core (no reference workflows — emergency dispatch via industry domains) |
 | Evidence Models | 15 | One per PSM element |
-| Skills | 1 | `skills/domains/functional/psm/moc/` (Management of Change) |
+| Skills | 1 | `skills/psm-moc//` (Management of Change) |
 | Regulations | 1 | `regulations/KR/Chemical-Plant-Safety.yaml` |
 | Industry Profile | N/A | Cross-industry; referenced by `chemical-processing`, `gas-terminal`, `power-generation` profiles |
 
@@ -147,7 +147,7 @@ PSM is consumed by industry domains via standard reference fields:
 | `legal_basis` field present in all PSM workflow schemas | `bun scripts/co-safety/safety-audit.ts` |
 | `applicable_industries` declared in all workflow schemas | `bun scripts/co-safety/safety-audit.ts` |
 | Evidence model `$ref` depth correct (`../../../`) | `bun scripts/co-safety/safety-audit.ts` |
-| MOC skill exists at `skills/domains/functional/psm/moc/` | `bun scripts/co-safety/safety-audit.ts` T-08 |
+| MOC skill exists at `skills/psm-moc//` | `bun scripts/co-safety/safety-audit.ts` T-08 |
 
 ## 9. Legal Disclaimer
 

@@ -7,7 +7,7 @@
  * v2.1.0 (2026-06-17): Added GMP module validation — multi-source legal_basis,
  *   e_signature, qrm_assessment, nomenclature, and role separation checks.
  * v2.2.0 (2026-06-17): Updated paths for domain-based folder structure
- *   (workflows/domains/gmp/, agents/_shared/, skills/domains/gmp/qrm/).
+ *   (workflows/domains/gmp/, agents/_shared/, skills/gmp-qrm//).
  * v2.3.0 (2026-06-17): Added MSDS module validation — multi-source legal_basis
  *   (≥3 stricter than GMP), ghs_version field, reference workflow exception.
  * v2.4.0 (2026-06-17): Added GDP module validation — gdp_certification_status,
@@ -123,7 +123,7 @@
  *   checked_at). Legacy `source_mcp`/`last_updated` fields are tolerated
  *   in legacy-mode files without error.
  *
- * @version 4.10.1
+ * @version 4.10.2
  */
 
 import * as fs from 'node:fs';
@@ -551,12 +551,12 @@ if (fs.existsSync(riskAgentPath)) {
     }
 }
 
-const qrmSkillPath = path.join(ROOT, 'skills', 'domains', 'industry', 'gmp', 'qrm', 'SKILL.md');
+const qrmSkillPath = path.join(ROOT, 'skills', 'gmp-qrm', 'SKILL.md');
 if (fs.existsSync(qrmSkillPath)) {
     totalChecked++;
     const content = fs.readFileSync(qrmSkillPath, 'utf-8');
     if (!content.includes('risk-assessment-agent')) {
-        errors.push('skills/domains/gmp/qrm/SKILL.md: missing risk-assessment-agent scope separation reference');
+        errors.push('skills/gmp-qrm/SKILL.md: missing risk-assessment-agent scope separation reference');
     }
 }
 

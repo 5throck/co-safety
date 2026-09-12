@@ -158,7 +158,7 @@ console.log(`\n${CYAN}[T-09] MSDS skills existence${RESET}`);
 const expectedSkills = ['msds-parser', 'ghs-classifier', 'chemical-risk-assessment'];
 let allSkillsExist = true;
 for (const skill of expectedSkills) {
-    const skillPath = path.join(ROOT, 'skills', 'domains', 'functional', 'msds', skill, 'SKILL.md');
+    const skillPath = path.join(ROOT, 'skills', skill, 'SKILL.md');
     if (fs.existsSync(skillPath)) {
         console.log(`  ${GREEN}✓${RESET} skill '${skill}' exists`);
     } else {
