@@ -9,7 +9,7 @@ Manage clinical trial protocol lifecycle per ICH E6(R3) Section 3 — design, am
 3. **Investigator's brochure (IB) reference**: Latest safety data.
 4. **IRB submission**: Per Korean 생명윤리법.
 5. **Protocol amendment**: Any change requires IRB re-review.
-6. **Protocol deviation tracking**: Apply `skills/domains/gcp/protocol-deviation-analyzer/`.
+6. **Protocol deviation tracking**: Apply `skills/protocol-deviation-analyzer//`.
 
 ## 3. Evidence Record
 Generate `gcp-protocol-record.json` with `ich_e6_compliance` field.

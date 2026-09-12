@@ -89,7 +89,7 @@ lifecycle:
 
 | Tool | Purpose |
 |------|---------|
-| Skill | `skills/domains/industry/meddevice/{iso14971-risk-scorer}/` — ISO 14971 risk estimation and scoring |
+| Skill | `skills/meddevice//{iso14971-risk-scorer}/` — ISO 14971 risk estimation and scoring |
 
 ## PM-ONLY INVOCATION
 Trigger: "의료기기", "medical device", "KGMP-MD", "ISO 13485", "ISO 14971", "설계관리", "멸균 밸리데이션", "의료기기 회수"

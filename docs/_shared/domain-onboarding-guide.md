@@ -110,7 +110,7 @@ For each top-level directory, create the `domains/<tier>/<name>/` subdirectory (
 mkdir -p agents/domains/<tier>/<name>
 mkdir -p docs/domains/<tier>/<name>
 mkdir -p evidence-models/domains/<tier>/<name>
-mkdir -p skills/domains/<tier>/<name>
+mkdir -p skills/<name>  # flat layout per ADR-0074 (frontmatter `metadata.type: domain`, `mirror: false`)
 mkdir -p workflows/domains/<tier>/<name>
 ```
 
@@ -140,7 +140,7 @@ For each evidence type, create `evidence-models/domains/<tier>/<name>/<name>-*-r
 - `legal_basis` (multi-source array, min 3 entries with description and examples)
 
 ### Step 7: Author Skills (Optional)
-If the domain has cross-cutting methodology skills (like `gmp-qrm`), create `skills/domains/<tier>/<name>/<skill>/SKILL.md`.
+If the domain has cross-cutting methodology skills (like `gmp-qrm`), create `skills/<skill-name>/SKILL.md` (flat layout per ADR-0074, with `metadata.type: domain` and `mirror: false` frontmatter).
 
 ### Step 8: Author Regulations Reference
 Create `regulations/<jurisdiction>/<Regulator>-<Framework>.{yaml,md}` with `source_mcp` field for audit compliance.

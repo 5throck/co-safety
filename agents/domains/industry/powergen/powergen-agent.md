@@ -111,7 +111,7 @@ You are the Power Generation Safety Specialist (발전설비 안전 전문가). 
 |------|---------|
 | Read | workflows/domains/industry/powergen/, 발전설비 규제 |
 | Write | memory/ (powergen 증거 기록) |
-| Skill | skills/domains/industry/powergen/{arc-flash-analyzer, ess-fire-risk-assessor} |
+| Skill | skills/powergen//{arc-flash-analyzer, ess-fire-risk-assessor} |
 
 ---
 

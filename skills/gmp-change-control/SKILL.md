@@ -29,16 +29,16 @@ audit_exception: safety-os-skill-structure — Safety OS skills use the legal_ba
 # GMP Change Control (변경관리) Skill
 
 ## Overview
-This skill oversees the GMP Change Control process to ensure that changes to facilities, equipment, processes, materials, documentation, or organization are properly evaluated, approved, implemented, and documented before execution. It reuses the pattern from `skills/domains/functional/psm/moc/` with extensions for quality impact assessment per ICH Q10.
+This skill oversees the GMP Change Control process to ensure that changes to facilities, equipment, processes, materials, documentation, or organization are properly evaluated, approved, implemented, and documented before execution. It reuses the pattern from `skills/psm-moc//` with extensions for quality impact assessment per ICH Q10.
 
 ## Scope
 - **In scope**: GMP-regulated changes under `pharma-general` profile
-- **Out of scope**: PSM-regulated changes (use `skills/domains/functional/psm/moc/` instead)
+- **Out of scope**: PSM-regulated changes (use `skills/psm-moc//` instead)
 - **Overlap**: For changes affecting both process safety AND product quality, dispatch BOTH skills in parallel
 
 ## Operational Steps
 1. **Initiate Change Request**: Document change description, rationale, technical basis, and classification (minor/major/critical).
-2. **Quality Impact Assessment**: Apply ICH Q9 methodology (typically FMEA) via `skills/domains/industry/gmp/qrm/` to evaluate impact on:
+2. **Quality Impact Assessment**: Apply ICH Q9 methodology (typically FMEA) via `skills/gmp-qrm//` to evaluate impact on:
    - Product quality
    - Validated state (equipment, process, cleaning, CSV)
    - Regulatory filings
@@ -60,7 +60,7 @@ Generate evidence to `memory/` using `evidence-models/domains/industry/gmp/gmp-c
 - `audit_trail`: ALCOA+ metadata
 
 ## PSM Pattern Reuse
-90% pattern reuse from `skills/domains/functional/psm/moc/`. Key extensions:
+90% pattern reuse from `skills/psm-moc//`. Key extensions:
 - Quality impact assessment (in addition to safety impact)
 - Multi-source `legal_basis` with quality-domain citations (PSM MOC also uses multi-source `legal_basis` — 4 sources: OSHA-KR Art 44, PSM고시 제4항, SAPA Art 4, OSHA 1910.119(l); the delta is the citation set, not the source count)
 - ALCOA+ data integrity enforcement

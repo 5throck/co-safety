@@ -345,9 +345,9 @@ bun scripts/co-safety/test-cross-domain-integration.ts      # 전체 도메인
 bun scripts/co-safety/test-domain-scenarios.ts              # 5개 실전 시나리오
 
 # 스킬 실행 (rule-based)
-bun skills/domains/industry/gmp/qrm/fmea-scoring.ts                    # FMEA 위해 평가
-bun skills/domains/functional/msds/ghs-classifier/ghs-classifier.ts      # GHS 분류
-bun skills/domains/industry/ehsconst/fall-hazard-assessor/fall-hazard-assessor.ts  # 추락 위해
+bun skills/gmp-qrm//fmea-scoring.ts                    # FMEA 위해 평가
+bun skills/ghs-classifier//ghs-classifier.ts      # GHS 분류
+bun skills/fall-hazard-assessor//fall-hazard-assessor.ts  # 추락 위해
 
 # 동기화 (commit + push + PR)
 bun scripts/dev-sync.ts "커밋 메시지"

@@ -10,7 +10,7 @@ Detect statistical signals in case database per ICH E2E and EU GVP Module 9.
 - **Clinical review**: case series analysis
 
 ## 3. Workflow Steps
-1. **Database query**: Apply statistical methods (apply `skills/domains/gvp/signal-detector/`).
+1. **Database query**: Apply statistical methods (apply `skills/signal-detector//`).
 2. **Signal identification**: Threshold breach (e.g., PRR ≥2, chi-square ≥4).
 3. **Signal triage**: Severity, novelty, clinical relevance.
 4. **Signal validation**: Clinical review by Drug Safety Officer.

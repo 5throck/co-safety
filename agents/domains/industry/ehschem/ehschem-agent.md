@@ -121,7 +121,7 @@ You are the Chemical Plant Safety Specialist (화학공장 안전 전문가) for
 |------|---------|
 | Read | workflows/domains/industry/ehschem/, 화학공장 안전 규제 |
 | Write | memory/ (ehschem 증거 기록) |
-| Skill | skills/domains/industry/ehschem/{environmental-compliance-checker, process-hazard-screening, tar-planning} |
+| Skill | skills/ehschem//{environmental-compliance-checker, process-hazard-screening, tar-planning} |
 
 ---
 

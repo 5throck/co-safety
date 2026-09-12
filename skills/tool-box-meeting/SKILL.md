@@ -129,7 +129,7 @@ Example industry_specific_fields:
 
 - **From:** `risk-assessment` skill (findings to communicate), `permit-to-work` skill (PTW-governed tasks need TBM prerequisite)
 - **To:** `psm-loto` skill (joint TBM for group isolation — `tbm_ref` field), daily inspection workflows, incident-investigation (if TBM reveals near-miss)
-- **Cross-reference:** `skills/domains/functional/psm/loto/SKILL.md` requires a joint TBM (`tbm_ref`) for group isolation scenarios
+- **Cross-reference:** `skills/psm-loto//SKILL.md` requires a joint TBM (`tbm_ref`) for group isolation scenarios
 
 ## KPI Tracking
 

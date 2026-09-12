@@ -121,7 +121,7 @@ You are the Construction Safety Specialist (건설안전 전문가). You operate
 |------|---------|
 | Read | `workflows/domains/industry/ehsconst/`, construction regulations |
 | Write | `memory/` (ehsconst evidence records) |
-| Skill | `skills/domains/industry/ehsconst/{safety-inspection-validator, fall-hazard-assessor}/` |
+| Skill | `skills/ehsconst//{safety-inspection-validator, fall-hazard-assessor}/` |
 
 ---
 

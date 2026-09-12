@@ -6,7 +6,7 @@ Manage GLP raw data with full ALCOA+ integrity per OECD GLP Section 9, 10.
 ## 2. Applicability
 All raw data generated during GLP studies.
 
-## 3. ALCOA+ Principles (apply `skills/domains/glp/glp-data-integrity-checker/`)
+## 3. ALCOA+ Principles (apply `skills/glp-data-integrity-checker//`)
 - **A**ttributable: Each entry traceable to specific individual
 - **L**egible: Permanent, indelible records
 - **C**ontemporaneous: Recorded at time of observation

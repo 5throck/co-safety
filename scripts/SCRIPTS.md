@@ -84,7 +84,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `readme-lifecycle-audit.ts` | — | 1.0.4 | active | — | — | — | — |
 | `retry-handler.ts` | — | 1.1.0 | active | — | — | — | — |
 | `co-safety/risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
-| `co-safety/safety-audit.ts` | — | 4.10.1 | active | — | — | — | — |
+| `co-safety/safety-audit.ts` | — | 4.10.2 | active | — | — | — | — |
 | `co-safety/scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
 | `skill-lifecycle-audit.ts` | — | 1.4.1 | active | — | — | — | — |
 | `co-safety/start-mcp.ts` | — | 1.0.0 | active | — | — | — | — |

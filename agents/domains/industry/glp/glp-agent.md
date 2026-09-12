@@ -123,7 +123,7 @@ GLP agent is dispatched by SWM/PM as part of non-clinical study workflows. May b
 |------|---------|
 | Read | `workflows/domains/industry/glp/`, `regulations/KR/MFDS-GLP.yaml`, `regulations/KR/ME-KREACH-GLP.yaml`, `regulations/international/OECD-GLP.yaml` |
 | Write | `memory/` (GLP evidence records) |
-| Skill | `skills/domains/industry/glp/{glp-data-integrity-checker, glp-study-protocol-validator}/` |
+| Skill | `skills/glp//{glp-data-integrity-checker, glp-study-protocol-validator}/` |
 
 ---
 
