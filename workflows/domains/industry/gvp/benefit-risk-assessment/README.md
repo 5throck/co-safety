@@ -9,7 +9,7 @@ Conduct ongoing benefit-risk assessment per EU GVP Module 12.
 - **MCDA**: Multi-Criteria Decision Analysis (quantitative)
 
 ## 3. Workflow Steps
-1. **Define framework**: Choose methodology (apply `skills/benefit-risk-assessor//`).
+1. **Define framework**: Choose methodology (apply `skills/domains/gvp/benefit-risk-assessor/`).
 2. **Benefit identification**: Efficacy endpoints from pivotal trials + RWE.
 3. **Risk identification**: From PBRER, ICSR database.
 4. **Value tree**: Hierarchical benefit/risk model.

@@ -12,7 +12,7 @@ All DTS-mandated pharmaceutical items at each distribution stage.
 3. **Scan at dispatch**: Record outbound transaction.
 4. **Scan at delivery**: Customer receipt confirmation.
 5. **MFDS DTS Center submission**: Real-time data submission via API.
-6. **Mismatch investigation**: Apply `skills/dts-verification//`.
+6. **Mismatch investigation**: Apply `skills/domains/gdp/dts-verification/`.
 
 ## 4. Evidence Record
 Generate `gdp-dts-tracking-record.json` with batch ID, DTS code, transaction stages.

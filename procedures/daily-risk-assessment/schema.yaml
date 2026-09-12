@@ -15,21 +15,21 @@ preconditions:
 steps:
   - id: 1
     agent_key: safety-workflow-manager
-    skill_key: hazop-analysis
+    skill_key: investigation/hazop-analysis
     output_type: hazard_inventory
     description: >
       Enumerate site hazards for the work of the day from the domain workflow
       checklist.
   - id: 2
     agent_key: safety-workflow-manager
-    skill_key: risk-assessment
+    skill_key: daily/risk-assessment
     output_type: risk_assessment_record
     description: >
       Score hazards and determine controls following the daily workflow
       schema.
   - id: 3
     agent_key: safety-governance-manager
-    skill_key: audit-preparation
+    skill_key: daily/audit-preparation
     output_type: governance_review
     description: >
       Confirm the assessment satisfies applicable regulatory and governance

@@ -62,11 +62,10 @@ When a project is scaffolded with a target country, `docs/countries/ACTIVE.md` r
 
 ## Country-Scoped Skill Deployment
 
-Some skills in the workspace registry are country-scoped: their function requires access to a country-specific data system. Currently six skills are scoped to `KR`: `k-law` (Korean statute lookup), `k-dart` (DART disclosure data), `k-kosis` (KOSIS statistics), `k-krx` (KRX market data), `k-ecos` (Bank of Korea ECOS statistics), and `k-opendata` (Public Data Portal gateway).
+Some skills in the workspace registry are country-scoped: their function requires access to a country-specific data system. Currently `k-law`, `k-dart`, and `k-kosis` are scoped to `KR` (Korean statute lookup, DART disclosure data, KOSIS statistics).
 
 - They are deployed **only** to projects scaffolded with the matching target country (`--country KR`)
 - Region-neutral projects (and projects targeting another country) do not receive them - they are pruned at scaffold time from all four skill roots (`skills/`, `.claude/skills/`, `.gemini/skills/`, `.agents/skills/`)
-- Alternatively, an existing project may adopt a country-scoped skill by declaring it in `variant.json` `skill_manifest.variant_specific` — manifest adoption beats country inference (the country-prune pass keeps adopted skills)
 - The scope criterion is data-system access, never language
 - The single source of truth is the `country_scoped_assets` registry in `docs/workspace-schema.json`
 

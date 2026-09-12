@@ -7,7 +7,7 @@ Design, approve, and amend study protocols per OECD GLP Section 8. Protocol is t
 All GLP-regulated studies. Protocol must be approved BEFORE study initiation.
 
 ## 3. Workflow Steps
-1. **Drafting**: Study Director drafts per OECD format (apply `skills/glp-study-protocol-validator//`).
+1. **Drafting**: Study Director drafts per OECD format (apply `skills/domains/glp/glp-study-protocol-validator/`).
 2. **Sponsor review**: Sponsor confirms scientific rationale.
 3. **QAU review**: Quality Assurance Unit verifies GLP compliance.
 4. **Approval**: Study Director signature, Test Facility Management approval.

@@ -16,7 +16,7 @@ preconditions:
 steps:
   - id: 1
     agent_key: safety-governance-manager
-    skill_key: compliance-gap
+    skill_key: daily/compliance-gap
     output_type: audit_findings
     description: >
       Audit completed assessments for compliance gaps and recurring hazards.

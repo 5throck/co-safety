@@ -22,6 +22,9 @@
 | `construction-permit-overview` | L3 | — | — | — | — | — |
 | `contractor-onboarding` | L3 | — | — | — | — | — |
 | `cosmetics-solvent-exposure-monitor` | L3 | — | — | — | — | — |
+| `daily/audit-preparation` | L3 | — | — | — | — | — |
+| `daily/compliance-gap` | L3 | — | — | — | — | — |
+| `daily/risk-assessment` | L3 | — | — | — | — | — |
 | `dangerous-cargo-handling-planner` | L3 | — | — | — | — | — |
 | `decision-record` | L3 | — | — | — | — | — |
 | `documentation-writing` | L3 | — | — | — | — | — |
@@ -47,6 +50,7 @@
 | `i18n-formatting` | L3 | — | — | — | — | — |
 | `i18n-layout` | L3 | — | — | — | — | — |
 | `i18n-locale-config` | L3 | — | — | — | — | — |
+| `investigation/hazop-analysis` | L3 | — | — | — | — | — |
 | `iso14971-risk-scorer` | L3 | — | — | — | — | — |
 | `k-dart` | L3 | — | — | k-ecos (composes_with), k-kosis (composes_with), k-law | — | — |
 | `k-ecos` | L3 | — | — | k-dart (composes_with), k-kosis (composes_with), k-opendata (composes_with) | — | — |

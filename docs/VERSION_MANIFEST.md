@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-11T23:48:54.152Z
+**Generated**: 2026-09-12T00:57:12.507Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 87
-- **Scripts**: 201
+- **Scripts**: 202
 - **Commands**: 7
 
 ---
@@ -105,7 +105,7 @@
 | simulate-project-creation | 1.0.0 | active | .claude/skills/simulate-project-creation/SKILL.md | both | simulate project, test scaffolding, dry run project creation | scaffolding-expert |
 | skill-lifecycle-manager | 1.3.0 | active | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
 | standup-synthesizer | 1.0.0 | active | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
-| sync | 1.3.0 | active | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
+| sync | 1.5.0 | active | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
 | tank-integrity-validator | 1.0.0 | active | skills/tank-integrity-validator/SKILL.md | workspace | 저장탱크 건전성, tank integrity, LNG 탱크 검사, 수소 취성, hydrogen embrittlement, KGS 코드, 압력용기 검사, 부식 피로 검증 | gasterm-agent |
 | tar-planning | 1.1.0 | active | skills/tar-planning/SKILL.md | workspace | turnaround, tar, tar planning, shutdown planning, 정기보수, 가동중지, 보수정비, 대정비 | ehschem-agent |
 | team-builder | 1.1.0 | active | skills/team-builder/SKILL.md | workspace | build new agent team, create agent team, agent team setup, team builder | pm |
@@ -175,7 +175,7 @@
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 1.0.0 | scripts/design-lint.ts | N/A |
-| dev-sync.ts | 1.10.0 | scripts/dev-sync.ts | bun |
+| dev-sync.ts | 1.12.0 | scripts/dev-sync.ts | bun |
 | dgram.d.ts | N/A | scripts/node_modules/@types/node/dgram.d.ts | N/A |
 | diagnostics_channel.d.ts | N/A | scripts/node_modules/@types/node/diagnostics_channel.d.ts | N/A |
 | diagnostics-channel.d.ts | N/A | scripts/node_modules/undici-types/diagnostics-channel.d.ts | net, url |
@@ -262,13 +262,14 @@
 | retry-handler.d.ts | N/A | scripts/node_modules/undici-types/retry-handler.d.ts | N/A |
 | retry-handler.ts | 1.1.0 | scripts/retry-handler.ts | N/A |
 | risk-register-rollup.ts | 1.0.0 | scripts/co-safety/risk-register-rollup.ts | N/A |
-| safety-audit.ts | 4.10.1 | scripts/co-safety/safety-audit.ts | js-yaml |
+| safety-audit.ts | 4.10.2 | scripts/co-safety/safety-audit.ts | js-yaml |
 | scaffold-handbook.ts | 1.2.0 | scripts/handbook/scaffold-handbook.ts | N/A |
 | scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | js-yaml |
 | sea.d.ts | N/A | scripts/node_modules/@types/node/sea.d.ts | N/A |
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun |
 | skill-lifecycle-audit.ts | 1.4.1 | scripts/skill-lifecycle-audit.ts | N/A |
 | skill-session-review.ts | 1.0.0 | scripts/skill-session-review.ts | bun |
+| spec-register.ts | 1.1.0 | scripts/spec-register.ts | N/A |
 | start-mcp.ts | 1.0.0 | scripts/co-safety/start-mcp.ts | child_process, path |
 | stream.d.ts | N/A | scripts/node_modules/@types/node/stream.d.ts | N/A |
 | strict.d.ts | N/A | scripts/node_modules/@types/node/assert/strict.d.ts | N/A |
