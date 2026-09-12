@@ -1,5 +1,7 @@
 ---
 status: "Accepted"
+lang: ko
+lang_reason: legal
 ---
 
 # ADR-0000: Cross-Cutting Evidence Model Promotion Pattern

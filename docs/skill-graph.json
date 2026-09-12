@@ -1267,11 +1267,6 @@
       "layer": "L3"
     },
     {
-      "id": "validate-docs-links",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
       "id": "zod-contract-gate",
       "type": "skill",
       "layer": "L3"
@@ -3570,12 +3565,6 @@
       "from": "procedure.co-safety.safety-plan-review",
       "to": "safety-governance-manager",
       "source": "procedure_schema"
-    },
-    {
-      "type": "references",
-      "from": "project-review",
-      "to": "validate-docs-links",
-      "source": "prose"
     },
     {
       "type": "references",

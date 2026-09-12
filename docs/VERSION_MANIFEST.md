@@ -1,7 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-12T04:18:56.638Z
-**Generated**: 2026-09-12T13:23:01.417Z
+**Generated**: 2026-09-12T13:46:19.130Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -11,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 89
-- **Scripts**: 202
+- **Scripts**: 97 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -21,11 +20,12 @@
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
 | pm | agents/pm.md | N/A | N/A | 2026-08-28 |
-| safety-governance-manager | agents/safety-governance-manager.md | high | opus | 2026-08-28 |
+| safety-governance-manager | agents/safety-governance-manager.md | N/A | opus | 2026-08-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | opus | 2026-08-28 |
 
 ---
 
+<!-- validate-md-language:allowlist-begin reason="Triggers column embeds verbatim Korean search keywords copied from k-* SKILL.md frontmatter (proper-noun data values, not prose). Generated region — a whole-file lang: ko exception would be dishonest and would un-validate the rest of the manifest, so scripts/validate-md-language.ts exempts only this marked section (T-20260912-015)." -->
 ## Skills
 
 | Name | Version | Status | Location | Platform | Triggers | Owner |
@@ -64,7 +64,7 @@
 | gmp-change-control | 1.0.0 | active | skills/gmp-change-control/SKILL.md | workspace | gmp change control, change control, 변경관리, 품질변경, gmp change | gmp-agent |
 | gmp-deviation-capa | 1.0.0 | active | skills/gmp-deviation-capa/SKILL.md | workspace | gmp deviation, gmp capa, deviation, 이상관리, 시정예방조치, oos, out of specification | gmp-agent |
 | gmp-qrm | 1.0.0 | active | skills/gmp-qrm/SKILL.md | workspace | quality risk management, qrm, fmea, risk assessment, 품질위해관리, 위해관리 | gmp-agent |
-| graft | 1.0.1 | active | .claude/skills/graft/SKILL.md | claude | graft, repo context graph, code map, who calls, where is this implemented | N/A |
+| graft | N/A | active | .claude/skills/graft/SKILL.md | claude | N/A | N/A |
 | hazop-analysis | 1.1.0 | active | skills/hazop-analysis/SKILL.md | workspace | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
 | hv-cell-formation-electrical-safety-planner | 1.0.0 | active | skills/hv-cell-formation-electrical-safety-planner/SKILL.md | workspace | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준, aging room thermal interlock, DC arc flash battery | battery-agent |
 | i18n-audit | 1.0.0 | active | skills/i18n-audit/SKILL.md | workspace | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
@@ -117,66 +117,10 @@
 | tool-box-meeting | 1.0.0 | active | skills/tool-box-meeting/SKILL.md | workspace | TBM, Tool Box Meeting, Toolbox Meeting, 안전점검회의, 작업 전 안전회의, 작업전 안전회의, 오늘 TBM, 작업 전 안전점검, pre-work briefing, daily safety briefing | safety-workflow-manager |
 | translate | 1.0.1 | active | skills/translate/SKILL.md | workspace | translate, translation, Korean translation | pm |
 | update-bun-packages | 1.3.1 | active | skills/update-bun-packages/SKILL.md | workspace | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
-| validate-docs-links | 1.0.0 | active | skills/validate-docs-links/SKILL.md | workspace | validate links, check links, broken links, docs validation | pm |
+| validate-docs-links | 1.0.0 | active | .claude/skills/validate-docs-links/SKILL.md | both | validate links, check links, broken links, docs validation | pm |
 | zod-contract-gate | 1.0.0 | active | skills/zod-contract-gate/SKILL.md | workspace | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | architect |
-| Name | Version | Location | Platform | Triggers | Owner |
-|------|---------|----------|----------|----------|-------|
-| agent-lifecycle-manager | 1.0.0 | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
-| agent-lifecycle-manager | 1.0.0 | .claude/skills/agent-lifecycle-manager/SKILL.md | both | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
-| api-documentation | 1.0.0 | skills/api-documentation/SKILL.md | workspace | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
-| api-documentation | 1.0.0 | .claude/skills/api-documentation/SKILL.md | both | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
-| decision-record | 1.1.0 | skills/decision-record/SKILL.md | workspace | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
-| decision-record | 1.1.0 | .claude/skills/decision-record/SKILL.md | both | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
-| documentation-writing | 1.0.0 | skills/documentation-writing/SKILL.md | workspace | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
-| documentation-writing | 1.0.0 | .claude/skills/documentation-writing/SKILL.md | both | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
-| evidence-ledger | 1.1.0 | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
-| evidence-ledger | 1.1.0 | .claude/skills/evidence-ledger/SKILL.md | both | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
-| explain-me | 1.0.0 | skills/explain-me/SKILL.md | workspace | /explain-me, /reportme, make a report, create report, explain this topic | pm |
-| explain-me | 1.0.0 | .claude/skills/explain-me/SKILL.md | both | /explain-me, /reportme, make a report, create report, explain this topic | pm |
-| finishing-a-development-branch | 1.0.0 | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
-| finishing-a-development-branch | 1.0.0 | .claude/skills/finishing-a-development-branch/SKILL.md | both | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
-| gateguard | 1.0.0 | skills/gateguard/SKILL.md | workspace | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
-| gateguard | 1.0.0 | .claude/skills/gateguard/SKILL.md | both | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
-| i18n-audit | 1.0.0 | skills/i18n-audit/SKILL.md | workspace | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
-| i18n-audit | 1.0.0 | .claude/skills/i18n-audit/SKILL.md | both | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
-| i18n-formatting | 1.0.0 | skills/i18n-formatting/SKILL.md | workspace | date format, number format, currency format, unit conversion, paper size, korean numerals | pm |
-| i18n-formatting | 1.0.0 | .claude/skills/i18n-formatting/SKILL.md | both | date format, number format, currency format, unit conversion, paper size, korean numerals | pm |
-| i18n-layout | 1.0.0 | skills/i18n-layout/SKILL.md | workspace | character encoding, RTL, bidi, font selection, CRLF, BOM | pm |
-| i18n-layout | 1.0.0 | .claude/skills/i18n-layout/SKILL.md | both | character encoding, RTL, bidi, font selection, CRLF, BOM | pm |
-| i18n-locale-config | 1.0.0 | skills/i18n-locale-config/SKILL.md | workspace | locale config, locale code, BCP 47, collation, collation order, timezone | pm |
-| i18n-locale-config | 1.0.0 | .claude/skills/i18n-locale-config/SKILL.md | both | locale config, locale code, BCP 47, collation, collation order, timezone | pm |
-| meeting | 1.5.0 | .claude/skills/meeting/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
-| meeting-facilitation | 1.5.0 | skills/meeting-facilitation/SKILL.md | workspace | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
-| meeting-facilitation | 1.5.0 | .claude/skills/meeting-facilitation/SKILL.md | both | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
-| platform-command-lifecycle-manager | 1.0.0 | skills/platform-command-lifecycle-manager/SKILL.md | workspace | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
-| platform-command-lifecycle-manager | 1.0.0 | .claude/skills/platform-command-lifecycle-manager/SKILL.md | both | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
-| platform-skill-lifecycle-manager | 1.0.0 | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
-| platform-skill-lifecycle-manager | 1.0.0 | .claude/skills/platform-skill-lifecycle-manager/SKILL.md | both | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
-| project-review | 1.2.0 | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
-| project-review | 1.2.0 | .claude/skills/project-review/SKILL.md | both | project review, review project, audit project, quality review | pm |
-| research-analysis | 1.0.0 | skills/research-analysis/SKILL.md | workspace | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | pm |
-| research-analysis | 1.0.0 | .claude/skills/research-analysis/SKILL.md | both | research, analyze, investigate, synthesize, evidence gathering, data analysis, literature review | pm |
-| script-lifecycle-manager | 1.2.0 | skills/script-lifecycle-manager/SKILL.md | workspace | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
-| script-lifecycle-manager | 1.2.0 | .claude/skills/script-lifecycle-manager/SKILL.md | both | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
-| security-scan | 1.2.0 | skills/security-scan/SKILL.md | workspace | security scan, scan for vulnerabilities, security check, run security | pm |
-| security-scan | 1.2.0 | .claude/skills/security-scan/SKILL.md | both | security scan, scan for vulnerabilities, security check, run security | pm |
-| simulate-project-creation | 1.0.0 | .claude/skills/simulate-project-creation/SKILL.md | both | simulate project, test scaffolding, dry run project creation | scaffolding-expert |
-| skill-lifecycle-manager | 1.3.0 | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
-| skill-lifecycle-manager | 1.3.0 | .claude/skills/skill-lifecycle-manager/SKILL.md | both | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
-| standup-synthesizer | 1.0.0 | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
-| standup-synthesizer | 1.0.0 | .claude/skills/standup-synthesizer/SKILL.md | both | standup digest, daily standup, synthesize standup, work summary | pm |
-| sync | 1.3.0 | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
-| sync | 1.3.0 | .claude/skills/sync/SKILL.md | both | sync, /sync, commit and push, create PR | pm |
-| team-builder | 1.1.0 | skills/team-builder/SKILL.md | workspace | build new agent team, create agent team, agent team setup, team builder | pm |
-| team-builder | 1.1.0 | .claude/skills/team-builder/SKILL.md | both | build new agent team, create agent team, agent team setup, team builder | pm |
-| translate | 1.0.1 | skills/translate/SKILL.md | workspace | translate, translation, Korean translation | pm |
-| translate | 1.0.1 | .claude/skills/translate/SKILL.md | both | translate, translation, Korean translation | pm |
-| update-bun-packages | 1.3.0 | skills/update-bun-packages/SKILL.md | workspace | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
-| update-bun-packages | 1.3.0 | .claude/skills/update-bun-packages/SKILL.md | both | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
-| validate-docs-links | 1.0.0 | skills/validate-docs-links/SKILL.md | workspace | validate links, check links, broken links, docs validation | pm |
-| validate-docs-links | 1.0.0 | .claude/skills/validate-docs-links/SKILL.md | both | validate links, check links, broken links, docs validation | pm |
-| zod-contract-gate | 1.0.0 | skills/zod-contract-gate/SKILL.md | workspace | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | architect |
-| zod-contract-gate | 1.0.0 | .claude/skills/zod-contract-gate/SKILL.md | both | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | architect |
+
+<!-- validate-md-language:allowlist-end -->
 
 ---
 
@@ -184,28 +128,18 @@
 
 | Name | Version | Location | Dependencies |
 |------|---------|----------|--------------|
-| abortcontroller.d.ts | N/A | scripts/node_modules/@types/node/web-globals/abortcontroller.d.ts | N/A |
 | agent-create.ts | 1.0.1 | scripts/agent-create.ts | N/A |
 | agent-delete.ts | 1.0.1 | scripts/agent-delete.ts | N/A |
 | agent-lifecycle-audit.ts | 1.2.1 | scripts/agent-lifecycle-audit.ts | N/A |
 | agent-list.ts | 1.1.0 | scripts/agent-list.ts | N/A |
 | agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | N/A |
-| agent.d.ts | N/A | scripts/node_modules/undici-types/agent.d.ts | url |
 | analyze-git-history.ts | 1.0.2 | scripts/analyze-git-history.ts | child_process |
-| api.d.ts | N/A | scripts/node_modules/undici-types/api.d.ts | stream, url |
 | apply-handbook-theme.test.ts | 1.0.1 | scripts/tests/apply-handbook-theme.test.ts | bun:test |
 | apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | N/A |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
-| assert.d.ts | N/A | scripts/node_modules/@types/node/assert.d.ts | N/A |
-| async_hooks.d.ts | N/A | scripts/node_modules/@types/node/async_hooks.d.ts | N/A |
 | audit-variant.ts | 1.1.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.36.0 | scripts/audit.ts | bun |
-| balanced-pool.d.ts | N/A | scripts/node_modules/undici-types/balanced-pool.d.ts | url |
-| buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/buffer.buffer.d.ts | N/A |
-| buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/buffer.buffer.d.ts | N/A |
-| buffer.d.ts | N/A | scripts/node_modules/@types/node/buffer.d.ts | N/A |
+| audit.ts | 2.37.1 | scripts/audit.ts | bun |
 | build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | N/A |
-| cache.d.ts | N/A | scripts/node_modules/undici-types/cache.d.ts | N/A |
 | check-a11y.ts | 1.0.0 | scripts/handbook/check-a11y.ts | N/A |
 | check-authoring.ts | 1.2.0 | scripts/handbook/check-authoring.ts | N/A |
 | check-external-links.ts | 1.2.0 | scripts/handbook/check-external-links.ts | N/A |
@@ -220,125 +154,46 @@
 | check-structure.ts | 1.0.0 | scripts/handbook/check-structure.ts | N/A |
 | check-symmetry.ts | 1.0.0 | scripts/handbook/check-symmetry.ts | N/A |
 | check-tables.ts | 1.0.0 | scripts/handbook/check-tables.ts | N/A |
-| child_process.d.ts | N/A | scripts/node_modules/@types/node/child_process.d.ts | N/A |
 | cleanup-completed-md.ts | 1.1.0 | scripts/cleanup-completed-md.ts | N/A |
 | clear-pm-approval.ts | 1.0.0 | scripts/clear-pm-approval.ts | N/A |
-| client.d.ts | N/A | scripts/node_modules/undici-types/client.d.ts | tls, url |
-| cluster.d.ts | N/A | scripts/node_modules/@types/node/cluster.d.ts | N/A |
 | compile-tokens.ts | 1.2.0 | scripts/compile-tokens.ts | N/A |
-| connector.d.ts | N/A | scripts/node_modules/undici-types/connector.d.ts | net, tls |
-| console.d.ts | N/A | scripts/node_modules/@types/node/console.d.ts | N/A |
-| constants.d.ts | N/A | scripts/node_modules/@types/node/constants.d.ts | N/A |
-| consumers.d.ts | N/A | scripts/node_modules/@types/node/stream/consumers.d.ts | N/A |
-| content-type.d.ts | N/A | scripts/node_modules/undici-types/content-type.d.ts | N/A |
-| cookies.d.ts | N/A | scripts/node_modules/undici-types/cookies.d.ts | N/A |
-| crypto.d.ts | N/A | scripts/node_modules/@types/node/crypto.d.ts | N/A |
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 1.0.0 | scripts/design-lint.ts | N/A |
-| dev-sync.ts | 1.13.0 | scripts/dev-sync.ts | bun |
-| dgram.d.ts | N/A | scripts/node_modules/@types/node/dgram.d.ts | N/A |
-| diagnostics_channel.d.ts | N/A | scripts/node_modules/@types/node/diagnostics_channel.d.ts | N/A |
-| diagnostics-channel.d.ts | N/A | scripts/node_modules/undici-types/diagnostics-channel.d.ts | net, url |
+| dev-sync.ts | 1.14.0 | scripts/dev-sync.ts | bun |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.1 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | N/A |
-| dispatcher.d.ts | N/A | scripts/node_modules/undici-types/dispatcher.d.ts | buffer, events, stream, url |
-| disposable.d.ts | N/A | scripts/node_modules/@types/node/compatibility/disposable.d.ts | N/A |
-| dns.d.ts | N/A | scripts/node_modules/@types/node/dns.d.ts | N/A |
 | domain-config.ts | 1.5.0 | scripts/co-safety/domain-config.ts | N/A |
-| domain.d.ts | N/A | scripts/node_modules/@types/node/domain.d.ts | N/A |
-| domexception.d.ts | N/A | scripts/node_modules/@types/node/web-globals/domexception.d.ts | N/A |
-| env-http-proxy-agent.d.ts | N/A | scripts/node_modules/undici-types/env-http-proxy-agent.d.ts | N/A |
-| errors.d.ts | N/A | scripts/node_modules/undici-types/errors.d.ts | N/A |
-| events.d.ts | N/A | scripts/node_modules/@types/node/events.d.ts | N/A |
-| events.d.ts | N/A | scripts/node_modules/@types/node/web-globals/events.d.ts | N/A |
-| eventsource.d.ts | N/A | scripts/node_modules/undici-types/eventsource.d.ts | N/A |
 | extract-copycode.ts | 1.0.0 | scripts/handbook/extract-copycode.ts | N/A |
-| fetch.d.ts | N/A | scripts/node_modules/@types/node/web-globals/fetch.d.ts | undici-types |
-| fetch.d.ts | N/A | scripts/node_modules/undici-types/fetch.d.ts | buffer, stream, url |
-| file.d.ts | N/A | scripts/node_modules/undici-types/file.d.ts | buffer |
-| filereader.d.ts | N/A | scripts/node_modules/undici-types/filereader.d.ts | buffer |
-| formdata.d.ts | N/A | scripts/node_modules/undici-types/formdata.d.ts | N/A |
-| fs.d.ts | N/A | scripts/node_modules/@types/node/fs.d.ts | N/A |
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-skill-graph.ts | 1.10.0 | scripts/generate-skill-graph.ts | js-yaml |
-| global-dispatcher.d.ts | N/A | scripts/node_modules/undici-types/global-dispatcher.d.ts | N/A |
-| global-origin.d.ts | N/A | scripts/node_modules/undici-types/global-origin.d.ts | N/A |
-| globals.d.ts | N/A | scripts/node_modules/@types/node/globals.d.ts | N/A |
-| globals.typedarray.d.ts | N/A | scripts/node_modules/@types/node/globals.typedarray.d.ts | N/A |
-| globals.typedarray.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/globals.typedarray.d.ts | N/A |
 | handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | N/A |
 | handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | N/A |
-| handlers.d.ts | N/A | scripts/node_modules/undici-types/handlers.d.ts | N/A |
-| header.d.ts | N/A | scripts/node_modules/undici-types/header.d.ts | N/A |
-| http.d.ts | N/A | scripts/node_modules/@types/node/http.d.ts | N/A |
-| http2.d.ts | N/A | scripts/node_modules/@types/node/http2.d.ts | N/A |
-| https.d.ts | N/A | scripts/node_modules/@types/node/https.d.ts | N/A |
-| index.d.ts | N/A | scripts/node_modules/@types/js-yaml/index.d.ts | N/A |
-| index.d.ts | N/A | scripts/node_modules/@types/node/compatibility/index.d.ts | N/A |
-| index.d.ts | N/A | scripts/node_modules/@types/node/index.d.ts | N/A |
-| index.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/index.d.ts | N/A |
-| index.d.ts | N/A | scripts/node_modules/undici-types/index.d.ts | N/A |
-| indexable.d.ts | N/A | scripts/node_modules/@types/node/compatibility/indexable.d.ts | N/A |
-| inspector.generated.d.ts | N/A | scripts/node_modules/@types/node/inspector.generated.d.ts | N/A |
-| interceptors.d.ts | N/A | scripts/node_modules/undici-types/interceptors.d.ts | N/A |
-| iterators.d.ts | N/A | scripts/node_modules/@types/node/compatibility/iterators.d.ts | N/A |
-| lifecycle-sync-audit.ts | 1.7.1 | scripts/lifecycle-sync-audit.ts | N/A |
+| lifecycle-sync-audit.ts | 1.8.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
-| migrate-registry-to-coordinates.ts | N/A | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
-| mock-agent.d.ts | N/A | scripts/node_modules/undici-types/mock-agent.d.ts | N/A |
-| mock-client.d.ts | N/A | scripts/node_modules/undici-types/mock-client.d.ts | N/A |
-| mock-errors.d.ts | N/A | scripts/node_modules/undici-types/mock-errors.d.ts | N/A |
-| mock-interceptor.d.ts | N/A | scripts/node_modules/undici-types/mock-interceptor.d.ts | N/A |
-| mock-pool.d.ts | N/A | scripts/node_modules/undici-types/mock-pool.d.ts | N/A |
-| module.d.ts | N/A | scripts/node_modules/@types/node/module.d.ts | N/A |
+| migrate-registry-to-coordinates.ts | 1.0.2 | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
 | nav-utils.ts | 1.0.0 | scripts/handbook/nav-utils.ts | N/A |
-| net.d.ts | N/A | scripts/node_modules/@types/node/net.d.ts | N/A |
 | new-domain.ts | 1.0.2 | scripts/co-safety/new-domain.ts | N/A |
-| os.d.ts | N/A | scripts/node_modules/@types/node/os.d.ts | N/A |
-| patch.d.ts | N/A | scripts/node_modules/undici-types/patch.d.ts | N/A |
-| path.d.ts | N/A | scripts/node_modules/@types/node/path.d.ts | N/A |
-| perf_hooks.d.ts | N/A | scripts/node_modules/@types/node/perf_hooks.d.ts | N/A |
-| pool-stats.d.ts | N/A | scripts/node_modules/undici-types/pool-stats.d.ts | N/A |
-| pool.d.ts | N/A | scripts/node_modules/undici-types/pool.d.ts | url |
-| process.d.ts | N/A | scripts/node_modules/@types/node/process.d.ts | N/A |
-| promises.d.ts | N/A | scripts/node_modules/@types/node/timers/promises.d.ts | N/A |
-| promises.d.ts | N/A | scripts/node_modules/@types/node/stream/promises.d.ts | N/A |
-| promises.d.ts | N/A | scripts/node_modules/@types/node/readline/promises.d.ts | N/A |
-| promises.d.ts | N/A | scripts/node_modules/@types/node/dns/promises.d.ts | N/A |
-| promises.d.ts | N/A | scripts/node_modules/@types/node/fs/promises.d.ts | N/A |
-| proxy-agent.d.ts | N/A | scripts/node_modules/undici-types/proxy-agent.d.ts | N/A |
-| punycode.d.ts | N/A | scripts/node_modules/@types/node/punycode.d.ts | N/A |
-| qa-gate.ts | N/A | scripts/qa-gate.ts | bun |
-| querystring.d.ts | N/A | scripts/node_modules/@types/node/querystring.d.ts | N/A |
-| readable.d.ts | N/A | scripts/node_modules/undici-types/readable.d.ts | buffer, stream |
-| readline.d.ts | N/A | scripts/node_modules/@types/node/readline.d.ts | N/A |
+| qa-gate.ts | 1.3.0 | scripts/qa-gate.ts | bun |
 | readme-lifecycle-audit.ts | 1.0.4 | scripts/readme-lifecycle-audit.ts | N/A |
 | render-pdf-deck.ts | 1.0.1 | scripts/render-pdf-deck.ts | N/A |
-| repl.d.ts | N/A | scripts/node_modules/@types/node/repl.d.ts | N/A |
 | resolve-variants.ts | 1.0.3 | scripts/resolve-variants.ts | fs, js-yaml, path |
-| retry-agent.d.ts | N/A | scripts/node_modules/undici-types/retry-agent.d.ts | N/A |
-| retry-handler.d.ts | N/A | scripts/node_modules/undici-types/retry-handler.d.ts | N/A |
 | retry-handler.ts | 1.1.0 | scripts/retry-handler.ts | N/A |
 | risk-register-rollup.ts | 1.0.0 | scripts/co-safety/risk-register-rollup.ts | N/A |
 | safety-audit.ts | 4.10.2 | scripts/co-safety/safety-audit.ts | js-yaml |
 | scaffold-handbook.ts | 1.2.0 | scripts/handbook/scaffold-handbook.ts | N/A |
 | scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | js-yaml |
-| sea.d.ts | N/A | scripts/node_modules/@types/node/sea.d.ts | N/A |
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun |
 | skill-lifecycle-audit.ts | 1.4.1 | scripts/skill-lifecycle-audit.ts | N/A |
 | skill-session-review.ts | 1.0.0 | scripts/skill-session-review.ts | bun |
-| spec-register.ts | 1.1.0 | scripts/spec-register.ts | N/A |
+| spec-register.ts | 1.2.0 | scripts/spec-register.ts | N/A |
 | start-mcp.ts | 1.0.0 | scripts/co-safety/start-mcp.ts | child_process, path |
-| stream.d.ts | N/A | scripts/node_modules/@types/node/stream.d.ts | N/A |
-| strict.d.ts | N/A | scripts/node_modules/@types/node/assert/strict.d.ts | N/A |
-| string_decoder.d.ts | N/A | scripts/node_modules/@types/node/string_decoder.d.ts | N/A |
 | sync-agent-status.ts | 1.0.1 | scripts/sync-agent-status.ts | N/A |
 | sync-md.ts | 1.3.3 | scripts/sync-md.ts | N/A |
 | sync-skill-status.ts | 1.0.1 | scripts/sync-skill-status.ts | N/A |
-| sync-skills.ts | 1.7.0 | scripts/sync-skills.ts | N/A |
+| sync-skills.ts | 1.8.0 | scripts/sync-skills.ts | N/A |
 | team-builder.ts | 1.4.0 | scripts/team-builder.ts | N/A |
 | test-chemical-handling-profile.ts | 1.0.0 | scripts/co-safety/test-chemical-handling-profile.ts | js-yaml |
 | test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | js-yaml |
@@ -346,46 +201,30 @@
 | test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | js-yaml |
 | test-runner.ts | 1.2.0 | scripts/test-runner.ts | child_process, fs, path |
 | test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | N/A |
-| test.d.ts | N/A | scripts/node_modules/@types/node/test.d.ts | N/A |
-| timers.d.ts | N/A | scripts/node_modules/@types/node/timers.d.ts | N/A |
-| tls.d.ts | N/A | scripts/node_modules/@types/node/tls.d.ts | N/A |
-| trace_events.d.ts | N/A | scripts/node_modules/@types/node/trace_events.d.ts | N/A |
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
-| tty.d.ts | N/A | scripts/node_modules/@types/node/tty.d.ts | N/A |
 | typecheck.ts | 1.1.1 | scripts/typecheck.ts | N/A |
 | update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | N/A |
-| url.d.ts | N/A | scripts/node_modules/@types/node/url.d.ts | N/A |
-| util.d.ts | N/A | scripts/node_modules/@types/node/util.d.ts | N/A |
-| util.d.ts | N/A | scripts/node_modules/undici-types/util.d.ts | N/A |
-| v8.d.ts | N/A | scripts/node_modules/@types/node/v8.d.ts | N/A |
 | validate-agents.ts | 1.2.1 | scripts/validate-agents.ts | N/A |
 | validate-decisions.ts | 1.0.0 | scripts/validate-decisions.ts | js-yaml |
 | validate-doc-folder.ts | 1.1.0 | scripts/validate-doc-folder.ts | fs, path |
 | validate-docs-links.ts | 1.1.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | N/A |
-| validate-md-language.ts | 1.10.0 | scripts/validate-md-language.ts | fs |
-| validate-model-registry.ts | N/A | scripts/validate-model-registry.ts | N/A |
+| validate-md-language.ts | 1.11.0 | scripts/validate-md-language.ts | fs |
+| validate-model-registry.ts | 1.2.0 | scripts/validate-model-registry.ts | N/A |
 | validate-nav.ts | 1.0.0 | scripts/handbook/validate-nav.ts | N/A |
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
 | validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | js-yaml |
 | validate-skills.ts | 1.5.1 | scripts/validate-skills.ts | N/A |
-| validate-templates.ts | 1.24.0 | scripts/validate-templates.ts | js-yaml |
+| validate-templates.ts | 1.25.1 | scripts/validate-templates.ts | js-yaml |
 | validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |
-| verify-platform-lifecycle.ts | 1.1.2 | scripts/verify-platform-lifecycle.ts | N/A |
+| verify-platform-lifecycle.ts | 1.1.3 | scripts/verify-platform-lifecycle.ts | N/A |
 | verify-readme-sync.ts | 1.4.0 | scripts/verify-readme-sync.ts | bun, fs, path |
 | verify-scripts.ts | 1.6.1 | scripts/verify-scripts.ts | fs, path |
 | verify-skill-graph.ts | 1.6.0 | scripts/verify-skill-graph.ts | N/A |
 | verify-skills.ts | 1.3.0 | scripts/verify-skills.ts | N/A |
-| vm.d.ts | N/A | scripts/node_modules/@types/node/vm.d.ts | N/A |
-| wasi.d.ts | N/A | scripts/node_modules/@types/node/wasi.d.ts | N/A |
-| web.d.ts | N/A | scripts/node_modules/@types/node/stream/web.d.ts | N/A |
-| webidl.d.ts | N/A | scripts/node_modules/undici-types/webidl.d.ts | N/A |
-| websocket.d.ts | N/A | scripts/node_modules/undici-types/websocket.d.ts | buffer, worker_threads |
-| worker_threads.d.ts | N/A | scripts/node_modules/@types/node/worker_threads.d.ts | N/A |
-| zlib.d.ts | N/A | scripts/node_modules/@types/node/zlib.d.ts | N/A |
 
 ---
 
@@ -408,7 +247,7 @@
 **Checked**: Claude (.claude/) vs Gemini (.gemini/)
 
 - **Commands with parity**: 7 / 7
-- **Skills with parity**: 2 / 89 (common-template skills are parity-exempt)
+- **Skills with parity**: 3 / 89 (common-template skills are parity-exempt)
 
 ---
 
@@ -417,4 +256,5 @@
 ⚠️ **Drift detected**:
 
 - [WARNING] Agent pm missing tier or model metadata
+- [WARNING] Agent safety-governance-manager missing tier or model metadata
 - [WARNING] Command commit-push-pr has no matching skill of the same name

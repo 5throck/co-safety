@@ -1,5 +1,7 @@
 ---
 status: "Accepted"
+lang: ko
+lang_reason: legal
 ---
 
 # ADR-0003: Confined Space Evidence Model Promotion (Retroactive)
