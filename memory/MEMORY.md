@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-09-13](2026-09-13.md) | chore: sync template governance updates (ADR-0078 LLM work routing policy) |
 | [2026-09-12](2026-09-12.md) | chore: upgrade template to v0.6.0 (project-resync) |
 | [2026-09-12](2026-09-12.md) | chore: sync project-review skill updates |
 | [2026-09-06](2026-09-06.md) | chore: upgrade template content to current v0.6.0 wave (resync step 5) |
