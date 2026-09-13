@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-12T13:46:19.130Z
+**Generated**: 2026-09-13T07:04:48.499Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 89
-- **Scripts**: 97 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 202 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -20,7 +20,7 @@
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
 | pm | agents/pm.md | N/A | N/A | 2026-08-28 |
-| safety-governance-manager | agents/safety-governance-manager.md | N/A | opus | 2026-08-28 |
+| safety-governance-manager | agents/safety-governance-manager.md | high | opus | 2026-08-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | opus | 2026-08-28 |
 
 ---
@@ -128,18 +128,28 @@
 
 | Name | Version | Location | Dependencies |
 |------|---------|----------|--------------|
+| abortcontroller.d.ts | N/A | scripts/node_modules/@types/node/web-globals/abortcontroller.d.ts | N/A |
 | agent-create.ts | 1.0.1 | scripts/agent-create.ts | N/A |
 | agent-delete.ts | 1.0.1 | scripts/agent-delete.ts | N/A |
 | agent-lifecycle-audit.ts | 1.2.1 | scripts/agent-lifecycle-audit.ts | N/A |
 | agent-list.ts | 1.1.0 | scripts/agent-list.ts | N/A |
 | agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | N/A |
+| agent.d.ts | N/A | scripts/node_modules/undici-types/agent.d.ts | url |
 | analyze-git-history.ts | 1.0.2 | scripts/analyze-git-history.ts | child_process |
+| api.d.ts | N/A | scripts/node_modules/undici-types/api.d.ts | stream, url |
 | apply-handbook-theme.test.ts | 1.0.1 | scripts/tests/apply-handbook-theme.test.ts | bun:test |
 | apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | N/A |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
+| assert.d.ts | N/A | scripts/node_modules/@types/node/assert.d.ts | N/A |
+| async_hooks.d.ts | N/A | scripts/node_modules/@types/node/async_hooks.d.ts | N/A |
 | audit-variant.ts | 1.1.0 | scripts/co-safety/audit-variant.ts | bun |
 | audit.ts | 2.37.1 | scripts/audit.ts | bun |
+| balanced-pool.d.ts | N/A | scripts/node_modules/undici-types/balanced-pool.d.ts | url |
+| buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/buffer.buffer.d.ts | N/A |
+| buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/buffer.buffer.d.ts | N/A |
+| buffer.d.ts | N/A | scripts/node_modules/@types/node/buffer.d.ts | N/A |
 | build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | N/A |
+| cache.d.ts | N/A | scripts/node_modules/undici-types/cache.d.ts | N/A |
 | check-a11y.ts | 1.0.0 | scripts/handbook/check-a11y.ts | N/A |
 | check-authoring.ts | 1.2.0 | scripts/handbook/check-authoring.ts | N/A |
 | check-external-links.ts | 1.2.0 | scripts/handbook/check-external-links.ts | N/A |
@@ -154,42 +164,121 @@
 | check-structure.ts | 1.0.0 | scripts/handbook/check-structure.ts | N/A |
 | check-symmetry.ts | 1.0.0 | scripts/handbook/check-symmetry.ts | N/A |
 | check-tables.ts | 1.0.0 | scripts/handbook/check-tables.ts | N/A |
+| child_process.d.ts | N/A | scripts/node_modules/@types/node/child_process.d.ts | N/A |
 | cleanup-completed-md.ts | 1.1.0 | scripts/cleanup-completed-md.ts | N/A |
 | clear-pm-approval.ts | 1.0.0 | scripts/clear-pm-approval.ts | N/A |
+| client.d.ts | N/A | scripts/node_modules/undici-types/client.d.ts | tls, url |
+| cluster.d.ts | N/A | scripts/node_modules/@types/node/cluster.d.ts | N/A |
 | compile-tokens.ts | 1.2.0 | scripts/compile-tokens.ts | N/A |
+| connector.d.ts | N/A | scripts/node_modules/undici-types/connector.d.ts | net, tls |
+| console.d.ts | N/A | scripts/node_modules/@types/node/console.d.ts | N/A |
+| constants.d.ts | N/A | scripts/node_modules/@types/node/constants.d.ts | N/A |
+| consumers.d.ts | N/A | scripts/node_modules/@types/node/stream/consumers.d.ts | N/A |
+| content-type.d.ts | N/A | scripts/node_modules/undici-types/content-type.d.ts | N/A |
+| cookies.d.ts | N/A | scripts/node_modules/undici-types/cookies.d.ts | N/A |
+| crypto.d.ts | N/A | scripts/node_modules/@types/node/crypto.d.ts | N/A |
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 1.0.0 | scripts/design-lint.ts | N/A |
 | dev-sync.ts | 1.14.0 | scripts/dev-sync.ts | bun |
+| dgram.d.ts | N/A | scripts/node_modules/@types/node/dgram.d.ts | N/A |
+| diagnostics_channel.d.ts | N/A | scripts/node_modules/@types/node/diagnostics_channel.d.ts | N/A |
+| diagnostics-channel.d.ts | N/A | scripts/node_modules/undici-types/diagnostics-channel.d.ts | net, url |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.1 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | N/A |
+| dispatcher.d.ts | N/A | scripts/node_modules/undici-types/dispatcher.d.ts | buffer, events, stream, url |
+| disposable.d.ts | N/A | scripts/node_modules/@types/node/compatibility/disposable.d.ts | N/A |
+| dns.d.ts | N/A | scripts/node_modules/@types/node/dns.d.ts | N/A |
 | domain-config.ts | 1.5.0 | scripts/co-safety/domain-config.ts | N/A |
+| domain.d.ts | N/A | scripts/node_modules/@types/node/domain.d.ts | N/A |
+| domexception.d.ts | N/A | scripts/node_modules/@types/node/web-globals/domexception.d.ts | N/A |
+| env-http-proxy-agent.d.ts | N/A | scripts/node_modules/undici-types/env-http-proxy-agent.d.ts | N/A |
+| errors.d.ts | N/A | scripts/node_modules/undici-types/errors.d.ts | N/A |
+| events.d.ts | N/A | scripts/node_modules/@types/node/events.d.ts | N/A |
+| events.d.ts | N/A | scripts/node_modules/@types/node/web-globals/events.d.ts | N/A |
+| eventsource.d.ts | N/A | scripts/node_modules/undici-types/eventsource.d.ts | N/A |
 | extract-copycode.ts | 1.0.0 | scripts/handbook/extract-copycode.ts | N/A |
+| fetch.d.ts | N/A | scripts/node_modules/@types/node/web-globals/fetch.d.ts | undici-types |
+| fetch.d.ts | N/A | scripts/node_modules/undici-types/fetch.d.ts | buffer, stream, url |
+| file.d.ts | N/A | scripts/node_modules/undici-types/file.d.ts | buffer |
+| filereader.d.ts | N/A | scripts/node_modules/undici-types/filereader.d.ts | buffer |
+| formdata.d.ts | N/A | scripts/node_modules/undici-types/formdata.d.ts | N/A |
+| fs.d.ts | N/A | scripts/node_modules/@types/node/fs.d.ts | N/A |
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-skill-graph.ts | 1.10.0 | scripts/generate-skill-graph.ts | js-yaml |
+| global-dispatcher.d.ts | N/A | scripts/node_modules/undici-types/global-dispatcher.d.ts | N/A |
+| global-origin.d.ts | N/A | scripts/node_modules/undici-types/global-origin.d.ts | N/A |
+| globals.d.ts | N/A | scripts/node_modules/@types/node/globals.d.ts | N/A |
+| globals.typedarray.d.ts | N/A | scripts/node_modules/@types/node/globals.typedarray.d.ts | N/A |
+| globals.typedarray.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/globals.typedarray.d.ts | N/A |
 | handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | N/A |
 | handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | N/A |
-| lifecycle-sync-audit.ts | 1.8.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
+| handlers.d.ts | N/A | scripts/node_modules/undici-types/handlers.d.ts | N/A |
+| header.d.ts | N/A | scripts/node_modules/undici-types/header.d.ts | N/A |
+| http.d.ts | N/A | scripts/node_modules/@types/node/http.d.ts | N/A |
+| http2.d.ts | N/A | scripts/node_modules/@types/node/http2.d.ts | N/A |
+| https.d.ts | N/A | scripts/node_modules/@types/node/https.d.ts | N/A |
+| index.d.ts | N/A | scripts/node_modules/@types/js-yaml/index.d.ts | N/A |
+| index.d.ts | N/A | scripts/node_modules/@types/node/compatibility/index.d.ts | N/A |
+| index.d.ts | N/A | scripts/node_modules/@types/node/index.d.ts | N/A |
+| index.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/index.d.ts | N/A |
+| index.d.ts | N/A | scripts/node_modules/undici-types/index.d.ts | N/A |
+| indexable.d.ts | N/A | scripts/node_modules/@types/node/compatibility/indexable.d.ts | N/A |
+| inspector.generated.d.ts | N/A | scripts/node_modules/@types/node/inspector.generated.d.ts | N/A |
+| interceptors.d.ts | N/A | scripts/node_modules/undici-types/interceptors.d.ts | N/A |
+| iterators.d.ts | N/A | scripts/node_modules/@types/node/compatibility/iterators.d.ts | N/A |
+| lifecycle-sync-audit.ts | 1.9.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-registry-to-coordinates.ts | 1.0.2 | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
+| mock-agent.d.ts | N/A | scripts/node_modules/undici-types/mock-agent.d.ts | N/A |
+| mock-client.d.ts | N/A | scripts/node_modules/undici-types/mock-client.d.ts | N/A |
+| mock-errors.d.ts | N/A | scripts/node_modules/undici-types/mock-errors.d.ts | N/A |
+| mock-interceptor.d.ts | N/A | scripts/node_modules/undici-types/mock-interceptor.d.ts | N/A |
+| mock-pool.d.ts | N/A | scripts/node_modules/undici-types/mock-pool.d.ts | N/A |
+| module.d.ts | N/A | scripts/node_modules/@types/node/module.d.ts | N/A |
 | nav-utils.ts | 1.0.0 | scripts/handbook/nav-utils.ts | N/A |
+| net.d.ts | N/A | scripts/node_modules/@types/node/net.d.ts | N/A |
 | new-domain.ts | 1.0.2 | scripts/co-safety/new-domain.ts | N/A |
+| os.d.ts | N/A | scripts/node_modules/@types/node/os.d.ts | N/A |
+| patch.d.ts | N/A | scripts/node_modules/undici-types/patch.d.ts | N/A |
+| path.d.ts | N/A | scripts/node_modules/@types/node/path.d.ts | N/A |
+| perf_hooks.d.ts | N/A | scripts/node_modules/@types/node/perf_hooks.d.ts | N/A |
+| pool-stats.d.ts | N/A | scripts/node_modules/undici-types/pool-stats.d.ts | N/A |
+| pool.d.ts | N/A | scripts/node_modules/undici-types/pool.d.ts | url |
+| process.d.ts | N/A | scripts/node_modules/@types/node/process.d.ts | N/A |
+| promises.d.ts | N/A | scripts/node_modules/@types/node/timers/promises.d.ts | N/A |
+| promises.d.ts | N/A | scripts/node_modules/@types/node/stream/promises.d.ts | N/A |
+| promises.d.ts | N/A | scripts/node_modules/@types/node/readline/promises.d.ts | N/A |
+| promises.d.ts | N/A | scripts/node_modules/@types/node/dns/promises.d.ts | N/A |
+| promises.d.ts | N/A | scripts/node_modules/@types/node/fs/promises.d.ts | N/A |
+| proxy-agent.d.ts | N/A | scripts/node_modules/undici-types/proxy-agent.d.ts | N/A |
+| punycode.d.ts | N/A | scripts/node_modules/@types/node/punycode.d.ts | N/A |
 | qa-gate.ts | 1.3.0 | scripts/qa-gate.ts | bun |
+| querystring.d.ts | N/A | scripts/node_modules/@types/node/querystring.d.ts | N/A |
+| readable.d.ts | N/A | scripts/node_modules/undici-types/readable.d.ts | buffer, stream |
+| readline.d.ts | N/A | scripts/node_modules/@types/node/readline.d.ts | N/A |
 | readme-lifecycle-audit.ts | 1.0.4 | scripts/readme-lifecycle-audit.ts | N/A |
 | render-pdf-deck.ts | 1.0.1 | scripts/render-pdf-deck.ts | N/A |
+| repl.d.ts | N/A | scripts/node_modules/@types/node/repl.d.ts | N/A |
 | resolve-variants.ts | 1.0.3 | scripts/resolve-variants.ts | fs, js-yaml, path |
+| retry-agent.d.ts | N/A | scripts/node_modules/undici-types/retry-agent.d.ts | N/A |
+| retry-handler.d.ts | N/A | scripts/node_modules/undici-types/retry-handler.d.ts | N/A |
 | retry-handler.ts | 1.1.0 | scripts/retry-handler.ts | N/A |
 | risk-register-rollup.ts | 1.0.0 | scripts/co-safety/risk-register-rollup.ts | N/A |
 | safety-audit.ts | 4.10.2 | scripts/co-safety/safety-audit.ts | js-yaml |
 | scaffold-handbook.ts | 1.2.0 | scripts/handbook/scaffold-handbook.ts | N/A |
 | scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | js-yaml |
+| sea.d.ts | N/A | scripts/node_modules/@types/node/sea.d.ts | N/A |
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun |
 | skill-lifecycle-audit.ts | 1.4.1 | scripts/skill-lifecycle-audit.ts | N/A |
 | skill-session-review.ts | 1.0.0 | scripts/skill-session-review.ts | bun |
 | spec-register.ts | 1.2.0 | scripts/spec-register.ts | N/A |
 | start-mcp.ts | 1.0.0 | scripts/co-safety/start-mcp.ts | child_process, path |
+| stream.d.ts | N/A | scripts/node_modules/@types/node/stream.d.ts | N/A |
+| strict.d.ts | N/A | scripts/node_modules/@types/node/assert/strict.d.ts | N/A |
+| string_decoder.d.ts | N/A | scripts/node_modules/@types/node/string_decoder.d.ts | N/A |
 | sync-agent-status.ts | 1.0.1 | scripts/sync-agent-status.ts | N/A |
 | sync-md.ts | 1.3.3 | scripts/sync-md.ts | N/A |
 | sync-skill-status.ts | 1.0.1 | scripts/sync-skill-status.ts | N/A |
@@ -201,10 +290,19 @@
 | test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | js-yaml |
 | test-runner.ts | 1.2.0 | scripts/test-runner.ts | child_process, fs, path |
 | test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | N/A |
+| test.d.ts | N/A | scripts/node_modules/@types/node/test.d.ts | N/A |
+| timers.d.ts | N/A | scripts/node_modules/@types/node/timers.d.ts | N/A |
+| tls.d.ts | N/A | scripts/node_modules/@types/node/tls.d.ts | N/A |
+| trace_events.d.ts | N/A | scripts/node_modules/@types/node/trace_events.d.ts | N/A |
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
+| tty.d.ts | N/A | scripts/node_modules/@types/node/tty.d.ts | N/A |
 | typecheck.ts | 1.1.1 | scripts/typecheck.ts | N/A |
 | update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | N/A |
+| url.d.ts | N/A | scripts/node_modules/@types/node/url.d.ts | N/A |
+| util.d.ts | N/A | scripts/node_modules/@types/node/util.d.ts | N/A |
+| util.d.ts | N/A | scripts/node_modules/undici-types/util.d.ts | N/A |
+| v8.d.ts | N/A | scripts/node_modules/@types/node/v8.d.ts | N/A |
 | validate-agents.ts | 1.2.1 | scripts/validate-agents.ts | N/A |
 | validate-decisions.ts | 1.0.0 | scripts/validate-decisions.ts | js-yaml |
 | validate-doc-folder.ts | 1.1.0 | scripts/validate-doc-folder.ts | fs, path |
@@ -225,6 +323,13 @@
 | verify-scripts.ts | 1.6.1 | scripts/verify-scripts.ts | fs, path |
 | verify-skill-graph.ts | 1.6.0 | scripts/verify-skill-graph.ts | N/A |
 | verify-skills.ts | 1.3.0 | scripts/verify-skills.ts | N/A |
+| vm.d.ts | N/A | scripts/node_modules/@types/node/vm.d.ts | N/A |
+| wasi.d.ts | N/A | scripts/node_modules/@types/node/wasi.d.ts | N/A |
+| web.d.ts | N/A | scripts/node_modules/@types/node/stream/web.d.ts | N/A |
+| webidl.d.ts | N/A | scripts/node_modules/undici-types/webidl.d.ts | N/A |
+| websocket.d.ts | N/A | scripts/node_modules/undici-types/websocket.d.ts | buffer, worker_threads |
+| worker_threads.d.ts | N/A | scripts/node_modules/@types/node/worker_threads.d.ts | N/A |
+| zlib.d.ts | N/A | scripts/node_modules/@types/node/zlib.d.ts | N/A |
 
 ---
 
@@ -256,5 +361,4 @@
 ⚠️ **Drift detected**:
 
 - [WARNING] Agent pm missing tier or model metadata
-- [WARNING] Agent safety-governance-manager missing tier or model metadata
 - [WARNING] Command commit-push-pr has no matching skill of the same name
