@@ -273,3 +273,14 @@ ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
    `docs/workspace-schema.json`'s `country_scoped_assets`) provides statutory
    research and is pruned from region-neutral scaffolds
 <!-- END VARIANT-INJECT -->
+
+
+<!-- COMMON-CONTEXT:START -->
+This project follows the workspace coding standards defined in the project's Coding Guidelines section.
+
+Key rules:
+- All operational scripts must be TypeScript (`.ts`) — run via `bun scripts/<name>.ts` (ADR-0036; no `.sh`/`.ps1` pairs)
+- Git hook scripts in `.githooks/` remain Unix shell (`.sh`) for git compatibility
+- All text files saved as **UTF-8 (without BOM)**
+- Commit messages and PR artifacts in **English only**
+<!-- COMMON-CONTEXT:END -->
