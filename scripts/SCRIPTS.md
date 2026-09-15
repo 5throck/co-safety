@@ -69,7 +69,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
-| `audit.ts` | — | 2.37.1 | active | — | — | — | — |
+| `audit.ts` | — | 2.38.1 | active | — | — | — | — |
 | `co-safety/audit-variant.ts` | — | 1.1.0 | active | — | — | — | — |
 | `co-safety/check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -130,6 +130,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `compile-tokens.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `generate-skill-graph.ts` | L0 | 1.10.0 | active | —| —| L0+L1 | —|
+| `generate-version-manifest.ts` | L0 | 1.4.1 | active | —| —| L0+L1 | —|
 | `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `helpers/merge-frontmatter.ts` | L0 | 1.8.6 | active | —| —| L0+L1 | —|
@@ -151,18 +152,18 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/plan-parser.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/platform-dispatcher.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/ssrf.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `lifecycle-sync-audit.ts` | L0 | 1.9.0 | active | —| —| L0+L1 | —|
+| `lifecycle-sync-audit.ts` | L0 | 1.12.0 | active | —| —| L0+L1 | —|
 | `md-to-ooxml.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `render-pdf-deck.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `setup-github-branch-protection.ts` | L0 | 1.0.1 | active | `--repo`, `--branch`, `--check` (repeatable), `--dry-run` | —| L0+L1 | —|
-| `validate-model-registry.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
+| `validate-model-registry.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
 | `verify-platform-lifecycle.ts` | L0 | 1.1.3 | active | —| —| L0+L1 | —|
 | `verify-skill-graph.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.25.1 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.27.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.1 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|

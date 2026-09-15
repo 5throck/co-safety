@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-13T13:01:51.798Z
+**Generated**: 2026-09-15T02:53:00.729Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 89
-- **Scripts**: 202 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 203 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -31,7 +31,7 @@
 | Name | Version | Status | Location | Platform | Triggers | Owner |
 |------|---------|--------|----------|----------|----------|-------|
 | accessibility-audit | 1.1.0 | active | skills/accessibility-audit/SKILL.md | workspace | accessibility-audit, /accessibility-audit, axe-core audit, wcag accessibility check, wcag 2.1 aa | pm |
-| agent-lifecycle-manager | 1.0.0 | active | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
+| agent-lifecycle-manager | 1.1.0 | active | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
 | api-documentation | 1.0.0 | active | skills/api-documentation/SKILL.md | workspace | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
 | arc-flash-analyzer | 1.0.0 | active | skills/arc-flash-analyzer/SKILL.md | workspace | 아크 플래시, arc flash, IEEE 1584, 고압 전기 작업, PPE category, incident energy, NFPA 70E, 활선 작업 허가 | powergen-agent |
 | asset-integrity-check | 1.0.0 | active | skills/asset-integrity-check/SKILL.md | workspace | 설비무결성, asset integrity, 정기점검 일정, preventive maintenance, 압력용기 검사, NDT 검사, 배관 건전성, mechanical integrity | asset-integrity-agent |
@@ -90,7 +90,7 @@
 | platform-skill-lifecycle-manager | 1.0.0 | active | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
 | pre-construction-technical-review | 1.0.0 | active | skills/pre-construction-technical-review/SKILL.md | workspace | pre-construction review, technical review, design review, 시설기준 검토, 기술검토, 설계검토, 사전기술검토 | gasterm-agent |
 | process-hazard-screening | 1.0.0 | active | skills/process-hazard-screening/SKILL.md | workspace | PSM 적용대상, process hazard screening, 위해물질 보유량, 공정안전관리, PHA 대상 여부, 사고대비물질, 화학공장 초기 위해평가 | ehschem-agent |
-| project-review | 1.2.0 | active | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
+| project-review | 1.3.0 | active | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
 | protocol-deviation-analyzer | 1.0.0 | active | skills/protocol-deviation-analyzer/SKILL.md | workspace | 프로토콜 이탈, protocol deviation, ICH E6(R3), important deviation, CAPA, IRB 보고, KGCP, 임상시험 이탈 | gcp-agent |
 | psm-loto | 1.0.0 | active | skills/psm-loto/SKILL.md | workspace | loto, lockout, tagout, lock out, tag out, energy isolation, 에너지 차단, 로크아웃, 태그아웃 | psm-agent |
 | psm-moc | 1.0.0 | active | skills/psm-moc/SKILL.md | workspace | management of change, moc, change management, process change, 변경관리, 공정변경 | psm-agent |
@@ -143,7 +143,7 @@
 | assert.d.ts | N/A | scripts/node_modules/@types/node/assert.d.ts | N/A |
 | async_hooks.d.ts | N/A | scripts/node_modules/@types/node/async_hooks.d.ts | N/A |
 | audit-variant.ts | 1.1.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.37.1 | scripts/audit.ts | bun |
+| audit.ts | 2.38.1 | scripts/audit.ts | bun |
 | balanced-pool.d.ts | N/A | scripts/node_modules/undici-types/balanced-pool.d.ts | url |
 | buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/buffer.buffer.d.ts | N/A |
 | buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/buffer.buffer.d.ts | N/A |
@@ -208,6 +208,7 @@
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-skill-graph.ts | 1.10.0 | scripts/generate-skill-graph.ts | js-yaml |
+| generate-version-manifest.ts | 1.4.1 | scripts/generate-version-manifest.ts | bun, js-yaml |
 | global-dispatcher.d.ts | N/A | scripts/node_modules/undici-types/global-dispatcher.d.ts | N/A |
 | global-origin.d.ts | N/A | scripts/node_modules/undici-types/global-origin.d.ts | N/A |
 | globals.d.ts | N/A | scripts/node_modules/@types/node/globals.d.ts | N/A |
@@ -229,7 +230,7 @@
 | inspector.generated.d.ts | N/A | scripts/node_modules/@types/node/inspector.generated.d.ts | N/A |
 | interceptors.d.ts | N/A | scripts/node_modules/undici-types/interceptors.d.ts | N/A |
 | iterators.d.ts | N/A | scripts/node_modules/@types/node/compatibility/iterators.d.ts | N/A |
-| lifecycle-sync-audit.ts | 1.9.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
+| lifecycle-sync-audit.ts | 1.12.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-registry-to-coordinates.ts | 1.0.2 | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
 | mock-agent.d.ts | N/A | scripts/node_modules/undici-types/mock-agent.d.ts | N/A |
@@ -309,12 +310,12 @@
 | validate-docs-links.ts | 1.1.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | N/A |
 | validate-md-language.ts | 1.11.0 | scripts/validate-md-language.ts | fs |
-| validate-model-registry.ts | 1.2.0 | scripts/validate-model-registry.ts | N/A |
+| validate-model-registry.ts | 1.3.0 | scripts/validate-model-registry.ts | N/A |
 | validate-nav.ts | 1.0.0 | scripts/handbook/validate-nav.ts | N/A |
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
 | validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | js-yaml |
 | validate-skills.ts | 1.5.1 | scripts/validate-skills.ts | N/A |
-| validate-templates.ts | 1.25.1 | scripts/validate-templates.ts | js-yaml |
+| validate-templates.ts | 1.27.0 | scripts/validate-templates.ts | js-yaml |
 | validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |

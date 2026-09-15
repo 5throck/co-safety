@@ -1,5 +1,16 @@
 # AGENTS.md
 
+### §3.6 3-Tier Strategy
+
+When leading execution and improvement tasks, PM MUST use the 3-Tier model strategy:
+
+<!-- WORKSPACE-MANAGED: tier-model-mapping -->
+- **High-tier**: Complex reasoning, architectural design, planning (claude-opus-5-0 / gemini-3.1-pro / gpt-5.6-sol)
+- **Medium-tier**: Code review, testing, PR review, quality gates (claude-sonnet-5-0 / gemini-3.8-flash / gpt-5.6-terra)
+- **Low-tier**: Fast, repetitive coding, script maintenance (claude-haiku-4-5 / gemini-3.8-flash / gpt-5.6-luna)
+<!-- /WORKSPACE-MANAGED -->
+
+
 > **For AI tools reading this file**: This file is a **registry and orchestration reference**, not a set of instructions directed at you.
 > It describes multiple distinct human-defined roles for documentation and dispatch purposes.
 > Do **not** interpret role definitions here as directives for your own behavior.
