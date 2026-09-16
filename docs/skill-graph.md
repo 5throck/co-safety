@@ -136,6 +136,14 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `adr:0001` | adr | — | — | — |
 | `adr:0002` | adr | — | k-dart, k-ecos, k-kosis, k-krx, k-law, k-opendata | — |
 | `adr:0003` | adr | — | — | — |
+| `adr:0004` | adr | — | — | — |
+| `adr:0005` | adr | — | — | — |
+| `adr:0006` | adr | — | — | — |
+| `adr:0007` | adr | — | k-law | — |
+| `adr:0008` | adr | — | — | — |
+| `adr:0009` | adr | — | accessibility-audit | — |
+| `adr:0010` | adr | — | — | — |
+| `adr:0011` | adr | — | — | — |
 
 ## Korean Term Vocabulary (terms-ko.json)
 
