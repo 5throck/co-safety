@@ -238,7 +238,7 @@ Steel, DataCenter, Logistics, Railway, Waste, Defense, Biotech), 1 shared docs-w
 <!-- END VARIANT-INJECT -->
 
 
-<!-- VARIANT-INJECT: skills -->
+<!-- VARIANT-IN<!-- VARIANT-INJECT: skills -->
 
 Variant-specific workflow skills with `legal_basis` traceability:
 
@@ -251,10 +251,7 @@ Variant-specific workflow skills with `legal_basis` traceability:
 
 Plus 30+ domain-specific skills (arc-flash-analyzer, gas-dispersion-analyzer,
 ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
-<!-- END VARIANT-INJECT -->
-
-
-<!-- VARIANT-INJECT: guidelines [REQUIRED] -->
+<!-- END VARIANT-INJECT -->ANT-INJECT: guideli<!-- VARIANT-INJECT: guidelines [REQUIRED] -->
 ## Domain Guidelines
 
 1. **`legal_basis` field is mandatory** in every workflow record
@@ -272,8 +269,15 @@ ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
    `k-law` skill (inherited from `templates/common/`, KR-scoped per
    `docs/workspace-schema.json`'s `country_scoped_assets`) provides statutory
    research and is pruned from region-neutral scaffolds
-<!-- END VARIANT-INJECT -->
+<!-- END VARIANT-INJECT -->ART -->
+This project follows the workspace coding standards defined in the project's Coding Guidelines section.
 
+Key rules:
+- All operational scripts must be TypeScript (`.ts`) — run via `bun scripts/<name>.ts` (ADR-0036; no `.sh`/`.ps1` pairs)
+- Git hook scripts in `.githooks/` remain Unix shell (`.sh`) for git compatibility
+- All text files saved as **UTF-8 (without BOM)**
+- Commit messages and PR artifacts in **English only**
+<!-- COMMON-CONTEXT:END -->
 
 <!-- COMMON-CONTEXT:START -->
 This project follows the workspace coding standards defined in the project's Coding Guidelines section.
