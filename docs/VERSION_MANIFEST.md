@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-15T02:53:00.729Z
+**Generated**: 2026-09-16T11:19:32.824Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 89
-- **Scripts**: 203 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 202 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -143,7 +143,7 @@
 | assert.d.ts | N/A | scripts/node_modules/@types/node/assert.d.ts | N/A |
 | async_hooks.d.ts | N/A | scripts/node_modules/@types/node/async_hooks.d.ts | N/A |
 | audit-variant.ts | 1.1.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.38.1 | scripts/audit.ts | bun |
+| audit.ts | 2.39.0 | scripts/audit.ts | bun |
 | balanced-pool.d.ts | N/A | scripts/node_modules/undici-types/balanced-pool.d.ts | url |
 | buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/buffer.buffer.d.ts | N/A |
 | buffer.buffer.d.ts | N/A | scripts/node_modules/@types/node/ts5.6/buffer.buffer.d.ts | N/A |
@@ -208,7 +208,7 @@
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-skill-graph.ts | 1.10.0 | scripts/generate-skill-graph.ts | js-yaml |
-| generate-version-manifest.ts | 1.4.1 | scripts/generate-version-manifest.ts | bun, js-yaml |
+| generate-version-manifest.ts | 1.5.0 | scripts/generate-version-manifest.ts | bun, js-yaml |
 | global-dispatcher.d.ts | N/A | scripts/node_modules/undici-types/global-dispatcher.d.ts | N/A |
 | global-origin.d.ts | N/A | scripts/node_modules/undici-types/global-origin.d.ts | N/A |
 | globals.d.ts | N/A | scripts/node_modules/@types/node/globals.d.ts | N/A |
@@ -230,7 +230,7 @@
 | inspector.generated.d.ts | N/A | scripts/node_modules/@types/node/inspector.generated.d.ts | N/A |
 | interceptors.d.ts | N/A | scripts/node_modules/undici-types/interceptors.d.ts | N/A |
 | iterators.d.ts | N/A | scripts/node_modules/@types/node/compatibility/iterators.d.ts | N/A |
-| lifecycle-sync-audit.ts | 1.12.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
+| lifecycle-sync-audit.ts | 1.14.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-registry-to-coordinates.ts | 1.0.2 | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
 | mock-agent.d.ts | N/A | scripts/node_modules/undici-types/mock-agent.d.ts | N/A |
@@ -280,7 +280,6 @@
 | stream.d.ts | N/A | scripts/node_modules/@types/node/stream.d.ts | N/A |
 | strict.d.ts | N/A | scripts/node_modules/@types/node/assert/strict.d.ts | N/A |
 | string_decoder.d.ts | N/A | scripts/node_modules/@types/node/string_decoder.d.ts | N/A |
-| sync-agent-status.ts | 1.0.1 | scripts/sync-agent-status.ts | N/A |
 | sync-md.ts | 1.3.3 | scripts/sync-md.ts | N/A |
 | sync-skill-status.ts | 1.0.1 | scripts/sync-skill-status.ts | N/A |
 | sync-skills.ts | 1.8.0 | scripts/sync-skills.ts | N/A |
@@ -289,7 +288,7 @@
 | test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | js-yaml |
 | test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | N/A |
 | test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | js-yaml |
-| test-runner.ts | 1.2.0 | scripts/test-runner.ts | child_process, fs, path |
+| test-runner.ts | 1.3.0 | scripts/test-runner.ts | fs, os, path |
 | test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | N/A |
 | test.d.ts | N/A | scripts/node_modules/@types/node/test.d.ts | N/A |
 | timers.d.ts | N/A | scripts/node_modules/@types/node/timers.d.ts | N/A |
@@ -310,12 +309,12 @@
 | validate-docs-links.ts | 1.1.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | N/A |
 | validate-md-language.ts | 1.11.0 | scripts/validate-md-language.ts | fs |
-| validate-model-registry.ts | 1.3.0 | scripts/validate-model-registry.ts | N/A |
+| validate-model-registry.ts | 1.4.0 | scripts/validate-model-registry.ts | N/A |
 | validate-nav.ts | 1.0.0 | scripts/handbook/validate-nav.ts | N/A |
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
 | validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | js-yaml |
 | validate-skills.ts | 1.5.1 | scripts/validate-skills.ts | N/A |
-| validate-templates.ts | 1.27.0 | scripts/validate-templates.ts | js-yaml |
+| validate-templates.ts | 1.33.0 | scripts/validate-templates.ts | js-yaml |
 | validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |
