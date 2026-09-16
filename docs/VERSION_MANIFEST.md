@@ -1,6 +1,7 @@
 # VERSION_MANIFEST.md
 
 **Generated**: 2026-09-16T22:59:40.413Z
+**Generated**: 2026-09-16T15:14:33.898Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -169,7 +170,7 @@
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-skill-graph.ts | 1.10.0 | scripts/generate-skill-graph.ts | js-yaml |
-| generate-version-manifest.ts | 1.5.0 | scripts/generate-version-manifest.ts | bun, js-yaml |
+| generate-version-manifest.ts | 1.6.0 | scripts/generate-version-manifest.ts | bun, js-yaml |
 | handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | N/A |
 | handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | N/A |
 | lifecycle-sync-audit.ts | 1.14.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
@@ -199,7 +200,7 @@
 | test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | js-yaml |
 | test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | N/A |
 | test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | js-yaml |
-| test-runner.ts | 1.3.0 | scripts/test-runner.ts | fs, os, path |
+| test-runner.ts | 1.4.0 | scripts/test-runner.ts | fs, os, path |
 | test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | N/A |
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
