@@ -29,6 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the VERSION_MANIFEST gate derives per-file last-modified
+          # dates from git log; a shallow clone makes the gate's regeneration
+          # environment-dependent (checkout-date fallback) and permanently drifted.
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -60,6 +65,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the VERSION_MANIFEST gate derives per-file last-modified
+          # dates from git log; a shallow clone makes the gate's regeneration
+          # environment-dependent (checkout-date fallback) and permanently drifted.
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -88,6 +98,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the VERSION_MANIFEST gate derives per-file last-modified
+          # dates from git log; a shallow clone makes the gate's regeneration
+          # environment-dependent (checkout-date fallback) and permanently drifted.
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -140,6 +155,11 @@ jobs:
     needs: [validate, test-suite, lint]
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the VERSION_MANIFEST gate derives per-file last-modified
+          # dates from git log; a shallow clone makes the gate's regeneration
+          # environment-dependent (checkout-date fallback) and permanently drifted.
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1

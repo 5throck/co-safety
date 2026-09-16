@@ -4,7 +4,9 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-09-17](2026-09-17.md) | merge: resolve conflicts with origin/main fleet resync |
 | [2026-09-16](2026-09-16.md) | chore(upgrade): sync template 0.6.0 fleet resync content |
+| [2026-09-16](2026-09-16.md) | chore: sync template content — managed-block fix, mirror catch-up, validator refresh (2026-09-16 fleet resync) |
 | [2026-09-15](2026-09-15.md) | chore(upgrade): sync template infrastructure to v0.6.0 |
 | [2026-09-13](2026-09-13.md) | chore: sync template governance updates (ADR-0078 LLM work routing policy) |
 | [2026-09-12](2026-09-12.md) | chore: upgrade template to v0.6.0 (project-resync) |
