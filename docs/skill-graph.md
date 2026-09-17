@@ -144,6 +144,8 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `adr:0009` | adr | — | accessibility-audit | — |
 | `adr:0010` | adr | — | — | — |
 | `adr:0011` | adr | — | — | — |
+| `adr:0012` | adr | — | — | — |
+| `adr:0013` | adr | — | — | — |
 | `dec:DEC-20260917-01` | decision | `sync` | — | — |
 
 ## Korean Term Vocabulary (terms-ko.json)

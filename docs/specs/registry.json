@@ -36,6 +36,132 @@
       "source": "manual",
       "created": "2026-09-17",
       "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-08-06-evidence-promotion-pattern",
+      "title": "0000 cross cutting evidence promotion",
+      "file": "docs/adr/0000-cross-cutting-evidence-promotion.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-09-12-kr-k-skill-family-adoption",
+      "title": "0002 kr k skill family adoption",
+      "file": "docs/adr/0002-kr-k-skill-family-adoption.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-08-06-confined-space-evidence-promotion",
+      "title": "0003 confined space evidence promotion",
+      "file": "docs/adr/0003-confined-space-evidence-promotion.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-06-04-pm-cso-agent-override",
+      "title": "0004 pm cso agent override",
+      "file": "docs/adr/0004-pm-cso-agent-override.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-06-21-doc-language-policy",
+      "title": "0005 doc language policy exception route",
+      "file": "docs/adr/0005-doc-language-policy-exception-route.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-08-24-evidence-runtime-legal-act",
+      "title": "0006 evidence runtime legal act semantics",
+      "file": "docs/adr/0006-evidence-runtime-legal-act-semantics.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-08-26-k-law-sole-live-source",
+      "title": "0007 k law sole live statute source",
+      "file": "docs/adr/0007-k-law-sole-live-statute-source.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-08-29-variant-script-nesting",
+      "title": "0008 variant script nesting convention",
+      "file": "docs/adr/0008-variant-script-nesting-convention.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-09-12-skill-layout-flattening",
+      "title": "0009 skill layout flattening mirror optout",
+      "file": "docs/adr/0009-skill-layout-flattening-mirror-optout.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-09-12-design-gate-activation",
+      "title": "0010 universal design gate activation",
+      "file": "docs/adr/0010-universal-design-gate-activation.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-09-16-ci-full-history-manifest",
+      "title": "0011 ci full history version manifest gate",
+      "file": "docs/adr/0011-ci-full-history-version-manifest-gate.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-09-17-hot-work-permit-promotion",
+      "title": "0012 hot work permit evidence promotion",
+      "file": "docs/adr/0012-hot-work-permit-evidence-promotion.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-09-17-inspection-not-promoted",
+      "title": "0013 inspection evidence not promoted",
+      "file": "docs/adr/0013-inspection-evidence-not-promoted.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
+    },
+    {
+      "id": "2026-09-17-evidence-promotion-evaluation-design",
+      "title": "evidence promotion evaluation design",
+      "file": "docs/designs/2026-09-17-evidence-promotion-evaluation-design.md",
+      "status": "implemented",
+      "source": "manual",
+      "created": "2026-09-17",
+      "last_updated": "2026-09-17"
     }
   ]
 }
