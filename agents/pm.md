@@ -4,6 +4,11 @@ variant: co-safety
 owner: "architect"
 status: "active"
 version: "1.0.0"
+tier:
+  claude: high
+  gemini-cli: high
+  antigravity: high
+model: opus
 last_updated: "2026-08-28"
 lifecycle:
   phase: production

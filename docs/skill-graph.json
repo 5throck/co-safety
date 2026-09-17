@@ -157,6 +157,11 @@
       "layer": "L3"
     },
     {
+      "id": "dec:DEC-20260917-01",
+      "type": "decision",
+      "layer": "L3"
+    },
+    {
       "id": "decision-record",
       "type": "skill",
       "layer": "L3"
@@ -1498,6 +1503,12 @@
       "from": "dangerous-cargo-handling-planner",
       "to": "tool-box-meeting",
       "source": "prose"
+    },
+    {
+      "type": "cites_skill",
+      "from": "dec:DEC-20260917-01",
+      "to": "sync",
+      "source": "skills_used"
     },
     {
       "type": "references",
