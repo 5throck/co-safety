@@ -1,6 +1,7 @@
 # VERSION_MANIFEST.md
 
 **Generated**: 2026-09-19T01:37:38.743Z
+**Generated**: 2026-09-17T11:12:24.978Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -19,7 +20,7 @@
 
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
-| pm | agents/pm.md | N/A | N/A | 2026-09-16 |
+| pm | agents/pm.md | high | opus | 2026-09-17 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | opus | 2026-08-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | opus | 2026-08-28 |
 
@@ -257,3 +258,4 @@
 ⚠️ **Drift detected**:
 
 - [WARNING] Agent pm missing tier or model metadata
+- [WARNING] Command commit-push-pr has no matching skill of the same name

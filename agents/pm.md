@@ -4,11 +4,16 @@ variant: co-safety
 owner: "architect"
 status: "active"
 version: "1.0.0"
-last_updated: "2026-08-28"
+tier:
+  claude: high
+  gemini-cli: high
+  antigravity: high
+model: opus
+last_updated: "2026-09-17"
 lifecycle:
   phase: production
   created: 2026-08-26
-  last_updated: 2026-08-28
+  last_updated: 2026-09-17
   governance: docs/lifecycle/agents/pm.md
 extends: ../../../agents/pm.md
 remove_sections:
