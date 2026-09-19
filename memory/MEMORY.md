@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-09-19](2026-09-19.md) | chore(upgrade): template upgrade — ADR-0080 policy delivery |
 | [2026-09-17](2026-09-17.md) | docs(adr): backfill decision records for undocumented architecture decisions (ADR-0004~0011) |
 | [2026-09-17](2026-09-17.md) | merge: resolve conflicts with origin/main fleet resync |
 | [2026-09-16](2026-09-16.md) | chore(upgrade): sync template 0.6.0 fleet resync content |
