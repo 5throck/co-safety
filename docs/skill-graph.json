@@ -1323,6 +1323,12 @@
     },
     {
       "type": "references",
+      "from": "agent-lifecycle-manager",
+      "to": "skill-lifecycle-manager",
+      "source": "prose"
+    },
+    {
+      "type": "references",
       "from": "bsl-lab-aerosol-control-planner",
       "to": "permit-to-work",
       "source": "prose"
@@ -3437,6 +3443,12 @@
     {
       "type": "references",
       "from": "pm",
+      "to": "agent-lifecycle-manager",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "pm",
       "to": "decision-record",
       "source": "prose"
     },
@@ -3444,6 +3456,12 @@
       "type": "references",
       "from": "pm",
       "to": "permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "pm",
+      "to": "skill-lifecycle-manager",
       "source": "prose"
     },
     {
@@ -3665,6 +3683,12 @@
       "type": "references",
       "from": "security-scan",
       "to": "update-bun-packages",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill-lifecycle-manager",
+      "to": "agent-lifecycle-manager",
       "source": "prose"
     },
     {

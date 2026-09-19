@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-09-19](2026-09-19.md) | chore(upgrade): template upgrade — ADR-0080 policy delivery |
 | [2026-09-17](2026-09-17.md) | merge: resolve conflicts with origin/main fleet resync |
 | [2026-09-16](2026-09-16.md) | chore(upgrade): sync template 0.6.0 fleet resync content |
 | [2026-09-16](2026-09-16.md) | chore: sync template content — managed-block fix, mirror catch-up, validator refresh (2026-09-16 fleet resync) |

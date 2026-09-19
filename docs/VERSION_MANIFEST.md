@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-16T15:14:33.898Z
+**Generated**: 2026-09-19T01:37:38.743Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 89
-- **Scripts**: 97 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 98 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -31,7 +31,7 @@
 | Name | Version | Status | Location | Platform | Triggers | Owner |
 |------|---------|--------|----------|----------|----------|-------|
 | accessibility-audit | 1.1.0 | active | skills/accessibility-audit/SKILL.md | workspace | accessibility-audit, /accessibility-audit, axe-core audit, wcag accessibility check, wcag 2.1 aa | pm |
-| agent-lifecycle-manager | 1.1.0 | active | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents | pm |
+| agent-lifecycle-manager | 1.2.0 | active | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents, hire agent, fire agent, deprecate agent | pm |
 | api-documentation | 1.0.0 | active | skills/api-documentation/SKILL.md | workspace | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
 | arc-flash-analyzer | 1.0.0 | active | skills/arc-flash-analyzer/SKILL.md | workspace | 아크 플래시, arc flash, IEEE 1584, 고압 전기 작업, PPE category, incident energy, NFPA 70E, 활선 작업 허가 | powergen-agent |
 | asset-integrity-check | 1.0.0 | active | skills/asset-integrity-check/SKILL.md | workspace | 설비무결성, asset integrity, 정기점검 일정, preventive maintenance, 압력용기 검사, NDT 검사, 배관 건전성, mechanical integrity | asset-integrity-agent |
@@ -106,9 +106,9 @@
 | security-scan | 1.2.0 | active | skills/security-scan/SKILL.md | workspace | security scan, scan for vulnerabilities, security check, run security | pm |
 | signal-detector | 1.0.0 | active | skills/signal-detector/SKILL.md | workspace | 시그널 탐지, signal detection, PRR, ROR, BCPNN, EBGM, 부작용 신호, disproportionality analysis | gvp-agent |
 | simulate-project-creation | 1.0.0 | active | .claude/skills/simulate-project-creation/SKILL.md | both | simulate project, test scaffolding, dry run project creation | scaffolding-expert |
-| skill-lifecycle-manager | 1.3.0 | active | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills | pm |
+| skill-lifecycle-manager | 1.4.0 | active | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills, skill request, deprecate skill, remove skill | pm |
 | standup-synthesizer | 1.0.0 | active | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
-| sync | 1.5.0 | active | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
+| sync | 1.6.0 | active | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
 | tank-integrity-validator | 1.0.0 | active | skills/tank-integrity-validator/SKILL.md | workspace | 저장탱크 건전성, tank integrity, LNG 탱크 검사, 수소 취성, hydrogen embrittlement, KGS 코드, 압력용기 검사, 부식 피로 검증 | gasterm-agent |
 | tar-planning | 1.1.0 | active | skills/tar-planning/SKILL.md | workspace | turnaround, tar, tar planning, shutdown planning, 정기보수, 가동중지, 보수정비, 대정비 | ehschem-agent |
 | team-builder | 1.1.0 | active | skills/team-builder/SKILL.md | workspace | build new agent team, create agent team, agent team setup, team builder | pm |
@@ -160,7 +160,7 @@
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 1.0.0 | scripts/design-lint.ts | N/A |
-| dev-sync.ts | 1.14.0 | scripts/dev-sync.ts | bun |
+| dev-sync.ts | 1.15.0 | scripts/dev-sync.ts | bun |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.1 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | N/A |
@@ -169,10 +169,11 @@
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
 | generate-skill-graph.ts | 1.10.0 | scripts/generate-skill-graph.ts | js-yaml |
-| generate-version-manifest.ts | 1.6.0 | scripts/generate-version-manifest.ts | bun, js-yaml |
+| generate-version-manifest.ts | 1.7.0 | scripts/generate-version-manifest.ts | bun, js-yaml |
 | handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | N/A |
 | handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | N/A |
-| lifecycle-sync-audit.ts | 1.14.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
+| lifecycle-sync-audit.ts | 1.15.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
+| lint-instructions.ts | 1.0.0 | scripts/lint-instructions.ts | N/A |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-registry-to-coordinates.ts | 1.0.2 | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
 | nav-utils.ts | 1.0.0 | scripts/handbook/nav-utils.ts | N/A |
@@ -216,7 +217,7 @@
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
 | validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | js-yaml |
 | validate-skills.ts | 1.5.1 | scripts/validate-skills.ts | N/A |
-| validate-templates.ts | 1.33.0 | scripts/validate-templates.ts | js-yaml |
+| validate-templates.ts | 1.35.0 | scripts/validate-templates.ts | js-yaml |
 | validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |
@@ -256,4 +257,3 @@
 ⚠️ **Drift detected**:
 
 - [WARNING] Agent pm missing tier or model metadata
-- [WARNING] Command commit-push-pr has no matching skill of the same name
