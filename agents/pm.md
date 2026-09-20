@@ -25,8 +25,8 @@ variant_overrides:
     Dispatch by safety domain first, then by functional expertise. TBM/PTW/PSM/MSDS requests go to matching domain or workflow specialists; legal-basis and compliance evidence return to PM for closeout approval.
 lifecycle:
   phase: production
-  created: 2026-08-26
-  last_updated: 2026-09-17
+  created: "2026-06-04"
+  last_updated: "2026-08-28"
   governance: docs/lifecycle/agents/pm.md
 ---
 
