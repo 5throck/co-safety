@@ -238,7 +238,7 @@ Steel, DataCenter, Logistics, Railway, Waste, Defense, Biotech), 1 shared docs-w
 <!-- END VARIANT-INJECT -->
 
 
-<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-INJECT: skills -->
+<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-INJECT: skills -->
 
 Variant-specific workflow skills with `legal_basis` traceability:
 
@@ -251,7 +251,7 @@ Variant-specific workflow skills with `legal_basis` traceability:
 
 Plus 30+ domain-specific skills (arc-flash-analyzer, gas-dispersion-analyzer,
 ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
-<!-- END VARIANT-INJECT -->T-INJECT: guideli<!-- VARIANT-INJECT: guideli<!-- VARIANT-INJECT: guidelines [REQUIRED] -->
+<!-- END VARIANT-INJECT -->li<!-- VARIANT-INJECT: guideli<!-- VARIANT-INJECT: guideli<!-- VARIANT-INJECT: guidelines [REQUIRED] -->
 ## Domain Guidelines
 
 1. **`legal_basis` field is mandatory** in every workflow record
@@ -269,7 +269,7 @@ ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
    `k-law` skill (inherited from `templates/common/`, KR-scoped per
    `docs/workspace-schema.json`'s `country_scoped_assets`) provides statutory
    research and is pruned from region-neutral scaffolds
-<!-- END VARIANT-INJECT -->ards defined in the project's Coding Guidelines section.
+<!-- END VARIANT-INJECT -->s Coding Guidelines section.
 
 Key rules:
 - All operational scripts must be TypeScript (`.ts`) — run via `bun scripts/<name>.ts` (ADR-0036; no `.sh`/`.ps1` pairs)
