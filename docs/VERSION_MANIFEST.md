@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-20T04:11:04.351Z
+**Generated**: 2026-09-20T07:33:52.453Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -194,7 +194,7 @@
 | scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | js-yaml |
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun |
 | skill-lifecycle-audit.ts | 1.4.1 | scripts/skill-lifecycle-audit.ts | N/A |
-| skill-session-review.ts | 1.0.0 | scripts/skill-session-review.ts | bun |
+| skill-session-review.ts | 1.1.0 | scripts/skill-session-review.ts | bun |
 | spec-register.ts | 1.3.0 | scripts/spec-register.ts | N/A |
 | start-mcp.ts | 1.0.0 | scripts/co-safety/start-mcp.ts | child_process, path |
 | sync-md.ts | 1.4.0 | scripts/sync-md.ts | N/A |

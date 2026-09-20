@@ -32,7 +32,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `tests/deploy-readme-patch.test.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `tests/check-structure.test.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `tests/apply-handbook-theme.test.ts` | L0 | 1.0.1 | active | — | — | common | — |
-| `skill-session-review.ts` | L0 | 1.0.0 | active | `--date`, `--json`, `--dry-run` | —| L0+L1 | —|
+| `skill-session-review.ts` | L0 | 1.1.0 | active | `--date`, `--json`, `--dry-run` | —| L0+L1 | —|
 | `handbook/validate-nav.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `handbook/validate-handbook.ts` | L0 | 1.1.0 | active | — | — | common | — |
 | `handbook/update-footers.ts` | L0 | 1.0.0 | active | — | — | common | — |
