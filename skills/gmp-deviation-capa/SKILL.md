@@ -3,7 +3,7 @@ lang: ko
 lang_reason: legal
 name: gmp-deviation-capa
 owner: gmp-agent
-scope: workspace
+scope: co-safety
 status: active
 description: Manage GMP Deviation (이상관리) and CAPA (시정예방조치) workflows per 총리령 「의약품 등의 안전에 관한 규칙」 별표 1 제7.3호 + ICH Q10.
 version: "1.0.0"
@@ -43,7 +43,7 @@ This skill manages the end-to-end lifecycle of GMP deviations and corresponding 
 2. **Classification**: minor / major / critical (based on patient safety + product quality impact).
 3. **Immediate Containment** (critical/major): Quarantine affected batches, halt production if needed.
 4. **Documentation**: Generate `gmp-deviation-record.json` within 24 hours.
-5. **Investigation**: Apply ICH Q9 methodology (5-Whys for simple, FMEA/FTA for complex) via `skills/gmp-qrm//`.
+5. **Investigation**: Apply ICH Q9 methodology (5-Whys for simple, FMEA/FTA for complex) via `skills/domains/industry/gmp/qrm/`.
 6. **Root Cause Identification**: Distinguish root cause from contributing causes.
 7. **CAPA Development**: Define corrective (eliminate current cause) + preventive (prevent recurrence) actions.
 8. **CAPA Implementation**: Track via `gmp-capa-record.json` with owner, target date.
@@ -64,8 +64,8 @@ Common fields required:
 - `e_signature`, `qrm_assessment`, `nomenclature`, `audit_trail`
 
 ## Integration Points
-- **From**: `batch-mfg` workflow (IPC failures, OOS), `self-inspection` workflow (findings), `cleaning-validation` (failures)
-- **To**: `change-control` workflow (when CAPA requires permanent change), `equipment-qualification` (re-qualification triggers)
+- **From**: batch-mfg workflow (IPC failures, OOS), self-inspection workflow (findings), cleaning-validation (failures)
+- **To**: change-control workflow (when CAPA requires permanent change), equipment-qualification (re-qualification triggers)
 
 ## KPI Tracking
 - Deviation rate per 100 batches (target: <2%)

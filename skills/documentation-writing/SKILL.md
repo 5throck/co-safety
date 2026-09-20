@@ -1,13 +1,19 @@
 ---
-scope: common
 name: documentation-writing
-status: active
 description: >
   Creates clear, accessible documentation and communications for diverse audiences.
   Use when: writing guides, creating documentation, drafting communications, or synthesizing
   complex information for technical and non-technical audiences.
-version: 1.0.0
+version: 1.0.3
+scope: common
+status: active
 owner: pm
+last_reviewed: 2026-07-19
+prerequisites: none
+relates_to:
+  - skill: team-builder
+    type: composes_with
+gemini-parity: skip
 metadata:
   type: implementation
   triggers:
@@ -20,13 +26,11 @@ metadata:
     - technical writing
 ---
 
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
-
-## Overview
+## Context
 
 This skill provides comprehensive documentation writing capabilities, from technical guides to user-friendly manuals. It ensures documentation is clear, well-structured, accessible, and appropriately targeted to the intended audience.
 
-## When to Use This Skill
+## When to Use
 
 **Technical Documentation**:
 - Trigger: "Write technical documentation" or "Create API reference"
@@ -45,6 +49,8 @@ This skill provides comprehensive documentation writing capabilities, from techn
 - Use Case: Sharing information with stakeholders or teams
 
 ---
+
+## Execution Steps
 
 ## Step 1: Audience Analysis
 
@@ -74,6 +80,8 @@ This skill provides comprehensive documentation writing capabilities, from techn
    - Reading level considerations
    - Format preferences (visual, text, interactive)
    - Disability accommodations
+
+**Korean Plain-Language Preference (`순우리말`-first)**: when the deliverable is Korean, prefer native Korean words over loanwords where a natural, widely-understood equivalent exists (e.g. `만들기` over `크리에이션`, `알림` over `노티피케이션`). Settled loanwords (`컴퓨터`, `데이터`, `소프트웨어`, `파일`) and established technical terms remain permitted — clarity and standard terminology take precedence. When editing existing Korean documents for other reasons, nativize the touched sections incrementally; no bulk rewrites.
 
 **Output**: Audience profile with characteristics and needs
 
@@ -287,7 +295,7 @@ This skill provides comprehensive documentation writing capabilities, from techn
 
 ---
 
-## Expected Outputs
+## Output Format
 
 **For Technical Documentation**:
 - API references with parameters and responses

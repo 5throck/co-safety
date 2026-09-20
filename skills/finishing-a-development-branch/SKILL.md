@@ -1,13 +1,11 @@
 ---
-scope: common
 name: finishing-a-development-branch
-status: active
 description: Workspace override — redirects all branch completion to /sync pipeline which enforces CHANGELOG, memlog, audit, and PR creation gates.
-version: 1.0.0
+status: active
 owner: pm
-metadata:
-  type: process
-gemini-parity: skip
+scope: common
+version: 1.0.1
+last_reviewed: 2026-06-13
 triggers:
   - "finish branch"
   - "complete work"
@@ -17,8 +15,6 @@ triggers:
   - "create PR"
   - "push and PR"
 ---
-
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Finishing a Development Branch (Workspace Override)
 

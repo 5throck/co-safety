@@ -1,13 +1,16 @@
 ---
-scope: common
 name: api-documentation
-status: active
 description: >
   Creates comprehensive API documentation including endpoints, parameters, authentication,
   request/response schemas, and code examples. Use when: documenting REST APIs, GraphQL
   interfaces, SDKs, or developer-facing technical specifications.
-version: 1.0.0
+version: 1.0.2
+scope: common
+status: active
 owner: pm
+last_reviewed: 2026-07-19
+prerequisites: none
+gemini-parity: skip
 metadata:
   type: implementation
   triggers:
@@ -20,13 +23,11 @@ metadata:
     - sdk documentation
 ---
 
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
-
-## Overview
+## Context
 
 This skill provides systematic API documentation capabilities, creating comprehensive developer resources that enable API integration and adoption. It ensures documentation is accurate, complete, and developer-friendly.
 
-## When to Use This Skill
+## When to Use
 
 **API Documentation**:
 - Trigger: "Document the API" or "Create API reference"
@@ -45,6 +46,8 @@ This skill provides systematic API documentation capabilities, creating comprehe
 - Use Case: Helping developers integrate with APIs successfully
 
 ---
+
+## Execution Steps
 
 ## Step 1: API Analysis and Structure
 
@@ -128,7 +131,7 @@ Register at [url] to get your API key
 ### 2. Make Your First Request
 \`\`\`bash
 curl -X GET "https://api.example.com/v1/users" \\
-  -H "Authorization: Bearer <INSERT_TOKEN_HERE>"
+  -H "Authorization: Bearer YOUR_API_KEY"
 \`\`\`
 
 ### 3. Expected Response
@@ -292,9 +295,10 @@ Retrieves a list of users with optional filtering.
 
 **Code Example Template**:
 ```python
+import os
 import requests
 
-API_KEY = "..."
+API_KEY = os.environ["API_KEY"]  # never hardcode credentials
 BASE_URL = "https://api.example.com/v1"
 
 def get_users(limit=20, offset=0):
@@ -440,7 +444,7 @@ def get_users(limit=20, offset=0):
 
 ---
 
-## Expected Outputs
+## Output Format
 
 **For REST API Documentation**:
 - Complete API reference with all endpoints

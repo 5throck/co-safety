@@ -1534,6 +1534,18 @@
       "source": "prose"
     },
     {
+      "type": "composes_with",
+      "from": "documentation-writing",
+      "to": "team-builder",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/documentation-writing/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
       "type": "references",
       "from": "evidence-ledger",
       "to": "decision-record",
