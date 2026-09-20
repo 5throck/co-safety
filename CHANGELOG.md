@@ -10,6 +10,7 @@ All notable changes to Safety OS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+- **[2026-09-21]**: chore(upgrade): fleet resync via upgrade-project 1.37.1 (workspace lifecycle-modernization wave, upstream #1003/#1004) — delivers the 19-skill patch-bump batch withheld by equal-version drift, whole-directory sub-file deliveries healing missing-reference gaps, the upstream stale-reference fixes, and the upgraded lifecycle gates (skill-lifecycle-audit 1.5.0; agent-lifecycle-audit 1.3.1).
 - **[2026-09-20]**: fix(mcp): drop the stray `@nanonets/graft` argument from the graft server entry in `.mcp.json` — `graft mcp` reads that position as a repository dir, so the stdio server failed to resolve this repo's graph and walked up to the workspace root's graph. Matches the clean form in `.agents/mcp.json` and the common template. Fleet follow-up to co-newbiz PR #390.
 - **[2026-09-20]**: chore(upgrade): template upgraded to 0.6.0 via `upgrade-project.ts --prune-removed` (2026-09-20 evening resync Step 4) — delivers the common-template LF-enforcement `.gitattributes` block (`*.html/css/js/json/md text eol=lf`), closing the Windows CRLF smudge that failed the pre-push VERSION_MANIFEST gate on 6 of 8 fleet repos; same-version script drift restored to canonical, project-specific gitleaks allowlist entries preserved via merge-aware upgrade KR country profile retained. `audit.ts` + `verify-scripts.ts --verify` clean post-upgrade.
 

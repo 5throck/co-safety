@@ -28,7 +28,7 @@
 | `daily/risk-assessment` | L3 | — | — | — | — | — |
 | `dangerous-cargo-handling-planner` | L3 | — | — | — | — | — |
 | `decision-record` | L3 | — | — | — | — | — |
-| `documentation-writing` | L3 | — | — | — | — | — |
+| `documentation-writing` | L3 | — | — | team-builder (composes_with) | — | — |
 | `dts-verification` | L3 | — | — | — | — | — |
 | `emergency-response` | L3 | — | — | — | — | — |
 | `environmental-compliance-checker` | L3 | — | — | — | — | — |

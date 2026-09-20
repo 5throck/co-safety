@@ -1,13 +1,13 @@
 ---
-scope: common
 name: platform-command-lifecycle-manager
 status: active
-version: 1.0.0
+version: 1.0.2
 description: >
   Manages the creation, registration, and propagation of platform commands
   in .claude/commands/ and .gemini/commands/ directories. Use when: adding new commands,
   ensuring parity between Claude and Gemini command directories, or propagating commands to templates/common/.
 owner: pm
+scope: common
 last_reviewed: 2026-05-31
 metadata:
   type: process
@@ -19,8 +19,6 @@ metadata:
     - command parity
     - propagate command
 ---
-
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Platform Command Lifecycle Manager
 

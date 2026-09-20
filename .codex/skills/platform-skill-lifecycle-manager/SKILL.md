@@ -1,13 +1,13 @@
 ---
-scope: common
 name: platform-skill-lifecycle-manager
 status: active
-version: 1.0.0
+version: 1.0.2
 description: >
   Manages the creation, versioning, and propagation of platform skills
   in .claude/skills/ and .gemini/skills/ directories. Use when: creating new platform skills,
   updating platform skill versions, or ensuring propagation to templates/common/.
 owner: pm
+scope: common
 last_reviewed: 2026-05-31
 metadata:
   type: process
@@ -19,8 +19,6 @@ metadata:
     - platform skill lifecycle
     - update platform skill
 ---
-
-audit_exception: safety-os-skill-structure — Safety OS skills use the legal_basis-gated SSOT skill format (validated by scripts/skill-lifecycle-audit.ts and scripts/validate-skills.ts), not the generic template 5-section/7-frontmatter schema
 
 # Platform Skill Lifecycle Manager
 
