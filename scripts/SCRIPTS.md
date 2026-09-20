@@ -88,7 +88,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
 | `skill-lifecycle-audit.ts` | — | 1.4.1 | active | — | — | — | — |
 | `co-safety/start-mcp.ts` | — | 1.0.0 | active | — | — | — | — |
-| `sync-md.ts` | — | 1.3.3 | active | — | — | — | — |
+| `sync-md.ts` | — | 1.4.0 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.0.1 | active | — | — | — | — |
 | `sync-skills.ts` | — | 1.8.0 | active | — | — | — | — |
 | `team-builder.ts` | — | 1.4.0 | active | — | — | — | — |
@@ -108,7 +108,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
 | `verify-memory.ts` | — | 1.2.0 | active | — | — | — | — |
 | `verify-readme-sync.ts` | — | 1.4.0 | active | — | — | — | — |
-| `verify-scripts.ts` | — | 1.6.1 | active | — | — | — | — |
+| `verify-scripts.ts` | — | 1.7.0 | active | — | — | — | — |
 | `verify-skills.ts` | — | 1.3.0 | active | — | — | — | — |
 | `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -121,14 +121,14 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
-| `helpers/context-sections.ts` | — | 1.4.0 | active | — | — | — | — |
+| `helpers/context-sections.ts` | — | 1.5.0 | active | — | — | — | — |
 | `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
 | `helpers/security-validator.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/migrate-registry-to-coordinates.ts` | — | 1.0.2 | active | — | — | — | — |
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `generate-skill-graph.ts` | L0 | 1.10.0 | active | —| —| L0+L1 | —|
+| `generate-skill-graph.ts` | L0 | 1.12.0 | active | —| —| L0+L1 | —|
 | `generate-version-manifest.ts` | L0 | 1.7.0 | active | —| —| L0+L1 | —|
 | `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
@@ -162,11 +162,11 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.35.0 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.36.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.1 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `spec-register.ts` | L0 | 1.2.0 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
+| `spec-register.ts` | L0 | 1.3.0 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
 | `lib/git-status.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `helpers/l0-ref-policy.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `lib/constitution-scrub.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
@@ -175,13 +175,20 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/layer-filter.ts` | L0 | 1.5.0 | active | —| —| L0+L1 | —|
 | `helpers/generate-variant.ts` | L0 | 1.15.0 | active | —| —| L0+L1 | —|
 | `helpers/rollback-partial-project.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `helpers/scaffold-markers.ts` | L0 | 1.3.0 | active | Shared scaffold marker constants + (marker→source) mapping + delivery-tree derivations + transient test-fixture predicate (T-20260916-001) | —| L0+L1 | —|
-| `lib/managed-block-parity.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
+| `helpers/scaffold-markers.ts` | L0 | 1.4.0 | active | Shared scaffold marker constants + (marker→source) mapping + delivery-tree derivations + transient test-fixture predicate (T-20260916-001) | —| L0+L1 | —|
+| `lib/managed-block-parity.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `lib/platform-delivery.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/platform-mirror-freshness.ts` | L0 | 1.0.1 | active | Pure platform-skill-mirror vs skills/ SSOT version comparison for the platform-mirror-freshness check (T-20260916-008) | —| L0+L1 | —|
 | `lib/variant-overlay-guard.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lint-instructions.ts` | L0 | 1.0.0 | active | `--dir`, `--strict` | —| L0+L1 | —|
 | `helpers/merge-state.ts` | L0 | 1.0.0 | active | §3.3 shared-file taxonomy + unresolved-conflict parsing for dev-sync main-drift/--conclude-merge (ADR-0081/T-20260918-002) | —| L0+L1 | —|
+| `bootstrap-stages.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `evidence-backport-scan.ts` | L0 | 1.0.0 | active | Evidence Backporting scanner — read-only form detection (F1/F2/F3/F0/MIXED) + M1-M6 maturity bar over Projects/co-* evidence planes (ADR-0084 Decision 6, design §4); consumes graph-delta-log.ts output for M2/M4/M6b with git-log fallback; project-resync Step 2b | —| L0+L1 | —|
+| `generate-raci.ts` | L0 | 1.1.0 | active | RACI matrix generator per ADR-0083 P4, ADR-0084 §3.4; derives A/R from procedures, accepts explicit C/I; loads governance/_human-roles.yaml when present; emits actor_types map when registry exists; sets schema_version: "1.1" for registries | —| L0+L1 | —|
+| `graph-delta-log.ts` | L0 | 1.0.0 | active | Graph Delta Log — compute and persist per-scope structural diffs between committed and derived skill graphs (ADR-0084 §5); two-layer delivery (workspace root + projects); consumed by evidence-backport-scan.ts maturity bar (M2, M4, M6b tests) | —| L0+L1 | —|
+| `migrate-quality-gates.ts` | L0 | 1.1.0 | active | Convert quality_gates prose entries to decision gates; automate classification (GATE vs INVARIANT vs MANUAL), YAML output, procedure schema updates, and _output-types.yaml enrichment (ADR-0083 P5); decider_agent derived from stage owner_agent, not procedure owner_agent | —| L0+L1 | —|
+| `validate-process.ts` | L0 | 1.0.0 | active | Process/stages validation (ADR-0083 DEG-P-*), distinctness check (`--determinism` flag) | —| L0+L1 | —|
+| `validate-raci.ts` | L0 | 1.2.0 | active | RACI validation per ADR-0083 DEG-R-01..05 + ADR-0084 DEG-R-06/07; DEG-R-06: human-accountable must match gate; DEG-R-07: actor_types key set must equal R/A/C/I union | —| L0+L1 | —|
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
