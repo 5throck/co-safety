@@ -164,7 +164,7 @@ The High/Medium/Low tier concept and its usage rules are the Single Source of Tr
 <!-- COMMON-GEMINI:START -->
 ### 4. Language Policy for Documentation
 
-All `.md` files you create or modify MUST be in English, except in `ko/` or `locales/ko/` directories (Korean translation zones) or when explicitly declared as a Korean legal/regulatory content exception.
+All `.md` files you create or modify MUST be in English, except in recognized locale translation zones (`<lang-code>/` or `locales/<lang-code>/` directories, plus `*_&lt;lang-code&gt;` suffix files such as `README_ko.md` — see the AGENTS.md Language Policy) or when explicitly declared as a Korean legal/regulatory content exception.
 
 - README.md, CLAUDE.md, GEMINI.md, AGENTS.md, context.md, CHANGELOG.md — English only
 - All documentation in docs/, agents/, skills/ — English only
@@ -294,7 +294,7 @@ Antigravity does not have `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` or `teammateMod
 
 ---
 
-*Last Updated: 2026-09-12 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
+*Last Updated: 2026-09-22 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
 
 ---
 
