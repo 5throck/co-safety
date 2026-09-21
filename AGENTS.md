@@ -37,7 +37,7 @@ When leading execution and improvement tasks, PM MUST use the 3-Tier model strat
 
 | Agent | File | Tier | Role |
 |-------|------|------|------|
-| **PM / Chief Safety Officer (CSO)** | [`agents/pm.md`](agents/pm.md) (extends stub) + [`docs/co-safety.context.md`](docs/co-safety.context.md) (CSO Runtime Definition) | High | PM override — acts as CSO; orchestrates EHS agent team; enforces legal_basis gate on all workflows |
+| **PM / Chief Safety Officer (CSO)** | [`agents/pm.md`](agents/pm.md) (extends stub) + [`docs/co-safety.context.md`](docs/co-safety.context.md) (CSO Runtime Definition) | Medium | PM override — acts as CSO; orchestrates EHS agent team; enforces legal_basis gate on all workflows |
 | Documentation Writer | [`agents/_shared/docs-writer.md`](agents/_shared/docs-writer.md) | Medium | Formats official documentation; enforces English-only policy and specific translation zones |
 
 ### Safety Management
