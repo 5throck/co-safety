@@ -17,6 +17,7 @@
 | `benefit-risk-assessor` | L3 | — | — | — | — | — |
 | `bsl-lab-aerosol-control-planner` | L3 | — | — | — | — | — |
 | `chemical-risk-assessment` | L3 | — | — | — | — | — |
+| `ci-triage` | L3 | — | — | — | — | — |
 | `coke-oven-pah-heat-stress-planner` | L3 | — | — | — | — | — |
 | `completion-inspection` | L3 | — | — | — | — | — |
 | `compliance-gap` | L3 | — | — | — | — | — |
@@ -45,6 +46,8 @@
 | `gmp-change-control` | L3 | — | — | — | — | — |
 | `gmp-deviation-capa` | L3 | — | — | — | — | — |
 | `gmp-qrm` | L3 | — | — | — | — | — |
+| `handbook` | L3 | — | — | — | — | — |
+| `handbook-sync-audit` | L3 | — | — | — | — | — |
 | `hazop-analysis` | L3 | — | — | — | — | — |
 | `hv-cell-formation-electrical-safety-planner` | L3 | — | — | — | — | — |
 | `i18n-audit` | L3 | — | — | — | — | — |
@@ -86,6 +89,7 @@
 | `security-scan` | L3 | — | — | — | — | — |
 | `signal-detector` | L3 | — | — | — | — | — |
 | `skill-lifecycle-manager` | L3 | — | — | script-lifecycle-manager (composes_with) | — | — |
+| `source-command-commit-push-pr` | L3 | — | — | — | — | — |
 | `standup-synthesizer` | L3 | — | — | — | — | — |
 | `sync` | L3 | — | — | — | — | — |
 | `tank-integrity-validator` | L3 | — | — | — | — | — |
@@ -93,8 +97,10 @@
 | `team-builder` | L3 | — | — | — | — | — |
 | `temperature-excursion-analyzer` | L3 | — | — | — | — | — |
 | `thermal-burn-prevention-planner` | L3 | — | — | — | — | — |
+| `token-usage-lint` | L3 | — | — | ui-ux-design-intelligence (follows) | — | — |
 | `tool-box-meeting` | L3 | — | — | — | — | — |
 | `translate` | L3 | — | — | documentation-writing (composes_with) | — | — |
+| `ui-ux-design-intelligence` | L3 | — | — | documentation-writing (follows) | — | — |
 | `update-bun-packages` | L3 | — | — | — | — | — |
 | `zod-contract-gate` | L3 | — | — | — | — | — |
 

@@ -118,6 +118,11 @@
       "layer": "L3"
     },
     {
+      "id": "ci-triage",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
       "id": "coke-oven-pah-heat-stress-planner",
       "type": "skill",
       "layer": "L3"
@@ -259,6 +264,16 @@
     },
     {
       "id": "gmp-qrm",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "handbook",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "handbook-sync-audit",
       "type": "skill",
       "layer": "L3"
     },
@@ -524,6 +539,11 @@
     },
     {
       "id": "skill-lifecycle-manager",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "source-command-commit-push-pr",
       "type": "skill",
       "layer": "L3"
     },
@@ -1308,12 +1328,22 @@
       "layer": "L3"
     },
     {
+      "id": "token-usage-lint",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
       "id": "tool-box-meeting",
       "type": "skill",
       "layer": "L3"
     },
     {
       "id": "translate",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
+      "id": "ui-ux-design-intelligence",
       "type": "skill",
       "layer": "L3"
     },
@@ -1405,6 +1435,12 @@
       "type": "references",
       "from": "bsl-lab-aerosol-control-planner",
       "to": "tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "ci-triage",
+      "to": "project-review",
       "source": "prose"
     },
     {
@@ -1549,6 +1585,24 @@
       "type": "references",
       "from": "evidence-ledger",
       "to": "decision-record",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "handbook",
+      "to": "handbook-sync-audit",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "handbook-sync-audit",
+      "to": "handbook",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "handbook-sync-audit",
+      "to": "project-review",
       "source": "prose"
     },
     {
@@ -3802,6 +3856,17 @@
       "source": "prose"
     },
     {
+      "type": "follows",
+      "from": "token-usage-lint",
+      "to": "ui-ux-design-intelligence",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/token-usage-lint/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
       "type": "references",
       "from": "tool-box-meeting",
       "to": "k-law",
@@ -3833,6 +3898,17 @@
       "symmetric": true,
       "provenance": {
         "file": "skills/translate/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "follows",
+      "from": "ui-ux-design-intelligence",
+      "to": "documentation-writing",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/ui-ux-design-intelligence/SKILL.md",
         "field": "relates_to",
         "index": 0
       }
