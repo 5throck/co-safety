@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-09-21T03:32:43.681Z",
+  "files": [
+    "M .claude/template-version.txt",
+    "M .codex/skills/handbook-sync-audit/SKILL.md",
+    "M scripts/SCRIPTS.md",
+    "M scripts/dev-sync.ts",
+    "M scripts/skill-lifecycle-audit.ts",
+    "scripts/lib/upgrade-policy.ts"
+  ]
+}
