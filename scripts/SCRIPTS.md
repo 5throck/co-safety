@@ -100,7 +100,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/test-runtime-tools.ts` | — | 1.0.0 | active | — | — | — | — |
 | `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/training-ingest.ts` | — | 1.0.0 | active | — | — | — | — |
-| `validate-agents.ts` | — | 1.2.1 | active | — | — | — | — |
+| `validate-agents.ts` | — | 1.3.2 | active | — | — | — | — |
 | `validate-doc-folder.ts` | — | 1.1.0 | active | — | — | — | — |
 | `validate-docs-links.ts` | — | 1.1.0 | active | — | — | — | — |
 | `validate-md-language.ts` | — | 1.11.0 | active | — | — | — | — |
@@ -108,7 +108,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
 | `verify-memory.ts` | — | 1.2.0 | active | — | — | — | — |
 | `verify-readme-sync.ts` | — | 1.4.0 | active | — | — | — | — |
-| `verify-scripts.ts` | — | 1.7.0 | active | — | — | — | — |
+| `verify-scripts.ts` | — | 1.8.0 | active | — | — | — | — |
 | `verify-skills.ts` | — | 1.3.0 | active | — | — | — | — |
 | `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
@@ -117,18 +117,18 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/evidence-validator.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/language-guard.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/mcp-cache.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/pipeline-state.ts` | — | 1.1.2 | active | — | — | — | — |
+| `lib/pipeline-state.ts` | — | 1.2.0 | active | — | — | — | — |
 | `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
 | `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
-| `helpers/context-sections.ts` | — | 1.5.0 | active | — | — | — | — |
+| `helpers/context-sections.ts` | — | 1.6.0 | active | — | — | — | — |
 | `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
 | `helpers/security-validator.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/migrate-registry-to-coordinates.ts` | — | 1.0.2 | active | — | — | — | — |
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `generate-skill-graph.ts` | L0 | 1.12.0 | active | —| —| L0+L1 | —|
+| `generate-skill-graph.ts` | L0 | 1.14.0 | active | —| —| L0+L1 | —|
 | `generate-version-manifest.ts` | L0 | 1.7.1 | active | —| —| L0+L1 | —|
 | `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
@@ -162,7 +162,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.37.0 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.38.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.1 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
@@ -191,6 +191,8 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-raci.ts` | L0 | 1.2.0 | active | RACI validation per ADR-0083 DEG-R-01..05 + ADR-0084 DEG-R-06/07; DEG-R-06: human-accountable must match gate; DEG-R-07: actor_types key set must equal R/A/C/I union | —| L0+L1 | —|
 | `lib/dependency-guard.ts` | L0 | 1.0.2 | active | DEPENDENCY GUARD — scans delivered scripts' bare-package imports vs project package.json, reports missing packages in the upgrade plan (T-20260920-001) | —| L0+L1 | —|
 | `lib/upgrade-policy.ts` | L0 | 1.11.0 | active | exports `lifecyclelessText()` (equal-version agent drift) + `isDeliveredDiff()` (dev-sync 3.9 auto-E5, rollout hardening 2026-09-21) | —| L0+L1 | —|
+| `upgrade-project.ts` | L0 | 1.43.0 | active | v1.43.0 (adopt-project prerequisites): variant-scope skill prune honors variant.json skill_manifest (v1.17.1 symmetry — adopted foreign skills no longer `git rm`-ed); `.gitattributes` merge-aware LOCKED delivery (`mergeGitattributes`, mergeGitleaksToml pattern). Prior: `--variant`, `--platform` (claude/antigravity/codex/all — `all` renamed from `both`, now merges CODEX.md too), `--dry-run`, `--prune-removed`, `--rollback`, `--yes`, `--skip-context-commonization`, `--force-context-sync`; COMMON-CONTEXT splice under PRESERVE (T-20260919-003); skill sub-file sync — NEW/UPDATE deliver the whole skill dir, equal-version skills get additive CATCH-UP + DRIFT warnings (2026-09-21); W2 HARVEST — variant-only lines inside removed near-duplicate sections reported as backport candidates (2026-09-22) | —| L0+L1 | —|
+| `helpers/skills-registry.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
