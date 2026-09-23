@@ -119,7 +119,7 @@ Skills used in specific lifecycle phases (from `variant.json` `skill_manifest`):
 | `phase` | Skill used in a lifecycle phase (from `variant.json` `skill_manifest.phases`) |
 | `supersedes` | Supersession — overrides (manual) or decision-record prose labels |
 | `references` | Backtick reference in SKILL.md/agent/ADR body prose, DEC `knowledge_refs[]` naming an ADR, or skill → `term:` node from references/terms-ko.json (ADR-0072) |
-| `cites_skill` | Decision record `skills_used[]` validated against the skill set (ADR-0061 amendment 2026-08-25) |
+| `cites_skill` | Decision record `skills_used[]` and workflow-doc citations (`doc:` nodes, Source 4.8, ticket T-20260923-001) validated against the skill set |
 | `composes_with` | Typed `relates_to` entry — symmetric, used together in the same phase/workflow (ADR-0060 Amendment 3) |
 | `follows` | Typed `relates_to` entry — sequential/ordering relation, no dependency implication (ADR-0060 Amendment 3) |
 | `enables` | Typed `relates_to` entry — this skill's output unlocks another skill/workflow (ADR-0060 Amendment 3) |
@@ -153,6 +153,7 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `adr:0012` | adr | — | — | — |
 | `adr:0013` | adr | — | — | — |
 | `dec:DEC-20260917-01` | decision | `sync` | — | — |
+| `doc:AGENTS.md` | doc | `agent-lifecycle-manager`, `audit-preparation`, `contractor-onboarding`, `emergency-response`, `fall-hazard-assessor`, `ghs-classifier`, `k-law`, `msds-parser`, `permit-to-work`, `psm-loto`, `risk-assessment`, `skill-lifecycle-manager`, `tar-planning`, `tool-box-meeting` | — | — |
 
 ## Korean Term Vocabulary (terms-ko.json)
 

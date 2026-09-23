@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-09-23](2026-09-23.md) | chore: upgrade template delivery — resync cycle 2026-09-23 |
 | [2026-09-22](2026-09-22.md) | chore: fleet resync completion — upgrade wave + PM tier fix |
 | [2026-09-21](2026-09-21.md) | chore(upgrade): fleet resync — lifecycle modernization wave |
 | [2026-09-20](2026-09-20.md) | fix(gitignore): remove UTF-16 encoding corruption and stray nul entry |
