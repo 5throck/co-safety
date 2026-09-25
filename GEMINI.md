@@ -195,12 +195,12 @@ The execution plan table format, the Design Gate (Row 0) rule, exemption categor
 <!-- COMMON-GEMINI:END -->
 
 <!-- COMMON-GEMINI:START -->
-### 6. Workspace & Template Boundary Policy
+### 6. Project Boundary Policy
 
-- **Strict CWD Isolation**: When modifying templates (in `templates/`), you MUST strictly limit your working directory (CWD) to the specific template folder.
-- **No Cross-Modification**: Modifying workspace root files and template files in a single task or session is forbidden. Keep workspace root changes and template changes completely isolated.
+- **Strict Scope**: Work only within the current project directory.
+- **No Cross-Project Modification**: Modifying files outside the project root during a session is forbidden.
 
-> For L1-L2 Fork Model and lifecycle management rules, see [docs/context.md](docs/context.md) and [docs/context.md](docs/context.md).
+> For lifecycle management rules, see [docs/context.md — Lifecycle Management](docs/context.md#lifecycle-management).
 <!-- COMMON-GEMINI:END -->
 
 <!-- COMMON-GEMINI:START -->
@@ -294,7 +294,7 @@ Antigravity does not have `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` or `teammateMod
 
 ---
 
-*Last Updated: 2026-09-23 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
+*Last Updated: 2026-09-25 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
 
 ---
 
