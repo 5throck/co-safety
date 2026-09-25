@@ -29,6 +29,7 @@
 | `daily/risk-assessment` | L3 | — | — | — | — | — |
 | `dangerous-cargo-handling-planner` | L3 | — | — | — | — | — |
 | `decision-record` | L3 | — | — | — | — | — |
+| `design-foundation` | L3 | — | — | accessibility-audit (composes_with), token-usage-lint (composes_with), ui-ux-design-intelligence (enables) | — | — |
 | `documentation-writing` | L3 | — | — | team-builder (composes_with) | — | — |
 | `dts-verification` | L3 | — | — | — | — | — |
 | `emergency-response` | L3 | — | — | — | — | — |
