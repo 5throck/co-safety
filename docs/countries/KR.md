@@ -63,6 +63,8 @@ Korean (`ko`) is the operating language of statutes, regulators, filings, and mo
 
 ## Tooling & Skill Mapping
 
+> Structured regulatory layer: [`region-profiles/KR.yaml`](../../region-profiles/KR.yaml) (ADR-0091).
+
 | Skill | Purpose |
 |-------|---------|
 | `k-law` | Korean statute/precedent/administrative-rule lookup (National Law Information Center Open API, open.law.go.kr; requires the `LAW_API_OC` environment variable). MUST be used for statutory verification whenever this profile is active — never cite statute text from memory |

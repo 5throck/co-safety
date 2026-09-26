@@ -11,10 +11,7 @@
     "supported": [
       "KR"
     ],
-    "default": "KR",
-    "locales": [
-      "ko"
-    ]
+    "default": null
   },
   "agent_overrides": {
     "pm": {
