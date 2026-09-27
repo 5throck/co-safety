@@ -193,6 +193,11 @@
       "layer": "L3"
     },
     {
+      "id": "doc:CODEX.md",
+      "type": "doc",
+      "layer": "L3"
+    },
+    {
       "id": "documentation-writing",
       "type": "skill",
       "layer": "L3"
@@ -1714,6 +1719,12 @@
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
       "to": "tool-box-meeting",
+      "source": "workflow-doc"
+    },
+    {
+      "type": "cites_skill",
+      "from": "doc:CODEX.md",
+      "to": "meeting-facilitation",
       "source": "workflow-doc"
     },
     {
