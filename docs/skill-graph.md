@@ -155,6 +155,7 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `adr:0013` | adr | — | — | — |
 | `dec:DEC-20260917-01` | decision | `sync` | — | — |
 | `doc:AGENTS.md` | doc | `agent-lifecycle-manager`, `audit-preparation`, `contractor-onboarding`, `emergency-response`, `fall-hazard-assessor`, `ghs-classifier`, `k-law`, `msds-parser`, `permit-to-work`, `psm-loto`, `risk-assessment`, `skill-lifecycle-manager`, `tar-planning`, `tool-box-meeting` | — | — |
+| `doc:CODEX.md` | doc | `meeting-facilitation` | — | — |
 
 ## Korean Term Vocabulary (terms-ko.json)
 
