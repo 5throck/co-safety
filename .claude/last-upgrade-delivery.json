@@ -1,14 +1,8 @@
 {
-  "timestamp": "2026-09-27T07:25:30.407Z",
+  "timestamp": "2026-09-27T08:21:43.508Z",
   "files": [
     "M .claude/template-version.txt",
     "M CLAUDE.md",
-    "M CODEX.md",
-    "M docs/workspace-schema.json",
-    "M scripts/SCRIPTS.md",
-    "M scripts/audit.ts",
-    "M scripts/helpers/upgrade-versions.ts",
-    "M scripts/lib/upgrade-policy.ts",
-    "M scripts/validate-md-language.ts"
+    "Hermes.md"
   ]
 }
