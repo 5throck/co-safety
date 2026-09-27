@@ -1,7 +1,22 @@
 #!/usr/bin/env bun
 /**
  * Template Lifecycle Validation Script
- * @version 1.45.0
+ * @version 1.48.0
+ *
+ * v1.46.1 (2026-09-26, ADR-0090 program closure — design Addendum 3): the
+ *         size-budget arm's WARN message and header note record the user
+ *         decision that the W4 FAIL promotion is cancelled and the budget
+ *         stays a WARN-level visibility metric permanently.
+ * v1.46.0 (2026-09-26, ADR-0090 W0): two WARN-stage arms precede the AGENTS.md
+ *         thin-dispatcher restructure — `agents-md-size-budget` (every
+ *         AGENTS.md ≤15,000 chars at L0/L1/L2; per user decision 2026-09-26
+ *         (design Addendum 3) this stays a WARN-level visibility metric — the
+ *         W4 FAIL promotion is cancelled) and
+ *         `agents-md-pointer-integrity` (markdown references to
+ *         docs/governance/*.md, docs/constitution/*.md and the layer's
+ *         context.md must resolve on disk; multi-base resolution: workspace
+ *         root, templates/common, layer dir). Vacuous until W1 populates
+ *         pointers — by design (C: validators precede restructuring).
  * v1.44.0 → v1.45.0 (2026-09-25, registry & platform-policy completeness batch
  *          — spec docs/designs/2026-09-25-registry-policy-completeness-design.md,
  *          W5/R5.6): new VA-08 skill-registry-sync check — one cross-surface
@@ -655,6 +670,33 @@ function checkVariantManifests(): Map<string, VariantManifest> {
         }
       }
 
+      // B-04 (ADR-0091 R3, T-20260927-002): uniform country_config declaration —
+      // adopting or not, every variant.json declares the mechanism
+      // ({ profiles_dir: "docs/countries", supported: [], default: null } for
+      // non-adopting variants); divergence by omission is eliminated.
+      const cc = raw.country_config as Record<string, unknown> | undefined;
+      if (!cc || typeof cc !== 'object' || Array.isArray(cc)) {
+        fail(dir, 'country-config',
+          `templates/${dir}/variant.json missing 'country_config' (ADR-0091 R3 uniform declaration)`,
+          `Add "country_config": { "profiles_dir": "docs/countries", "supported": [], "default": null } (empty supported = non-adopting)`);
+      } else {
+        let ccOk = true;
+        if (cc.profiles_dir !== 'docs/countries') {
+          fail(dir, 'country-config', `country_config.profiles_dir must be "docs/countries", got ${JSON.stringify(cc.profiles_dir)}`);
+          ccOk = false;
+        }
+        if (!Array.isArray(cc.supported)) {
+          fail(dir, 'country-config', `country_config.supported must be an array (empty for non-adopting variants)`);
+          ccOk = false;
+        }
+        if (cc.default !== null) {
+          fail(dir, 'country-config', `country_config.default must be null (country-profiles rule; ADR-0091 R2)`,
+            `Set "default": null — the active country is selected per-project via docs/countries/ACTIVE.md`);
+          ccOk = false;
+        }
+        if (ccOk) pass(`templates/${dir}/variant.json country_config declaration OK (ADR-0091 R3)`);
+      }
+
       // B-03: script_manifest path existence check
       const scriptManifest = raw.script_manifest as { local?: Array<{ name: string; path: string }> } | undefined;
       if (scriptManifest?.local && Array.isArray(scriptManifest.local)) {
@@ -736,8 +778,12 @@ function checkVariantManifests(): Map<string, VariantManifest> {
         if (!countryConfig.profiles_dir || countryConfig.profiles_dir.trim() === '') {
           fail(dir, 'country-config', `templates/${dir}/variant.json country_config.profiles_dir is missing or empty`);
         }
-        if (!countryConfig.supported || !Array.isArray(countryConfig.supported) || countryConfig.supported.length === 0) {
-          fail(dir, 'country-config', `templates/${dir}/variant.json country_config.supported is missing or empty`);
+        // T-20260927-002 (ADR-0091 R3): an EMPTY supported array is now the
+        // canonical non-adopting declaration — divergence by omission is what
+        // B-04 above eliminates. Only a MALFORMED value fails here; the
+        // adopting-path profile-file checks run for each declared code.
+        if (!countryConfig.supported || !Array.isArray(countryConfig.supported)) {
+          fail(dir, 'country-config', `templates/${dir}/variant.json country_config.supported is missing or not an array (use [] for non-adopting variants)`);
         } else {
           // Check each supported code has a profile file
           for (const code of countryConfig.supported) {
@@ -1280,7 +1326,7 @@ const SOAK_COMMAND_SURFACES = new Set(['.codex/prompts']);
 function checkCommands(variant: string): void {
   if (!JSON_MODE) console.log(`\n=== Check 6: commands in ${variant} ===`);
 
-  const allSharedCommands = ['changelog.md', 'commit-push-pr.md', 'gateguard.md', 'meeting.md', 'memlog.md', 'new-task.md', 'project-review.md', 'sync.md'];
+  const allSharedCommands = ['changelog.md', 'commit-push-pr.md', 'gateguard.md', 'memlog.md', 'new-task.md', 'project-review.md', 'sync.md'];
 
   if (variant === 'common') {
     // common/ must have all shared commands in every command surface
@@ -1322,26 +1368,7 @@ function checkCommands(variant: string): void {
 
 // Check 7: scripts and .githooks parity — removed (dead code after ADR-0036 TypeScript migration)
 
-// Check 8: Shared file sync warning
-function checkSharedFileSync(): void {
-  if (!JSON_MODE) console.log('\n=== Check 8: Shared file sync ===');
-  const workspaceMeeting = join(ROOT, '.claude', 'commands', 'meeting.md');
-  const templateMeeting = join(TEMPLATES_DIR, 'common', '.claude', 'commands', 'meeting.md');
-
-  if (!existsSync(workspaceMeeting) || !existsSync(templateMeeting)) {
-    // One or both missing — skip silently
-    return;
-  }
-
-  const wsContent = normalizeContent(readFileSync(workspaceMeeting, 'utf-8'));
-  const tplContent = normalizeContent(readFileSync(templateMeeting, 'utf-8'));
-
-  if (wsContent !== tplContent) {
-    warn('root', 'shared-sync', 'meeting.md differs between workspace and templates/common', 'Run: cp .claude/commands/meeting.md templates/common/.claude/commands/meeting.md');
-  } else {
-    pass('meeting.md: workspace and common are in sync');
-  }
-}
+// Check 8: shared file sync warning — removed (meeting command retired 2026-09-26, spec 2026-09-26-meeting-command-retirement)
 
 // Check 11: README presence in stable variants
 function checkReadmePresence(variant: string): void {
@@ -3863,7 +3890,8 @@ function checkSkillMirrorVersionSync(variant: string): void {
   const findings = collectMirrorVersionMismatches(join(TEMPLATES_DIR, variant), variant);
   // WARN soak per ADR-0055 — severity flip is ticket-gated (T-20260925-006).
   for (const f of findings) {
-    warn(variant, 'VA-07', `${f.message} (soak: WARN until promotion)`, `Align the SKILL.md frontmatter version across all platform mirrors of ${variant} (and the curated registry row)`);
+    // PROMOTED to fail 2026-09-27 (T-20260925-006, zero-WARN precondition verified).
+    fail(variant, 'VA-07', f.message, `Align the SKILL.md frontmatter version across all platform mirrors of ${variant} (and the curated registry row)`);
   }
   if (findings.length === 0) {
     pass(`VA-07: ${variant} -- mirror skill versions in sync (mirrors and registry rows)`);
@@ -3884,7 +3912,8 @@ function checkSkillRegistrySync(): void {
   const findings = collectWorkspaceRegistryFindings(ROOT);
   // WARN soak per ADR-0055 — severity flip is ticket-gated (T-20260925-007).
   for (const f of findings) {
-    warn('registries', 'VA-08', `${f.message} (soak: WARN until promotion)`, 'Run: bun scripts/sync-skill-registries.ts (dev-sync Step 4.63 re-converges on every /sync)');
+    // PROMOTED to fail 2026-09-27 (T-20260925-007, zero-WARN precondition verified).
+    fail('registries', 'VA-08', f.message, 'Run: bun scripts/sync-skill-registries.ts (dev-sync Step 4.63 re-converges on every /sync)');
   }
   if (findings.length === 0) {
     pass('VA-08: all skill registry tables match SKILL.md frontmatter');
@@ -4313,8 +4342,13 @@ export interface AgentReferenceCandidate {
 
 // Reference shape 1: `agents/<name>.md` path references (prose links, code
 // strings, roster rows). Underscore-leading internal fragments (agents/_COMMON)
-// are not agent references and don't match.
-const AGENT_PATH_REF_RE = /\bagents\/([A-Za-z0-9][A-Za-z0-9_-]*)\.md\b/g;
+// are not agent references and don't match. Governance-doc pointers under a
+// `governance/` directory (docs/governance/agents/<name>.md — the ADR-0090
+// thin-dispatcher relocation targets) are NOT agent references: the segment
+// immediately before `agents/` is `governance/`, so a negative lookbehind
+// excludes them (T-20260925-004 precondition — the 33 false positives this
+// removes were the only thing blocking the check's WARN→FAIL promotion).
+const AGENT_PATH_REF_RE = /(?<!governance\/)\bagents\/([A-Za-z0-9][A-Za-z0-9_-]*)\.md\b/g;
 // Reference shape 2: backtick-adjacent `<name>` agent mentions ("the
 // stack setup agent").
 const AGENT_BACKTICK_MENTION_RE = /`([A-Za-z0-9][A-Za-z0-9_-]*)`\s+agents?\b/g;
@@ -4341,8 +4375,9 @@ export function extractAgentReferenceCandidates(content: string): AgentReference
 /** Check: variant-agent-references — agent references in templates/<v>/AGENTS.md
  *  and the variant scripts tree (.ts files, recursive) must resolve at
  *  templates/<v>/agents/, templates/common/agents/, or the workspace-root
- *  agents/. WARN-mode per ADR-0055 soak (dated promotion ticket filed at
- *  implementation). */
+ *  agents/. WARN-mode per ADR-0055 soak at introduction (T-20260924-007c);
+ *  PROMOTED to fail 2026-09-27 (T-20260925-004) after the governance-doc-link
+ *  false positives were fixed at the extractor. */
 function checkVariantAgentReferences(variant: string, opts?: {
   /** Directory-root override for fixture tests (defaults to the real templates/). */
   templatesDir?: string;
@@ -4353,7 +4388,10 @@ function checkVariantAgentReferences(variant: string, opts?: {
   const quiet = opts !== undefined;
   const FIX =
     'Fix the reference so it names an agent that exists at templates/<variant>/agents/, templates/common/agents/, or the workspace-root agents/ — or remove it. A legitimately agent-shaped name that must stay unresolvable goes on AGENT_REFERENCE_EXEMPT with a justification.';
-  const report = opts?.report ?? ((finding: string) => warn(variant, 'variant-agent-references', finding, FIX));
+  // PROMOTED to fail 2026-09-27 (T-20260925-004, user-authorized early promotion):
+  // the ADR-0090 governance-doc-link false positives were root-caused out of the
+  // extractor (governance/ lookbehind), leaving zero findings on the fleet.
+  const report = opts?.report ?? ((finding: string) => fail(variant, 'variant-agent-references', finding, FIX));
 
   if (!quiet && !JSON_MODE) {
     console.log(`\n=== Check T-007c: agent references resolve in ${variant} AGENTS.md and scripts ===`);
@@ -5424,12 +5462,85 @@ function main(): number {
     checkUserGuidePair(variant);                                 // WS-11
   }
 
+
+// ── ADR-0090 W0: AGENTS.md thin-dispatcher precursor arms (WARN until W4 promotion) ──
+
+const AGENTS_MD_SIZE_BUDGET = 15_000;
+
+/** Size budget: every AGENTS.md at L0/L1/L2 must fit the thin-dispatcher budget. */
+function checkAgentsMdSizeBudget(): void {
+  if (!JSON_MODE) console.log('\n=== Check agents-md-size-budget: AGENTS.md ≤15,000 chars at every layer (ADR-0090) ===');
+  const targets: Array<{ variant: string; path: string }> = [
+    { variant: 'common', path: join(ROOT, 'AGENTS.md') },
+    { variant: 'common', path: join(TEMPLATES_DIR, 'common', 'AGENTS.md') },
+  ];
+  if (existsSync(TEMPLATES_DIR)) {
+    for (const entry of readdirSync(TEMPLATES_DIR, { withFileTypes: true })) {
+      if (entry.isDirectory() && entry.name.startsWith('co-')) {
+        targets.push({ variant: entry.name, path: join(TEMPLATES_DIR, entry.name, 'AGENTS.md') });
+      }
+    }
+  }
+  for (const t of targets) {
+    if (!existsSync(t.path)) continue;
+    const size = readFileSync(t.path, 'utf-8').length;
+    if (size > AGENTS_MD_SIZE_BUDGET) {
+      warn(t.variant, 'agents-md-size-budget',
+        `${t.path}: ${size.toLocaleString()} chars exceeds the 15,000-char thin-dispatcher budget (ADR-0090) — user decision 2026-09-26 (design Addendum 3): WARN-only visibility metric, no FAIL promotion and no further reduction; Hermes consumers use the documented context_file_max_chars config`,
+        `If truncation matters for a harness, see the config backstop in AGENTS.md §6`);
+    } else {
+      pass(`${t.path}: ${size.toLocaleString()} chars (within budget)`);
+    }
+  }
+}
+
+/** Pointer integrity: docs/governance|docs/constitution markdown references in any AGENTS.md must resolve on disk. */
+function checkAgentsMdPointerIntegrity(): void {
+  if (!JSON_MODE) console.log('\n=== Check agents-md-pointer-integrity: AGENTS.md reference pointers resolve (ADR-0090) ===');
+  const targets: Array<{ variant: string; path: string; base: string }> = [
+    { variant: 'common', path: join(ROOT, 'AGENTS.md'), base: ROOT },
+    { variant: 'common', path: join(TEMPLATES_DIR, 'common', 'AGENTS.md'), base: join(TEMPLATES_DIR, 'common') },
+  ];
+  if (existsSync(TEMPLATES_DIR)) {
+    for (const entry of readdirSync(TEMPLATES_DIR, { withFileTypes: true })) {
+      if (entry.isDirectory() && entry.name.startsWith('co-')) {
+        targets.push({ variant: entry.name, path: join(TEMPLATES_DIR, entry.name, 'AGENTS.md'), base: join(TEMPLATES_DIR, entry.name) });
+      }
+    }
+  }
+  let checked = 0;
+  const candidateBases = (base: string): string[] => [ROOT, TEMPLATES_DIR ? join(TEMPLATES_DIR, 'common') : '', base].filter(Boolean);
+  for (const t of targets) {
+    if (!existsSync(t.path)) continue;
+    const refs = [...readFileSync(t.path, 'utf-8').matchAll(/\]\((docs\/(?:governance|constitution)\/[^)`]+)\)/g)].map(m => m[1]);
+    for (const ref of refs) {
+      checked++;
+      const resolvedSomewhere = candidateBases(t.base).some(b => existsSync(join(b, ref)));
+      if (!resolvedSomewhere) {
+        if (ref.startsWith('docs/constitution/')) {
+          warn(t.variant, 'agents-md-pointer-integrity',
+            `${t.path} references '${ref}' — resolves only post-scaffold (constitution docs are delivered at project creation)`,
+            `Verify the file exists in templates delivery; if permanently absent, fix the pointer`);
+        } else {
+          fail(t.variant, 'agents-md-pointer-integrity',
+            `${t.path} references '${ref}' but it does not exist at the workspace root, templates/common, or ${t.base}`,
+            `Create the referenced governance file or fix the pointer`);
+        }
+      }
+    }
+  }
+  if (checked === 0) {
+    pass('agents-md-pointer-integrity: no pointer tables yet (populated at W1) — vacuous pass');
+  } else {
+    pass(`agents-md-pointer-integrity: ${checked} pointer reference(s) resolve`);
+  }
+}
+
   checkVariantIndexCoverage(manifests);                          // WS-12
   checkMirrorHygiene();                                          // R6: mirrors carry only skill dirs (spec 2026-09-25-verifier-platform-expansion-design)
 
   checkCountryProfileDivergence();                               // B-05: cross-variant last_verified divergence
 
-  checkSharedFileSync();
   checkL0L1ScriptParity();
   checkPlatformDocumentationParity();
   checkRootCommonCommandsParity();
@@ -5442,6 +5553,8 @@ function main(): number {
   checkPmExtendsStubBodies();                                    // T-20260915-010: variant pm.md extends-stub bodies
   checkVariantReadinessGate();   // VRG-01: continuous Variant Readiness Gate enforcement
   checkProjectIdentityPlaceholders(); // fleet WARN: Projects/*/docs identity placeholders (spec 2026-09-24-scaffold-identity-overview-design)
+  checkAgentsMdSizeBudget();          // ADR-0090 W0: thin-dispatcher ≤15k budget (WARN; FAIL promotion at W4)
+  checkAgentsMdPointerIntegrity();    // ADR-0090 W0: pointer-table references resolve on disk
 
   // B-07: Sync validated variant info back to VERSION_REGISTRY.json
   if (!JSON_MODE) console.log('\n=== B-07: VERSION_REGISTRY.json sync ===');

@@ -177,7 +177,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `platform-skill-lifecycle-manager` | 1.0.2 | active | pm | 2026-05-31 | — | Mirrored 2026-09-04 from .claude/skills |
 | `pre-construction-technical-review` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `process-hazard-screening` | 1.0.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `project-review` | 1.3.0 | active | pm | 2026-09-14 | — | — |
+| `project-review` | 1.3.1 | active | pm | 2026-09-26 | — | — |
 | `protocol-deviation-analyzer` | 1.0.0 | active | gcp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `psm-loto` | 1.0.0 | active | psm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `psm-moc` | 1.0.0 | active | psm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -207,4 +207,4 @@ Generated: 2026-09-12T01:28:07.508Z
 | `ui-ux-design-intelligence` | 1.0.1 | active | pm | 2026-09-06 | — | Promoted from co-design: component design, visual hierarchy, WCAG checklist; enabled by design-foundation |
 | `update-bun-packages` | 1.3.1 | active | pm | 2026-09-09 | — | Owns Bun dependency updates and root/common/variant alignment via sync-template-deps.ts --apply |
 | `zod-contract-gate` | 1.0.2 | active | architect | 2026-08-06 | — | Defines Zod runtime schema validation patterns and contract safety rules |
-| `design-foundation` | 1.0.0 | active | architect | 2026-08-30 | — | — |
+| `design-foundation` | 1.1.0 | active | architect | 2026-09-26 | — | — |
