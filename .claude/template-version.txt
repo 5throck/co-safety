@@ -1,5 +1,5 @@
 variant=co-safety
-version=0.7.0
+version=0.8.0
 platform=all
 country=KR
-upgraded=2026-09-28T12:23:06.957Z
+upgraded=2026-09-28T16:56:16.013Z

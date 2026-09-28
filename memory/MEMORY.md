@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-09-29](2026-09-29.md) | chore(upgrade): template sync v0.8.0 (auto-release 2026-09-29) |
 | [2026-09-28](2026-09-28.md) | docs(governance): document v0.7.0 upgrade wave (design doc, spec registration, changelog) |
 | [2026-09-27](2026-09-27.md) | chore(upgrade): template sync v0.7.0 (auto-release 2026-09-27) |
 | [2026-09-26](2026-09-26.md) | feat(agents): W4 thin-dispatcher conversion — §3/§4/§5 bodies to governance references, docs/governance/agents/ delivered (ADR-0090) |
