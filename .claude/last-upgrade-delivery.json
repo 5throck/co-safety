@@ -1,8 +1,24 @@
 {
-  "timestamp": "2026-09-27T08:21:43.508Z",
+  "timestamp": "2026-09-28T12:23:07.128Z",
   "files": [
     "M .claude/template-version.txt",
+    "M .gitignore",
     "M CLAUDE.md",
-    "Hermes.md"
+    "Hermes.md -> HERMES.md",
+    "M docs/design-foundation.md",
+    "M docs/workspace-schema.json",
+    "M scripts/SCRIPTS.md",
+    "M scripts/audit.ts",
+    "M scripts/lib/upgrade-policy.ts",
+    "M scripts/validate-docs-links.ts",
+    "M scripts/validate-md-language.ts",
+    "M scripts/validate-templates.ts",
+    "M skills/SKILLS.md",
+    ".agents/skills/service-design/",
+    ".claude/skills/service-design/",
+    ".codex/skills/service-design/",
+    ".gemini/skills/service-design/",
+    ".hermes/skills/service-design/",
+    "skills/service-design/"
   ]
 }

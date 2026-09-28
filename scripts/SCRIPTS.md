@@ -102,7 +102,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/training-ingest.ts` | — | 1.0.0 | active | — | — | — | — |
 | `validate-agents.ts` | — | 1.3.2 | active | — | — | — | — |
 | `validate-doc-folder.ts` | — | 1.1.0 | active | — | — | — | — |
-| `validate-docs-links.ts` | — | 1.2.0 | active | — | — | — | — |
+| `validate-docs-links.ts` | — | 1.3.0 | active | — | — | — | — |
 | `validate-md-language.ts` | — | 1.12.0 | active | — | — | — | — |
 | `validate-skills.ts` | — | 1.5.1 | active | — | — | — | — |
 | `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
@@ -162,7 +162,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.48.0 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.50.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.2 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|

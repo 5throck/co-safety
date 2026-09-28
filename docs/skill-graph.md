@@ -88,6 +88,7 @@
 | `safety-inspection-validator` | L3 | — | — | — | — | — |
 | `script-lifecycle-manager` | L3 | — | — | — | — | — |
 | `security-scan` | L3 | — | — | — | — | — |
+| `service-design` | L3 | — | — | accessibility-audit (follows), token-usage-lint (follows), ui-ux-design-intelligence (follows) | — | — |
 | `signal-detector` | L3 | — | — | — | — | — |
 | `skill-lifecycle-manager` | L3 | — | — | script-lifecycle-manager (composes_with) | — | — |
 | `source-command-commit-push-pr` | L3 | — | — | — | — | — |

@@ -208,3 +208,4 @@ Generated: 2026-09-12T01:28:07.508Z
 | `update-bun-packages` | 1.3.1 | active | pm | 2026-09-09 | — | Owns Bun dependency updates and root/common/variant alignment via sync-template-deps.ts --apply |
 | `zod-contract-gate` | 1.0.2 | active | architect | 2026-08-06 | — | Defines Zod runtime schema validation patterns and contract safety rules |
 | `design-foundation` | 1.1.0 | active | architect | 2026-09-26 | — | — |
+| `service-design` | 1.1.0 | active | pm | 2026-09-27 | — | — |
