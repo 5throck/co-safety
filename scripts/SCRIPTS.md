@@ -162,7 +162,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.50.0 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.50.1 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.2 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
