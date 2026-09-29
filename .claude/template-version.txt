@@ -2,4 +2,4 @@ variant=co-safety
 version=0.8.1
 platform=all
 country=KR
-upgraded=2026-09-29T04:08:55.578Z
+upgraded=2026-09-29T16:49:13.542Z
