@@ -3,17 +3,19 @@
 - **Spec ID**: 2026-10-01-template-upgrade-083
 - **Date**: 2026-10-01
 - **Status**: implemented
-- **Source**: manual (project-resync Step 4, nightly fleet runner)
+- **Source**: manual (upgrade-project fleet resync)
 
 ## Problem
 
-The project held template revision 0.8.1 while the workspace published
-template-v0.8.3 (fleet HERMES.md upkeep + tier-semantics delivery chain).
+The project received this morning's 0.8.3 delivery; the workspace template
+then gained post-release updates (ci.yml PROJECT-JOB markers, graft skill
+delivery, template-version stamp migration to the project root). A fresh
+upgrade-project run brings the project current with the published tree.
 
 ## Decision
 
-Upgrade via the workspace-side L0 tooling
-(`bun ../../scripts/upgrade-project.ts . --prune-removed`, ADR-0073 Amendment 1):
+Re-run the workspace-side L0 tooling
+(`bun ../../scripts/upgrade-project.ts .`, ADR-0073 Amendment 1):
 locked deliverables + WORKSPACE-MANAGED merges, project exclusions preserved.
 Follows this project's template-upgrade spec-registration convention.
 
