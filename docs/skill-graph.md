@@ -47,6 +47,7 @@
 | `gmp-change-control` | L3 | — | — | — | — | — |
 | `gmp-deviation-capa` | L3 | — | — | — | — | — |
 | `gmp-qrm` | L3 | — | — | — | — | — |
+| `graft` | L3 | — | — | — | — | — |
 | `handbook` | L3 | — | — | — | — | — |
 | `handbook-sync-audit` | L3 | — | — | — | — | — |
 | `hazop-analysis` | L3 | — | — | — | — | — |

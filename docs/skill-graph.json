@@ -283,6 +283,11 @@
       "layer": "L3"
     },
     {
+      "id": "graft",
+      "type": "skill",
+      "layer": "L3"
+    },
+    {
       "id": "handbook",
       "type": "skill",
       "layer": "L3"
