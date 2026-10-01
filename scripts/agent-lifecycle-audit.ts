@@ -9,9 +9,18 @@
  *   bun scripts/agent-lifecycle-audit.ts
  *   bun scripts/agent-lifecycle-audit.ts --json   # JSON output
  *
- * @version 1.3.1
+ * @version 1.6.0
+ *          v1.6.0 (T-20261001-004): Check 8-10 resolve the tier through the extends
+ *          chain for extends-stub agents (delivered pm.md copies inherit tier from
+ *          their target); stubs whose template-relative extends cannot be resolved at
+ *          the audit location are exempted instead of failing with "Missing tier".
  * @l2-propagate false
- * @last_updated 2026-09-21
+ * @last_updated 2026-09-30
+ * v1.5.0: Check 11 compares against the newest non-sync-only commit (DEC-20260930-01
+ *         ruling 2, T-20260930-024) — `chore(upgrade): template sync`,
+ *         `chore(templates): auto-release`, and `propagate sync` cascade commits no
+ *         longer make frontmatter last_updated look stale.
+ * v1.4.0: In root agents/ directory, any .md with a name: frontmatter key is an agent (description: accepted; excludes README*, AGENTS.md). Check 3 accepts role OR description.
  * v1.3.1: Check 12 gated to IS_WORKSPACE_ROOT — project snapshots keep delivered owners as-is (co-safety virtual domain owners would otherwise fail project-side audits).
  * @license MIT
  *
@@ -22,7 +31,7 @@
  */
 
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { join, relative, dirname, basename } from 'node:path';
+import { join, relative, dirname, basename, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { cwd } from 'node:process';
 
@@ -33,6 +42,8 @@ interface AgentFrontmatter {
   color?: string;
   description?: string;
   responsibilities?: string[];
+  /** Extends-stub pointer to the frontmatter source (delivered pm.md copies). */
+  extends?: string;
   tier?: {
     claude?: 'high' | 'medium' | 'low';
     antigravity?: 'high' | 'medium' | 'low';
@@ -167,8 +178,34 @@ function parseAgentFrontmatter(filePath: string): AgentFrontmatter | null {
   }
 }
 
+/**
+ * T-20261001-004: resolve the effective tier for an agent file. Extends-stub agents
+ * (delivered pm.md copies) inherit frontmatter from their target — a stub legitimately
+ * carries no tier of its own. Follows the extends chain (bounded depth, cycle-safe via
+ * file identity); returns undefined when the chain cannot be resolved at this location
+ * (project-level stubs whose template-relative extends only resolves in the template
+ * tree) — such stubs are EXEMPT from the tier checks rather than failed on inherited
+ * metadata.
+ */
+function resolveEffectiveTier(
+  agentFile: string,
+  frontmatter: Record<string, unknown>,
+  visited: Set<string> = new Set(),
+): AgentFrontmatter['tier'] | undefined {
+  const tier = frontmatter.tier as AgentFrontmatter['tier'] | undefined;
+  if (tier) return tier;
+  const extendsPath = typeof frontmatter.extends === 'string' ? frontmatter.extends.trim() : '';
+  if (!extendsPath) return undefined;
+  const target = resolve(dirname(agentFile), extendsPath);
+  if (visited.has(target) || !existsSync(target)) return undefined;
+  visited.add(target);
+  const parent = parseAgentFrontmatter(target);
+  if (!parent) return undefined;
+  return resolveEffectiveTier(target, parent as unknown as Record<string, unknown>, visited);
+}
+
 // Recursively find all agent files
-function findAgentFiles(dir: string, depth = 0): string[] {
+export function findAgentFiles(dir: string, depth = 0, explicitAgentsDir = false): string[] {
   const agents: string[] = [];
 
   if (!existsSync(dir)) return agents;
@@ -178,7 +215,7 @@ function findAgentFiles(dir: string, depth = 0): string[] {
   if (dir === ROOT) {
     const agentsDir = join(dir, 'agents');
     if (existsSync(agentsDir)) {
-      return findAgentFiles(agentsDir);
+      return findAgentFiles(agentsDir, 0, true);
     }
     return agents;
   }
@@ -193,7 +230,7 @@ function findAgentFiles(dir: string, depth = 0): string[] {
     if (entry.isDirectory()) {
       if (entry.name === 'node_modules' || entry.name === '_archive' ||
           entry.name === 'skills' || entry.name === 'commands') continue;
-      agents.push(...findAgentFiles(fullPath, depth + 1));
+      agents.push(...findAgentFiles(fullPath, depth + 1, explicitAgentsDir));
     } else if (entry.name.endsWith('.md') &&
                entry.name !== 'AGENTS.md' &&
                entry.name !== 'README.md' &&
@@ -203,6 +240,12 @@ function findAgentFiles(dir: string, depth = 0): string[] {
       const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
       if (frontmatterMatch) {
         const fm = frontmatterMatch[1];
+        // Inside the explicit agents/ directory, a named frontmatter is enough
+        // (project agents use description: and no role:).
+        if (explicitAgentsDir) {
+          if (/^name:/m.test(fm) && !entry.name.startsWith('README')) agents.push(fullPath);
+          continue;
+        }
         // Agents have 'role:' or 'color:' in frontmatter; skills have 'description:' instead
         if ((fm.includes('role:') || fm.includes('color:')) && !fm.includes('description: This skill should be used')) {
           agents.push(fullPath);
@@ -293,6 +336,21 @@ export function isFrontmatterStale(frontmatterDate: string, lastCommitDate: stri
   return frontmatterDate < lastCommitDate;
 }
 
+// Sync-only commit subjects (DEC-20260930-01 ruling 2, T-20260930-024): pipeline
+// cuts that copy template content without a content decision of their own.
+// `chore(upgrade): template sync vX` — fleet upgrade delivery into project repos;
+// `chore(templates): auto-release vX` — template release cut at L0;
+// `... propagate sync ...` — L1 publish cascade into platform mirrors.
+const SYNC_ONLY_COMMIT_PATTERNS: RegExp[] = [
+  /^chore\(upgrade\): template sync\b/i,
+  /^chore\(templates\): auto-release\b/i,
+  /\bpropagate sync\b/i,
+];
+
+export function isSyncOnlyCommitSubject(subject: string): boolean {
+  return SYNC_ONLY_COMMIT_PATTERNS.some((re) => re.test(subject));
+}
+
 // ── v1.3.0 lifecycle-modernization checks (2026-09-21) ──────────────────────
 
 /** An agent name resolves if a roster entry, an agent file, or a variant agent file exists. */
@@ -364,11 +422,23 @@ function extractFrontmatterDate(filePath: string, field: string): string | null 
 
 // Last git commit date (YYYY-MM-DD) for a file; null when git is unavailable or the
 // file has no commits yet (freshly added, uncommitted).
-function lastCommitDate(filePath: string): string | null {
+/** Newest commit touching the file that is not a sync-only pipeline cut
+ *  (DEC-20260930-01 ruling 2): upgrade template-sync, auto-release, and
+ *  propagate-sync cascade commits are skipped so copying template content
+ *  alone never makes frontmatter last_updated look stale. Returns null when
+ *  git history is unavailable or every commit touching the file is sync-only. */
+export function lastContentCommitDate(filePath: string, repoCwd: string = cwd()): string | null {
   try {
-    const result = spawnSync('git', ['log', '-1', '--format=%cs', '--', filePath], { encoding: 'utf-8' });
-    const date = (result.stdout || '').trim();
-    return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : null;
+    const result = spawnSync('git', ['log', '-n', '200', '--format=%cs%x09%s', '--', filePath], { encoding: 'utf-8', cwd: repoCwd });
+    for (const line of (result.stdout || '').split('\n')) {
+      const trimmed = line.trim();
+      const tabIdx = trimmed.indexOf('\t');
+      if (tabIdx === -1) continue;
+      const date = trimmed.slice(0, tabIdx);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) continue;
+      if (!isSyncOnlyCommitSubject(trimmed.slice(tabIdx + 1))) return date;
+    }
+    return null;
   } catch {
     return null;
   }
@@ -446,12 +516,12 @@ function auditAgents(jsonMode = false): AuditResult {
     }
 
     // Check 3: Missing role
-    if (!frontmatter.role) {
+    if (!frontmatter.role && !frontmatter.description) {
       warnings.push({
         level: 'warning',
         file: relPath,
-        message: 'Missing role in frontmatter',
-        fix: "Add 'role: brief description of agent role'",
+        message: 'Missing role and description in frontmatter',
+        fix: "Add 'role: brief description of agent role' (or 'description:')",
       });
     }
 
@@ -500,10 +570,12 @@ function auditAgents(jsonMode = false): AuditResult {
 
     // Check 11: Stale last_updated (T-20260909-004) — the file's git history moved
     // past its declared last_updated without the lifecycle metadata being refreshed.
-    // Archived agents are exempt: stale metadata is expected there by definition.
+    // Sync-only pipeline commits (upgrade template-sync, auto-release, propagate
+    // cascade) are skipped per DEC-20260930-01 ruling 2. Archived agents are
+    // exempt: stale metadata is expected there by definition.
     if (frontmatter.status !== 'archived' && !relPath.includes('_archive')) {
       const fmDate = parseFrontmatterDate(extractFrontmatterDate(agentFile, 'last_updated'));
-      const commitDate = lastCommitDate(agentFile);
+      const commitDate = lastContentCommitDate(agentFile);
       if (fmDate && commitDate && isFrontmatterStale(fmDate, commitDate)) {
         warnings.push({
           level: 'warning',
@@ -576,19 +648,24 @@ function auditAgents(jsonMode = false): AuditResult {
       }
     }
 
-    // Check 8: Tier validation - missing tier field
-    if (!frontmatter.tier) {
-      errors.push({
-        level: 'error',
-        file: relPath,
-        message: 'Missing tier field in frontmatter',
-        fix: "Add tier field with claude, antigravity, and gemini-cli specifications",
-      });
+    // Check 8: Tier validation — extends-stubs inherit tier from their target
+    // (T-20261001-004): a stub without its own tier is legitimate; follow the chain
+    // and exempt the stub when the chain cannot be resolved at this location.
+    const effectiveTier = resolveEffectiveTier(agentFile, frontmatter as unknown as Record<string, unknown>);
+    if (!effectiveTier) {
+      if (!frontmatter.extends) {
+        errors.push({
+          level: 'error',
+          file: relPath,
+          message: 'Missing tier field in frontmatter',
+          fix: "Add tier field with claude, antigravity, and gemini-cli specifications",
+        });
+      }
     } else {
       // Check 9: Tier validation - missing platforms
       const requiredPlatforms = ['claude', 'antigravity', 'gemini-cli'] as const;
       for (const platform of requiredPlatforms) {
-        if (!frontmatter.tier[platform]) {
+        if (!effectiveTier[platform]) {
           errors.push({
             level: 'error',
             file: relPath,
@@ -598,11 +675,11 @@ function auditAgents(jsonMode = false): AuditResult {
         } else {
           // Check 10: Tier validation - invalid tier values
           const validTiers = ['high', 'medium', 'low'];
-          if (!validTiers.includes(frontmatter.tier[platform])) {
+          if (!validTiers.includes(effectiveTier[platform])) {
             errors.push({
               level: 'error',
               file: relPath,
-              message: `Invalid tier.${platform} value: "${frontmatter.tier[platform]}"`,
+              message: `Invalid tier.${platform} value: "${effectiveTier[platform]}"`,
               fix: `Use one of: ${validTiers.join(', ')}`,
             });
           }
