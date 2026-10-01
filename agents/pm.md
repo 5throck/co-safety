@@ -7,6 +7,13 @@ version: "1.0.0"
 last_updated: "2026-08-28"
 status: active
 owner: architect
+tier:
+  claude: medium
+  gemini: medium
+  antigravity: medium
+  gemini-cli: medium
+  codex: medium
+model: inherit
 lifecycle:
   phase: production
   created: "2026-06-04"

@@ -7,7 +7,9 @@ if (!fs.existsSync(targetDir)) {
   fs.mkdirSync(targetDir, { recursive: true });
 }
 
-const child = spawn('npx.cmd', ['-y', 'korean-law-mcp@latest'], {
+// Version-pinned (2026-10-01): `@latest` executes whatever the registry
+// serves at run time — a supply-chain exposure. Bump deliberately.
+const child = spawn('npx.cmd', ['-y', 'korean-law-mcp@4.15.1'], {
   stdio: ['pipe', 'pipe', 'inherit']
 });
 
