@@ -1,11 +1,19 @@
 {
-  "timestamp": "2026-09-29T16:49:13.645Z",
+  "timestamp": "2026-10-01T09:42:51.863Z",
   "files": [
     ".claude/template-version.txt",
-    "AGENTS.md",
+    ".github/workflows/ci.yml",
     "agents/pm.md",
-    "docs/governance/agents/execution-plan-templates.md",
+    "docs/governance/agents/pm-gateway-workflow.md",
+    "docs/governance/agents/workflows.md",
+    "docs/workspace-schema.json",
     "scripts/SCRIPTS.md",
-    "scripts/dev-sync.ts"
+    "scripts/agent-lifecycle-audit.ts",
+    "scripts/dev-sync.ts",
+    "scripts/generate-version-manifest.ts",
+    "scripts/lib/upgrade-policy.ts",
+    "scripts/validate-templates.ts",
+    "scripts/verify-scripts.ts",
+    "scripts/lib/ci-workflow-merge.ts"
   ]
 }
