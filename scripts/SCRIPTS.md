@@ -64,7 +64,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/lib/checkpoint-manager.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `co-safety/lib/auto-executor.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `agent-delete.ts` | — | 1.0.1 | active | — | — | — | — |
-| `agent-lifecycle-audit.ts` | — | 1.5.0 | active | — | — | — | — |
+| `agent-lifecycle-audit.ts` | — | 1.3.1 | active | — | — | — | — |
 | `agent-list.ts` | — | 1.1.0 | active | — | — | — | — |
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
