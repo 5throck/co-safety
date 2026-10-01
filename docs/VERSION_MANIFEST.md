@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-09-29T16:52:45.201Z
+**Generated**: 2026-10-01T08:05:43.662Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -19,7 +19,7 @@
 
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
-| pm | agents/pm.md | N/A | N/A | 2026-09-25 |
+| pm | agents/pm.md | medium | inherit | 2026-10-01 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | opus | 2026-09-20 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | opus | 2026-09-20 |
 
@@ -268,6 +268,4 @@
 
 ## Drift Detection
 
-⚠️ **Drift detected**:
-
-- [WARNING] Agent pm missing tier or model metadata
+✅ No drift detected. All components are properly versioned and integrated.
