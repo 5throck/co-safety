@@ -1,27 +1,9 @@
 {
-  "timestamp": "2026-10-01T13:53:23.173Z",
+  "timestamp": "2026-10-01T14:20:40.127Z",
   "files": [
-    ".claude/template-version.txt",
     "CLAUDE.md",
     "CODEX.md",
     "GEMINI.md",
-    "agents/pm.md",
-    "docs/governance/agents/pm-gateway-workflow.md",
-    "scripts/SCRIPTS.md",
-    "scripts/generate-version-manifest.ts",
-    "scripts/lib/upgrade-policy.ts",
-    "scripts/skill-lifecycle-audit.ts",
-    "scripts/sync-skills.ts",
-    "scripts/validate-templates.ts",
-    "scripts/verify-platform-lifecycle.ts",
-    "skills/SKILLS.md",
-    ".agents/skills/graft/SKILL.md",
-    ".claude/skills/graft/SKILL.md",
-    ".codex/skills/graft/SKILL.md",
-    ".gemini/skills/graft/SKILL.md",
-    ".hermes/skills/graft/SKILL.md",
-    "skills/.sync-skills-managed.json",
-    "skills/graft/SKILL.md",
     "template-version.txt"
   ]
 }
