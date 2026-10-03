@@ -2,4 +2,4 @@ variant=co-safety
 version=0.10.0
 platform=all
 country=KR
-upgraded=2026-10-03T01:41:31.686Z
+upgraded=2026-10-03T06:33:11.051Z
