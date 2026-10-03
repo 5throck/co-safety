@@ -64,7 +64,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/lib/checkpoint-manager.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `co-safety/lib/auto-executor.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `agent-delete.ts` | — | 1.0.1 | active | — | — | — | — |
-| `agent-lifecycle-audit.ts` | — | 1.6.0 | active | — | — | — | — |
+| `agent-lifecycle-audit.ts` | — | 1.7.0 | active | — | — | — | — |
 | `agent-list.ts` | — | 1.1.0 | active | — | — | — | — |
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
@@ -75,7 +75,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
 | `dev-sync.ts` | — | 1.23.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.1.1 | active | — | — | — | — |
-| `dispatch-serial.ts` | — | 1.1.1 | active | — | — | — | — |
+| `dispatch-serial.ts` | — | 1.1.2 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/domain-config.ts` | — | 1.5.0 | active | — | — | — | — |
 | `gen-pr-body.ts` | — | 1.2.0 | active | — | — | — | — |
@@ -86,7 +86,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/safety-audit.ts` | — | 4.10.2 | active | — | — | — | — |
 | `co-safety/scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
-| `skill-lifecycle-audit.ts` | — | 1.5.1 | active | — | — | — | — |
+| `skill-lifecycle-audit.ts` | — | 1.5.2 | active | — | — | — | — |
 | `co-safety/start-mcp.ts` | — | 1.0.0 | active | — | — | — | — |
 | `sync-md.ts` | — | 1.4.0 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.1.0 | active | — | — | — | — |
@@ -138,7 +138,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/template-utils.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `hooks/gateguard-fact-force.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `hooks/post-write-lifecycle-check.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
-| `hooks/pre-commit.ts` | L0 | 1.8.0 | active | —| —| L0+L1 | —|
+| `hooks/pre-commit.ts` | L0 | 1.9.0 | active | —| —| L0+L1 | —|
 | `hooks/pre-push.ts` | L0 | 1.4.1 | active | —| —| L0+L1 | —|
 | `lib/auth.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/auto-executor.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
@@ -151,18 +151,18 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/plan-parser.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/platform-dispatcher.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/ssrf.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `lifecycle-sync-audit.ts` | L0 | 1.17.0 | active | —| —| L0+L1 | —|
+| `lifecycle-sync-audit.ts` | L0 | 1.17.1 | active | —| —| L0+L1 | —|
 | `md-to-ooxml.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `render-pdf-deck.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `setup-github-branch-protection.ts` | L0 | 1.0.1 | active | `--repo`, `--branch`, `--check` (repeatable), `--dry-run` | —| L0+L1 | —|
-| `validate-model-registry.ts` | L0 | 1.4.0 | active | —| —| L0+L1 | —|
+| `validate-model-registry.ts` | L0 | 1.4.1 | active | —| —| L0+L1 | —|
 | `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
 | `verify-platform-lifecycle.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
 | `verify-skill-graph.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
 | `validate-decisions.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.50.2 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.50.5 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.0.2 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
@@ -200,7 +200,9 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `lib/platforms.ts` | L0 | 1.1.0 | active | Platform-list SSOT constants (PLATFORM_SKILL_BASES, PLATFORM_MIRROR_DIRS); Step 1 of the platform-parity program (spec: docs/designs/2026-09-24-platform-ssot-constant-design.md) | —| L0+L1 | —|
 | `regenerate-agents-md.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `lib/ci-workflow-merge.ts` | L0 | 1.0.0 | active | v1.0.0 (T-20260930-026 PR-A, ADR-0094): fail-closed merge/validate of a project `.github/workflows/ci.yml` against the template — 12 error codes (MARKER_*, REGION_*, YAML_PARSE, DUPLICATE_KEY, RESERVED_JOB, FORBIDDEN_TRIGGER, TEMPLATE_JOB_DRIFT, MIGRATION_UNSAFE); PROJECT-JOBS region is untrusted input; legacy migration copies original text slices (never re-serializes); fs confined to applyCiWorkflowMerge (temp + re-validate + atomic rename) | —| L0+L1 | —|
-| `validate-surface-registry.ts` | L0+L1 | 1.0.0 | active | v1.0.0 (2026-10-01, T-20261001-018, spec docs/designs/2026-10-01-surface-registry-validator-design.md): §11.0 supported-surface registry validator (ADR-0097 follow-up) — parses the 8-row CONSTITUTION table as the single source, checks instruction files/platform dirs per family/L2 skill mirroring (mirror:false honored, SCAFFOLD_COMPOSED excluded) at L0/L1/L2, compares templates/common/docs/context.md rows verbatim (one source), renders documented gaps (docs/surface-gaps.json) as WARN with ticket id and undocumented gaps as FAIL; audit.ts gate with --strict. | —| L0+L1 | —|
+| `validate-surface-registry.ts` | L0+L1 | 1.1.1 | active | v1.0.0 (2026-10-01, T-20261001-018, spec docs/designs/2026-10-01-surface-registry-validator-design.md): §11.0 supported-surface registry validator (ADR-0097 follow-up) — parses the 8-row CONSTITUTION table as the single source, checks instruction files/platform dirs per family/L2 skill mirroring (mirror:false honored, SCAFFOLD_COMPOSED excluded) at L0/L1/L2, compares templates/common/docs/context.md rows verbatim (one source), renders documented gaps (docs/surface-gaps.json) as WARN with ticket id and undocumented gaps as FAIL; audit.ts gate with --strict. | —| L0+L1 | —|
+| `hooks/pm-role-bootstrap.ts` | L0 | 1.0.1 | active | SessionStart hook (all sources: startup, resume, clear, compact) injecting PM bootstrap reminder to read AGENTS.md and agents/pm.md before first response — design spec docs/designs/2026-10-02-pm-role-bootstrap-design.md | —| L0+L1 | —|
+| `lib/self-managed-tools.ts` | L0+L1 | 1.0.0 | active | v1.0.0 (2026-10-02, T-20261002-001, spec docs/designs/2026-10-02-self-managed-tool-surfaces-design.md): shared loader for docs/self-managed-surfaces.json — the generic self-managed tool registry. Validators consult isSelfManagedPath to skip tool-owned surfaces (graft platform mirrors + helpers transferred to tool custody); selfManagedMirrorSkills seeds verify-platform-lifecycle's VERSION_EXEMPT_PLATFORM_SKILLS. | —| L0+L1 | —|
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
