@@ -47,7 +47,6 @@
 | `gmp-change-control` | L3 | — | — | — | — | — |
 | `gmp-deviation-capa` | L3 | — | — | — | — | — |
 | `gmp-qrm` | L3 | — | — | — | — | — |
-| `graft` | L3 | — | — | — | — | — |
 | `handbook` | L3 | — | — | — | — | — |
 | `handbook-sync-audit` | L3 | — | — | — | — | — |
 | `hazop-analysis` | L3 | — | — | — | — | — |
@@ -156,7 +155,7 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `adr:0012` | adr | — | — | — |
 | `adr:0013` | adr | — | — | — |
 | `dec:DEC-20260917-01` | decision | `sync` | — | — |
-| `doc:AGENTS.md` | doc | `agent-lifecycle-manager`, `audit-preparation`, `contractor-onboarding`, `emergency-response`, `fall-hazard-assessor`, `ghs-classifier`, `graft`, `k-law`, `msds-parser`, `permit-to-work`, `psm-loto`, `risk-assessment`, `skill-lifecycle-manager`, `tar-planning`, `tool-box-meeting` | — | — |
+| `doc:AGENTS.md` | doc | `agent-lifecycle-manager`, `audit-preparation`, `contractor-onboarding`, `emergency-response`, `fall-hazard-assessor`, `ghs-classifier`, `k-law`, `msds-parser`, `permit-to-work`, `psm-loto`, `risk-assessment`, `skill-lifecycle-manager`, `tar-planning`, `tool-box-meeting` | — | — |
 | `doc:CODEX.md` | doc | `meeting-facilitation` | — | — |
 
 ## Korean Term Vocabulary (terms-ko.json)
