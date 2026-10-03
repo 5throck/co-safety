@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-10-04](2026-10-04.md) | chore: update |
 | [2026-10-03](2026-10-03.md) | chore: upgrade template to 0.10.0 |
 | [2026-10-03](2026-10-03.md) | chore(upgrade): template sync v0.10.0 delivery (2026-10-03) |
 | [2026-10-02](2026-10-02.md) | chore(upgrade): template sync v0.9.0 fleet rollout (T-20261001-021) |
