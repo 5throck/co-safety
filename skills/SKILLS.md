@@ -209,4 +209,3 @@ Generated: 2026-09-12T01:28:07.508Z
 | `zod-contract-gate` | 1.0.2 | active | architect | 2026-08-06 | — | Defines Zod runtime schema validation patterns and contract safety rules |
 | `design-foundation` | 1.1.0 | active | architect | 2026-09-26 | — | — |
 | `service-design` | 1.1.0 | active | pm | 2026-09-27 | — | — |
-| `graft` | 1.0.0 | active | pm | 2026-10-01 | — | — |
