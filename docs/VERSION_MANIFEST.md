@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-10-03T02:05:56.011Z
+**Generated**: 2026-10-03T03:31:14.571Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -19,7 +19,7 @@
 
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
-| pm | agents/pm.md | medium | inherit | 2026-10-01 |
+| pm | agents/pm.md | medium | inherit | 2026-10-03 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | opus | 2026-09-20 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | opus | 2026-09-20 |
 
