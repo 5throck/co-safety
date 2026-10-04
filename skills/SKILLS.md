@@ -125,7 +125,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `benefit-risk-assessor` | 1.0.0 | active | gvp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `bsl-lab-aerosol-control-planner` | 1.0.0 | active | biotech-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `chemical-risk-assessment` | 1.1.0 | active | msds-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `ci-triage` | 0.1.1 | active | pm | 2026-09-08 | — | CI failure triage and owner routing for scheduled health-check issues |
+| `ci-triage` | 0.2.0 | active | pm | 2026-10-04 | — | CI failure triage and owner routing for scheduled health-check issues |
 | `coke-oven-pah-heat-stress-planner` | 1.0.0 | active | steelmaking-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `completion-inspection` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `compliance-gap` | 1.0.0 | active | compliance-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |

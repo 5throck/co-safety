@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-10-05](2026-10-05.md) | chore: upgrade template to 0.12.0 |
 | [2026-10-04](2026-10-04.md) | chore: update |
 | [2026-10-03](2026-10-03.md) | chore: upgrade template to 0.10.0 |
 | [2026-10-03](2026-10-03.md) | chore(upgrade): template sync v0.10.0 delivery (2026-10-03) |
