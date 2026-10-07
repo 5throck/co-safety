@@ -1,0 +1,9 @@
+{
+  "id": "2026-08-29-variant-script-nesting",
+  "title": "0008 variant script nesting convention",
+  "file": "docs/adr/0008-variant-script-nesting-convention.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}

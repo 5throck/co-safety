@@ -1,0 +1,9 @@
+{
+  "id": "2026-09-17-inspection-not-promoted",
+  "title": "0013 inspection evidence not promoted",
+  "file": "docs/adr/0013-inspection-evidence-not-promoted.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}

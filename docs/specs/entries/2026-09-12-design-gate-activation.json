@@ -1,0 +1,9 @@
+{
+  "id": "2026-09-12-design-gate-activation",
+  "title": "0010 universal design gate activation",
+  "file": "docs/adr/0010-universal-design-gate-activation.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}
