@@ -57,12 +57,12 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `handbook/build-search-index.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `handbook/apply-handbook-theme.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `design-lint.ts` | L0 | 2.1.0 | active | —| —| L0+L1 | —|
-| `co-safety/lib/platform-dispatcher.ts` | L0 | 1.0.0 | active | — | — | common | — |
-| `co-safety/lib/plan-parser.ts` | L0 | 1.0.0 | active | — | — | common | — |
-| `co-safety/lib/mcp-cache.ts` | L0 | 1.0.0 | active | — | — | common | — |
-| `co-safety/lib/evidence-validator.ts` | L0 | 1.0.0 | active | — | — | common | — |
-| `co-safety/lib/checkpoint-manager.ts` | L0 | 1.0.0 | active | — | — | common | — |
-| `co-safety/lib/auto-executor.ts` | L0 | 1.0.0 | active | — | — | common | — |
+| `co-safety/lib/platform-dispatcher.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/lib/plan-parser.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/lib/mcp-cache.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/lib/evidence-validator.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/lib/checkpoint-manager.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/lib/auto-executor.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
 | `agent-delete.ts` | — | 1.0.1 | active | — | — | — | — |
 | `agent-lifecycle-audit.ts` | — | 1.7.0 | active | — | — | — | — |
 | `agent-list.ts` | — | 1.1.0 | active | — | — | — | — |
@@ -70,36 +70,36 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
 | `audit.ts` | — | 2.51.0 | active | — | — | — | — |
-| `co-safety/audit-variant.ts` | — | 1.1.0 | active | — | — | — | — |
-| `co-safety/check-pm-approval.ts` | — | 1.0.1 | deprecated | 2026-11-30 | — | — | — |
+| `co-safety/audit-variant.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
+| `co-safety/check-pm-approval.ts` | L2 | 1.0.1 | deprecated | 2026-11-30 | — | L2-only | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
 | `dev-sync.ts` | — | 1.23.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.1.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.1.2 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
-| `co-safety/domain-config.ts` | — | 1.5.0 | active | — | — | — | — |
+| `co-safety/domain-config.ts` | L2 | 1.5.0 | active | — | — | L2-only | — |
 | `gen-pr-body.ts` | — | 1.2.0 | active | — | — | — | — |
-| `co-safety/new-domain.ts` | — | 1.0.2 | active | — | — | — | — |
+| `co-safety/new-domain.ts` | L2 | 1.0.2 | active | — | — | L2-only | — |
 | `qa-gate.ts` | — | 1.3.0 | active | — | — | — | — |
 | `readme-lifecycle-audit.ts` | — | 1.1.0 | active | — | — | — | — |
 | `retry-handler.ts` | — | 1.1.0 | active | — | — | — | — |
-| `co-safety/risk-register-rollup.ts` | — | 1.0.0 | active | — | — | — | — |
-| `co-safety/safety-audit.ts` | — | 4.10.2 | active | — | — | — | — |
-| `co-safety/scaffold-industry.ts` | — | 0.1.1 | active | — | — | — | — |
+| `co-safety/risk-register-rollup.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/safety-audit.ts` | L2 | 4.10.2 | active | — | — | L2-only | — |
+| `co-safety/scaffold-industry.ts` | L2 | 0.1.1 | active | — | — | L2-only | — |
 | `skill-lifecycle-audit.ts` | — | 1.6.0 | active | — | — | — | — |
-| `co-safety/start-mcp.ts` | — | 1.0.1 | active | — | — | — | — |
+| `co-safety/start-mcp.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
 | `sync-md.ts` | — | 1.4.0 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.1.0 | active | — | — | — | — |
 | `sync-skills.ts` | — | 1.11.0 | active | — | — | — | — |
 | `team-builder.ts` | — | 1.4.1 | active | — | — | — | — |
-| `co-safety/test-chemical-handling-profile.ts` | — | 1.0.0 | active | — | — | — | — |
-| `co-safety/test-cross-domain-integration.ts` | — | 1.0.0 | active | — | — | — | — |
-| `co-safety/test-domain-scenarios.ts` | — | 1.1.0 | active | — | — | — | — |
-| `co-safety/test-pharma-general-profile.ts` | — | 1.0.0 | active | — | — | — | — |
+| `co-safety/test-chemical-handling-profile.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/test-cross-domain-integration.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/test-domain-scenarios.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
+| `co-safety/test-pharma-general-profile.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
 | `test-runner.ts` | — | 1.4.0 | active | — | — | — | — |
-| `co-safety/test-runtime-tools.ts` | — | 1.0.0 | active | — | — | — | — |
+| `co-safety/test-runtime-tools.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
 | `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
-| `co-safety/training-ingest.ts` | — | 1.0.0 | active | — | — | — | — |
+| `co-safety/training-ingest.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
 | `validate-agents.ts` | — | 1.3.2 | active | — | — | — | — |
 | `validate-doc-folder.ts` | — | 1.2.1 | active | — | — | — | — |
 | `validate-docs-links.ts` | — | 1.5.0 | active | — | — | — | — |
@@ -110,21 +110,21 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `verify-readme-sync.ts` | — | 1.4.1 | active | — | — | — | — |
 | `verify-scripts.ts` | — | 1.12.0 | active | — | — | — | — |
 | `verify-skills.ts` | — | 1.5.1 | active | — | — | — | — |
-| `lib/auto-executor.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/checkpoint-manager.ts` | — | 1.0.0 | active | — | — | — | — |
+| `lib/auto-executor.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `lib/checkpoint-manager.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
 | `lib/encoding-utils.ts` | — | 1.2.0 | active | — | — | — | — |
 | `lib/error-handling.ts` | — | 1.4.0 | active | — | — | — | — |
-| `lib/evidence-validator.ts` | — | 1.0.0 | active | — | — | — | — |
+| `lib/evidence-validator.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
 | `lib/language-guard.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/mcp-cache.ts` | — | 1.0.0 | active | — | — | — | — |
+| `lib/mcp-cache.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
 | `lib/pipeline-state.ts` | — | 1.2.0 | active | — | — | — | — |
-| `lib/plan-parser.ts` | — | 1.0.0 | active | — | — | — | — |
+| `lib/plan-parser.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
 | `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/platform-dispatcher.ts` | — | 1.0.0 | active | — | — | — | — |
+| `lib/platform-dispatcher.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
 | `helpers/context-sections.ts` | — | 1.8.0 | active | — | — | — | — |
 | `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
 | `helpers/security-validator.ts` | — | 1.1.1 | active | — | — | — | — |
-| `co-safety/migrate-registry-to-coordinates.ts` | — | 1.0.2 | active | — | — | — | — |
+| `co-safety/migrate-registry-to-coordinates.ts` | L2 | 1.0.2 | active | — | — | L2-only | — |
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
@@ -141,15 +141,15 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `hooks/pre-commit.ts` | L0 | 1.9.0 | active | —| —| L0+L1 | —|
 | `hooks/pre-push.ts` | L0 | 1.4.1 | active | —| —| L0+L1 | —|
 | `lib/auth.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/auto-executor.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/checkpoint-manager.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `lib/auto-executor.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
+| `lib/checkpoint-manager.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
 | `lib/context-md-schema.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `lib/encoding-utils.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
-| `lib/evidence-validator.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `lib/evidence-validator.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
 | `lib/language-guard.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/mcp-cache.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/plan-parser.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/platform-dispatcher.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `lib/mcp-cache.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
+| `lib/plan-parser.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
+| `lib/platform-dispatcher.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
 | `lib/ssrf.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `lifecycle-sync-audit.ts` | L0 | 1.17.1 | active | —| —| L0+L1 | —|
 | `md-to-ooxml.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
