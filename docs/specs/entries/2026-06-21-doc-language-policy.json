@@ -1,0 +1,9 @@
+{
+  "id": "2026-06-21-doc-language-policy",
+  "title": "0005 doc language policy exception route",
+  "file": "docs/adr/0005-doc-language-policy-exception-route.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}

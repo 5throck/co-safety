@@ -1,0 +1,9 @@
+{
+  "id": "2026-08-24-evidence-runtime-legal-act",
+  "title": "0006 evidence runtime legal act semantics",
+  "file": "docs/adr/0006-evidence-runtime-legal-act-semantics.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}

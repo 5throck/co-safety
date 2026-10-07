@@ -1,0 +1,9 @@
+{
+  "id": "2026-08-06-evidence-promotion-pattern",
+  "title": "0000 cross cutting evidence promotion",
+  "file": "docs/adr/0000-cross-cutting-evidence-promotion.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}

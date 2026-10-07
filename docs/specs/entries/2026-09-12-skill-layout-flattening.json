@@ -1,0 +1,9 @@
+{
+  "id": "2026-09-12-skill-layout-flattening",
+  "title": "0009 skill layout flattening mirror optout",
+  "file": "docs/adr/0009-skill-layout-flattening-mirror-optout.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "2026-06-04-pm-cso-agent-override",
+  "title": "0004 pm cso agent override",
+  "file": "docs/adr/0004-pm-cso-agent-override.md",
+  "status": "implemented",
+  "source": "manual",
+  "created": "2026-09-17",
+  "last_updated": "2026-09-17"
+}
