@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-10-08](2026-10-08.md) | chore: upgrade template to 0.14.0 |
 | [2026-10-07](2026-10-07.md) | chore: upgrade template to 0.13.1 |
 | [2026-10-05](2026-10-05.md) | chore: upgrade template to 0.12.0 |
 | [2026-10-04](2026-10-04.md) | chore: update |
