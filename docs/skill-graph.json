@@ -1,12 +1,7 @@
 {
-  "version": 1,
-  "graph_profile": "deg/v1",
+  "version": 2,
+  "graph_profile": "deg/v2",
   "nodes": [
-    {
-      "id": "accessibility-audit",
-      "type": "skill",
-      "layer": "L3"
-    },
     {
       "id": "adr:0000",
       "type": "adr",
@@ -78,113 +73,47 @@
       "layer": "L3"
     },
     {
-      "id": "agent-lifecycle-manager",
-      "type": "skill",
-      "layer": "L3"
+      "id": "agent:root/pm",
+      "type": "agent",
+      "layer": "L3",
+      "name": "pm",
+      "scope": "root",
+      "capability": "pm",
+      "content_hash": "b18fdef2c3ba7868",
+      "version": "1.0.0",
+      "mirrors": [
+        "agents/pm.md"
+      ]
     },
     {
-      "id": "api-documentation",
-      "type": "skill",
-      "layer": "L3"
+      "id": "agent:root/safety-governance-manager",
+      "type": "agent",
+      "layer": "L3",
+      "name": "safety-governance-manager",
+      "scope": "root",
+      "capability": "safety-governance-manager",
+      "content_hash": "f94dc3cb57e5bfbc",
+      "version": "1.0.0",
+      "mirrors": [
+        "agents/safety-governance-manager.md"
+      ]
     },
     {
-      "id": "arc-flash-analyzer",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "asset-integrity-check",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "audit-preparation",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "benefit-risk-assessor",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "bsl-lab-aerosol-control-planner",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "chemical-risk-assessment",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "ci-triage",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "coke-oven-pah-heat-stress-planner",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "completion-inspection",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "compliance-gap",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "construction-permit-overview",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "contractor-onboarding",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "cosmetics-solvent-exposure-monitor",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "daily/audit-preparation",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "daily/compliance-gap",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "daily/risk-assessment",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "dangerous-cargo-handling-planner",
-      "type": "skill",
-      "layer": "L3"
+      "id": "agent:root/safety-workflow-manager",
+      "type": "agent",
+      "layer": "L3",
+      "name": "safety-workflow-manager",
+      "scope": "root",
+      "capability": "safety-workflow-manager",
+      "content_hash": "16e214b9f246b671",
+      "version": "1.0.0",
+      "mirrors": [
+        "agents/safety-workflow-manager.md"
+      ]
     },
     {
       "id": "dec:DEC-20260917-01",
       "type": "decision",
-      "layer": "L3"
-    },
-    {
-      "id": "decision-record",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "design-foundation",
-      "type": "skill",
       "layer": "L3"
     },
     {
@@ -195,196 +124,6 @@
     {
       "id": "doc:CODEX.md",
       "type": "doc",
-      "layer": "L3"
-    },
-    {
-      "id": "documentation-writing",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "dts-verification",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "emergency-response",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "environmental-compliance-checker",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "ess-fire-risk-assessor",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "evidence-ledger",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "explain-me",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "fall-hazard-assessor",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "finishing-a-development-branch",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "gas-dispersion-analyzer",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "gateguard",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "ghs-classifier",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "glp-data-integrity-checker",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "glp-study-protocol-validator",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "gmp-change-control",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "gmp-deviation-capa",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "gmp-qrm",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "handbook",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "handbook-sync-audit",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "hazop-analysis",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "hv-cell-formation-electrical-safety-planner",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "i18n-audit",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "i18n-formatting",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "i18n-layout",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "i18n-locale-config",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "investigation/hazop-analysis",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "iso14971-risk-scorer",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "k-dart",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "k-ecos",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "k-kosis",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "k-krx",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "k-law",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "k-opendata",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "landfill-methane-anaerobic-explosion-planner",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "meeting-facilitation",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "mid-construction-inspection",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "msds-parser",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "munitions-magazine-storage-safety-planner",
-      "type": "skill",
       "layer": "L3"
     },
     {
@@ -418,36 +157,6 @@
       "layer": "L3"
     },
     {
-      "id": "painting-coating-fire-toxic-planner",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "permit-to-work",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "platform-command-lifecycle-manager",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "platform-skill-lifecycle-manager",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "pm",
-      "type": "agent",
-      "layer": "L3"
-    },
-    {
-      "id": "pre-construction-technical-review",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
       "id": "procedure.co-safety.daily-risk-assessment",
       "type": "procedure",
       "layer": "L3"
@@ -463,139 +172,1462 @@
       "layer": "L3"
     },
     {
-      "id": "process-hazard-screening",
+      "id": "skill:co-safety/daily/audit-preparation",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "daily/audit-preparation",
+      "scope": "co-safety",
+      "capability": "daily/audit-preparation",
+      "content_hash": null,
+      "version": null,
+      "mirrors": []
     },
     {
-      "id": "project-review",
+      "id": "skill:co-safety/daily/compliance-gap",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "daily/compliance-gap",
+      "scope": "co-safety",
+      "capability": "daily/compliance-gap",
+      "content_hash": null,
+      "version": null,
+      "mirrors": []
     },
     {
-      "id": "protocol-deviation-analyzer",
+      "id": "skill:co-safety/daily/risk-assessment",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "daily/risk-assessment",
+      "scope": "co-safety",
+      "capability": "daily/risk-assessment",
+      "content_hash": null,
+      "version": null,
+      "mirrors": []
     },
     {
-      "id": "psm-loto",
+      "id": "skill:co-safety/investigation/hazop-analysis",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "investigation/hazop-analysis",
+      "scope": "co-safety",
+      "capability": "investigation/hazop-analysis",
+      "content_hash": null,
+      "version": null,
+      "mirrors": []
     },
     {
-      "id": "psm-moc",
+      "id": "skill:root/accessibility-audit",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "accessibility-audit",
+      "scope": "root",
+      "capability": "accessibility-audit",
+      "content_hash": "aa244933ce706aa7",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/accessibility-audit/SKILL.md",
+        ".claude/skills/accessibility-audit/SKILL.md",
+        ".gemini/skills/accessibility-audit/SKILL.md",
+        ".agents/skills/accessibility-audit/SKILL.md",
+        ".codex/skills/accessibility-audit/SKILL.md",
+        ".hermes/skills/accessibility-audit/SKILL.md"
+      ]
     },
     {
-      "id": "pyrophoric-gas-emergency-responder",
+      "id": "skill:root/agent-lifecycle-manager",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "agent-lifecycle-manager",
+      "scope": "root",
+      "capability": "agent-lifecycle-manager",
+      "content_hash": "a5b6fdf832174881",
+      "version": "1.3.1",
+      "mirrors": [
+        "skills/agent-lifecycle-manager/SKILL.md",
+        ".claude/skills/agent-lifecycle-manager/SKILL.md",
+        ".gemini/skills/agent-lifecycle-manager/SKILL.md",
+        ".agents/skills/agent-lifecycle-manager/SKILL.md",
+        ".codex/skills/agent-lifecycle-manager/SKILL.md",
+        ".hermes/skills/agent-lifecycle-manager/SKILL.md"
+      ]
     },
     {
-      "id": "rack-fall-protection-planner",
+      "id": "skill:root/api-documentation",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "api-documentation",
+      "scope": "root",
+      "capability": "api-documentation",
+      "content_hash": "e080e5852535bf67",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/api-documentation/SKILL.md",
+        ".claude/skills/api-documentation/SKILL.md",
+        ".gemini/skills/api-documentation/SKILL.md",
+        ".agents/skills/api-documentation/SKILL.md",
+        ".codex/skills/api-documentation/SKILL.md",
+        ".hermes/skills/api-documentation/SKILL.md"
+      ]
     },
     {
-      "id": "research-analysis",
+      "id": "skill:root/arc-flash-analyzer",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "arc-flash-analyzer",
+      "scope": "root",
+      "capability": "arc-flash-analyzer",
+      "content_hash": "74a97dd4b7c3a402",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/arc-flash-analyzer/SKILL.md"
+      ]
     },
     {
-      "id": "risk-assessment",
+      "id": "skill:root/asset-integrity-check",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "asset-integrity-check",
+      "scope": "root",
+      "capability": "asset-integrity-check",
+      "content_hash": "fa67d721f0748053",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/asset-integrity-check/SKILL.md"
+      ]
     },
     {
-      "id": "rolling-stock-maintenance-loto-planner",
+      "id": "skill:root/audit-preparation",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "audit-preparation",
+      "scope": "root",
+      "capability": "audit-preparation",
+      "content_hash": "5d68a92d28f1e528",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/audit-preparation/SKILL.md"
+      ]
     },
     {
-      "id": "root-cause-analysis",
+      "id": "skill:root/benefit-risk-assessor",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "benefit-risk-assessor",
+      "scope": "root",
+      "capability": "benefit-risk-assessor",
+      "content_hash": "00d38b88ff13abc6",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/benefit-risk-assessor/SKILL.md"
+      ]
     },
     {
-      "id": "sae-causality-assessor",
+      "id": "skill:root/bsl-lab-aerosol-control-planner",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "bsl-lab-aerosol-control-planner",
+      "scope": "root",
+      "capability": "bsl-lab-aerosol-control-planner",
+      "content_hash": "501f782b7e09487b",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/bsl-lab-aerosol-control-planner/SKILL.md"
+      ]
     },
     {
-      "id": "safety-governance-manager",
-      "type": "agent",
-      "layer": "L3"
-    },
-    {
-      "id": "safety-inspection-validator",
+      "id": "skill:root/chemical-risk-assessment",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "chemical-risk-assessment",
+      "scope": "root",
+      "capability": "chemical-risk-assessment",
+      "content_hash": "5e639da87d073c35",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/chemical-risk-assessment/SKILL.md"
+      ]
     },
     {
-      "id": "safety-workflow-manager",
-      "type": "agent",
-      "layer": "L3"
-    },
-    {
-      "id": "script-lifecycle-manager",
+      "id": "skill:root/ci-triage",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "ci-triage",
+      "scope": "root",
+      "capability": "ci-triage",
+      "content_hash": "c10cba25e7560168",
+      "version": "0.2.0",
+      "mirrors": [
+        "skills/ci-triage/SKILL.md",
+        ".claude/skills/ci-triage/SKILL.md",
+        ".gemini/skills/ci-triage/SKILL.md",
+        ".agents/skills/ci-triage/SKILL.md",
+        ".codex/skills/ci-triage/SKILL.md",
+        ".hermes/skills/ci-triage/SKILL.md"
+      ]
     },
     {
-      "id": "security-scan",
+      "id": "skill:root/coke-oven-pah-heat-stress-planner",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "coke-oven-pah-heat-stress-planner",
+      "scope": "root",
+      "capability": "coke-oven-pah-heat-stress-planner",
+      "content_hash": "a23e769da52a1c96",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/coke-oven-pah-heat-stress-planner/SKILL.md"
+      ]
     },
     {
-      "id": "service-design",
+      "id": "skill:root/completion-inspection",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "completion-inspection",
+      "scope": "root",
+      "capability": "completion-inspection",
+      "content_hash": "f927c29790235e6e",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/completion-inspection/SKILL.md"
+      ]
     },
     {
-      "id": "signal-detector",
+      "id": "skill:root/compliance-gap",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "compliance-gap",
+      "scope": "root",
+      "capability": "compliance-gap",
+      "content_hash": "15bf50ecdc4559bb",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/compliance-gap/SKILL.md"
+      ]
     },
     {
-      "id": "skill-lifecycle-manager",
+      "id": "skill:root/construction-permit-overview",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "construction-permit-overview",
+      "scope": "root",
+      "capability": "construction-permit-overview",
+      "content_hash": "cb652e336d523c0d",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/construction-permit-overview/SKILL.md"
+      ]
     },
     {
-      "id": "source-command-commit-push-pr",
+      "id": "skill:root/contractor-onboarding",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "contractor-onboarding",
+      "scope": "root",
+      "capability": "contractor-onboarding",
+      "content_hash": "bd84d9ab3b941428",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/contractor-onboarding/SKILL.md"
+      ]
     },
     {
-      "id": "standup-synthesizer",
+      "id": "skill:root/cosmetics-solvent-exposure-monitor",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "cosmetics-solvent-exposure-monitor",
+      "scope": "root",
+      "capability": "cosmetics-solvent-exposure-monitor",
+      "content_hash": "610a425a771697a1",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/cosmetics-solvent-exposure-monitor/SKILL.md"
+      ]
     },
     {
-      "id": "sync",
+      "id": "skill:root/dangerous-cargo-handling-planner",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "dangerous-cargo-handling-planner",
+      "scope": "root",
+      "capability": "dangerous-cargo-handling-planner",
+      "content_hash": "6c4b55796b25dc71",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/dangerous-cargo-handling-planner/SKILL.md"
+      ]
     },
     {
-      "id": "tank-integrity-validator",
+      "id": "skill:root/decision-record",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "decision-record",
+      "scope": "root",
+      "capability": "decision-record",
+      "content_hash": "af9dd89ccdeec7b2",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/decision-record/SKILL.md",
+        ".claude/skills/decision-record/SKILL.md",
+        ".gemini/skills/decision-record/SKILL.md",
+        ".agents/skills/decision-record/SKILL.md",
+        ".codex/skills/decision-record/SKILL.md",
+        ".hermes/skills/decision-record/SKILL.md"
+      ]
     },
     {
-      "id": "tar-planning",
+      "id": "skill:root/design-foundation",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "design-foundation",
+      "scope": "root",
+      "capability": "design-foundation",
+      "content_hash": "0f50cf02ea552572",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/design-foundation/SKILL.md",
+        ".claude/skills/design-foundation/SKILL.md",
+        ".gemini/skills/design-foundation/SKILL.md",
+        ".agents/skills/design-foundation/SKILL.md",
+        ".codex/skills/design-foundation/SKILL.md",
+        ".hermes/skills/design-foundation/SKILL.md"
+      ]
     },
     {
-      "id": "team-builder",
+      "id": "skill:root/documentation-writing",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "documentation-writing",
+      "scope": "root",
+      "capability": "documentation-writing",
+      "content_hash": "d0f7731ae22fc0ad",
+      "version": "1.0.3",
+      "mirrors": [
+        "skills/documentation-writing/SKILL.md",
+        ".claude/skills/documentation-writing/SKILL.md",
+        ".gemini/skills/documentation-writing/SKILL.md",
+        ".agents/skills/documentation-writing/SKILL.md",
+        ".codex/skills/documentation-writing/SKILL.md",
+        ".hermes/skills/documentation-writing/SKILL.md"
+      ]
     },
     {
-      "id": "temperature-excursion-analyzer",
+      "id": "skill:root/dts-verification",
       "type": "skill",
-      "layer": "L3"
+      "layer": "L3",
+      "name": "dts-verification",
+      "scope": "root",
+      "capability": "dts-verification",
+      "content_hash": "10099624e4612416",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/dts-verification/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/emergency-response",
+      "type": "skill",
+      "layer": "L3",
+      "name": "emergency-response",
+      "scope": "root",
+      "capability": "emergency-response",
+      "content_hash": "e076c5afebde4c54",
+      "version": "1.0.1",
+      "mirrors": [
+        "skills/emergency-response/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/environmental-compliance-checker",
+      "type": "skill",
+      "layer": "L3",
+      "name": "environmental-compliance-checker",
+      "scope": "root",
+      "capability": "environmental-compliance-checker",
+      "content_hash": "f77696b40ccee037",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/environmental-compliance-checker/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/ess-fire-risk-assessor",
+      "type": "skill",
+      "layer": "L3",
+      "name": "ess-fire-risk-assessor",
+      "scope": "root",
+      "capability": "ess-fire-risk-assessor",
+      "content_hash": "1d0b07a93d9063f5",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/ess-fire-risk-assessor/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/evidence-ledger",
+      "type": "skill",
+      "layer": "L3",
+      "name": "evidence-ledger",
+      "scope": "root",
+      "capability": "evidence-ledger",
+      "content_hash": "7c15e880b454b203",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/evidence-ledger/SKILL.md",
+        ".claude/skills/evidence-ledger/SKILL.md",
+        ".gemini/skills/evidence-ledger/SKILL.md",
+        ".agents/skills/evidence-ledger/SKILL.md",
+        ".codex/skills/evidence-ledger/SKILL.md",
+        ".hermes/skills/evidence-ledger/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/explain-me",
+      "type": "skill",
+      "layer": "L3",
+      "name": "explain-me",
+      "scope": "root",
+      "capability": "explain-me",
+      "content_hash": "7bff142975a1c6c7",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/explain-me/SKILL.md",
+        ".claude/skills/explain-me/SKILL.md",
+        ".gemini/skills/explain-me/SKILL.md",
+        ".agents/skills/explain-me/SKILL.md",
+        ".codex/skills/explain-me/SKILL.md",
+        ".hermes/skills/explain-me/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/fall-hazard-assessor",
+      "type": "skill",
+      "layer": "L3",
+      "name": "fall-hazard-assessor",
+      "scope": "root",
+      "capability": "fall-hazard-assessor",
+      "content_hash": "2e12a259a9c5a87f",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/fall-hazard-assessor/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/finishing-a-development-branch",
+      "type": "skill",
+      "layer": "L3",
+      "name": "finishing-a-development-branch",
+      "scope": "root",
+      "capability": "finishing-a-development-branch",
+      "content_hash": "7aa95cd39dce01f1",
+      "version": "1.0.1",
+      "mirrors": [
+        "skills/finishing-a-development-branch/SKILL.md",
+        ".claude/skills/finishing-a-development-branch/SKILL.md",
+        ".gemini/skills/finishing-a-development-branch/SKILL.md",
+        ".agents/skills/finishing-a-development-branch/SKILL.md",
+        ".codex/skills/finishing-a-development-branch/SKILL.md",
+        ".hermes/skills/finishing-a-development-branch/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/gas-dispersion-analyzer",
+      "type": "skill",
+      "layer": "L3",
+      "name": "gas-dispersion-analyzer",
+      "scope": "root",
+      "capability": "gas-dispersion-analyzer",
+      "content_hash": "1911f72a9f7dd22f",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/gas-dispersion-analyzer/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/gateguard",
+      "type": "skill",
+      "layer": "L3",
+      "name": "gateguard",
+      "scope": "root",
+      "capability": "gateguard",
+      "content_hash": "bde1c264aec7b18c",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/gateguard/SKILL.md",
+        ".claude/skills/gateguard/SKILL.md",
+        ".gemini/skills/gateguard/SKILL.md",
+        ".agents/skills/gateguard/SKILL.md",
+        ".codex/skills/gateguard/SKILL.md",
+        ".hermes/skills/gateguard/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/ghs-classifier",
+      "type": "skill",
+      "layer": "L3",
+      "name": "ghs-classifier",
+      "scope": "root",
+      "capability": "ghs-classifier",
+      "content_hash": "f4c98fb47991d77e",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/ghs-classifier/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/glp-data-integrity-checker",
+      "type": "skill",
+      "layer": "L3",
+      "name": "glp-data-integrity-checker",
+      "scope": "root",
+      "capability": "glp-data-integrity-checker",
+      "content_hash": "29048e8175ddf3ef",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/glp-data-integrity-checker/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/glp-study-protocol-validator",
+      "type": "skill",
+      "layer": "L3",
+      "name": "glp-study-protocol-validator",
+      "scope": "root",
+      "capability": "glp-study-protocol-validator",
+      "content_hash": "10c99a6711948fc3",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/glp-study-protocol-validator/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/gmp-change-control",
+      "type": "skill",
+      "layer": "L3",
+      "name": "gmp-change-control",
+      "scope": "root",
+      "capability": "gmp-change-control",
+      "content_hash": "f6aa417f43cf89e8",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/gmp-change-control/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/gmp-deviation-capa",
+      "type": "skill",
+      "layer": "L3",
+      "name": "gmp-deviation-capa",
+      "scope": "root",
+      "capability": "gmp-deviation-capa",
+      "content_hash": "15c9dd5786269cd0",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/gmp-deviation-capa/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/gmp-qrm",
+      "type": "skill",
+      "layer": "L3",
+      "name": "gmp-qrm",
+      "scope": "root",
+      "capability": "gmp-qrm",
+      "content_hash": "d90813714c88dd12",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/gmp-qrm/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/handbook",
+      "type": "skill",
+      "layer": "L3",
+      "name": "handbook",
+      "scope": "root",
+      "capability": "handbook",
+      "content_hash": "a9bd82eded8b1661",
+      "version": "0.6.0",
+      "mirrors": [
+        "skills/handbook/SKILL.md",
+        ".claude/skills/handbook/SKILL.md",
+        ".gemini/skills/handbook/SKILL.md",
+        ".agents/skills/handbook/SKILL.md",
+        ".codex/skills/handbook/SKILL.md",
+        ".hermes/skills/handbook/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/handbook-sync-audit",
+      "type": "skill",
+      "layer": "L3",
+      "name": "handbook-sync-audit",
+      "scope": "root",
+      "capability": "handbook-sync-audit",
+      "content_hash": "fc3909fb71e5d0a2",
+      "version": "1.0.5",
+      "mirrors": [
+        "skills/handbook-sync-audit/SKILL.md",
+        ".claude/skills/handbook-sync-audit/SKILL.md",
+        ".gemini/skills/handbook-sync-audit/SKILL.md",
+        ".agents/skills/handbook-sync-audit/SKILL.md",
+        ".codex/skills/handbook-sync-audit/SKILL.md",
+        ".hermes/skills/handbook-sync-audit/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/hazop-analysis",
+      "type": "skill",
+      "layer": "L3",
+      "name": "hazop-analysis",
+      "scope": "root",
+      "capability": "hazop-analysis",
+      "content_hash": "33208f755828531e",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/hazop-analysis/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/hv-cell-formation-electrical-safety-planner",
+      "type": "skill",
+      "layer": "L3",
+      "name": "hv-cell-formation-electrical-safety-planner",
+      "scope": "root",
+      "capability": "hv-cell-formation-electrical-safety-planner",
+      "content_hash": "b78555fc917a5c3f",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/hv-cell-formation-electrical-safety-planner/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/i18n-audit",
+      "type": "skill",
+      "layer": "L3",
+      "name": "i18n-audit",
+      "scope": "root",
+      "capability": "i18n-audit",
+      "content_hash": "5029572bc159b21d",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/i18n-audit/SKILL.md",
+        ".claude/skills/i18n-audit/SKILL.md",
+        ".gemini/skills/i18n-audit/SKILL.md",
+        ".agents/skills/i18n-audit/SKILL.md",
+        ".codex/skills/i18n-audit/SKILL.md",
+        ".hermes/skills/i18n-audit/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/i18n-formatting",
+      "type": "skill",
+      "layer": "L3",
+      "name": "i18n-formatting",
+      "scope": "root",
+      "capability": "i18n-formatting",
+      "content_hash": "db8381f1fbb2ed31",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/i18n-formatting/SKILL.md",
+        ".claude/skills/i18n-formatting/SKILL.md",
+        ".gemini/skills/i18n-formatting/SKILL.md",
+        ".agents/skills/i18n-formatting/SKILL.md",
+        ".codex/skills/i18n-formatting/SKILL.md",
+        ".hermes/skills/i18n-formatting/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/i18n-layout",
+      "type": "skill",
+      "layer": "L3",
+      "name": "i18n-layout",
+      "scope": "root",
+      "capability": "i18n-layout",
+      "content_hash": "7a078ebadc5c908f",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/i18n-layout/SKILL.md",
+        ".claude/skills/i18n-layout/SKILL.md",
+        ".gemini/skills/i18n-layout/SKILL.md",
+        ".agents/skills/i18n-layout/SKILL.md",
+        ".codex/skills/i18n-layout/SKILL.md",
+        ".hermes/skills/i18n-layout/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/i18n-locale-config",
+      "type": "skill",
+      "layer": "L3",
+      "name": "i18n-locale-config",
+      "scope": "root",
+      "capability": "i18n-locale-config",
+      "content_hash": "3878ed90d1fad170",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/i18n-locale-config/SKILL.md",
+        ".claude/skills/i18n-locale-config/SKILL.md",
+        ".gemini/skills/i18n-locale-config/SKILL.md",
+        ".agents/skills/i18n-locale-config/SKILL.md",
+        ".codex/skills/i18n-locale-config/SKILL.md",
+        ".hermes/skills/i18n-locale-config/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/iso14971-risk-scorer",
+      "type": "skill",
+      "layer": "L3",
+      "name": "iso14971-risk-scorer",
+      "scope": "root",
+      "capability": "iso14971-risk-scorer",
+      "content_hash": "43279285222e3b2a",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/iso14971-risk-scorer/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/k-dart",
+      "type": "skill",
+      "layer": "L3",
+      "name": "k-dart",
+      "scope": "root",
+      "capability": "k-dart",
+      "content_hash": "5dbc554c5159cf9c",
+      "version": "2.1.2",
+      "mirrors": [
+        "skills/k-dart/SKILL.md",
+        ".claude/skills/k-dart/SKILL.md",
+        ".gemini/skills/k-dart/SKILL.md",
+        ".agents/skills/k-dart/SKILL.md",
+        ".codex/skills/k-dart/SKILL.md",
+        ".hermes/skills/k-dart/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/k-ecos",
+      "type": "skill",
+      "layer": "L3",
+      "name": "k-ecos",
+      "scope": "root",
+      "capability": "k-ecos",
+      "content_hash": "0ed59c1bd4af881a",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/k-ecos/SKILL.md",
+        ".claude/skills/k-ecos/SKILL.md",
+        ".gemini/skills/k-ecos/SKILL.md",
+        ".agents/skills/k-ecos/SKILL.md",
+        ".codex/skills/k-ecos/SKILL.md",
+        ".hermes/skills/k-ecos/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/k-kosis",
+      "type": "skill",
+      "layer": "L3",
+      "name": "k-kosis",
+      "scope": "root",
+      "capability": "k-kosis",
+      "content_hash": "53beb717d9eacffc",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/k-kosis/SKILL.md",
+        ".claude/skills/k-kosis/SKILL.md",
+        ".gemini/skills/k-kosis/SKILL.md",
+        ".agents/skills/k-kosis/SKILL.md",
+        ".codex/skills/k-kosis/SKILL.md",
+        ".hermes/skills/k-kosis/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/k-krx",
+      "type": "skill",
+      "layer": "L3",
+      "name": "k-krx",
+      "scope": "root",
+      "capability": "k-krx",
+      "content_hash": "9d29fbb4b6b46a36",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/k-krx/SKILL.md",
+        ".claude/skills/k-krx/SKILL.md",
+        ".gemini/skills/k-krx/SKILL.md",
+        ".agents/skills/k-krx/SKILL.md",
+        ".codex/skills/k-krx/SKILL.md",
+        ".hermes/skills/k-krx/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/k-law",
+      "type": "skill",
+      "layer": "L3",
+      "name": "k-law",
+      "scope": "root",
+      "capability": "k-law",
+      "content_hash": "aa926464bd6f6eb4",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/k-law/SKILL.md",
+        ".claude/skills/k-law/SKILL.md",
+        ".gemini/skills/k-law/SKILL.md",
+        ".agents/skills/k-law/SKILL.md",
+        ".codex/skills/k-law/SKILL.md",
+        ".hermes/skills/k-law/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/k-opendata",
+      "type": "skill",
+      "layer": "L3",
+      "name": "k-opendata",
+      "scope": "root",
+      "capability": "k-opendata",
+      "content_hash": "f136abc9955a54a0",
+      "version": "1.2.2",
+      "mirrors": [
+        "skills/k-opendata/SKILL.md",
+        ".claude/skills/k-opendata/SKILL.md",
+        ".gemini/skills/k-opendata/SKILL.md",
+        ".agents/skills/k-opendata/SKILL.md",
+        ".codex/skills/k-opendata/SKILL.md",
+        ".hermes/skills/k-opendata/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/landfill-methane-anaerobic-explosion-planner",
+      "type": "skill",
+      "layer": "L3",
+      "name": "landfill-methane-anaerobic-explosion-planner",
+      "scope": "root",
+      "capability": "landfill-methane-anaerobic-explosion-planner",
+      "content_hash": "ae85c7ea976ec5bd",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/landfill-methane-anaerobic-explosion-planner/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/meeting-facilitation",
+      "type": "skill",
+      "layer": "L3",
+      "name": "meeting-facilitation",
+      "scope": "root",
+      "capability": "meeting-facilitation",
+      "content_hash": "690ba21e0e5773ce",
+      "version": "1.5.0",
+      "mirrors": [
+        "skills/meeting-facilitation/SKILL.md",
+        ".claude/skills/meeting-facilitation/SKILL.md",
+        ".gemini/skills/meeting-facilitation/SKILL.md",
+        ".agents/skills/meeting-facilitation/SKILL.md",
+        ".codex/skills/meeting-facilitation/SKILL.md",
+        ".hermes/skills/meeting-facilitation/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/mid-construction-inspection",
+      "type": "skill",
+      "layer": "L3",
+      "name": "mid-construction-inspection",
+      "scope": "root",
+      "capability": "mid-construction-inspection",
+      "content_hash": "2b2f72e6ba9cf069",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/mid-construction-inspection/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/msds-parser",
+      "type": "skill",
+      "layer": "L3",
+      "name": "msds-parser",
+      "scope": "root",
+      "capability": "msds-parser",
+      "content_hash": "4064f1c533812e90",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/msds-parser/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/munitions-magazine-storage-safety-planner",
+      "type": "skill",
+      "layer": "L3",
+      "name": "munitions-magazine-storage-safety-planner",
+      "scope": "root",
+      "capability": "munitions-magazine-storage-safety-planner",
+      "content_hash": "dd84439f96ecc558",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/munitions-magazine-storage-safety-planner/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/painting-coating-fire-toxic-planner",
+      "type": "skill",
+      "layer": "L3",
+      "name": "painting-coating-fire-toxic-planner",
+      "scope": "root",
+      "capability": "painting-coating-fire-toxic-planner",
+      "content_hash": "860800ebace305f1",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/painting-coating-fire-toxic-planner/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/permit-to-work",
+      "type": "skill",
+      "layer": "L3",
+      "name": "permit-to-work",
+      "scope": "root",
+      "capability": "permit-to-work",
+      "content_hash": "7eed622b6cc46dbe",
+      "version": "1.0.1",
+      "mirrors": [
+        "skills/permit-to-work/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/platform-command-lifecycle-manager",
+      "type": "skill",
+      "layer": "L3",
+      "name": "platform-command-lifecycle-manager",
+      "scope": "root",
+      "capability": "platform-command-lifecycle-manager",
+      "content_hash": "392bf490b9ef6b44",
+      "version": "1.0.3",
+      "mirrors": [
+        "skills/platform-command-lifecycle-manager/SKILL.md",
+        ".claude/skills/platform-command-lifecycle-manager/SKILL.md",
+        ".gemini/skills/platform-command-lifecycle-manager/SKILL.md",
+        ".agents/skills/platform-command-lifecycle-manager/SKILL.md",
+        ".codex/skills/platform-command-lifecycle-manager/SKILL.md",
+        ".hermes/skills/platform-command-lifecycle-manager/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/platform-skill-lifecycle-manager",
+      "type": "skill",
+      "layer": "L3",
+      "name": "platform-skill-lifecycle-manager",
+      "scope": "root",
+      "capability": "platform-skill-lifecycle-manager",
+      "content_hash": "08e425f43401cabc",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/platform-skill-lifecycle-manager/SKILL.md",
+        ".claude/skills/platform-skill-lifecycle-manager/SKILL.md",
+        ".gemini/skills/platform-skill-lifecycle-manager/SKILL.md",
+        ".agents/skills/platform-skill-lifecycle-manager/SKILL.md",
+        ".codex/skills/platform-skill-lifecycle-manager/SKILL.md",
+        ".hermes/skills/platform-skill-lifecycle-manager/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/pre-construction-technical-review",
+      "type": "skill",
+      "layer": "L3",
+      "name": "pre-construction-technical-review",
+      "scope": "root",
+      "capability": "pre-construction-technical-review",
+      "content_hash": "9a38d4e473c6ea41",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/pre-construction-technical-review/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/process-hazard-screening",
+      "type": "skill",
+      "layer": "L3",
+      "name": "process-hazard-screening",
+      "scope": "root",
+      "capability": "process-hazard-screening",
+      "content_hash": "6b1d5c5617490f83",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/process-hazard-screening/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/project-review",
+      "type": "skill",
+      "layer": "L3",
+      "name": "project-review",
+      "scope": "root",
+      "capability": "project-review",
+      "content_hash": "b6ce05f4e4052230",
+      "version": "1.3.3",
+      "mirrors": [
+        "skills/project-review/SKILL.md",
+        ".claude/skills/project-review/SKILL.md",
+        ".gemini/skills/project-review/SKILL.md",
+        ".agents/skills/project-review/SKILL.md",
+        ".codex/skills/project-review/SKILL.md",
+        ".hermes/skills/project-review/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/protocol-deviation-analyzer",
+      "type": "skill",
+      "layer": "L3",
+      "name": "protocol-deviation-analyzer",
+      "scope": "root",
+      "capability": "protocol-deviation-analyzer",
+      "content_hash": "535d41cfcfc0e6b0",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/protocol-deviation-analyzer/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/psm-loto",
+      "type": "skill",
+      "layer": "L3",
+      "name": "psm-loto",
+      "scope": "root",
+      "capability": "psm-loto",
+      "content_hash": "ae15a7dd236b65b7",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/psm-loto/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/psm-moc",
+      "type": "skill",
+      "layer": "L3",
+      "name": "psm-moc",
+      "scope": "root",
+      "capability": "psm-moc",
+      "content_hash": "fe8e9134e3753c34",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/psm-moc/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/pyrophoric-gas-emergency-responder",
+      "type": "skill",
+      "layer": "L3",
+      "name": "pyrophoric-gas-emergency-responder",
+      "scope": "root",
+      "capability": "pyrophoric-gas-emergency-responder",
+      "content_hash": "4b4f3835f086b7fc",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/pyrophoric-gas-emergency-responder/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/rack-fall-protection-planner",
+      "type": "skill",
+      "layer": "L3",
+      "name": "rack-fall-protection-planner",
+      "scope": "root",
+      "capability": "rack-fall-protection-planner",
+      "content_hash": "c1ddab2000f77411",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/rack-fall-protection-planner/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/research-analysis",
+      "type": "skill",
+      "layer": "L3",
+      "name": "research-analysis",
+      "scope": "root",
+      "capability": "research-analysis",
+      "content_hash": "1e9a79fcdf108919",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/research-analysis/SKILL.md",
+        ".claude/skills/research-analysis/SKILL.md",
+        ".gemini/skills/research-analysis/SKILL.md",
+        ".agents/skills/research-analysis/SKILL.md",
+        ".codex/skills/research-analysis/SKILL.md",
+        ".hermes/skills/research-analysis/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/risk-assessment",
+      "type": "skill",
+      "layer": "L3",
+      "name": "risk-assessment",
+      "scope": "root",
+      "capability": "risk-assessment",
+      "content_hash": "d46ec5326dad9b36",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/risk-assessment/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/rolling-stock-maintenance-loto-planner",
+      "type": "skill",
+      "layer": "L3",
+      "name": "rolling-stock-maintenance-loto-planner",
+      "scope": "root",
+      "capability": "rolling-stock-maintenance-loto-planner",
+      "content_hash": "50399d8a13383c5c",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/rolling-stock-maintenance-loto-planner/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/root-cause-analysis",
+      "type": "skill",
+      "layer": "L3",
+      "name": "root-cause-analysis",
+      "scope": "root",
+      "capability": "root-cause-analysis",
+      "content_hash": "747ef5f3a4f15987",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/root-cause-analysis/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/sae-causality-assessor",
+      "type": "skill",
+      "layer": "L3",
+      "name": "sae-causality-assessor",
+      "scope": "root",
+      "capability": "sae-causality-assessor",
+      "content_hash": "6a2dced1e37d7155",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/sae-causality-assessor/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/safety-inspection-validator",
+      "type": "skill",
+      "layer": "L3",
+      "name": "safety-inspection-validator",
+      "scope": "root",
+      "capability": "safety-inspection-validator",
+      "content_hash": "726150e3aaa91a55",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/safety-inspection-validator/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/script-lifecycle-manager",
+      "type": "skill",
+      "layer": "L3",
+      "name": "script-lifecycle-manager",
+      "scope": "root",
+      "capability": "script-lifecycle-manager",
+      "content_hash": "ff4bf06dcbc99aac",
+      "version": "1.2.2",
+      "mirrors": [
+        "skills/script-lifecycle-manager/SKILL.md",
+        ".claude/skills/script-lifecycle-manager/SKILL.md",
+        ".gemini/skills/script-lifecycle-manager/SKILL.md",
+        ".agents/skills/script-lifecycle-manager/SKILL.md",
+        ".codex/skills/script-lifecycle-manager/SKILL.md",
+        ".hermes/skills/script-lifecycle-manager/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/security-scan",
+      "type": "skill",
+      "layer": "L3",
+      "name": "security-scan",
+      "scope": "root",
+      "capability": "security-scan",
+      "content_hash": "3e12b15970e57e69",
+      "version": "1.2.0",
+      "mirrors": [
+        "skills/security-scan/SKILL.md",
+        ".claude/skills/security-scan/SKILL.md",
+        ".gemini/skills/security-scan/SKILL.md",
+        ".agents/skills/security-scan/SKILL.md",
+        ".codex/skills/security-scan/SKILL.md",
+        ".hermes/skills/security-scan/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/service-design",
+      "type": "skill",
+      "layer": "L3",
+      "name": "service-design",
+      "scope": "root",
+      "capability": "service-design",
+      "content_hash": "771b77446626ad51",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/service-design/SKILL.md",
+        ".claude/skills/service-design/SKILL.md",
+        ".gemini/skills/service-design/SKILL.md",
+        ".agents/skills/service-design/SKILL.md",
+        ".codex/skills/service-design/SKILL.md",
+        ".hermes/skills/service-design/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/signal-detector",
+      "type": "skill",
+      "layer": "L3",
+      "name": "signal-detector",
+      "scope": "root",
+      "capability": "signal-detector",
+      "content_hash": "504f3102212f27dc",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/signal-detector/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/skill-lifecycle-manager",
+      "type": "skill",
+      "layer": "L3",
+      "name": "skill-lifecycle-manager",
+      "scope": "root",
+      "capability": "skill-lifecycle-manager",
+      "content_hash": "bb1a68cbd7b84047",
+      "version": "1.5.1",
+      "mirrors": [
+        "skills/skill-lifecycle-manager/SKILL.md",
+        ".claude/skills/skill-lifecycle-manager/SKILL.md",
+        ".gemini/skills/skill-lifecycle-manager/SKILL.md",
+        ".agents/skills/skill-lifecycle-manager/SKILL.md",
+        ".codex/skills/skill-lifecycle-manager/SKILL.md",
+        ".hermes/skills/skill-lifecycle-manager/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/source-command-commit-push-pr",
+      "type": "skill",
+      "layer": "L3",
+      "name": "source-command-commit-push-pr",
+      "scope": "root",
+      "capability": "source-command-commit-push-pr",
+      "content_hash": "4fa915cd81a96c7b",
+      "version": "1.0.3",
+      "mirrors": [
+        "skills/source-command-commit-push-pr/SKILL.md",
+        ".claude/skills/source-command-commit-push-pr/SKILL.md",
+        ".gemini/skills/source-command-commit-push-pr/SKILL.md",
+        ".agents/skills/source-command-commit-push-pr/SKILL.md",
+        ".codex/skills/source-command-commit-push-pr/SKILL.md",
+        ".hermes/skills/source-command-commit-push-pr/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/standup-synthesizer",
+      "type": "skill",
+      "layer": "L3",
+      "name": "standup-synthesizer",
+      "scope": "root",
+      "capability": "standup-synthesizer",
+      "content_hash": "c74ddbdf4afc867f",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/standup-synthesizer/SKILL.md",
+        ".claude/skills/standup-synthesizer/SKILL.md",
+        ".gemini/skills/standup-synthesizer/SKILL.md",
+        ".agents/skills/standup-synthesizer/SKILL.md",
+        ".codex/skills/standup-synthesizer/SKILL.md",
+        ".hermes/skills/standup-synthesizer/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/sync",
+      "type": "skill",
+      "layer": "L3",
+      "name": "sync",
+      "scope": "root",
+      "capability": "sync",
+      "content_hash": "661843888f616b5a",
+      "version": "1.8.0",
+      "mirrors": [
+        "skills/sync/SKILL.md",
+        ".claude/skills/sync/SKILL.md",
+        ".gemini/skills/sync/SKILL.md",
+        ".agents/skills/sync/SKILL.md",
+        ".codex/skills/sync/SKILL.md",
+        ".hermes/skills/sync/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/tank-integrity-validator",
+      "type": "skill",
+      "layer": "L3",
+      "name": "tank-integrity-validator",
+      "scope": "root",
+      "capability": "tank-integrity-validator",
+      "content_hash": "25589c97622e0d9d",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/tank-integrity-validator/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/tar-planning",
+      "type": "skill",
+      "layer": "L3",
+      "name": "tar-planning",
+      "scope": "root",
+      "capability": "tar-planning",
+      "content_hash": "577d18048eb04dfb",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/tar-planning/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/team-builder",
+      "type": "skill",
+      "layer": "L3",
+      "name": "team-builder",
+      "scope": "root",
+      "capability": "team-builder",
+      "content_hash": "4fd4638e28436539",
+      "version": "1.1.1",
+      "mirrors": [
+        "skills/team-builder/SKILL.md",
+        ".claude/skills/team-builder/SKILL.md",
+        ".gemini/skills/team-builder/SKILL.md",
+        ".agents/skills/team-builder/SKILL.md",
+        ".codex/skills/team-builder/SKILL.md",
+        ".hermes/skills/team-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/temperature-excursion-analyzer",
+      "type": "skill",
+      "layer": "L3",
+      "name": "temperature-excursion-analyzer",
+      "scope": "root",
+      "capability": "temperature-excursion-analyzer",
+      "content_hash": "26c1ca9255ef0863",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/temperature-excursion-analyzer/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/thermal-burn-prevention-planner",
+      "type": "skill",
+      "layer": "L3",
+      "name": "thermal-burn-prevention-planner",
+      "scope": "root",
+      "capability": "thermal-burn-prevention-planner",
+      "content_hash": "92573193e0393096",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/thermal-burn-prevention-planner/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/token-usage-lint",
+      "type": "skill",
+      "layer": "L3",
+      "name": "token-usage-lint",
+      "scope": "root",
+      "capability": "token-usage-lint",
+      "content_hash": "e7762c79dcc9a7f2",
+      "version": "1.1.0",
+      "mirrors": [
+        "skills/token-usage-lint/SKILL.md",
+        ".claude/skills/token-usage-lint/SKILL.md",
+        ".gemini/skills/token-usage-lint/SKILL.md",
+        ".agents/skills/token-usage-lint/SKILL.md",
+        ".codex/skills/token-usage-lint/SKILL.md",
+        ".hermes/skills/token-usage-lint/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/tool-box-meeting",
+      "type": "skill",
+      "layer": "L3",
+      "name": "tool-box-meeting",
+      "scope": "root",
+      "capability": "tool-box-meeting",
+      "content_hash": "12d0aad5dc49a166",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/tool-box-meeting/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/translate",
+      "type": "skill",
+      "layer": "L3",
+      "name": "translate",
+      "scope": "root",
+      "capability": "translate",
+      "content_hash": "130763d32d8932dc",
+      "version": "1.0.3",
+      "mirrors": [
+        "skills/translate/SKILL.md",
+        ".claude/skills/translate/SKILL.md",
+        ".gemini/skills/translate/SKILL.md",
+        ".agents/skills/translate/SKILL.md",
+        ".codex/skills/translate/SKILL.md",
+        ".hermes/skills/translate/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/ui-ux-design-intelligence",
+      "type": "skill",
+      "layer": "L3",
+      "name": "ui-ux-design-intelligence",
+      "scope": "root",
+      "capability": "ui-ux-design-intelligence",
+      "content_hash": "584f569c20014122",
+      "version": "1.0.1",
+      "mirrors": [
+        "skills/ui-ux-design-intelligence/SKILL.md",
+        ".claude/skills/ui-ux-design-intelligence/SKILL.md",
+        ".gemini/skills/ui-ux-design-intelligence/SKILL.md",
+        ".agents/skills/ui-ux-design-intelligence/SKILL.md",
+        ".codex/skills/ui-ux-design-intelligence/SKILL.md",
+        ".hermes/skills/ui-ux-design-intelligence/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/update-bun-packages",
+      "type": "skill",
+      "layer": "L3",
+      "name": "update-bun-packages",
+      "scope": "root",
+      "capability": "update-bun-packages",
+      "content_hash": "d051c963862b0514",
+      "version": "1.3.1",
+      "mirrors": [
+        "skills/update-bun-packages/SKILL.md",
+        ".claude/skills/update-bun-packages/SKILL.md",
+        ".gemini/skills/update-bun-packages/SKILL.md",
+        ".agents/skills/update-bun-packages/SKILL.md",
+        ".codex/skills/update-bun-packages/SKILL.md",
+        ".hermes/skills/update-bun-packages/SKILL.md"
+      ]
+    },
+    {
+      "id": "skill:root/zod-contract-gate",
+      "type": "skill",
+      "layer": "L3",
+      "name": "zod-contract-gate",
+      "scope": "root",
+      "capability": "zod-contract-gate",
+      "content_hash": "81deab19c0e351e7",
+      "version": "1.0.2",
+      "mirrors": [
+        "skills/zod-contract-gate/SKILL.md",
+        ".claude/skills/zod-contract-gate/SKILL.md",
+        ".gemini/skills/zod-contract-gate/SKILL.md",
+        ".agents/skills/zod-contract-gate/SKILL.md",
+        ".codex/skills/zod-contract-gate/SKILL.md",
+        ".hermes/skills/zod-contract-gate/SKILL.md"
+      ]
     },
     {
       "id": "term:100대 통계지표",
@@ -1341,2455 +2373,190 @@
       "id": "term:활용신청",
       "type": "term",
       "layer": "L3"
-    },
-    {
-      "id": "thermal-burn-prevention-planner",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "token-usage-lint",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "tool-box-meeting",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "translate",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "ui-ux-design-intelligence",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "update-bun-packages",
-      "type": "skill",
-      "layer": "L3"
-    },
-    {
-      "id": "zod-contract-gate",
-      "type": "skill",
-      "layer": "L3"
     }
   ],
   "edges": [
     {
       "type": "references",
       "from": "adr:0002",
-      "to": "k-dart",
+      "to": "skill:root/k-dart",
       "source": "prose"
     },
     {
       "type": "references",
       "from": "adr:0002",
-      "to": "k-ecos",
+      "to": "skill:root/k-ecos",
       "source": "prose"
     },
     {
       "type": "references",
       "from": "adr:0002",
-      "to": "k-kosis",
+      "to": "skill:root/k-kosis",
       "source": "prose"
     },
     {
       "type": "references",
       "from": "adr:0002",
-      "to": "k-krx",
+      "to": "skill:root/k-krx",
       "source": "prose"
     },
     {
       "type": "references",
       "from": "adr:0002",
-      "to": "k-law",
+      "to": "skill:root/k-law",
       "source": "prose"
     },
     {
       "type": "references",
       "from": "adr:0002",
-      "to": "k-opendata",
+      "to": "skill:root/k-opendata",
       "source": "prose"
     },
     {
       "type": "references",
       "from": "adr:0007",
-      "to": "k-law",
+      "to": "skill:root/k-law",
       "source": "prose"
     },
     {
       "type": "references",
       "from": "adr:0009",
-      "to": "accessibility-audit",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "agent-lifecycle-manager",
-      "to": "skill-lifecycle-manager",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/agent-lifecycle-manager/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "references",
-      "from": "agent-lifecycle-manager",
-      "to": "skill-lifecycle-manager",
+      "to": "skill:root/accessibility-audit",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "bsl-lab-aerosol-control-planner",
-      "to": "permit-to-work",
+      "from": "agent:root/pm",
+      "to": "skill:root/agent-lifecycle-manager",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "bsl-lab-aerosol-control-planner",
-      "to": "tool-box-meeting",
+      "from": "agent:root/pm",
+      "to": "skill:root/decision-record",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "ci-triage",
-      "to": "project-review",
+      "from": "agent:root/pm",
+      "to": "skill:root/skill-lifecycle-manager",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "coke-oven-pah-heat-stress-planner",
-      "to": "chemical-risk-assessment",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "coke-oven-pah-heat-stress-planner",
-      "to": "ghs-classifier",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "coke-oven-pah-heat-stress-planner",
-      "to": "permit-to-work",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "coke-oven-pah-heat-stress-planner",
-      "to": "tool-box-meeting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "completion-inspection",
-      "to": "construction-permit-overview",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "completion-inspection",
-      "to": "mid-construction-inspection",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "compliance-gap",
-      "to": "k-law",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "construction-permit-overview",
-      "to": "completion-inspection",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "construction-permit-overview",
-      "to": "mid-construction-inspection",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "construction-permit-overview",
-      "to": "pre-construction-technical-review",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "cosmetics-solvent-exposure-monitor",
-      "to": "chemical-risk-assessment",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "cosmetics-solvent-exposure-monitor",
-      "to": "ghs-classifier",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "cosmetics-solvent-exposure-monitor",
-      "to": "msds-parser",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "cosmetics-solvent-exposure-monitor",
-      "to": "tool-box-meeting",
-      "source": "prose"
-    },
-    {
-      "type": "produces",
-      "from": "daily/audit-preparation",
-      "to": "output_type.governance_review",
-      "source": "procedure_schema"
-    },
-    {
-      "type": "references",
-      "from": "dangerous-cargo-handling-planner",
-      "to": "ghs-classifier",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "dangerous-cargo-handling-planner",
-      "to": "msds-parser",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "dangerous-cargo-handling-planner",
-      "to": "permit-to-work",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "dangerous-cargo-handling-planner",
-      "to": "tool-box-meeting",
+      "from": "agent:root/safety-governance-manager",
+      "to": "skill:root/k-law",
       "source": "prose"
     },
     {
       "type": "cites_skill",
       "from": "dec:DEC-20260917-01",
-      "to": "sync",
+      "to": "skill:root/sync",
       "source": "skills_used"
     },
     {
-      "type": "references",
-      "from": "decision-record",
-      "to": "evidence-ledger",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "design-foundation",
-      "to": "accessibility-audit",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/design-foundation/SKILL.md",
-        "field": "relates_to",
-        "index": 2
-      }
-    },
-    {
-      "type": "references",
-      "from": "design-foundation",
-      "to": "accessibility-audit",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "design-foundation",
-      "to": "token-usage-lint",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/design-foundation/SKILL.md",
-        "field": "relates_to",
-        "index": 1
-      }
-    },
-    {
-      "type": "references",
-      "from": "design-foundation",
-      "to": "token-usage-lint",
-      "source": "prose"
-    },
-    {
-      "type": "enables",
-      "from": "design-foundation",
-      "to": "ui-ux-design-intelligence",
-      "source": "relates_to",
-      "provenance": {
-        "file": "skills/design-foundation/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "references",
-      "from": "design-foundation",
-      "to": "ui-ux-design-intelligence",
-      "source": "prose"
-    },
-    {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "agent-lifecycle-manager",
+      "to": "skill:root/agent-lifecycle-manager",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "audit-preparation",
+      "to": "skill:root/audit-preparation",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "contractor-onboarding",
+      "to": "skill:root/contractor-onboarding",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "emergency-response",
+      "to": "skill:root/emergency-response",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "fall-hazard-assessor",
+      "to": "skill:root/fall-hazard-assessor",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "ghs-classifier",
+      "to": "skill:root/ghs-classifier",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "k-law",
+      "to": "skill:root/k-law",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "msds-parser",
+      "to": "skill:root/msds-parser",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "permit-to-work",
+      "to": "skill:root/permit-to-work",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "psm-loto",
+      "to": "skill:root/psm-loto",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "risk-assessment",
+      "to": "skill:root/risk-assessment",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "skill-lifecycle-manager",
+      "to": "skill:root/skill-lifecycle-manager",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "tar-planning",
+      "to": "skill:root/tar-planning",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
-      "to": "tool-box-meeting",
+      "to": "skill:root/tool-box-meeting",
       "source": "workflow-doc"
     },
     {
       "type": "cites_skill",
       "from": "doc:CODEX.md",
-      "to": "meeting-facilitation",
+      "to": "skill:root/meeting-facilitation",
       "source": "workflow-doc"
     },
     {
-      "type": "composes_with",
-      "from": "documentation-writing",
-      "to": "team-builder",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/documentation-writing/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "references",
-      "from": "evidence-ledger",
-      "to": "decision-record",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "handbook",
-      "to": "handbook-sync-audit",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "handbook-sync-audit",
-      "to": "handbook",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "handbook-sync-audit",
-      "to": "project-review",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "hv-cell-formation-electrical-safety-planner",
-      "to": "arc-flash-analyzer",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "hv-cell-formation-electrical-safety-planner",
-      "to": "permit-to-work",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "hv-cell-formation-electrical-safety-planner",
-      "to": "psm-loto",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "hv-cell-formation-electrical-safety-planner",
-      "to": "tool-box-meeting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-audit",
-      "to": "i18n-formatting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-audit",
-      "to": "i18n-layout",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-audit",
-      "to": "i18n-locale-config",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-formatting",
-      "to": "i18n-layout",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-formatting",
-      "to": "i18n-locale-config",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-formatting",
-      "to": "translate",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-layout",
-      "to": "i18n-formatting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-layout",
-      "to": "i18n-locale-config",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-layout",
-      "to": "translate",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-locale-config",
-      "to": "i18n-formatting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-locale-config",
-      "to": "i18n-layout",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "i18n-locale-config",
-      "to": "translate",
-      "source": "prose"
-    },
-    {
-      "type": "produces",
-      "from": "investigation/hazop-analysis",
-      "to": "output_type.hazard_inventory",
-      "source": "procedure_schema"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-dart",
-      "to": "k-ecos",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-dart/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "composes_with",
-      "from": "k-dart",
-      "to": "k-kosis",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-dart/SKILL.md",
-        "field": "relates_to",
-        "index": 1
-      }
-    },
-    {
-      "type": "relates_to",
-      "from": "k-dart",
-      "to": "k-law",
-      "source": "relates_to",
-      "provenance": {
-        "file": "skills/k-dart/SKILL.md",
-        "field": "relates_to",
-        "index": 2
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:감사의견",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:감자",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:당기순이익",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:매출액",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:무상증자",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:미등록키",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:반기보고서",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:부적정",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:부채총계",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:분기보고서",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:분할",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:사업보고서",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:사용할수없는키",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:소송",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:영업이익",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:유가증권시장",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:유상증자",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:의견거절",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:자기주식처분",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:자기주식취득",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:자본총계",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:자산총계",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:적정",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:접근할수없는IP",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:정상",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:조회된데이터가없음",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:주요사항보고서",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:코넥스시장",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:코스닥시장",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:한정",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-dart",
-      "to": "term:합병",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-dart/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "composes_with",
-      "from": "k-ecos",
-      "to": "k-dart",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-ecos/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "k-dart",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-ecos",
-      "to": "k-kosis",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-ecos/SKILL.md",
-        "field": "relates_to",
-        "index": 1
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "k-kosis",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-ecos",
-      "to": "k-opendata",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-ecos/SKILL.md",
-        "field": "relates_to",
-        "index": 2
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "k-opendata",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:100대 통계지표",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:가구당월평균소득",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:경제성장률(전기대비)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:경제심리지수",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:국내총생산(명목, 원화표시)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:반년",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:반월",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:본원통화 구성내역(평잔, 원계열)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:분기",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:서비스 통계 목록",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:소비자동향지수",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:실제지급준비액",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:연",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:예금규모별 계좌수 및 금액",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:예금은행 지급준비액(구기준, 평잔)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:요구불예금(실세)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:원/달러 환율(종가)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:월",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:일",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:주요지표(연간지표)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:통계 세부항목 목록",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:통계 조회 조건 설정",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:통계메타DB",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:통계용어사전",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:한국은행 기준금리",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-ecos",
-      "to": "term:한국은행 기준금리 및 여수신금리",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-ecos/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "composes_with",
-      "from": "k-kosis",
-      "to": "k-dart",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-kosis/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "k-dart",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-kosis",
-      "to": "k-ecos",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-kosis/SKILL.md",
-        "field": "relates_to",
-        "index": 1
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "k-law",
-      "source": "prose"
-    },
-    {
-      "type": "relates_to",
-      "from": "k-kosis",
-      "to": "k-law",
-      "source": "relates_to",
-      "provenance": {
-        "file": "skills/k-kosis/SKILL.md",
-        "field": "relates_to",
-        "index": 2
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:년간",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:데이터가 존재하지 않습니다.",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:분기",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:월간",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:인구총조사 인구총표",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:일간",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:잘못된 요청 변수를 호출 하였습니다.",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:통계목록조회",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:통계설명",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:통계자료조회",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-kosis",
-      "to": "term:통합검색",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-kosis/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "composes_with",
-      "from": "k-krx",
-      "to": "k-dart",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-krx/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "k-dart",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-krx",
-      "to": "k-ecos",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-krx/SKILL.md",
-        "field": "relates_to",
-        "index": 1
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "k-ecos",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-krx",
-      "to": "k-kosis",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-krx/SKILL.md",
-        "field": "relates_to",
-        "index": 2
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "k-kosis",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-krx",
-      "to": "k-opendata",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-krx/SKILL.md",
-        "field": "relates_to",
-        "index": 3
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "k-opendata",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:ELW 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:ESG",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:ESG 증권상품",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:ESG 지수",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:ETF 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:ETN 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:KOSDAQ 시리즈 일별시세정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:KOSPI 시리즈 일별시세정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:KRX 시리즈 일별시세정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:국채전문유통시장 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:금시장 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:배출권 시장 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:사회책임투자채권 정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:석유시장 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:선물 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:소액채권시장 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:신주인수권증권 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:신주인수권증서 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:옵션 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:유가증권 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:유가증권 종목기본정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:일반상품",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:일반채권시장 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:주식",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:주식선물(유가) 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:주식선물(코스닥) 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:주식옵션(유가) 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:주식옵션(코스닥) 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:증권상품",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:지수",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:채권",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:채권지수 시세정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:코넥스 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:코넥스 종목기본정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:코스닥 일별매매정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:코스닥 종목기본정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:파생상품",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-krx",
-      "to": "term:파생상품지수 시세정보",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-krx/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "relates_to",
-      "from": "k-law",
-      "to": "k-dart",
-      "source": "relates_to",
-      "provenance": {
-        "file": "skills/k-law/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "relates_to",
-      "from": "k-law",
-      "to": "k-kosis",
-      "source": "relates_to",
-      "provenance": {
-        "file": "skills/k-law/SKILL.md",
-        "field": "relates_to",
-        "index": 1
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:공포일자",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:법령ID",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:법령명한글",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:법령용어",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:법령일련번호",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:법령해석례",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:법원명",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:별표",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:별표서식",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:부칙",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:사건명",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:사건번호",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:선고일자",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:소관부처",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:시행일 법령",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:시행일자",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:자치법규",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:조문",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:조약",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:판결요지",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:판례",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:행정규칙",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:헌재결정례",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-law",
-      "to": "term:현행법령",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-law/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "k-dart",
-      "source": "prose"
-    },
-    {
-      "type": "composes_with",
-      "from": "k-opendata",
-      "to": "k-ecos",
-      "source": "relates_to",
-      "symmetric": true,
-      "provenance": {
-        "file": "skills/k-opendata/SKILL.md",
-        "field": "relates_to",
-        "index": 0
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "k-kosis",
-      "source": "prose"
-    },
-    {
-      "type": "relates_to",
-      "from": "k-opendata",
-      "to": "k-kosis",
-      "source": "relates_to",
-      "provenance": {
-        "file": "skills/k-opendata/SKILL.md",
-        "field": "relates_to",
-        "index": 1
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "k-law",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:balPayments",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:expDlr",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:expWgt",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:hsCd",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:hsCode",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:impDlr",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:impWgt",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:SERVICE_KEY_IS_NOT_REGISTERED_ERROR",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:SERVICE_KEY_IS_NULL",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:statCd",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:statKor",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:개발계정",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:국가별 수출입실적(GW)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:수출입총괄(GW)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:시도별 수출입실적(GW)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:운영계정",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:총계",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:품목별 국가별 수출입실적(GW)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:품목별 수출입실적(GW)",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "k-opendata",
-      "to": "term:활용신청",
-      "source": "terms-ko.json",
-      "provenance": {
-        "file": "skills/k-opendata/references/terms-ko.json",
-        "field": "terms-ko.json"
-      }
-    },
-    {
-      "type": "references",
-      "from": "landfill-methane-anaerobic-explosion-planner",
-      "to": "environmental-compliance-checker",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "landfill-methane-anaerobic-explosion-planner",
-      "to": "gas-dispersion-analyzer",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "landfill-methane-anaerobic-explosion-planner",
-      "to": "permit-to-work",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "landfill-methane-anaerobic-explosion-planner",
-      "to": "tool-box-meeting",
-      "source": "prose"
-    },
-    {
-      "type": "produces",
-      "from": "meeting-facilitation",
-      "to": "output_type.governance_actions",
-      "source": "procedure_schema"
-    },
-    {
-      "type": "references",
-      "from": "mid-construction-inspection",
-      "to": "completion-inspection",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "mid-construction-inspection",
-      "to": "construction-permit-overview",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "mid-construction-inspection",
-      "to": "pre-construction-technical-review",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "munitions-magazine-storage-safety-planner",
-      "to": "permit-to-work",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "munitions-magazine-storage-safety-planner",
-      "to": "tool-box-meeting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "painting-coating-fire-toxic-planner",
-      "to": "ghs-classifier",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "painting-coating-fire-toxic-planner",
-      "to": "msds-parser",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "painting-coating-fire-toxic-planner",
-      "to": "permit-to-work",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "painting-coating-fire-toxic-planner",
-      "to": "tool-box-meeting",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "permit-to-work",
-      "to": "psm-loto",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "permit-to-work",
-      "to": "risk-assessment",
-      "source": "prose"
-    },
-    {
-      "type": "used_by",
-      "from": "permit-to-work",
-      "to": "safety-workflow-manager",
-      "source": "skill_manifest"
-    },
-    {
-      "type": "references",
-      "from": "pm",
-      "to": "agent-lifecycle-manager",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "pm",
-      "to": "decision-record",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "pm",
-      "to": "skill-lifecycle-manager",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "pre-construction-technical-review",
-      "to": "construction-permit-overview",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "pre-construction-technical-review",
-      "to": "mid-construction-inspection",
-      "source": "prose"
-    },
-    {
-      "type": "step_uses_skill",
+      "type": "step_by_agent",
       "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "daily/audit-preparation",
-      "source": "procedure_schema"
+      "to": "agent:root/safety-governance-manager",
+      "source": "procedure_schema",
+      "actor_type": "agent"
     },
     {
-      "type": "step_uses_skill",
+      "type": "step_by_agent",
       "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "daily/risk-assessment",
-      "source": "procedure_schema"
-    },
-    {
-      "type": "step_uses_skill",
-      "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "investigation/hazop-analysis",
-      "source": "procedure_schema"
+      "to": "agent:root/safety-workflow-manager",
+      "source": "procedure_schema",
+      "actor_type": "agent"
     },
     {
       "type": "produces",
@@ -3798,37 +2565,36 @@
       "source": "procedure_schema"
     },
     {
-      "type": "step_by_agent",
-      "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "safety-governance-manager",
-      "source": "procedure_schema",
-      "actor_type": "agent"
-    },
-    {
-      "type": "step_by_agent",
-      "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "safety-workflow-manager",
-      "source": "procedure_schema",
-      "actor_type": "agent"
-    },
-    {
-      "type": "step_by_agent",
-      "from": "procedure.co-safety.daily-risk-assessment",
-      "to": "safety-workflow-manager",
-      "source": "procedure_schema",
-      "actor_type": "agent"
-    },
-    {
       "type": "step_uses_skill",
-      "from": "procedure.co-safety.governance-audit",
-      "to": "daily/compliance-gap",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "skill:co-safety/daily/audit-preparation",
       "source": "procedure_schema"
     },
     {
       "type": "step_uses_skill",
-      "from": "procedure.co-safety.governance-audit",
-      "to": "meeting-facilitation",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "skill:co-safety/daily/risk-assessment",
       "source": "procedure_schema"
+    },
+    {
+      "type": "step_uses_skill",
+      "from": "procedure.co-safety.daily-risk-assessment",
+      "to": "skill:co-safety/investigation/hazop-analysis",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "agent:root/pm",
+      "source": "procedure_schema",
+      "actor_type": "agent"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "agent:root/safety-governance-manager",
+      "source": "procedure_schema",
+      "actor_type": "agent"
     },
     {
       "type": "produces",
@@ -3837,30 +2603,29 @@
       "source": "procedure_schema"
     },
     {
-      "type": "step_by_agent",
-      "from": "procedure.co-safety.governance-audit",
-      "to": "pm",
-      "source": "procedure_schema",
-      "actor_type": "agent"
-    },
-    {
       "type": "follows",
       "from": "procedure.co-safety.governance-audit",
       "to": "procedure.co-safety.daily-risk-assessment",
       "source": "procedure_schema"
     },
     {
-      "type": "step_by_agent",
+      "type": "step_uses_skill",
       "from": "procedure.co-safety.governance-audit",
-      "to": "safety-governance-manager",
-      "source": "procedure_schema",
-      "actor_type": "agent"
+      "to": "skill:co-safety/daily/compliance-gap",
+      "source": "procedure_schema"
     },
     {
       "type": "step_uses_skill",
-      "from": "procedure.co-safety.safety-plan-review",
-      "to": "daily/audit-preparation",
+      "from": "procedure.co-safety.governance-audit",
+      "to": "skill:root/meeting-facilitation",
       "source": "procedure_schema"
+    },
+    {
+      "type": "step_by_agent",
+      "from": "procedure.co-safety.safety-plan-review",
+      "to": "agent:root/safety-governance-manager",
+      "source": "procedure_schema",
+      "actor_type": "agent"
     },
     {
       "type": "produces",
@@ -3875,64 +2640,2295 @@
       "source": "procedure_schema"
     },
     {
-      "type": "step_by_agent",
+      "type": "step_uses_skill",
       "from": "procedure.co-safety.safety-plan-review",
-      "to": "safety-governance-manager",
-      "source": "procedure_schema",
-      "actor_type": "agent"
+      "to": "skill:co-safety/daily/audit-preparation",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "produces",
+      "from": "skill:co-safety/daily/audit-preparation",
+      "to": "output_type.governance_review",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "produces",
+      "from": "skill:co-safety/investigation/hazop-analysis",
+      "to": "output_type.hazard_inventory",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/agent-lifecycle-manager",
+      "to": "skill:root/skill-lifecycle-manager",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/agent-lifecycle-manager/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
     },
     {
       "type": "references",
-      "from": "psm-loto",
-      "to": "permit-to-work",
+      "from": "skill:root/agent-lifecycle-manager",
+      "to": "skill:root/skill-lifecycle-manager",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "psm-loto",
-      "to": "tank-integrity-validator",
+      "from": "skill:root/bsl-lab-aerosol-control-planner",
+      "to": "skill:root/permit-to-work",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "pyrophoric-gas-emergency-responder",
-      "to": "emergency-response",
+      "from": "skill:root/bsl-lab-aerosol-control-planner",
+      "to": "skill:root/tool-box-meeting",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "pyrophoric-gas-emergency-responder",
-      "to": "gas-dispersion-analyzer",
+      "from": "skill:root/ci-triage",
+      "to": "skill:root/project-review",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "pyrophoric-gas-emergency-responder",
-      "to": "root-cause-analysis",
+      "from": "skill:root/coke-oven-pah-heat-stress-planner",
+      "to": "skill:root/chemical-risk-assessment",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "rack-fall-protection-planner",
-      "to": "fall-hazard-assessor",
+      "from": "skill:root/coke-oven-pah-heat-stress-planner",
+      "to": "skill:root/ghs-classifier",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "rack-fall-protection-planner",
-      "to": "permit-to-work",
+      "from": "skill:root/coke-oven-pah-heat-stress-planner",
+      "to": "skill:root/permit-to-work",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "rack-fall-protection-planner",
-      "to": "tool-box-meeting",
+      "from": "skill:root/coke-oven-pah-heat-stress-planner",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/completion-inspection",
+      "to": "skill:root/construction-permit-overview",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/completion-inspection",
+      "to": "skill:root/mid-construction-inspection",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/compliance-gap",
+      "to": "skill:root/k-law",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/construction-permit-overview",
+      "to": "skill:root/completion-inspection",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/construction-permit-overview",
+      "to": "skill:root/mid-construction-inspection",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/construction-permit-overview",
+      "to": "skill:root/pre-construction-technical-review",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/cosmetics-solvent-exposure-monitor",
+      "to": "skill:root/chemical-risk-assessment",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/cosmetics-solvent-exposure-monitor",
+      "to": "skill:root/ghs-classifier",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/cosmetics-solvent-exposure-monitor",
+      "to": "skill:root/msds-parser",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/cosmetics-solvent-exposure-monitor",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/dangerous-cargo-handling-planner",
+      "to": "skill:root/ghs-classifier",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/dangerous-cargo-handling-planner",
+      "to": "skill:root/msds-parser",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/dangerous-cargo-handling-planner",
+      "to": "skill:root/permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/dangerous-cargo-handling-planner",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/decision-record",
+      "to": "skill:root/evidence-ledger",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/design-foundation",
+      "to": "skill:root/accessibility-audit",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/design-foundation/SKILL.md",
+        "field": "relates_to",
+        "index": 2
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/design-foundation",
+      "to": "skill:root/accessibility-audit",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/design-foundation",
+      "to": "skill:root/token-usage-lint",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/design-foundation/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/design-foundation",
+      "to": "skill:root/token-usage-lint",
       "source": "prose"
     },
     {
       "type": "enables",
-      "from": "research-analysis",
-      "to": "documentation-writing",
+      "from": "skill:root/design-foundation",
+      "to": "skill:root/ui-ux-design-intelligence",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/design-foundation/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/design-foundation",
+      "to": "skill:root/ui-ux-design-intelligence",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/documentation-writing",
+      "to": "skill:root/team-builder",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/documentation-writing/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/evidence-ledger",
+      "to": "skill:root/decision-record",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/handbook",
+      "to": "skill:root/handbook-sync-audit",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/handbook-sync-audit",
+      "to": "skill:root/handbook",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/handbook-sync-audit",
+      "to": "skill:root/project-review",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/hv-cell-formation-electrical-safety-planner",
+      "to": "skill:root/arc-flash-analyzer",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/hv-cell-formation-electrical-safety-planner",
+      "to": "skill:root/permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/hv-cell-formation-electrical-safety-planner",
+      "to": "skill:root/psm-loto",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/hv-cell-formation-electrical-safety-planner",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-audit",
+      "to": "skill:root/i18n-formatting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-audit",
+      "to": "skill:root/i18n-layout",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-audit",
+      "to": "skill:root/i18n-locale-config",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-formatting",
+      "to": "skill:root/i18n-layout",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-formatting",
+      "to": "skill:root/i18n-locale-config",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-formatting",
+      "to": "skill:root/translate",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-layout",
+      "to": "skill:root/i18n-formatting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-layout",
+      "to": "skill:root/i18n-locale-config",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-layout",
+      "to": "skill:root/translate",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-locale-config",
+      "to": "skill:root/i18n-formatting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-locale-config",
+      "to": "skill:root/i18n-layout",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/i18n-locale-config",
+      "to": "skill:root/translate",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-dart",
+      "to": "skill:root/k-ecos",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-dart/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-dart",
+      "to": "skill:root/k-kosis",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-dart/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "relates_to",
+      "from": "skill:root/k-dart",
+      "to": "skill:root/k-law",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/k-dart/SKILL.md",
+        "field": "relates_to",
+        "index": 2
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:감사의견",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:감자",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:당기순이익",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:매출액",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:무상증자",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:미등록키",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:반기보고서",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:부적정",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:부채총계",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:분기보고서",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:분할",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:사업보고서",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:사용할수없는키",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:소송",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:영업이익",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:유가증권시장",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:유상증자",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:의견거절",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:자기주식처분",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:자기주식취득",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:자본총계",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:자산총계",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:적정",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:접근할수없는IP",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:정상",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:조회된데이터가없음",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:주요사항보고서",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:코넥스시장",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:코스닥시장",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:한정",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-dart",
+      "to": "term:합병",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-dart/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-ecos",
+      "to": "skill:root/k-dart",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-ecos/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "skill:root/k-dart",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-ecos",
+      "to": "skill:root/k-kosis",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-ecos/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "skill:root/k-kosis",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-ecos",
+      "to": "skill:root/k-opendata",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-ecos/SKILL.md",
+        "field": "relates_to",
+        "index": 2
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "skill:root/k-opendata",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:100대 통계지표",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:가구당월평균소득",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:경제성장률(전기대비)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:경제심리지수",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:국내총생산(명목, 원화표시)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:반년",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:반월",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:본원통화 구성내역(평잔, 원계열)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:분기",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:서비스 통계 목록",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:소비자동향지수",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:실제지급준비액",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:연",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:예금규모별 계좌수 및 금액",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:예금은행 지급준비액(구기준, 평잔)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:요구불예금(실세)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:원/달러 환율(종가)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:월",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:일",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:주요지표(연간지표)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:통계 세부항목 목록",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:통계 조회 조건 설정",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:통계메타DB",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:통계용어사전",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:한국은행 기준금리",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-ecos",
+      "to": "term:한국은행 기준금리 및 여수신금리",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-ecos/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-kosis",
+      "to": "skill:root/k-dart",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-kosis/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "skill:root/k-dart",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-kosis",
+      "to": "skill:root/k-ecos",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-kosis/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "skill:root/k-law",
+      "source": "prose"
+    },
+    {
+      "type": "relates_to",
+      "from": "skill:root/k-kosis",
+      "to": "skill:root/k-law",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/k-kosis/SKILL.md",
+        "field": "relates_to",
+        "index": 2
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:년간",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:데이터가 존재하지 않습니다.",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:분기",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:월간",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:인구총조사 인구총표",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:일간",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:잘못된 요청 변수를 호출 하였습니다.",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:통계목록조회",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:통계설명",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:통계자료조회",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-kosis",
+      "to": "term:통합검색",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-kosis/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-dart",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-krx/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-dart",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-ecos",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-krx/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-ecos",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-kosis",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-krx/SKILL.md",
+        "field": "relates_to",
+        "index": 2
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-kosis",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-opendata",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-krx/SKILL.md",
+        "field": "relates_to",
+        "index": 3
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "skill:root/k-opendata",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:ELW 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:ESG",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:ESG 증권상품",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:ESG 지수",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:ETF 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:ETN 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:KOSDAQ 시리즈 일별시세정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:KOSPI 시리즈 일별시세정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:KRX 시리즈 일별시세정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:국채전문유통시장 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:금시장 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:배출권 시장 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:사회책임투자채권 정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:석유시장 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:선물 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:소액채권시장 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:신주인수권증권 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:신주인수권증서 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:옵션 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:유가증권 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:유가증권 종목기본정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:일반상품",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:일반채권시장 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:주식",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:주식선물(유가) 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:주식선물(코스닥) 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:주식옵션(유가) 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:주식옵션(코스닥) 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:증권상품",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:지수",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:채권",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:채권지수 시세정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:코넥스 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:코넥스 종목기본정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:코스닥 일별매매정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:코스닥 종목기본정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:파생상품",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-krx",
+      "to": "term:파생상품지수 시세정보",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-krx/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "relates_to",
+      "from": "skill:root/k-law",
+      "to": "skill:root/k-dart",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/k-law/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "relates_to",
+      "from": "skill:root/k-law",
+      "to": "skill:root/k-kosis",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/k-law/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:공포일자",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:법령ID",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:법령명한글",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:법령용어",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:법령일련번호",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:법령해석례",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:법원명",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:별표",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:별표서식",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:부칙",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:사건명",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:사건번호",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:선고일자",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:소관부처",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:시행일 법령",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:시행일자",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:자치법규",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:조문",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:조약",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:판결요지",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:판례",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:행정규칙",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:헌재결정례",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-law",
+      "to": "term:현행법령",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-law/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "skill:root/k-dart",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/k-opendata",
+      "to": "skill:root/k-ecos",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/k-opendata/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "skill:root/k-kosis",
+      "source": "prose"
+    },
+    {
+      "type": "relates_to",
+      "from": "skill:root/k-opendata",
+      "to": "skill:root/k-kosis",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/k-opendata/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "skill:root/k-law",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:balPayments",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:expDlr",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:expWgt",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:hsCd",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:hsCode",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:impDlr",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:impWgt",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:SERVICE_KEY_IS_NOT_REGISTERED_ERROR",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:SERVICE_KEY_IS_NULL",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:statCd",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:statKor",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:개발계정",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:국가별 수출입실적(GW)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:수출입총괄(GW)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:시도별 수출입실적(GW)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:운영계정",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:총계",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:품목별 국가별 수출입실적(GW)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:품목별 수출입실적(GW)",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/k-opendata",
+      "to": "term:활용신청",
+      "source": "terms-ko.json",
+      "provenance": {
+        "file": "skills/k-opendata/references/terms-ko.json",
+        "field": "terms-ko.json"
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/landfill-methane-anaerobic-explosion-planner",
+      "to": "skill:root/environmental-compliance-checker",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/landfill-methane-anaerobic-explosion-planner",
+      "to": "skill:root/gas-dispersion-analyzer",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/landfill-methane-anaerobic-explosion-planner",
+      "to": "skill:root/permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/landfill-methane-anaerobic-explosion-planner",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "produces",
+      "from": "skill:root/meeting-facilitation",
+      "to": "output_type.governance_actions",
+      "source": "procedure_schema"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/mid-construction-inspection",
+      "to": "skill:root/completion-inspection",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/mid-construction-inspection",
+      "to": "skill:root/construction-permit-overview",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/mid-construction-inspection",
+      "to": "skill:root/pre-construction-technical-review",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/munitions-magazine-storage-safety-planner",
+      "to": "skill:root/permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/munitions-magazine-storage-safety-planner",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/painting-coating-fire-toxic-planner",
+      "to": "skill:root/ghs-classifier",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/painting-coating-fire-toxic-planner",
+      "to": "skill:root/msds-parser",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/painting-coating-fire-toxic-planner",
+      "to": "skill:root/permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/painting-coating-fire-toxic-planner",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "used_by",
+      "from": "skill:root/permit-to-work",
+      "to": "agent:root/safety-workflow-manager",
+      "source": "skill_manifest"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/permit-to-work",
+      "to": "skill:root/psm-loto",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/permit-to-work",
+      "to": "skill:root/risk-assessment",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/pre-construction-technical-review",
+      "to": "skill:root/construction-permit-overview",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/pre-construction-technical-review",
+      "to": "skill:root/mid-construction-inspection",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/psm-loto",
+      "to": "skill:root/permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/psm-loto",
+      "to": "skill:root/tank-integrity-validator",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/pyrophoric-gas-emergency-responder",
+      "to": "skill:root/emergency-response",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/pyrophoric-gas-emergency-responder",
+      "to": "skill:root/gas-dispersion-analyzer",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/pyrophoric-gas-emergency-responder",
+      "to": "skill:root/root-cause-analysis",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/rack-fall-protection-planner",
+      "to": "skill:root/fall-hazard-assessor",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/rack-fall-protection-planner",
+      "to": "skill:root/permit-to-work",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/rack-fall-protection-planner",
+      "to": "skill:root/tool-box-meeting",
+      "source": "prose"
+    },
+    {
+      "type": "enables",
+      "from": "skill:root/research-analysis",
+      "to": "skill:root/documentation-writing",
       "source": "relates_to",
       "provenance": {
         "file": "skills/research-analysis/SKILL.md",
@@ -3942,50 +4938,44 @@
     },
     {
       "type": "used_by",
-      "from": "risk-assessment",
-      "to": "safety-workflow-manager",
+      "from": "skill:root/risk-assessment",
+      "to": "agent:root/safety-workflow-manager",
       "source": "skill_manifest"
     },
     {
       "type": "references",
-      "from": "rolling-stock-maintenance-loto-planner",
-      "to": "fall-hazard-assessor",
+      "from": "skill:root/rolling-stock-maintenance-loto-planner",
+      "to": "skill:root/fall-hazard-assessor",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "rolling-stock-maintenance-loto-planner",
-      "to": "permit-to-work",
+      "from": "skill:root/rolling-stock-maintenance-loto-planner",
+      "to": "skill:root/permit-to-work",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "rolling-stock-maintenance-loto-planner",
-      "to": "psm-loto",
+      "from": "skill:root/rolling-stock-maintenance-loto-planner",
+      "to": "skill:root/psm-loto",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "rolling-stock-maintenance-loto-planner",
-      "to": "tool-box-meeting",
+      "from": "skill:root/rolling-stock-maintenance-loto-planner",
+      "to": "skill:root/tool-box-meeting",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "safety-governance-manager",
-      "to": "k-law",
-      "source": "prose"
-    },
-    {
-      "type": "references",
-      "from": "security-scan",
-      "to": "update-bun-packages",
+      "from": "skill:root/security-scan",
+      "to": "skill:root/update-bun-packages",
       "source": "prose"
     },
     {
       "type": "follows",
-      "from": "service-design",
-      "to": "accessibility-audit",
+      "from": "skill:root/service-design",
+      "to": "skill:root/accessibility-audit",
       "source": "relates_to",
       "provenance": {
         "file": "skills/service-design/SKILL.md",
@@ -3995,8 +4985,8 @@
     },
     {
       "type": "follows",
-      "from": "service-design",
-      "to": "token-usage-lint",
+      "from": "skill:root/service-design",
+      "to": "skill:root/token-usage-lint",
       "source": "relates_to",
       "provenance": {
         "file": "skills/service-design/SKILL.md",
@@ -4006,8 +4996,8 @@
     },
     {
       "type": "follows",
-      "from": "service-design",
-      "to": "ui-ux-design-intelligence",
+      "from": "skill:root/service-design",
+      "to": "skill:root/ui-ux-design-intelligence",
       "source": "relates_to",
       "provenance": {
         "file": "skills/service-design/SKILL.md",
@@ -4017,14 +5007,14 @@
     },
     {
       "type": "references",
-      "from": "skill-lifecycle-manager",
-      "to": "agent-lifecycle-manager",
+      "from": "skill:root/skill-lifecycle-manager",
+      "to": "skill:root/agent-lifecycle-manager",
       "source": "prose"
     },
     {
       "type": "composes_with",
-      "from": "skill-lifecycle-manager",
-      "to": "script-lifecycle-manager",
+      "from": "skill:root/skill-lifecycle-manager",
+      "to": "skill:root/script-lifecycle-manager",
       "source": "relates_to",
       "symmetric": true,
       "provenance": {
@@ -4035,44 +5025,44 @@
     },
     {
       "type": "references",
-      "from": "tar-planning",
-      "to": "psm-loto",
+      "from": "skill:root/tar-planning",
+      "to": "skill:root/psm-loto",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "team-builder",
-      "to": "agent-lifecycle-manager",
+      "from": "skill:root/team-builder",
+      "to": "skill:root/agent-lifecycle-manager",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "team-builder",
-      "to": "skill-lifecycle-manager",
+      "from": "skill:root/team-builder",
+      "to": "skill:root/skill-lifecycle-manager",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "thermal-burn-prevention-planner",
-      "to": "emergency-response",
+      "from": "skill:root/thermal-burn-prevention-planner",
+      "to": "skill:root/emergency-response",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "thermal-burn-prevention-planner",
-      "to": "psm-loto",
+      "from": "skill:root/thermal-burn-prevention-planner",
+      "to": "skill:root/psm-loto",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "thermal-burn-prevention-planner",
-      "to": "tool-box-meeting",
+      "from": "skill:root/thermal-burn-prevention-planner",
+      "to": "skill:root/tool-box-meeting",
       "source": "prose"
     },
     {
       "type": "follows",
-      "from": "token-usage-lint",
-      "to": "ui-ux-design-intelligence",
+      "from": "skill:root/token-usage-lint",
+      "to": "skill:root/ui-ux-design-intelligence",
       "source": "relates_to",
       "provenance": {
         "file": "skills/token-usage-lint/SKILL.md",
@@ -4082,32 +5072,32 @@
     },
     {
       "type": "references",
-      "from": "tool-box-meeting",
-      "to": "k-law",
+      "from": "skill:root/tool-box-meeting",
+      "to": "skill:root/k-law",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "tool-box-meeting",
-      "to": "permit-to-work",
+      "from": "skill:root/tool-box-meeting",
+      "to": "skill:root/permit-to-work",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "tool-box-meeting",
-      "to": "psm-loto",
+      "from": "skill:root/tool-box-meeting",
+      "to": "skill:root/psm-loto",
       "source": "prose"
     },
     {
       "type": "references",
-      "from": "tool-box-meeting",
-      "to": "risk-assessment",
+      "from": "skill:root/tool-box-meeting",
+      "to": "skill:root/risk-assessment",
       "source": "prose"
     },
     {
       "type": "composes_with",
-      "from": "translate",
-      "to": "documentation-writing",
+      "from": "skill:root/translate",
+      "to": "skill:root/documentation-writing",
       "source": "relates_to",
       "symmetric": true,
       "provenance": {
@@ -4118,8 +5108,8 @@
     },
     {
       "type": "follows",
-      "from": "ui-ux-design-intelligence",
-      "to": "documentation-writing",
+      "from": "skill:root/ui-ux-design-intelligence",
+      "to": "skill:root/documentation-writing",
       "source": "relates_to",
       "provenance": {
         "file": "skills/ui-ux-design-intelligence/SKILL.md",

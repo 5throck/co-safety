@@ -1,7 +1,7 @@
 ---
 name: project-review
 status: active
-scope: common
+scope: co-safety
 description: >
   Performs a comprehensive review of the current project: machine validator
   baseline first, then parallel specialist agents (scope-triageable: full /
@@ -14,8 +14,8 @@ description: >
   phase schema changes, workspace-schema.json modified, new variant added);
   QA escalation from auditor (audit.ts ERROR >= 3 or security Critical finding).
 owner: pm
-version: 1.3.1
-last_reviewed: 2026-09-26
+version: 1.3.3
+last_reviewed: 2026-10-09
 prerequisites: []
 metadata:
   type: process
@@ -30,6 +30,10 @@ metadata:
 ---
 
 # project-review
+
+## Context
+
+Use this skill to perform project review with project-local validation commands and evidence capture.
 
 Comprehensive review of the current project: machine baseline → scope-triaged specialist
 review → persisted report → ticketed follow-ups. **Ratchet principle**: every finding
@@ -53,17 +57,17 @@ catches that class mechanically, not by agent effort.
 Run the validator battery and record results — this is (a) the report's Baseline
 section and (b) the reference for classifying findings as `script-gap` later.
 
-One-shot consolidated runner (T-20260912-030): `bun scripts/review-baseline.ts` —
-runs the six validators below in read-only mode with a PASS/FAIL summary
-(`--quiet` for summary only). Individual commands:
+One-shot consolidated runner (T-20260912-030): `bun scripts/review-baseline.ts` is the workspace-root equivalent —
+runs the battery below in read-only mode with a PASS/FAIL summary
+(`--quiet` for summary only). In this project, run the project-local commands:
 
 ```bash
-bun scripts/audit.ts                              # workspace standards
-bun scripts/validate-templates.ts                 # template/variant integrity + L1 parity
-bun scripts/verify-scripts.ts --verify            # SCRIPTS.md registry sync
+bun run audit                                     # project/workspace standards
+bun run verify-scripts --verify                   # SCRIPTS.md registry sync
 bun run agent-lifecycle-audit                     # agent health
 bun run skill-lifecycle-audit                     # skill health
-bun scripts/propagate-to-templates.ts --check-drift  # L1↔L2 drift (tolerate gemini-settings)
+
+When operating in the workspace root, also run the template integrity and L1/L2 drift gates documented in the root maintainer playbook.
 ```
 
 Record per script: PASS/FAIL/WARN counts. In variant projects, run the project's own
@@ -213,13 +217,13 @@ Route findings by Class — do not default to "fix everything now".
 | Route | Condition | Action |
 |-------|-----------|--------|
 | Fix now | Critical/High, fix is clear, session budget allows | Dispatch through the normal PM Gateway (specialists execute) |
-| Ticket | Deferred items (needs design gate, low priority, future cycle) | `bun scripts/ticket.ts create --manual "<title>" --priority <low\|normal\|high\|urgent> [--not-before YYYY-MM-DD]` — auto-enrolls in the §3.7.5 governance-backlog triage (AGENTS.md) |
+| Ticket | Deferred items (needs design gate, low priority, future cycle) | In workspace-root reviews, create a governance ticket with the ticket helper; in variant projects, record the deferred item in the report and memory log. |
 | Validator-hardening ticket | Any `script-gap` finding | Same `create --manual`, title prefixed `validator-hardening:` — tracks the ratchet loop until a standing check exists |
 
 Rules:
 - Ticket titles in English, one actionable sentence.
 - Record ticket IDs back into the persisted report's "Action wiring" section.
-- `bun scripts/ticket.ts` is workspace-root only (L0); in variant projects, record
+- The ticket helper is workspace-root only (L0); in variant projects, record
   deferred items in the report + memory log instead.
 
 ## Step 6 — Post-Fix Verification
@@ -247,4 +251,14 @@ ticket was not landed.
 ## Related Skills
 
 - **project-resync**: fleet-level close-out after fixes land (commit/PR pipeline)
+- **upgrade-project**: delivers template updates to the project
+- Loop: project-review (diagnose) → project-resync (fleet sync/backport) → upgrade-project (deliver) → project-review baseline-only (verify).
 - **meeting-facilitation**: Antigravity/Gemini dispatch path for Step 3
+
+## Output Format
+
+Produce a prioritized findings report.
+
+## Execution Steps
+
+Follow the baseline, specialist review, synthesis, and verification steps below.
