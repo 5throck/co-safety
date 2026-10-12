@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-10-10T17:31:45.210Z
+**Generated**: 2026-10-12T23:47:07.923Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 93
-- **Scripts**: 109 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 110 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -92,7 +92,7 @@
 | platform-skill-lifecycle-manager | 1.0.2 | active | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
 | pre-construction-technical-review | 1.0.0 | active | skills/pre-construction-technical-review/SKILL.md | workspace | pre-construction review, technical review, design review, 시설기준 검토, 기술검토, 설계검토, 사전기술검토 | gasterm-agent |
 | process-hazard-screening | 1.0.0 | active | skills/process-hazard-screening/SKILL.md | workspace | PSM 적용대상, process hazard screening, 위해물질 보유량, 공정안전관리, PHA 대상 여부, 사고대비물질, 화학공장 초기 위해평가 | ehschem-agent |
-| project-review | 1.3.3 | active | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
+| project-review | 1.3.4 | active | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
 | protocol-deviation-analyzer | 1.0.0 | active | skills/protocol-deviation-analyzer/SKILL.md | workspace | 프로토콜 이탈, protocol deviation, ICH E6(R3), important deviation, CAPA, IRB 보고, KGCP, 임상시험 이탈 | gcp-agent |
 | psm-loto | 1.0.0 | active | skills/psm-loto/SKILL.md | workspace | loto, lockout, tagout, lock out, tag out, energy isolation, 에너지 차단, 로크아웃, 태그아웃 | psm-agent |
 | psm-moc | 1.0.0 | active | skills/psm-moc/SKILL.md | workspace | management of change, moc, change management, process change, 변경관리, 공정변경 | psm-agent |
@@ -142,7 +142,7 @@
 | apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | N/A |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
 | audit-variant.ts | 1.1.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.52.0 | scripts/audit.ts | bun |
+| audit.ts | 2.53.0 | scripts/audit.ts | bun |
 | bootstrap-stages.ts | 1.1.0 | scripts/bootstrap-stages.ts | fs, js-yaml, path |
 | build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | N/A |
 | check-a11y.ts | 1.0.0 | scripts/handbook/check-a11y.ts | N/A |
@@ -166,7 +166,7 @@
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 2.1.0 | scripts/design-lint.ts | js-yaml |
-| dev-sync.ts | 1.25.0 | scripts/dev-sync.ts | bun |
+| dev-sync.ts | 1.27.0 | scripts/dev-sync.ts | bun |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.2 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | N/A |
@@ -181,7 +181,7 @@
 | graph-delta-log.ts | 1.1.0 | scripts/graph-delta-log.ts | N/A |
 | handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | N/A |
 | handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | N/A |
-| lifecycle-sync-audit.ts | 1.17.1 | scripts/lifecycle-sync-audit.ts | js-yaml |
+| lifecycle-sync-audit.ts | 1.18.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
 | lint-instructions.ts | 1.0.0 | scripts/lint-instructions.ts | N/A |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-quality-gates.ts | 1.1.0 | scripts/migrate-quality-gates.ts | fs, js-yaml, path |
@@ -200,7 +200,7 @@
 | scaffold-handbook.ts | 1.2.0 | scripts/handbook/scaffold-handbook.ts | N/A |
 | scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | js-yaml |
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun |
-| skill-lifecycle-audit.ts | 1.7.1 | scripts/skill-lifecycle-audit.ts | N/A |
+| skill-lifecycle-audit.ts | 1.8.0 | scripts/skill-lifecycle-audit.ts | N/A |
 | skill-session-review.ts | 1.2.0 | scripts/skill-session-review.ts | bun |
 | spec-register.ts | 1.6.0 | scripts/spec-register.ts | N/A |
 | start-mcp.ts | 1.0.1 | scripts/co-safety/start-mcp.ts | child_process, path |
@@ -218,6 +218,7 @@
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
 | typecheck.ts | 1.2.0 | scripts/typecheck.ts | N/A |
 | update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | N/A |
+| upgrade-project.ts | 1.70.2 | scripts/upgrade-project.ts | N/A |
 | validate-agents.ts | 1.3.2 | scripts/validate-agents.ts | N/A |
 | validate-decisions.ts | 1.1.0 | scripts/validate-decisions.ts | js-yaml |
 | validate-doc-folder.ts | 1.2.1 | scripts/validate-doc-folder.ts | fs, path |
@@ -232,11 +233,11 @@
 | validate-raci.ts | 1.2.0 | scripts/validate-raci.ts | js-yaml |
 | validate-skills.ts | 1.5.1 | scripts/validate-skills.ts | N/A |
 | validate-surface-registry.ts | 1.1.1 | scripts/validate-surface-registry.ts | N/A |
-| validate-templates.ts | 1.54.0 | scripts/validate-templates.ts | js-yaml |
+| validate-templates.ts | 1.55.0 | scripts/validate-templates.ts | js-yaml |
 | validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |
-| verify-platform-lifecycle.ts | 1.6.0 | scripts/verify-platform-lifecycle.ts | N/A |
+| verify-platform-lifecycle.ts | 1.6.1 | scripts/verify-platform-lifecycle.ts | N/A |
 | verify-readme-sync.ts | 1.4.1 | scripts/verify-readme-sync.ts | bun, fs, path |
 | verify-scripts.ts | 1.12.0 | scripts/verify-scripts.ts | fs, path |
 | verify-skill-graph.ts | 2.0.0 | scripts/verify-skill-graph.ts | N/A |

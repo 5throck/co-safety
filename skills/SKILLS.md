@@ -177,7 +177,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `platform-skill-lifecycle-manager` | 1.0.2 | active | pm | 2026-05-31 | — | Mirrored 2026-09-04 from .claude/skills |
 | `pre-construction-technical-review` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `process-hazard-screening` | 1.0.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `project-review` | 1.3.3 | active | pm | 2026-10-09 | — | — |
+| `project-review` | 1.3.4 | active | pm | 2026-10-11 | — | — |
 | `protocol-deviation-analyzer` | 1.0.0 | active | gcp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `psm-loto` | 1.0.0 | active | psm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `psm-moc` | 1.0.0 | active | psm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
