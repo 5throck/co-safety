@@ -157,6 +157,9 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `adr:0012` | adr | — | — | — |
 | `adr:0013` | adr | — | — | — |
 | `dec:DEC-20260917-01` | decision | `root/sync` | — | — |
+| `dec:DEC-20261013-01` | decision | `root/sync` | — | — |
+| `dec:DEC-20261013-02` | decision | `root/sync` | — | — |
+| `dec:DEC-20261013-03` | decision | `root/sync` | — | — |
 | `doc:AGENTS.md` | doc | `root/agent-lifecycle-manager`, `root/audit-preparation`, `root/contractor-onboarding`, `root/emergency-response`, `root/fall-hazard-assessor`, `root/ghs-classifier`, `root/k-law`, `root/msds-parser`, `root/permit-to-work`, `root/psm-loto`, `root/risk-assessment`, `root/skill-lifecycle-manager`, `root/tar-planning`, `root/tool-box-meeting` | — | — |
 | `doc:CODEX.md` | doc | `root/meeting-facilitation` | — | — |
 
