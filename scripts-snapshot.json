@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-12",
+  "created": "2026-10-13",
   "variant": "co-safety",
   "l1_source": "templates/common/scripts",
   "scripts": {
@@ -32,7 +32,7 @@
       "status": "active"
     },
     "audit.ts": {
-      "version": "2.53.0",
+      "version": "2.54.0",
       "status": "active"
     },
     "bootstrap-stages.ts": {
@@ -72,11 +72,11 @@
       "status": "active"
     },
     "evidence-backport-scan.ts": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "active"
     },
     "dev-sync.ts": {
-      "version": "1.27.0",
+      "version": "1.28.0",
       "status": "active"
     },
     "dispatch-parallel.ts": {
@@ -196,7 +196,19 @@
       "status": "active"
     },
     "helpers/local-patch-scan.ts": {
-      "version": "1.0.1",
+      "version": "1.1.0",
+      "status": "active"
+    },
+    "helpers/registry-append.ts": {
+      "version": "1.0.0",
+      "status": "active"
+    },
+    "render-commands.ts": {
+      "version": "1.1.0",
+      "status": "active"
+    },
+    "helpers/gitleaks-merge.ts": {
+      "version": "1.0.0",
       "status": "active"
     },
     "hooks/gateguard-fact-force.ts": {
@@ -336,7 +348,7 @@
       "status": "active"
     },
     "lifecycle-sync-audit.ts": {
-      "version": "1.18.0",
+      "version": "1.18.1",
       "status": "active"
     },
     "lint-instructions.ts": {
@@ -404,7 +416,7 @@
       "status": "active"
     },
     "test-runner.ts": {
-      "version": "1.4.0",
+      "version": "1.5.0",
       "status": "active"
     },
     "handbook/apply-handbook-theme.ts": {
@@ -520,7 +532,7 @@
       "status": "active"
     },
     "upgrade-project.ts": {
-      "version": "1.70.2",
+      "version": "1.70.5",
       "status": "active"
     },
     "validate-agents.ts": {
@@ -568,7 +580,7 @@
       "status": "active"
     },
     "validate-templates.ts": {
-      "version": "1.55.0",
+      "version": "1.56.0",
       "status": "active"
     },
     "validate-variant-readiness.ts": {

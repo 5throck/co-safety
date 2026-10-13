@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-10-13T12:52:01.768Z
+**Generated**: 2026-10-13T23:35:05.497Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 3
 - **Skills**: 93
-- **Scripts**: 110 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 111 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -142,7 +142,7 @@
 | apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | N/A |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
 | audit-variant.ts | 1.1.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.53.0 | scripts/audit.ts | bun |
+| audit.ts | 2.54.0 | scripts/audit.ts | bun |
 | bootstrap-stages.ts | 1.1.0 | scripts/bootstrap-stages.ts | fs, js-yaml, path |
 | build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | N/A |
 | check-a11y.ts | 1.0.0 | scripts/handbook/check-a11y.ts | N/A |
@@ -166,12 +166,12 @@
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 2.1.0 | scripts/design-lint.ts | js-yaml |
-| dev-sync.ts | 1.27.0 | scripts/dev-sync.ts | bun |
+| dev-sync.ts | 1.28.0 | scripts/dev-sync.ts | bun |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.2 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | N/A |
 | domain-config.ts | 1.5.0 | scripts/co-safety/domain-config.ts | N/A |
-| evidence-backport-scan.ts | 1.1.0 | scripts/evidence-backport-scan.ts | N/A |
+| evidence-backport-scan.ts | 1.2.0 | scripts/evidence-backport-scan.ts | N/A |
 | extract-copycode.ts | 1.0.0 | scripts/handbook/extract-copycode.ts | N/A |
 | gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
@@ -181,7 +181,7 @@
 | graph-delta-log.ts | 1.1.0 | scripts/graph-delta-log.ts | N/A |
 | handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | N/A |
 | handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | N/A |
-| lifecycle-sync-audit.ts | 1.18.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
+| lifecycle-sync-audit.ts | 1.18.1 | scripts/lifecycle-sync-audit.ts | js-yaml |
 | lint-instructions.ts | 1.0.0 | scripts/lint-instructions.ts | N/A |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-quality-gates.ts | 1.1.0 | scripts/migrate-quality-gates.ts | fs, js-yaml, path |
@@ -192,6 +192,7 @@
 | qa-gate.ts | 1.3.0 | scripts/qa-gate.ts | bun |
 | readme-lifecycle-audit.ts | 1.1.0 | scripts/readme-lifecycle-audit.ts | N/A |
 | regenerate-agents-md.ts | 1.3.0 | scripts/regenerate-agents-md.ts | fs, path |
+| render-commands.ts | 1.1.0 | scripts/render-commands.ts | N/A |
 | render-pdf-deck.ts | 1.0.1 | scripts/render-pdf-deck.ts | N/A |
 | resolve-variants.ts | 1.0.3 | scripts/resolve-variants.ts | fs, js-yaml, path |
 | retry-handler.ts | 1.1.0 | scripts/retry-handler.ts | N/A |
@@ -212,13 +213,13 @@
 | test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | js-yaml |
 | test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | N/A |
 | test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | js-yaml |
-| test-runner.ts | 1.4.0 | scripts/test-runner.ts | fs, os, path |
+| test-runner.ts | 1.5.0 | scripts/test-runner.ts | fs, os, path |
 | test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | N/A |
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
 | typecheck.ts | 1.2.0 | scripts/typecheck.ts | N/A |
 | update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | N/A |
-| upgrade-project.ts | 1.70.2 | scripts/upgrade-project.ts | N/A |
+| upgrade-project.ts | 1.70.5 | scripts/upgrade-project.ts | N/A |
 | validate-agents.ts | 1.3.2 | scripts/validate-agents.ts | N/A |
 | validate-decisions.ts | 1.1.0 | scripts/validate-decisions.ts | js-yaml |
 | validate-doc-folder.ts | 1.2.1 | scripts/validate-doc-folder.ts | fs, path |
@@ -233,7 +234,7 @@
 | validate-raci.ts | 1.2.0 | scripts/validate-raci.ts | js-yaml |
 | validate-skills.ts | 1.5.1 | scripts/validate-skills.ts | N/A |
 | validate-surface-registry.ts | 1.1.1 | scripts/validate-surface-registry.ts | N/A |
-| validate-templates.ts | 1.55.0 | scripts/validate-templates.ts | js-yaml |
+| validate-templates.ts | 1.56.0 | scripts/validate-templates.ts | js-yaml |
 | validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |
