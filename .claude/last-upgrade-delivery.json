@@ -1,21 +1,12 @@
 {
-  "timestamp": "2026-10-13T23:34:34.771Z",
+  "timestamp": "2026-10-14T16:51:39.261Z",
   "files": [
     "CLAUDE.md",
     "docs/_shared/tutorial_ko.md",
-    "docs/workspace-schema.json",
     "scripts/SCRIPTS.md",
-    "scripts/audit.ts",
-    "scripts/dev-sync.ts",
-    "scripts/evidence-backport-scan.ts",
-    "scripts/helpers/local-patch-scan.ts",
-    "scripts/lifecycle-sync-audit.ts",
-    "scripts/test-runner.ts",
+    "scripts/helpers/registry-append.ts",
     "scripts/upgrade-project.ts",
     "scripts/validate-templates.ts",
-    "template-version.txt",
-    "scripts/helpers/gitleaks-merge.ts",
-    "scripts/helpers/registry-append.ts",
-    "scripts/render-commands.ts"
+    "template-version.txt"
   ]
 }
