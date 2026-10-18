@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-10-19](2026-10-19.md) | chore(scripts): workspace sync (17 files) |
 | [2026-10-17](2026-10-17.md) | docs(docs): workspace sync (13 files) |
 | [2026-10-15](2026-10-15.md) | chore: upgrade template to 0.19.1 (canary — first COMMANDS_SYNC toml delivery) |
 | [2026-10-14](2026-10-14.md) | chore: upgrade template to 0.19.0 (canary) |
