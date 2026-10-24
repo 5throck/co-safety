@@ -1,18 +1,16 @@
 {
-  "timestamp": "2026-10-18T21:40:22.201Z",
+  "timestamp": "2026-10-24T16:50:47.465Z",
   "files": [
-    ".claude/settings.json",
-    ".gemini/settings.json",
+    "AGENTS.md",
     "CLAUDE.md",
     "docs/_shared/tutorial_ko.md",
-    "docs/governance/agents/pm-gateway-workflow.md",
+    "docs/workspace-schema.json",
     "scripts/SCRIPTS.md",
-    "scripts/audit.ts",
-    "scripts/hooks/pm-role-bootstrap.ts",
+    "scripts/design-lint.ts",
+    "scripts/dev-sync.ts",
+    "scripts/lib/constitution-scrub.ts",
     "scripts/upgrade-project.ts",
-    "template-version.txt",
-    ".codex/hooks.json",
-    "scripts/hooks/codex-user-prompt-gate.ts",
-    "scripts/hooks/pm-dispatch-gate.ts"
+    "scripts/validate-model-registry.ts",
+    "template-version.txt"
   ]
 }
