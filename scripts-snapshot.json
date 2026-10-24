@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-18",
+  "created": "2026-10-24",
   "variant": "co-safety",
   "l1_source": "templates/common/scripts",
   "scripts": {
@@ -60,7 +60,7 @@
       "status": "active"
     },
     "design-lint.ts": {
-      "version": "2.1.0",
+      "version": "2.2.0",
       "status": "active"
     },
     "lib/self-managed-tools.ts": {
@@ -76,7 +76,7 @@
       "status": "active"
     },
     "dev-sync.ts": {
-      "version": "1.28.0",
+      "version": "1.29.0",
       "status": "active"
     },
     "dispatch-parallel.ts": {
@@ -252,7 +252,7 @@
       "status": "active"
     },
     "lib/constitution-scrub.ts": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "active"
     },
     "lib/encoding-utils.ts": {
@@ -540,7 +540,7 @@
       "status": "active"
     },
     "upgrade-project.ts": {
-      "version": "1.71.0",
+      "version": "1.72.0",
       "status": "active"
     },
     "validate-agents.ts": {
@@ -560,7 +560,7 @@
       "status": "active"
     },
     "validate-model-registry.ts": {
-      "version": "1.4.1",
+      "version": "1.5.0",
       "status": "active"
     },
     "validate-surface-registry.ts": {
