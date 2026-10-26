@@ -98,7 +98,7 @@
 | `root/sync` | L3 | 1.8.0 | — | — | — | — | — |
 | `root/tank-integrity-validator` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/tar-planning` | L3 | 1.1.0 | — | — | — | — | — |
-| `root/team-builder` | L3 | 1.1.1 | — | — | — | — | — |
+| `root/team-builder` | L3 | 1.2.0 | — | — | — | — | — |
 | `root/temperature-excursion-analyzer` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/thermal-burn-prevention-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/token-usage-lint` | L3 | 1.1.0 | — | — | root/ui-ux-design-intelligence (follows) | — | — |
@@ -351,7 +351,7 @@ Inferred from procedure steps that cite the skill and are owned via `step_by_age
 
 ## Skill Usage (E3)
 
-Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-10-26), window 90 days. Skill nodes with usage: 0.
+Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-10-27), window 90 days. Skill nodes with usage: 0.
 
 - **used-but-unlinked** (usage > 0, no `used_by`) (0): —
 - **unused** (0 sessions in 90 days) (97): co-safety/daily/audit-preparation, co-safety/daily/compliance-gap, co-safety/daily/risk-assessment, co-safety/investigation/hazop-analysis, root/accessibility-audit, root/agent-lifecycle-manager, root/api-documentation, root/arc-flash-analyzer, root/asset-integrity-check, root/audit-preparation, root/benefit-risk-assessor, root/bsl-lab-aerosol-control-planner, root/chemical-risk-assessment, root/ci-triage, root/coke-oven-pah-heat-stress-planner, root/completion-inspection, root/compliance-gap, root/construction-permit-overview, root/contractor-onboarding, root/cosmetics-solvent-exposure-monitor, root/dangerous-cargo-handling-planner, root/decision-record, root/design-foundation, root/documentation-writing, root/dts-verification, root/emergency-response, root/environmental-compliance-checker, root/ess-fire-risk-assessor, root/evidence-ledger, root/explain-me, root/fall-hazard-assessor, root/finishing-a-development-branch, root/gas-dispersion-analyzer, root/gateguard, root/ghs-classifier, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control, root/gmp-deviation-capa, root/gmp-qrm … and 57 more

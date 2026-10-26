@@ -92,8 +92,8 @@
       "name": "safety-governance-manager",
       "scope": "root",
       "capability": "safety-governance-manager",
-      "content_hash": "f94dc3cb57e5bfbc",
-      "version": "1.0.0",
+      "content_hash": "7458d45fc8c60c32",
+      "version": "1.1.0",
       "mirrors": [
         "agents/safety-governance-manager.md"
       ]
@@ -105,8 +105,8 @@
       "name": "safety-workflow-manager",
       "scope": "root",
       "capability": "safety-workflow-manager",
-      "content_hash": "16e214b9f246b671",
-      "version": "1.0.0",
+      "content_hash": "358f9580c088b45e",
+      "version": "1.1.0",
       "mirrors": [
         "agents/safety-workflow-manager.md"
       ]
@@ -1509,8 +1509,8 @@
       "name": "team-builder",
       "scope": "root",
       "capability": "team-builder",
-      "content_hash": "4fd4638e28436539",
-      "version": "1.1.1",
+      "content_hash": "c375e7fd2ba21e93",
+      "version": "1.2.0",
       "mirrors": [
         "skills/team-builder/SKILL.md",
         ".claude/skills/team-builder/SKILL.md",
