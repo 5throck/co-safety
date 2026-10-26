@@ -79,7 +79,7 @@
       "name": "pm",
       "scope": "root",
       "capability": "pm",
-      "content_hash": "b18fdef2c3ba7868",
+      "content_hash": "094d43d7ef6afcaf",
       "version": "1.0.0",
       "mirrors": [
         "agents/pm.md"
