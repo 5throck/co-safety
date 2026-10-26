@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-10-27](2026-10-27.md) | chore: upgrade template delivery (0.20.1 tree sync + ADR-0102 agent tier delivery) |
 | [2026-10-26](2026-10-26.md) | chore(scripts): workspace sync (28 files) |
 | [2026-10-25](2026-10-25.md) | chore: upgrade template to 0.20.1 (canary) |
 | [2026-10-19](2026-10-19.md) | chore(scripts): workspace sync (17 files) |

@@ -198,7 +198,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `sync` | 1.8.0 | active | pm | 2026-10-08 | — | Full project sync pipeline — lifecycle, audit, publish, commit, push, PR. Reassigned from lifecycle-manager — same orphan cause as security-scan |
 | `tank-integrity-validator` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `tar-planning` | 1.1.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `team-builder` | 1.1.1 | active | pm | 2026-06-13 | — | — |
+| `team-builder` | 1.2.0 | active | pm | 2026-10-26 | — | — |
 | `temperature-excursion-analyzer` | 1.0.0 | active | gdp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `thermal-burn-prevention-planner` | 1.0.0 | active | food-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `token-usage-lint` | 1.1.0 | active | pm | 2026-09-06 | — | Promoted from co-design: token SSOT compliance lint; delegates to scripts/design-lint.ts (L0+L1) |
