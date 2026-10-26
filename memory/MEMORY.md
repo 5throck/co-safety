@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-10-26](2026-10-26.md) | chore(scripts): workspace sync (28 files) |
 | [2026-10-25](2026-10-25.md) | chore: upgrade template to 0.20.1 (canary) |
 | [2026-10-19](2026-10-19.md) | chore(scripts): workspace sync (17 files) |
 | [2026-10-17](2026-10-17.md) | docs(docs): workspace sync (13 files) |
