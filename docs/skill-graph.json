@@ -137,6 +137,11 @@
       "layer": "L3"
     },
     {
+      "id": "doc:CLAUDE.md",
+      "type": "doc",
+      "layer": "L3"
+    },
+    {
       "id": "doc:CODEX.md",
       "type": "doc",
       "layer": "L3"
@@ -2569,6 +2574,12 @@
       "type": "cites_skill",
       "from": "doc:AGENTS.md",
       "to": "skill:root/tool-box-meeting",
+      "source": "workflow-doc"
+    },
+    {
+      "type": "cites_skill",
+      "from": "doc:CLAUDE.md",
+      "to": "skill:root/meeting-facilitation",
       "source": "workflow-doc"
     },
     {
