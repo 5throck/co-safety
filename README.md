@@ -1,3 +1,6 @@
+---
+content_hash: 747972a37514b5eda29687455d3a4b45ec276bad40d98a002c1ab70196c84f40
+---
 # Safety OS
 
 > AI-driven Korean EHS/GxP compliance orchestration platform with 2-Tier functional × industry matrix architecture.
@@ -148,7 +151,7 @@
 |-------------|---------|
 | **Bun** | `>= 1.0.0` — install from [bun.sh](https://bun.sh) |
 | **AI tool** | Claude Code CLI or Gemini CLI |
-| **API keys** (2) | 국가법령정보센터 OC key + GitHub PAT (optional — see Step 2) |
+| **API keys** (2) | Korea National Legal Information Center OC key + GitHub PAT (optional — see Step 2) |
 
 ### Step 1 — Clone & Install
 
@@ -164,7 +167,7 @@ cd ..
 Open `.env` and fill in the key. It is **free** — no paid plan required.
 
 ```env
-# 1) 국가법령정보센터 Open API OC key
+# 1) Korea National Legal Information Center Open API OC key
 #    → https://www.law.go.kr/LSO/openApi/openApiOcPage.do
 #    → Required: enables real-time Korean law queries via the k-law skill —
 #      the sole live statute source for Safety OS agents
@@ -174,7 +177,7 @@ LAW_API_OC=your_oc_key_here
 
 | Key | Required? | What it enables |
 |-----|:---------:|-----------------|
-| `LAW_API_OC` | **Yes** | Real-time Korean legislation API via the k-law skill (법령 목록, 개정 이력, 조문 해석) |
+| `LAW_API_OC` | **Yes** | Real-time Korean legislation API via the k-law skill (statute lists, revision history, article interpretation) |
 
 > `GITHUB_TOKEN` was only used by the removed `legalize_kr` MCP server (precedent search); the block was removed from `.env.sample` on 2026-08-26. Existing users may drop it from `.env`.
 
@@ -192,7 +195,7 @@ Open this project directory in Claude Code or Gemini CLI. The `.mcp.json` file i
 |------------|-------|---------|
 | `kr_safety` | 5 tools | Korean safety regulations search (OSHA-KR, SAPA, CCA), compliance gap analysis |
 
-Statute content queries go through the `k-law` skill (법제처 Open API). No additional MCP configuration needed — just start chatting with your AI agent.
+Statute content queries go through the `k-law` skill (MoLeg Open API). No additional MCP configuration needed — just start chatting with your AI agent.
 
 > **Minimum viable setup**: Clone → `bun install` in `scripts/` → set `LAW_API_OC` → done.
 
@@ -253,4 +256,4 @@ Safety OS is licensed under the [GNU Affero General Public License v3.0](LICENSE
 
 This system provides workflow automation assistance only. Regulatory interpretation and final compliance decisions are the responsibility of qualified legal/EHS/GxP professionals.
 
-*Last Updated: 2026-08-28*
+*Last Updated: 2026-10-28*
