@@ -4,15 +4,10 @@ name: pm
 description: 'Orchestrates multi-agent workflows. Enforces quality gates. Decides agent hiring/firing and approves agent skill requests. Use when: "Managing workflow", "Coordinating multi-phase tasks", "PM orchestration needed"'
 variant: co-safety
 version: "1.0.0"
-last_updated: "2026-08-28"
+last_updated: 2026-10-27
 status: active
 owner: architect
-tier:
-  claude: medium
-  gemini: medium
-  antigravity: medium
-  gemini-cli: medium
-  codex: medium
+tier: medium
 model: inherit
 lifecycle:
   phase: production

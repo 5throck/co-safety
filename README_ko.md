@@ -1,3 +1,8 @@
+---
+lang: ko
+lang_reason: source-material
+---
+
 # Safety OS — AI 기반 EHS/GxP 플랫폼
 
 > 2-Tier 기능×산업 매트릭스 아키텍처 기반 대한민국 EHS/GxP 규정 준수 자동화
@@ -239,4 +244,4 @@ Safety OS는 [GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0)에 따
 
 본 시스템은 워크플로우 자동화 지원만 제공합니다. 규제 해석 및 최종 컴플라이언스 판단은 자격을 갖춘 법률/EHS/GxP 전문가의 책임입니다.
 
-*Last Updated: 2026-08-28*
+*Last Updated: 2026-10-28*
