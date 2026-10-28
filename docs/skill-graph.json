@@ -79,7 +79,7 @@
       "name": "pm",
       "scope": "root",
       "capability": "pm",
-      "content_hash": "a9387356170fdc73",
+      "content_hash": "429cbde4a6bdeae5",
       "version": "1.0.0",
       "mirrors": [
         "agents/pm.md"
@@ -92,8 +92,8 @@
       "name": "safety-governance-manager",
       "scope": "root",
       "capability": "safety-governance-manager",
-      "content_hash": "7458d45fc8c60c32",
-      "version": "1.1.0",
+      "content_hash": "874e9438d3366c98",
+      "version": "1.1.1",
       "mirrors": [
         "agents/safety-governance-manager.md"
       ]
@@ -105,8 +105,8 @@
       "name": "safety-workflow-manager",
       "scope": "root",
       "capability": "safety-workflow-manager",
-      "content_hash": "358f9580c088b45e",
-      "version": "1.1.0",
+      "content_hash": "a7147208af5ddb05",
+      "version": "1.1.1",
       "mirrors": [
         "agents/safety-workflow-manager.md"
       ]
