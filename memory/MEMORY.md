@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-10-29](2026-10-29.md) | docs(review): full project review 2026-10-28 — re-land on current main (supersedes #215) |
 | [2026-10-28](2026-10-28.md) | chore: workspace sync (0 files) |
 | [2026-10-27](2026-10-27.md) | chore: upgrade template delivery (0.20.1 tree sync + ADR-0102 agent tier delivery) |
 | [2026-10-26](2026-10-26.md) | chore(scripts): workspace sync (28 files) |
