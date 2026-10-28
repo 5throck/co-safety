@@ -66,8 +66,22 @@ base-map MCP: not available (skipped). Design Gate: exempt (analysis-only review
 
 ## Action wiring (Step 5 — variant project: report + memory log; no L0 ticket helper)
 
-- **Validator-hardening (ratchet)**: C-1 (workflow run-record schema + validator), B-1 (frontmatter date bump loop) — both require Design Gate; deferred to the next execution cycle.
-- **Deferred code/doc fixes**: H-1, H-2, M-1..M-4, A-1, D-1, L-1 — recorded here and in `memory/2026-10-28.md`; H-2 and D-1 are the smallest clears (two-line changes) and are recommended first at the next dispatch window.
+**Upstream requests filed 2026-10-28** (ai-workspace-upstream, per the PM Upstream Reporting Duty — findings whose root cause is suspected in the workspace (L1) or the variant template (L2); local fixes must carry the `LOCAL-PATCH(upstream-request: <id>)` marker until upstream shows fixed):
+
+| Finding | Upstream ID | Layer | Status at filing |
+|---|---|---|---|
+| C-1 workflow run-record schema + verify-memory extension | U-20261028-016 | L1 | backlog (inbox; `memory/workflows` flagged not-template-managed) |
+| H-1 audit-variant.ts dead gate-0 | U-20261028-017 | L2 | waiting (ready) |
+| H-2 pre-push gitleaks missing `--config` | U-20261028-018 | L1 | waiting (ready) |
+| B-1 frontmatter date bumps on upgrade waves | U-20261028-019 | L1 | backlog (inbox; path flags) |
+| M-3 ci.yml install no-op + wrong comment | U-20261028-020 | L1 | backlog (inbox; path flags) |
+| D-1 AGENTS.md boilerplate broken relative link | U-20261028-021 | L1 | waiting (ready) |
+| A-1 PROMOTION_CHECKLIST static text vs variant.json | U-20261028-022 | L2 | waiting (ready) |
+
+**Not filed (project-local, L3 — fix locally per the Upstream Reporting Duty)**: M-1, M-2, M-4 (`safety-audit.yml` exists only in this project — `templates/co-safety` ships no `.github/workflows/`), L-1 (Skills-Used starvation — improvement; a dev-sync prefill would be an L1 enhancement, recordable later if it recurs).
+
+- **Validator-hardening (ratchet)**: C-1, B-1 — now tracked upstream (U-20261028-016 / U-20261028-019); both still require Design Gate for any local remediation.
+- **Deferred code/doc fixes**: H-1, H-2, M-1..M-4, A-1, D-1, L-1 — recorded here and in `memory/2026-10-28.md`; H-2 and D-1 are the smallest clears (two-line changes) and are recommended first at the next dispatch window (carry the upstream IDs above as `LOCAL-PATCH` markers when fixed).
 - **Fixed this session**: none (analysis-only review).
 
 ## Verification (Step 6)
