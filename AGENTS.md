@@ -231,7 +231,7 @@ Every execution plan MUST end with `/sync` as the final step — it handles life
 |---|------|-------|------|-------|
 | N | `/sync "type(scope): message"` — lifecycle + audit + commit + push + PR | pm | Medium | claude-sonnet-4-6 |
 
-For full execution plan format, mandatory criteria, platform parity, and examples, see [workspace `AGENTS.md §5`](../../../AGENTS.md#5-execution-plan-templates).
+For full execution plan format, mandatory criteria, platform parity, and examples, see [workspace `AGENTS.md §5`](../../AGENTS.md#5-execution-plan-templates).
 
 ### Specialist Agent Roster (PM-ONLY INVOCATION)
 
