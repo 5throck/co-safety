@@ -69,11 +69,11 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
-| `audit.ts` | — | 2.56.0 | active | — | — | — | — |
-| `co-safety/audit-variant.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
+| `audit.ts` | — | 2.57.0 | active | — | — | — | — |
+| `co-safety/audit-variant.ts` | L2 | 1.2.0 | active | — | — | L2-only | — |
 | `co-safety/check-pm-approval.ts` | L2 | 1.0.1 | deprecated | 2026-11-30 | — | L2-only | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.33.0 | active | — | — | — | — |
+| `dev-sync.ts` | — | 1.34.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.1.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.1.2 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
@@ -86,7 +86,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/risk-register-rollup.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
 | `co-safety/safety-audit.ts` | L2 | 4.10.2 | active | — | — | L2-only | — |
 | `co-safety/scaffold-industry.ts` | L2 | 0.1.1 | active | — | — | L2-only | — |
-| `skill-lifecycle-audit.ts` | — | 1.8.0 | active | — | — | — | — |
+| `skill-lifecycle-audit.ts` | — | 1.9.0 | active | — | — | — | — |
 | `co-safety/start-mcp.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
 | `sync-md.ts` | — | 1.4.0 | active | — | — | — | — |
 | `sync-skill-status.ts` | — | 1.1.0 | active | — | — | — | — |
@@ -129,7 +129,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `compile-tokens.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `generate-skill-graph.ts` | L0 | 2.0.0 | active | —| —| L0+L1 | —|
-| `generate-version-manifest.ts` | L0 | 1.10.2 | active | —| —| L0+L1 | —|
+| `generate-version-manifest.ts` | L0 | 1.11.0 | active | —| —| L0+L1 | —|
 | `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `helpers/merge-frontmatter.ts` | L0 | 1.8.6 | active | —| —| L0+L1 | —|
@@ -139,7 +139,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `hooks/gateguard-fact-force.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `hooks/post-write-lifecycle-check.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `hooks/pre-commit.ts` | L0 | 1.11.0 | active | —| —| L0+L1 | —|
-| `hooks/pre-push.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
+| `hooks/pre-push.ts` | L0 | 1.7.0 | active | —| —| L0+L1 | —|
 | `lib/auth.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/auto-executor.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
 | `lib/checkpoint-manager.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
@@ -155,14 +155,14 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `md-to-ooxml.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `render-pdf-deck.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `setup-github-branch-protection.ts` | L0 | 1.0.1 | active | `--repo`, `--branch`, `--check` (repeatable), `--dry-run` | —| L0+L1 | —|
-| `validate-model-registry.ts` | L0 | 2.1.0 | active | —| —| L0+L1 | —|
+| `validate-model-registry.ts` | L0 | 2.2.0 | active | —| —| L0+L1 | —|
 | `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
 | `verify-platform-lifecycle.ts` | L0 | 1.6.1 | active | —| —| L0+L1 | —|
 | `verify-skill-graph.ts` | L0 | 2.0.0 | active | —| —| L0+L1 | —|
 | `validate-decisions.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.63.0 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.64.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.1.0 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
@@ -198,7 +198,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/resolve-pm-stub.ts` | L0 | 1.2.0 | active | v1.2.0 (registry & platform-policy completeness batch, spec docs/designs/2026-09-25-registry-policy-completeness-design.md R2.1): pure, read-only `composeResolvedAgentContent(agentPath, commonAgentPath, variant, opts)` returns exactly the content `resolveAgentExtendsStub` would write, without touching the filesystem (validators must not mutate the tree they audit); the resolver consumes the compose path so one merge implementation exists (in-place writer stays for the new-project/adopt-project delivery paths). Prior: v1.1.0 (T-20260924-003, spec docs/designs/2026-09-25-inventory-decisions-batch-design.md R2.2): generic `resolveAgentExtendsStub(agentPath, commonAgentPath, variant, opts)` wrapper — the pm canonical-prose check (H12) moves behind an injected `opts.isCanonicalStubBody` (pm passes isCanonicalPmStubBody; the empty-body i18n-specialist stubs skip it); `resolvePmExtendsStub` stays as a thin back-compat wrapper. Prior: Shared agents/pm.md normalization — ADR-0033 extends-stub resolution against the L1 body (H12 non-canonical prose flag) + L1-B metadata strip with project-local lifecycle regeneration; extracted verbatim from new-project §2.3b/§2.5, shared with the adopt-project settling pass | —| L0+L1 | —|
 | `helpers/skills-registry.ts` | L0 | 1.2.0 | active | v1.2.0 (registry-policy-completeness batch W5, spec docs/designs/2026-09-25-registry-policy-completeness-design.md R5.1): registry auto-sync machinery — collectRegistryDrift, listSkillDirs, splitRootRegistry, collectCatalogEntries, collectCatalogDrift, syncVariantExclusiveCatalog, syncGenericRegistry, collectWorkspaceRegistryFindings (pure compute shared by the sync CLI, validate-templates VA-08, and unit tests; the root Variant-Exclusive catalog reconciles via a dedicated path — its 7th column is the owner-variant list, not notes). Prior: v1.1.0 (T-20260924-008, spec docs/designs/2026-09-24-skills-registry-overlay-reconcile-design.md): adds collectDeliveredSkills + pruneSkillRegistryRows (fresh-scaffold reconcile half); extractFrontmatterVersionAndReviewed moved in verbatim from upgrade-project.ts. v1.0.0: parse/reconcile project skills/SKILLS.md (T-20260922-001) | —| L0+L1 | —|
 | `lib/platforms.ts` | L0 | 1.2.0 | active | Platform-list SSOT constants (PLATFORM_SKILL_BASES, PLATFORM_MIRROR_DIRS); Step 1 of the platform-parity program (spec: docs/designs/2026-09-24-platform-ssot-constant-design.md) | —| L0+L1 | —|
-| `regenerate-agents-md.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
+| `regenerate-agents-md.ts` | L0 | 1.4.0 | active | —| —| L0+L1 | —|
 | `lib/ci-workflow-merge.ts` | L0 | 1.0.0 | active | v1.0.0 (T-20260930-026 PR-A, ADR-0094): fail-closed merge/validate of a project `.github/workflows/ci.yml` against the template — 12 error codes (MARKER_*, REGION_*, YAML_PARSE, DUPLICATE_KEY, RESERVED_JOB, FORBIDDEN_TRIGGER, TEMPLATE_JOB_DRIFT, MIGRATION_UNSAFE); PROJECT-JOBS region is untrusted input; legacy migration copies original text slices (never re-serializes); fs confined to applyCiWorkflowMerge (temp + re-validate + atomic rename) | —| L0+L1 | —|
 | `validate-surface-registry.ts` | L0+L1 | 1.1.1 | active | v1.0.0 (2026-10-01, T-20261001-018, spec docs/designs/2026-10-01-surface-registry-validator-design.md): §11.0 supported-surface registry validator (ADR-0097 follow-up) — parses the 8-row CONSTITUTION table as the single source, checks instruction files/platform dirs per family/L2 skill mirroring (mirror:false honored, SCAFFOLD_COMPOSED excluded) at L0/L1/L2, compares templates/common/docs/context.md rows verbatim (one source), renders documented gaps (docs/surface-gaps.json) as WARN with ticket id and undocumented gaps as FAIL; audit.ts gate with --strict. | —| L0+L1 | —|
 | `hooks/pm-role-bootstrap.ts` | L0 | 1.1.2 | active | SessionStart hook (all sources: startup, resume, clear, compact) injecting PM bootstrap reminder to read AGENTS.md and agents/pm.md before first response — design spec docs/designs/2026-10-02-pm-role-bootstrap-design.md | —| L0+L1 | —|
@@ -226,6 +226,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/design-lint-roots.ts` | L0+L1 | 1.0.0 | active | v1.0.0 (2026-10-26, U-20261026-006): pure design-lint scan-root resolver — configured designLint.scanRoots filtered by existence; when none exist, falls back to the design-lint.ts conventional uiSourceRoots default (./playground/src, ./src) so audit.ts and the standalone lint agree on the same schema; skip verdict names both the configured roots and the conventional candidates; fs injected for fixtures; consumed by audit.ts v2.56.0 design-lint gate. | — | L0+L1 | — |
 | `helpers/pre-commit-script-gate.ts` | L0 | 1.1.0 | active | v1.1.0 (2026-10-27, T-20261027-010): parseCheckAErrorsDetailed — Check A extraction from AuditResult.errors that PRESERVES the fixData payload so pre-commit check 6c keeps its actionable "→ Fix:" output while finally reading the real wire shape; parseCheckAErrors delegates to it so the two extractions cannot drift. v1.0.0 (2026-10-27, T-20261027-009): import-safe merge-aware SCRIPTS.md gate for pre-commit check 6 — gate decision (pass / proxy-fail / merge-verify), Check A error parsing from `lifecycle-sync-audit.ts --json` (AuditResult.errors, level==error), exit-code content gate with an injectable audit-runner seam so unit tests target the module (pre-commit.ts itself runs main() at import) | —| L0+L1 | —|
 | `helpers/theme-token-policy.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-10-27, U-20261027-005): DESIGN-R2 theme-invariance key classification — theme presets in tokens.json may override only color/shadow tokens (typography/spacing/borderRadius/target-size are theme-invariant); shared by compile-tokens.ts v1.3.0 (hard compile error) and design-lint.ts v2.3.0 (themes sub-check) so the two enforcement points cannot drift; kebab-normalized membership test | —| L0+L1 | —|
+| `sync-agent-mirrors.ts` | L0 | 1.1.0 | active | v1.1.0 (2026-10-28, canary finding on Projects/co-newbiz — design §4.2 flagged ASSUMPTION verified with a real gap): extends-stub L1 bodies are sourced via templates-root DISCOVERY — the first ancestor of the target root carrying templates/common/agents (bounded 8-level walk), with an explicit `--templates-root <workspace>/templates` override (validated against the common/agents shape before any per-file work) taking precedence; not-found is a hard error naming every searched ancestor, never a silent fallback. In-project runs previously resolved the stub source against <project>/templates, which never exists in a delivered project. Mirror OUTPUT bytes unchanged — only where the stub body is sourced from; new-project/adopt-project wiring passes the workspace templates/ explicitly. Prior: v1.0.0 v1.0.0 (2026-10-28, spec docs/designs/2026-10-28-platform-agent-mirror-design.md, DEC-20261028-06, PR-1 root scope): initial — one template-managed generator projecting the platform-neutral agents/*.md SSOT (scalar `tier:` only, NO `model:` field) into the mirror directory of every registry-marked agents-capable platform (docs/workspace-schema.json platform_surfaces; v1 = Claude Code only). Idempotent compare-then-write with atomic writes, provenance manifest (.sync-agent-mirrors-managed.json) so user-added mirrors are never removed and no/corrupt manifest removes nothing, PID-stamped advisory lock with stale-lock recovery (sync-skills T-20260912-017 pattern), extends-stubs project as self-contained resolved personas via the scaffold-time composer (helpers/resolve-pm-stub.ts composeResolvedAgentContent — import-verified pure), exported resolvePlatformModel ports the agent-model-gate v1.2.0 claude-<alias>-<ver> → <alias> rule, and the B-PGW-pattern registry↔adapter coverage guard fails loud before any per-file work. Mirrors are project-scoped: a root without variant.json is a green no-op (design §12). `--check` is the blocking parity gate consumed by the audit arm (spawn-if-exists, the validate-model-registry precedent) and dev-sync step 4.61. CLI: `--check`, `--dir <path>`. | — | L0+L1 | — |
 
 **Notes on the above:**
 - `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
