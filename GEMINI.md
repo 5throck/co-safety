@@ -1,6 +1,6 @@
 # GEMINI.md
 
-> **Shared workspace setup, session start checklist, project structure, and design standards live in [`CONSTITUTION.md`](CONSTITUTION.md) - read it first and the files listed in its `## Required Reading` block.**
+> **Shared workspace setup, session start checklist, project structure, and design standards live in the workspace-root CONSTITUTION.md (L0-only — not delivered to this project; T-20261028-015). The project-applicable equivalent is [`docs/context.md`](docs/context.md) - read it first.**
 
 ---
 
@@ -306,7 +306,7 @@ Antigravity does not have `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` or `teammateMod
 
 ---
 
-*Last Updated: 2026-10-26 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
+*Last Updated: 2026-10-29 — project review P1/P2 fixes: CLAUDE.md/GEMINI.md date sync, skill registry alignment, metadata block standardization, sync pipeline hardening*
 
 ---
 
