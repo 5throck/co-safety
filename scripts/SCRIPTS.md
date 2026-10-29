@@ -70,7 +70,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
 | `archive-memory.ts` | — | 1.1.2 | active | — | — | — | — |
 | `audit.ts` | — | 2.58.0 | active | — | — | — | — |
-| `co-safety/audit-variant.ts` | L2 | 1.2.0 | active | — | — | L2-only | — |
+| `co-safety/audit-variant.ts` | L2 | 1.3.0 | active | — | — | L2-only | — |
 | `co-safety/check-pm-approval.ts` | L2 | 1.0.1 | deprecated | 2026-11-30 | — | L2-only | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
 | `dev-sync.ts` | — | 1.34.0 | active | — | — | — | — |
