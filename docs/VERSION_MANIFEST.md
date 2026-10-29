@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-10-28T22:43:26.345Z
+**Generated**: 2026-10-29T12:57:43.575Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -19,9 +19,9 @@
 
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
-| pm | agents/pm.md | medium | inherit | 2026-10-27 |
-| safety-governance-manager | agents/safety-governance-manager.md | high | claude-opus-5-5 | 2026-10-26 |
-| safety-workflow-manager | agents/safety-workflow-manager.md | high | claude-opus-5-5 | 2026-10-26 |
+| pm | agents/pm.md | medium | inherit | 2026-10-28 |
+| safety-governance-manager | agents/safety-governance-manager.md | high | claude-opus-5-5 | 2026-10-28 |
+| safety-workflow-manager | agents/safety-workflow-manager.md | high | claude-opus-5-5 | 2026-10-28 |
 
 ---
 
@@ -141,7 +141,7 @@
 | apply-handbook-theme.test.ts | 1.0.1 | scripts/tests/apply-handbook-theme.test.ts | bun:test |
 | apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | N/A |
 | archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
-| audit-variant.ts | 1.2.0 | scripts/co-safety/audit-variant.ts | bun |
+| audit-variant.ts | 1.3.0 | scripts/co-safety/audit-variant.ts | bun |
 | audit.ts | 2.58.0 | scripts/audit.ts | bun |
 | bootstrap-stages.ts | 1.1.0 | scripts/bootstrap-stages.ts | fs, js-yaml, path |
 | build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | N/A |
