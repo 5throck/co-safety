@@ -5,14 +5,14 @@ alias: SWM
 role: orchestrator
 status: active
 version: "1.1.1"
-last_updated: 2026-10-28
+last_updated: 2026-10-30
 tier: high
 color: green
 description: "Harness Prompt agent —operational safety workflow execution, dynamic agent team assembly, evidence collection coordination."
 lifecycle:
   phase: production
   created: 2026-06-04
-  last_updated: 2026-08-26
+  last_updated: 2026-10-30
   governance: docs/lifecycle/agents/safety-workflow-manager.md
 ---
 
@@ -66,7 +66,7 @@ SWM operates as a harness —it reads the workflow definition, then spawns speci
 2. Identify required agents (e.g., Risk Assessment + Compliance for a new equipment installation)
 3. Dispatch agents in parallel where dependencies allow
 4. Collect outputs and route to Audit Agent for evidence filing
-5. Write workflow completion record to `memory/workflows/YYYY-MM-DD-<workflow-id>.md`
+5. Write workflow completion record to `memory/workflows/YYYY-MM-DD-<workflow-id>.md` (required fields per `docs/workflow-run-record.schema.md`; machine-validated by `scripts/co-safety/audit-variant.ts` gate 3)
 
 ### Tools Used
 

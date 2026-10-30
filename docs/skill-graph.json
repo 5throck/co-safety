@@ -105,7 +105,7 @@
       "name": "safety-workflow-manager",
       "scope": "root",
       "capability": "safety-workflow-manager",
-      "content_hash": "a7147208af5ddb05",
+      "content_hash": "debdb7cbbe71e2d4",
       "version": "1.1.1",
       "mirrors": [
         "agents/safety-workflow-manager.md"
