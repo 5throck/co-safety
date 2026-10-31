@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-10-30T17:29:50.298Z
+**Generated**: 2026-10-31T08:20:30.419Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -21,7 +21,7 @@
 |------|------|------|-------|---------------|
 | pm | agents/pm.md | medium | inherit | 2026-10-28 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | claude-opus-5-5 | 2026-10-28 |
-| safety-workflow-manager | agents/safety-workflow-manager.md | high | claude-opus-5-5 | 2026-10-28 |
+| safety-workflow-manager | agents/safety-workflow-manager.md | high | claude-opus-5-5 | 2026-10-30 |
 
 ---
 
@@ -166,7 +166,7 @@
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
 | design-lint.ts | 2.5.0 | scripts/design-lint.ts | js-yaml |
-| dev-sync.ts | 1.35.0 | scripts/dev-sync.ts | bun |
+| dev-sync.ts | 1.36.0 | scripts/dev-sync.ts | bun |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.2 | scripts/dispatch-serial.ts | N/A |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | N/A |

@@ -73,7 +73,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/audit-variant.ts` | L2 | 1.3.0 | active | — | — | L2-only | — |
 | `co-safety/check-pm-approval.ts` | L2 | 1.0.1 | deprecated | 2026-11-30 | — | L2-only | — |
 | `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.35.0 | active | — | — | — | — |
+| `dev-sync.ts` | — | 1.36.0 | active | — | — | — | — |
 | `dispatch-parallel.ts` | — | 1.1.1 | active | — | — | — | — |
 | `dispatch-serial.ts` | — | 1.1.2 | active | — | — | — | — |
 | `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
