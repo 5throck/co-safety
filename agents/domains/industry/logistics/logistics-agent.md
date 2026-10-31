@@ -4,10 +4,7 @@ lang_reason: legal
 name: logistics-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: blue
 description: "Port Logistics & Automated Warehouse Safety specialist — manages port crane lifting, AGV worker collision prevention, and cold storage ammonia refrigerant safety per Port Safety Special Act."

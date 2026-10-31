@@ -4,10 +4,7 @@ lang_reason: legal
 name: incident-investigation-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Incident investigation and root cause analysis (RCA) specialist"
 lifecycle:

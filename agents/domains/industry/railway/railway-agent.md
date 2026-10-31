@@ -4,10 +4,7 @@ lang_reason: legal
 name: railway-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: blue
 description: "Railway & Transit Infrastructure Safety specialist — manages 25kV catenary high-voltage electrification safety, night track maintenance, and subway tunnel operations per Railway Safety Act."

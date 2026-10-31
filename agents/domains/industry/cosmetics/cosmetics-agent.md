@@ -4,10 +4,7 @@ lang_reason: legal
 name: cosmetics-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: green
 description: "Cosmetics Safety specialist — manages cosmetics quality systems, CGMP batch release, ingredient safety assessment, and solvent mixing EHS per Korean Cosmetics Act, MFDS CGMP Notice, and ISO 22716."

@@ -4,10 +4,7 @@ lang_reason: legal
 name: waste-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: blue
 description: "Environmental Waste & Water Treatment Safety specialist — manages sewage H2S asphyxiation prevention, incinerator/shredder LOTO, and biogas safety per Wastes Control Act and Sewerage Act."

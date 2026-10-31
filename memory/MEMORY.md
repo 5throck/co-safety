@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-11-01](2026-11-01.md) | chore(templates): upgrade template delivery 0.25.0 -> 0.26.0 |
 | [2026-10-31](2026-10-31.md) | chore: workspace sync (0 files) |
 | [2026-10-30](2026-10-30.md) | ci(safety-audit): harden variant CI — bun pins, complete test surface, quote-safe linters (review M-1/M-2/M-4) |
 | [2026-10-29](2026-10-29.md) | docs(review): full project review 2026-10-28 — re-land on current main (supersedes #215) |

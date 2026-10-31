@@ -4,10 +4,7 @@ lang_reason: legal
 name: training-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Safety and health education specialist — manages worker training plans, curricula, and compliance tracking per OSHA-KR Articles 29, 31, 32, and 36."
 lifecycle:

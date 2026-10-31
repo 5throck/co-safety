@@ -4,10 +4,7 @@ lang_reason: legal
 name: legal-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Real-time legal interpretation and compliance advisory based on South Korean EHS laws"
 lifecycle:

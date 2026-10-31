@@ -4,10 +4,7 @@ lang_reason: legal
 name: datacenter-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: purple
 description: "Data Center Safety specialist — manages hyperscale IT infrastructure safety, lithium-ion UPS/ESS fire safety, high-voltage substation electrical safety, Arc Flash hazard protection, and BCP per ESCA and EUA."

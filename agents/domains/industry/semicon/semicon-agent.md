@@ -4,10 +4,7 @@ lang_reason: legal
 name: semicon-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: blue
 description: "Semiconductor & Display Safety specialist — manages cleanroom EHS, special gas handling (NF3, SiH4, WF6), hydrofluoric acid (HF) safety, and toxic chemical compliance per HPGSCA and CCA."

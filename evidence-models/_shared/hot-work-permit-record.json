@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "hot-work-permit-record.json",
-  "title": "Cross-Industry Hot Work Permit (화기작업 허가) Record — Shared Base",
-  "description": "Shared base evidence model for hot work permit (화기작업 허가) records across industries. Evaluated against the ADR-0000 promotion checklist and ratified by ADR-0012. Derived from psm-hot-work-permit-record.json (the most complete domain-specific hot work permit model) with common core fields from railway thermite-welding hot-work, shipbuilding pre-hot-work gas-free, and ehsconst permit-to-work (hot_work type) provisions. Domain-specific provisions go in industry_specific_fields. Dedicated domain models (e.g., psm-hot-work-permit-record.json, railway-thermite-welding-hot-work-record.json, shipbuilding-pre-hot-work-gas-free-record.json) are preserved per the ADR-0000 non-migration decision and remain authoritative for their respective domains.",
+  "title": "Cross-Industry Hot Work Permit Record — Shared Base",
+  "description": "Shared base evidence model for hot work permit records across industries. Derived from psm-hot-work-permit-record.json (the most complete domain-specific hot work permit model) with common core fields from railway thermite-welding hot-work, shipbuilding pre-hot-work gas-free, and ehsconst permit-to-work (hot_work type) provisions. Domain-specific provisions go in industry_specific_fields. Dedicated domain models (e.g., psm-hot-work-permit-record.json, railway-thermite-welding-hot-work-record.json, shipbuilding-pre-hot-work-gas-free-record.json) are preserved per the non-migration decision and remain authoritative for their respective domains.",
   "version": "1.0.0",
   "type": "object",
   "required": [
@@ -113,7 +113,7 @@
     },
     "fire_watch": {
       "type": "object",
-      "description": "Fire watch (화재감시자) assignment. Present with required=true whenever the permit conditions demand a fire watch attendant.",
+      "description": "Fire watch assignment. Present with required=true whenever the permit conditions demand a fire watch attendant.",
       "properties": {
         "required": {
           "type": "boolean",
@@ -203,12 +203,12 @@
         "type": "string"
       },
       "minItems": 3,
-      "description": "Multi-source legal basis. Must cite >= 3 regulatory sources. Common cross-industry base: OSHA-KR Art. 38 (안전조치 — de facto hot work anchor: safety measures before hazardous work), OSHA-KR Art. 36 (위험성평가), SAPA Art. 4 (안전·보건 확보의무). Industry-specific additions per the domain's legal_basis template: HPGSCA Art. 11 (절단/용접용 가스 시설 안전유지 — shipbuilding/gasterm), Firearms-Swords-Explosives-Safety Act Art. 37 (화기취급 및 흡연의 금지 — defense/explosives), DSSMA Art. 5 (위험물 취급 — shipbuilding painting), 산업안전보건법 Art. 44 (공정안전관리 — PSM facilities).",
+      "description": "Multi-source legal basis. Must cite >= 3 regulatory sources. Common cross-industry base: OSHA-KR Article 38 (safety measures — de facto hot work anchor: safety measures before hazardous work), OSHA-KR Article 36 (risk assessment), SAPA Article 4 (obligation to secure safety and health). Industry-specific additions per the domain's legal_basis template: HPGSCA Article 11 (gas cutting/welding facility safety maintenance — shipbuilding/gasterm), Firearms-Swords-Explosives-Safety Act Article 37 (prohibition of fire handling and smoking — defense/explosives), DSSMA Article 5 (handling of dangerous substances — shipbuilding painting), OSHA-KR Article 44 (process safety management — PSM facilities).",
       "examples": [
         [
-          "산업안전보건법 Article 38 (안전조치 — 화기작업 전 사전조치)",
-          "산업안전보건법 Article 36 (위험성평가)",
-          "중대재해처벌법 Article 4 (안전·보건 확보의무)"
+          "OSHA-KR Article 38 (safety measures — pre-hot-work precautions)",
+          "OSHA-KR Article 36 (risk assessment)",
+          "SAPA Article 4 (obligation to secure safety and health)"
         ],
         [
           "OSHA-KR Article 38 (safety measures for hot work)",

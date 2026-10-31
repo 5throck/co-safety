@@ -4,10 +4,7 @@ lang_reason: legal
 name: glp-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: purple
 description: "Good Laboratory Practice specialist — non-clinical safety studies, MFDS + ME + OECD GLP compliance, QAU inspections, Study Director support."

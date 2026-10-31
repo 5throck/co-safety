@@ -4,10 +4,7 @@ lang_reason: legal
 name: risk-assessment-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: red
 description: "Workplace risk assessment specialist —hazard identification, risk scoring, control measure recommendations, risk register maintenance per Korean standards."
