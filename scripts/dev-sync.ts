@@ -1,4 +1,19 @@
-// @version 1.35.0
+// @version 1.36.0
+// v1.36.0 (2026-10-31, T-20261030-007 — spec
+//          docs/designs/2026-10-31-graph-delta-log-wiring-design.md): new step 4.64 —
+//          Graph Delta Log. Runs scripts/graph-delta-log.ts --scope <variant name>
+//          immediately BEFORE the 4.65 graph gate: that gate's generate call
+//          regenerates docs/skill-graph.json from the current tree, so the
+//          committed-vs-derived diff is only observable pre-regeneration — a
+//          post-commit or pipeline-terminal invocation would diff the
+//          just-regenerated file against itself and never record (ADR-0084
+//          Decision 7: "on every /sync, but written only when the diff is
+//          non-empty"). Non-blocking by contract: the generator exits 0 on every
+//          failure mode, and a non-zero exit here is a WARN, never a sync
+//          failure. Scope derives from variant.json so the dev-sync copy stays
+//          project-neutral across the co-* lineage. The record lands in
+//          docs/graph-deltas/<YYYY>/ and is staged by step 6.5 as pipeline
+//          output — the same commit that carries the graph change it describes.
 // v1.35.0 (2026-10-29, U-20261028-013 — spec
 //          docs/designs/2026-10-29-delivery-bookkeeping-engine-design.md §3.A4):
 //          new step 3b — CHANGELOG structural-duplicate gate. Blocking, matching
@@ -1169,6 +1184,35 @@ if (isWorkspaceRoot && fs.existsSync('scripts/sync-skill-registries.ts')) {
             if (regSyncErr) console.warn(regSyncErr);
         }
     }
+}
+
+// 4.64 Graph Delta Log — capture the structural diff between the committed
+//     docs/skill-graph.json and a freshly built graph BEFORE the 4.65 gate
+//     regenerates the file (the only window in the pipeline where that diff
+//     can be non-empty). Persists
+//     docs/graph-deltas/<YYYY>/<YYYY-MM-DD>-<commit>-<scope>.json when the
+//     diff is non-empty (ADR-0084 Decision 7, design §5.5); the record is
+//     staged by step 6.5 as pipeline output and lands in this run's commit.
+//     MUST be non-blocking: the generator exits 0 on every failure mode, and
+//     a non-zero exit here is a WARN, never a sync failure. Idempotent per
+//     run: same-HEAD re-runs overwrite the same record file; an empty diff
+//     writes nothing. Ticket: T-20261030-007. Design:
+//     docs/designs/2026-10-31-graph-delta-log-wiring-design.md
+if (fs.existsSync('scripts/graph-delta-log.ts')) {
+    console.log('📋 Step 4.64: Graph delta log...');
+    let deltaScope = 'common';
+    try {
+        const variantCfg = JSON.parse(fs.readFileSync('variant.json', 'utf-8'));
+        if (variantCfg && typeof variantCfg.name === 'string' && variantCfg.name) deltaScope = variantCfg.name;
+    } catch { /* keep 'common' when variant.json is absent or unreadable */ }
+    const deltaRes = await $`bun scripts/graph-delta-log.ts --scope ${deltaScope}`.nothrow();
+    if (deltaRes.exitCode !== 0) {
+        console.warn(`${YELLOW}⚠️  Step 4.64: graph-delta-log exited ${deltaRes.exitCode} — continuing sync (non-blocking)${RESET}`);
+    } else {
+        console.log(`${GREEN}✓ Step 4.64: graph delta check complete (record written only on non-empty diff)${RESET}`);
+    }
+} else {
+    console.log('📋 Step 4.64: skipped — graph-delta-log not present in this context');
 }
 
 // 4.65 Skill Graph Gate — generates and verifies skill relationship graph (ADR-0060

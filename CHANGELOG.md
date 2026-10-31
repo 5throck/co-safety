@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
 
+- **[2026-10-31]**: feat(scripts): **Wire graph-delta-log into the sync pipeline (T-20261030-007).** New dev-sync step 4.64 runs `scripts/graph-delta-log.ts --scope <variant name>` immediately before the 4.65 skill graph gate — the only window where the committed-vs-derived graph diff can be non-empty — so every sync appends a delta record to `docs/graph-deltas/` when the project's skill graph actually changes (ADR-0084 Decision 7). Non-blocking by contract (WARN, never fatal); idempotent per run; scope derived from `variant.json`. Spec: docs/designs/2026-10-31-graph-delta-log-wiring-design.md.
+
 - **[2026-08-29]**: feat(skills): **Skill relationship graph adoption (reledgev wave, upstream ADR-0060 Amendments 3–6).** Graph pipeline scripts refreshed (generate-skill-graph 1.7.0, verify-skill-graph 1.5.0, validate-skills 1.3.0, validate-decisions 1.0.0); typed `relates_to` relations adopted for skills whose upstream definitions gained them (procedure-derived follows/composes_with); `docs/skill-graph.overrides.json` seeded with the fail-closed reason/since/90-day policy; `docs/context.md` gains the Skill Relationship Graph section; adoption recorded in docs/adr/ (per-project ADR). Project graph regenerated and determinism-verified.
 
 - **[2026-08-29]**: feat(procedures): **Procedure corpus adoption (ADR-0063).** Variant workflow procedures copied into `procedures/` (add-if-missing); project skill graph regenerated — procedure/output_type nodes and step_uses_skill/produces edges now present; determinism-verified. Adoption ADR addendum records the wave.
