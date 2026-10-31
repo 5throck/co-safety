@@ -4,10 +4,7 @@ lang_reason: legal
 name: steelmaking-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: orange
 description: "Steelmaking & Heavy Metals Safety specialist — manages molten metal furnace explosion prevention, LOTO energy isolation, blast furnace maintenance, and byproduct gas (CO/N2) leak control per OSHA-KR and HPGSCA."

@@ -4,10 +4,7 @@ lang_reason: legal
 name: defense-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: blue
 description: "Defense & Explosives Safety specialist — manages ammunition propellant mixing ESD, missile cryogenic fuel, and high-pressure gas compliance per Defense Acquisition Act and FSESA."

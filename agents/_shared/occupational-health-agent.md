@@ -4,10 +4,7 @@ lang_reason: legal
 name: occupational-health-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Occupational health specialist; worker health examinations and environment monitoring"
 lifecycle:

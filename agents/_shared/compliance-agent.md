@@ -4,10 +4,7 @@ lang_reason: legal
 name: compliance-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: orange
 description: "Regulatory compliance validation —gap analysis, compliance checklists, and regulatory update impact assessment against Korean EHS law."

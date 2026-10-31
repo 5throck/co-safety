@@ -4,10 +4,7 @@ lang_reason: legal
 name: food-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: green
 description: "Food & Beverage Safety specialist — manages food safety systems, HACCP CCP monitoring, food mixer LOTO, and worker EHS compliance per Korean Food Sanitation Act and MFDS HACCP Notice."

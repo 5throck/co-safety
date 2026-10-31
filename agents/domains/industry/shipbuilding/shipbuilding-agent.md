@@ -4,10 +4,7 @@ lang_reason: legal
 name: shipbuilding-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: yellow
 description: "Shipbuilding & Offshore Safety specialist — manages ship tank confined space asphyxiation prevention, heavy crane lifting safety, and SAPA Article 5 subcontractor compliance per OSHA-KR and OSHSR."

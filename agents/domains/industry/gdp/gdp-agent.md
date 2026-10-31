@@ -4,10 +4,7 @@ lang_reason: legal
 name: gdp-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: cyan
 description: "Good Distribution Practice specialist — pharmaceutical supply chain, storage, transportation, DTS tracking, recalls per KGDP + PIC/S + EU GDP."

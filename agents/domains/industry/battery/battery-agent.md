@@ -4,10 +4,7 @@ lang_reason: legal
 name: battery-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: red
 description: "Secondary Battery Safety specialist — manages battery cell manufacturing safety, thermal runaway prevention, NMP solvent recovery, and recycling chemical hazard control per DSSMA, CCA, and OSHA-KR."

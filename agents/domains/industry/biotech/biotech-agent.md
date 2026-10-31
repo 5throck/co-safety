@@ -4,10 +4,7 @@ lang_reason: legal
 name: biotech-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: blue
 description: "Biopharmaceutical CDMO & Bio-Lab Safety specialist — manages bioreactor SIP steam sterilization, LMO Class 2-3 biohazard containment, and BSL compliance per LMO Act and GxP."

@@ -4,10 +4,7 @@ lang_reason: legal
 name: psm-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Process Safety Management specialist — manages PHA, MOC, PSSR, and LOTO for high-risk chemical and petrochemical facilities per OSHA-KR Article 44."
 lifecycle:

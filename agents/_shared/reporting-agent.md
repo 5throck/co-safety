@@ -4,10 +4,7 @@ lang_reason: legal
 name: reporting-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 color: orange
 description: "Safety KPI reporting specialist; tracks TRIR, LTIR, and near-misses"

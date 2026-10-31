@@ -4,10 +4,7 @@ lang_reason: legal
 name: disaster-response-agent
 role: specialist
 status: active
-tier:
-  claude: high
-  gemini-cli: high
-  antigravity: high
+tier: high
 model: opus
 description: "Disaster response specialist; handles natural disasters like typhoons and earthquakes"
 lifecycle:

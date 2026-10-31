@@ -4,10 +4,7 @@ lang_reason: legal
 name: docs-writer
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Formats official documentation; enforces English-only policy and specific translation zones"
 lifecycle:

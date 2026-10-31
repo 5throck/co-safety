@@ -4,10 +4,7 @@ lang_reason: legal
 name: asset-integrity-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Asset integrity specialist; preventative maintenance and aging equipment management"
 lifecycle:

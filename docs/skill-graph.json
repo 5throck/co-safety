@@ -583,6 +583,19 @@
       ]
     },
     {
+      "id": "skill:root/evidence-collection-hot-work-permit",
+      "type": "skill",
+      "layer": "L3",
+      "name": "evidence-collection-hot-work-permit",
+      "scope": "root",
+      "capability": "evidence-collection-hot-work-permit",
+      "content_hash": "c5cc37fb0881ef7e",
+      "version": "1.0.0",
+      "mirrors": [
+        "skills/evidence-collection-hot-work-permit/SKILL.md"
+      ]
+    },
+    {
       "id": "skill:root/evidence-ledger",
       "type": "skill",
       "layer": "L3",
@@ -2914,6 +2927,59 @@
         "file": "skills/documentation-writing/SKILL.md",
         "field": "relates_to",
         "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/evidence-collection-hot-work-permit",
+      "to": "skill:root/audit-preparation",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/evidence-collection-hot-work-permit",
+      "to": "skill:root/permit-to-work",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/evidence-collection-hot-work-permit/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/evidence-collection-hot-work-permit",
+      "to": "skill:root/psm-loto",
+      "source": "prose"
+    },
+    {
+      "type": "follows",
+      "from": "skill:root/evidence-collection-hot-work-permit",
+      "to": "skill:root/risk-assessment",
+      "source": "relates_to",
+      "provenance": {
+        "file": "skills/evidence-collection-hot-work-permit/SKILL.md",
+        "field": "relates_to",
+        "index": 1
+      }
+    },
+    {
+      "type": "references",
+      "from": "skill:root/evidence-collection-hot-work-permit",
+      "to": "skill:root/risk-assessment",
+      "source": "prose"
+    },
+    {
+      "type": "composes_with",
+      "from": "skill:root/evidence-collection-hot-work-permit",
+      "to": "skill:root/tool-box-meeting",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/evidence-collection-hot-work-permit/SKILL.md",
+        "field": "relates_to",
+        "index": 2
       }
     },
     {

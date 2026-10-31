@@ -4,10 +4,7 @@ lang_reason: legal
 name: contractor-safety-agent
 role: specialist
 status: active
-tier:
-  claude: medium
-  gemini-cli: medium
-  antigravity: medium
+tier: medium
 model: sonnet
 description: "Contractor safety management; onboarding and monitoring of external workers"
 lifecycle:
