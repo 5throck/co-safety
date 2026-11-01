@@ -10,6 +10,7 @@ All notable changes to Safety OS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+- **[2026-11-01]**: chore(upgrade): template sync v0.27.0 (31 file(s) delivered; engine-scaffolded — edit or merge before commit; see templates/CHANGELOG.md v0.27.0)
 
 ### Added
 
