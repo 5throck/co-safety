@@ -210,3 +210,4 @@ Generated: 2026-09-12T01:28:07.508Z
 | `design-foundation` | 1.1.0 | active | architect | 2026-09-26 | — | — |
 | `service-design` | 1.1.0 | active | pm | 2026-09-27 | — | — |
 | `evidence-collection-hot-work-permit` | 1.0.0 | active | safety-workflow-manager | 2026-10-30 | — | — |
+| `delegate-to-hub` | 1.0.1 | active | pm | 2026-11-02 | — | — |

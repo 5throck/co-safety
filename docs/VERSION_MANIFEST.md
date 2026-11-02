@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-01T18:32:25.050Z
+**Generated**: 2026-11-02T22:47:07.695Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -9,7 +9,7 @@
 ## Summary
 
 - **Agents**: 3
-- **Skills**: 94
+- **Skills**: 95
 - **Scripts**: 113 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
@@ -48,6 +48,7 @@
 | cosmetics-solvent-exposure-monitor | 1.0.0 | active | skills/cosmetics-solvent-exposure-monitor/SKILL.md | workspace | 화장품 용제 노출, cosmetics solvent exposure, ethanol IPA inhalation, 에탄올 이소프로판올 흡입 노출, volatile raw material monitoring, OEL exposure assessment cosmetics, ventilation verification 향료 솔벤트, biological monitoring cosmetics, respirator selection 유기용제, OSHA-KR Article 110 (MSDS 작성·제출) | cosmetics-agent |
 | dangerous-cargo-handling-planner | 1.0.0 | active | skills/dangerous-cargo-handling-planner/SKILL.md | workspace | 항만 위험물 하역 안전, IMDG dangerous cargo handling, 위험물 컨테이너 적치, dangerous goods container stowage, IMDG 클래스 분류, IMDG class segregation, 유독가스 흡입 노출 항만, toxic gas inhalation port, 항만하역 위험물 누출 대응, PSSA Article 8 위험물 하역, DSSMA Article 20 위험물 운반, IMDG EmS MFAG response | logistics-agent |
 | decision-record | 1.1.0 | active | skills/decision-record/SKILL.md | workspace | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
+| delegate-to-hub | 1.0.1 | active | skills/delegate-to-hub/SKILL.md | workspace | delegate to hub, delegation ticket, hub delegation, escalate to hub, file delegation | pm |
 | design-foundation | 1.1.0 | active | skills/design-foundation/SKILL.md | workspace | design foundation, design principles, design guide, design tokens setup, design decision record | architect |
 | documentation-writing | 1.0.3 | active | skills/documentation-writing/SKILL.md | workspace | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
 | dts-verification | 1.0.0 | active | skills/dts-verification/SKILL.md | workspace | DTS 바코드 검증, DTS verification, 의약품 유통관리, RFID 검증, MFDS DTS센터, 위변조 의약품 조사, GS1 데이터매트릭스 | gdp-agent |
@@ -269,8 +270,8 @@
 
 - **Commands with parity (gemini mirror)**: 7 / 7
 - **Commands with codex prompts mapping**: 7 / 7
-- **Skills in all four mirrors**: 0 / 94
-- **Skills in claude+gemini only (both)**: 0 / 94 (common-template skills are parity-exempt)
+- **Skills in all four mirrors**: 0 / 95
+- **Skills in claude+gemini only (both)**: 0 / 95 (common-template skills are parity-exempt)
 
 ---
 
