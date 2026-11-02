@@ -32,6 +32,7 @@
 | `root/cosmetics-solvent-exposure-monitor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/dangerous-cargo-handling-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/decision-record` | L3 | 1.1.0 | — | — | — | — | — |
+| `root/delegate-to-hub` | L3 | 1.0.1 | — | — | — | — | — |
 | `root/design-foundation` | L3 | 1.1.0 | — | — | root/accessibility-audit (composes_with), root/token-usage-lint (composes_with), root/ui-ux-design-intelligence (enables) | — | — |
 | `root/documentation-writing` | L3 | 1.0.3 | — | — | root/team-builder (composes_with) | — | — |
 | `root/dts-verification` | L3 | 1.0.0 | — | — | — | — | — |
@@ -336,7 +337,7 @@ None — every capability has a single content hash.
 
 ## Skills Without `used_by` (G6)
 
-96 skill nodes have no `used_by` edge (no agent `required_skills` / manifest `used_by_agents` entry).
+97 skill nodes have no `used_by` edge (no agent `required_skills` / manifest `used_by_agents` entry).
 
 ### Suggested `required_by` agents (E4, report-only)
 
@@ -352,7 +353,7 @@ Inferred from procedure steps that cite the skill and are owned via `step_by_age
 
 ## Skill Usage (E3)
 
-Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-02), window 90 days. Skill nodes with usage: 0.
+Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-03), window 90 days. Skill nodes with usage: 0.
 
 - **used-but-unlinked** (usage > 0, no `used_by`) (0): —
-- **unused** (0 sessions in 90 days) (98): co-safety/daily/audit-preparation, co-safety/daily/compliance-gap, co-safety/daily/risk-assessment, co-safety/investigation/hazop-analysis, root/accessibility-audit, root/agent-lifecycle-manager, root/api-documentation, root/arc-flash-analyzer, root/asset-integrity-check, root/audit-preparation, root/benefit-risk-assessor, root/bsl-lab-aerosol-control-planner, root/chemical-risk-assessment, root/ci-triage, root/coke-oven-pah-heat-stress-planner, root/completion-inspection, root/compliance-gap, root/construction-permit-overview, root/contractor-onboarding, root/cosmetics-solvent-exposure-monitor, root/dangerous-cargo-handling-planner, root/decision-record, root/design-foundation, root/documentation-writing, root/dts-verification, root/emergency-response, root/environmental-compliance-checker, root/ess-fire-risk-assessor, root/evidence-collection-hot-work-permit, root/evidence-ledger, root/explain-me, root/fall-hazard-assessor, root/finishing-a-development-branch, root/gas-dispersion-analyzer, root/gateguard, root/ghs-classifier, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control, root/gmp-deviation-capa … and 58 more
+- **unused** (0 sessions in 90 days) (99): co-safety/daily/audit-preparation, co-safety/daily/compliance-gap, co-safety/daily/risk-assessment, co-safety/investigation/hazop-analysis, root/accessibility-audit, root/agent-lifecycle-manager, root/api-documentation, root/arc-flash-analyzer, root/asset-integrity-check, root/audit-preparation, root/benefit-risk-assessor, root/bsl-lab-aerosol-control-planner, root/chemical-risk-assessment, root/ci-triage, root/coke-oven-pah-heat-stress-planner, root/completion-inspection, root/compliance-gap, root/construction-permit-overview, root/contractor-onboarding, root/cosmetics-solvent-exposure-monitor, root/dangerous-cargo-handling-planner, root/decision-record, root/delegate-to-hub, root/design-foundation, root/documentation-writing, root/dts-verification, root/emergency-response, root/environmental-compliance-checker, root/ess-fire-risk-assessor, root/evidence-collection-hot-work-permit, root/evidence-ledger, root/explain-me, root/fall-hazard-assessor, root/finishing-a-development-branch, root/gas-dispersion-analyzer, root/gateguard, root/ghs-classifier, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control … and 59 more
