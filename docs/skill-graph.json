@@ -105,8 +105,8 @@
       "name": "safety-workflow-manager",
       "scope": "root",
       "capability": "safety-workflow-manager",
-      "content_hash": "debdb7cbbe71e2d4",
-      "version": "1.1.1",
+      "content_hash": "ff1fd70703274813",
+      "version": "1.1.2",
       "mirrors": [
         "agents/safety-workflow-manager.md"
       ]
@@ -260,8 +260,8 @@
       "name": "agent-lifecycle-manager",
       "scope": "root",
       "capability": "agent-lifecycle-manager",
-      "content_hash": "a5b6fdf832174881",
-      "version": "1.3.1",
+      "content_hash": "230ce8c036a46601",
+      "version": "1.4.0",
       "mirrors": [
         "skills/agent-lifecycle-manager/SKILL.md",
         ".claude/skills/agent-lifecycle-manager/SKILL.md",
@@ -894,8 +894,8 @@
       "name": "i18n-layout",
       "scope": "root",
       "capability": "i18n-layout",
-      "content_hash": "7a078ebadc5c908f",
-      "version": "1.0.0",
+      "content_hash": "3991611b47f6aac6",
+      "version": "1.0.1",
       "mirrors": [
         "skills/i18n-layout/SKILL.md",
         ".claude/skills/i18n-layout/SKILL.md",
@@ -1393,8 +1393,8 @@
       "name": "security-scan",
       "scope": "root",
       "capability": "security-scan",
-      "content_hash": "3e12b15970e57e69",
-      "version": "1.2.0",
+      "content_hash": "6a70cb5e596dec68",
+      "version": "1.3.0",
       "mirrors": [
         "skills/security-scan/SKILL.md",
         ".claude/skills/security-scan/SKILL.md",
@@ -1478,8 +1478,8 @@
       "name": "standup-synthesizer",
       "scope": "root",
       "capability": "standup-synthesizer",
-      "content_hash": "c74ddbdf4afc867f",
-      "version": "1.0.0",
+      "content_hash": "78faf9d2096937e5",
+      "version": "1.1.0",
       "mirrors": [
         "skills/standup-synthesizer/SKILL.md",
         ".claude/skills/standup-synthesizer/SKILL.md",
@@ -1496,8 +1496,8 @@
       "name": "sync",
       "scope": "root",
       "capability": "sync",
-      "content_hash": "661843888f616b5a",
-      "version": "1.8.0",
+      "content_hash": "a0e1df01c91ed3ae",
+      "version": "1.9.0",
       "mirrors": [
         "skills/sync/SKILL.md",
         ".claude/skills/sync/SKILL.md",
@@ -2950,6 +2950,17 @@
       "provenance": {
         "file": "skills/documentation-writing/SKILL.md",
         "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
+      "type": "used_by",
+      "from": "skill:root/evidence-collection-hot-work-permit",
+      "to": "agent:root/safety-workflow-manager",
+      "source": "required_skills",
+      "provenance": {
+        "file": "agents/safety-workflow-manager.md",
+        "field": "required_skills",
         "index": 0
       }
     },
@@ -4985,7 +4996,12 @@
       "type": "used_by",
       "from": "skill:root/permit-to-work",
       "to": "agent:root/safety-workflow-manager",
-      "source": "skill_manifest"
+      "source": "required_skills",
+      "provenance": {
+        "file": "agents/safety-workflow-manager.md",
+        "field": "required_skills",
+        "index": 1
+      }
     },
     {
       "type": "references",
@@ -5074,7 +5090,12 @@
       "type": "used_by",
       "from": "skill:root/risk-assessment",
       "to": "agent:root/safety-workflow-manager",
-      "source": "skill_manifest"
+      "source": "required_skills",
+      "provenance": {
+        "file": "agents/safety-workflow-manager.md",
+        "field": "required_skills",
+        "index": 2
+      }
     },
     {
       "type": "references",

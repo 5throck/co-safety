@@ -4,15 +4,16 @@ phases: [3]
 alias: SWM
 role: orchestrator
 status: active
-version: "1.1.1"
-last_updated: 2026-10-30
+required_skills: [evidence-collection-hot-work-permit, permit-to-work, risk-assessment]
+version: "1.1.2"
+last_updated: 2026-11-07
 tier: high
 color: green
 description: "Harness Prompt agent —operational safety workflow execution, dynamic agent team assembly, evidence collection coordination."
 lifecycle:
   phase: production
   created: 2026-06-04
-  last_updated: 2026-10-30
+  last_updated: 2026-11-07
   governance: docs/lifecycle/agents/safety-workflow-manager.md
 ---
 

@@ -117,7 +117,7 @@ Generated: 2026-09-12T01:28:07.508Z
 
 - [k-law](skills/k-law/SKILL.md)
 | `accessibility-audit` | 1.1.0 | active | pm | 2026-09-06 | — | Promoted from co-design (L2-as-basis per ADR-0068 plan): automated WCAG 2.1 AA audits via axe-core |
-| `agent-lifecycle-manager` | 1.3.1 | active | pm | 2026-10-09 | — | PM-led hiring/firing workflows + skill attach/detach rules |
+| `agent-lifecycle-manager` | 1.4.0 | active | pm | 2026-11-06 | — | PM-led hiring/firing workflows + skill attach/detach rules |
 | `api-documentation` | 1.0.2 | active | pm | 2026-07-19 | — | Promoted from co-work/co-safety duplicate copies — generic REST/GraphQL/SDK documentation generation, not domain-specific |
 | `arc-flash-analyzer` | 1.0.0 | active | powergen-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `asset-integrity-check` | 1.0.0 | active | asset-integrity-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -157,7 +157,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `hv-cell-formation-electrical-safety-planner` | 1.0.0 | active | battery-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `i18n-audit` | 1.0.0 | active | pm | 2026-08-29 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `i18n-formatting` | 1.0.0 | active | pm | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `i18n-layout` | 1.0.0 | active | pm | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `i18n-layout` | 1.0.1 | active | pm | 2026-11-06 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `i18n-locale-config` | 1.0.0 | active | pm | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `iso14971-risk-scorer` | 1.1.0 | active | meddevice-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `k-dart` | 2.1.2 | active | strategy-analyst | 2026-08-09 | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -190,12 +190,12 @@ Generated: 2026-09-12T01:28:07.508Z
 | `sae-causality-assessor` | 1.0.0 | active | gcp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `safety-inspection-validator` | 1.0.0 | active | ehsconst-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `script-lifecycle-manager` | 1.2.2 | active | pm | 2026-05-30 | — | — |
-| `security-scan` | 1.2.0 | active | pm | 2026-08-30 | — | Reassigned from security-expert — not defined in templates/common/agents/ or any variant, caused orphan on every propagated variant |
+| `security-scan` | 1.3.0 | active | pm | 2026-11-04 | — | Reassigned from security-expert — not defined in templates/common/agents/ or any variant, caused orphan on every propagated variant |
 | `signal-detector` | 1.0.0 | active | gvp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `skill-lifecycle-manager` | 1.5.1 | active | pm | 2026-10-09 | — | Skill Request Workflow (agent-initiated, PM-approved) + Deprecation & Removal |
 | `source-command-commit-push-pr` | 1.0.3 | active | pm | — | — | Redirects commit+push+PR requests to /sync (mirrored 2026-09-04 from .claude/skills) |
-| `standup-synthesizer` | 1.0.0 | active | pm | 2026-08-06 | — | Daily standup digest synthesizer aggregating commits, issues, PRs, and blockers |
-| `sync` | 1.8.0 | active | pm | 2026-10-08 | — | Full project sync pipeline — lifecycle, audit, publish, commit, push, PR. Reassigned from lifecycle-manager — same orphan cause as security-scan |
+| `standup-synthesizer` | 1.1.0 | active | pm | 2026-11-06 | — | Daily standup digest synthesizer aggregating commits, issues, PRs, and blockers |
+| `sync` | 1.9.0 | active | pm | 2026-11-07 | — | Full project sync pipeline — lifecycle, audit, publish, commit, push, PR. Reassigned from lifecycle-manager — same orphan cause as security-scan |
 | `tank-integrity-validator` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `tar-planning` | 1.1.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `team-builder` | 1.2.0 | active | pm | 2026-10-26 | — | — |
