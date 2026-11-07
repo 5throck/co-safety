@@ -15,7 +15,7 @@
 | `co-safety/daily/risk-assessment` | L3 | — | — | — | — | — | — |
 | `co-safety/investigation/hazop-analysis` | L3 | — | — | — | — | — | — |
 | `root/accessibility-audit` | L3 | 1.1.0 | — | — | — | — | — |
-| `root/agent-lifecycle-manager` | L3 | 1.3.1 | — | — | root/skill-lifecycle-manager (composes_with) | — | — |
+| `root/agent-lifecycle-manager` | L3 | 1.4.0 | — | — | root/skill-lifecycle-manager (composes_with) | — | — |
 | `root/api-documentation` | L3 | 1.0.2 | — | — | — | — | — |
 | `root/arc-flash-analyzer` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/asset-integrity-check` | L3 | 1.0.0 | — | — | — | — | — |
@@ -39,7 +39,7 @@
 | `root/emergency-response` | L3 | 1.0.1 | — | — | — | — | — |
 | `root/environmental-compliance-checker` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/ess-fire-risk-assessor` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/evidence-collection-hot-work-permit` | L3 | 1.0.0 | — | — | root/permit-to-work (composes_with), root/risk-assessment (follows), root/tool-box-meeting (composes_with) | — | — |
+| `root/evidence-collection-hot-work-permit` | L3 | 1.0.0 | root/safety-workflow-manager | — | root/permit-to-work (composes_with), root/risk-assessment (follows), root/tool-box-meeting (composes_with) | — | — |
 | `root/evidence-ledger` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/explain-me` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/fall-hazard-assessor` | L3 | 1.0.0 | — | — | — | — | — |
@@ -58,7 +58,7 @@
 | `root/hv-cell-formation-electrical-safety-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/i18n-audit` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/i18n-formatting` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/i18n-layout` | L3 | 1.0.0 | — | — | — | — | — |
+| `root/i18n-layout` | L3 | 1.0.1 | — | — | — | — | — |
 | `root/i18n-locale-config` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/iso14971-risk-scorer` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/k-dart` | L3 | 2.1.2 | — | — | root/k-ecos (composes_with), root/k-kosis (composes_with), root/k-law | — | — |
@@ -91,13 +91,13 @@
 | `root/sae-causality-assessor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/safety-inspection-validator` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/script-lifecycle-manager` | L3 | 1.2.2 | — | — | — | — | — |
-| `root/security-scan` | L3 | 1.2.0 | — | — | — | — | — |
+| `root/security-scan` | L3 | 1.3.0 | — | — | — | — | — |
 | `root/service-design` | L3 | 1.1.0 | — | — | root/accessibility-audit (follows), root/token-usage-lint (follows), root/ui-ux-design-intelligence (follows) | — | — |
 | `root/signal-detector` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/skill-lifecycle-manager` | L3 | 1.5.1 | — | — | root/script-lifecycle-manager (composes_with) | — | — |
 | `root/source-command-commit-push-pr` | L3 | 1.0.3 | — | — | — | — | — |
-| `root/standup-synthesizer` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/sync` | L3 | 1.8.0 | — | — | — | — | — |
+| `root/standup-synthesizer` | L3 | 1.1.0 | — | — | — | — | — |
+| `root/sync` | L3 | 1.9.0 | — | — | — | — | — |
 | `root/tank-integrity-validator` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/tar-planning` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/team-builder` | L3 | 1.2.0 | — | — | — | — | — |
@@ -337,7 +337,7 @@ None — every capability has a single content hash.
 
 ## Skills Without `used_by` (G6)
 
-97 skill nodes have no `used_by` edge (no agent `required_skills` / manifest `used_by_agents` entry).
+96 skill nodes have no `used_by` edge (no agent `required_skills` / manifest `used_by_agents` entry).
 
 ### Suggested `required_by` agents (E4, report-only)
 
