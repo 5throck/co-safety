@@ -1,21 +1,5 @@
 {
   "mcpServers": {
-    "kr_safety": {
-      "command": "bun",
-      "args": [
-        "run",
-        "--env-file",
-        ".env",
-        "./mcp/kr-safety-regs/index.ts"
-      ],
-      "env": {}
-    },
-    "graft": {
-      "command": "graft",
-      "args": [
-        "mcp"
-      ]
-    },
     "trail": {
       "command": "trail",
       "args": [
