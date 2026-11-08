@@ -3,27 +3,24 @@
 Auto-composed from `.claude/last-upgrade-delivery.json` at delivery time — this body describes exactly the merged content.
 
 - Variant: co-safety
-- Template: 0.28.0 → 0.29.0
-- Delivered: 70 file(s) at 2026-11-07T17:30:11.231Z
+- Template: 0.29.0 → 0.30.0
+- Delivered: 14 file(s) at 2026-11-08T03:35:34.975Z
 
 ### Delivery footprint
 
-- scripts/ — 26 file(s)
-- .claude/ — 6 file(s)
-- .gemini/ — 6 file(s)
-- skills/ — 6 file(s)
-- .agents/ — 5 file(s)
-- .codex/ — 5 file(s)
-- .hermes/ — 5 file(s)
-- (root) — 3 file(s)
-- docs/ — 3 file(s)
-- .trail/ — 3 file(s)
-- .github/ — 1 file(s)
-- agents/ — 1 file(s)
+- scripts/ — 4 file(s)
+- .claude/ — 2 file(s)
+- skills/ — 2 file(s)
+- .agents/ — 1 file(s)
+- .codex/ — 1 file(s)
+- .gemini/ — 1 file(s)
+- .hermes/ — 1 file(s)
+- docs/ — 1 file(s)
+- (root) — 1 file(s)
 
 ### Decisions
 
-- INFO: 173 / WARN: 205 / ERROR: 1
+- INFO: 140 / WARN: 205 / ERROR: 1
 
 **Unresolved ERROR dispositions** (delivery skipped, project copies preserved):
 - `scripts/dev-sync.ts` (SYNC_IF_NEWER: scripts/) — project-evolved since the last delivery AND template changed — CONFLICT disposition: delivery SKIPPED, project copy preserved

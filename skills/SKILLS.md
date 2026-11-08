@@ -157,7 +157,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `hv-cell-formation-electrical-safety-planner` | 1.0.0 | active | battery-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `i18n-audit` | 1.0.0 | active | pm | 2026-08-29 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `i18n-formatting` | 1.0.0 | active | pm | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `i18n-layout` | 1.0.1 | active | pm | 2026-11-06 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `i18n-layout` | 1.1.0 | active | pm | 2026-11-06 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `i18n-locale-config` | 1.0.0 | active | pm | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `iso14971-risk-scorer` | 1.1.0 | active | meddevice-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `k-dart` | 2.1.2 | active | strategy-analyst | 2026-08-09 | — | Added by fleet resync reconcile backfill (2026-09-22) |
