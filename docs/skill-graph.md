@@ -58,7 +58,7 @@
 | `root/hv-cell-formation-electrical-safety-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/i18n-audit` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/i18n-formatting` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/i18n-layout` | L3 | 1.0.1 | — | — | — | — | — |
+| `root/i18n-layout` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/i18n-locale-config` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/iso14971-risk-scorer` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/k-dart` | L3 | 2.1.2 | — | — | root/k-ecos (composes_with), root/k-kosis (composes_with), root/k-law | — | — |
