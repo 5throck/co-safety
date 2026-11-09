@@ -4,6 +4,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-11-10](2026-11-10.md) | chore(skills): declare co-safety meeting command fork in SKILL.md scope (T-20261109-003, DEC-20261110-01) |
 | [2026-11-08](2026-11-08.md) | chore: workspace sync — session residue (Step 1 local-work) |
 | [2026-11-03](2026-11-03.md) | docs(skills): workspace sync (22 files) |
 | [2026-11-02](2026-11-02.md) | chore(templates): upgrade template delivery 0.26.0 -> 0.27.0 |
