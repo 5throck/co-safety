@@ -12,6 +12,7 @@ This document defines the workflow phases used by the `co-safety` variant. co-sa
 | 1 | Research & Analysis | Router | Domain specialist(s) as classified |
 | 2 | Design Review & Approval | Gate Keeper | PM + domain specialist |
 | 3 | Execution | Router | Domain specialist(s) |
+| 4 | Execution (specialist-autonomous) | Router | Implementation specialists per the approved plan |
 | 5 | Lifecycle Finalization | Owner | PM (updates governance records, logs decisions) |
 | 6 | Quality Assurance & Finalization | Owner | PM (runs audit scripts, `/sync`, creates PR) |
 
@@ -22,9 +23,10 @@ This document defines the workflow phases used by the `co-safety` variant. co-sa
 ### Phase 0 — Project Initiation
 PM classifies the safety/security request and selects the domain specialist (e.g. industrial-safety, process-safety, security domain per the roster in `AGENTS.md` and `variant.json`).
 
-### Phases 1–3 — Dispatch-on-demand
+### Phases 1–4 — Dispatch-on-demand
 - Because co-safety engagements are question-driven rather than pipeline-driven, PM dispatches the classified specialist for research (1), design input (2), and execution (3) as the deliverable type requires.
 - **Gate**: Phase 2 design approval is still mandatory before any execution-phase work.
+- Phase 4 — Execution (specialist-autonomous): implementation specialists implement per the approved plan and documentation specialists update docs as needed; agents can dispatch each other directly for routine handoffs (workspace standard, `docs/governance/agents/workflows.md`).
 
 ### Phases 5–6
 Same as the workspace standard: PM-owned lifecycle finalization (5) and QA/finalization with audit scripts and `/sync` (6). Korean regulatory content in deliverables follows the `lang: ko` / `lang_reason: legal` frontmatter exception (statutory citations keep legal force in Korean).

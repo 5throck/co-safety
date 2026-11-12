@@ -46,7 +46,7 @@ You are the Port Logistics & Automated Warehouse Safety Specialist. You operate 
 
 ---
 
-## Section C — Operational Protocols
+## Section C — Operational Protocols & Escalation Rules
 
 ### PM-ONLY INVOCATION
 

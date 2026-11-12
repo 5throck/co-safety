@@ -47,7 +47,7 @@ You are the Semiconductor & Display Safety Specialist. You operate at the **oper
 
 ---
 
-## Section C — Operational Protocols
+## Section C — Operational Protocols & Escalation Rules
 
 ### PM-ONLY INVOCATION
 

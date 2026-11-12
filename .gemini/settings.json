@@ -10,11 +10,10 @@
         "./mcp/kr-safety-regs/index.ts"
       ]
     },
-    "graft": {
-      "command": "graft",
+    "trail": {
+      "command": "trail",
       "args": [
-        "mcp",
-        "@nanonets/graft"
+        "mcp"
       ]
     }
   },

@@ -3,6 +3,9 @@
 > Variant-specific configuration for co-safety. This file is the WS-09-compliant
 > variant context (shared SSOT template lives in `docs/context.md`).
 
+<!-- LOCAL-PATCH(upstream-request: U-20261112-004) -->
+<!-- Repairs: restored corrupted VARIANT-INJECT markers (skills, guidelines), removed dangling fragment after the guidelines END marker, corrected evidence-record destination, corrected agent-count breakdown, fixed frontmatter key tier.claude to tier, qualified template-relative country-profiles path. -->
+
 ## Tech Stack
 
 Safety OS is a docs/schema/workflow platform — no application source code.
@@ -17,12 +20,11 @@ PM (CSO — Chief Safety Officer)
   Emergency track  : PM → emergency-agent  [SGM bypassed]
 ```
 
-40 specialist agents: 2 orchestration (SGM, SWM), 9 functional (compliance,
-legal, risk, reporting, training, PSM, asset integrity, contractor, occupational
-health, MSDS), 22 industry (EHSChem, EHSConst, GasTerm, PowerGen, GMP, GLP,
-GDP, GCP, GVP, MedDevice, Food, Cosmetics, Semicon, Battery, Shipbuilding,
-Steel, DataCenter, Logistics, Railway, Waste, Defense, Biotech), 1 shared docs-writer,
-2 audit/emergency, 2 GxP lifecycle. Full roster: `AGENTS.md`.
+40 agent files = 1 PM stub + 2 orchestration (SGM, SWM) + 12 `_shared/`
+specialists + 3 functional (msds, psm, training) + 22 industry (EHSChem,
+EHSConst, GasTerm, PowerGen, GMP, GLP, GDP, GCP, GVP, MedDevice, Food,
+Cosmetics, Semicon, Battery, Shipbuilding, Steel, DataCenter, Logistics,
+Railway, Waste, Defense, Biotech) — 39 specialists + PM. Full roster: `AGENTS.md`.
 
 ## Skills
 
@@ -42,7 +44,7 @@ ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
 
 1. PM triages user request → dispatches to specialist agent
 2. Specialist executes workflow (risk assessment, PTW, TBM, audit, etc.)
-3. Evidence records written to `evidence-models/` with semver'd schemas
+3. Evidence records written to `memory/` against the versioned schemas in `evidence-models/` (semver'd JSON schemas)
 4. Every workflow record MUST include `legal_basis` (>=3 Korean EHS law articles)
 5. `scripts/co-safety/safety-audit.ts` validates `legal_basis` gate on audit runs
 
@@ -208,7 +210,7 @@ dispatch triggers: `AGENTS.md` Specialist Agent Roster.
 **Tier Governance Principles** — these supplement the CSO routing rules above and apply to all Safety OS agent dispatch:
 
 - *Platform Column Rule*: Every execution plan row MUST declare Platform: `Both` / `Claude` / `Antigravity` / `L0-only`.
-- *Tier Ceiling Rule*: Safety OS agent tiers are defined in each agent's frontmatter — that frontmatter is authoritative, not this table. No tier elevation is permitted. SGM and SWM are High-tier (per their frontmatter `tier.claude: high`); compliance-agent, risk-assessment-agent, and audit-agent are Medium-tier (no agent in `agents/` is currently declared Low-tier).
+- *Tier Ceiling Rule*: Safety OS agent tiers are defined in each agent's frontmatter — that frontmatter is authoritative, not this table. No tier elevation is permitted. SGM and SWM are High-tier (per their frontmatter `tier: high`); compliance-agent, risk-assessment-agent, and audit-agent are Medium-tier (no agent in `agents/` is currently declared Low-tier).
 - *Model Parameter Enforcement Rule*: Writing a model name in the execution plan table's Model column does **not** apply it. When calling the `Agent` tool, you MUST pass the `model` parameter explicitly as a short alias, mapped from the Registry Model ID in the execution plan:
 
   | Tier | Registry Model ID | `Agent(model: ...)` value (Short Alias) |
@@ -229,16 +231,15 @@ PM (CSO — Chief Safety Officer)
   Emergency track  : PM → emergency-agent  [SGM bypassed]
 ```
 
-40 specialist agents: 2 orchestration (SGM, SWM), 9 functional (compliance,
-legal, risk, reporting, training, PSM, asset integrity, contractor, occupational
-health, MSDS), 22 industry (EHSChem, EHSConst, GasTerm, PowerGen, GMP, GLP,
-GDP, GCP, GVP, MedDevice, Food, Cosmetics, Semicon, Battery, Shipbuilding,
-Steel, DataCenter, Logistics, Railway, Waste, Defense, Biotech), 1 shared docs-writer,
-2 audit/emergency, 2 GxP lifecycle. Full roster: `AGENTS.md`.
+40 agent files = 1 PM stub + 2 orchestration (SGM, SWM) + 12 `_shared/`
+specialists + 3 functional (msds, psm, training) + 22 industry (EHSChem,
+EHSConst, GasTerm, PowerGen, GMP, GLP, GDP, GCP, GVP, MedDevice, Food,
+Cosmetics, Semicon, Battery, Shipbuilding, Steel, DataCenter, Logistics,
+Railway, Waste, Defense, Biotech) — 39 specialists + PM. Full roster: `AGENTS.md`.
 <!-- END VARIANT-INJECT -->
 
 
-<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-IN<!-- VARIANT-INJECT: skills -->
+<!-- VARIANT-INJECT: skills -->
 
 Variant-specific workflow skills with `legal_basis` traceability:
 
@@ -251,7 +252,8 @@ Variant-specific workflow skills with `legal_basis` traceability:
 
 Plus 30+ domain-specific skills (arc-flash-analyzer, gas-dispersion-analyzer,
 ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
-<!-- END VARIANT-INJECT -->li<!-- VARIANT-INJECT: guideli<!-- VARIANT-INJECT: guideli<!-- VARIANT-INJECT: guidelines [REQUIRED] -->
+<!-- END VARIANT-INJECT -->
+<!-- VARIANT-INJECT: guidelines [REQUIRED] -->
 ## Domain Guidelines
 
 1. **`legal_basis` field is mandatory** in every workflow record
@@ -263,13 +265,13 @@ ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
    MUST delegate to external tools — never estimate directly
 6. **Country profile**: co-safety currently supports only the KR jurisdiction
    (`variant.json` `country_config.supported: ["KR"]`, default `KR`) — see
-   `docs/countries/KR.md` for the active profile and `common/docs/country-profiles.md`
-   for the mechanism. `regulations/KR/` holds Korea-specific regulation metadata
+   `docs/countries/KR.md` for the active profile and the workspace template
+   `templates/common/docs/country-profiles.md` for the mechanism. `regulations/KR/` holds Korea-specific regulation metadata
    (`regulations/international/` is jurisdiction-neutral and always ships); the
    `k-law` skill (inherited from `templates/common/`, KR-scoped per
    `docs/workspace-schema.json`'s `country_scoped_assets`) provides statutory
    research and is pruned from region-neutral scaffolds
-<!-- END VARIANT-INJECT -->s Coding Guidelines section.
+<!-- END VARIANT-INJECT -->
 
 Key rules:
 - All operational scripts must be TypeScript (`.ts`) — run via `bun scripts/<name>.ts` (ADR-0036; no `.sh`/`.ps1` pairs)

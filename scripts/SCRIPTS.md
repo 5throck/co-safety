@@ -79,11 +79,11 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
 | `co-safety/domain-config.ts` | L2 | 1.5.0 | active | — | — | L2-only | — |
 | `gen-pr-body.ts` | — | 1.2.0 | active | — | — | — | — |
-| `co-safety/new-domain.ts` | L2 | 1.0.2 | active | — | — | L2-only | — |
+| `co-safety/new-domain.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
 | `qa-gate.ts` | — | 1.3.0 | active | — | — | — | — |
 | `readme-lifecycle-audit.ts` | — | 1.1.0 | active | — | — | — | — |
 | `retry-handler.ts` | — | 1.1.0 | active | — | — | — | — |
-| `co-safety/risk-register-rollup.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
+| `co-safety/risk-register-rollup.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
 | `co-safety/safety-audit.ts` | L2 | 4.10.2 | active | — | — | L2-only | — |
 | `co-safety/scaffold-industry.ts` | L2 | 0.1.1 | active | — | — | L2-only | — |
 | `skill-lifecycle-audit.ts` | — | 1.11.0 | active | — | — | — | — |

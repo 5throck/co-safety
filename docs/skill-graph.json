@@ -132,6 +132,11 @@
       "layer": "L3"
     },
     {
+      "id": "dec:DEC-20261110-01",
+      "type": "decision",
+      "layer": "L3"
+    },
+    {
       "id": "doc:AGENTS.md",
       "type": "doc",
       "layer": "L3"
@@ -1218,7 +1223,11 @@
         ".agents/skills/project-review/SKILL.md",
         ".codex/skills/project-review/SKILL.md",
         ".hermes/skills/project-review/SKILL.md"
-      ]
+      ],
+      "usage": {
+        "sessions": 1,
+        "last_used": "2026-11-12"
+      }
     },
     {
       "id": "skill:root/protocol-deviation-analyzer",

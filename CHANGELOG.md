@@ -10,6 +10,10 @@ All notable changes to Safety OS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+- **[2026-11-12]**: docs(review): full project review 2026-11-12 remediation — graft→trail doc remnants retired in CODEX.md/HERMES.md (U-20261112-003), corrupted VARIANT-INJECT markers repaired in docs/co-safety.context.md (U-20261112-004), MEMORY.md session index repointed to archive/ (U-20261112-007), i18n-specialist lifecycle record retired + PROMOTION_CHECKLIST counts corrected, AGENTS.md §6 skill registry completed (meeting-facilitation rename, evidence-collection-hot-work-permit row + variant.json manifest entry), Phase 4 restored to docs/phase-definitions.md, root-file sanction lists extended (CODEX.md/HERMES.md/README_ko.md, U-20261112-006), DEC-20261110-01 pointer stub added, meeting-facilitation lifecycle record created, new-domain.ts input validation + overwrite guard (v1.1.0), risk-register-rollup.ts audit_trail guard + calendar-date validation (v1.0.1), kr_safety MCP block restored to .mcp.json (side effect of 9ec09e9, review H8); spec 2026-11-12-project-review-remediation-design registered.
+- **[2026-11-10]**: chore(skills): declare co-safety meeting command fork in SKILL.md scope (6b80771; T-20261109-003, root DEC-20261110-01)
+- **[2026-11-08]**: chore(templates): upgrade template delivery 0.29.0 -> 0.30.0 (189e221); fix(mcp): .mcp.json trail-only — graft registration retired (9ec09e9, PR #233, T-20261108-010 follow-through; note — the kr_safety block was removed alongside graft without being named in the commit; restored 2026-11-12); docs(skills): workspace sync (981e876, 77 files; edec7af session residue)
+- **[2026-11-03]**: docs(skills): workspace sync (acd719b, 25 files, PR #229)
 - **[2026-11-01]**: chore(upgrade): template sync v0.27.0 (31 file(s) delivered; engine-scaffolded — edit or merge before commit; see templates/CHANGELOG.md v0.27.0)
 
 ### Added

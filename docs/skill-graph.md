@@ -162,6 +162,7 @@ Catalog table above — not skill references and not yet resolved as graph edges
 | `dec:DEC-20261013-01` | decision | `root/sync` | — | — |
 | `dec:DEC-20261013-02` | decision | `root/sync` | — | — |
 | `dec:DEC-20261013-03` | decision | `root/sync` | — | — |
+| `dec:DEC-20261110-01` | decision | — | — | — |
 | `doc:AGENTS.md` | doc | `root/agent-lifecycle-manager`, `root/audit-preparation`, `root/contractor-onboarding`, `root/emergency-response`, `root/fall-hazard-assessor`, `root/ghs-classifier`, `root/k-law`, `root/msds-parser`, `root/permit-to-work`, `root/psm-loto`, `root/risk-assessment`, `root/skill-lifecycle-manager`, `root/tar-planning`, `root/tool-box-meeting` | — | — |
 | `doc:CLAUDE.md` | doc | `root/meeting-facilitation` | — | — |
 | `doc:CODEX.md` | doc | `root/meeting-facilitation` | — | — |
@@ -333,6 +334,7 @@ None — every capability has a single content hash.
 | Type | Count | Nodes |
 |------|-------|-------|
 | adr | 11 | (expected until docs `references` edges are mined) |
+| decision | 1 | (expected until docs `references` edges are mined) |
 | skill | 27 | root/api-documentation, root/asset-integrity-check, root/benefit-risk-assessor, root/dts-verification, root/ess-fire-risk-assessor, root/explain-me, root/finishing-a-development-branch, root/gateguard, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control, root/gmp-deviation-capa, root/gmp-qrm, root/hazop-analysis, root/iso14971-risk-scorer, root/platform-command-lifecycle-manager, root/platform-skill-lifecycle-manager, root/process-hazard-screening, root/protocol-deviation-analyzer, root/psm-moc, root/sae-causality-assessor, root/safety-inspection-validator, root/signal-detector, root/source-command-commit-push-pr, root/standup-synthesizer, root/temperature-excursion-analyzer, root/zod-contract-gate |
 
 ## Skills Without `used_by` (G6)
@@ -353,7 +355,7 @@ Inferred from procedure steps that cite the skill and are owned via `step_by_age
 
 ## Skill Usage (E3)
 
-Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-10), window 90 days. Skill nodes with usage: 0.
+Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-12), window 90 days. Skill nodes with usage: 1.
 
-- **used-but-unlinked** (usage > 0, no `used_by`) (0): —
-- **unused** (0 sessions in 90 days) (99): co-safety/daily/audit-preparation, co-safety/daily/compliance-gap, co-safety/daily/risk-assessment, co-safety/investigation/hazop-analysis, root/accessibility-audit, root/agent-lifecycle-manager, root/api-documentation, root/arc-flash-analyzer, root/asset-integrity-check, root/audit-preparation, root/benefit-risk-assessor, root/bsl-lab-aerosol-control-planner, root/chemical-risk-assessment, root/ci-triage, root/coke-oven-pah-heat-stress-planner, root/completion-inspection, root/compliance-gap, root/construction-permit-overview, root/contractor-onboarding, root/cosmetics-solvent-exposure-monitor, root/dangerous-cargo-handling-planner, root/decision-record, root/delegate-to-hub, root/design-foundation, root/documentation-writing, root/dts-verification, root/emergency-response, root/environmental-compliance-checker, root/ess-fire-risk-assessor, root/evidence-collection-hot-work-permit, root/evidence-ledger, root/explain-me, root/fall-hazard-assessor, root/finishing-a-development-branch, root/gas-dispersion-analyzer, root/gateguard, root/ghs-classifier, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control … and 59 more
+- **used-but-unlinked** (usage > 0, no `used_by`) (1): root/project-review
+- **unused** (0 sessions in 90 days) (98): co-safety/daily/audit-preparation, co-safety/daily/compliance-gap, co-safety/daily/risk-assessment, co-safety/investigation/hazop-analysis, root/accessibility-audit, root/agent-lifecycle-manager, root/api-documentation, root/arc-flash-analyzer, root/asset-integrity-check, root/audit-preparation, root/benefit-risk-assessor, root/bsl-lab-aerosol-control-planner, root/chemical-risk-assessment, root/ci-triage, root/coke-oven-pah-heat-stress-planner, root/completion-inspection, root/compliance-gap, root/construction-permit-overview, root/contractor-onboarding, root/cosmetics-solvent-exposure-monitor, root/dangerous-cargo-handling-planner, root/decision-record, root/delegate-to-hub, root/design-foundation, root/documentation-writing, root/dts-verification, root/emergency-response, root/environmental-compliance-checker, root/ess-fire-risk-assessor, root/evidence-collection-hot-work-permit, root/evidence-ledger, root/explain-me, root/fall-hazard-assessor, root/finishing-a-development-branch, root/gas-dispersion-analyzer, root/gateguard, root/ghs-classifier, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control … and 58 more
