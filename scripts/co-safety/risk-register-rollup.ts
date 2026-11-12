@@ -30,7 +30,11 @@
  *       [--year YYYY] [--control-status planned|in_progress|implemented|overdue|not_required|na] \
  *       [--dry-run]
  *
- * @version 1.0.0
+ * @version 1.0.1
+ *
+ * v1.0.1 (2026-11-12): audit_trail initialization guard for hand-authored
+ *   registers lacking the field + calendar-validity round-trip on --signed-at
+ *   (review finding M13).
  */
 
 import * as fs from 'node:fs';
@@ -117,6 +121,13 @@ function parseArgs(argv: string[]): Options {
     }
     if (!/^\d{4}-\d{2}-\d{2}$/.test(opts.signedAt)) {
         console.error(`ERROR: --signed-at must be an ISO date (YYYY-MM-DD), got '${opts.signedAt}'.`);
+        process.exit(1);
+    }
+    // Round-trip check rejects impossible calendar dates (e.g. 2026-13-45)
+    // that pass the shape regex — same approach as training-ingest.ts isValidDate.
+    const signedAtDate = new Date(`${opts.signedAt}T00:00:00Z`);
+    if (Number.isNaN(signedAtDate.getTime()) || signedAtDate.toISOString().slice(0, 10) !== opts.signedAt) {
+        console.error(`ERROR: --signed-at must be a valid calendar date (YYYY-MM-DD), got '${opts.signedAt}'.`);
         process.exit(1);
     }
     if (opts.year && !/^\d{4}$/.test(opts.year)) {
@@ -396,6 +407,16 @@ function mergeIntoRegister(
     merged.responsible_manager_id = opts.managerId;
     merged.high_critical_count = countHighCritical(merged.risk_entries);
     merged.e_signature = composeSignature(opts);
+    // Hand-authored registers may lack audit_trail entirely — initialize a
+    // complete object matching createRegister()'s shape before touching fields.
+    // The backfills below still cover partially-populated audit_trail objects.
+    if (!merged.audit_trail) {
+        merged.audit_trail = {
+            created_at: kstTimestamp(new Date()),
+            created_by: CREATED_BY,
+            record_status: 'active',
+        };
+    }
     merged.audit_trail.last_modified_at = kstTimestamp(new Date());
     merged.audit_trail.last_modified_by = CREATED_BY;
     if (!merged.audit_trail.created_at) {

@@ -331,7 +331,8 @@ Key rules:
 All agents must follow this file routing policy. **Creating `.md` files at the project root is prohibited** unless they are standard root files.
 
 ### Standard Root Files (allowed at root)
-`README.md`, `CHANGELOG.md`, `AGENTS.md`, `SECURITY.md`, `workspace standards`, `CLAUDE.md`, `GEMINI.md`
+<!-- LOCAL-PATCH(upstream-request: U-20261112-006) -->
+`README.md`, `CHANGELOG.md`, `AGENTS.md`, `SECURITY.md`, `workspace standards`, `CLAUDE.md`, `GEMINI.md`, `CODEX.md`, `HERMES.md`, `README_ko.md`
 
 ### File Type Routing
 | File Type | Default Location |

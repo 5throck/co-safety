@@ -1,15 +1,5 @@
 {
   "mcp": {
-    "graft": {
-      "type": "local",
-      "command": [
-        "graft",
-        "mcp",
-        "bunx",
-        "@nanonets/graft"
-      ],
-      "enabled": true
-    },
     "trail": {
       "type": "local",
       "command": [

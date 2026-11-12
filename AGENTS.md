@@ -217,7 +217,7 @@ When a user request matches triggers for multiple agents, PM resolves routing us
 | MSDS, hazardous chemicals | msds-agent (`msds-parser`, `ghs-classifier` skills) | ehschem-agent, semicon-agent (special gas), battery-agent (NMP/recycling) |
 | training | training-agent | contractor-safety-agent (onboarding training), domain agents (role-specific curricula) |
 | audit, inspection readiness | audit-agent (`audit-preparation` skill) | gasterm-agent (KGS inspection), glp-agent (QAU), gmp-agent (self-inspection) |
-| contractor, subcontracting | contractor-safety-agent (`contractor-onboarding` skill) | ehsconst-agent (), shipbuilding-agent (SAPA Art. 5) |
+| contractor, subcontracting | contractor-safety-agent (`contractor-onboarding` skill) | ehsconst-agent (SAPA Art. 5 — subcontractor safety obligations), shipbuilding-agent (SAPA Art. 5) |
 | TBM, tool box meeting | `tool-box-meeting` skill (safety-workflow-manager) | ehsconst-agent (construction TBM profile) |
 | turnaround, TAR | ehschem-agent (`tar-planning` skill) | psm-agent (PSSR), contractor-safety-agent (surge management) |
 | fall hazard | ehsconst-agent (`fall-hazard-assessor` skill) | risk-assessment-agent (cross-site scoring) |
@@ -328,7 +328,7 @@ Hubs (co-develop, co-design, co-security, co-work) own their domain doctrine and
 | Skill | Owner | Description |
 |-------|-------|-------------|
 | sync | pm | Runs full project sync pipeline — memory log, CHANGELOG verification, safety audit, commit, push, and PR creation |
-| meeting | pm | Structured multi-agent meeting facilitation — dialogue, synthesis, transcript archival |
+| meeting-facilitation | pm | Structured multi-agent meeting facilitation — dialogue, synthesis, transcript archival |
 | project-review | pm | Comprehensive parallel review by specialist agents — produces prioritized improvement plan |
 | compliance-gap | compliance-agent | Trigger compliance gap analysis against applicable EHS regulations |
 | emergency-response | emergency-agent | Trigger emergency response protocol on incident, fire, spill, or injury report |
@@ -338,6 +338,7 @@ Hubs (co-develop, co-design, co-security, co-work) own their domain doctrine and
 | k-krx | compliance-agent | Query the KRX (Korea Exchange) Open API for listed-company and market data — listed partner-company monitoring; requires KRX_API_KEY |
 | k-ecos | reporting-agent | Query the Bank of Korea ECOS Open API for Korean macro-financial statistics — economic context for safety investment and reporting cycles; requires ECOS_API_KEY |
 | k-opendata | compliance-agent | Query the Korea Public Data Portal (data.go.kr) Open API gateway for government datasets, including safety and regulatory data; requires DATA_GO_KR_API_KEY |
+| evidence-collection-hot-work-permit | safety-workflow-manager | Collect schema-typed hot work permit evidence records (HWP) by running the permit-to-work issuance procedure against the cross-industry hot-work-permit shared base model |
 | permit-to-work | safety-workflow-manager | Trigger permit-to-work (PTW) issuance workflow for high-risk or non-routine work |
 | tool-box-meeting | safety-workflow-manager | Trigger pre-work Tool Box Meeting (TBM) — cross-industry daily safety briefing with per-domain legal profiles (ehschem/gasterm/steelmaking/shipbuilding/powergen/waste/defense/semicon/battery/biotech/datacenter/logistics/railway/food) |
 | risk-assessment | risk-assessment-agent | Trigger risk assessment workflow for hazard identification and scoring |
@@ -401,7 +402,8 @@ All agents, regardless of their role, must adhere to the following:
 - **Coding Standards**: Follow SOLID principles. Write unit tests when creating functional code. No speculative abstractions.
 - **Language**: All code, config, commit messages, and branch names - **English only**.
 - **UTF-8 Enforcement**: Always use UTF-8 encoding; prevent CP949 or other localized encoding corruptions.
-- **File Organization**: Never create `.md` files at the project root unless explicitly creating a standard root file (README.md, CHANGELOG.md, AGENTS.md, SECURITY.md). Place analysis and reports in `docs/`, session logs and meeting transcripts in `memory/`. Sanctioned-by-convention exceptions (referenced by tooling, do not relocate): `_COMMON_VERSION.md` and `_ORIGIN.md` (workspace version registry), `PROMOTION_CHECKLIST.md` (`variant.json:promotionChecklist`).
+<!-- LOCAL-PATCH(upstream-request: U-20261112-006) -->
+- **File Organization**: Never create `.md` files at the project root unless explicitly creating a standard root file (README.md, CHANGELOG.md, AGENTS.md, SECURITY.md, CODEX.md, HERMES.md, README_ko.md). Place analysis and reports in `docs/`, session logs and meeting transcripts in `memory/`. Sanctioned-by-convention exceptions (referenced by tooling, do not relocate): `_COMMON_VERSION.md` and `_ORIGIN.md` (workspace version registry), `PROMOTION_CHECKLIST.md` (`variant.json:promotionChecklist`).
 - **Source Attribution**: When presenting research findings, external data, or factual claims, always cite the source using `[Source: URL/document]` inline or a `## References` section. If a source cannot be verified, explicitly mark it as `Unverified` and recommend manual verification. Never present unverified information as established fact.
 
 ---

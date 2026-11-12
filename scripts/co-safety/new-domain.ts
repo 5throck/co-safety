@@ -6,12 +6,15 @@
  * docs/_shared/domain-onboarding-guide.md.
  *
  * Usage:
- *   bun scripts/co-safety/new-domain.ts <name> <tier> [industry-profile]
+ *   bun scripts/co-safety/new-domain.ts <name> <tier> [industry-profile] [--force]
  *
  * Example:
  *   bun scripts/co-safety/new-domain.ts cosmetics industry cosmetics
  *
- * @version 1.0.2
+ * @version 1.1.0
+ * v1.1.0 (2026-11-12): Input validation — domain/profile names must be
+ *   kebab-case (rejects path traversal, uppercase, leading digits) — and a
+ *   profile overwrite guard with --force (review finding M11).
  * v1.0.1 (2026-07-11): Fixed stale agent-template comment claiming "min 2 for
  *   functional" legal_basis sources — policy has required min 3 for all domains
  *   since 2026-07-05 (see domain-config.ts DEFAULT_MIN_LEGAL_BASIS).
@@ -26,13 +29,28 @@ const CYAN = '\x1b[36m';
 const YELLOW = '\x1b[33m';
 const RESET = '\x1b[0m';
 
-const name = process.argv[2];
-const tier = process.argv[3] as 'functional' | 'industry';
-const profile = process.argv[4] || name;
+const NAME_PATTERN = /^[a-z][a-z0-9-]*$/;
+
+// Positional scan that skips flags, so --force can appear in any position
+// without disturbing the <name> <tier> [profile] argument order.
+const argv = process.argv.slice(2);
+const force = argv.includes('--force');
+const positionals = argv.filter(a => !a.startsWith('--'));
+const name = positionals[0];
+const tier = positionals[1] as 'functional' | 'industry';
+const profile = positionals[2] || name;
 
 if (!name || !tier || !['functional', 'industry'].includes(tier)) {
-    console.error(`${RED}Usage: bun scripts/co-safety/new-domain.ts <name> <tier:functional|industry> [profile]${RESET}`);
+    console.error(`${RED}Usage: bun scripts/co-safety/new-domain.ts <name> <tier:functional|industry> [profile] [--force]${RESET}`);
     console.error(`${YELLOW}Example: bun scripts/co-safety/new-domain.ts cosmetics industry cosmetics${RESET}`);
+    process.exit(1);
+}
+if (!NAME_PATTERN.test(name)) {
+    console.error(`${RED}❌ Invalid domain name '${name}': must match ${NAME_PATTERN} (lowercase letters, digits, hyphens; must start with a letter)${RESET}`);
+    process.exit(1);
+}
+if (!NAME_PATTERN.test(profile)) {
+    console.error(`${RED}❌ Invalid profile name '${profile}': must match ${NAME_PATTERN} (lowercase letters, digits, hyphens; must start with a letter)${RESET}`);
     process.exit(1);
 }
 
@@ -105,6 +123,10 @@ console.log(`${GREEN}✓ Step 3: Agent template created${RESET}`);
 
 // ── Step 4: Author Industry Profile ─────────────────────────────────
 const profileFile = path.join(ROOT, 'industry-profiles', `${profile}.yaml`);
+if (fs.existsSync(profileFile) && !force) {
+    console.error(`${RED}❌ Profile file 'industry-profiles/${profile}.yaml' already exists — refusing to overwrite. Re-run with --force to overwrite it.${RESET}`);
+    process.exit(1);
+}
 fs.writeFileSync(profileFile, `# ${profile} Industry Profile — ${name} Domain (v1)
 name: ${profile}
 display_name: "${name}"
