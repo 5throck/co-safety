@@ -23,7 +23,7 @@
 | `root/benefit-risk-assessor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/bsl-lab-aerosol-control-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/chemical-risk-assessment` | L3 | 1.1.0 | — | — | — | — | — |
-| `root/ci-triage` | L3 | 0.2.0 | — | — | — | — | — |
+| `root/ci-triage` | L3 | 0.2.0 | root/automation-engineer | — | — | — | — |
 | `root/coke-oven-pah-heat-stress-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/completion-inspection` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/compliance-gap` | L3 | 1.0.0 | — | — | — | — | — |
@@ -33,7 +33,7 @@
 | `root/dangerous-cargo-handling-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/decision-record` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/delegate-to-hub` | L3 | 1.0.1 | — | — | — | — | — |
-| `root/design-foundation` | L3 | 1.1.0 | — | — | root/accessibility-audit (composes_with), root/token-usage-lint (composes_with), root/ui-ux-design-intelligence (enables) | — | — |
+| `root/design-foundation` | L3 | 1.1.0 | root/design-system-lead | — | root/accessibility-audit (composes_with), root/token-usage-lint (composes_with), root/ui-ux-design-intelligence (enables) | — | — |
 | `root/documentation-writing` | L3 | 1.0.3 | — | — | root/team-builder (composes_with) | — | — |
 | `root/dts-verification` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/emergency-response` | L3 | 1.0.1 | — | — | — | — | — |
@@ -45,7 +45,7 @@
 | `root/fall-hazard-assessor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/finishing-a-development-branch` | L3 | 1.0.1 | — | — | — | — | — |
 | `root/gas-dispersion-analyzer` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/gateguard` | L3 | 1.0.2 | — | — | — | — | — |
+| `root/gateguard` | L3 | 1.0.2 | root/automation-engineer | — | — | — | — |
 | `root/ghs-classifier` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/glp-data-integrity-checker` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/glp-study-protocol-validator` | L3 | 1.0.0 | — | — | — | — | — |
@@ -56,17 +56,17 @@
 | `root/handbook-sync-audit` | L3 | 1.0.5 | — | — | — | — | — |
 | `root/hazop-analysis` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/hv-cell-formation-electrical-safety-planner` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/i18n-audit` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/i18n-formatting` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/i18n-layout` | L3 | 1.1.0 | — | — | — | — | — |
-| `root/i18n-locale-config` | L3 | 1.0.0 | — | — | — | — | — |
+| `root/i18n-audit` | L3 | 1.0.0 | root/i18n-specialist | — | — | — | — |
+| `root/i18n-formatting` | L3 | 1.0.0 | root/i18n-specialist | — | — | — | — |
+| `root/i18n-layout` | L3 | 1.1.0 | root/i18n-specialist | — | — | — | — |
+| `root/i18n-locale-config` | L3 | 1.0.0 | root/i18n-specialist | — | — | — | — |
 | `root/iso14971-risk-scorer` | L3 | 1.1.0 | — | — | — | — | — |
-| `root/k-dart` | L3 | 2.1.2 | — | — | root/k-ecos (composes_with), root/k-kosis (composes_with), root/k-law | — | — |
-| `root/k-ecos` | L3 | 1.0.0 | — | — | root/k-dart (composes_with), root/k-kosis (composes_with), root/k-opendata (composes_with) | — | — |
-| `root/k-kosis` | L3 | 1.0.2 | — | — | root/k-dart (composes_with), root/k-ecos (composes_with), root/k-law | — | — |
-| `root/k-krx` | L3 | 1.0.2 | — | — | root/k-dart (composes_with), root/k-ecos (composes_with), root/k-kosis (composes_with), root/k-opendata (composes_with) | — | — |
-| `root/k-law` | L3 | 1.0.2 | — | — | root/k-dart, root/k-kosis | — | — |
-| `root/k-opendata` | L3 | 1.2.2 | — | — | root/k-ecos (composes_with), root/k-kosis | — | — |
+| `root/k-dart` | L3 | 2.1.2 | root/public-data-analyst | — | root/k-ecos (composes_with), root/k-kosis (composes_with), root/k-law | — | — |
+| `root/k-ecos` | L3 | 1.0.0 | root/public-data-analyst | — | root/k-dart (composes_with), root/k-kosis (composes_with), root/k-opendata (composes_with) | — | — |
+| `root/k-kosis` | L3 | 1.0.2 | root/public-data-analyst | — | root/k-dart (composes_with), root/k-ecos (composes_with), root/k-law | — | — |
+| `root/k-krx` | L3 | 1.0.2 | root/public-data-analyst | — | root/k-dart (composes_with), root/k-ecos (composes_with), root/k-kosis (composes_with), root/k-opendata (composes_with) | — | — |
+| `root/k-law` | L3 | 1.0.2 | root/public-data-analyst | — | root/k-dart, root/k-kosis | — | — |
+| `root/k-opendata` | L3 | 1.2.2 | root/public-data-analyst | — | root/k-ecos (composes_with), root/k-kosis | — | — |
 | `root/landfill-methane-anaerobic-explosion-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/meeting-facilitation` | L3 | 1.5.0 | — | — | — | — | — |
 | `root/mid-construction-inspection` | L3 | 1.0.0 | — | — | — | — | — |
@@ -90,14 +90,14 @@
 | `root/root-cause-analysis` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/sae-causality-assessor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/safety-inspection-validator` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/script-lifecycle-manager` | L3 | 1.2.2 | — | — | — | — | — |
+| `root/script-lifecycle-manager` | L3 | 1.2.2 | root/automation-engineer | — | — | — | — |
 | `root/security-scan` | L3 | 1.3.0 | — | — | — | — | — |
 | `root/service-design` | L3 | 1.1.0 | — | — | root/accessibility-audit (follows), root/token-usage-lint (follows), root/ui-ux-design-intelligence (follows) | — | — |
 | `root/signal-detector` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/skill-lifecycle-manager` | L3 | 1.5.1 | — | — | root/script-lifecycle-manager (composes_with) | — | — |
 | `root/source-command-commit-push-pr` | L3 | 1.0.3 | — | — | — | — | — |
 | `root/standup-synthesizer` | L3 | 1.1.0 | — | — | — | — | — |
-| `root/sync` | L3 | 1.9.0 | — | — | — | — | — |
+| `root/sync` | L3 | 1.9.0 | root/automation-engineer | — | — | — | — |
 | `root/tank-integrity-validator` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/tar-planning` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/team-builder` | L3 | 1.2.0 | — | — | — | — | — |
@@ -108,7 +108,7 @@
 | `root/translate` | L3 | 1.0.3 | — | — | root/documentation-writing (composes_with) | — | — |
 | `root/ui-ux-design-intelligence` | L3 | 1.0.1 | — | — | root/documentation-writing (follows) | — | — |
 | `root/update-bun-packages` | L3 | 1.3.1 | — | — | — | — | — |
-| `root/zod-contract-gate` | L3 | 1.0.2 | — | — | — | — | — |
+| `root/zod-contract-gate` | L3 | 1.0.2 | root/contract-gate-engineer | — | — | — | — |
 
 ## Lifecycle Phase Grouping
 
@@ -335,11 +335,11 @@ None — every capability has a single content hash.
 |------|-------|-------|
 | adr | 11 | (expected until docs `references` edges are mined) |
 | decision | 1 | (expected until docs `references` edges are mined) |
-| skill | 27 | root/api-documentation, root/asset-integrity-check, root/benefit-risk-assessor, root/dts-verification, root/ess-fire-risk-assessor, root/explain-me, root/finishing-a-development-branch, root/gateguard, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control, root/gmp-deviation-capa, root/gmp-qrm, root/hazop-analysis, root/iso14971-risk-scorer, root/platform-command-lifecycle-manager, root/platform-skill-lifecycle-manager, root/process-hazard-screening, root/protocol-deviation-analyzer, root/psm-moc, root/sae-causality-assessor, root/safety-inspection-validator, root/signal-detector, root/source-command-commit-push-pr, root/standup-synthesizer, root/temperature-excursion-analyzer, root/zod-contract-gate |
+| skill | 25 | root/api-documentation, root/asset-integrity-check, root/benefit-risk-assessor, root/dts-verification, root/ess-fire-risk-assessor, root/explain-me, root/finishing-a-development-branch, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control, root/gmp-deviation-capa, root/gmp-qrm, root/hazop-analysis, root/iso14971-risk-scorer, root/platform-command-lifecycle-manager, root/platform-skill-lifecycle-manager, root/process-hazard-screening, root/protocol-deviation-analyzer, root/psm-moc, root/sae-causality-assessor, root/safety-inspection-validator, root/signal-detector, root/source-command-commit-push-pr, root/standup-synthesizer, root/temperature-excursion-analyzer |
 
 ## Skills Without `used_by` (G6)
 
-96 skill nodes have no `used_by` edge (no agent `required_skills` / manifest `used_by_agents` entry).
+80 skill nodes have no `used_by` edge (no agent `required_skills` / manifest `used_by_agents` entry).
 
 ### Suggested `required_by` agents (E4, report-only)
 
@@ -355,7 +355,7 @@ Inferred from procedure steps that cite the skill and are owned via `step_by_age
 
 ## Skill Usage (E3)
 
-Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-12), window 90 days. Skill nodes with usage: 1.
+Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-18), window 90 days. Skill nodes with usage: 1.
 
 - **used-but-unlinked** (usage > 0, no `used_by`) (1): root/project-review
 - **unused** (0 sessions in 90 days) (98): co-safety/daily/audit-preparation, co-safety/daily/compliance-gap, co-safety/daily/risk-assessment, co-safety/investigation/hazop-analysis, root/accessibility-audit, root/agent-lifecycle-manager, root/api-documentation, root/arc-flash-analyzer, root/asset-integrity-check, root/audit-preparation, root/benefit-risk-assessor, root/bsl-lab-aerosol-control-planner, root/chemical-risk-assessment, root/ci-triage, root/coke-oven-pah-heat-stress-planner, root/completion-inspection, root/compliance-gap, root/construction-permit-overview, root/contractor-onboarding, root/cosmetics-solvent-exposure-monitor, root/dangerous-cargo-handling-planner, root/decision-record, root/delegate-to-hub, root/design-foundation, root/documentation-writing, root/dts-verification, root/emergency-response, root/environmental-compliance-checker, root/ess-fire-risk-assessor, root/evidence-collection-hot-work-permit, root/evidence-ledger, root/explain-me, root/fall-hazard-assessor, root/finishing-a-development-branch, root/gas-dispersion-analyzer, root/gateguard, root/ghs-classifier, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control … and 58 more

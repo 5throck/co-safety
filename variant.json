@@ -266,6 +266,26 @@
     {
       "name": "waste-agent",
       "file": "agents/domains/industry/waste/waste-agent.md"
+    },
+    {
+      "name": "i18n-specialist",
+      "file": "agents/i18n-specialist.md"
+    },
+    {
+      "name": "automation-engineer",
+      "file": "agents/automation-engineer.md"
+    },
+    {
+      "name": "contract-gate-engineer",
+      "file": "agents/contract-gate-engineer.md"
+    },
+    {
+      "name": "design-system-lead",
+      "file": "agents/design-system-lead.md"
+    },
+    {
+      "name": "public-data-analyst",
+      "file": "agents/public-data-analyst.md"
     }
   ]
 }

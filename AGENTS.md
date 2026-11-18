@@ -56,6 +56,16 @@ When leading execution and improvement tasks, PM MUST use the 3-Tier model strat
 | **PM / Chief Safety Officer (CSO)** | [`agents/pm.md`](agents/pm.md) (extends stub) + [`docs/co-safety.context.md`](docs/co-safety.context.md) (CSO Runtime Definition) | Medium | PM override — acts as CSO; orchestrates EHS agent team; enforces legal_basis gate on all workflows |
 | Documentation Writer | [`agents/_shared/docs-writer.md`](agents/_shared/docs-writer.md) | Medium | Formats official documentation; enforces English-only policy and specific translation zones |
 
+### Common Skill-Owner Agents
+
+| Agent | File | Tier | Role |
+|-------|------|------|------|
+| I18N Specialist | [`agents/i18n-specialist.md`](agents/i18n-specialist.md) | Medium | Locale documentation — translation zones, language-policy enforcement, Korean plain-language output |
+| Automation Engineer | [`agents/automation-engineer.md`](agents/automation-engineer.md) | Medium | Executes the /sync pipeline row, implements repository automation (project scripts, hooks, CI workflow files), and implements approved plans for the project software and tooling layer with their unit tests |
+| Contract Gate Engineer | [`agents/contract-gate-engineer.md`](agents/contract-gate-engineer.md) | Medium | Owns runtime schema (Zod) contract patterns for interface boundaries, IPC channels, and API endpoints, and the contract-safety rules around them. Owns the zod-contract-gate skill |
+| Design System Lead | [`agents/design-system-lead.md`](agents/design-system-lead.md) | Medium | Guides a project from domain evidence to design principles, recorded design decisions, and a 3-layer token architecture, staying style-neutral. Owns the design-foundation skill |
+| Public Data Analyst | [`agents/public-data-analyst.md`](agents/public-data-analyst.md) | Medium | Operates and maintains the Korean public-data gateway skills (BOK ECOS, KOSIS, KRX, DART, Open Law, data.go.kr): key setup, endpoint behaviour, response normalisation, and citation of source and receipt IDs. Does not make domain judgements; routes those to the project domain lead |
+
 ### Safety Management
 
 | Agent | File | Tier | Role |
@@ -152,6 +162,13 @@ only the `governance_workflow` / `agent_roster` / `dispatch_protocol` variant se
 inline). PM's own CSO-specific 3-Section content is **not** duplicated here either — it
 lives in `docs/co-safety.context.md` under "CSO Runtime Definition (Section A/B/C)",
 matching the same pattern used by the `templates/co-safety/` template SSOT.
+
+**Exception — common skill-owner agents**: `agents/i18n-specialist.md`,
+`agents/automation-engineer.md`, `agents/contract-gate-engineer.md`,
+`agents/design-system-lead.md`, and `agents/public-data-analyst.md` are delivered verbatim
+from the workspace common template. They carry the common agent contract (frontmatter +
+lifecycle record at `docs/lifecycle/agents/`), not the 3-Section structure — they are
+skill-owner/maintenance agents, not Safety OS workflow stages.
 <!-- VARIANT-AGENT-DETAILS-END -->
 
 ---

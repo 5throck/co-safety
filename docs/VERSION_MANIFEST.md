@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-12T00:52:01.998Z
+**Generated**: 2026-11-18T05:22:43.531Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -8,7 +8,7 @@
 
 ## Summary
 
-- **Agents**: 3
+- **Agents**: 8
 - **Skills**: 95
 - **Scripts**: 114 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
@@ -19,7 +19,12 @@
 
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
+| automation-engineer | agents/automation-engineer.md | medium | claude-sonnet-5-5 | N/A |
+| contract-gate-engineer | agents/contract-gate-engineer.md | medium | claude-sonnet-5-5 | N/A |
+| design-system-lead | agents/design-system-lead.md | medium | claude-sonnet-5-5 | N/A |
+| i18n-specialist | agents/i18n-specialist.md | medium | claude-sonnet-5-5 | 2026-08-29 |
 | pm | agents/pm.md | medium | inherit | 2026-10-28 |
+| public-data-analyst | agents/public-data-analyst.md | medium | claude-sonnet-5-5 | N/A |
 | safety-governance-manager | agents/safety-governance-manager.md | high | claude-opus-5-5 | 2026-10-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | claude-opus-5-5 | 2026-11-07 |
 
