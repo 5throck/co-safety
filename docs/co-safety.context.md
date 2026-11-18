@@ -231,11 +231,12 @@ PM (CSO — Chief Safety Officer)
   Emergency track  : PM → emergency-agent  [SGM bypassed]
 ```
 
-40 agent files = 1 PM stub + 2 orchestration (SGM, SWM) + 12 `_shared/`
-specialists + 3 functional (msds, psm, training) + 22 industry (EHSChem,
-EHSConst, GasTerm, PowerGen, GMP, GLP, GDP, GCP, GVP, MedDevice, Food,
-Cosmetics, Semicon, Battery, Shipbuilding, Steel, DataCenter, Logistics,
-Railway, Waste, Defense, Biotech) — 39 specialists + PM. Full roster: `AGENTS.md`.
+40 specialist agents: 2 orchestration (SGM, SWM), 9 functional (compliance,
+legal, risk, reporting, training, PSM, asset integrity, contractor, occupational
+health, MSDS), 22 industry (EHSChem, EHSConst, GasTerm, PowerGen, GMP, GLP,
+GDP, GCP, GVP, MedDevice, Food, Cosmetics, Semicon, Battery, Shipbuilding,
+Steel, DataCenter, Logistics, Railway, Waste, Defense, Biotech), 1 shared docs-writer,
+2 audit/emergency, 2 GxP lifecycle. Full roster: `AGENTS.md`.
 <!-- END VARIANT-INJECT -->
 
 
@@ -265,8 +266,8 @@ ess-fire-risk-assessor, tank-integrity-validator, etc.). Full list: `AGENTS.md`.
    MUST delegate to external tools — never estimate directly
 6. **Country profile**: co-safety currently supports only the KR jurisdiction
    (`variant.json` `country_config.supported: ["KR"]`, default `KR`) — see
-   `docs/countries/KR.md` for the active profile and the workspace template
-   `templates/common/docs/country-profiles.md` for the mechanism. `regulations/KR/` holds Korea-specific regulation metadata
+   `docs/countries/KR.md` for the active profile and `common/docs/country-profiles.md`
+   for the mechanism. `regulations/KR/` holds Korea-specific regulation metadata
    (`regulations/international/` is jurisdiction-neutral and always ships); the
    `k-law` skill (inherited from `templates/common/`, KR-scoped per
    `docs/workspace-schema.json`'s `country_scoped_assets`) provides statutory

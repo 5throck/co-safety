@@ -16,12 +16,12 @@
       "Bash(bun scripts/audit.ts *)",
       "Bash(bun scripts/lifecycle-sync-audit.ts *)",
       "Bash(bun run agent:verify *)",
-      "Bash(curl -sI *)",
       "Bash(bun scripts/validate-templates.ts *)",
       "WebSearch(*)",
-      "WebFetch(*)",
       "Bash(trail:*)",
-      "Bash(bun scripts/co-safety/safety-audit.ts *)"
+      "Bash(bun scripts/co-safety/safety-audit.ts *)",
+      "Bash(curl -sI *)",
+      "WebFetch(*)"
     ],
     "deny": [
       "Bash(git push --force*)",
@@ -141,6 +141,39 @@
             "timeout": 10,
             "statusMessage": "Checking PM dispatch policy..."
           }
+        ],
+        "matcher": "Agent"
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun scripts/hooks/delete-guard.ts",
+            "timeout": 10,
+            "statusMessage": "Checking recursive-delete guard..."
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun scripts/hooks/agent-model-gate.ts",
+            "timeout": 10,
+            "statusMessage": "Checking Agent dispatch model tier..."
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun scripts/hooks/pm-dispatch-gate.ts",
+            "timeout": 10,
+            "statusMessage": "Checking PM dispatch policy..."
+          }
         ]
       },
       {
@@ -181,10 +214,14 @@
           }
         ]
       }
-    ]
+    ],
+    "UserPromptSubmit": [],
+    "Stop": []
   },
   "worktree": {
     "bgIsolation": "none"
   },
-  "footerLinksRegexes": []
+  "footerLinksRegexes": [
+    ".trail/[\\w./-]+\\.md"
+  ]
 }
