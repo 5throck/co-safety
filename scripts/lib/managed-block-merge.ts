@@ -1,4 +1,27 @@
-// @version 1.6.0
+// @version 1.7.0
+// v1.7.0 (2026-11-17, T-20261116-001 — design
+//           docs/designs/2026-11-17-template-lifecycle-batch-design.md §2.2,
+//           O-7 default Option A): monotonic Last Updated guard on the two
+//           template-wins replace paths (keyed by-key replace and equal-count
+//           positional unlabeled replace). templates/common/CLAUDE.md carries
+//           its `*Last Updated:` provenance line INSIDE the last COMMON-CLAUDE
+//           zone, so the positional replace overwrites a project's newer date
+//           with the template's older one — falsifying provenance even though
+//           template prose is authoritative. Guard: template prose still wins
+//           for every other line, but the `*Last Updated:` line is
+//           date-monotonic — when the PROJECT span's date is strictly NEWER,
+//           the project's date line wins verbatim inside the replacement and a
+//           `RESTAMPED Last Updated (project newer)` log line is emitted;
+//           equal dates and missing dates on either side splice nothing. The
+//           span-local correction is NOT restamp-classified: v1.6.0's
+//           restamps[] semantics are untouched (the date swap never changes a
+//           line count, so a guard-resolved divergence never becomes a row).
+//           Idempotent — after the merge, a re-run's span is either byte-equal
+//           to the template or differs ONLY by the date line the guard
+//           restores; the latter is a silent no-op at the call sites, so the
+//           re-run reports `merged: false` for that block. Count-mismatch
+//           destructive reconcile stays out of scope (it already carries
+//           WARNING + snapshot + recovery file).
 // v1.6.0 (2026-11-01, addendum
 //           docs/designs/2026-10-31-registry-platform-vocabulary-design.md
 //           §Addendum): the result carries `restamps[]` — one block-level row
@@ -107,8 +130,8 @@
 //
 // Import-safe: no I/O at import time; pure string/Map processing only.
 // All logging lines are returned verbatim in `log` (MERGED / INSERTED /
-// APPENDED / RECONCILED / WARNING / INFO) — callers print them and tests
-// grep them.
+// APPENDED / RECONCILED / RESTAMPED / WARNING / INFO) — callers print them
+// and tests grep them.
 
 /**
  * Marker patterns supported by the managed-block merge.
@@ -124,15 +147,15 @@ export interface ManagedPattern {
 }
 
 export const MANAGED_PATTERNS: ManagedPattern[] = [
-  { open: /<!-- WORKSPACE-MANAGED(?::[^>]*?)? -->/, close: '<!-- /WORKSPACE-MANAGED -->', label: 'WORKSPACE-MANAGED' },
-  { open: /<!-- COMMON-CLAUDE:START -->/, close: '<!-- COMMON-CLAUDE:END -->', label: 'COMMON-CLAUDE' },
-  { open: /<!-- COMMON-GEMINI:START -->/, close: '<!-- COMMON-GEMINI:END -->', label: 'COMMON-GEMINI' },
-  { open: /<!-- COMMON-CODEX:START -->/, close: '<!-- COMMON-CODEX:END -->', label: 'COMMON-CODEX' },
-  { open: /<!-- COMMON-HERMES:START -->/, close: '<!-- COMMON-HERMES:END -->', label: 'COMMON-HERMES' },
-  { open: /<!-- VARIANT-INJECT(?::[^\-]*?)? -->/, close: '<!-- END VARIANT-INJECT -->', label: 'VARIANT-INJECT' },
-  { open: /<!-- COMMON-AGENTS:START -->/, close: '<!-- COMMON-AGENTS:END -->', label: 'COMMON-AGENTS' },
-  { open: /<!-- COMMON-CONTEXT:START -->/, close: '<!-- COMMON-CONTEXT:END -->', label: 'COMMON-CONTEXT' },
-  { open: /<!-- DYNAMIC_SKILLS_START -->/, close: '<!-- DYNAMIC_SKILLS_END -->', label: 'DYNAMIC_SKILLS' },
+  { open: /<!-- WORKSPACE-MANAGED(?::[^>]*?)? -->/, close: "<!-- /WORKSPACE-MANAGED -->", label: "WORKSPACE-MANAGED" },
+  { open: /<!-- COMMON-CLAUDE:START -->/, close: "<!-- COMMON-CLAUDE:END -->", label: "COMMON-CLAUDE" },
+  { open: /<!-- COMMON-GEMINI:START -->/, close: "<!-- COMMON-GEMINI:END -->", label: "COMMON-GEMINI" },
+  { open: /<!-- COMMON-CODEX:START -->/, close: "<!-- COMMON-CODEX:END -->", label: "COMMON-CODEX" },
+  { open: /<!-- COMMON-HERMES:START -->/, close: "<!-- COMMON-HERMES:END -->", label: "COMMON-HERMES" },
+  { open: /<!-- VARIANT-INJECT(?::[^\-]*?)? -->/, close: "<!-- END VARIANT-INJECT -->", label: "VARIANT-INJECT" },
+  { open: /<!-- COMMON-AGENTS:START -->/, close: "<!-- COMMON-AGENTS:END -->", label: "COMMON-AGENTS" },
+  { open: /<!-- COMMON-CONTEXT:START -->/, close: "<!-- COMMON-CONTEXT:END -->", label: "COMMON-CONTEXT" },
+  { open: /<!-- DYNAMIC_SKILLS_START -->/, close: "<!-- DYNAMIC_SKILLS_END -->", label: "DYNAMIC_SKILLS" },
 ];
 
 /** ManagedBlock with extracted key from `: description` suffix. */
@@ -140,20 +163,60 @@ export interface ManagedBlock {
   start: number;
   end: number;
   matched: string;
-  key: string;  // extracted `: description` suffix, or '' for unlabeled blocks
+  key: string; // extracted `: description` suffix, or '' for unlabeled blocks
 }
 
 function escapeClose(close: string): string {
-  return close.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return close.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 /** v1.6.0: line count of a marker-inclusive block text. */
 function lineCount(blockText: string): number {
-  return blockText.split('\n').length;
+  return blockText.split("\n").length;
+}
+
+/** v1.7.0: the `*Last Updated:` provenance line, as carried inside the last
+ *  COMMON-CLAUDE zone of templates/common/CLAUDE.md (and any block span that
+ *  borrows the convention). Line-anchored so the verbatim splice stays a
+ *  single-line swap. */
+const LAST_UPDATED_LINE_RE = /^\*Last Updated: \d{4}-\d{2}-\d{2}.*$/m;
+const LAST_UPDATED_DATE_RE = /\*Last Updated: (\d{4}-\d{2}-\d{2})/;
+
+/** v1.7.0 (T-20261116-001, design
+ *  docs/designs/2026-11-17-template-lifecycle-batch-design.md §2.2 O-7):
+ *  monotonic Last Updated guard for the two template-wins replace paths.
+ *  Template prose wins for every line EXCEPT `*Last Updated:` — when the
+ *  PROJECT span's date is strictly NEWER than the template block's, the
+ *  project's date line is spliced into the replacement verbatim (ISO dates,
+ *  so lexicographic order is chronological; equal dates change nothing).
+ *  Missing dates on either side splice nothing. Pure: returns
+ *  `{ replacement, fired, projDate, tplDate }` — `replacement` is the span to
+ *  splice (=== tplBlockText unless the guard fired), `fired` is true when the
+ *  project's strictly newer date line was spliced in. The RESTAMPED log line
+ *  and the idempotency (silent no-op) decision belong to the caller, which
+ *  knows whether the guarded replacement still differs from the project span.
+ *  Not restamp-classified — the swap never changes a line count, so
+ *  restamps[] linesBefore/linesAfter stay exact. Idempotent: post-merge the
+ *  span's date is max(both sides), so a re-run either is byte-equal or has
+ *  its only difference resolved by the guard (see the call sites). */
+function guardLastUpdatedLine(
+  projSpanText: string,
+  tplBlockText: string,
+): { replacement: string; fired: boolean; projDate: string | null; tplDate: string | null } {
+  const projDate = projSpanText.match(LAST_UPDATED_DATE_RE)?.[1] ?? null;
+  const tplDate = tplBlockText.match(LAST_UPDATED_DATE_RE)?.[1] ?? null;
+  if (projDate === null || tplDate === null || projDate <= tplDate) {
+    return { replacement: tplBlockText, fired: false, projDate, tplDate };
+  }
+  const projLine = projSpanText.match(LAST_UPDATED_LINE_RE)?.[0];
+  if (projLine === undefined) return { replacement: tplBlockText, fired: false, projDate, tplDate };
+  const replacement = tplBlockText.replace(LAST_UPDATED_LINE_RE, projLine);
+  if (replacement === tplBlockText) return { replacement: tplBlockText, fired: false, projDate, tplDate };
+  return { replacement, fired: true, projDate, tplDate };
 }
 
 function patternRegex(pattern: ManagedPattern): RegExp {
-  return new RegExp(pattern.open.source + '[\\s\\S]*?' + escapeClose(pattern.close), 'g');
+  return new RegExp(pattern.open.source + "[\\s\\S]*?" + escapeClose(pattern.close), "g");
 }
 
 /** Scan `content` for every match of one pattern, extracting block keys from
@@ -163,8 +226,8 @@ function scanPatternBlocks(content: string, pattern: ManagedPattern): ManagedBlo
   const blocks: ManagedBlock[] = [];
   for (const occ of content.matchAll(patternRegex(pattern))) {
     const matched = occ[0]!;
-    let key = '';
-    if (pattern.label === 'WORKSPACE-MANAGED' || pattern.label === 'VARIANT-INJECT') {
+    let key = "";
+    if (pattern.label === "WORKSPACE-MANAGED" || pattern.label === "VARIANT-INJECT") {
       const keyMatch = matched.match(/:\s*([^\s].*?)\s*-->/);
       if (keyMatch) key = keyMatch[1].trim();
     }
@@ -191,8 +254,13 @@ export function findManagedBlocks(content: string): Array<{ pattern: ManagedPatt
 /**
  * Build a map-of-maps for efficient key-based block lookup.
  */
-export function buildBlockKeyMap(managed: Array<{ pattern: ManagedPattern; blocks: ManagedBlock[] }>): Map<string, { pattern: ManagedPattern; blocksByKey: Map<string, ManagedBlock>; blocksByIndex: ManagedBlock[] }> {
-  const map = new Map<string, { pattern: ManagedPattern; blocksByKey: Map<string, ManagedBlock>; blocksByIndex: ManagedBlock[] }>();
+export function buildBlockKeyMap(
+  managed: Array<{ pattern: ManagedPattern; blocks: ManagedBlock[] }>,
+): Map<string, { pattern: ManagedPattern; blocksByKey: Map<string, ManagedBlock>; blocksByIndex: ManagedBlock[] }> {
+  const map = new Map<
+    string,
+    { pattern: ManagedPattern; blocksByKey: Map<string, ManagedBlock>; blocksByIndex: ManagedBlock[] }
+  >();
   for (const { pattern, blocks } of managed) {
     const blocksByKey = new Map<string, ManagedBlock>();
     const blocksByIndex: ManagedBlock[] = [];
@@ -257,8 +325,8 @@ export function findInsertionPosition(content: string, rel: string, key: string,
   // Escape the key: block keys come from arbitrary `: description` suffixes and
   // may contain RegExp metacharacters — unescaped interpolation would throw
   // mid-upgrade or silently mis-anchor the insertion (T-20260917-review).
-  const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const headingRegex = new RegExp(`^#+\\s+.*${escapedKey}.*$`, 'm');
+  const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const headingRegex = new RegExp(`^#+\\s+.*${escapedKey}.*$`, "m");
   const headingMatch = content.match(headingRegex);
   if (headingMatch) {
     const headingEnd = headingMatch.index! + headingMatch[0].length;
@@ -268,9 +336,10 @@ export function findInsertionPosition(content: string, rel: string, key: string,
   // Fallback: find the last block of the same label and insert after it
   const regex = patternRegex(pattern);
   let lastMatch: RegExpExecArray | null = null;
-  let match: RegExpExecArray | null;
-  while ((match = regex.exec(content)) !== null) {
+  let match: RegExpExecArray | null = regex.exec(content);
+  while (match !== null) {
     lastMatch = match;
+    match = regex.exec(content);
   }
   if (lastMatch) {
     return lastMatch.index! + lastMatch[0].length;
@@ -355,7 +424,7 @@ export function mergeManagedBlocks(
   dryRun: boolean,
   censusGate?: ManagedBlockCensusGate,
 ): ManagedBlockMergeResult {
-  const dryTag = dryRun ? '[DRY RUN] ' : '';
+  const dryTag = dryRun ? "[DRY RUN] " : "";
   const log: string[] = [];
   const snapshots: { rel: string; content: string }[] = [];
   const escalated: { rel: string; content: string }[] = [];
@@ -381,8 +450,8 @@ export function mergeManagedBlocks(
     const projUnlabeledCount = projBlocksAll.filter((b) => !b.key).length;
 
     // Separate keyed from unlabeled blocks
-    const keyedTplBlocks = tplBlocks.filter(b => b.key);
-    const unlabeledTplBlocks = tplBlocks.filter(b => !b.key);
+    const keyedTplBlocks = tplBlocks.filter((b) => b.key);
+    const unlabeledTplBlocks = tplBlocks.filter((b) => !b.key);
 
     // Process keyed blocks: match by key, insert if not found. A key may
     // repeat (AGENTS.md carries two `tier-model-mapping` blocks), so the Nth
@@ -395,20 +464,45 @@ export function mergeManagedBlocks(
       const projBlock = scanPatternBlocks(updated, pattern).filter((b) => b.key === tplBlock.key)[nth];
       if (projBlock) {
         // Found by key — replace it
-        if (projBlock.matched !== tplBlock.matched) {
-          restamps.push({ label: pattern.label, key: tplBlock.key, linesBefore: lineCount(projBlock.matched), linesAfter: lineCount(tplBlock.matched) });
+        // v1.7.0: template-wins, except the `*Last Updated:` line is
+        // date-monotonic (project's strictly newer date wins verbatim).
+        const guard = guardLastUpdatedLine(projBlock.matched, tplBlock.matched);
+        if (guard.replacement !== projBlock.matched) {
+          if (projBlock.matched !== tplBlock.matched) {
+            restamps.push({
+              label: pattern.label,
+              key: tplBlock.key,
+              linesBefore: lineCount(projBlock.matched),
+              linesAfter: lineCount(guard.replacement),
+            });
+          }
+          if (guard.fired) {
+            log.push(
+              `    ${dryTag}RESTAMPED Last Updated (project newer) ${guard.projDate} > ${guard.tplDate} in: ${rel} (${pattern.label}:${tplBlock.key})`,
+            );
+          }
+          updated = updated.slice(0, projBlock.start) + guard.replacement + updated.slice(projBlock.end);
+          merged = true;
+          log.push(`    ${dryTag}MERGED ${pattern.label}:${tplBlock.key} in: ${rel}`);
+        } else if (projBlock.matched === tplBlock.matched) {
+          // Byte-equal: v1.6.0's silent MERGED log and no row — the splice is
+          // a no-op and the behavior is kept byte-for-byte.
+          updated = updated.slice(0, projBlock.start) + tplBlock.matched + updated.slice(projBlock.end);
+          merged = true;
+          log.push(`    ${dryTag}MERGED ${pattern.label}:${tplBlock.key} in: ${rel}`);
         }
-        updated = updated.slice(0, projBlock.start) + tplBlock.matched + updated.slice(projBlock.end);
-        merged = true;
-        log.push(`    ${dryTag}MERGED ${pattern.label}:${tplBlock.key} in: ${rel}`);
+        // else: the ONLY byte difference was the `*Last Updated:` date line
+        // and the guard restored the project's strictly newer one — the span
+        // is already in its post-merge state. Silent no-op (no splice, no
+        // row, no log): the idempotent re-run over merged content reports
+        // `merged: false` (v1.7.0 design §2.3 obligation).
       } else {
         // Not found by key — insert with insertion anchor logic
         // A repeated key's later occurrence goes right after its predecessor.
-        const prevSameKey = nth > 0
-          ? scanPatternBlocks(updated, pattern).filter((b) => b.key === tplBlock.key)[nth - 1]
-          : undefined;
+        const prevSameKey =
+          nth > 0 ? scanPatternBlocks(updated, pattern).filter((b) => b.key === tplBlock.key)[nth - 1] : undefined;
         const insertionPos = prevSameKey ? prevSameKey.end : findInsertionPosition(updated, rel, tplBlock.key, pattern);
-        updated = updated.slice(0, insertionPos) + '\n\n' + tplBlock.matched + '\n' + updated.slice(insertionPos);
+        updated = updated.slice(0, insertionPos) + "\n\n" + tplBlock.matched + "\n" + updated.slice(insertionPos);
         merged = true;
         log.push(`    ${dryTag}INSERTED ${pattern.label}:${tplBlock.key} in: ${rel}`);
       }
@@ -418,7 +512,7 @@ export function mergeManagedBlocks(
     if (projUnlabeledCount === 0) {
       // No matching block in project — append all unlabeled template blocks
       for (const tplBlock of unlabeledTplBlocks) {
-        updated = updated + '\n\n' + tplBlock.matched + '\n';
+        updated = updated + "\n\n" + tplBlock.matched + "\n";
         merged = true;
         log.push(`    ${dryTag}APPENDED ${pattern.label} block to: ${rel}`);
       }
@@ -439,20 +533,31 @@ export function mergeManagedBlocks(
         // and no --disposition adopt-template grant covers the path.
         const adapted = Boolean(censusGate && censusGate.divergent && censusGate.isSpanAdapted(spanContent));
         if (adapted && censusGate && !censusGate.dispositionGranted) {
-          log.push(`    ${dryTag}RECONCILE BLOCKED (adapted out-of-zone span): ${rel} — the instruction-region census found project-authored content in the replaced span; delivery SKIPPED (CONFLICT — ERROR, project copy preserved)`);
-          log.push('      proceed with --disposition adopt-template[=glob], or port the content template-side per the adjudicated-port procedure (sync-overwrite-policy design §6): land it inside a managed zone or skeleton-registry section with a version bump');
+          log.push(
+            `    ${dryTag}RECONCILE BLOCKED (adapted out-of-zone span): ${rel} — the instruction-region census found project-authored content in the replaced span; delivery SKIPPED (CONFLICT — ERROR, project copy preserved)`,
+          );
+          log.push(
+            "      proceed with --disposition adopt-template[=glob], or port the content template-side per the adjudicated-port procedure (sync-overwrite-policy design §6): land it inside a managed zone or skeleton-registry section with a version bump",
+          );
           escalated.push({ rel, content: spanContent });
           continue;
         }
-        log.push(`    WARNING: ${pattern.label} unlabeled block count mismatch in ${rel} (project has ${projUnlabeledCount}, template has ${unlabeledTplBlocks.length}) — replacing all project blocks with the template sequence (this may cause prose loss if prose exists between project blocks)`);
+        log.push(
+          `    WARNING: ${pattern.label} unlabeled block count mismatch in ${rel} (project has ${projUnlabeledCount}, template has ${unlabeledTplBlocks.length}) — replacing all project blocks with the template sequence (this may cause prose loss if prose exists between project blocks)`,
+        );
         // T-20260917-010: capture the exact replaced span so the caller can
         // persist a recovery snapshot before applying this destructive
         // replace. Pure data here — the fs write lives in upgrade-project.
         snapshots.push({ rel, content: spanContent });
         if (adapted) adaptedReplaces++;
-        updated = updated.slice(0, first.start) + unlabeledTplBlocks.map((b) => b.matched).join('\n\n') + updated.slice(last.end);
+        updated =
+          updated.slice(0, first.start) +
+          unlabeledTplBlocks.map((b) => b.matched).join("\n\n") +
+          updated.slice(last.end);
         merged = true;
-        log.push(`    ${dryTag}RECONCILED ${pattern.label} blocks in: ${rel}${adapted ? ' (adapted span — delivered via --disposition adopt-template)' : ''}`);
+        log.push(
+          `    ${dryTag}RECONCILED ${pattern.label} blocks in: ${rel}${adapted ? " (adapted span — delivered via --disposition adopt-template)" : ""}`,
+        );
       }
     } else {
       // Counts match — replace positionally, back-to-front so earlier offsets stay valid.
@@ -462,19 +567,44 @@ export function mergeManagedBlocks(
         const occ = fresh[i];
         if (!occ) continue;
         const tplBlock = unlabeledTplBlocks[i];
-        if (occ.matched !== tplBlock.matched) {
-          restamps.push({ label: pattern.label, key: '', linesBefore: lineCount(occ.matched), linesAfter: lineCount(tplBlock.matched) });
+        // v1.7.0: template-wins, except the `*Last Updated:` line is
+        // date-monotonic (project's strictly newer date wins verbatim).
+        const guard = guardLastUpdatedLine(occ.matched, tplBlock.matched);
+        if (guard.replacement !== occ.matched) {
+          if (occ.matched !== tplBlock.matched) {
+            restamps.push({
+              label: pattern.label,
+              key: "",
+              linesBefore: lineCount(occ.matched),
+              linesAfter: lineCount(guard.replacement),
+            });
+          }
+          if (guard.fired) {
+            log.push(
+              `    ${dryTag}RESTAMPED Last Updated (project newer) ${guard.projDate} > ${guard.tplDate} in: ${rel} (${pattern.label})`,
+            );
+          }
+          updated = updated.slice(0, occ.start) + guard.replacement + updated.slice(occ.end);
+          merged = true;
+          log.push(`    ${dryTag}MERGED ${pattern.label} block in: ${rel}`);
+        } else if (occ.matched === tplBlock.matched) {
+          // Byte-equal: v1.6.0's MERGED log and no row — the splice is a
+          // no-op and the behavior is kept byte-for-byte.
+          updated = updated.slice(0, occ.start) + tplBlock.matched + updated.slice(occ.end);
+          merged = true;
+          log.push(`    ${dryTag}MERGED ${pattern.label} block in: ${rel}`);
         }
-        updated = updated.slice(0, occ.start) + tplBlock.matched + updated.slice(occ.end);
-        merged = true;
-        log.push(`    ${dryTag}MERGED ${pattern.label} block in: ${rel}`);
+        // else: the ONLY byte difference was the `*Last Updated:` date line
+        // and the guard restored the project's strictly newer one — silent
+        // no-op, so the idempotent re-run over merged content reports
+        // `merged: false` (v1.7.0 design §2.3 obligation).
       }
     }
   }
 
   if (findManagedBlocks(projectContent).length === 0 && !merged) {
     log.push(`    WARNING: ${rel} has no managed markers in project.`);
-    log.push('             Appending template managed blocks at end of file.');
+    log.push("             Appending template managed blocks at end of file.");
     merged = true;
     log.push(`    ${dryTag}APPENDED managed blocks to: ${rel}`);
   }

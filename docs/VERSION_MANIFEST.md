@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-18T05:22:43.531Z
+**Generated**: 2026-11-18T21:49:15.870Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 8
 - **Skills**: 95
-- **Scripts**: 114 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 116 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -19,12 +19,12 @@
 
 | Name | File | Tier | Model | Last Modified |
 |------|------|------|-------|---------------|
-| automation-engineer | agents/automation-engineer.md | medium | claude-sonnet-5-5 | N/A |
-| contract-gate-engineer | agents/contract-gate-engineer.md | medium | claude-sonnet-5-5 | N/A |
-| design-system-lead | agents/design-system-lead.md | medium | claude-sonnet-5-5 | N/A |
-| i18n-specialist | agents/i18n-specialist.md | medium | claude-sonnet-5-5 | 2026-08-29 |
+| automation-engineer | agents/automation-engineer.md | medium | claude-sonnet-5-5 | 2026-11-18 |
+| contract-gate-engineer | agents/contract-gate-engineer.md | medium | claude-sonnet-5-5 | 2026-11-18 |
+| design-system-lead | agents/design-system-lead.md | medium | claude-sonnet-5-5 | 2026-11-18 |
+| i18n-specialist | agents/i18n-specialist.md | medium | claude-sonnet-5-5 | 2026-11-18 |
 | pm | agents/pm.md | medium | inherit | 2026-10-28 |
-| public-data-analyst | agents/public-data-analyst.md | medium | claude-sonnet-5-5 | N/A |
+| public-data-analyst | agents/public-data-analyst.md | medium | claude-sonnet-5-5 | 2026-11-18 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | claude-opus-5-5 | 2026-10-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | claude-opus-5-5 | 2026-11-07 |
 
@@ -54,7 +54,7 @@
 | dangerous-cargo-handling-planner | 1.0.0 | active | skills/dangerous-cargo-handling-planner/SKILL.md | workspace | 항만 위험물 하역 안전, IMDG dangerous cargo handling, 위험물 컨테이너 적치, dangerous goods container stowage, IMDG 클래스 분류, IMDG class segregation, 유독가스 흡입 노출 항만, toxic gas inhalation port, 항만하역 위험물 누출 대응, PSSA Article 8 위험물 하역, DSSMA Article 20 위험물 운반, IMDG EmS MFAG response | logistics-agent |
 | decision-record | 1.1.0 | active | skills/decision-record/SKILL.md | workspace | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
 | delegate-to-hub | 1.0.1 | active | skills/delegate-to-hub/SKILL.md | workspace | delegate to hub, delegation ticket, hub delegation, escalate to hub, file delegation | pm |
-| design-foundation | 1.1.0 | active | skills/design-foundation/SKILL.md | workspace | design foundation, design principles, design guide, design tokens setup, design decision record | architect |
+| design-foundation | 1.1.1 | active | skills/design-foundation/SKILL.md | workspace | design foundation, design principles, design guide, design tokens setup, design decision record | design-system-lead |
 | documentation-writing | 1.0.3 | active | skills/documentation-writing/SKILL.md | workspace | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
 | dts-verification | 1.0.0 | active | skills/dts-verification/SKILL.md | workspace | DTS 바코드 검증, DTS verification, 의약품 유통관리, RFID 검증, MFDS DTS센터, 위변조 의약품 조사, GS1 데이터매트릭스 | gdp-agent |
 | emergency-response | 1.0.1 | active | skills/emergency-response/SKILL.md | workspace | 비상사태, emergency, 사고 발생, 화재, 폭발, 누출, 중대재해, serious accident, explosion | emergency-agent |
@@ -62,9 +62,9 @@
 | ess-fire-risk-assessor | 1.0.0 | active | skills/ess-fire-risk-assessor/SKILL.md | workspace | ESS 화재, 리튬이온 배터리 화재, thermal runaway, 열폭주, BMS 안전, energy storage system fire, MPSL 인증, 에너지저장장치 화재위험 | powergen-agent |
 | evidence-collection-hot-work-permit | 1.0.0 | active | skills/evidence-collection-hot-work-permit/SKILL.md | workspace | hot work permit record, HWP record, hot work evidence, fire watch permit record | safety-workflow-manager |
 | evidence-ledger | 1.1.0 | active | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
-| explain-me | 1.0.0 | experimental | skills/explain-me/SKILL.md | workspace | /explain-me, /reportme, make a report, create report, explain this topic | pm |
+| explain-me | 1.0.1 | experimental | skills/explain-me/SKILL.md | workspace | /explain-me, /reportme, make a report, create report, explain this topic | pm |
 | fall-hazard-assessor | 1.0.0 | active | skills/fall-hazard-assessor/SKILL.md | workspace | 추락 위해평가, fall hazard, leading edge, 안전대 활동제한장치, 방호 계층, fall protection hierarchy, 추락방지망, rescue plan 구조 계획 | ehsconst-agent |
-| finishing-a-development-branch | 1.0.1 | active | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
+| finishing-a-development-branch | 1.0.2 | active | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
 | gas-dispersion-analyzer | 1.0.0 | active | skills/gas-dispersion-analyzer/SKILL.md | workspace | 가스 확산 모델, gas dispersion, 가스 누출 시나리오, LNG LPG 누출, 수소 누출 확산, BLEVE, 대피 반경 산정, Gaussian dispersion model | gasterm-agent |
 | gateguard | 1.0.2 | active | skills/gateguard/SKILL.md | workspace | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
 | ghs-classifier | 1.0.0 | active | skills/ghs-classifier/SKILL.md | workspace | GHS 분류, GHS classification, 유해성 분류, H-Statement, 위험문구, 예방조치문구, P-Statement, GHS Rev 9 | msds-agent |
@@ -77,17 +77,17 @@
 | handbook-sync-audit | 1.0.5 | active | skills/handbook-sync-audit/SKILL.md | workspace | audit handbook, handbook parity check, handbook sync audit, textbook drift check | pm |
 | hazop-analysis | 1.1.0 | active | skills/hazop-analysis/SKILL.md | workspace | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
 | hv-cell-formation-electrical-safety-planner | 1.0.0 | active | skills/hv-cell-formation-electrical-safety-planner/SKILL.md | workspace | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준, aging room thermal interlock, DC arc flash battery | battery-agent |
-| i18n-audit | 1.0.0 | active | skills/i18n-audit/SKILL.md | workspace | i18n audit, locale parity, translation parity, glossary audit, L10N parity | pm |
-| i18n-formatting | 1.0.0 | active | skills/i18n-formatting/SKILL.md | workspace | date format, number format, currency format, unit conversion, paper size, korean numerals | pm |
-| i18n-layout | 1.1.0 | active | skills/i18n-layout/SKILL.md | workspace | character encoding, RTL, bidi, font selection, CRLF, BOM | pm |
-| i18n-locale-config | 1.0.0 | active | skills/i18n-locale-config/SKILL.md | workspace | locale config, locale code, BCP 47, collation, collation order, timezone | pm |
+| i18n-audit | 1.0.2 | active | skills/i18n-audit/SKILL.md | workspace | i18n audit, locale parity, translation parity, glossary audit, L10N parity | i18n-specialist |
+| i18n-formatting | 1.0.1 | active | skills/i18n-formatting/SKILL.md | workspace | date format, number format, currency format, unit conversion, paper size, korean numerals | i18n-specialist |
+| i18n-layout | 1.1.1 | active | skills/i18n-layout/SKILL.md | workspace | character encoding, RTL, bidi, font selection, CRLF, BOM | i18n-specialist |
+| i18n-locale-config | 1.0.1 | active | skills/i18n-locale-config/SKILL.md | workspace | locale config, locale code, BCP 47, collation, collation order, timezone | i18n-specialist |
 | iso14971-risk-scorer | 1.1.0 | active | skills/iso14971-risk-scorer/SKILL.md | workspace | ISO 14971, 위해 추정, risk estimation, 심각도 발생확률 매트릭스, severity probability matrix, 잔여위험, residual risk, ALARP | meddevice-agent |
-| k-dart | 2.1.2 | active | skills/k-dart/SKILL.md | workspace | k-dart, /k-dart, DART, DART OpenAPI, `DART 공시`, `공시검색`, `기업개황`, `재무제표`, `재무정보`, `재무제표 조회`, financial statement, corporate disclosure | strategy-analyst |
-| k-ecos | 1.0.0 | active | skills/k-ecos/SKILL.md | workspace | k-ecos, /k-ecos, ECOS, `한국은행`, `한국은행 Open API`, `경제통계시스템`, `기준금리`, `환율`, `본원통화`, `100대 통계지표`, Bank of Korea statistics, Korean monetary statistics | financial-analyst |
-| k-kosis | 1.0.2 | active | skills/k-kosis/SKILL.md | workspace | k-kosis, /k-kosis, KOSIS, `통계청`, `국가통계포털`, `인구통계`, `물가지수`, `경제통계`, `국가통계`, Korean national statistics | financial-analyst |
-| k-krx | 1.0.2 | active | skills/k-krx/SKILL.md | workspace | k-krx, /k-krx, KRX, `한국거래소`, `KRX Open API`, `정보데이터시스템`, `주식 시세`, `코스피`, `코스닥`, `코넥스`, `일별매매정보`, `종목기본정보`, Korean stock market data, KOSPI market data, KOSDAQ market data | financial-analyst |
-| k-law | 1.0.2 | active | skills/k-law/SKILL.md | workspace | k-law, /k-law, `법령`, `법률`, `법령정보`, `법령검색`, `판례`, law, statute, legal search, Korea law | strategy-analyst |
-| k-opendata | 1.2.2 | active | skills/k-opendata/SKILL.md | workspace | k-opendata, /k-opendata, 공공데이터포털, data.go.kr, `관세청`, `수출입무역통계`, `품목별 국가별 수출입실적`, Korea Customs Service trade statistics, HS code trade data | hs-classification-specialist |
+| k-dart | 2.1.3 | active | skills/k-dart/SKILL.md | workspace | k-dart, /k-dart, DART, DART OpenAPI, `DART 공시`, `공시검색`, `기업개황`, `재무제표`, `재무정보`, `재무제표 조회`, financial statement, corporate disclosure | public-data-analyst |
+| k-ecos | 1.0.1 | active | skills/k-ecos/SKILL.md | workspace | k-ecos, /k-ecos, ECOS, `한국은행`, `한국은행 Open API`, `경제통계시스템`, `기준금리`, `환율`, `본원통화`, `100대 통계지표`, Bank of Korea statistics, Korean monetary statistics | public-data-analyst |
+| k-kosis | 1.0.3 | active | skills/k-kosis/SKILL.md | workspace | k-kosis, /k-kosis, KOSIS, `통계청`, `국가통계포털`, `인구통계`, `물가지수`, `경제통계`, `국가통계`, Korean national statistics | public-data-analyst |
+| k-krx | 1.0.3 | active | skills/k-krx/SKILL.md | workspace | k-krx, /k-krx, KRX, `한국거래소`, `KRX Open API`, `정보데이터시스템`, `주식 시세`, `코스피`, `코스닥`, `코넥스`, `일별매매정보`, `종목기본정보`, Korean stock market data, KOSPI market data, KOSDAQ market data | public-data-analyst |
+| k-law | 1.0.3 | active | skills/k-law/SKILL.md | workspace | k-law, /k-law, `법령`, `법률`, `법령정보`, `법령검색`, `판례`, law, statute, legal search, Korea law | public-data-analyst |
+| k-opendata | 1.2.3 | active | skills/k-opendata/SKILL.md | workspace | k-opendata, /k-opendata, 공공데이터포털, data.go.kr, `관세청`, `수출입무역통계`, `품목별 국가별 수출입실적`, Korea Customs Service trade statistics, HS code trade data | public-data-analyst |
 | landfill-methane-anaerobic-explosion-planner | 1.0.0 | active | skills/landfill-methane-anaerobic-explosion-planner/SKILL.md | workspace | 매립지 메탄 가스 폭발, landfill methane CH4 explosion, 혐기소화 소화조 biogas, anaerobic digestion biogas, 침출수 화학적 위해, leachate chemical hazard landfill, 사면 붕괴 매립지, landfill slope collapse, 매립지 깊은 화재 소방, deep seated landfill fire, 가스 추출정 LEL 모니터링, gas extraction well LEL monitoring, WCA Article 25 폐기물처리업 허가, BFS Article 16 소방활동, Sudokwon Landfill safety | waste-agent |
 | meeting-facilitation | 1.5.0 | active | skills/meeting-facilitation/SKILL.md | workspace | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
 | mid-construction-inspection | 1.0.0 | active | skills/mid-construction-inspection/SKILL.md | workspace | mid-construction inspection, construction inspection, 중간검사, 공사검사, 현장검사 | gasterm-agent |
@@ -96,7 +96,7 @@
 | painting-coating-fire-toxic-planner | 1.0.0 | active | skills/painting-coating-fire-toxic-planner/SKILL.md | workspace | 조선 도장 작업 화재 폭발, ship painting coating fire, 선박 도료 가연성 증기 LEL, paint vapor LEL explosion shipyard, 유기용제 흡입 노출 도장, solvent vapor inhalation painting, 도장 베이 화재 대응, paint bay fire response, 밀폐구역 도장 산소결핍, confined area painting O2 deficiency, DSSMA Article 5 도장 위험물, DSSMA Article 27 응급조치, OSHA-KR Article 110 물질안전보건자료(MSDS) 작성·제출, SAPA Article 5 도급 사업주 | shipbuilding-agent |
 | permit-to-work | 1.0.1 | active | skills/permit-to-work/SKILL.md | workspace | 작업허가서, permit to work, PTW, hot work permit, 화기작업, 밀폐공간작업, confined space | safety-workflow-manager |
 | platform-command-lifecycle-manager | 1.0.3 | active | skills/platform-command-lifecycle-manager/SKILL.md | workspace | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
-| platform-skill-lifecycle-manager | 1.0.2 | active | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
+| platform-skill-lifecycle-manager | 1.0.3 | active | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
 | pre-construction-technical-review | 1.0.0 | active | skills/pre-construction-technical-review/SKILL.md | workspace | pre-construction review, technical review, design review, 시설기준 검토, 기술검토, 설계검토, 사전기술검토 | gasterm-agent |
 | process-hazard-screening | 1.0.0 | active | skills/process-hazard-screening/SKILL.md | workspace | PSM 적용대상, process hazard screening, 위해물질 보유량, 공정안전관리, PHA 대상 여부, 사고대비물질, 화학공장 초기 위해평가 | ehschem-agent |
 | project-review | 1.3.4 | active | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |
@@ -118,7 +118,7 @@
 | skill-lifecycle-manager | 1.5.1 | active | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills, skill request, deprecate skill, remove skill | pm |
 | source-command-commit-push-pr | 1.0.3 | active | skills/source-command-commit-push-pr/SKILL.md | workspace | commit-push-pr, commit and push, create PR | pm |
 | standup-synthesizer | 1.1.0 | active | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
-| sync | 1.9.0 | active | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | pm |
+| sync | 1.10.0 | active | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | automation-engineer |
 | tank-integrity-validator | 1.0.0 | active | skills/tank-integrity-validator/SKILL.md | workspace | 저장탱크 건전성, tank integrity, LNG 탱크 검사, 수소 취성, hydrogen embrittlement, KGS 코드, 압력용기 검사, 부식 피로 검증 | gasterm-agent |
 | tar-planning | 1.1.0 | active | skills/tar-planning/SKILL.md | workspace | turnaround, tar, tar planning, shutdown planning, 정기보수, 가동중지, 보수정비, 대정비 | ehschem-agent |
 | team-builder | 1.2.0 | active | skills/team-builder/SKILL.md | workspace | build new agent team, create agent team, agent team setup, team builder | pm |
@@ -129,7 +129,7 @@
 | translate | 1.0.3 | active | skills/translate/SKILL.md | workspace | translate, translation, Korean translation | pm |
 | ui-ux-design-intelligence | 1.0.1 | active | skills/ui-ux-design-intelligence/SKILL.md | workspace | design system, ui design, ux design, component design, visual design, design tokens, interface design | pm |
 | update-bun-packages | 1.3.1 | active | skills/update-bun-packages/SKILL.md | workspace | update bun packages, upgrade bun packages, bun update, update dependencies, upgrade dependencies | pm |
-| zod-contract-gate | 1.0.2 | active | skills/zod-contract-gate/SKILL.md | workspace | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | architect |
+| zod-contract-gate | 1.0.3 | active | skills/zod-contract-gate/SKILL.md | workspace | zod-contract-gate, /zod-contract-gate, zod contract validation, schema contract gate, runtime schema validation | contract-gate-engineer |
 
 <!-- validate-md-language:allowlist-end -->
 
@@ -139,120 +139,122 @@
 
 | Name | Version | Location | Dependencies |
 |------|---------|----------|--------------|
-| agent-create.ts | 1.0.1 | scripts/agent-create.ts | N/A |
-| agent-delete.ts | 1.0.1 | scripts/agent-delete.ts | N/A |
-| agent-lifecycle-audit.ts | 1.9.0 | scripts/agent-lifecycle-audit.ts | N/A |
-| agent-list.ts | 1.1.0 | scripts/agent-list.ts | N/A |
-| agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | N/A |
+| agent-create.ts | 1.0.2 | scripts/agent-create.ts | fs, path |
+| agent-delete.ts | 1.0.2 | scripts/agent-delete.ts | fs, path |
+| agent-lifecycle-audit.ts | 1.9.1 | scripts/agent-lifecycle-audit.ts | child_process, fs, path, process |
+| agent-list.ts | 1.1.0 | scripts/agent-list.ts | fs, path |
+| agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | fs, path |
 | analyze-git-history.ts | 1.0.2 | scripts/analyze-git-history.ts | child_process |
-| apply-handbook-theme.test.ts | 1.0.1 | scripts/tests/apply-handbook-theme.test.ts | bun:test |
-| apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | N/A |
-| archive-memory.ts | 1.1.2 | scripts/archive-memory.ts | N/A |
-| audit-variant.ts | 1.3.0 | scripts/co-safety/audit-variant.ts | bun |
-| audit.ts | 2.64.0 | scripts/audit.ts | bun |
+| apply-handbook-theme.test.ts | 1.0.1 | scripts/tests/apply-handbook-theme.test.ts | bun:test, child_process, fs, os, path |
+| apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | fs, path |
+| archive-memory.ts | 1.2.0 | scripts/archive-memory.ts | fs, path |
+| audit-variant.ts | 1.3.0 | scripts/co-safety/audit-variant.ts | bun, fs |
+| audit.ts | 2.70.0 | scripts/audit.ts | bun, child_process, crypto, fs, os, path, url |
 | bootstrap-stages.ts | 1.1.0 | scripts/bootstrap-stages.ts | fs, js-yaml, path |
-| build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | N/A |
-| changelog-normalize.ts | 1.0.0 | scripts/changelog-normalize.ts | N/A |
-| check-a11y.ts | 1.0.0 | scripts/handbook/check-a11y.ts | N/A |
-| check-authoring.ts | 1.3.0 | scripts/handbook/check-authoring.ts | N/A |
-| check-external-links.ts | 1.2.0 | scripts/handbook/check-external-links.ts | N/A |
-| check-i18n-parity.ts | 1.0.0 | scripts/handbook/check-i18n-parity.ts | N/A |
-| check-labels.ts | 1.0.0 | scripts/handbook/check-labels.ts | N/A |
-| check-links.ts | 1.0.0 | scripts/handbook/check-links.ts | N/A |
-| check-lint.ts | 1.0.0 | scripts/handbook/check-lint.ts | N/A |
-| check-pm-approval.ts | 1.0.1 | scripts/co-safety/check-pm-approval.ts | N/A |
-| check-search.ts | 2.0.0 | scripts/handbook/check-search.ts | N/A |
-| check-spell.ts | 1.0.0 | scripts/handbook/check-spell.ts | N/A |
-| check-structure.test.ts | 1.0.0 | scripts/tests/check-structure.test.ts | bun:test |
-| check-structure.ts | 1.0.0 | scripts/handbook/check-structure.ts | N/A |
-| check-symmetry.ts | 1.0.0 | scripts/handbook/check-symmetry.ts | N/A |
-| check-tables.ts | 1.0.0 | scripts/handbook/check-tables.ts | N/A |
-| cleanup-completed-md.ts | 1.1.0 | scripts/cleanup-completed-md.ts | N/A |
-| clear-pm-approval.ts | 1.0.0 | scripts/clear-pm-approval.ts | N/A |
-| compile-tokens.ts | 1.3.0 | scripts/compile-tokens.ts | N/A |
-| dependency-audit.ts | 1.1.0 | scripts/dependency-audit.ts | N/A |
-| deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | N/A |
-| deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test |
-| design-lint.ts | 2.5.0 | scripts/design-lint.ts | js-yaml |
-| dev-sync.ts | 1.37.1 | scripts/dev-sync.ts | bun |
+| build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | fs, path |
+| changelog-normalize.ts | 1.0.0 | scripts/changelog-normalize.ts | fs |
+| check-a11y.ts | 1.0.0 | scripts/handbook/check-a11y.ts | path |
+| check-authoring.ts | 1.3.0 | scripts/handbook/check-authoring.ts | fs, path |
+| check-external-links.ts | 1.2.0 | scripts/handbook/check-external-links.ts | http, https, path, url |
+| check-i18n-parity.ts | 1.0.0 | scripts/handbook/check-i18n-parity.ts | fs, path |
+| check-labels.ts | 1.0.0 | scripts/handbook/check-labels.ts | path |
+| check-links.ts | 1.0.0 | scripts/handbook/check-links.ts | path |
+| check-lint.ts | 1.0.0 | scripts/handbook/check-lint.ts | path |
+| check-pm-approval.ts | 1.0.1 | scripts/co-safety/check-pm-approval.ts | fs, path |
+| check-search.ts | 2.0.0 | scripts/handbook/check-search.ts | fs, path |
+| check-spell.ts | 1.0.0 | scripts/handbook/check-spell.ts | path |
+| check-structure.test.ts | 1.0.0 | scripts/tests/check-structure.test.ts | bun:test, fs, os, path |
+| check-structure.ts | 1.0.0 | scripts/handbook/check-structure.ts | fs, path |
+| check-symmetry.ts | 1.0.0 | scripts/handbook/check-symmetry.ts | path |
+| check-tables.ts | 1.0.0 | scripts/handbook/check-tables.ts | fs, path |
+| cleanup-completed-md.ts | 1.1.0 | scripts/cleanup-completed-md.ts | fs, path |
+| clear-pm-approval.ts | 1.0.0 | scripts/clear-pm-approval.ts | fs |
+| compile-tokens.ts | 1.3.0 | scripts/compile-tokens.ts | fs, path |
+| dependency-audit.ts | 1.1.0 | scripts/dependency-audit.ts | fs, path |
+| deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | child_process, fs, path |
+| deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test, fs, os, path |
+| design-lint.ts | 2.5.0 | scripts/design-lint.ts | fs, js-yaml, path |
+| detect-backport.ts | 1.0.0 | scripts/detect-backport.ts | child_process, crypto, fs, path |
+| dev-sync.ts | 1.52.0 | scripts/dev-sync.ts | bun, crypto, fs, path |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
-| dispatch-serial.ts | 1.1.2 | scripts/dispatch-serial.ts | N/A |
-| dispatch.ts | 1.1.1 | scripts/dispatch.ts | N/A |
+| dispatch-serial.ts | 1.1.2 | scripts/dispatch-serial.ts | url |
+| dispatch.ts | 1.1.1 | scripts/dispatch.ts | path |
 | domain-config.ts | 1.5.0 | scripts/co-safety/domain-config.ts | N/A |
-| evidence-backport-scan.ts | 1.3.0 | scripts/evidence-backport-scan.ts | N/A |
-| external-deps.ts | 1.0.0 | scripts/external-deps.ts | N/A |
-| extract-copycode.ts | 1.0.0 | scripts/handbook/extract-copycode.ts | N/A |
-| gen-pr-body.ts | 1.2.0 | scripts/gen-pr-body.ts | bun |
-| generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | N/A |
-| generate-raci.ts | 1.2.0 | scripts/generate-raci.ts | js-yaml |
-| generate-skill-graph.ts | 2.0.1 | scripts/generate-skill-graph.ts | js-yaml |
-| generate-version-manifest.ts | 1.11.0 | scripts/generate-version-manifest.ts | bun, js-yaml |
-| graph-delta-log.ts | 1.1.0 | scripts/graph-delta-log.ts | N/A |
-| handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | N/A |
-| handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | N/A |
-| lifecycle-sync-audit.ts | 1.21.0 | scripts/lifecycle-sync-audit.ts | js-yaml |
-| lint-instructions.ts | 1.0.0 | scripts/lint-instructions.ts | N/A |
+| evidence-backport-scan.ts | 1.4.0 | scripts/evidence-backport-scan.ts | child_process, fs, path |
+| external-deps.ts | 1.0.0 | scripts/external-deps.ts | fs, path |
+| extract-copycode.ts | 1.0.0 | scripts/handbook/extract-copycode.ts | fs, path |
+| gen-pr-body.ts | 1.2.1 | scripts/gen-pr-body.ts | bun, fs |
+| generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | fs, path |
+| generate-raci.ts | 1.2.0 | scripts/generate-raci.ts | fs, js-yaml, path |
+| generate-skill-graph.ts | 2.0.1 | scripts/generate-skill-graph.ts | child_process, fs, js-yaml, path, url |
+| generate-skill-lifecycle-records.ts | 1.3.1 | scripts/generate-skill-lifecycle-records.ts | fs, js-yaml, path, url |
+| generate-version-manifest.ts | 1.12.1 | scripts/generate-version-manifest.ts | bun, child_process, fs, js-yaml, module, path |
+| graph-delta-log.ts | 1.1.0 | scripts/graph-delta-log.ts | child_process, fs, path, url |
+| handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | fs, path |
+| handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | fs, path |
+| lifecycle-sync-audit.ts | 1.22.0 | scripts/lifecycle-sync-audit.ts | crypto, fs, js-yaml, path, process |
+| lint-instructions.ts | 1.0.0 | scripts/lint-instructions.ts | fs, path |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-quality-gates.ts | 1.1.0 | scripts/migrate-quality-gates.ts | fs, js-yaml, path |
-| migrate-registry-to-coordinates.ts | 1.0.2 | scripts/co-safety/migrate-registry-to-coordinates.ts | js-yaml |
-| nav-utils.ts | 1.0.0 | scripts/handbook/nav-utils.ts | N/A |
-| new-domain.ts | 1.1.0 | scripts/co-safety/new-domain.ts | N/A |
+| migrate-registry-to-coordinates.ts | 1.0.2 | scripts/co-safety/migrate-registry-to-coordinates.ts | fs, js-yaml, path |
+| nav-utils.ts | 1.0.0 | scripts/handbook/nav-utils.ts | fs, path |
+| new-domain.ts | 1.1.0 | scripts/co-safety/new-domain.ts | fs, path |
 | normalize-registry-provenance.ts | 1.1.0 | scripts/normalize-registry-provenance.ts | fs, path |
-| qa-gate.ts | 1.3.0 | scripts/qa-gate.ts | bun |
-| readme-lifecycle-audit.ts | 1.1.0 | scripts/readme-lifecycle-audit.ts | N/A |
-| regenerate-agents-md.ts | 1.4.0 | scripts/regenerate-agents-md.ts | fs, path |
-| render-commands.ts | 1.1.0 | scripts/render-commands.ts | N/A |
-| render-pdf-deck.ts | 1.0.1 | scripts/render-pdf-deck.ts | N/A |
+| qa-gate.ts | 1.3.0 | scripts/qa-gate.ts | bun, crypto |
+| readme-lifecycle-audit.ts | 1.1.0 | scripts/readme-lifecycle-audit.ts | fs, path, process |
+| regenerate-agents-md.ts | 1.5.0 | scripts/regenerate-agents-md.ts | fs, path |
+| render-commands.ts | 1.1.0 | scripts/render-commands.ts | fs, path |
+| render-pdf-deck.ts | 1.0.1 | scripts/render-pdf-deck.ts | fs, path, url |
 | resolve-variants.ts | 1.0.3 | scripts/resolve-variants.ts | fs, js-yaml, path |
-| retry-handler.ts | 1.1.0 | scripts/retry-handler.ts | N/A |
-| risk-register-rollup.ts | 1.0.1 | scripts/co-safety/risk-register-rollup.ts | N/A |
-| route-audit-scan.ts | 1.0.1 | scripts/route-audit-scan.ts | N/A |
-| safety-audit.ts | 4.10.2 | scripts/co-safety/safety-audit.ts | js-yaml |
-| scaffold-handbook.ts | 1.2.0 | scripts/handbook/scaffold-handbook.ts | N/A |
-| scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | js-yaml |
-| setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun |
-| skill-lifecycle-audit.ts | 1.11.0 | scripts/skill-lifecycle-audit.ts | N/A |
-| skill-session-review.ts | 1.3.0 | scripts/skill-session-review.ts | bun |
-| spec-register.ts | 1.6.0 | scripts/spec-register.ts | N/A |
+| retry-handler.ts | 1.1.0 | scripts/retry-handler.ts | path |
+| risk-register-rollup.ts | 1.0.1 | scripts/co-safety/risk-register-rollup.ts | fs, path |
+| route-audit-scan.ts | 1.0.1 | scripts/route-audit-scan.ts | fs, path |
+| safety-audit.ts | 4.10.2 | scripts/co-safety/safety-audit.ts | fs, js-yaml, path |
+| scaffold-handbook.ts | 1.2.0 | scripts/handbook/scaffold-handbook.ts | fs, path |
+| scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | fs, js-yaml, path |
+| setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun, fs, os, path |
+| skill-lifecycle-audit.ts | 1.15.0 | scripts/skill-lifecycle-audit.ts | fs, path, process |
+| skill-session-review.ts | 1.3.0 | scripts/skill-session-review.ts | bun, fs, path |
+| spec-register.ts | 1.6.0 | scripts/spec-register.ts | fs, path |
 | start-mcp.ts | 1.0.1 | scripts/co-safety/start-mcp.ts | child_process, path |
-| sync-agent-mirrors.ts | 1.3.0 | scripts/sync-agent-mirrors.ts | js-yaml |
+| sync-agent-mirrors.ts | 1.3.0 | scripts/sync-agent-mirrors.ts | fs, js-yaml, path, url |
 | sync-md.ts | 1.4.0 | scripts/sync-md.ts | N/A |
-| sync-skill-status.ts | 1.1.0 | scripts/sync-skill-status.ts | N/A |
-| sync-skills.ts | 1.11.0 | scripts/sync-skills.ts | N/A |
-| team-builder.ts | 1.5.0 | scripts/team-builder.ts | N/A |
-| test-chemical-handling-profile.ts | 1.0.0 | scripts/co-safety/test-chemical-handling-profile.ts | js-yaml |
-| test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | js-yaml |
-| test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | N/A |
-| test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | js-yaml |
-| test-runner.ts | 1.10.0 | scripts/test-runner.ts | fs, os, path |
-| test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | N/A |
-| training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | N/A |
-| translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, fs, path |
-| typecheck.ts | 1.2.0 | scripts/typecheck.ts | N/A |
-| update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | N/A |
-| validate-agents.ts | 1.4.1 | scripts/validate-agents.ts | N/A |
-| validate-decisions.ts | 1.1.0 | scripts/validate-decisions.ts | js-yaml |
-| validate-doc-folder.ts | 1.3.0 | scripts/validate-doc-folder.ts | fs, path |
+| sync-skill-status.ts | 1.1.0 | scripts/sync-skill-status.ts | child_process, fs, path, process |
+| sync-skills.ts | 1.11.0 | scripts/sync-skills.ts | fs, path |
+| team-builder.ts | 1.5.0 | scripts/team-builder.ts | fs, path |
+| test-chemical-handling-profile.ts | 1.0.0 | scripts/co-safety/test-chemical-handling-profile.ts | fs, js-yaml, path |
+| test-cross-domain-integration.ts | 1.0.0 | scripts/co-safety/test-cross-domain-integration.ts | fs, js-yaml, path |
+| test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | fs, path |
+| test-pharma-general-profile.ts | 1.0.0 | scripts/co-safety/test-pharma-general-profile.ts | fs, js-yaml, path |
+| test-runner.ts | 1.17.2 | scripts/test-runner.ts | fs, os, path |
+| test-runtime-tools.ts | 1.0.0 | scripts/co-safety/test-runtime-tools.ts | fs, os, path |
+| training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | fs, path |
+| translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, crypto, fs, path, url |
+| typecheck.ts | 1.2.0 | scripts/typecheck.ts | fs, path |
+| update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | fs, path |
+| validate-agents.ts | 1.4.1 | scripts/validate-agents.ts | fs, path, process |
+| validate-decisions.ts | 1.1.0 | scripts/validate-decisions.ts | fs, js-yaml, path, process |
+| validate-doc-folder.ts | 1.5.0 | scripts/validate-doc-folder.ts | fs, path |
 | validate-docs-links.ts | 1.6.0 | scripts/validate-docs-links.ts | fs, path |
-| validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | N/A |
-| validate-md-language.ts | 1.16.1 | scripts/validate-md-language.ts | fs |
-| validate-model-registry.ts | 2.3.0 | scripts/validate-model-registry.ts | N/A |
+| validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | child_process, path |
+| validate-md-language.ts | 1.16.2 | scripts/validate-md-language.ts | child_process, fs, path |
+| validate-model-registry.ts | 2.3.0 | scripts/validate-model-registry.ts | fs, path, url |
 | validate-nav.ts | 1.0.0 | scripts/handbook/validate-nav.ts | N/A |
-| validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | N/A |
-| validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | js-yaml |
-| validate-process.ts | 1.0.0 | scripts/validate-process.ts | js-yaml |
-| validate-raci.ts | 1.2.0 | scripts/validate-raci.ts | js-yaml |
-| validate-skills.ts | 1.5.2 | scripts/validate-skills.ts | N/A |
-| validate-surface-registry.ts | 1.1.1 | scripts/validate-surface-registry.ts | N/A |
-| validate-templates.ts | 1.75.0 | scripts/validate-templates.ts | js-yaml |
-| validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | N/A |
+| validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | child_process, fs, path |
+| validate-procedures.ts | 1.1.0 | scripts/validate-procedures.ts | fs, js-yaml, path |
+| validate-process.ts | 1.0.0 | scripts/validate-process.ts | fs, js-yaml, path |
+| validate-raci.ts | 1.2.0 | scripts/validate-raci.ts | fs, js-yaml, path |
+| validate-skills.ts | 1.5.2 | scripts/validate-skills.ts | fs, path, process |
+| validate-surface-registry.ts | 1.1.2 | scripts/validate-surface-registry.ts | fs, path |
+| validate-templates.ts | 1.86.0 | scripts/validate-templates.ts | child_process, crypto, fs, js-yaml, path, url |
+| validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | fs, path |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
-| verify-memory.ts | 1.2.0 | scripts/verify-memory.ts | fs, path |
-| verify-platform-lifecycle.ts | 1.6.1 | scripts/verify-platform-lifecycle.ts | N/A |
-| verify-readme-sync.ts | 1.5.0 | scripts/verify-readme-sync.ts | bun, fs, path |
-| verify-scripts.ts | 1.14.0 | scripts/verify-scripts.ts | fs, path |
-| verify-skill-graph.ts | 2.0.0 | scripts/verify-skill-graph.ts | N/A |
-| verify-skills.ts | 1.5.2 | scripts/verify-skills.ts | N/A |
+| verify-memory.ts | 1.3.0 | scripts/verify-memory.ts | fs, path |
+| verify-platform-lifecycle.ts | 1.6.1 | scripts/verify-platform-lifecycle.ts | fs, path |
+| verify-readme-sync.ts | 1.5.0 | scripts/verify-readme-sync.ts | bun, crypto, fs, path |
+| verify-scripts.ts | 1.15.0 | scripts/verify-scripts.ts | crypto, fs, path |
+| verify-skill-graph.ts | 2.0.0 | scripts/verify-skill-graph.ts | fs, path, url |
+| verify-skills.ts | 1.5.2 | scripts/verify-skills.ts | fs, path |
 
 ---
 

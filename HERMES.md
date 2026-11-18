@@ -78,8 +78,8 @@ Essentials of `AGENTS.md` §7 — read the full section for the complete list:
 ---
 
 <!-- LOCAL-PATCH(upstream-request: U-20261112-003) — graft retired upstream (commit 9ec09e9), renamed to trail. Original graft:start/end markers retained because the template source (templates/co-safety/HERMES.md) still uses them for template reconciliation; content rewritten to trail below. -->
-<!-- graft:start -->
-## Trail — repo context graph (formerly graft)
+<!-- trail:start -->
+## Trail — repo context graph
 
 This repo is indexed in `.trail/cache/`: small linked markdown nodes that explain each
 system and carry exact file:line spans, kept in sync with the code through git.
@@ -91,34 +91,25 @@ already have (symbol, error string, file name) as the query. New to this repo?
 Run `trail map` first — a token-budgeted orientation (dir clusters, hubs,
 hotspots), no LLM, no key.
 
-Trail is available as an MCP server (`mcp__trail__*` tools: `trail_repo_map`,
-`trail_find_code`, `trail_find_all`, `trail_file_api`, `trail_trace_calls`,
-`trail_check_freshness`) plus a `trail` CLI. Match the tool to the task shape:
-
-- `trail_find_code "<your question>"` (CLI: `trail ask "<your question>"
-  --source`) → ranked nodes with exact file:line spans and the relevant source
-  inlined (each hit's ≤8-line crux by default; `full` for whole definitions
-  when the crux isn't enough). For understanding or editing, the top node IS
-  the answer — edit straight from the inlined span. For exhaustive tasks
-  ("every occurrence / every caller of this pattern"), ranked results are
-  top-N, not complete — run `trail_find_all` (CLI: `trail grep "<literal>"`)
-  instead — regex over indexed files, grouped by innermost enclosing symbol
-  and ranked by incoming-edge count (coupling) — falling back to raw
-  `grep -rn` only for unindexed files.
-- `trail_file_api <file>` → every definition's signature + line span,
-  ~10× cheaper than reading the file; use it to skim an API surface.
-- `trail_trace_calls <symbol>` gives precomputed, exact structural edges —
-  who calls this (direction `in`, the default) or what it calls (direction
-  `out`). Walk `depth > 1` (or `all`) transitively for the full blast
-  radius — every source that breaks if it changes. For structural questions,
-  skip ranking and use this directly.
-- `trail_check_freshness` reports whether the committed graph is in sync with
-  the code (drift check) — run it before trusting spans after pulling changes.
+- Run `trail ask "<your question>" --source` → ranked nodes with the relevant
+  code spans inlined (each hit's ≤8-line crux by default; `--full` for whole
+  definitions when the crux isn't enough). Match the tool to the task shape:
+  for understanding or editing, the top node IS the answer — cite its
+  `covers:` file:line spans and edit straight from `--source`. For
+  exhaustive tasks ("every occurrence / every caller of this pattern"), ranked
+  results are top-N, not complete — run `trail grep "<literal>"` instead
+  (exhaustive over indexed files, grouped by enclosing symbol), falling back
+  to raw `grep -rn` only for unindexed files.
+- `trail skeleton <file>` → every definition's signature + span, ~10× cheaper
+  than reading the file; use it to skim an API surface.
+- `trail callers <symbol>` gives precomputed, exact edges — who calls this.
+  Add `--direction out` for what it calls, or `--depth N` to walk
+  transitively for the full blast radius. For structural questions, skip
+  ranking and use this directly.
 - Or browse: `.trail/cache/INDEX.md` lists every node; follow the links.
 - Monorepos and folders of multiple repos rank fairly across sub-projects —
   hits carry `[scope/]` labels naming which one they're from. Narrow with
-  `trail_find_code`'s `in` filter (CLI: `--in <scope>/`) once you know where
-  you're working.
+  `trail ask "<task>" --in <scope>/` once you know where you're working.
 
 If a returned span is truncated ("+N more lines"), open the file at that exact
 range before finalizing. Only open source files when a node genuinely lacks a
@@ -127,4 +118,4 @@ re-read whole files.
 
 After big code changes, refresh the graph with `trail build` (deterministic,
 no API key, $0).
-<!-- graft:end -->
+<!-- trail:end -->

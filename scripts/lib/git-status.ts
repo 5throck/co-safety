@@ -1,4 +1,7 @@
-// @version 1.1.0
+// @version 1.2.0
+// v1.2.0 (2026-11-16, T-20261114-007): add parseTrackedWorktreeChanges() — tracked
+//           (non-untracked, non-ignored) paths from porcelain v1 -z, for dev-sync's
+//           empty-index guard.
 // v1.1.0: add parseCachedNameStatus() — parses `git diff --cached --name-status -z`
 //           into the set of paths the index records as REMOVED (status `D` plus the
 //           SOURCE path of every `R<score>` staged rename). Consumed by dev-sync
@@ -34,20 +37,20 @@
  * enumerated individually because callers pass `-uall`.
  */
 export function parseStatusPorcelain(out: string): Set<string> {
-    const paths = new Set<string>();
-    const records = out.split('\0').filter(Boolean);
-    for (let i = 0; i < records.length; i++) {
-        const record = records[i];
-        // Each record is "XY <path>" (two status letters + one space). Anything
-        // shorter cannot carry a path — skip rather than throw on stray input.
-        if (record.length < 4) continue;
-        paths.add(record.slice(3));
-        // Rename/copy records embed the original path as the next NUL field.
-        const x = record[0];
-        const y = record[1];
-        if (x === 'R' || x === 'C' || y === 'R' || y === 'C') i++;
-    }
-    return paths;
+  const paths = new Set<string>();
+  const records = out.split("\0").filter(Boolean);
+  for (let i = 0; i < records.length; i++) {
+    const record = records[i];
+    // Each record is "XY <path>" (two status letters + one space). Anything
+    // shorter cannot carry a path — skip rather than throw on stray input.
+    if (record.length < 4) continue;
+    paths.add(record.slice(3));
+    // Rename/copy records embed the original path as the next NUL field.
+    const x = record[0];
+    const y = record[1];
+    if (x === "R" || x === "C" || y === "R" || y === "C") i++;
+  }
+  return paths;
 }
 
 /**
@@ -66,21 +69,41 @@ export function parseStatusPorcelain(out: string): Set<string> {
  * remove their source, so only rename sources are collected.
  */
 export function parseCachedNameStatus(out: string): Set<string> {
-    const removed = new Set<string>();
-    const records = out.split('\0');
-    for (let i = 0; i < records.length; i++) {
-        const status = records[i];
-        if (!status) continue;
-        const first = records[++i];
-        if (first === undefined) break; // truncated trailing record — ignore
-        if (status === 'D') {
-            removed.add(first);
-        } else if (status[0] === 'R' || status[0] === 'C') {
-            const second = records[++i];
-            if (second === undefined) break; // truncated rename record — ignore
-            if (status[0] === 'R') removed.add(first); // source, not target
-        }
-        // A / M / T / U and unknown statuses remove nothing.
+  const removed = new Set<string>();
+  const records = out.split("\0");
+  for (let i = 0; i < records.length; i++) {
+    const status = records[i];
+    if (!status) continue;
+    const first = records[++i];
+    if (first === undefined) break; // truncated trailing record — ignore
+    if (status === "D") {
+      removed.add(first);
+    } else if (status[0] === "R" || status[0] === "C") {
+      const second = records[++i];
+      if (second === undefined) break; // truncated rename record — ignore
+      if (status[0] === "R") removed.add(first); // source, not target
     }
-    return removed;
+    // A / M / T / U and unknown statuses remove nothing.
+  }
+  return removed;
+}
+
+/**
+ * Parse `git status --porcelain=v1 -z -uall` into the TRACKED paths with any
+ * modification (M/D/R/C/A/T/U in either column). Untracked (`??`) and ignored
+ * (`!!`) entries are excluded. Rename/copy source fields are skipped, as in
+ * parseStatusPorcelain.
+ */
+export function parseTrackedWorktreeChanges(out: string): string[] {
+  const paths: string[] = [];
+  const records = out.split("\0").filter(Boolean);
+  for (let i = 0; i < records.length; i++) {
+    const record = records[i];
+    if (record.length < 4) continue;
+    const x = record[0];
+    const y = record[1];
+    if (!(x === "?" && y === "?") && !(x === "!" && y === "!")) paths.push(record.slice(3));
+    if (x === "R" || x === "C" || y === "R" || y === "C") i++;
+  }
+  return paths;
 }

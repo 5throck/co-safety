@@ -140,9 +140,9 @@ Generated: 2026-09-12T01:28:07.508Z
 | `environmental-compliance-checker` | 1.0.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `ess-fire-risk-assessor` | 1.0.0 | active | powergen-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `evidence-ledger` | 1.1.0 | active | pm | 2026-08-25 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `explain-me` | 1.0.0 | experimental | pm | 2026-08-03 | — | Single-file interactive HTML report generation. Inspired by beret21/reportme (MIT). Korean loanword data in references/loanword-refinements.json |
+| `explain-me` | 1.0.1 | experimental | pm | 2026-08-03 | — | Single-file interactive HTML report generation. Inspired by beret21/reportme (MIT). Korean loanword data in references/loanword-refinements.json |
 | `fall-hazard-assessor` | 1.0.0 | active | ehsconst-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `finishing-a-development-branch` | 1.0.1 | active | pm | 2026-06-13 | — | Workspace override — redirects branch completion to /sync (mirrored 2026-09-04 from .claude/skills) |
+| `finishing-a-development-branch` | 1.0.2 | active | pm | 2026-11-08 | — | Workspace override — redirects branch completion to /sync (mirrored 2026-09-04 from .claude/skills) |
 | `gas-dispersion-analyzer` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `gateguard` | 1.0.2 | active | pm | 2026-08-01 | — | Pre-edit fact-forcing quality gate — investigate importers, schemas, scope constraints before editing (Hook-Prompt-Skill 3-layer enforcement) |
 | `ghs-classifier` | 1.0.0 | active | msds-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -155,17 +155,17 @@ Generated: 2026-09-12T01:28:07.508Z
 | `handbook-sync-audit` | 1.0.5 | active | pm | 2026-08-29 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `hazop-analysis` | 1.1.0 | active | psm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `hv-cell-formation-electrical-safety-planner` | 1.0.0 | active | battery-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `i18n-audit` | 1.0.0 | active | pm | 2026-08-29 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `i18n-formatting` | 1.0.0 | active | pm | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `i18n-layout` | 1.1.0 | active | pm | 2026-11-06 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `i18n-locale-config` | 1.0.0 | active | pm | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `i18n-audit` | 1.0.2 | active | i18n-specialist | 2026-11-19 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `i18n-formatting` | 1.0.1 | active | i18n-specialist | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `i18n-layout` | 1.1.1 | active | i18n-specialist | 2026-11-06 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `i18n-locale-config` | 1.0.1 | active | i18n-specialist | 2026-08-24 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `iso14971-risk-scorer` | 1.1.0 | active | meddevice-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `k-dart` | 2.1.2 | active | strategy-analyst | 2026-08-09 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `k-ecos` | 1.0.0 | active | financial-analyst | 2026-09-11 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `k-kosis` | 1.0.2 | active | financial-analyst | 2026-08-23 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `k-krx` | 1.0.2 | active | financial-analyst | 2026-09-11 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `k-law` | 1.0.2 | active | strategy-analyst | 2026-08-09 | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `k-opendata` | 1.2.2 | active | hs-classification-specialist | 2026-09-03 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `k-dart` | 2.1.3 | active | public-data-analyst | 2026-08-09 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `k-ecos` | 1.0.1 | active | public-data-analyst | 2026-09-11 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `k-kosis` | 1.0.3 | active | public-data-analyst | 2026-08-23 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `k-krx` | 1.0.3 | active | public-data-analyst | 2026-09-11 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `k-law` | 1.0.3 | active | public-data-analyst | 2026-08-09 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `k-opendata` | 1.2.3 | active | public-data-analyst | 2026-09-03 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `landfill-methane-anaerobic-explosion-planner` | 1.0.0 | active | waste-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `meeting-facilitation` | 1.5.0 | active | pm | 2026-07-08 | — | Canonical meeting skill; `meeting` is a trigger alias, not a separate skill directory |
 | `mid-construction-inspection` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -174,7 +174,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `painting-coating-fire-toxic-planner` | 1.0.0 | active | shipbuilding-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `permit-to-work` | 1.0.1 | active | safety-workflow-manager | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `platform-command-lifecycle-manager` | 1.0.3 | active | pm | 2026-09-25 | — | Mirrored 2026-09-04 from .claude/skills |
-| `platform-skill-lifecycle-manager` | 1.0.2 | active | pm | 2026-05-31 | — | Mirrored 2026-09-04 from .claude/skills |
+| `platform-skill-lifecycle-manager` | 1.0.3 | active | pm | 2026-11-08 | — | Mirrored 2026-09-04 from .claude/skills |
 | `pre-construction-technical-review` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `process-hazard-screening` | 1.0.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `project-review` | 1.3.4 | active | pm | 2026-10-11 | — | — |
@@ -195,7 +195,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `skill-lifecycle-manager` | 1.5.1 | active | pm | 2026-10-09 | — | Skill Request Workflow (agent-initiated, PM-approved) + Deprecation & Removal |
 | `source-command-commit-push-pr` | 1.0.3 | active | pm | — | — | Redirects commit+push+PR requests to /sync (mirrored 2026-09-04 from .claude/skills) |
 | `standup-synthesizer` | 1.1.0 | active | pm | 2026-11-06 | — | Daily standup digest synthesizer aggregating commits, issues, PRs, and blockers |
-| `sync` | 1.9.0 | active | pm | 2026-11-07 | — | Full project sync pipeline — lifecycle, audit, publish, commit, push, PR. Reassigned from lifecycle-manager — same orphan cause as security-scan |
+| `sync` | 1.10.0 | active | automation-engineer | 2026-11-18 | — | Full project sync pipeline — lifecycle, audit, publish, commit, push, PR. Reassigned from lifecycle-manager — same orphan cause as security-scan |
 | `tank-integrity-validator` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `tar-planning` | 1.1.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `team-builder` | 1.2.0 | active | pm | 2026-10-26 | — | — |
@@ -206,8 +206,8 @@ Generated: 2026-09-12T01:28:07.508Z
 | `translate` | 1.0.3 | active | pm | 2026-08-24 | — | — |
 | `ui-ux-design-intelligence` | 1.0.1 | active | pm | 2026-09-06 | — | Promoted from co-design: component design, visual hierarchy, WCAG checklist; enabled by design-foundation |
 | `update-bun-packages` | 1.3.1 | active | pm | 2026-09-09 | — | Owns Bun dependency updates and root/common/variant alignment via sync-template-deps.ts --apply |
-| `zod-contract-gate` | 1.0.2 | active | architect | 2026-08-06 | — | Defines Zod runtime schema validation patterns and contract safety rules |
-| `design-foundation` | 1.1.0 | active | architect | 2026-09-26 | — | — |
+| `zod-contract-gate` | 1.0.3 | active | contract-gate-engineer | 2026-11-12 | — | Defines Zod runtime schema validation patterns and contract safety rules |
+| `design-foundation` | 1.1.1 | active | design-system-lead | 2026-11-12 | — | — |
 | `service-design` | 1.1.0 | active | pm | 2026-09-27 | — | — |
 | `evidence-collection-hot-work-permit` | 1.0.0 | active | safety-workflow-manager | 2026-10-30 | — | — |
 | `delegate-to-hub` | 1.0.1 | active | pm | 2026-11-02 | — | — |

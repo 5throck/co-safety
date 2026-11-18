@@ -1,5 +1,71 @@
 #!/usr/bin/env bun
-// @version 1.2.0
+// @version 1.5.0
+// v1.5.0 (2026-11-18, T-20261118-003 — design
+//          docs/designs/2026-11-18-memory-gate-step2-deadlock-design.md §3.1):
+//          new exported aggregate owedBlocks() — the gate's debt inventory as a
+//          pure composition of listMemoryMerges + showBlob + droppedBlocks.
+//          Step 2's branch-keyed session-block replace (dev-sync 1.52.0)
+//          consults it to SPARE same-branch segments the union gate still owes,
+//          closing the restore-then-re-collapse FATAL loop on branch=main
+//          sessions. Head-side clarification vs §3.1's prose (verified during
+//          implementation, DL-T1 red/green): the debt that matters is the
+//          MERGE-TIME inventory the gate's Arm A findings flag — droppedBlocks
+//          computed against the MERGED BLOB (the same call verifyUnion/§0's
+//          "a parent-owed block per droppedBlocks" tiers on) — because debt
+//          against the CURRENT WORKTREE zeroes out exactly when a restoration
+//          is present (the restored block satisfies the debt before step 2
+//          runs), making the sparing unfireable in the very deadlock it exists
+//          to close. The worktree still gates the inventory per merge-touched
+//          file: absent file → contribute nothing (the tier arms at the
+//          unionScan absent/archive/tombstone shapes own that state; there is
+//          no actionable worktree restoration to spare for). Consequence
+//          (accepted, design R4-class): a block whose repair was already
+//          committed stays in the inventory until the merge ages out of the
+//          window — a same-branch verbatim re-match is spared (content
+//          preserved) and the segment becomes replaceable again once the merge
+//          ages out (self-healing). No new git plumbing (the sweep is re-run,
+//          bounded and read-only — design R1 accepts the doubled cost;
+//          memoization deferred until profiled). Deliberately NO activationIso
+//          parameter: sparing is tier-agnostic (a WARN-tier owed block spared
+//          is harmless, fail-safe) and keeps step 2 free of
+//          GATE_3_88_ACTIVATED_AT — declared in dev-sync.ts AFTER step 2 in
+//          that top-level-await script (TDZ hazard). No tier logic — the
+//          caller needs only the inventory.
+// v1.4.0 (2026-11-18, T-20261117-008 — design
+//          docs/designs/2026-11-18-memory-union-archival-tier-design.md §2): the
+//          archival tier now also satisfies block-drop findings for merges whose
+//          dropped-block file was LATER archived. v1.2.0's archive fallback fires
+//          only when the local gitignored memory/archive/<basename> copy exists AND
+//          carries the parent-owed blocks — but a merge whose file existed AT the
+//          merge with a block dropped (the v1.1.1 merged===null tombstone arm never
+//          runs) and whose log a later housekeeping commit archived leaves a fresh
+//          worktree with NO worktree file and NO archive copy: the finding stayed
+//          FATAL until the merge aged out of the 7-day window (3 live /sync FATALs
+//          on 2026-11-17, co-deck PR-2/PR-4/PR-5; the gate's own "restore in the
+//          working tree" guidance fights step 3.8's re-archival — the T-20261106-007
+//          deadlock one level up). Fix: when neither the worktree file nor the
+//          archive copy is readable, consult the MEMORY.md tombstone row for the
+//          file (tracked; same regex as the v1.1.1 arm, now shared as
+//          hasMemoryTombstone) — tombstone present = sanctioned archival provenance
+//          = tier 'historical' (WARN, ages out with the window; the drop content
+//          stays recoverable from git history); no tombstone keeps the original
+//          tier (fail-closed). An archive copy that IS readable but does not carry
+//          the parent-union stays blocking (readable evidence outranks provenance,
+//          locally actionable). Fresh clones get the WARN, not the FATAL — the
+//          documented degradation (machinery design
+//          docs/designs/2026-11-17-root-machinery-batch-design.md §6).
+// v1.3.0 (2026-11-17, U-20261116-012 PR-2 compat — design
+//          docs/designs/2026-11-17-root-machinery-batch-design.md §2.2 item 4): the
+//          block-start well-formedness rule accepts a leading single-line HTML comment
+//          before the first '## ' heading. dev-sync 1.50.0 prefixes its session blocks
+//          with a `<!-- dev-sync:session branch=<branch> -->` identity marker (one block
+//          per branch per day), and this gate's Arm B runs FATAL on every flat memory
+//          log — without the relaxation every post-1.50.0 memory log would fail
+//          "block does not begin with a '## ' heading". Scope is deliberately narrow:
+//          only whole single-line `<!-- ... -->` lines at the top of a block are skipped;
+//          prose, unterminated comments, and multi-line comments still fail the rule,
+//          and the block/separator count invariant plus the fused-heading check are
+//          untouched.
 // v1.2.0 (2026-11-06, T-20261106-007 — the gate-deadlock closure): the
 //          archive↔union-verify fight. Merge e73b51057 deleted
 //          memory/2026-10-29.md (archive-memory 7-day retention, post-
@@ -93,8 +159,8 @@
 // passes — absent memory/ is a documented no-op handled at the dev-sync step
 // layer (same posture as step 3.87).
 
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { basename, join } from 'node:path';
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { basename, join } from "node:path";
 
 /** One parsed session block (verify-memory.ts:108-117 conventions). */
 export interface MemoryBlock {
@@ -109,7 +175,7 @@ export interface MemoryBlock {
 /** One integrity finding. `detail` names the block (heading + first content
  * line) and, for drops, the owning parent — enough for mechanical repair. */
 export interface UnionFinding {
-  kind: 'dropped-block' | 'fused-heading' | 'malformed-result';
+  kind: "dropped-block" | "fused-heading" | "malformed-result";
   /** Repo-relative file, e.g. memory/2026-11-04.md. */
   file: string;
   detail: string;
@@ -126,8 +192,8 @@ export function parseBlocks(content: string): MemoryBlock[] {
   for (const raw of content.split(/\n---\n/)) {
     const trimmed = raw.trim();
     if (!trimmed) continue;
-    const lines = trimmed.split('\n');
-    let heading = '';
+    const lines = trimmed.split("\n");
+    let heading = "";
     let headingIdx = -1;
     for (let i = 0; i < lines.length; i++) {
       const m = lines[i].match(/^## (.+)$/);
@@ -137,7 +203,7 @@ export function parseBlocks(content: string): MemoryBlock[] {
         break;
       }
     }
-    let firstLine = '';
+    let firstLine = "";
     if (headingIdx >= 0) {
       for (let i = headingIdx + 1; i < lines.length; i++) {
         if (lines[i].trim()) {
@@ -181,22 +247,29 @@ export function verifyWellFormed(opts: { file: string; content: string }): Union
   const seps = separatorCount(content);
   if (blocks.length !== seps + 1) {
     findings.push({
-      kind: 'malformed-result',
+      kind: "malformed-result",
       file,
       detail: `block/separator count invariant violated: ${blocks.length} session block(s) vs ${seps} '---' separator(s) (expected blocks === separators + 1)`,
     });
   }
   for (const block of blocks) {
-    if (!block.text.startsWith('## ')) {
+    // v1.3.0: leading single-line HTML-comment lines (the dev-sync session marker) do
+    // not disqualify a block — evaluate the rule on the text after them.
+    const blockLines = block.text.split("\n");
+    let headingStart = 0;
+    while (headingStart < blockLines.length && /^<!--.*-->$/.test(blockLines[headingStart].trim())) {
+      headingStart++;
+    }
+    if (!blockLines.slice(headingStart).join("\n").startsWith("## ")) {
       findings.push({
-        kind: 'malformed-result',
+        kind: "malformed-result",
         file,
         detail: `block does not begin with a '## ' heading after trim — first line: ${JSON.stringify(block.firstLine.slice(0, 120))}`,
       });
     }
     if (sessionSummaryCount(block.text) >= 2) {
       findings.push({
-        kind: 'fused-heading',
+        kind: "fused-heading",
         file,
         detail: `block carries ${sessionSummaryCount(block.text)} '## Session Summary' headings — the fused heading/separator signature (two session blocks share one separator)`,
       });
@@ -209,18 +282,13 @@ export function verifyWellFormed(opts: { file: string; content: string }): Union
  * by either parent must be present in `merged` (exact trimmed fingerprint
  * first, then heading + firstLine fallback — design §5.1 rule 4), and the
  * merged content must be structurally well-formed (rules 2 and 3). */
-export function verifyUnion(opts: {
-  file: string;
-  ours: string;
-  theirs: string;
-  merged: string;
-}): UnionFinding[] {
+export function verifyUnion(opts: { file: string; ours: string; theirs: string; merged: string }): UnionFinding[] {
   const { file, ours, theirs, merged } = opts;
   const findings: UnionFinding[] = [...verifyWellFormed({ file, content: merged })];
   for (const { parent, block } of droppedBlocks(ours, theirs, merged)) {
-    const label = block.heading !== '' ? `## ${block.heading}` : '(no heading)';
+    const label = block.heading !== "" ? `## ${block.heading}` : "(no heading)";
     findings.push({
-      kind: 'dropped-block',
+      kind: "dropped-block",
       file,
       detail: `block dropped from the ${parent} side of the merge: ${label} — first line: ${JSON.stringify(block.firstLine.slice(0, 120))}`,
     });
@@ -235,19 +303,83 @@ export function droppedBlocks(
   ours: string,
   theirs: string,
   head: string,
-): Array<{ parent: 'ours' | 'theirs'; block: MemoryBlock }> {
+): Array<{ parent: "ours" | "theirs"; block: MemoryBlock }> {
   const headBlocks = parseBlocks(head);
   const matchesHead = (block: MemoryBlock): boolean =>
     headBlocks.some((m) => m.text === block.text) ||
-    headBlocks.some((m) => m.heading === block.heading && m.heading !== '' && m.firstLine === block.firstLine);
-  const dropped: Array<{ parent: 'ours' | 'theirs'; block: MemoryBlock }> = [];
-  for (const [parent, content] of [['ours', ours], ['theirs', theirs]] as const) {
+    headBlocks.some((m) => m.heading === block.heading && m.heading !== "" && m.firstLine === block.firstLine);
+  const dropped: Array<{ parent: "ours" | "theirs"; block: MemoryBlock }> = [];
+  for (const [parent, content] of [
+    ["ours", ours],
+    ["theirs", theirs],
+  ] as const) {
     for (const block of parseBlocks(content)) {
       if (matchesHead(block)) continue;
       dropped.push({ parent, block });
     }
   }
   return dropped;
+}
+
+/** One block the union gate currently OWES: a parent-owed block from a bounded
+ * recent merge that is NOT accounted for in the current working-tree content.
+ * Consumed by dev-sync step 2's session-block replace to spare same-branch
+ * segments the gate would otherwise re-collapse (T-20261118-003). */
+export interface OwedBlock {
+  /** Owning merge commit (full hash). */
+  commit: string;
+  /** Merge-touched flat memory log, repo-relative (e.g. memory/2026-11-04.md). */
+  file: string;
+  /** Which parent owes the block. */
+  parent: "ours" | "theirs";
+  /** The owed block (text / heading / firstLine — droppedBlocks' match keys). */
+  block: MemoryBlock;
+}
+
+/**
+ * The debt inventory behind unionScan's Arm A findings, as a pure composition
+ * of listMemoryMerges + showBlob + droppedBlocks (v1.5.0, T-20261118-003 —
+ * design §3.1). Runs the SAME bounded sweep as unionScan; for each merge-touched
+ * file the debt is droppedBlocks computed against the MERGED BLOB — the same
+ * call the gate's findings tier on (verifyUnion). This is the merge-time
+ * inventory a working-tree restoration must satisfy, NOT the still-missing
+ * remainder against the current worktree: a restoration satisfies the
+ * worktree-side debt before step 2 ever runs, which would zero the inventory
+ * and make sparing unfireable in the exact deadlock it closes (head-side
+ * clarification verified by DL-T1's red/green; see the v1.5.0 header).
+ *
+ * Worktree gating per merge-touched file: an absent worktree file contributes
+ * nothing (the archive/tombstone tier arms own that state — no actionable
+ * worktree restoration exists to spare), and a merge that deleted the file
+ * contributes nothing (unionScan's merged===null arm owns it). No tier logic:
+ * the caller needs only which blocks are owed, parent- and commit-labeled.
+ *
+ * Deliberately NO `activationIso` parameter: sparing is tier-agnostic (a
+ * WARN-tier owed block spared is harmless, fail-safe), and this keeps the
+ * caller free of `GATE_3_88_ACTIVATED_AT` — declared in dev-sync.ts AFTER
+ * step 2 in that top-level-await script, so referencing it earlier would TDZ.
+ */
+export function owedBlocks(opts: { sinceDays: number; maxCommits: number; cwd?: string }): OwedBlock[] {
+  const cwd = opts.cwd ?? process.cwd();
+  const owed: OwedBlock[] = [];
+  for (const target of listMemoryMerges({ sinceDays: opts.sinceDays, maxCommits: opts.maxCommits, cwd })) {
+    const [p1, p2] = target.parents;
+    for (const file of target.files) {
+      const ours = showBlob(p1, file, cwd);
+      const theirs = showBlob(p2, file, cwd);
+      const merged = showBlob(target.commit, file, cwd);
+      if (merged === null) continue; // deleted-file arm — unionScan's tier arms own that shape
+      try {
+        readFileSync(join(cwd, file), "utf8");
+      } catch {
+        continue; // absent worktree file → contributes nothing (tier arms own that shape)
+      }
+      for (const { parent, block } of droppedBlocks(ours ?? "", theirs ?? "", merged)) {
+        owed.push({ commit: target.commit, file, parent, block });
+      }
+    }
+  }
+  return owed;
 }
 
 /**
@@ -266,7 +398,7 @@ export function repairedAtHead(opts: { ours: string; theirs: string; head: strin
   const dropped = droppedBlocks(ours, theirs, head);
   if (dropped.length === 0) return true;
   for (const { block } of dropped) {
-    if (block.heading !== '') return false; // headed debt: strict rule only
+    if (block.heading !== "") return false; // headed debt: strict rule only
     if (!head.includes(block.text)) return false; // un-headed debt: absorbed verbatim?
   }
   return true;
@@ -276,8 +408,8 @@ export function repairedAtHead(opts: { ours: string; theirs: string; head: strin
  * (MEMORY.md, meeting-*, adr-*, date-*-meeting) plus the memory/archive/
  * subtree. `relPath` is repo-relative, e.g. memory/2026-11-04.md. */
 export function isExemptMemoryFile(relPath: string): boolean {
-  const rest = relPath.startsWith('memory/') ? relPath.slice('memory/'.length) : relPath;
-  if (rest.includes('/')) return true; // nested subtree (memory/archive/, memory/skill-review/, ...)
+  const rest = relPath.startsWith("memory/") ? relPath.slice("memory/".length) : relPath;
+  if (rest.includes("/")) return true; // nested subtree (memory/archive/, memory/skill-review/, ...)
   return (
     /^MEMORY\.md$/.test(rest) ||
     /^meeting-/.test(rest) ||
@@ -292,7 +424,7 @@ export function flatMemoryFiles(memoryDir: string): string[] {
   if (!existsSync(memoryDir)) return [];
   const out: string[] = [];
   for (const entry of readdirSync(memoryDir, { withFileTypes: true })) {
-    if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
+    if (!entry.isFile() || !entry.name.endsWith(".md")) continue;
     const rel = `memory/${entry.name}`;
     if (isExemptMemoryFile(rel)) continue;
     out.push(rel);
@@ -325,7 +457,7 @@ export interface MergeScanResult {
   commit: string;
   file: string;
   findings: UnionFinding[];
-  tier: 'blocking' | 'historical' | 'repaired-at-head';
+  tier: "blocking" | "historical" | "repaired-at-head";
 }
 
 /** Git plumbing failures are no longer silent (T-20261106-005 item 2): a
@@ -333,9 +465,11 @@ export interface MergeScanResult {
  *  of indistinguishable from an empty window. Return contract unchanged:
  *  null = "no data" (fail-open at the caller). */
 function git(args: string[], cwd: string): string | null {
-  const res = Bun.spawnSync(['git', ...args], { cwd, stdout: 'pipe', stderr: 'pipe' });
+  const res = Bun.spawnSync(["git", ...args], { cwd, stdout: "pipe", stderr: "pipe" });
   if (res.exitCode !== 0) {
-    console.warn(`⚠️  memory-union-verify: git ${args[0]} failed (exit ${res.exitCode}) — sweep results may be incomplete`);
+    console.warn(
+      `⚠️  memory-union-verify: git ${args[0]} failed (exit ${res.exitCode}) — sweep results may be incomplete`,
+    );
     return null;
   }
   return res.stdout.toString();
@@ -345,11 +479,7 @@ function git(args: string[], cwd: string): string | null {
  * `maxCommits`), touching anything under memory/, with the touched flat
  * non-exempt memory logs enumerated against each parent. A repo without
  * merge commits touching memory returns an empty list (documented no-op). */
-export function listMemoryMerges(opts: {
-  sinceDays: number;
-  maxCommits: number;
-  cwd?: string;
-}): MergeScanTarget[] {
+export function listMemoryMerges(opts: { sinceDays: number; maxCommits: number; cwd?: string }): MergeScanTarget[] {
   // Non-positive window disables the sweep entirely — git's --since is >=
   // semantics, so "0 days" would still include same-instant commits; the
   // bounded-window contract needs a hard off-switch (and maxCommits=0 already
@@ -359,36 +489,36 @@ export function listMemoryMerges(opts: {
   const cwd = opts.cwd ?? process.cwd();
   const logOut = git(
     [
-      'log',
-      '--merges',
+      "log",
+      "--merges",
       // --full-history is required: default history simplification prunes a
       // merge that is TREESAME to one parent for the pathspec — a clean union
       // merge that took one side's file verbatim (the shape union-verify most
       // needs to bless) would silently vanish from the sweep without it.
-      '--full-history',
+      "--full-history",
       `--since=${opts.sinceDays} days`,
-      '-n',
+      "-n",
       String(opts.maxCommits),
-      '--format=%H %P',
-      '--',
-      'memory',
+      "--format=%H %P",
+      "--",
+      "memory",
     ],
     cwd,
   );
   if (logOut === null) return [];
   const targets: MergeScanTarget[] = [];
-  for (const line of logOut.split('\n')) {
+  for (const line of logOut.split("\n")) {
     const trimmed = line.trim();
     if (!trimmed) continue;
     const [commit, ...parents] = trimmed.split(/\s+/);
     if (parents.length < 2) continue; // defensive: --merges guarantees >= 2
     const touched = new Set<string>();
     for (const parent of parents) {
-      const diffOut = git(['diff-tree', '-r', '--name-only', parent, commit], cwd);
+      const diffOut = git(["diff-tree", "-r", "--name-only", parent, commit], cwd);
       if (diffOut === null) continue;
-      for (const f of diffOut.split('\n')) {
+      for (const f of diffOut.split("\n")) {
         const p = f.trim();
-        if (!p.startsWith('memory/') || !p.endsWith('.md')) continue;
+        if (!p.startsWith("memory/") || !p.endsWith(".md")) continue;
         if (isExemptMemoryFile(p)) continue;
         touched.add(p);
       }
@@ -402,7 +532,21 @@ export function listMemoryMerges(opts: {
 /** `git show <commit>:<path>` — null when the path is absent in that commit
  * (file added or deleted relative to that side). */
 export function showBlob(commit: string, file: string, cwd?: string): string | null {
-  return git(['show', `${commit}:${file}`], cwd ?? process.cwd());
+  return git(["show", `${commit}:${file}`], cwd ?? process.cwd());
+}
+
+/** MEMORY.md tombstone-row check for one flat memory log — the sanctioned-
+ * archival positive-evidence token (v1.1.1 posture: the tombstone IS the
+ * evidence; positive-evidence-only). False when the index is unreadable, so
+ * every caller is fail-closed by construction. */
+function hasMemoryTombstone(file: string, cwd: string): boolean {
+  try {
+    const memoryIndex = readFileSync(join(cwd, "memory", "MEMORY.md"), "utf8");
+    const base = file.replace(/^memory\//, "").replace(/\.md$/, "");
+    return new RegExp(`^\\| ${base} \\|`, "m").test(memoryIndex);
+  } catch {
+    return false;
+  }
 }
 
 /** Full Arm A: run verifyUnion over the bounded merge sweep. A parent blob
@@ -436,15 +580,9 @@ export function unionScan(opts: {
           // cycle when its MEMORY.md index row survives (the tombstone IS the
           // positive evidence — the same positive-evidence-only posture as
           // filterTransientCheckouts). No tombstone row = original tier.
-          let deletedTier: MergeScanResult['tier'] = tier;
-          try {
-            const memoryIndex = readFileSync(join(cwd, 'memory', 'MEMORY.md'), 'utf8');
-            const base = file.replace(/^memory\//, '').replace(/\.md$/, '');
-            if (new RegExp(`^\\| ${base} \\|`, 'm').test(memoryIndex)) {
-              deletedTier = 'repaired-at-head'; // sanctioned archival — INFO tier shared
-            }
-          } catch {
-            // MEMORY.md unreadable — keep the original tier (fail-closed)
+          let deletedTier: MergeScanResult["tier"] = tier;
+          if (hasMemoryTombstone(file, cwd)) {
+            deletedTier = "repaired-at-head"; // sanctioned archival — INFO tier shared
           }
           results.push({
             commit: target.commit,
@@ -452,11 +590,12 @@ export function unionScan(opts: {
             tier: deletedTier,
             findings: [
               {
-                kind: 'dropped-block',
+                kind: "dropped-block",
                 file,
-                detail: deletedTier === 'repaired-at-head'
-                  ? 'file deleted in the merge commit — archive-memory 7-day retention (MEMORY.md tombstone row present; INFO, ages out with the window)'
-                  : 'file deleted in the merge commit while a parent still carries session blocks',
+                detail:
+                  deletedTier === "repaired-at-head"
+                    ? "file deleted in the merge commit — archive-memory 7-day retention (MEMORY.md tombstone row present; INFO, ages out with the window)"
+                    : "file deleted in the merge commit while a parent still carries session blocks",
               },
             ],
           });
@@ -465,8 +604,8 @@ export function unionScan(opts: {
       }
       const findings = verifyUnion({
         file,
-        ours: ours ?? '',
-        theirs: theirs ?? '',
+        ours: ours ?? "",
+        theirs: theirs ?? "",
         merged,
       });
       if (findings.length > 0) {
@@ -476,11 +615,11 @@ export function unionScan(opts: {
         // (repairedAtHead), the group reports tier 'repaired-at-head'
         // (INFO) instead of blocking. Unreadable worktree file = not
         // proven repaired = original tier stands.
-        let effectiveTier: MergeScanResult['tier'] = tier;
+        let effectiveTier: MergeScanResult["tier"] = tier;
         try {
-          const worktreeContent = readFileSync(join(cwd, file), 'utf8');
-          if (repairedAtHead({ ours: ours ?? '', theirs: theirs ?? '', head: worktreeContent })) {
-            effectiveTier = 'repaired-at-head';
+          const worktreeContent = readFileSync(join(cwd, file), "utf8");
+          if (repairedAtHead({ ours: ours ?? "", theirs: theirs ?? "", head: worktreeContent })) {
+            effectiveTier = "repaired-at-head";
           }
         } catch {
           // v1.2.0 archive-location fallback (T-20261106-007): the worktree
@@ -489,12 +628,29 @@ export function unionScan(opts: {
           // The archived content IS the parent blocks (relocated, not
           // destroyed), so the repaired-at-head check runs against it.
           try {
-            const archivedContent = readFileSync(join(cwd, 'memory', 'archive', basename(file)), 'utf8');
-            if (repairedAtHead({ ours: ours ?? '', theirs: theirs ?? '', head: archivedContent })) {
-              effectiveTier = 'repaired-at-head';
+            const archivedContent = readFileSync(join(cwd, "memory", "archive", basename(file)), "utf8");
+            if (repairedAtHead({ ours: ours ?? "", theirs: theirs ?? "", head: archivedContent })) {
+              effectiveTier = "repaired-at-head";
             }
           } catch {
-            // neither worktree nor archive readable — keep the original tier
+            // v1.4.0 archival-provenance tier (T-20261117-008 — design
+            // docs/designs/2026-11-18-memory-union-archival-tier-design.md §2):
+            // neither the worktree file nor the archive copy is readable — the
+            // fresh-worktree shape. When the file was later archived by the
+            // documented retention cycle, its MEMORY.md tombstone row (tracked;
+            // same regex as the v1.1.1 merged===null arm, now shared as
+            // hasMemoryTombstone) is the positive evidence of sanctioned
+            // archival: the damaged blob is immutable history, the gate's
+            // "restore in the working tree" guidance fights step 3.8's
+            // re-archival, and the local-only archive fallback has nothing to
+            // read — re-tier to 'historical' (WARN, ages out with the window;
+            // the drop content stays recoverable from git history). No
+            // tombstone = no provenance = the original tier stands
+            // (fail-closed). Fresh clones get the WARN, not the FATAL — the
+            // documented degradation (machinery design §6).
+            if (hasMemoryTombstone(file, cwd)) {
+              effectiveTier = "historical"; // sanctioned archival — WARN tier shared
+            }
           }
         }
         results.push({ commit: target.commit, file, findings, tier: effectiveTier });
@@ -506,14 +662,14 @@ export function unionScan(opts: {
 
 /** Commit date (committer, ISO-8601) of a merge commit; null when git fails. */
 function commitDateIso(commit: string, cwd: string): string | null {
-  return git(['show', '-s', '--format=%cI', commit], cwd)?.trim() ?? null;
+  return git(["show", "-s", "--format=%cI", commit], cwd)?.trim() ?? null;
 }
 
-function tierFor(commit: string, activationIso: string | undefined, cwd: string): 'blocking' | 'historical' {
-  if (!activationIso) return 'blocking';
+function tierFor(commit: string, activationIso: string | undefined, cwd: string): "blocking" | "historical" {
+  if (!activationIso) return "blocking";
   const date = commitDateIso(commit, cwd);
-  if (date === null) return 'blocking'; // fail-closed: undatable commit treated as new
-  return date > activationIso ? 'blocking' : 'historical';
+  if (date === null) return "blocking"; // fail-closed: undatable commit treated as new
+  return date > activationIso ? "blocking" : "historical";
 }
 
 /** Arm B plumbing: verifyWellFormed over every flat, non-exempt memory log in
@@ -521,8 +677,8 @@ function tierFor(commit: string, activationIso: string | undefined, cwd: string)
 export function wellFormedScan(opts: { memoryDir: string }): Array<{ file: string; findings: UnionFinding[] }> {
   const out: Array<{ file: string; findings: UnionFinding[] }> = [];
   for (const rel of flatMemoryFiles(opts.memoryDir)) {
-    const abs = join(opts.memoryDir, rel.slice('memory/'.length));
-    const content = readFileSync(abs, 'utf-8');
+    const abs = join(opts.memoryDir, rel.slice("memory/".length));
+    const content = readFileSync(abs, "utf-8");
     const findings = verifyWellFormed({ file: rel, content });
     if (findings.length > 0) out.push({ file: rel, findings });
   }

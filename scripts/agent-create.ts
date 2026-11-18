@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
  * Agent Creator CLI for Workspace Root
- * @version 1.0.1
+ * @version 1.0.2
  * Creates new agent definition files in the agents/ directory
  *
  * Usage:
@@ -39,7 +39,7 @@ function getAgentTemplate(options: AgentOptions): string {
 
 > **Agent Type**: ${groupText}
 > **Auto-Dispatch**: No (dispatch via PM or manual)
-> **Last Updated**: ${new Date().toISOString().split('T')[0]}
+> **Last Updated**: ${new Date().toISOString().split("T")[0]}
 
 ---
 
@@ -151,7 +151,9 @@ async function createAgent(options: AgentOptions): Promise<void> {
   console.log(`  2. Add the agent to AGENTS.md (Agent Roster table)`);
   console.log(`  3. Add the agent to Subagent Roster table in AGENTS.md`);
   if (existsSync(path.join(projectRoot, "CONSTITUTION.md"))) {
-    console.log(`  4. Update CONSTITUTION.md §5.2 Role Groups if needed`);
+    console.log(
+      `  4. Update ${existsSync("CONSTITUTION.md") ? "CONSTITUTION.md" : "docs/context.md"} §5.2 Role Groups if needed`,
+    );
   } else {
     console.log(`  4. Update docs/context.md — Multi-Agent Architecture if needed`);
   }
@@ -184,7 +186,7 @@ Examples:
   }
 
   const options: AgentOptions = {
-    name: args[0]
+    name: args[0],
   };
 
   for (let i = 1; i < args.length; i++) {
@@ -216,7 +218,7 @@ async function main(): Promise<void> {
 }
 
 if (import.meta.main) {
-  main().catch(error => {
+  main().catch((error) => {
     console.error("Error:", error);
     process.exit(1);
   });

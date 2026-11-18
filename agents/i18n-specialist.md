@@ -1,31 +1,42 @@
 ---
 name: i18n-specialist
-formal_name: I18N Specialist Agent
-role: specialist
+description: >-
+  Owns locale configuration, locale-specific formatting, and text layout
+  guidance. Use when: "localization review", "locale config",
+  "internationalization"
+variant: co-safety
+version: 1.1.1
+last_updated: 2026-11-18
 status: active
 tier: medium
+formal_name: I18N Specialist Agent
+role: specialist
 domain: _shared
 lifecycle:
   phase: production
   created: "2026-08-24"
-  last_updated: "2026-10-27"
+  last_updated: 2026-11-18
   governance: docs/lifecycle/agents/i18n-specialist.md
-version: "1.3.2"
-last_updated: "2026-11-06"
-last_reviewed: "2026-11-06"
+last_reviewed: '2026-11-06'
 color: cyan
-description: 'Owns locale configuration, locale-specific formatting, and text layout guidance. Use when: "localization review", "locale config", "internationalization"'
 examples:
-  - user: "Which locale code should we use for Traditional Chinese content for Taiwan?"
-    assistant: "I'll determine the correct BCP 47 locale ID and its collation and display implications"
-  - user: "Review our date and currency formatting for a Korean-market deliverable"
-    assistant: "I'll review the formatting rules and route jurisdiction-specific questions to the domain experts"
+  - user: >-
+      Which locale code should we use for Traditional Chinese content for
+      Taiwan?
+    assistant: >-
+      I'll determine the correct BCP 47 locale ID and its collation and display
+      implications
+  - user: Review our date and currency formatting for a Korean-market deliverable
+    assistant: >-
+      I'll review the formatting rules and route jurisdiction-specific questions
+      to the domain experts
 required_skills:
   - i18n-locale-config
   - i18n-formatting
   - i18n-layout
   - i18n-audit
 ---
+
 
 ## Role
 
