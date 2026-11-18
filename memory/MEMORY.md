@@ -9,6 +9,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-11-18](2026-11-18.md) | chore: deliver common agents (i18n-specialist, automation-engineer, contract-gate-engineer, design-system-lead, public-data-analyst) + registry registration (T-20261112-008) |
 | [2026-11-12](2026-11-12.md) | docs(review): full review 2026-11-12 remediation + graft-trail flip closeout |
 | [2026-11-10](2026-11-10.md) | chore(skills): declare co-safety meeting command fork in SKILL.md scope (T-20261109-003, DEC-20261110-01) |
 | [2026-11-08](2026-11-08.md) | chore: workspace sync — session residue (Step 1 local-work) |

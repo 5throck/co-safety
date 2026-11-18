@@ -1,7 +1,12 @@
 {
   "version": 1,
   "generated": [
+    "automation-engineer",
+    "contract-gate-engineer",
+    "design-system-lead",
+    "i18n-specialist",
     "pm",
+    "public-data-analyst",
     "safety-governance-manager",
     "safety-workflow-manager"
   ]
