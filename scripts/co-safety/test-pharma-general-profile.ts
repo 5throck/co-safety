@@ -17,7 +17,7 @@
  *   T-09: GMP common schema defines required definitions
  *   T-10: Sample evidence record validates against schema (change-control)
  *
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 import * as fs from 'node:fs';

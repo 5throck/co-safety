@@ -19,7 +19,7 @@
  *   T-11: Sample MSDS record has GHS 16 sections + ghs_version
  *   T-12: Reference workflow (chemical-spill-reference) has correct pattern fields
  *
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 import * as fs from 'node:fs';

@@ -12,7 +12,7 @@
  *   T-07: Evidence model $ref paths resolve correctly (depth check)
  *   T-08: 2-Tier folder structure: functional/ and industry/ exist
  *
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 import * as fs from 'node:fs';
