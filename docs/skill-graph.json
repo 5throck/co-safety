@@ -1288,11 +1288,7 @@
         ".agents/skills/project-review/SKILL.md",
         ".codex/skills/project-review/SKILL.md",
         ".hermes/skills/project-review/SKILL.md"
-      ],
-      "usage": {
-        "sessions": 1,
-        "last_used": "2026-11-12"
-      }
+      ]
     },
     {
       "id": "skill:root/protocol-deviation-analyzer",

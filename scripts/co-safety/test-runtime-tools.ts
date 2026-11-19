@@ -32,7 +32,7 @@
  *
  * The sandbox is removed on success and preserved on failure for debugging.
  *
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 import * as fs from 'node:fs';
