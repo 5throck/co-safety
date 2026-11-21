@@ -151,7 +151,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `gmp-change-control` | 1.0.0 | active | gmp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `gmp-deviation-capa` | 1.0.0 | active | gmp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `gmp-qrm` | 1.0.0 | active | gmp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `handbook` | 0.6.0 | active | pm | 2026-09-20 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `handbook` | 0.6.2 | active | pm | 2026-09-20 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `handbook-sync-audit` | 1.0.5 | active | pm | 2026-08-29 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `hazop-analysis` | 1.1.0 | active | psm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `hv-cell-formation-electrical-safety-planner` | 1.0.0 | active | battery-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -167,7 +167,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `k-law` | 1.0.3 | active | public-data-analyst | 2026-08-09 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `k-opendata` | 1.2.3 | active | public-data-analyst | 2026-09-03 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `landfill-methane-anaerobic-explosion-planner` | 1.0.0 | active | waste-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `meeting-facilitation` | 1.5.0 | active | pm | 2026-07-08 | — | Canonical meeting skill; `meeting` is a trigger alias, not a separate skill directory |
+| `meeting-facilitation` | 1.6.0 | active | pm | 2026-11-21 | — | Canonical meeting skill; `meeting` is a trigger alias, not a separate skill directory |
 | `mid-construction-inspection` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `msds-parser` | 1.0.0 | active | msds-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `munitions-magazine-storage-safety-planner` | 1.0.0 | active | defense-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |

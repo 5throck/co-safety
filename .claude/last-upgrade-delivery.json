@@ -1,39 +1,119 @@
 {
   "schemaVersion": 2,
-  "timestamp": "2026-11-19T18:33:02.955Z",
+  "timestamp": "2026-11-21T18:13:31.044Z",
   "project": "co-safety",
   "templateVersion": "0.30.0",
-  "templateSha": "d62ec06e2f90e22b407037b20ce9ff8adac7b13b",
-  "baseSha": "552bf8721b63b631d883719b0eee7d6dcb6b9326",
+  "templateSha": "658dc23e79ae7b104167ff32a90c2ede239c693a",
+  "baseSha": "db71b00780860de6bcceb32b59a30042ff49f5c5",
   "files": [
-    ".claude/settings.json",
+    ".agents/skills/handbook/SKILL.md",
+    ".agents/skills/handbook/assets/css/handbook-variables.css",
+    ".agents/skills/handbook/references/AUTHORING_GUIDELINES.md",
+    ".agents/skills/handbook/references/BUILD_GUIDE.md",
+    ".agents/skills/handbook/references/QUALITY_CHECKLIST.md",
+    ".agents/skills/handbook/templates/base.html",
+    ".agents/skills/handbook/templates/chapter.html",
+    ".agents/skills/handbook/templates/course-overview.html",
+    ".agents/skills/handbook/templates/examples.html",
+    ".agents/skills/handbook/templates/index.html",
+    ".agents/skills/handbook/templates/instructor-guide.html",
+    ".agents/skills/handbook/templates/manual.html",
+    ".agents/skills/handbook/templates/quiz.html",
+    ".agents/skills/meeting-facilitation/SKILL.md",
+    ".claude/skills/handbook/SKILL.md",
+    ".claude/skills/handbook/assets/css/handbook-variables.css",
+    ".claude/skills/handbook/references/AUTHORING_GUIDELINES.md",
+    ".claude/skills/handbook/references/BUILD_GUIDE.md",
+    ".claude/skills/handbook/references/QUALITY_CHECKLIST.md",
+    ".claude/skills/handbook/templates/base.html",
+    ".claude/skills/handbook/templates/chapter.html",
+    ".claude/skills/handbook/templates/course-overview.html",
+    ".claude/skills/handbook/templates/examples.html",
+    ".claude/skills/handbook/templates/index.html",
+    ".claude/skills/handbook/templates/instructor-guide.html",
+    ".claude/skills/handbook/templates/manual.html",
+    ".claude/skills/handbook/templates/quiz.html",
+    ".claude/skills/meeting-facilitation/SKILL.md",
+    ".codex/skills/handbook/SKILL.md",
+    ".codex/skills/handbook/assets/css/handbook-variables.css",
+    ".codex/skills/handbook/references/AUTHORING_GUIDELINES.md",
+    ".codex/skills/handbook/references/BUILD_GUIDE.md",
+    ".codex/skills/handbook/references/QUALITY_CHECKLIST.md",
+    ".codex/skills/handbook/templates/base.html",
+    ".codex/skills/handbook/templates/chapter.html",
+    ".codex/skills/handbook/templates/course-overview.html",
+    ".codex/skills/handbook/templates/examples.html",
+    ".codex/skills/handbook/templates/index.html",
+    ".codex/skills/handbook/templates/instructor-guide.html",
+    ".codex/skills/handbook/templates/manual.html",
+    ".codex/skills/handbook/templates/quiz.html",
+    ".codex/skills/meeting-facilitation/SKILL.md",
+    ".gemini/skills/handbook/SKILL.md",
+    ".gemini/skills/handbook/assets/css/handbook-variables.css",
+    ".gemini/skills/handbook/references/AUTHORING_GUIDELINES.md",
+    ".gemini/skills/handbook/references/BUILD_GUIDE.md",
+    ".gemini/skills/handbook/references/QUALITY_CHECKLIST.md",
+    ".gemini/skills/handbook/templates/base.html",
+    ".gemini/skills/handbook/templates/chapter.html",
+    ".gemini/skills/handbook/templates/course-overview.html",
+    ".gemini/skills/handbook/templates/examples.html",
+    ".gemini/skills/handbook/templates/index.html",
+    ".gemini/skills/handbook/templates/instructor-guide.html",
+    ".gemini/skills/handbook/templates/manual.html",
+    ".gemini/skills/handbook/templates/quiz.html",
+    ".gemini/skills/meeting-facilitation/SKILL.md",
+    ".gitattributes",
     ".githooks/commit-msg",
     ".github/workflows/ci.yml",
-    "CLAUDE.md",
+    ".hermes/skills/handbook/SKILL.md",
+    ".hermes/skills/handbook/assets/css/handbook-variables.css",
+    ".hermes/skills/handbook/references/AUTHORING_GUIDELINES.md",
+    ".hermes/skills/handbook/references/BUILD_GUIDE.md",
+    ".hermes/skills/handbook/references/QUALITY_CHECKLIST.md",
+    ".hermes/skills/handbook/templates/base.html",
+    ".hermes/skills/handbook/templates/chapter.html",
+    ".hermes/skills/handbook/templates/course-overview.html",
+    ".hermes/skills/handbook/templates/examples.html",
+    ".hermes/skills/handbook/templates/index.html",
+    ".hermes/skills/handbook/templates/instructor-guide.html",
+    ".hermes/skills/handbook/templates/manual.html",
+    ".hermes/skills/handbook/templates/quiz.html",
+    ".hermes/skills/meeting-facilitation/SKILL.md",
+    "docs/lifecycle/skills/handbook.md",
+    "docs/lifecycle/skills/meeting-facilitation.md",
+    "docs/workspace-schema.json",
     "scripts/SCRIPTS.md",
-    "scripts/co-safety/SCRIPTS.md",
-    "scripts/co-safety/test-chemical-handling-profile.ts",
-    "scripts/co-safety/test-cross-domain-integration.ts",
-    "scripts/co-safety/test-pharma-general-profile.ts",
-    "scripts/co-safety/test-runtime-tools.ts",
-    "scripts/generate-raci.ts",
-    "scripts/helpers/scaffold-markers.ts",
-    "scripts/lib/constitution-scrub.ts",
-    "scripts/lib/hook-dedupe.ts",
-    "scripts/lib/platform-skeleton-merge.ts",
-    "scripts/lib/upgrade-policy.ts",
-    "scripts/validate-decisions.ts",
-    "scripts/validate-raci.ts",
+    "scripts/dev-sync.ts",
+    "scripts/handbook/apply-handbook-theme.ts",
+    "scripts/handbook/check-authoring.ts",
+    "scripts/handbook/check-external-links.ts",
+    "scripts/handbook/scaffold-handbook.ts",
+    "scripts/handbook/update-footers.ts",
+    "scripts/helpers/memory-union-verify.ts",
+    "scripts/lib/external-deps.ts",
+    "scripts/sync-agent-mirrors.ts",
+    "scripts/validate-doc-folder.ts",
+    "scripts/validate-templates.ts",
+    "scripts/validate-variant-readiness.ts",
+    "skills/SKILLS.md",
+    "skills/handbook/SKILL.md",
+    "skills/handbook/assets/css/handbook-variables.css",
+    "skills/handbook/references/AUTHORING_GUIDELINES.md",
+    "skills/handbook/references/BUILD_GUIDE.md",
+    "skills/handbook/references/QUALITY_CHECKLIST.md",
+    "skills/handbook/templates/base.html",
+    "skills/handbook/templates/chapter.html",
+    "skills/handbook/templates/course-overview.html",
+    "skills/handbook/templates/examples.html",
+    "skills/handbook/templates/index.html",
+    "skills/handbook/templates/instructor-guide.html",
+    "skills/handbook/templates/manual.html",
+    "skills/handbook/templates/quiz.html",
+    "skills/meeting-facilitation/SKILL.md",
     "template-version.txt",
-    "scripts/helpers/adoption-provenance.ts",
-    "scripts/helpers/delivery-riding.ts"
+    "scripts/handbook/check-generated-content.ts"
   ],
   "baselines": {
-    ".claude/settings.json": {
-      "hash": "754a55ea7f73e90f1159f9727326f9ffa6e0c22d7ff9fa5c76ce2b81ebc025d6",
-      "templateVersion": "0.30.0",
-      "blob": "4cca6dc4a8ad8dd333e7390de6191bdda2a8486b"
-    },
     ".githooks/commit-msg": {
       "hash": "6375ca75a1fa6cf1547835b64f2b36c549b4faf4aa4aab0fccc4e88e06451f54",
       "templateVersion": "0.30.0",
@@ -70,9 +150,9 @@
       "blob": "4beeae497b217748a6f20d86523abec03ce81894"
     },
     "CLAUDE.md": {
-      "hash": "13b999e4fc2a1953216fbfce3e3678240008af4ca79bed11d32ef8d914faca35",
+      "hash": "5c67dbf9468fdf224a6ce21188902ea6c7ec33d0c6d6b3f3f1658d3658e32ba3",
       "templateVersion": "0.30.0",
-      "blob": "38346c26084e747644f35eddad69f0b72c406c7d"
+      "blob": "afecc417bf42ed1784aba152f48b8f9b60baac58"
     },
     "CODEX.md": {
       "hash": "3f93a58d765511fc035e2c8cea9bdf01e9d356139bc194f9d6d1b23937a750f0",
@@ -108,6 +188,273 @@
       "hash": "6424d80604638ae56523d66a6a3447b3bb14ec249afb20d2fe70f75bca30f87d",
       "templateVersion": "0.30.0",
       "blob": "dc6dd2e84dd1ad63b77bbdde06e6ff63eeb2151e"
+    },
+    "docs/workspace-schema.json": {
+      "hash": "3633e1b6ad7203418fea45b9d93ec8873e3c8b2d43110369072926fb480fcd10",
+      "templateVersion": "0.30.0",
+      "blob": "9f5329c449778ed80978914fa8948ce0b686ebe4"
+    },
+    "scripts/dev-sync.ts": {
+      "hash": "9dce60ee4e166512881390ee3e7d8cdefe0a1c028868429b7c6646ce85b880b8",
+      "templateVersion": "0.30.0",
+      "blob": "e8a9811a57df511da0b6a7d5a31a2538c61e1330"
+    },
+    "scripts/handbook/apply-handbook-theme.ts": {
+      "hash": "9f8675bcb9dc925172486d4f15bbc34edfd2a96a015044c7aaa4aa46ec30dbdd",
+      "templateVersion": "0.30.0",
+      "blob": "b3aea5f85384d657e5bf1425588aa00162cf97aa"
+    },
+    "scripts/handbook/check-authoring.ts": {
+      "hash": "d5f18c5541d0a80b6158c902b92d78e59b43cb3fddda2a2c1db6885fa4237e82",
+      "templateVersion": "0.30.0",
+      "blob": "ac95fb0865a2c898ecde97f81dd974db86f5418e"
+    },
+    "scripts/handbook/check-external-links.ts": {
+      "hash": "7d9b37349a794e85e6eb295d8b4b3009f440027a4f9c45d5dabec7d5f0b8ce38",
+      "templateVersion": "0.30.0",
+      "blob": "15ff87853f28c1a2e452da1b49ff0928938b6343"
+    },
+    "scripts/handbook/check-generated-content.ts": {
+      "hash": "515fcc503f44834104e119206f6910e53dccaa06baa3269255c71954f4250842",
+      "templateVersion": "0.30.0",
+      "blob": "fbdd74892a88e7a1d1f5f52823b62f80d06d36d4"
+    },
+    "scripts/handbook/scaffold-handbook.ts": {
+      "hash": "b1e0c7fbf0c95750f08ebc068c942a4394b3c6e3788d79f4fecc44b7ce4fb815",
+      "templateVersion": "0.30.0",
+      "blob": "4d0240f13c4a0af3446303e3a573464fad65768d"
+    },
+    "scripts/handbook/update-footers.ts": {
+      "hash": "d6aaf5d2b80e75bcca6b40ed4ee221a753bfe4bac279ac506b5aec3995cfa88b",
+      "templateVersion": "0.30.0",
+      "blob": "354d3c9f6dac755376a6dfcec921539668e578d8"
+    },
+    "scripts/helpers/memory-union-verify.ts": {
+      "hash": "319dca5d1f919533ced253e7c82146ebb31daa26577aa78241af1db8bf3b4ca2",
+      "templateVersion": "0.30.0",
+      "blob": "117ef4745463d466cd4623243178910ed34d2db8"
+    },
+    "scripts/lib/external-deps.ts": {
+      "hash": "a7ccf1fced563ed3be7df0985a430a98ba602f6d36687a2f8490829d7fa560e1",
+      "templateVersion": "0.30.0",
+      "blob": "27528d2ce4a6d0e333f9a896233dc257d70c1523"
+    },
+    "scripts/sync-agent-mirrors.ts": {
+      "hash": "57a20647756efad430ed1815cfb4e282ac7e80e9e137e4131c474daa19f3f872",
+      "templateVersion": "0.30.0",
+      "blob": "274bcdcda9dad76a2bb42ed61d7b17931caeafb4"
+    },
+    "scripts/validate-doc-folder.ts": {
+      "hash": "d2a7f2715583d29bdb35f043a847ce40cd5afe90ea1ee8a5c86c97402dbbc111",
+      "templateVersion": "0.30.0",
+      "blob": "b2f369c21877acf1d4f23ceb8708191715cbd715"
+    },
+    "scripts/validate-templates.ts": {
+      "hash": "597309c0fb220cee662d9aaec49e0a9e6e5172af53d86ec373d55f3808dfe963",
+      "templateVersion": "0.30.0",
+      "blob": "887e49f9d4d38c8a34d41ec36cdf45610b26dc7e"
+    },
+    "scripts/validate-variant-readiness.ts": {
+      "hash": "7f5e8ec3620e2b416fc432d803192436a78e720538c33eddfa6ef6ef4a01495f",
+      "templateVersion": "0.30.0",
+      "blob": "d2f42ff6418a6242696288d985989a49ef11e78c"
+    },
+    "skills/handbook/references/AUTHORING_GUIDELINES.md": {
+      "hash": "6d186f3b9532ed6ee4a54d7c9647ef141154ef411460d4a44d9b9d5d610c1fa6",
+      "templateVersion": "0.30.0",
+      "blob": "198976ed38eaf1ec289d6625cec642666dec3793"
+    },
+    "skills/handbook/references/I18N_PARITY_PLAYBOOK.md": {
+      "hash": "b1b8a83ea82c8c94aeddc402541fe0ea08afaeae1c9745d5fd5bc855dc3f4a02",
+      "templateVersion": "0.30.0",
+      "blob": "5773c67d359096cbe116567fa92902a4407c9b54"
+    },
+    "skills/handbook/references/SECTION_TYPES.md": {
+      "hash": "40492530f9f1583b519f97c23c55b486398880703056f8525a3e103c92c3cba8",
+      "templateVersion": "0.30.0",
+      "blob": "3d0ab3e266403b83fd8cfa169f96dec90db37581"
+    },
+    "skills/handbook/references/MAINTENANCE_PLAYBOOK.md": {
+      "hash": "046bf26ecfc1becd90d822e1b4b7f3ed026cad53579f2b97c4f344e395c6778f",
+      "templateVersion": "0.30.0",
+      "blob": "037b1c7a4a9f38361a294a49c80298bff466fd66"
+    },
+    "skills/handbook/references/BUILD_GUIDE.md": {
+      "hash": "c48fd72db5d4913d8053396d7dab6f921d1f48e3a36b820f954cee8bc14b140a",
+      "templateVersion": "0.30.0",
+      "blob": "6ba077c28aada88517c2cae26bf8a9224f4fd3a6"
+    },
+    "skills/handbook/references/KOREAN_LANGUAGE.md": {
+      "hash": "e216fb4711bf55b0ea3e651160e6b55360924fdf0bcb62e6c6adf7afe79069e6",
+      "templateVersion": "0.30.0",
+      "blob": "0102a1ce1ab0ef831125b405f9a6beb04ab77ef1"
+    },
+    "skills/handbook/references/validation/NAV_VALIDATION.md": {
+      "hash": "632f65882b1070ccb63650f2008b207b77471c0f94f049d7f80316a97cc5cb2f",
+      "templateVersion": "0.30.0",
+      "blob": "5afa8189ddef6491e658ec383b9b2e615502385b"
+    },
+    "skills/handbook/references/QUALITY_CHECKLIST.md": {
+      "hash": "23572d297452fe70d24a7817da0a47bcf3f9b046714620b4ea61f4cc801acca1",
+      "templateVersion": "0.30.0",
+      "blob": "f5b93f08b1ad202b4faa1295d0a1f95e50505a49"
+    },
+    "skills/handbook/examples/course/index.html": {
+      "hash": "ff1643e5e7e77806d3071067a66f4d92ff8da4fff9266ecfaacb28bb6a81986b",
+      "templateVersion": "0.30.0",
+      "blob": "be2f2c8b2aa333a4819fc497dd60bdc4638c053b"
+    },
+    "skills/handbook/examples/course/chapter_01.html": {
+      "hash": "2af9210e33af1e01df7b0375e115b16bb991f1d83d1dfeb82c3d4a3fba9d4bf3",
+      "templateVersion": "0.30.0",
+      "blob": "51f1ca7ee9a6336ed3641ec8b2511d721fa21851"
+    },
+    "skills/handbook/examples/course/chapter_02.html": {
+      "hash": "caee96546ffea073d6aedf9fb399d9af2b189fb53a977314984b05d962e429db",
+      "templateVersion": "0.30.0",
+      "blob": "5b48d6b9f90a7407daf67fcd44c423f3106bfff9"
+    },
+    "skills/handbook/examples/course/course-overview.html": {
+      "hash": "fda85a30b4af73abf3df81fd6348e724365224c60b39b88ea57bdd02199d8e70",
+      "templateVersion": "0.30.0",
+      "blob": "cfdb55122f0f690f28e125627c87c86ae6769a14"
+    },
+    "skills/handbook/examples/course/instructor-guide.html": {
+      "hash": "9b3bc51abc2ad21cd74cb8604169091b6f5f2b0fcd46e8a31c15333325aab53e",
+      "templateVersion": "0.30.0",
+      "blob": "74da21f17d5b96ea1f4be154503b772512e174fe"
+    },
+    "skills/handbook/examples/minimal/index.html": {
+      "hash": "e29e951a85029d859c50026f30d8a3a429fcd02b136b950f289ce8c9ca5ae269",
+      "templateVersion": "0.30.0",
+      "blob": "744f950a515fc78b13675020c566bc623d076d0d"
+    },
+    "skills/handbook/examples/minimal/chapter_01.html": {
+      "hash": "b7e6385699bc1426f557dc5770920d7993d0ce42106739c28675e168080e2f7f",
+      "templateVersion": "0.30.0",
+      "blob": "1ba3758f5fa67b04feaa0516bfe89f4ee29a76a9"
+    },
+    "skills/handbook/examples/handbook/index.html": {
+      "hash": "ba99aaa5ef4a9f81009eb5a20cedf01efbf60512d5dee95e70fd103d164d237d",
+      "templateVersion": "0.30.0",
+      "blob": "750ac4898deb24b93a1357f0aa96456a77c5e88f"
+    },
+    "skills/handbook/examples/handbook/chapter_01.html": {
+      "hash": "d7648f6bd0674a17c55ed0b8ce9cad3723121bde41d407c805e1f4be0118af0a",
+      "templateVersion": "0.30.0",
+      "blob": "e2be5f892b7640a86de75363508d197d24915382"
+    },
+    "skills/handbook/examples/handbook/chapter_03.html": {
+      "hash": "e61b0abb21a9176331c0b802d8951e0277f36f1a5920b73926c66eb99c18a510",
+      "templateVersion": "0.30.0",
+      "blob": "473496fc74b41d8cc47af7be558d6efdb22fa568"
+    },
+    "skills/handbook/examples/handbook/chapter_02.html": {
+      "hash": "daa763184233b1ad6ab7de333e4bdfa01d8d7a60e8d2ae3640ea48dd3c55be41",
+      "templateVersion": "0.30.0",
+      "blob": "faaaf99746817bf41aaccf9c7cf64b775cc348d0"
+    },
+    "skills/handbook/SKILL.md": {
+      "hash": "bbf5ebad3440be533666e53f12365bfcb2e77d111b9f2889aab7421c0764d400",
+      "templateVersion": "0.30.0",
+      "provenance": "vintage",
+      "blob": "cfcc5f1165a8979fd81c40da6d2cf8987b1b0b2e"
+    },
+    "skills/handbook/templates/index.html": {
+      "hash": "b1e2ecb7158123070a13ebe7e898547c23c9393eea944f7190d1dfd02c5da916",
+      "templateVersion": "0.30.0",
+      "blob": "e25b24b2a960f34f7dbf6f81a42722be83294980"
+    },
+    "skills/handbook/templates/base.html": {
+      "hash": "c7f2ca317444f738a2c66672c0d4b309889ab1b393c37b130822d42ae996a385",
+      "templateVersion": "0.30.0",
+      "blob": "f8916e188a5ba2b17c132b0b8f7a64f906478b9a"
+    },
+    "skills/handbook/templates/quiz.html": {
+      "hash": "c1024539a04d4f072728268db56a72555a25bb596d5f26a08d4fd650daa7153b",
+      "templateVersion": "0.30.0",
+      "blob": "82fb43a350d744c5593b5b917c1b569e01c65648"
+    },
+    "skills/handbook/templates/.nojekyll": {
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "templateVersion": "0.30.0",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    "skills/handbook/templates/.gitignore": {
+      "hash": "dbb63f63739e94be5081a54ee5b7ffd94022a657eec20f1f7ede0a702f06d576",
+      "templateVersion": "0.30.0",
+      "blob": "32162624c233c151a6564280c93069fd3b9c4ba1"
+    },
+    "skills/handbook/templates/chapter.html": {
+      "hash": "5de0b605fbaa002dd8f61ec5a15102a13e1f3063ada3a8936b907a603c97fb88",
+      "templateVersion": "0.30.0",
+      "blob": "52a239e9c8ed9ff994ef584ad900c6bd3bf37f05"
+    },
+    "skills/handbook/templates/examples.html": {
+      "hash": "2fd9354a06beb8fd5f6ab4febd2c1f927a4625b7598259ea9de783e99dae4802",
+      "templateVersion": "0.30.0",
+      "blob": "e6c8495253f06299f197724744acc6939c1ac643"
+    },
+    "skills/handbook/templates/manual.html": {
+      "hash": "bc823d550164e7a60a6ed612c33bfa92e11e2f3b84dc3482bc01c3870bf7be21",
+      "templateVersion": "0.30.0",
+      "blob": "7065303d09d153ef95243de35098027b5a6aaaea"
+    },
+    "skills/handbook/templates/course-overview.html": {
+      "hash": "69bb4e5c959a0d671e30a750f333df1a3e684a58888ef3a4b1a9ee1f0b2b39c1",
+      "templateVersion": "0.30.0",
+      "blob": "22bf364b956de4f61e914c9f440c18d0857e117d"
+    },
+    "skills/handbook/templates/instructor-guide.html": {
+      "hash": "c49a4f397c0b00bf62cd70a7dd04357bdbf356d936cdcea65ecf2aa903fb3c4b",
+      "templateVersion": "0.30.0",
+      "blob": "8afc90d1305bf71fbaa2e978431562e6ba367b27"
+    },
+    "skills/handbook/assets/css/handbook-variables.css": {
+      "hash": "17683cf03777d9d479c3d4ce6460d1fb3ad63a55fa627f6a7900c7f22dcde38f",
+      "templateVersion": "0.30.0",
+      "blob": "36e2e50a344e27e15885238ff8c0a548efd192c1"
+    },
+    "skills/handbook/assets/css/handbook-components.css": {
+      "hash": "7b390a59bc71332ce2e9c4e3bec50ff7ef71be5de33132e1f02a972276e92a5b",
+      "templateVersion": "0.30.0",
+      "blob": "8150e9011e59e305c88b1b6a1c7d04e43ea6ea1b"
+    },
+    "skills/handbook/assets/js/dark-mode-toggle.js": {
+      "hash": "08ee757324a6519a3ba6f6e2e6bc535d65fa3f26fcc4c1c9f67582d84907880f",
+      "templateVersion": "0.30.0",
+      "blob": "ff62c3904d1b2fc0ca5e13a67b902754cebb9ba1"
+    },
+    "skills/handbook/assets/js/inpage-search.js": {
+      "hash": "1af5418de135957ec85699eb95e0162d080e9959b86398ee6715797c0d690729",
+      "templateVersion": "0.30.0",
+      "blob": "4fd957704d8729966bbbe4de654ee31a36af4252"
+    },
+    "skills/handbook/assets/js/site-search.js": {
+      "hash": "4f941335064c8b406391a8a9577c5b934ec5ca43e06df8cfdcbe1668eba43ed9",
+      "templateVersion": "0.30.0",
+      "blob": "be48c08d1b9d6c26d50481e1ec1350c85d042129"
+    },
+    "skills/handbook/assets/js/copy-code.js": {
+      "hash": "703cdad2d3c3ae87623dfa173df9ced4b24e56d5078d6d7c2e5768f17fb865c5",
+      "templateVersion": "0.30.0",
+      "blob": "1b318498021a8a492d6888946e40971e986889da"
+    },
+    "skills/handbook/assets/js/lang-switcher.js": {
+      "hash": "4ce261d32d8c93894fabdba292075b15c92c8243f52cec96ec1f6100a3da5134",
+      "templateVersion": "0.30.0",
+      "blob": "8e4afa206a70116fd58807a73c3347dba6365654"
+    },
+    "skills/meeting-facilitation/SKILL.md": {
+      "hash": "aa2ffa3083eda0e4528e3a8f7cd6f0b1a2cf0308f7e3a56536f3b2fa50b5cd50",
+      "templateVersion": "0.30.0",
+      "provenance": "vintage",
+      "blob": "2af1e785d9e8a7e70875b6d2596c4f1b91f92c6b"
+    },
+    ".claude/settings.json": {
+      "hash": "754a55ea7f73e90f1159f9727326f9ffa6e0c22d7ff9fa5c76ce2b81ebc025d6",
+      "templateVersion": "0.30.0",
+      "blob": "4cca6dc4a8ad8dd333e7390de6191bdda2a8486b"
     },
     "scripts/co-safety/test-chemical-handling-profile.ts": {
       "hash": "e6e8f0064510961874bc77830777db7a737a3d2a85c650db4b82fc380692849f",
@@ -668,11 +1015,6 @@
       "provenance": "vintage",
       "blob": "00ee2019fa8e7a5f33c96a5902a7d82d9554acbc"
     },
-    "docs/workspace-schema.json": {
-      "hash": "eba0898275acede4d5241c1ecd9000925a5a07cbc4542fd638849c4449b53321",
-      "templateVersion": "0.30.0",
-      "blob": "464bfc590473c60bb41b5f16844020f65e3b4a70"
-    },
     "scripts/agent-create.ts": {
       "hash": "8cc7cefe53585b0ccf860e412a1224c76e58d1119db51bb64f8b06dc35ed3223",
       "templateVersion": "0.30.0",
@@ -762,11 +1104,6 @@
       "templateVersion": "0.30.0",
       "blob": "a10b491213a5dfadf3a6f083333a50fbc1056d83"
     },
-    "scripts/dev-sync.ts": {
-      "hash": "48577c0fef211329985e37f74a9b6161484a8d21402abd97d4ffa64609ba15e3",
-      "templateVersion": "0.30.0",
-      "blob": "e6869164ef6249b387431873727681591a3a8544"
-    },
     "scripts/dispatch-parallel.ts": {
       "hash": "ef03879cd06ddb8c1dd55e3e9ba7cb32d2982afffa82a9bc54dabb4e397746dc",
       "templateVersion": "0.30.0",
@@ -828,28 +1165,11 @@
       "provenance": "vintage",
       "blob": "307581716efcfde0b53a9cd03a826aec8d882d6a"
     },
-    "scripts/handbook/apply-handbook-theme.ts": {
-      "hash": "1ff0e11a137267a3572b113a45d0aa5810ce0d81a21a242408a4df921d67dc41",
-      "templateVersion": "0.30.0",
-      "provenance": "vintage",
-      "blob": "ea22dc8fdbe6be71011105b57a3181bb94fbe48b"
-    },
     "scripts/handbook/check-a11y.ts": {
       "hash": "3b2ea624a1f86ce7b08549ad97db672617e2543686dc1d026e81d62610b6b925",
       "templateVersion": "0.30.0",
       "provenance": "vintage",
       "blob": "629f5767127e9520f94338d3004764c902519575"
-    },
-    "scripts/handbook/check-authoring.ts": {
-      "hash": "5e54c6e68c9d9b814726f7dfeec153e9b3af9f180fa745c615e7ea4d006362a5",
-      "templateVersion": "0.30.0",
-      "blob": "d086e8cf10648dc43fa1750ff648fa8c1b4115d7"
-    },
-    "scripts/handbook/check-external-links.ts": {
-      "hash": "f6985468d04d951a01d1627ea6747e46ae0ffe55364d31613ffcc5a7a040c8c3",
-      "templateVersion": "0.30.0",
-      "provenance": "vintage",
-      "blob": "a3ec4e70e540a62e9db5d59310446ecea2cba861"
     },
     "scripts/handbook/check-i18n-parity.ts": {
       "hash": "5d81655c735edc4af28b61d7cd9935482cf3fb55b8e96e1eb25ec9de58cd82c7",
@@ -928,18 +1248,6 @@
       "templateVersion": "0.30.0",
       "provenance": "vintage",
       "blob": "f42efbc91a390e26c7a6a9e41c8568937b0dd2df"
-    },
-    "scripts/handbook/scaffold-handbook.ts": {
-      "hash": "c49bbbe20be31403e44597986fc2c69f00b6036a3a7e42c04c6320579eb6581c",
-      "templateVersion": "0.30.0",
-      "provenance": "vintage",
-      "blob": "24145e96a1f0defc67b4cfb50d9e92e7766ee9f5"
-    },
-    "scripts/handbook/update-footers.ts": {
-      "hash": "059532c27690aa18c1c1fbd1740640ca3d25c19cae715f676a75c8f8612618a1",
-      "templateVersion": "0.30.0",
-      "provenance": "vintage",
-      "blob": "97e402694c9cb956a34a7310a7d3bf5e483883c3"
     },
     "scripts/handbook/validate-handbook.ts": {
       "hash": "0da10af442f8b7ccd898494a91de123a7ff3024bebbcb39c8f913bf40187d545",
@@ -1029,11 +1337,6 @@
       "templateVersion": "0.30.0",
       "provenance": "vintage",
       "blob": "5fca39f7499ee8fbf169977bc2af1c677b35eed7"
-    },
-    "scripts/helpers/memory-union-verify.ts": {
-      "hash": "637ad87d9b202a1d940ab8da733926b60a1f42ad884378472922da4f9fb73f5e",
-      "templateVersion": "0.30.0",
-      "blob": "b6454e350d00cec961275880fb016f8eae2fcdfc"
     },
     "scripts/helpers/merge-frontmatter.ts": {
       "hash": "76dd410df03641b20b60e1c1d5bbf33af81276c6dbb4af56b770d77db538e539",
@@ -1244,11 +1547,6 @@
       "templateVersion": "0.30.0",
       "provenance": "vintage",
       "blob": "b5ebc943ee25cf206061caec00a8db8f2b30080f"
-    },
-    "scripts/lib/external-deps.ts": {
-      "hash": "952377ae40fb15b1599ee378a5961a2bc6caea991e9e41597bc914134c6a5e8a",
-      "templateVersion": "0.30.0",
-      "blob": "4b1e7fe3b7e43348d9abc3fbc2d5bf38ce5659df"
     },
     "scripts/lib/fleet.ts": {
       "hash": "e2feee4e7b5359a53d42d57c71c71996ed5083cdc98ba93df8e0992f309e124d",
@@ -1505,11 +1803,6 @@
       "provenance": "vintage",
       "blob": "f7fb53bb1f15d3bc41965b1b2294909b10fdc820"
     },
-    "scripts/sync-agent-mirrors.ts": {
-      "hash": "b2d598d626dc0c03d0d98601dc66d06ef30afb8453271cdd115743684477b86e",
-      "templateVersion": "0.30.0",
-      "blob": "b7894ee559b20a8481bfc203d564dcedf26c8627"
-    },
     "scripts/sync-md.ts": {
       "hash": "0f96612215f44cd9d53714ccf97b737112b824417e2906fe15113059cd408e7f",
       "templateVersion": "0.30.0",
@@ -1556,11 +1849,6 @@
       "templateVersion": "0.30.0",
       "blob": "de8605cb5b58a65dccb66735009dca9851860ec1"
     },
-    "scripts/validate-doc-folder.ts": {
-      "hash": "bf898e30825782eaeb2ae906289a5f29890b59af7195effe76ef0d704775de19",
-      "templateVersion": "0.30.0",
-      "blob": "85a71f29d80bad830c9cfb6dfe7131eb36ea6679"
-    },
     "scripts/validate-docs-links.ts": {
       "hash": "16c39374ed43b08c7f2363bef20dee613e878340658badcbcd180061840777ce",
       "templateVersion": "0.30.0",
@@ -1605,17 +1893,6 @@
       "templateVersion": "0.30.0",
       "provenance": "vintage",
       "blob": "76dd3e1f71c262fff31d1db1dbb70c08b1f7560d"
-    },
-    "scripts/validate-templates.ts": {
-      "hash": "7f1cd5bce71454aa9dfff47252e02e846324fdc13c0e36b714df2f0f06a1360f",
-      "templateVersion": "0.30.0",
-      "blob": "85edcead00db81a3c5010a0047d7fc23c77ed7ce"
-    },
-    "scripts/validate-variant-readiness.ts": {
-      "hash": "dede9c6cdfe7fcd09214d1b2a3134bc16c74246373f82056bae77c3510ec465c",
-      "templateVersion": "0.30.0",
-      "provenance": "vintage",
-      "blob": "37f1a6dcf824c86f1c70b089d1c56aec1bedc661"
     },
     "scripts/verify-agent-deliverables.ts": {
       "hash": "a016299e7d721597a06333a56530efb82ad0225f7ab31d27574e50e77b51895f",
@@ -2974,14 +3251,6 @@
       "path": "CLAUDE.md",
       "policy": "MERGE_MANAGED",
       "pass": "MERGE",
-      "verdict": "TEMPLATE_DELTA",
-      "detail": "template-authoritative managed block restamped (template wins): COMMON-CLAUDE — project block diverged from the template and was restamped (9 line(s) → 10 line(s))",
-      "severity": "INFO"
-    },
-    {
-      "path": "CLAUDE.md",
-      "policy": "MERGE_MANAGED",
-      "pass": "MERGE",
       "verdict": "MERGE",
       "detail": "managed-zone merge delivered (non-destructive union/insert)",
       "severity": "INFO"
@@ -3928,182 +4197,171 @@
       "severity": "WARN"
     },
     {
-      "path": "scripts/co-safety/test-chemical-handling-profile.ts",
+      "path": "scripts/dev-sync.ts",
       "policy": "SYNC",
       "pass": "SYNC_IF_NEWER: scripts/",
       "verdict": "ADOPT",
-      "detail": "1.0.0 → 1.0.1 — version-gated delivery over the delivered baseline",
+      "detail": "1.52.0 → 1.52.1 — version-gated delivery over the delivered baseline",
       "baseline": {
-        "hash": "113177a176e350e89ae9643709c8cbc1e2ac64caf858e2617a796bc5bd2734ab",
+        "hash": "48577c0fef211329985e37f74a9b6161484a8d21402abd97d4ffa64609ba15e3",
         "templateVersion": "0.30.0",
-        "provenance": "parity",
-        "blob": "3faf530890d93923def554f4b6e04ea6cf883e1b"
+        "blob": "e6869164ef6249b387431873727681591a3a8544"
       },
       "severity": "INFO"
     },
     {
-      "path": "scripts/co-safety/test-cross-domain-integration.ts",
+      "path": "scripts/handbook/apply-handbook-theme.ts",
       "policy": "SYNC",
       "pass": "SYNC_IF_NEWER: scripts/",
       "verdict": "ADOPT",
-      "detail": "1.0.0 → 1.0.1 — version-gated delivery over the delivered baseline",
+      "detail": "1.0.0 → 1.2.0 — version-gated delivery over the delivered baseline",
       "baseline": {
-        "hash": "7c80b222a76eaef8aef1273e0bcedf0ebadf621b13ecbf9050e6913f73e7f521",
-        "templateVersion": "0.30.0",
-        "provenance": "parity",
-        "blob": "7dc8b60c72d447311fa2de660522a37e00eda029"
-      },
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/co-safety/test-pharma-general-profile.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "ADOPT",
-      "detail": "1.0.0 → 1.0.1 — version-gated delivery over the delivered baseline",
-      "baseline": {
-        "hash": "fdde8eb769d6846c81e73ca0dcf7861515613a9941a004f94298d4a0fc5fcf95",
-        "templateVersion": "0.30.0",
-        "provenance": "parity",
-        "blob": "cb1268dcea02d7c932f0941f98c72200de09c2bb"
-      },
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/co-safety/test-runtime-tools.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "ADOPT",
-      "detail": "1.0.0 → 1.0.1 — version-gated delivery over the delivered baseline",
-      "baseline": {
-        "hash": "c35770aa72f87e372f7fa8b16bff46750d45d5f4a974a4585940781001613a4f",
-        "templateVersion": "0.30.0",
-        "provenance": "parity",
-        "blob": "57e8d76649a7ec7e93d4c344cb216632e6fe2735"
-      },
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/generate-raci.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "ADOPT",
-      "detail": "1.2.0 → 1.2.1 — version-gated delivery over the delivered baseline",
-      "baseline": {
-        "hash": "387dc9b8c0cd6c12c80ece06895c6e2ec5a36bb26a21c564c2274aafaf7aa0a7",
+        "hash": "1ff0e11a137267a3572b113a45d0aa5810ce0d81a21a242408a4df921d67dc41",
         "templateVersion": "0.30.0",
         "provenance": "vintage",
-        "blob": "9870dff24b883661afaaeeb876aacb4753ee128c"
+        "blob": "ea22dc8fdbe6be71011105b57a3181bb94fbe48b"
       },
       "severity": "INFO"
     },
     {
-      "path": "scripts/helpers/adoption-provenance.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "NEW",
-      "detail": "delivered (none) → 1.0.0",
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/helpers/delivery-riding.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "NEW",
-      "detail": "delivered (none) → 1.0.0",
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/helpers/scaffold-markers.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "ADOPT",
-      "detail": "1.10.3 → 1.10.4 — version-gated delivery over the delivered baseline",
-      "baseline": {
-        "hash": "7ec8169c1db9161455f9e242887bbab624cf33622d3ae2d729ed118d855a3e7b",
-        "templateVersion": "0.30.0",
-        "blob": "24e0c835da3456310443c9c37f93b77a282c2766"
-      },
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/lib/constitution-scrub.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "ADOPT",
-      "detail": "1.3.0 → 1.3.1 — version-gated delivery over the delivered baseline",
-      "baseline": {
-        "hash": "3ae81a52d3c253730e79040e6635fb9bf46a2eb46ac17102e6fa4534f6135d13",
-        "templateVersion": "0.30.0",
-        "provenance": "vintage",
-        "blob": "a0509854a1da3edd5c1a36bca848662d234ab99e"
-      },
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/lib/hook-dedupe.ts",
+      "path": "scripts/handbook/check-authoring.ts",
       "policy": "SYNC",
       "pass": "SYNC_IF_NEWER: scripts/",
       "verdict": "ADOPT",
       "detail": "1.3.0 → 1.4.0 — version-gated delivery over the delivered baseline",
       "baseline": {
-        "hash": "0432d75d48c47000ce53ad57d900b73ea3e36a1bdffbd943f532880a504b8d18",
+        "hash": "5e54c6e68c9d9b814726f7dfeec153e9b3af9f180fa745c615e7ea4d006362a5",
         "templateVersion": "0.30.0",
-        "blob": "275335152ae871149ff02f78eb1d2806ef596903"
+        "blob": "d086e8cf10648dc43fa1750ff648fa8c1b4115d7"
       },
       "severity": "INFO"
     },
     {
-      "path": "scripts/lib/platform-skeleton-merge.ts",
+      "path": "scripts/handbook/check-external-links.ts",
       "policy": "SYNC",
       "pass": "SYNC_IF_NEWER: scripts/",
       "verdict": "ADOPT",
-      "detail": "1.2.0 → 1.2.1 — version-gated delivery over the delivered baseline",
+      "detail": "1.2.0 → 1.3.0 — version-gated delivery over the delivered baseline",
       "baseline": {
-        "hash": "663b958250d0464339b79779486e5f545b0c45e51b25c13ec37cd832e9ada383",
+        "hash": "f6985468d04d951a01d1627ea6747e46ae0ffe55364d31613ffcc5a7a040c8c3",
         "templateVersion": "0.30.0",
-        "blob": "f87780fbe33a66e37527a7128af4117cf1a7a66c"
+        "provenance": "vintage",
+        "blob": "a3ec4e70e540a62e9db5d59310446ecea2cba861"
       },
       "severity": "INFO"
     },
     {
-      "path": "scripts/lib/upgrade-policy.ts",
+      "path": "scripts/handbook/check-generated-content.ts",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: scripts/",
+      "verdict": "NEW",
+      "detail": "delivered (none) → 1.0.0",
+      "severity": "INFO"
+    },
+    {
+      "path": "scripts/handbook/scaffold-handbook.ts",
       "policy": "SYNC",
       "pass": "SYNC_IF_NEWER: scripts/",
       "verdict": "ADOPT",
-      "detail": "1.47.0 → 1.48.0 — version-gated delivery over the delivered baseline",
+      "detail": "1.2.0 → 1.3.1 — version-gated delivery over the delivered baseline",
       "baseline": {
-        "hash": "73b19b13d1be90bf8edce154a50c869e217f755c65881c76d808f2f7346e2980",
+        "hash": "c49bbbe20be31403e44597986fc2c69f00b6036a3a7e42c04c6320579eb6581c",
         "templateVersion": "0.30.0",
-        "blob": "197bec686457190c2d0d6b85e82000fddf3b9d20"
+        "provenance": "vintage",
+        "blob": "24145e96a1f0defc67b4cfb50d9e92e7766ee9f5"
       },
       "severity": "INFO"
     },
     {
-      "path": "scripts/validate-decisions.ts",
+      "path": "scripts/handbook/update-footers.ts",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: scripts/",
+      "verdict": "ADOPT",
+      "detail": "1.0.0 → 1.1.0 — version-gated delivery over the delivered baseline",
+      "baseline": {
+        "hash": "059532c27690aa18c1c1fbd1740640ca3d25c19cae715f676a75c8f8612618a1",
+        "templateVersion": "0.30.0",
+        "provenance": "vintage",
+        "blob": "97e402694c9cb956a34a7310a7d3bf5e483883c3"
+      },
+      "severity": "INFO"
+    },
+    {
+      "path": "scripts/helpers/memory-union-verify.ts",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: scripts/",
+      "verdict": "ADOPT",
+      "detail": "1.5.0 → 1.6.0 — version-gated delivery over the delivered baseline",
+      "baseline": {
+        "hash": "637ad87d9b202a1d940ab8da733926b60a1f42ad884378472922da4f9fb73f5e",
+        "templateVersion": "0.30.0",
+        "blob": "b6454e350d00cec961275880fb016f8eae2fcdfc"
+      },
+      "severity": "INFO"
+    },
+    {
+      "path": "scripts/lib/external-deps.ts",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: scripts/",
+      "verdict": "ADOPT",
+      "detail": "1.3.0 → 1.4.0 — version-gated delivery over the delivered baseline",
+      "baseline": {
+        "hash": "952377ae40fb15b1599ee378a5961a2bc6caea991e9e41597bc914134c6a5e8a",
+        "templateVersion": "0.30.0",
+        "blob": "4b1e7fe3b7e43348d9abc3fbc2d5bf38ce5659df"
+      },
+      "severity": "INFO"
+    },
+    {
+      "path": "scripts/sync-agent-mirrors.ts",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: scripts/",
+      "verdict": "ADOPT",
+      "detail": "1.3.0 → 1.3.1 — version-gated delivery over the delivered baseline",
+      "baseline": {
+        "hash": "b2d598d626dc0c03d0d98601dc66d06ef30afb8453271cdd115743684477b86e",
+        "templateVersion": "0.30.0",
+        "blob": "b7894ee559b20a8481bfc203d564dcedf26c8627"
+      },
+      "severity": "INFO"
+    },
+    {
+      "path": "scripts/validate-doc-folder.ts",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: scripts/",
+      "verdict": "ADOPT",
+      "detail": "1.5.0 → 1.5.1 — version-gated delivery over the delivered baseline",
+      "baseline": {
+        "hash": "bf898e30825782eaeb2ae906289a5f29890b59af7195effe76ef0d704775de19",
+        "templateVersion": "0.30.0",
+        "blob": "85a71f29d80bad830c9cfb6dfe7131eb36ea6679"
+      },
+      "severity": "INFO"
+    },
+    {
+      "path": "scripts/validate-templates.ts",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: scripts/",
+      "verdict": "ADOPT",
+      "detail": "1.86.0 → 1.87.0 — version-gated delivery over the delivered baseline",
+      "baseline": {
+        "hash": "7f1cd5bce71454aa9dfff47252e02e846324fdc13c0e36b714df2f0f06a1360f",
+        "templateVersion": "0.30.0",
+        "blob": "85edcead00db81a3c5010a0047d7fc23c77ed7ce"
+      },
+      "severity": "INFO"
+    },
+    {
+      "path": "scripts/validate-variant-readiness.ts",
       "policy": "SYNC",
       "pass": "SYNC_IF_NEWER: scripts/",
       "verdict": "ADOPT",
       "detail": "1.1.0 → 1.2.0 — version-gated delivery over the delivered baseline",
       "baseline": {
-        "hash": "488604fe552e42a5c1e2bad2ffc0318e78a38cc54f5c44efe5e66589522df856",
+        "hash": "dede9c6cdfe7fcd09214d1b2a3134bc16c74246373f82056bae77c3510ec465c",
         "templateVersion": "0.30.0",
         "provenance": "vintage",
-        "blob": "239b94d8ac79a38d7f272cab2d50c0ee57db3349"
-      },
-      "severity": "INFO"
-    },
-    {
-      "path": "scripts/validate-raci.ts",
-      "policy": "SYNC",
-      "pass": "SYNC_IF_NEWER: scripts/",
-      "verdict": "ADOPT",
-      "detail": "1.2.0 → 1.2.1 — version-gated delivery over the delivered baseline",
-      "baseline": {
-        "hash": "520520c9bb8bd339aa5a01ad6064e3f3df013211637529f931fee74747a2c3d0",
-        "templateVersion": "0.30.0",
-        "provenance": "vintage",
-        "blob": "1eb6b6da27a99fc83c07b9fbbbe43e1b8d62aeee"
+        "blob": "37f1a6dcf824c86f1c70b089d1c56aec1bedc661"
       },
       "severity": "INFO"
     },
@@ -4220,12 +4478,52 @@
       "severity": "WARN"
     },
     {
+      "path": "skills/handbook/SKILL.md",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: skills/",
+      "verdict": "ADOPT",
+      "detail": "no delivery baseline; project bytes equal a historical revision of the template (vintage-proven — no project-authored content) — delivered",
+      "severity": "INFO"
+    },
+    {
+      "path": "skills/handbook/SKILL.md",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: skills/",
+      "verdict": "ADOPT",
+      "detail": "0.6.0 → 0.6.2 — version-gated whole-directory delivery over the delivered baseline",
+      "severity": "INFO"
+    },
+    {
+      "path": "docs/lifecycle/skills/handbook.md",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: skills/",
+      "verdict": "RECORD_BUMP",
+      "detail": "hand-authored record metadata aligned to the delivered SKILL.md: Version line inserted (0.6.2 — record carried none)",
+      "severity": "INFO"
+    },
+    {
       "path": "skills/meeting-facilitation/SKILL.md",
       "policy": "SYNC",
       "pass": "SYNC_IF_NEWER: skills/",
-      "verdict": "DRIFT_PRESERVE",
-      "detail": "same-version content drift — project copy PRESERVED (ADR-0085 D3)",
-      "severity": "WARN"
+      "verdict": "ADOPT",
+      "detail": "no delivery baseline; project bytes equal a historical revision of the template (vintage-proven — no project-authored content) — delivered",
+      "severity": "INFO"
+    },
+    {
+      "path": "skills/meeting-facilitation/SKILL.md",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: skills/",
+      "verdict": "ADOPT",
+      "detail": "1.5.0 → 1.6.0 — version-gated whole-directory delivery over the delivered baseline",
+      "severity": "INFO"
+    },
+    {
+      "path": "docs/lifecycle/skills/meeting-facilitation.md",
+      "policy": "SYNC",
+      "pass": "SYNC_IF_NEWER: skills/",
+      "verdict": "RECORD_BUMP",
+      "detail": "hand-authored record metadata aligned to the delivered SKILL.md: Version line inserted (1.6.0 — record carried none)",
+      "severity": "INFO"
     },
     {
       "path": "skills/research-analysis/SKILL.md",
@@ -4972,6 +5270,22 @@
       "severity": "WARN"
     },
     {
+      "path": "skills/meeting-facilitation/SKILL.md",
+      "policy": "SYNC",
+      "pass": "VARIANT SKILLS",
+      "verdict": "DRIFT_PRESERVE",
+      "detail": "same-version content drift — project copy PRESERVED (ADR-0085 D3)",
+      "severity": "WARN"
+    },
+    {
+      "path": "skills/meeting-facilitation/SKILL.md",
+      "policy": "SYNC",
+      "pass": "VARIANT SKILLS",
+      "verdict": "PROJECT_AHEAD",
+      "detail": "project version 1.6.0 is ahead of the template 1.5.0 — never delivered over a newer project copy; port the content template-side (pendingBackport)",
+      "severity": "WARN"
+    },
+    {
       "path": "skills/evidence-collection-hot-work-permit/SKILL.md",
       "policy": "SYNC",
       "pass": "VARIANT SKILLS",
@@ -5215,14 +5529,6 @@
       "pass": "PROCEDURES",
       "verdict": "SEED_SKIP",
       "detail": "project-owned procedure entry exists — add-if-missing seed withheld (project-local workflow edits are intentional)",
-      "severity": "INFO"
-    },
-    {
-      "path": ".claude/settings.json",
-      "policy": "JSON_MERGE",
-      "pass": "TEMPLATE TREE SYNC",
-      "verdict": "MERGE",
-      "detail": "settings deep-merged — project-only entries preserved: permissions.allow[], permissions.allow[], hooks.PreToolUse[], hooks.PreToolUse[], hooks.WorktreeCreate",
       "severity": "INFO"
     },
     {
@@ -6018,6 +6324,54 @@
       "severity": "INFO"
     },
     {
+      "path": "docs/workspace-schema.json",
+      "policy": "SCHEMA_MERGE",
+      "pass": "TEMPLATE TREE SYNC",
+      "verdict": "MERGE",
+      "detail": "schema merge — landed: —; preserved: —; landed template deltas: 0; template changes withheld (project-wins): 5",
+      "severity": "INFO"
+    },
+    {
+      "path": "docs/workspace-schema.json",
+      "policy": "SCHEMA_MERGE",
+      "pass": "TEMPLATE TREE SYNC",
+      "verdict": "TEMPLATE_DELTA",
+      "detail": "template change withheld (project-wins): rootAllowlist.files — project [\".git\",\"package.json\",\"bunfig.toml\",\"package-lock.json\",\"bun.lockb\",\"bun.lock\",\"tsconfig.json\",\".gitignore\",\".gitattri… (502 chars) vs template [\".git\",\"package.json\",\"bunfig.toml\",\"package-lock.json\",\"bun.lockb\",\"bun.lock\",\"tsconfig.json\",\"biome.json\",\".gitignor… (539 chars)",
+      "severity": "WARN"
+    },
+    {
+      "path": "docs/workspace-schema.json",
+      "policy": "SCHEMA_MERGE",
+      "pass": "TEMPLATE TREE SYNC",
+      "verdict": "TEMPLATE_DELTA",
+      "detail": "template change withheld (project-wins): rootAllowlist.dirs — project [\".git\",\"scripts\",\"tests\",\"agents\",\"skills\",\"docs\",\"memory\",\"templates\",\"tickets\",\"schemas\",\".claude\",\".gemini\",\".githo… (624 chars) vs template [\".git\",\"scripts\",\"tests\",\"agents\",\"skills\",\"docs\",\"memory\",\"templates\",\"tickets\",\"schemas\",\".claude\",\".gemini\",\".githo… (633 chars)",
+      "severity": "WARN"
+    },
+    {
+      "path": "docs/workspace-schema.json",
+      "policy": "SCHEMA_MERGE",
+      "pass": "TEMPLATE TREE SYNC",
+      "verdict": "TEMPLATE_DELTA",
+      "detail": "template change withheld (project-wins): hub_topology.version — project \"1.2.0\" vs template \"1.3.0\"",
+      "severity": "WARN"
+    },
+    {
+      "path": "docs/workspace-schema.json",
+      "policy": "SCHEMA_MERGE",
+      "pass": "TEMPLATE TREE SYNC",
+      "verdict": "TEMPLATE_DELTA",
+      "detail": "template change withheld (project-wins): hub_topology.hubs — project [] vs template [{\"name\":\"co-security\",\"domain\":\"co-security\",\"hub_remote\":\"https://github.com/5throck/co-security.git\",\"capabilities\":… (1920 chars)",
+      "severity": "WARN"
+    },
+    {
+      "path": "docs/workspace-schema.json",
+      "policy": "SCHEMA_MERGE",
+      "pass": "TEMPLATE TREE SYNC",
+      "verdict": "TEMPLATE_DELTA",
+      "detail": "template change withheld (project-wins): hub_topology.entries — project [{\"asset\":\"accessibility-audit\",\"domain\":\"co-design\",\"hub_variant\":\"co-design\",\"category\":\"hub-doctrine\",\"verticals\":[\"… (32502 chars) vs template [{\"asset\":\"accessibility-audit\",\"domain\":\"co-design\",\"hub_variant\":\"co-design\",\"category\":\"hub-doctrine\",\"verticals\":[\"… (35312 chars)",
+      "severity": "WARN"
+    },
+    {
       "path": "docs/lifecycle/agents/automation-engineer.md",
       "policy": "WORKSPACE",
       "pass": "TEMPLATE TREE SYNC",
@@ -6552,6 +6906,16 @@
       "firstSeenTemplateVersion": "0.30.0"
     },
     {
+      "path": "skills/meeting-facilitation/SKILL.md",
+      "kind": "PROJECT_AHEAD",
+      "projectHash": "aa2ffa3083eda0e4528e3a8f7cd6f0b1a2cf0308f7e3a56536f3b2fa50b5cd50",
+      "deliverableHash": "2d36e71bfb272b5371047b2d70d11f32d6610b6231513d92f9eac4ddb39f7624",
+      "projectVersion": "1.6.0",
+      "templateVersion": "1.5.0",
+      "firstSeen": "2026-11-21",
+      "firstSeenTemplateVersion": "0.30.0"
+    },
+    {
       "path": "skills/project-review/SKILL.md",
       "kind": "PROJECT_AHEAD",
       "projectHash": "61d1d10da801cfde1af90e621317670aea1d3682f2f17c4461d6ae76d4879bd1",
@@ -6612,6 +6976,6 @@
       "firstSeenTemplateVersion": "0.30.0"
     }
   ],
-  "templateDirty": true,
-  "engineVersion": "1.113.0"
+  "templateDirty": false,
+  "engineVersion": "1.115.0"
 }
