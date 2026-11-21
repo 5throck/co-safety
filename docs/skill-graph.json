@@ -866,8 +866,8 @@
       "name": "handbook",
       "scope": "root",
       "capability": "handbook",
-      "content_hash": "a9bd82eded8b1661",
-      "version": "0.6.0",
+      "content_hash": "a4891293c4fc4ba5",
+      "version": "0.6.2",
       "mirrors": [
         "skills/handbook/SKILL.md",
         ".claude/skills/handbook/SKILL.md",
@@ -1134,8 +1134,8 @@
       "name": "meeting-facilitation",
       "scope": "root",
       "capability": "meeting-facilitation",
-      "content_hash": "690ba21e0e5773ce",
-      "version": "1.5.0",
+      "content_hash": "815b03b334137162",
+      "version": "1.6.0",
       "mirrors": [
         "skills/meeting-facilitation/SKILL.md",
         ".claude/skills/meeting-facilitation/SKILL.md",
@@ -5306,6 +5306,18 @@
       "from": "skill:root/meeting-facilitation",
       "to": "output_type.governance_actions",
       "source": "procedure_schema"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/meeting-facilitation",
+      "to": "skill:root/project-review",
+      "source": "prose"
+    },
+    {
+      "type": "references",
+      "from": "skill:root/meeting-facilitation",
+      "to": "skill:root/team-builder",
+      "source": "prose"
     },
     {
       "type": "references",

@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-19T18:36:48.031Z
+**Generated**: 2026-11-21T18:13:54.859Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -10,7 +10,7 @@
 
 - **Agents**: 8
 - **Skills**: 95
-- **Scripts**: 116 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
+- **Scripts**: 117 *(top-level CLI scripts; library/helper modules under `scripts/lib/`, `scripts/helpers/`, `scripts/hooks/`, and `scripts/validators/` plus experiment files under `scripts/experiments/` are excluded here — `scripts/SCRIPTS.md` is the full registry)*
 - **Commands**: 7
 
 ---
@@ -73,7 +73,7 @@
 | gmp-change-control | 1.0.0 | active | skills/gmp-change-control/SKILL.md | workspace | gmp change control, change control, 변경관리, 품질변경, gmp change | gmp-agent |
 | gmp-deviation-capa | 1.0.0 | active | skills/gmp-deviation-capa/SKILL.md | workspace | gmp deviation, gmp capa, deviation, 이상관리, 시정예방조치, oos, out of specification | gmp-agent |
 | gmp-qrm | 1.0.0 | active | skills/gmp-qrm/SKILL.md | workspace | quality risk management, qrm, fmea, risk assessment, 품질위해관리, 위해관리 | gmp-agent |
-| handbook | 0.6.0 | active | skills/handbook/SKILL.md | workspace | make handbook, create handbook, build course site, companion handbook, update handbook, handbook sync, handbook maintenance | pm |
+| handbook | 0.6.2 | active | skills/handbook/SKILL.md | workspace | make handbook, create handbook, build course site, companion handbook, update handbook, handbook sync, handbook maintenance | pm |
 | handbook-sync-audit | 1.0.5 | active | skills/handbook-sync-audit/SKILL.md | workspace | audit handbook, handbook parity check, handbook sync audit, textbook drift check | pm |
 | hazop-analysis | 1.1.0 | active | skills/hazop-analysis/SKILL.md | workspace | HAZOP 분석, HAZOP analysis, 공정위험성평가, guideword 분석, process hazard analysis, PHA, 이상 시나리오 도출 | psm-agent |
 | hv-cell-formation-electrical-safety-planner | 1.0.0 | active | skills/hv-cell-formation-electrical-safety-planner/SKILL.md | workspace | 배터리 셀 화성 고전압 안전, cell formation electrical safety, 이차전지 충전 에이징 감전, ESS charge discharge arc flash, formation charger grounding, 배터리 busbar LOTO, 전기안전관리자 선임 배터리, ESCA Article 16 전기재해 예방, ESCA Article 22 battery safety manager, 산업안전보건법 Article 38 안전조치 + 안전보건기준에관한규칙 전기 기준, aging room thermal interlock, DC arc flash battery | battery-agent |
@@ -89,7 +89,7 @@
 | k-law | 1.0.3 | active | skills/k-law/SKILL.md | workspace | k-law, /k-law, `법령`, `법률`, `법령정보`, `법령검색`, `판례`, law, statute, legal search, Korea law | public-data-analyst |
 | k-opendata | 1.2.3 | active | skills/k-opendata/SKILL.md | workspace | k-opendata, /k-opendata, 공공데이터포털, data.go.kr, `관세청`, `수출입무역통계`, `품목별 국가별 수출입실적`, Korea Customs Service trade statistics, HS code trade data | public-data-analyst |
 | landfill-methane-anaerobic-explosion-planner | 1.0.0 | active | skills/landfill-methane-anaerobic-explosion-planner/SKILL.md | workspace | 매립지 메탄 가스 폭발, landfill methane CH4 explosion, 혐기소화 소화조 biogas, anaerobic digestion biogas, 침출수 화학적 위해, leachate chemical hazard landfill, 사면 붕괴 매립지, landfill slope collapse, 매립지 깊은 화재 소방, deep seated landfill fire, 가스 추출정 LEL 모니터링, gas extraction well LEL monitoring, WCA Article 25 폐기물처리업 허가, BFS Article 16 소방활동, Sudokwon Landfill safety | waste-agent |
-| meeting-facilitation | 1.5.0 | active | skills/meeting-facilitation/SKILL.md | workspace | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
+| meeting-facilitation | 1.6.0 | active | skills/meeting-facilitation/SKILL.md | workspace | meeting, agent discussion, collaborative decision, multi-agent coordination, facilitate meeting | pm |
 | mid-construction-inspection | 1.0.0 | active | skills/mid-construction-inspection/SKILL.md | workspace | mid-construction inspection, construction inspection, 중간검사, 공사검사, 현장검사 | gasterm-agent |
 | msds-parser | 1.0.0 | active | skills/msds-parser/SKILL.md | workspace | MSDS 파싱, MSDS parser, SDS 16항목, 물질안전보건자료, GHS 16-section, msds-record.json, 공급자 MSDS 양식 | msds-agent |
 | munitions-magazine-storage-safety-planner | 1.0.0 | active | skills/munitions-magazine-storage-safety-planner/SKILL.md | workspace | 탄약 마가진 저장 안전, munitions magazine storage safety, 화약류 안전거리 Q-D, quantity-distance siting explosives, 호환성 그룹 분리 저장, compatibility group segregation, UN hazard division 1.1 1.2 1.3, sympathetic detonation prevention, 화약류안전관리자 선임, FSESA Article 23 explosives safety manager, 마가진 낙뢰 정전기 대책, magazine lightning protection | defense-agent |
@@ -146,7 +146,7 @@
 | agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | fs, path |
 | analyze-git-history.ts | 1.0.2 | scripts/analyze-git-history.ts | child_process |
 | apply-handbook-theme.test.ts | 1.0.1 | scripts/tests/apply-handbook-theme.test.ts | bun:test, child_process, fs, os, path |
-| apply-handbook-theme.ts | 1.0.0 | scripts/handbook/apply-handbook-theme.ts | fs, path |
+| apply-handbook-theme.ts | 1.2.0 | scripts/handbook/apply-handbook-theme.ts | fs, path |
 | archive-memory.ts | 1.2.0 | scripts/archive-memory.ts | fs, path |
 | audit-variant.ts | 1.3.0 | scripts/co-safety/audit-variant.ts | bun, fs |
 | audit.ts | 2.70.0 | scripts/audit.ts | bun, child_process, crypto, fs, os, path, url |
@@ -154,8 +154,9 @@
 | build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | fs, path |
 | changelog-normalize.ts | 1.0.0 | scripts/changelog-normalize.ts | fs |
 | check-a11y.ts | 1.0.0 | scripts/handbook/check-a11y.ts | path |
-| check-authoring.ts | 1.3.0 | scripts/handbook/check-authoring.ts | fs, path |
-| check-external-links.ts | 1.2.0 | scripts/handbook/check-external-links.ts | http, https, path, url |
+| check-authoring.ts | 1.4.0 | scripts/handbook/check-authoring.ts | fs, path |
+| check-external-links.ts | 1.3.0 | scripts/handbook/check-external-links.ts | http, https, path, url |
+| check-generated-content.ts | 1.0.0 | scripts/handbook/check-generated-content.ts | path |
 | check-i18n-parity.ts | 1.0.0 | scripts/handbook/check-i18n-parity.ts | fs, path |
 | check-labels.ts | 1.0.0 | scripts/handbook/check-labels.ts | path |
 | check-links.ts | 1.0.0 | scripts/handbook/check-links.ts | path |
@@ -175,7 +176,7 @@
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test, fs, os, path |
 | design-lint.ts | 2.5.0 | scripts/design-lint.ts | fs, js-yaml, path |
 | detect-backport.ts | 1.0.0 | scripts/detect-backport.ts | child_process, crypto, fs, path |
-| dev-sync.ts | 1.52.0 | scripts/dev-sync.ts | bun, crypto, fs, path |
+| dev-sync.ts | 1.52.1 | scripts/dev-sync.ts | bun, crypto, fs, path |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.2 | scripts/dispatch-serial.ts | url |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | path |
@@ -210,14 +211,14 @@
 | risk-register-rollup.ts | 1.0.1 | scripts/co-safety/risk-register-rollup.ts | fs, path |
 | route-audit-scan.ts | 1.0.1 | scripts/route-audit-scan.ts | fs, path |
 | safety-audit.ts | 4.10.2 | scripts/co-safety/safety-audit.ts | fs, js-yaml, path |
-| scaffold-handbook.ts | 1.2.0 | scripts/handbook/scaffold-handbook.ts | fs, path |
+| scaffold-handbook.ts | 1.3.1 | scripts/handbook/scaffold-handbook.ts | fs, path |
 | scaffold-industry.ts | 0.1.1 | scripts/co-safety/scaffold-industry.ts | fs, js-yaml, path |
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun, fs, os, path |
 | skill-lifecycle-audit.ts | 1.15.0 | scripts/skill-lifecycle-audit.ts | fs, path, process |
 | skill-session-review.ts | 1.3.0 | scripts/skill-session-review.ts | bun, fs, path |
 | spec-register.ts | 1.6.0 | scripts/spec-register.ts | fs, path |
 | start-mcp.ts | 1.0.1 | scripts/co-safety/start-mcp.ts | child_process, path |
-| sync-agent-mirrors.ts | 1.3.0 | scripts/sync-agent-mirrors.ts | fs, js-yaml, path, url |
+| sync-agent-mirrors.ts | 1.3.1 | scripts/sync-agent-mirrors.ts | fs, js-yaml, path, url |
 | sync-md.ts | 1.4.0 | scripts/sync-md.ts | N/A |
 | sync-skill-status.ts | 1.1.0 | scripts/sync-skill-status.ts | child_process, fs, path, process |
 | sync-skills.ts | 1.11.0 | scripts/sync-skills.ts | fs, path |
@@ -231,10 +232,10 @@
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | fs, path |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, crypto, fs, path, url |
 | typecheck.ts | 1.2.0 | scripts/typecheck.ts | fs, path |
-| update-footers.ts | 1.0.0 | scripts/handbook/update-footers.ts | fs, path |
+| update-footers.ts | 1.1.0 | scripts/handbook/update-footers.ts | fs, path |
 | validate-agents.ts | 1.4.1 | scripts/validate-agents.ts | fs, path, process |
 | validate-decisions.ts | 1.2.0 | scripts/validate-decisions.ts | fs, js-yaml, path, process |
-| validate-doc-folder.ts | 1.5.0 | scripts/validate-doc-folder.ts | fs, path |
+| validate-doc-folder.ts | 1.5.1 | scripts/validate-doc-folder.ts | fs, path |
 | validate-docs-links.ts | 1.6.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | child_process, path |
 | validate-md-language.ts | 1.16.2 | scripts/validate-md-language.ts | child_process, fs, path |
@@ -246,8 +247,8 @@
 | validate-raci.ts | 1.2.1 | scripts/validate-raci.ts | fs, js-yaml, path |
 | validate-skills.ts | 1.5.2 | scripts/validate-skills.ts | fs, path, process |
 | validate-surface-registry.ts | 1.1.2 | scripts/validate-surface-registry.ts | fs, path |
-| validate-templates.ts | 1.86.0 | scripts/validate-templates.ts | child_process, crypto, fs, js-yaml, path, url |
-| validate-variant-readiness.ts | 1.1.0 | scripts/validate-variant-readiness.ts | fs, path |
+| validate-templates.ts | 1.87.0 | scripts/validate-templates.ts | child_process, crypto, fs, js-yaml, path, url |
+| validate-variant-readiness.ts | 1.2.0 | scripts/validate-variant-readiness.ts | fs, path |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.3.0 | scripts/verify-memory.ts | fs, path |
 | verify-platform-lifecycle.ts | 1.6.1 | scripts/verify-platform-lifecycle.ts | fs, path |

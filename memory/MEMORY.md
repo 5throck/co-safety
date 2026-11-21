@@ -9,6 +9,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-11-22](2026-11-22.md) | chore(upgrade): template 0.30.0 wave delivery (2026-11-22 runner, dry-run resolved) |
 | [2026-11-20](2026-11-20.md) | chore(upgrade): template wave delivery (2026-11-20 runner, dry-run clean) |
 | [2026-11-18](2026-11-18.md) | chore: deliver common agents (i18n-specialist, automation-engineer, contract-gate-engineer, design-system-lead, public-data-analyst) + registry registration (T-20261112-008) |
 | 2026-11-12 | docs(review): full review 2026-11-12 remediation + graft-trail flip closeout |

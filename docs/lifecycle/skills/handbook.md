@@ -21,6 +21,7 @@
 - [x] Companion validation skill `handbook-sync-audit` has its own L0 record
 
 ## Metadata
+- **Version**: 0.6.2
 
 - **Current Phase**: production
 - **Owner**: pm

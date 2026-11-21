@@ -21,6 +21,7 @@
 - [x] Frontmatter valid: name, description, status (`active`), scope (`co-safety`), version, owner (`pm`) populated
 
 ## Metadata
+- **Version**: 1.6.0
 
 - **Current Phase**: production
 - **Owner**: pm
