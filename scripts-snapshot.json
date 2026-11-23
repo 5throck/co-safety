@@ -1,5 +1,5 @@
 {
-  "created": "2026-11-21",
+  "created": "2026-11-22",
   "variant": "co-safety",
   "l1_source": "templates/common/scripts",
   "scripts": {
@@ -88,7 +88,7 @@
       "status": "active"
     },
     "detect-backport.ts": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "status": "active"
     },
     "dev-sync.ts": {
@@ -532,7 +532,7 @@
       "status": "active"
     },
     "spec-register.ts": {
-      "version": "1.6.0",
+      "version": "1.6.1",
       "status": "active"
     },
     "skill-lifecycle-audit.ts": {
@@ -564,7 +564,7 @@
       "status": "active"
     },
     "test-runner.ts": {
-      "version": "1.17.2",
+      "version": "1.17.3",
       "status": "active"
     },
     "handbook/apply-handbook-theme.ts": {
@@ -724,7 +724,7 @@
       "status": "active"
     },
     "validate-decisions.ts": {
-      "version": "1.2.0",
+      "version": "1.2.1",
       "status": "active"
     },
     "validate-templates.ts": {

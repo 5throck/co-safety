@@ -1,34 +1,64 @@
-# SCRIPTS.md — Script Lifecycle Registry
+# SCRIPTS.md —Script Lifecycle Registry
 
-> This file is the Single Source of Truth (SSOT) for all scripts in `scripts/` in this project.
-> `scripts/README.md` is a generated human-readable view of this registry, produced by `bun scripts/generate-scripts-readme.ts` — do not hand-edit README.md's registry table, edit this file and regenerate.
-> This is a standalone deployment (no `templates/` directory, no further L1/L2 propagation happens from this repo) — the `source`/`layer` columns below are retained for structural compatibility with `scripts/audit.ts`'s parser but carry no propagation meaning here.
+> This file is the Single Source of Truth (Tier 1 SSOT) for all directly-invokable scripts in `scripts/` (workspace root) — i.e. scripts run via `bun scripts/<name>.ts` or `bun run <alias>`. Internal library/helper modules under `scripts/lib/` and `scripts/helpers/` that are imported by other scripts but never run standalone (e.g. `auth.ts`, `security-validator.ts`, `pipeline-state.ts`) are intentionally excluded — they have no independent CLI usage to register.
+> Template `templates/common/scripts/` (Tier 2) is a snapshot published from here via `bun run propagate:apply`.
+> Project `scripts/` (Tier 3) is a snapshot created from Tier 2 at `new-project` time.
+>
+> **Machine parsing**: `verify-scripts.ts --verify` reads the `## Registry` section only.
+> **Human reading**: see `## Guide` section below for purpose, usage, and deprecation notes.
 
 ---
 
-## Architecture: Tier 1 (Bootstrap) vs Tier 2 (Bun/TypeScript)
+## Architecture: TypeScript-Only Policy (ADR-0036)
 
-This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts` executed via Bun. Legacy `.sh`/`.ps1` scripts were removed on 2026-08-26.
+> **Policy change (2026-06-11)**: All scripts are TypeScript executed via Bun. The former Tier 1 sh/ps1 bootstrap tier has been abolished. See [ADR-0036](../docs/adr/0036-script-ts-migration.md) for rationale.
+
+## Error Handling Standard (ADR-0054)
+
+> **Policy (2026-08-16)**: Error and exit paths in all scripts MUST use `scripts/lib/error-handling.ts` (`die()`, `fatalError()` + `logError()`, `withSyncErrorHandling()`). Migration is **incremental** — a script migrates when it is otherwise modified (no pure-consistency rewrites). When migrating an L0+L1 script, sync the change to `templates/common/scripts/` in the same commit. See [ADR-0054](../docs/adr/0054-error-handling-standardization.md) and the coding guidelines §8.11.
+
+All scripts in this workspace are written in TypeScript and executed via `bun`. There is no longer a distinction between "bootstrap" and "ops" tiers — Bun is a hard prerequisite for the workspace and is assumed to be installed before any script runs.
+
+**Single rule**: every new script must be a `.ts` file. No `.sh` or `.ps1` files will be accepted.
+
+**Invocation pattern**:
+```bash
+bun scripts/<name>.ts [args]       # direct
+bun run <alias>                     # via package.json alias (preferred for CI)
+```
 
 ### Ops & Automation Scripts (Bun/TypeScript)
-- **Purpose**: Everyday pipeline tasks — audits, syncing, agent/skill lifecycle management, dispatch orchestration.
-- **Execution**: `bun scripts/<name>.ts`.
+*   **Purpose**: All scripting tasks — project scaffolding, pipeline, code generation, linting, syncing, lifecycle audits.
+*   **Implementation**: Written in TypeScript (`.ts`), executed via the Bun runtime.
+*   **Execution**: `bun scripts/<name>.ts` or via `package.json` alias.
+*   **Examples**: `upgrade-project.ts`, `cleanup-completed-md.ts`, `audit.ts`, `dev-sync.ts`.
 
 ---
 
 ## Registry
 
-<!-- scripts/audit.ts's verifyScriptVersionHeaders/verifyScriptRegistryConsistency parse this file by substring match (script name + version must appear somewhere in this file). The S-04 parity check additionally parses rows starting with "| `" for the pair field — keep that exact row format for any row you want parity-checked. -->
+<!-- verify-scripts.ts parses rows between the Registry header and the next ## header. -->
 <!-- Required columns: script | source | version | status | removal-date | security-advisory | layer | pair -->
 <!-- status: active | deprecated | experimental -->
-<!-- removal-date: YYYY-MM-DD (required when status=deprecated) or — -->
-<!-- security-advisory: CVE-XXXX or — -->
-<!-- source / layer: retained for parser column-position compatibility only; not meaningful in this standalone deployment (always "—") -->
-<!-- pair: <script-name> — declares a counterpart that must be modified together (enables S-04 parity check); "—" if none -->
+<!-- removal-date: YYYY-MM-DD (required when status=deprecated) or —-->
+<!-- security-advisory: CVE-XXXX or —-->
+<!-- Layer column values (ONLY 2 TYPES USED). L0/L1/L2/L3 here follow
+     workspace Terminology Definition (L1=templates/common, L2=templates/co-*,
+     L3=Projects/*); these Layer values predate that document and use L2 to mean
+     "reaches a scaffolded project," which the current terminology calls L3 — not renamed here
+     since layer-filter.ts and verify-scripts.ts parse these literal strings:
+  L0           = workspace root only; must NOT be copied to templates/common/ or L3 projects
+  L0+L1        = exists in scripts/ AND templates/common/scripts/; scaffold-copies to L3 at new-project time
+  L0+L1+L2     = reserved for future use (Fork Model architecture - not currently used)
+-->
+<!-- pair: reserved field (was used for sh/ps1 pair tracking — abolished per ADR-0036) -->
+<!-- Check A (lifecycle-sync-audit.ts): verifies @version header == registry version (formal consistency only). Semantic content alignment —whether file content actually reflects version history —is NOT verified by tooling. Use git log to confirm content for Type-2 fixes. -->
 
 | script | source | version | status | removal-date | security-advisory | layer | pair |
 |--------|--------|---------|--------|--------------|-------------------|-------|------|
-| `agent-create.ts` | — | 1.0.2 | active | — | — | — | — |
+| `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
+| `validate-templates.ts` | L0 | 1.76.0 | active | —| —| L0+L1 | —|
+| `agent-create.ts` | L0 | 1.0.2 | active | —| —| L0+L1 | —|
 | `tests/deploy-readme-patch.test.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `tests/check-structure.test.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `tests/apply-handbook-theme.test.ts` | L0 | 1.0.1 | active | — | — | common | — |
@@ -57,112 +87,143 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `handbook/build-search-index.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `handbook/apply-handbook-theme.ts` | L0 | 1.2.0 | active | — | — | common | — |
 | `design-lint.ts` | L0 | 2.5.0 | active | —| —| L0+L1 | —|
-| `co-safety/lib/platform-dispatcher.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
-| `co-safety/lib/plan-parser.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
-| `co-safety/lib/mcp-cache.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
-| `co-safety/lib/evidence-validator.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
-| `co-safety/lib/checkpoint-manager.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
-| `co-safety/lib/auto-executor.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
-| `agent-delete.ts` | — | 1.0.2 | active | — | — | — | — |
-| `agent-lifecycle-audit.ts` | — | 1.9.1 | active | — | — | — | — |
-| `agent-list.ts` | — | 1.1.0 | active | — | — | — | — |
-| `agent-verify.ts` | — | 1.0.2 | active | — | — | — | — |
-| `analyze-git-history.ts` | — | 1.0.2 | active | — | — | — | — |
-| `archive-memory.ts` | — | 1.2.0 | active | — | — | — | — |
-| `audit.ts` | — | 2.70.0 | active | — | — | — | — |
-| `co-safety/audit-variant.ts` | L2 | 1.3.0 | active | — | — | L2-only | — |
-| `co-safety/check-pm-approval.ts` | L2 | 1.0.1 | deprecated | 2026-11-30 | — | L2-only | — |
-| `clear-pm-approval.ts` | — | 1.0.0 | active | — | — | — | — |
-| `dev-sync.ts` | — | 1.52.1 | active | — | — | — | — |
-| `dispatch-parallel.ts` | — | 1.1.1 | active | — | — | — | — |
-| `dispatch-serial.ts` | — | 1.1.2 | active | — | — | — | — |
-| `dispatch.ts` | — | 1.1.1 | active | — | — | — | — |
-| `co-safety/domain-config.ts` | L2 | 1.5.0 | active | — | — | L2-only | — |
-| `gen-pr-body.ts` | — | 1.2.1 | active | — | — | — | — |
-| `co-safety/new-domain.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
-| `qa-gate.ts` | — | 1.3.0 | active | — | — | — | — |
-| `readme-lifecycle-audit.ts` | — | 1.1.0 | active | — | — | — | — |
-| `retry-handler.ts` | — | 1.1.0 | active | — | — | — | — |
-| `co-safety/risk-register-rollup.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
-| `co-safety/safety-audit.ts` | L2 | 4.10.2 | active | — | — | L2-only | — |
-| `co-safety/scaffold-industry.ts` | L2 | 0.1.1 | active | — | — | L2-only | — |
-| `skill-lifecycle-audit.ts` | — | 1.15.0 | active | — | — | — | — |
-| `co-safety/start-mcp.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
-| `sync-md.ts` | — | 1.4.0 | active | — | — | — | — |
-| `sync-skill-status.ts` | — | 1.1.0 | active | — | — | — | — |
-| `sync-skills.ts` | — | 1.11.0 | active | — | — | — | — |
-| `team-builder.ts` | — | 1.5.0 | active | — | — | — | — |
-| `co-safety/test-chemical-handling-profile.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
-| `co-safety/test-cross-domain-integration.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
-| `co-safety/test-domain-scenarios.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
-| `co-safety/test-pharma-general-profile.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
-| `test-runner.ts` | — | 1.17.2 | active | — | — | — | — |
-| `co-safety/test-runtime-tools.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
-| `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
-| `co-safety/training-ingest.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
-| `validate-agents.ts` | — | 1.4.1 | active | — | — | — | — |
-| `validate-doc-folder.ts` | — | 1.5.1 | active | — | — | — | — |
-| `validate-docs-links.ts` | — | 1.6.0 | active | — | — | — | — |
-| `validate-md-language.ts` | — | 1.16.2 | active | — | — | — | — |
-| `validate-skills.ts` | — | 1.5.2 | active | — | — | — | — |
-| `verify-agent-deliverables.ts` | — | 1.0.1 | active | — | — | — | — |
-| `verify-memory.ts` | — | 1.3.0 | active | — | — | — | — |
-| `verify-readme-sync.ts` | — | 1.5.0 | active | — | — | — | — |
-| `verify-scripts.ts` | — | 1.15.0 | active | — | — | — | — |
-| `verify-skills.ts` | — | 1.5.2 | active | — | — | — | — |
-| `lib/auto-executor.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
-| `lib/checkpoint-manager.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
-| `lib/encoding-utils.ts` | — | 1.4.0 | active | — | — | — | — |
-| `lib/error-handling.ts` | — | 1.4.0 | active | — | — | — | — |
-| `lib/evidence-validator.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
-| `lib/language-guard.ts` | — | 1.1.0 | active | — | — | — | — |
-| `lib/mcp-cache.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
-| `lib/pipeline-state.ts` | — | 1.2.0 | active | — | — | — | — |
-| `lib/plan-parser.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
-| `lib/platform-context.ts` | — | 1.0.0 | active | — | — | — | — |
-| `lib/platform-dispatcher.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
-| `helpers/context-sections.ts` | — | 1.8.0 | active | — | — | — | — |
-| `helpers/pm-md-parser.ts` | — | 1.1.0 | active | — | — | — | — |
-| `helpers/security-validator.ts` | — | 1.3.0 | active | — | — | — | — |
-| `co-safety/migrate-registry-to-coordinates.ts` | L2 | 1.0.2 | active | — | — | L2-only | — |
+| `co-deck/watch-deck.ts` | L2 | 0.1.1 | active | — | — | L2-only | — |
+| `co-deck/verify-new-theme.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
+| `co-deck/tests/theme-builder.test.ts` | L2 | 1.1.1 | active | — | — | L2-only | — |
+| `co-deck/handbook/check-i18n-parity.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `agent-delete.ts` | L0 | 1.0.2 | active | —| —| L0+L1 | —|
+| `agent-lifecycle-audit.ts` | L0 | 1.9.1 | active | —| —| L0+L1 | —|
+| `agent-list.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
+| `agent-verify.ts` | L0 | 1.0.2 | active | —| —| L0+L1 | —|
+| `analyze-git-history.ts` | L0 | 1.0.2 | active | —| —| L0+L1 | —|
+| `archive-memory.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
+| `audit.ts` | L0 | 2.70.0 | active | —| —| L0+L1 | —|
 | `cleanup-completed-md.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
+| `clear-pm-approval.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `compile-tokens.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
+| `dev-sync.ts` | L0 | 1.52.1 | active | —| —| L0+L1 | —|
+| `dispatch-parallel.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
+| `dispatch-serial.ts` | L0 | 1.1.2 | active | —| —| L0+L1 | —|
+| `dispatch.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
+| `gen-pr-body.ts` | L0 | 1.2.1 | active | —| —| L0+L1 | —|
 | `generate-ide-rules.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `generate-skill-graph.ts` | L0 | 2.0.1 | active | —| —| L0+L1 | —|
-| `generate-version-manifest.ts` | L0 | 1.12.1 | active | —| —| L0+L1 | —|
-| `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/extends-validator.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `helpers/merge-frontmatter.ts` | L0 | 1.8.7 | active | —| —| L0+L1 | —|
+| `helpers/security-validator.test.ts` | L3 | 1.1.0 | active | —| —| L3 | —|
+| `helpers/security-validator.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
+| `helpers/context-sections.ts` | L0 | 1.8.0 | active | —| —| L0+L1 | —|
+| `helpers/pm-md-parser.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `helpers/template-utils.ts` | L0 | 1.4.0 | active | —| —| L0+L1 | —|
 | `hooks/gateguard-fact-force.ts` | L0 | 1.3.2 | active | —| —| L0+L1 | —|
 | `hooks/post-write-lifecycle-check.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `hooks/pre-commit.ts` | L0 | 1.14.0 | active | —| —| L0+L1 | —|
 | `hooks/pre-push.ts` | L0 | 1.9.0 | active | —| —| L0+L1 | —|
 | `lib/auth.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `lib/auto-executor.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
-| `lib/checkpoint-manager.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
-| `lib/context-md-schema.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
-| `lib/evidence-validator.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
-| `lib/mcp-cache.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
-| `lib/plan-parser.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
-| `lib/platform-dispatcher.ts` | L3 | 1.0.0 | active | —| —| L3 | —|
+| `lib/encoding-utils.ts` | L0 | 1.4.0 | active | —| —| L0+L1 | —|
+| `lib/error-handling.ts` | L0 | 1.4.0 | active | —| —| L0+L1 | —|
+| `lib/language-guard.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
+| `lib/pipeline-state.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
+| `lib/platform-context.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
 | `lib/ssrf.ts` | L0 | 1.1.1 | active | —| —| L0+L1 | —|
 | `lifecycle-sync-audit.ts` | L0 | 1.22.0 | active | —| —| L0+L1 | —|
 | `md-to-ooxml.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
+| `qa-gate.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
+| `readme-lifecycle-audit.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `render-pdf-deck.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
+| `retry-handler.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `setup-github-branch-protection.ts` | L0 | 1.0.1 | active | `--repo`, `--branch`, `--check` (repeatable), `--dry-run` | —| L0+L1 | —|
+| `skill-lifecycle-audit.ts` | L0 | 1.15.0 | active | —| —| L0+L1 | —|
+| `sync-md.ts` | L0 | 1.4.0 | active | —| —| L0+L1 | —|
+| `sync-skill-status.ts` | L0 | 1.1.0 | active | — | — | L0+L1 | — |
+| `sync-skills.ts` | L0 | 1.11.0 | active | `--dir <path>`, `--all-variants` | — | L0+L1 | — |
+| `team-builder.ts` | L0 | 1.5.0 | active | —| —| L0+L1 | —|
+| `test-runner.ts` | L0 | 1.17.3 | active | `--parallel`, `--sequential`, `--concurrency <n>`, `--timeout <ms>` | —| L0+L1 | —|
+| `translate-readme.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
+| `validate-agents.ts` | L0 | 1.4.1 | active | —| —| L0+L1 | —|
+| `validate-doc-folder.ts` | L0 | 1.5.1 | active | —| —| L0+L1 | —|
+| `validate-docs-links.ts` | L0 | 1.6.0 | active | —| —| L0+L1 | —|
+| `validate-md-language.ts` | L0 | 1.16.2 | active | —| —| L0+L1 | —|
 | `validate-model-registry.ts` | L0 | 2.3.0 | active | —| —| L0+L1 | —|
-| `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
+| `validate-skills.ts` | L0 | 1.5.2 | active | —| —| L0+L1 | —|
+| `verify-agent-deliverables.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
+| `verify-memory.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `verify-platform-lifecycle.ts` | L0 | 1.6.1 | active | —| —| L0+L1 | —|
+| `verify-readme-sync.ts` | L0 | 1.5.0 | active | —| —| L0+L1 | —|
+| `verify-scripts.ts` | L0 | 1.15.0 | active | —| —| L0+L1 | —|
+| `verify-skills.ts` | L0 | 1.5.2 | active | —| —| L0+L1 | —|
+| `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
+| `co-deck/inject-video-players.ts` | L2 | 1.3.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/inject-video-players.test.ts` | L2 | 1.3.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+
+---
+
+<!-- ── co-deck variant scripts (L3 project-local additions, not in the L1 common registry) ── -->
+| `co-deck/auto-calibrate.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
+| `co-deck/build-theme-deck.ts` | L2 | 0.2.3 | active | — | — | L2-only | — |
+| `co-deck/build-theme-preview.ts` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/diagram-helpers.ts` | L2 | 1.3.2 | active | — | — | L2-only | — |
+| `co-deck/download-font.ts` | L2 | 2.1.1 | active | — | — | L2-only | — |
+| `co-deck/estimate-layout.ts` | L2 | 1.5.1 | active | — | — | L2-only | — |
+| `co-deck/extract_slidedata.mjs` | L2 | 1.3.0 | active | — | — | L2-only | — |
+| `co-deck/gen-slides-pdf.ts` | L2 | 1.15.0 | active | — | — | L2-only | — |
+| `co-deck/gen-visual-images.ts` | L2 | 3.3.2 | active | — | — | L2-only | — |
+| `co-deck/generate-themes-manifest.ts` | L2 | 2.0.0 | active | — | — | L2-only | — |
+| `co-deck/html-to-pdf.ts` | L2 | 1.3.1 | active | — | — | L2-only | — |
+| `co-deck/measure-layout.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
+| `co-deck/scaffold-theme-style.ts` | L2 | 2.0.0 | active | — | — | L2-only | — |
+| `co-deck/snapshot.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
+| `co-deck/validate-theme-styles.ts` | L2 | 2.0.0 | active | — | — | L2-only | — |
+| `co-deck/validate-image-manifest.ts` | L2 | 1.5.0 | active | — | — | L2-only | — |
+| `co-deck/handbook/apply-handbook-theme.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/build-search-index.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-a11y.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-authoring.ts` | L3 | 1.2.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-external-links.ts` | L3 | 1.2.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-labels.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-links.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-lint.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-search.ts` | L3 | 2.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-spell.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-structure.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-symmetry.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/check-tables.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/deploy-handbook.ts` | L3 | 1.1.0 | active | — | — | L3 | — |
+| `co-deck/handbook/extract-copycode.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/handbook-doctor.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/nav-utils.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/scaffold-handbook.ts` | L3 | 1.2.0 | active | — | — | L3 | — |
+| `co-deck/handbook/update-footers.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/handbook/validate-handbook.ts` | L3 | 1.1.0 | active | — | — | L3 | — |
+| `co-deck/handbook/validate-nav.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/lib/theme-builder.ts` | L2 | 0.2.2 | active | — | — | L2-only | — |
+| `co-deck/lib/theme-contract.ts` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/lib/theme-utils.ts` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/tests/apply-handbook-theme.test.ts` | L3 | 1.0.1 | active | — | — | L3 | — |
+| `co-deck/tests/check-structure.test.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/tests/deploy-readme-patch.test.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/tests/extract_slidedata.test.mjs` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/tests/generate-themes-manifest.test.ts` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/tests/ppt-engine-integration.browser.mjs` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/tests/ppt-engine-integration.test.ts` | L2 | 1.4.0 | active | — | — | L2-only | — |
+| `co-deck/tests/scaffold-theme-style.test.ts` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/tests/theme-browser-smoke.browser.mjs` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/tests/theme-browser-smoke.test.ts` | L2 | 0.1.1 | active | — | — | L2-only | — |
+| `co-deck/tests/theme-contract.test.ts` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `co-deck/tests/theme-preview.test.ts` | L2 | 0.1.1 | active | — | — | L2-only | — |
+| `co-deck/tests/theme-visual-regression.browser.mjs` | L2 | 0.2.0 | active | v0.2.0 (2026-10-23): retry-once-on-exceed in compare — transient paint jitter under load no longer fails the suite; only a second consecutive exceed counts. v0.1.1 (2026-10-23): threshold-exceed diff copies land in the transient vr_fresh dir instead of baselines/ (artifact pollution). | — | L2-only | — |
+| `co-deck/tests/theme-visual-regression.test.ts` | L2 | 0.2.0 | active | — | — | L2-only | — |
+| `co-deck/tests/verify-new-theme.test.ts` | L2 | 0.1.0 | active | — | — | L2-only | — |
+| `generate-skill-graph.ts` | L0 | 2.0.1 | active | —| —| L0+L1 | —|
+| `generate-version-manifest.ts` | L0 | 1.12.1 | active | —| —| L0+L1 | —|
+| `validate-procedures.ts` | L0 | 1.1.0 | active | —| —| L0+L1 | —|
 | `verify-skill-graph.ts` | L0 | 2.0.0 | active | —| —| L0+L1 | —|
-| `validate-decisions.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
-| `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
+| `validate-decisions.ts` | L0 | 1.2.1 | active | —| —| L0+L1 | —|
+| `lib/context-md-schema.ts` | L0 | 1.0.1 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
-| `validate-templates.ts` | L0 | 1.87.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.2.0 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `spec-register.ts` | L0 | 1.6.0 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
+| `spec-register.ts` | L0 | 1.6.1 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
 | `lib/git-status.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `helpers/l0-ref-policy.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `lib/constitution-scrub.ts` | L0 | 1.3.1 | active | —| —| L0+L1 | —|
@@ -222,12 +283,15 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/design-lint-roots.ts` | L0+L1 | 1.1.0 | active | v1.0.0 (2026-10-26, U-20261026-006): pure design-lint scan-root resolver — configured designLint.scanRoots filtered by existence; when none exist, falls back to the design-lint.ts conventional uiSourceRoots default (./playground/src, ./src) so audit.ts and the standalone lint agree on the same schema; skip verdict names both the configured roots and the conventional candidates; fs injected for fixtures; consumed by audit.ts v2.56.0 design-lint gate. | — | L0+L1 | — |
 | `helpers/pre-commit-script-gate.ts` | L0 | 1.2.0 | active | v1.1.0 (2026-10-27, T-20261027-010): parseCheckAErrorsDetailed — Check A extraction from AuditResult.errors that PRESERVES the fixData payload so pre-commit check 6c keeps its actionable "→ Fix:" output while finally reading the real wire shape; parseCheckAErrors delegates to it so the two extractions cannot drift. v1.0.0 (2026-10-27, T-20261027-009): import-safe merge-aware SCRIPTS.md gate for pre-commit check 6 — gate decision (pass / proxy-fail / merge-verify), Check A error parsing from `lifecycle-sync-audit.ts --json` (AuditResult.errors, level==error), exit-code content gate with an injectable audit-runner seam so unit tests target the module (pre-commit.ts itself runs main() at import) | —| L0+L1 | —|
 | `helpers/theme-token-policy.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-10-27, U-20261027-005): DESIGN-R2 theme-invariance key classification — theme presets in tokens.json may override only color/shadow tokens (typography/spacing/borderRadius/target-size are theme-invariant); shared by compile-tokens.ts v1.3.0 (hard compile error) and design-lint.ts v2.3.0 (themes sub-check) so the two enforcement points cannot drift; kebab-normalized membership test | —| L0+L1 | —|
-| `sync-agent-mirrors.ts` | L0 | 1.3.1 | active | v1.2.0 (2026-10-28, T-20261029-008): CHECK-mode out-of-root degrade — a standalone CI checkout has no workspace ancestor, so extends-stub discovery hard-threw inside the SSOT parse and the audit gate blocked every real-CI project PR (co-abap #227, co-safety #220); when no templates root is discoverable AND generated mirrors exist, --check returns green with an explicit WARN (parity cannot be verified out-of-root — run inside a workspace checkout or pass --templates-root), write mode keeps the hard error (deliberate write, never auto-repair); discovery extracted to the exported pure discoverTemplatesRoot({root, searched}) reused by resolveTemplatesRoot (same bounded walk, same error text). Prior: v1.1.0 (2026-10-28, canary finding on Projects/co-newbiz — design §4.2 flagged ASSUMPTION verified with a real gap): extends-stub L1 bodies are sourced via templates-root DISCOVERY — the first ancestor of the target root carrying templates/common/agents (bounded 8-level walk), with an explicit `--templates-root <workspace>/templates` override (validated against the common/agents shape before any per-file work) taking precedence; not-found is a hard error naming every searched ancestor, never a silent fallback. In-project runs previously resolved the stub source against <project>/templates, which never exists in a delivered project. Mirror OUTPUT bytes unchanged — only where the stub body is sourced from; new-project/adopt-project wiring passes the workspace templates/ explicitly. Prior: v1.0.0 v1.0.0 (2026-10-28, spec docs/designs/2026-10-28-platform-agent-mirror-design.md, DEC-20261028-06, PR-1 root scope): initial — one template-managed generator projecting the platform-neutral agents/*.md SSOT (scalar `tier:` only, NO `model:` field) into the mirror directory of every registry-marked agents-capable platform (docs/workspace-schema.json platform_surfaces; v1 = Claude Code only). Idempotent compare-then-write with atomic writes, provenance manifest (.sync-agent-mirrors-managed.json) so user-added mirrors are never removed and no/corrupt manifest removes nothing, PID-stamped advisory lock with stale-lock recovery (sync-skills T-20260912-017 pattern), extends-stubs project as self-contained resolved personas via the scaffold-time composer (helpers/resolve-pm-stub.ts composeResolvedAgentContent — import-verified pure), exported resolvePlatformModel ports the agent-model-gate v1.2.0 claude-<alias>-<ver> → <alias> rule, and the B-PGW-pattern registry↔adapter coverage guard fails loud before any per-file work. Mirrors are project-scoped: a root without variant.json is a green no-op (design §12). `--check` is the blocking parity gate consumed by the audit arm (spawn-if-exists, the validate-model-registry precedent) and dev-sync step 4.61. CLI: `--check`, `--dir <path>`. | — | L0+L1 | — |
+| `sync-agent-mirrors.ts` | L0 | 1.3.1 | active | v1.1.0 (2026-10-28, canary finding on Projects/co-newbiz — design §4.2 flagged ASSUMPTION verified with a real gap): extends-stub L1 bodies are sourced via templates-root DISCOVERY — the first ancestor of the target root carrying templates/common/agents (bounded 8-level walk), with an explicit `--templates-root <workspace>/templates` override (validated against the common/agents shape before any per-file work) taking precedence; not-found is a hard error naming every searched ancestor, never a silent fallback. In-project runs previously resolved the stub source against <project>/templates, which never exists in a delivered project. Mirror OUTPUT bytes unchanged — only where the stub body is sourced from; new-project/adopt-project wiring passes the workspace templates/ explicitly. Prior: v1.0.0 v1.0.0 (2026-10-28, spec docs/designs/2026-10-28-platform-agent-mirror-design.md, DEC-20261028-06, PR-1 root scope): initial — one template-managed generator projecting the platform-neutral agents/*.md SSOT (scalar `tier:` only, NO `model:` field) into the mirror directory of every registry-marked agents-capable platform (docs/workspace-schema.json platform_surfaces; v1 = Claude Code only). Idempotent compare-then-write with atomic writes, provenance manifest (.sync-agent-mirrors-managed.json) so user-added mirrors are never removed and no/corrupt manifest removes nothing, PID-stamped advisory lock with stale-lock recovery (sync-skills T-20260912-017 pattern), extends-stubs project as self-contained resolved personas via the scaffold-time composer (helpers/resolve-pm-stub.ts composeResolvedAgentContent — import-verified pure), exported resolvePlatformModel ports the agent-model-gate v1.2.0 claude-<alias>-<ver> → <alias> rule, and the B-PGW-pattern registry↔adapter coverage guard fails loud before any per-file work. Mirrors are project-scoped: a root without variant.json is a green no-op (design §12). `--check` is the blocking parity gate consumed by the audit arm (spawn-if-exists, the validate-model-registry precedent) and dev-sync step 4.61. CLI: `--check`, `--dir <path>`. | — | L0+L1 | — |
+| `changelog-normalize.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-10-31, T-20261031-003 — spec docs/designs/2026-10-31-changelog-normalize-design.md): CHANGELOG structural normalizer — the gate-carried migration path for the dev-sync step 3b duplicate gate. Consumes `changelogGateFindings` (helpers/changelog-duplicates.ts) as the findings source so healer and detector cannot disagree. Structure-only repair: duplicate `### <Category>` blocks collapse into the first occurrence's position (entries appended in original relative order), and all `[Unreleased]`-family sections (`## [Unreleased]`, dated variants) merge into ONE canonical `## [Unreleased]` at the position of the first. Entry lines never edited; frontmatter (`lang: ko` / `lang_reason: legal`) and preamble byte-identical; idempotent; zero findings = byte-untouched; CRLF-safe. Modes: write (default), `--dry-run` (unified diff to stdout), `--check` (exit 0 when zero findings). Consumed by dev-sync step 3b fail-then-heal; unit-pinned by tests/unit/changelog-normalize.test.ts. | —| L0+L1 | —|
 | `helpers/changelog-duplicates.ts` | L0+L1 | 1.1.0 | active | v1.0.0 (2026-10-29, U-20261028-013 — spec docs/designs/2026-10-29-delivery-bookkeeping-engine-design.md §3.A4): CHANGELOG structural-duplicate detection (`changelogGateFindings`) for dev-sync step 3b — duplicate `### <Category>` headings within one `## [...]` release section and duplicate `[Unreleased]` sections (`^## [Unreleased]` prefix match); pure, CRLF-safe, preamble ignored; each finding names the merge action. | —| L0+L1 | —|
 | `helpers/spec-header-consistency.ts` | L0+L1 | 1.0.0 | active | v1.0.0 (2026-10-29, T-20261029-002 — spec docs/designs/2026-10-29-retro-records-registration-design.md §6): pure registry-vs-design-header status parsing — extractStatusHeaderValue finds the house-style `- **Status**:` list line; parseStatusHeaderValue returns the FIRST status-vocabulary word in the value (earliest position, word-bounded, case-insensitive — "implemented (registry SSOT; retro-marked from draft ...)" parses as implemented, not draft); classifySpecHeader yields match/mismatch/unparseable verdicts; consumed by audit.ts v2.59.0 spec-check Check 6 (mismatch FAIL, header-less docs aggregated WARN); unit-pinned by tests/unit/spec-header-consistency.test.ts | —| L0+L1 | —|
-| `route-audit-scan.ts` | L0 | 1.0.1 | active | v1.0.0 (2026-10-29, T-20261029-005 — spec docs/designs/2026-10-29-route-audit-scan-fleet-design.md): fleet-general write-route audit tripwire generalized from Projects/co-newbiz/scripts/co-newbiz/route-audit-scan.ts (co-newbiz PR #742, FR-SEC-07 — swept 226 write routes to 0 unaudited). Every route.ts exporting POST/PUT/PATCH/DELETE must reach an auditTokenPatterns match within its local import graph (depth-3) or carry a reason-mandatory (>= 10 chars), wildcard-rejected, stale-checked allowlist entry; no-API-surface targets are a SKIP (exit 0, design-lint skip convention). ONE config mechanism: docs/workspace-schema.json `routeAudit` block (auditTokenPatterns + optional allowlist/sharedInfra; designLint/platform_surfaces block precedent) — script constants carry the co-newbiz defaults verbatim; a present-but-malformed block is a hard error. Unit-pinned by tests/unit/route-audit-scan.test.ts. NOT wired into audit.ts/dev-sync — wiring is a deliberate follow-up once a host project adopts the routeAudit block | —| L0+L1 | —|
-| `changelog-normalize.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-10-31, T-20261031-003 — spec docs/designs/2026-10-31-changelog-normalize-design.md): CHANGELOG structural normalizer — the gate-carried migration path for the dev-sync step 3b duplicate gate. Consumes `changelogGateFindings` (helpers/changelog-duplicates.ts) as the findings source so healer and detector cannot disagree. Structure-only repair: duplicate `### <Category>` blocks collapse into the first occurrence's position (entries appended in original relative order), and all `[Unreleased]`-family sections (`## [Unreleased]`, dated variants) merge into ONE canonical `## [Unreleased]` at the position of the first. Entry lines never edited; frontmatter (`lang: ko` / `lang_reason: legal`) and preamble byte-identical; idempotent; zero findings = byte-untouched; CRLF-safe. Modes: write (default), `--dry-run` (unified diff to stdout), `--check` (exit 0 when zero findings). Consumed by dev-sync step 3b fail-then-heal; unit-pinned by tests/unit/changelog-normalize.test.ts. | —| L0+L1 | —|
 | `lib/generator-manifest.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-10-31, U-20261029-004 — spec docs/designs/2026-10-31-variant-generators-design.md §6.1): loader + runner for project-authored `scripts/<variant>/generators.json` generator manifests — strict parse (JSON shape, `version: 1`, `{}` = the documented empty-manifest no-op, name charset, ≤ 16 generators / ≤ 8 outputs, argv[0] must be `bun`, outputs non-empty, sources advisory), path containment (absolute paths and `..` traversal rejected; command script must exist with its realpath inside the project root — symlink escape rejected at declaration-load time; outputs/sources re-checked lexically against the concrete root), duplicate-name rejection across manifests; `runDeclaredGenerators` executes array-form Bun.spawnSync with cwd pinned to the project root (no env fabrication), verifies outputs on exit 0, stages them via array-form `git add`, and fails loudly (`[generator:<name>]` rows, last 20 lines secret-scrubbed via scrubSecretLines — key/token/secret/password/credential value assignments elided, no partial staging). Consumed by dev-sync step 3.86 and validate-templates.ts (additive arm). Unit-pinned by tests/unit/generator-manifest.test.ts | —| L0+L1 | —|
+| `route-audit-scan.ts` | L0 | 1.0.1 | active | v1.0.0 (2026-10-29, T-20261029-005 — spec docs/designs/2026-10-29-route-audit-scan-fleet-design.md): fleet-general write-route audit tripwire generalized from Projects/co-newbiz/scripts/co-newbiz/route-audit-scan.ts (co-newbiz PR #742, FR-SEC-07 — swept 226 write routes to 0 unaudited). Every route.ts exporting POST/PUT/PATCH/DELETE must reach an auditTokenPatterns match within its local import graph (depth-3) or carry a reason-mandatory (>= 10 chars), wildcard-rejected, stale-checked allowlist entry; no-API-surface targets are a SKIP (exit 0, design-lint skip convention). ONE config mechanism: docs/workspace-schema.json `routeAudit` block (auditTokenPatterns + optional allowlist/sharedInfra; designLint/platform_surfaces block precedent) — script constants carry the co-newbiz defaults verbatim; a present-but-malformed block is a hard error. Unit-pinned by tests/unit/route-audit-scan.test.ts. NOT wired into audit.ts/dev-sync — wiring is a deliberate follow-up once a host project adopts the routeAudit block | —| L0+L1 | —|
+| `co-deck/tests/video-slide.test.ts` | L2 | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/estimate-layout-lint.test.ts` | L2 | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/validate-image-manifest.test.ts` | L2 | 1.3.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
 | `lib/hook-dedupe.ts` | L0 | 1.4.0 | active | v1.1.0 (2026-10-31, design docs/designs/2026-10-31-graft-trail-migration-design.md R2.4 arm (a), U-20261031-009): dropMissingPathHookEntries(template, exists) — the trail-migration JSON_MERGE guard; drops template hook entries whose command references a repo-relative path the exists predicate reports missing (shell-token path extraction: script/config extensions only, `${CLAUDE_PROJECT_DIR:-.}/` interpolation stripped, absolute/`..` tokens ignored, extensionless tokens never candidates); pure, injectable exists for fixture tests. tests/unit/graft-trail-migration.test.ts. Prior: v1.0.0 (2026-10-31, spec docs/designs/2026-10-31-template-security-hardening-design.md R2.6, U-20261031-008): hook-entry dedupe + drift analysis for .claude/settings.json — dedupeClaudeSettingsHooks (consumed by upgrade-project's JSON_MERGE pass) collapses exact (event, matcher, command) duplicates, first occurrence wins, distinct commands preserved; analyzeClaudeHookDrift (consumed by lifecycle-sync-audit Check I) flags within-event duplicate pairs and per-event entry counts exceeding the common template; dedup is within-event only (cross-event repeats are intentional) | —| L0+L1 | —|
 | `helpers/hub-topology.ts` | L0+L1 | 1.2.0 | active | v1.0.1 (2026-11-01): drop stray // @l2-propagate: false header (copy-paste remnant from hub-promotion.ts) — the header made delivery derivation (scaffold-markers.ts deriveNewProjectDelivery) exclude an L0+L1 script that scaffolding delivers, failing test-new-project E2E Test 26; comment-only, no behavior change. Prior: v1.0.0 (2026-11-01, design docs/designs/2026-11-01-hub-consolidation-design.md §2.4 Phase 1): pure hub_topology registry helpers — strict semver parse/compare, registry shape validation (fail-closed), cross-variant duplicate derivation (L1-common excluded via common-contract), the three FAIL legs (unregistered-duplicates with declared-soak WARN, variant-identity clobber, consumer minimum_version), consuming-variant loader; one derivation shared by validate-templates.ts v1.70.0 hub legs, audit.ts v2.61.0 hub-resolve, and hub-promotion.ts v1.0.0. Unit-pinned by tests/unit/hub-topology-legs.test.ts | —| L0+L1 | —|
 | `hooks/agent-model-gate.ts` | L0 | 1.3.0 | active | v1.3.0 (L1 promotion, 2026-11-02, Phase 4 hook-delivery wave): added to templates/common/scripts/hooks/ byte-identically — the hook was L0-only, invisible to upgrade-project's version-gated SYNC_IF_NEWER: scripts/ pass, so every fleet project/hub lacked it while the root canonical set (hub-bootstrap §4.4 hook-integrity comparison) carried it; no content change, version unchanged. Content: v1.3.0 (2026-10-26, ADR-0102 / T-20261026-018, user ruling 2): tier source moves from schema agent_tiers (removed) to each agents/<name>.md frontmatter — scalar `tier:` with uniform legacy-block fallback during transition; missing/unparseable/mixed tier WARN-and-skips per agent (same fail-open shape as the old missing-agent_tiers case); models.claude still from the schema. Prior: v1.2.0 (2026-10-26, T-20261026-009 #30): full model IDs accepted (provider/model form and any models.* registry ID); a provided-but-unrecognized value still trips but with a corrected reason that names the value instead of claiming the model param was omitted. v-fix (2026-10-02, T-20261002-013): workspace root via fileURLToPath(new URL(...)) — URL.pathname keeps a leading slash and percent-encodes spaces on Windows, producing an unusable root (same class as pm-role-bootstrap, PR #1317). Prior: — | —| L0+L1 | —|
@@ -237,39 +301,390 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `helpers/memory-union-verify.ts` | L0+L1 | 1.6.0 | active | v1.2.0 (2026-11-06, T-20261106-007 — the gate-deadlock closure): the archive vs union-verify fight — merge e73b51057 deleted memory/2026-10-29.md (archive-memory retention, post-activation); the gate's prescribed repair (restore in the working tree) was immediately undone by step 3.8's archive move (memory/archive/), and with the file absent the repaired-at-head check could not run — permanently FATAL. Fix: the repaired-at-head check falls back to memory/archive/<basename> when the worktree file is absent — the archive is the documented end-state and its content IS the parent blocks (relocated, not destroyed). Also (T-20261106-005 item 2): git plumbing failures now WARN to stderr (an incomplete sweep is observable, no longer indistinguishable from an empty window). Prior: v1.1.1 (2026-11-06, T-20261105-002 follow-through — first post-merge sync finding): the deleted-file arm (archive-memory 7-day retention deletes a flat log; merge e73b51057 landed that deletion post-activation) pushed an unconditional FATAL "file deleted while a parent still carries session blocks" — archival deletions are the documented retention cycle, now tiered repaired-at-head (INFO) when the MEMORY.md index row for the deleted log survives (the tombstone is the positive evidence, the same positive-evidence-only posture as filterTransientCheckouts); no tombstone keeps the original tier (a genuine clobber deletion stays FATAL). Unit-pinned by the archival-deletion fixture. Prior: v1.1.0 (2026-11-05, T-20261105-002): the v1 gap closed — post-activation drop findings were unrecoverable because Arm A compared the merge commit's OWN blob, so "restore in the working tree — the repair lands forward" could never clear a finding (design §5.3's "a repaired file passes" premise did not hold; live-blocked since merge c8aba5d61). New: droppedBlocks (parent-labeled strict-missing extraction, verifyUnion refactored onto it) + repairedAtHead (every parent-owed block present in the working-tree content under the strict rules PLUS one absorption tolerance — an UN-HEADED parent block counts as restored when its trimmed text appears verbatim in the head content; headed blocks keep the strict heading+firstLine rule so containment cannot fake a heading) + unionScan re-tiers such groups 'repaired-at-head' (INFO) by reading the worktree file; unreadable worktree keeps the original tier. Consumed by dev-sync v1.41.0 step 3.88. Prior: v1.0.0 (2026-11-05, T-20261104-001 — spec docs/designs/2026-11-05-merge-integrity-design.md §5.1): memory session-block union-verify — the gate for git ort auto-merge / conflict-resolution corruption of append-only memory/YYYY-MM-DD.md session logs (2026-11-04 incidents: dropped blocks + fused heading/separator, no conflict markers, hand-repaired). Pure exported core: parseBlocks (verify-memory.ts:109 split convention), verifyUnion (every block owed by either parent must appear in the merged result — exact trimmed fingerprint first, heading+firstLine fallback for cosmetic reflows, order/dedup-tolerant; plus fuse detection: any block with >= 2 '## Session Summary' headings — and the block/separator count invariant) and verifyWellFormed (Arm B structural integrity). Thin git plumbing: listMemoryMerges (bounded 7-day/20-merge sweep, --full-history required — default history simplification prunes TREESAME-to-one-parent merges, the clean-union shape this gate must bless), showBlob, unionScan (two-tier: activationIso cutoff — post-activation merges blocking, pre-activation historical, fail-closed on undatable commits), wellFormedScan. Exemptions mirror verify-memory.ts:37-42 + memory/archive/. Consumed by dev-sync step 3.88 (BLOCKING, two-tier rollout — see the dev-sync v1.40.0 row). Shipped to templates/common/scripts/helpers byte-identical (imported by the L1 dev-sync mirror); fully armed in delivered trees — a variant repo with no memory merge commits simply passes | —| L0+L1 | —|
 | `helpers/ticket-drift.ts` | L0+L1 | 1.0.0 | active | v1.0.0 (2026-11-05, T-20261104-004 item 3 — spec docs/designs/2026-11-04-project-loss-hardening-design.md §5.3b): referenced-id drift check — scans memory/*.md for `\b[TU]-\d{8}-\d{3,4}\b` citations and resolves each via resolveTicketLocation (live stores + both archives); unresolved ids returned with file+line as candidate silent-loss events (the check that would have caught the vanished original T-20261104-004 filing). Read-only, lock-free; consumed by dev-sync step 3.87 (BLOCKING) and the `ticket.ts doctor` diagnostic arm. Shipped to templates/common/scripts/helpers byte-identical (imported by the L1 dev-sync mirror); the L0-only store dependency loads through a guarded dynamic import, so a delivered tree without the store degrades the check to a documented no-op instead of dangling | —| L0+L1 | —|
 | `hooks/delete-guard.ts` | L0 | 1.2.0 | active | v1.2.0 (2026-11-06, T-20261106-005 item 1): transparent-prefix bypass closed — sudo/env/nice/xargs/nohup are skipped (stacked forms and env assignments included) before verb detection, so `sudo rm -rf Projects` no longer walks past the guard; negative tests pin benign prefixed reads stay unflagged. Prior: v1.1.1 (2026-11-05, windows-latest CI + U-20261104-002 windows-sep class): containment helpers (isInsideWorkspace, isAllowlisted) normalize both operands via resolve() and case-fold on win32 before comparison — separator-agnostic (a POSIX-literal root vs path.sepped target never matched under bare startsWith) and case-insensitive (a case-mismatched in-workspace spelling must not read as outside; resolve-fallback targets get no realpath case-normalization). Allowlist segments stay case-sensitive by design. expandTilde accepts the win32 separator form. Prior: v1.1.0 (2026-11-05, L1 promotion — forced by the propagation SSOT): the gemini-settings propagation domain mirrors root .gemini BeforeTool entries into templates/common/.gemini on every sync, so the v1.0.0 wiring landed in the L1 template (commit a57dc970a) while the hook stayed L0-only — scaffolded projects would fire bun against a missing file on every shell command. Mirror delivered via propagate-to-templates (gateguard 1.3.0 precedent; the workspace-root marker string literal is functional code and survives the sanctioned comment scrub). Design §6 had deferred mirror+wiring to Phase 2 and did not account for the propagation contract — deviation flagged for PM review. Prior: v1.0.0 (2026-11-05, T-20261104-004 item 1 — design docs/designs/2026-11-04-project-loss-hardening-design.md §5.1): PreToolUse Bash (Claude, decision `ask`, exit 0) / BeforeTool run_shell_command (Gemini, decision `deny`, exit 2) recursive-delete guard. Gates `rm` with -r/-R/--recursive (any permutation, incl. combined flag bundles) and `trash`/`trash-put` whose operands resolve inside the workspace root (CLAUDE_PROJECT_DIR env, else the security-validator upward-walk markers, symlink-canonicalized); separator-split segment heuristic (double-ampersand, double-pipe, semicolon, pipe, newline) — not a shell parser. Regenerable-artifact allowlist (path-segment match, case-sensitive) with the .git-beneath depth-2 suppression of the allowlist bypass (the incident's fatal class; os.tmpdir() targets exempt from the re-check). Dry-run-list-first marker protocol (DELETE_GUARD_STATE_DIR or <tmpdir>/ai-workspace-delete-guard/<sanitized session_id>.json, 30-min TTL; ls/tree/stat/du -s/find -maxdepth listings of workspace-interior paths record {resolvedPath, at}; Claude stays `ask` with the marker softening only the reason, Gemini downgrades to allow — Manual approval supplies the confirmation, DEC-20261104-02 ruling 3). ALLOW_RECURSIVE_DELETE=1 reviewed escape (pre-push.ts precedent). Fail-open on hook-infrastructure errors (unreadable stdin/JSON/missing command), fail-closed on parsed gated commands. Header records the resolved non-firing-deny-rule finding for the .claude/settings.json `Bash(rm -rf *)` rule (matcher never invoked on the incident harness — most probable; documented wrapper/rule-scope gaps as secondary). git clean / find -delete deferred to v2 (ruling 4). L1 mirror deferred to Phase 2 (design §6). Wired: .claude/settings.json PreToolUse Bash, .gemini/settings.json BeforeTool run_shell_command. Tests: tests/unit/delete-guard.test.ts | —| L0+L1 | —|
-| `lib/external-deps.ts` | L0 | 1.4.0 | active | v1.1.0 (2026-11-07, spec docs/designs/2026-11-07-external-deps-standard-design.md §5.2-§5.4 + Addendum, DEC-20261107-02, T-20261107-005): external-deps STANDARD — manifest schema v2 (required license / usage 'as-is' / adapter; optional excluded_components / license_decision; v1 dual parse, all writers emit v2); EXTERNAL_DEP_LICENSE_POLICY single source of truth (allow / review / review-standalone GPL-needs-decision / deny incl. AGPL + unknown ids; OR most permissive, AND/WITH strictest); R3 install_dir collisions are a parse error, a NEW entry off external/<id> fails (installed → WARN); preInstallGate (E5 — a gated entry is never cloned by fetchProjectExternalDeps, which also gains onlyIds); verify primitives V1-V9 (verifyProjectExternalDeps, checkAsIs, checkUpstreamLicenseFile, checkPinTag, scanExcludedComponents); migrateManifestV1ToV2. Byte-identical L0/L1. Prior: v1.0.0 (2026-11-07, spec docs/designs/2026-11-07-external-deps-machinery-design.md — implements the upstream external-dependency machinery): shared external-dependency machinery — strict external-deps.json parsing/validation (D1: unknown fields rejected, propagation enum, https-only repos without credentials, project-relative install_dir, shell-metacharacter-free command templates), install/refresh via git argv-array only (no shell anywhere — the audit's shell-injection heuristics have no surface), the D3 update core (ls-remote semver tag compare, compatibility-test runner, pin-drift tripwire), D5 gitignore coverage, D4 vendoring-guard detection + loose install_dir extraction (works on legacy/interim manifest shapes), and the D2 scaffold-fetch core fetchProjectExternalDeps (WARN posture, --strict-external-deps opt-in) shared by new-project §7.9 and the unit tests. parseExternalDepsManifest's allowLocalRepos opt-in is TEST-only (file:// fixture repos per design §4; production callers never enable it) | —| L0+L1 | —|
+| `lib/external-deps.ts` | L0 | 1.2.0 | active | v1.2.0 (2026-11-08, T-20261108-002 — port of co-work #38 / LOCAL-PATCH U-20261107-002): bounded NON-GIT admission — an `install` template may invoke an allowlisted deterministic non-git tool (NON_GIT_INSTALL_ARGV0: bun/npm/curl/wget) as a single shell-free argv command; non-git pins must be semver-looking (NON_GIT_PIN_RE: npm registry version or GitHub release tag); the optional `checksum` field records the integrity anchor (npm dist-integrity sha512-<base64> or 64-hex sha256). classifyInstallArgv0 is the single admission gate ('git' keeps the v1 semantics byte-identical; multi-step download→verify→extract sequences are still NOT admitted). resolveInstallArgv admits the non-git placeholder rule ({pin}+{dir} required, {repo} optional); installDependency gains the non-git executor arm (shell-free argv spawn, install_dir mkdir'd first, no commit resolution — re-run idempotent). Git path byte-compatible. Unblocks U-20261107-002. Prior: v1.1.0 (2026-11-07, spec docs/designs/2026-11-07-external-deps-standard-design.md §5.2-§5.4 + Addendum, DEC-20261107-02, T-20261107-005): external-deps STANDARD — manifest schema v2 (required license / usage 'as-is' / adapter; optional excluded_components / license_decision; v1 dual parse, all writers emit v2); EXTERNAL_DEP_LICENSE_POLICY single source of truth (allow / review / review-standalone GPL-needs-decision / deny incl. AGPL + unknown ids; OR most permissive, AND/WITH strictest); R3 install_dir collisions are a parse error, a NEW entry off external/<id> fails (installed → WARN); preInstallGate (E5 — a gated entry is never cloned by fetchProjectExternalDeps, which also gains onlyIds); verify primitives V1-V9 (verifyProjectExternalDeps, checkAsIs, checkUpstreamLicenseFile, checkPinTag, scanExcludedComponents); migrateManifestV1ToV2. Byte-identical L0/L1. Prior: v1.0.0 (2026-11-07, spec docs/designs/2026-11-07-external-deps-machinery-design.md — implements the upstream external-dependency machinery): shared external-dependency machinery — strict external-deps.json parsing/validation (D1: unknown fields rejected, propagation enum, https-only repos without credentials, project-relative install_dir, shell-metacharacter-free command templates), install/refresh via git argv-array only (no shell anywhere — the audit's shell-injection heuristics have no surface), the D3 update core (ls-remote semver tag compare, compatibility-test runner, pin-drift tripwire), D5 gitignore coverage, D4 vendoring-guard detection + loose install_dir extraction (works on legacy/interim manifest shapes), and the D2 scaffold-fetch core fetchProjectExternalDeps (WARN posture, --strict-external-deps opt-in) shared by new-project §7.9 and the unit tests. parseExternalDepsManifest's allowLocalRepos opt-in is TEST-only (file:// fixture repos per design §4; production callers never enable it) | —| L0+L1 | —|
 | `lib/fleet.ts` | L0 | 1.2.0 | active | v1.0.0 (2026-11-07, spec docs/designs/2026-11-07-fleet-membership-ssot-design.md §4/§5, DEC-20261107-01): fleet membership SSOT helpers — the SOLE code path allowed to derive fleet membership (Projects/co-* minus the docs/fleet-membership.json exclusions; enforced by tests/unit/fleet-iteration-routing.test.ts, design §9.3). loadFleetRegistry (absent file = zero exclusions, historical behavior; malformed = fail-closed detail), fleetExclusions/excludedFleetIds (throw on malformed), isFleetMember, listFleetProjects (sorted Projects/<name> paths), isFleetProjectPath (B-class path guard), exclusionForName/exclusionNotice (single-source §6.3/§6.4/§6.7 operator messages). Pure over an injected root, one-derivation discipline as helpers/hub-topology.ts; unit-pinned by tests/unit/fleet-membership.test.ts. L0-only — never propagated to templates/ or scaffolded projects, never added to any propagation map (design §11 hard rule).  DELIVERY NOTE (deviation recorded in the PR + DEC-20261107-01 condition 7): delivered L0+L1 (leaf pure-module class per the IC-01 fix policy, ADR-0073 Amendment 4) because three L0+L1 sites (audit.ts A6, validate-templates.ts A8, evidence-backport-scan.ts A3) statically import it — the design §11 'never delivered' rule is amended for the HELPER ONLY: docs/fleet-membership.json stays strictly L0-only (never propagated), and a delivered copy reads the PROJECT's own docs/fleet-membership.json (absent there → zero exclusions → historical behavior), so no workspace membership state ever reaches L1/L2. | —| L0+L1 | —|
 | `lib/git-aware-scan.ts` | L0 | 1.0.1 | active | v1.0.0 (2026-11-03, T-20261103-004): git-aware discovery helpers for scripts whose output is COMMITTED — trackedFilesUnder (one cached `git ls-files -z` query, NUL-split, forward-slash-normalized), isTrackedRel (fail-open on null/non-git), checkoutBranch (`git -C <dir> branch --show-current`), isTransientCheckoutBranch (`pr/*` = transient working copy per the landing convention), filterTransientCheckouts (pure split of candidate checkouts into members vs PR copies; only positive evidence excludes). Closes two leak classes: untracked files inside tracked dirs (generate-skill-graph.ts decisions/ADR scan) and transient PR checkouts inside the wholly-gitignored Projects/ tree (skill-graph-fleet-report.ts) | —| L0+L1 | —|
 | `lib/trail-block-parity.ts` | L0 | 1.1.0 | active | v1.0.0 (2026-11-08, design docs/designs/2026-11-08-trail-fleet-standard-design.md §5.4, DEC-20261108-01 R1/R3): TB-01 primitives — extractTrailBlock / countTrailBlocks / compareTrailBlock for the AGENTS.md trail marker block (trail:start/end, tool-owned; presence and bytes workspace-pinned root == common == every variant, normalized line-parity per the PM-04b contract; duplicate detection for the tool-re-append vs hand-copy collision class). Unit-pinned by tests/unit/validate-trail-block-parity.test.ts | —| L0+L1 | —|
-| `detect-backport.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-11-18, spec docs/designs/2026-11-17-sync-auto-detection-design.md §5/§6, DEC-20261117-06 — detection batch PR-B, T-20261118-001): sync-embedded detection of backport candidates and template-layer defects, run by a conditional sync-skill step (dev-sync.ts untouched — gate-off /sync stays byte-identical, AC-1). Gate: variant.json `syncDetection` block (absent key == OFF; malformed block treated as OFF + WARN, the PR-C validator owns the loud FAIL) or the `--detect-backport` one-off argument override. Diff surface `origin/main...HEAD`; evidence classes E1 LOCAL-PATCH markers (pending → file-upstream template-defect, real U-id → already-filed report-only) via helpers/local-patch-scan.ts, E2 SYNC-claim delivered edits (mechanical-file list excluded), E3 retired-token whole-word scan over delivered-content claims (JSON_MERGE included — the §4 graft worked example, AC-3), E4 new managed-surface files (skills/<name>/SKILL.md, scripts/helpers/, scripts/lib/, evidence-models/, agents/<name>.md) → reusable-asset/unsure. Report schema detect-backport-report/1 written to <git-dir>/detect-backport-report.json + console summary; state file <git-dir>/detect-backport-state.json records filed dedupe tokens (duplicate-local, never re-filed) with deterministic uid backfill from LOCAL-PATCH markers; §5.8 unresolved_template_defects summary block is warning-only, never a gate. Cap max_tickets_per_sync 1..5 default 3, allocation E1 > E2 > E3 > E4. Flags: --project, --dry-run (zero file writes), --json (stdout pure JSON, summary to stderr). Read-only on the tree. Unit-pinned by tests/unit/detect-backport.test.ts (26 tests). v1.0.0 L1 mirror published with the detection batch PR-C validator gate (variant_extensions._shared.syncDetection registration + validate-templates.ts v1.86.0 sync-detection shape check; gate SSOT parseSyncDetection reused by the validator so the check and the runtime gate cannot diverge) | —| L0+L1 | —|
+| `co-deck/download-videos.ts` | L2 | 1.2.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/gen-slides-pdf-render.test.ts` | L2 | 1.8.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/lib-slide-type.test.ts` | L2 | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/download-videos.test.ts` | L2 | 1.1.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/build-theme-deck-video.test.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/lib-layout-overrides.test.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/lib-pdf-font-patch.test.ts` | L2 | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/diagram-helpers.test.ts` | L2 | 1.1.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/lib-markdown.test.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `lib/git-env.ts` | L0 | 1.2.0 | active | v1.2.0 (2026-11-09, P0 correctness fix): gitEnvUnset() DELETED and replaced by gitCleanEnvForShell(base?) → Record<string, string>, a full copy of base/process.env minus GIT_REDIRECT_ENV_KEYS with undefined values filtered. Rationale, verified on Bun 1.4.4: `$.env(obj)` REPLACES the whole child environment — `.env({GIT_DIR: undefined})` + `printenv PATH` prints nothing and exits 1, while `.env(process.env)` prints the full PATH — so an `{key: undefined}` map is the ENTIRE child env (incident chain: rogue commits → unset-map 'fix' → missing PATH → 26 of 268 unit files failing at dev-sync step 4.85 with `Executable not found in $PATH: "git"`). gitCleanEnv() unchanged for spawnSync callers (spawnSync merges over process.env). v1.1.0 (2026-11-09, rogue-commit incident): added gitEnvUnset() (RETRACTED in v1.2.0), used at every pipeline test spawn and by the git-aware helpers; layer raised to L0+L1 because the delivered hooks (pre-push) and the delivered helpers now import it. v1.0.0 (2026-11-09, spec docs/designs/2026-11-08-gw-tenant-loop-and-hardening-design.md): git repo-redirection environment sanitizer — gitCleanEnv(base?) copies base (or process.env) minus the nine redirection vars (GIT_DIR, GIT_WORK_TREE, GIT_INDEX_FILE, GIT_OBJECT_DIRECTORY, GIT_ALTERNATE_OBJECT_DIRECTORIES, GIT_COMMON_DIR, GIT_CEILING_DIRECTORIES, GIT_NAMESPACE, GIT_CONFIG; identity/config vars like GIT_AUTHOR_* and GIT_CONFIG_GLOBAL are kept; GIT_REDIRECT_ENV_KEYS is exported for validators). A hook context (`git push` pre-push) exports GIT_DIR aimed at the checkout's private git dir and every inheriting git spawn honors it over cwd discovery — fixture init/add/commit landed a rogue `initial` commit on the PR branch and the hygiene gate inspected the wrong repo (2026-11-09 tenant-loop QA wave; 2026-11-07 external-deps incident class). Consumers: scripts/check-workspace-hygiene.ts (L0-only gate) and the tenant-loop suites' fixture/spawn env | —| L0+L1 | —|
+| `lib/repo-integrity.ts` | L0 | 1.1.0 | active | v1.1.0 (2026-11-09, spec docs/designs/2026-11-09-repo-integrity-mode1-detector-design.md §3, T-20261109-002): corruption-MODE-1 detector + worktree-scope snapshot — ROGUE_IDENTITY_EMAIL_PATTERNS (seeded `/^test@example\.com$/i`; extending = one commented literal + census re-run, NEVER a skip env), pure filterRogueCommits over one `git log` spawn (SHA + identities + subject, \x1f record format — unit-testable without git), scanRogueCommitsInRange/scanRogueCommits (non-zero exit → ok:false, fail-closed; empty rev-args refused), resolveRogueScanBase (upstream → origin/main → refuse; 2026-11-09 census: ZERO test@example.com identities in the full history — false-positive evidence), rogueScanRefusalLines (one derivation for the dev-sync 4.88 Arm-2 gate and the pre-push pushed-range scan); snapshotRepoConfig gains worktreeEntries gated on the extensions.worktreeConfig probe (verified 2026-11-09: extension OFF → `--worktree --list` falls back to the LOCAL listing so the read is probe-gated; extension ON + no config.worktree file → exit 128 "unable to read config file … config.worktree" = an EMPTY scope, not a failure), formatRepoConfigDeltaRows for the `wt: ` rows. Unit-pinned by tests/unit/repo-integrity.test.ts v1.2.0. Prior: v1.0.0 (2026-11-09, spec docs/designs/2026-11-08-gw-tenant-loop-and-hardening-design.md §11): repository-config integrity guard — snapshotRepoConfig() serializes `git config --local --list` as sorted key=value lines plus the effective core.bare; diffRepoConfig() is the pure added/removed/changed diff (order-insensitive, multi-value aware); assertWorkTreeHealthy() returns the one-line refusal carrying the exact repair (`git config --local core.bare false`) when the tree is not usable. Closes the SECOND corruption mode of the 2026-11-09 incident — rogue commits are mode 1 — because worktrees share the main .git/config, so one redirected `git config` write is repo-wide. Callers: dev-sync.ts v1.45.0 (start-of-run invariant + blocking step 4.88 gate) and hooks/pre-push.ts v1.8.0 (snapshot/compare around the changed-path test run); every git spawn inside runs under gitCleanEnv(). No sanctioned-writer exclusion — verified 2026-11-09 that no script writes THIS repository local config during a run | —| L0+L1 | —|
+| `lib/workspace-hygiene.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-11-08, spec docs/designs/2026-11-08-gw-tenant-loop-and-hardening-design.md §5.1): fixture-root hygiene classifier — classifyWorkspaceHygieneResidue flags `?? <top>/` porcelain rows (porcelain collapses an entirely-untracked directory to one trailing-slash row) whose top is one of the design's eight known dirs (Projects, services, templates, tests, docs, scripts, agents, skills); tracked-dirty rows, untracked FILES and nested dirs inside tracked dirs, and unknown tops stay clean. Pure — no git/fs (unit-pinned by tests/unit/workspace-hygiene.test.ts); one derivation, two callers: scripts/check-workspace-hygiene.ts and dev-sync step 6.4 (imported by the delivered dev-sync → L0+L1, git-status.ts precedent); C-quoted rows unquoted first | —| L0+L1 | —|
+| `co-deck/tests/snapshot-self-reference.test.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/html-to-pdf-serve.test.ts` | L3 | 1.0.0 | active | — | — | L3 | — |
+| `co-deck/lib/layout-overrides.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/lib/markdown.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/lib/pdf-font-patch.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/lib/slide-type.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `detect-backport.ts` | L0 | 1.0.1 | active | v1.0.0 (2026-11-18, spec docs/designs/2026-11-17-sync-auto-detection-design.md §5/§6, DEC-20261117-06 — detection batch PR-B, T-20261118-001): sync-embedded detection of backport candidates and template-layer defects, run by a conditional sync-skill step (dev-sync.ts untouched — gate-off /sync stays byte-identical, AC-1). Gate: variant.json `syncDetection` block (absent key == OFF; malformed block treated as OFF + WARN, the PR-C validator owns the loud FAIL) or the `--detect-backport` one-off argument override. Diff surface `origin/main...HEAD`; evidence classes E1 LOCAL-PATCH markers (pending → file-upstream template-defect, real U-id → already-filed report-only) via helpers/local-patch-scan.ts, E2 SYNC-claim delivered edits (mechanical-file list excluded), E3 retired-token whole-word scan over delivered-content claims (JSON_MERGE included — the §4 graft worked example, AC-3), E4 new managed-surface files (skills/<name>/SKILL.md, scripts/helpers/, scripts/lib/, evidence-models/, agents/<name>.md) → reusable-asset/unsure. Report schema detect-backport-report/1 written to <git-dir>/detect-backport-report.json + console summary; state file <git-dir>/detect-backport-state.json records filed dedupe tokens (duplicate-local, never re-filed) with deterministic uid backfill from LOCAL-PATCH markers; §5.8 unresolved_template_defects summary block is warning-only, never a gate. Cap max_tickets_per_sync 1..5 default 3, allocation E1 > E2 > E3 > E4. Flags: --project, --dry-run (zero file writes), --json (stdout pure JSON, summary to stderr). Read-only on the tree. Unit-pinned by tests/unit/detect-backport.test.ts (26 tests). v1.0.0 L1 mirror published with the detection batch PR-C validator gate (variant_extensions._shared.syncDetection registration + validate-templates.ts v1.86.0 sync-detection shape check; gate SSOT parseSyncDetection reused by the validator so the check and the runtime gate cannot diverge) | —| L0+L1 | —|
 | `generate-skill-lifecycle-records.ts` | L0 | 1.3.1 | active | v1.3.1 (2026-11-14, T-20261112-007): the missing-record fix text no longer claims records are "published by the templates PR" — the SLR gate blocks, so the fix points at generator --write + include-in-PR. Prior: v1.3.0 (2026-11-12, U-20261112-005 PR-3): exports pure recordHookVerdict for the dev-sync step 4.505 hook; scripts/skill-record-enforcement.json is now enforce:true so SLR findings are errors. Prior: v1.2.0 (2026-11-12, U-20261112-005 PR-1b): Korean text in generated records is wrapped in backticks (wrapHangulInCode) so validate-md-language.ts accepts them without a lang: ko declaration. Prior: v1.1.0 (2026-11-12, common-agents CA-1, design docs/designs/2026-11-12-common-agents-for-common-skills-design.md §7): SLR owner-agent rule is strict for common skills — the owner must exist in templates/common/agents (variant-only and L0 root agents no longer count); variant-own skills unchanged; severity still follows scripts/skill-record-enforcement.json. Prior: v1.0.0 (2026-11-12, U-20261112-005 PR-1, design docs/designs/2026-11-12-skill-lifecycle-record-delivery-design.md §4.2): lifecycle-record generator — projected records for common skills, derived records for variant-own skills, --check byte parity, --write, --project <path> for project-local skills; owner resolution (frontmatter, then scripts/data/skill-owner-map.json, else fail); SLR evaluation core consumed by validate-templates.ts. Unit-pinned by tests/unit/generate-skill-lifecycle-records.test.ts | —| L0+L1 | —|
 | `lib/country-scoped-agents.ts` | L0 | 1.1.0 | active | v1.1.0 (2026-11-14, T-20261112-005, spec docs/designs/2026-11-14-country-scoped-agents-registry-and-prune-design.md R1): the registry moved INTO the schema pair (docs/workspace-schema.json + templates/common/docs/workspace-schema.json, country_scoped_assets.agents = { public-data-analyst: KR }) — the constant is replaced by loadCountryScopedAgents(schemaPath?) reading it (missing agents key → {} vacuously clean; malformed JSON throws, fail-closed); pure helpers unchanged, consumers (scaffold-markers, prune-country-scoped-assets) call the loader. Prior: v1.0.0 (2026-11-12, CA-3+AE-3): pure planning helpers (isPrunedForCountry, agentsToPrune, agentPrunePaths, scrubAgentReferenceLines) behind the country-scoped agent prune; unit-tested in tests/unit/country-scoped-agents.test.ts | —| L0+L1 | —|
-| `lib/git-env.ts` | L0 | 1.2.0 | active | v1.2.0 (2026-11-09, P0 correctness fix): gitEnvUnset() DELETED and replaced by gitCleanEnvForShell(base?) → Record<string, string>, a full copy of base/process.env minus GIT_REDIRECT_ENV_KEYS with undefined values filtered. Rationale, verified on Bun 1.4.4: `$.env(obj)` REPLACES the whole child environment — `.env({GIT_DIR: undefined})` + `printenv PATH` prints nothing and exits 1, while `.env(process.env)` prints the full PATH — so an `{key: undefined}` map is the ENTIRE child env (incident chain: rogue commits → unset-map 'fix' → missing PATH → 26 of 268 unit files failing at dev-sync step 4.85 with `Executable not found in $PATH: "git"`). gitCleanEnv() unchanged for spawnSync callers (spawnSync merges over process.env). v1.1.0 (2026-11-09, rogue-commit incident): added gitEnvUnset() (RETRACTED in v1.2.0), used at every pipeline test spawn and by the git-aware helpers; layer raised to L0+L1 because the delivered hooks (pre-push) and the delivered helpers now import it. v1.0.0 (2026-11-09, spec docs/designs/2026-11-08-gw-tenant-loop-and-hardening-design.md): git repo-redirection environment sanitizer — gitCleanEnv(base?) copies base (or process.env) minus the nine redirection vars (GIT_DIR, GIT_WORK_TREE, GIT_INDEX_FILE, GIT_OBJECT_DIRECTORY, GIT_ALTERNATE_OBJECT_DIRECTORIES, GIT_COMMON_DIR, GIT_CEILING_DIRECTORIES, GIT_NAMESPACE, GIT_CONFIG; identity/config vars like GIT_AUTHOR_* and GIT_CONFIG_GLOBAL are kept; GIT_REDIRECT_ENV_KEYS is exported for validators). A hook context (`git push` pre-push) exports GIT_DIR aimed at the checkout's private git dir and every inheriting git spawn honors it over cwd discovery — fixture init/add/commit landed a rogue `initial` commit on the PR branch and the hygiene gate inspected the wrong repo (2026-11-09 tenant-loop QA wave; 2026-11-07 external-deps incident class). Consumers: scripts/check-workspace-hygiene.ts (L0-only gate) and the tenant-loop suites' fixture/spawn env | —| L0+L1 | —|
 | `lib/hermetic-test-roots.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-11-11, T-20261110-012 Scope C-C): detector for cwd-derived workspace roots in test files (`const <root-like name> = process.cwd()`), consumed by audit.ts hermetic-test-roots.| —| L0+L1 | —|
 | `lib/post-delivery-verify.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-11-11, T-20261110-012 Scope C-A, DEC-20261110-04 PR-3): sibling-test selection, pre-delivery capture (subject hashes + outcomes), changed-subject trigger, bun-test failure parsing, new-failure diff for upgrade-project.ts post-delivery verification.| —| L0+L1 | —|
-| `lib/repo-integrity.ts` | L0 | 1.1.0 | active | v1.1.0 (2026-11-09, spec docs/designs/2026-11-09-repo-integrity-mode1-detector-design.md §3, T-20261109-002): corruption-MODE-1 detector + worktree-scope snapshot — ROGUE_IDENTITY_EMAIL_PATTERNS (seeded `/^test@example\.com$/i`; extending = one commented literal + census re-run, NEVER a skip env), pure filterRogueCommits over one `git log` spawn (SHA + identities + subject, \x1f record format — unit-testable without git), scanRogueCommitsInRange/scanRogueCommits (non-zero exit → ok:false, fail-closed; empty rev-args refused), resolveRogueScanBase (upstream → origin/main → refuse; 2026-11-09 census: ZERO test@example.com identities in the full history — false-positive evidence), rogueScanRefusalLines (one derivation for the dev-sync 4.88 Arm-2 gate and the pre-push pushed-range scan); snapshotRepoConfig gains worktreeEntries gated on the extensions.worktreeConfig probe (verified 2026-11-09: extension OFF → `--worktree --list` falls back to the LOCAL listing so the read is probe-gated; extension ON + no config.worktree file → exit 128 "unable to read config file … config.worktree" = an EMPTY scope, not a failure), formatRepoConfigDeltaRows for the `wt: ` rows. Unit-pinned by tests/unit/repo-integrity.test.ts v1.2.0. Prior: v1.0.0 (2026-11-09, spec docs/designs/2026-11-08-gw-tenant-loop-and-hardening-design.md §11): repository-config integrity guard — snapshotRepoConfig() serializes `git config --local --list` as sorted key=value lines plus the effective core.bare; diffRepoConfig() is the pure added/removed/changed diff (order-insensitive, multi-value aware); assertWorkTreeHealthy() returns the one-line refusal carrying the exact repair (`git config --local core.bare false`) when the tree is not usable. Closes the SECOND corruption mode of the 2026-11-09 incident — rogue commits are mode 1 — because worktrees share the main .git/config, so one redirected `git config` write is repo-wide. Callers: dev-sync.ts v1.45.0 (start-of-run invariant + blocking step 4.88 gate) and hooks/pre-push.ts v1.8.0 (snapshot/compare around the changed-path test run); every git spawn inside runs under gitCleanEnv(). No sanctioned-writer exclusion — verified 2026-11-09 that no script writes THIS repository local config during a run | —| L0+L1 | —|
 | `lib/spec-landing.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-11-18, T-20261117-015, spec docs/designs/2026-11-18-dev-sync-hunk-staging-design.md §3): pure helpers for the dev-sync step-6.55 spec-registry dangling-reference gate — parseRegistryEntries parses a registry.json blob and throws on malformed content (fail-closed), specEntryPath derives the one-file-per-spec entry path, requiredPathsForEntry lists the entry JSON + design `file` targets, danglingSpecRefs names every required path absent from the resulting commit. Pure — no git/fs (unit-pinned by tests/unit/spec-landing.test.ts); one derivation, two callers: dev-sync step 6.55 and the unit suite (imported by the delivered dev-sync → L0+L1, workspace-hygiene.ts precedent) | —| L0+L1 | —|
 | `lib/template-vintage.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-11-12, DEC-20261111-01, design 2026-11-11-upgrade-overwrite-protection PR-B): template-vintage provenance - blobIdOf (git hash-object parity), loadTemplateBlobHistory (one `git log --raw` per template root, horizon 2026-06-01), vintageMatch (CRLF-normalized, multi-root), readBlobTexts; consumed by upgrade-project.ts (equal-version resolver, vintage ADOPT, MERGE_DROP).| —| L0+L1 | —|
-| `lib/workspace-hygiene.ts` | L0 | 1.0.0 | active | v1.0.0 (2026-11-08, spec docs/designs/2026-11-08-gw-tenant-loop-and-hardening-design.md §5.1): fixture-root hygiene classifier — classifyWorkspaceHygieneResidue flags `?? <top>/` porcelain rows (porcelain collapses an entirely-untracked directory to one trailing-slash row) whose top is one of the design's eight known dirs (Projects, services, templates, tests, docs, scripts, agents, skills); tracked-dirty rows, untracked FILES and nested dirs inside tracked dirs, and unknown tops stay clean. Pure — no git/fs (unit-pinned by tests/unit/workspace-hygiene.test.ts); one derivation, two callers: scripts/check-workspace-hygiene.ts and dev-sync step 6.4 (imported by the delivered dev-sync → L0+L1, git-status.ts precedent); C-quoted rows unquoted first | —| L0+L1 | —|
+| `co-deck/tests/patch-zen-white-bubble.test.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/theme-font-paths.test.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/tests/html-to-pdf.test.ts` | L2 | 1.3.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-deck/patch-zen-white-bubble.ts` | L2 | 1.2.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `handbook/check-generated-content.ts` | L0 | 1.0.0 | active | — | — | common | — |
 | `helpers/adoption-provenance.ts` | L0+L1 | 1.0.0 | active | v1.0.0 (2026-11-20, T-20261120-001 — design docs/designs/2026-11-20-adoption-gaps-batch-design.md): source-variant adoption-residue detection for the re-base prune — loadAdoptionProvenance reads the adopt-project decisions file (.claude/adopt-project-decisions.json, the provenance carrier that survives the settling variant.json removal), isAdoptionIdentityFlipped gates on the variant.json identity, declaredSkillNames parses a variant template skill set, selectSourceVariantPruneCandidates applies the fail-safe six-way conjunction (never guesses — every filter independently blocks), listSkillDirNames resolves template/project skill sets; pure + fs-guarded, unit-pinned by tests/unit/adoption-provenance.test.ts | — | L0+L1 | — |
 | `helpers/delivery-riding.ts` | L0+L1 | 1.0.0 | active | v1.0.0 (2026-11-19, T-20261119-005 residual + T-20261119-009 — spec docs/designs/2026-11-19-delivery-riding-records-design.md): pure delivery-riding helpers consumed by upgrade-project v1.112.0 — isSubRegistryGoverned (scripts/<variant>/ sub-registry governance scope), variantSubRegistryRowFor (unique bare-basename variant-sub-registry row lookup; ambiguous and absent are fail-closed upstream), buildMainRegistryRow (8-column deck-precedent main-registry row synthesis, cell-sanitized), synchronizeRecordMetadata (surgical hand-authored record Version/Owner alignment with deterministic Status/Skill/Metadata insertion anchoring, CRLF-preserving), recordBumpPlan (R1 arm decision among noop / refresh-template / derive / derive-failed / metadata-align), loadSkillOwnerMap (workspace skill-owner-map loader; generate-skill-lifecycle-records' loadOwnerMap is module-private). Unit-pinned in tests/unit/delivery-riding.test.ts (30 cases incl. the verdict-contract pins) | —| L0+L1 | —|
-| `handbook/check-generated-content.ts` | L0 | 1.0.0 | active | — | — | common | — |
+| `co-deck/humanize-adapter.ts` | L2 | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/scaffold-industry.ts` | L2-only | 0.1.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/test-domain-scenarios.ts` | L2-only | 1.1.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/training-ingest.ts` | L2-only | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/migrate-registry-to-coordinates.ts` | L2-only | 1.0.2 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/test-chemical-handling-profile.ts` | L2-only | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/start-mcp.ts` | L2-only | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/audit-variant.ts` | L2-only | 1.3.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/lib/auto-executor.ts` | L2-only | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/lib/checkpoint-manager.ts` | L2-only | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/lib/plan-parser.ts` | L2-only | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/lib/evidence-validator.ts` | L2-only | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/lib/platform-dispatcher.ts` | L2-only | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/lib/mcp-cache.ts` | L2-only | 1.0.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/check-pm-approval.ts` | L2-only | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/test-runtime-tools.ts` | L2-only | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/new-domain.ts` | L2-only | 1.1.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/test-cross-domain-integration.ts` | L2-only | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/test-pharma-general-profile.ts` | L2-only | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/domain-config.ts` | L2-only | 1.5.0 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/risk-register-rollup.ts` | L2-only | 1.0.1 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
+| `co-safety/safety-audit.ts` | L2-only | 4.10.2 | active | Variant-delivered script (auto-registered at upgrade, T-20261012-001) | —| L2-only | —|
 
-**Notes on the above:**
-- `lib/*.ts` (10 files): internal library modules, not directly invoked as scripts. They are NOT scanned by `verifyScriptVersionHeaders`/`verifyScriptRegistryConsistency` (those checks only cover top-level `scripts/*.ts`); listed here for documentation completeness only.
+## Layer Classification Framework
+
+> **Two layer types are in use**: `L0` (workspace root only) and `L0+L1` (workspace + template snapshot). `L0+L1+L2` is reserved but unused.
+
+| Layer | Description | Publish | Example |
+|-------|-------------|---------|---------|
+| L0 | Workspace infrastructure only | No | new-project.ts, remove-project.ts, propagate-to-templates.ts |
+| L0+L1 | Workspace + Template snapshot | Yes, to templates/common/ | audit.ts, hooks/pre-commit.ts |
+| L0+L1+L2 | Reserved for future use | Not used (Fork Model) | N/A |
+
+**Note**: All scripts must have L0 as their source of truth (SSOT principle). L0+L1+L2 is reserved for future architectural needs but not currently implemented due to the Fork Model (L2 variants evolve independently after scaffolding).
+
+---
+
+## Ownership Layers
+
+| Layer | Location | Owner | Update Policy |
+|-------|----------|-------|---------------|
+| **L0 —Workspace SSOT** | `scripts/` (workspace root) | workspace maintainer | Versioned via this file |
+| **L1 —Template snapshot** | `templates/common/scripts/` | publish: `bun run propagate:apply` | Explicit publish from L0 via consolidated tool |
+| **L2 —Variant template** | `templates/co-*/scripts/<variant>/` | variant maintainer | Variant-specific scripts, propagated from L0 |
+| **L3 —Project** | `<project>/scripts/` | project team | Independent snapshot after creation, plus L1->L3 propagation via `propagate-to-templates.ts` |
+
+**Propagation rule**: L0 is the development SSOT. Publish L0→L1 explicitly with `bun run propagate:apply`, which is a consolidated tool that also handles L1->L3 propagation. L3 projects snapshot L1 at creation time and receive subsequent updates via propagation. No automatic back-propagation from L3.
 
 ---
 
 ## Lifecycle States
 
-- **active** — in use; changes require a version bump in this registry to match the script's own `@version` header.
-- **deprecated** — has a `removal-date` (minimum 90 days notice from the deprecation date); scheduled for removal, prefer the paired replacement if one is listed.
-- **experimental** — not yet stable; behavior may change without notice.
+| Status | Meaning | Action Required |
+|--------|---------|-----------------|
+| `active` | In production use | Changes require version bump in Registry |
+| `deprecated` | Scheduled for removal | `removal-date` field required; L1/L2 warned on `dev-sync` |
+| `experimental` | Not guaranteed stable | Not synced to L1/L2 automatically |
+
+**Deprecation flow:**
+1. Set `status: deprecated` and `removal-date: YYYY-MM-DD` (minimum 90 days notice)
+2. `bun run dev-sync` warns L1/L2 consumers on every run
+3. On `removal-date`, `verify-scripts.ts --verify` **hard blocks** pre-commit
+
+**Security advisory flow:**
+1. Set `security-advisory: CVE-XXXX` (status can remain `active` or become `deprecated`)
+2. `bun run dev-sync` **hard blocks** in L1/L2 until the script is updated or removed
+3. Unlike deprecation, security advisories take immediate effect with no grace period
+
+---
 
 ## Guide
 
-See `scripts/README.md` for full per-script usage documentation, auto-generated from this registry.
+### Everyday Development Scripts (Tier 2 —`bun run <script>`)
+
+#### `audit.ts`
+**Purpose**: Documentation audit gate. Checks CHANGELOG.md, workspace standards, AGENTS.md,
+agent frontmatter, skill health, template lifecycle validation, and variant context guidelines
+section presence (VARIANT-INJECT: guidelines [REQUIRED] marker enforcement).
+**Usage**: `bun run audit`
+**Runs automatically**: pre-commit hook, pre-push hook, `bun run dev-sync`
+
+#### `dev-sync.ts`
+**Purpose**: Full sync pipeline — pre-flight markdown link validation gate (`bun scripts/validate-docs-links.ts`) — session log — MEMORY.md index — CHANGELOG auto-add — audit gate — sensitive file check — branch creation — commit — push — PR.
+**Usage**: `bun run dev-sync "feat: description"`
+**Claude Code / Gemini**: `/sync "feat: description"`
+**v1.5.0**: Added pre-flight markdown link validation gate (`bun scripts/validate-docs-links.ts`) executed before git operations to ensure all documentation links resolve.
+
+#### `test-runner.ts`
+**Purpose**: Test suite execution framework supporting `unit`, `integration`, `scenarios`, and `scripts` suites. Features parallel test execution with worker pool concurrency, worker temp directory isolation (`TEST_TEMP_DIR`), automatic fallback to sequential execution on failure, and per-suite timeouts.
+**Usage**:
+- `bun scripts/test-runner.ts [suite] [flags]` (default suite: `integration`)
+- Via `package.json` aliases: `bun run test`, `bun run test:unit`, `bun run test:e2e`, `bun run test:full`
+**CLI Flags**:
+- `--parallel`: Enable parallel execution across test files (default when > 1 test file)
+- `--sequential`: Force sequential test file execution
+- `--concurrency <n>`: Set worker pool concurrency level (default: CPU core count up to 4)
+- `--timeout <ms>`: Set per-test execution timeout in milliseconds
+**v1.1.0**: Documented parallel execution capabilities, worker pool temp directory isolation (`tests/.temp/worker-<id>`), automatic sequential fallback, and CLI flags (`--parallel`, `--sequential`, `--concurrency <n>`, `--timeout <ms>`).
+
+#### `sync-md.ts`
+**Purpose**: Updates `memory/MEMORY.md` index with today's session entry.
+**Usage**: Called automatically by `bun run dev-sync`. Rarely invoked directly.
+
+#### `gen-pr-body.ts`
+**Purpose**: Generates a structured template PR body from commit message + file list — template fallback for `dev-sync.ts`. (AI-mode generation via `claude -p` was removed in 1.2.0; the agent writes the PR body itself per `skills/sync/SKILL.md`.)
+**Usage**: Invoked automatically. Can be called standalone: `bun run gen-pr-body "msg"`
+
+#### `generate-scripts-readme.ts`
+**Purpose**: Auto-generates scripts/README.md from SCRIPTS.md registry.
+**Usage**: `bun scripts/generate-scripts-readme.ts`
+**Runs automatically**: `bun run dev-sync`
+
+#### `compile-tokens.ts`
+**Purpose**: Design token compiler for `co-design`. Reads `templates/co-design/tokens.json` and generates CSS custom properties (`:root { --color-primary: ... }`) and TypeScript constant types (`tokens.ts`) for design system consistency.
+**Usage**: `bun scripts/compile-tokens.ts [--input <path>] [--out-css <path>] [--out-ts <path>] [--watch] [--check]`
+
+#### `generate-ide-rules.ts`
+**Purpose**: IDE context rules generator for `.cursorrules` and `.clauderules`. Generates IDE-specific context rules dynamically based on workspace context and agent rosters.
+**Usage**: `bun scripts/generate-ide-rules.ts [--check] [--force] [--dir <path>]`
+
+#### `render-pdf-deck.ts`
+**Purpose**: Playwright paged-media presentation PDF renderer. Converts HTML presentation decks into paginated PDF files respecting `@page` print rules using Playwright headless Chromium.
+**Usage**: `bun scripts/render-pdf-deck.ts [--input <file>] [--output <file>] [--check]`
+
+#### `md-to-ooxml.ts`
+**Purpose**: Markdown to Microsoft Office OOXML (`.docx` / `.xlsx`) compiler script for `co-work`. Compiles Markdown source files into native Microsoft Office Open XML structures.
+**Usage**: `bun scripts/md-to-ooxml.ts --input <file.md> [--output <file>] [--type docx|xlsx] [--check]`
+
+---
+
+### Installation
+
+> **Bun is a workspace prerequisite.** Install it once via the [official installer](https://bun.sh/docs/installation) before using any script. `install-bun.sh/ps1` have been deleted (ADR-0036).
+
+---
+
+### Agent Lifecycle Scripts (Bun / TypeScript)
+
+#### `agent-create.ts`
+**Purpose**: Creates a new agent file with proper frontmatter and required sections.
+**Usage**: `bun scripts/agent-create.ts <name> --role "Display Name" --group <group>`
+
+#### `agent-delete.ts`
+**Purpose**: Removes an agent file and updates AGENTS.md.
+**Usage**: `bun scripts/agent-delete.ts <name> [--force]`
+
+#### `agent-list.ts`
+**Purpose**: Lists all agents with their status, group, and tier.
+**Usage**: `bun scripts/agent-list.ts [--group <group>] [--verbose]`
+
+#### `agent-verify.ts`
+**Purpose**: Verifies agent/AGENTS.md synchronization (files vs. registry).
+**Usage**: `bun scripts/agent-verify.ts`
+
+#### `agent-lifecycle-audit.ts`
+**Purpose**: Full agent lifecycle audit —frontmatter validation, AGENTS.md consistency,
+deprecated agent references, missing fields.
+**Usage**: `bun scripts/agent-lifecycle-audit.ts`
+**Runs automatically**: pre-commit hook when `agents/*.md` files are staged.
+
+---
+
+### Skill Lifecycle Scripts (Bun / TypeScript)
+
+#### `skill-lifecycle-audit.ts`
+**Purpose**: Full skill lifecycle audit —owner validation, orphaned skills, deprecated
+skills still being modified, dependency graph, circular dependencies, `scope` field validity.
+**Usage**: `bun scripts/skill-lifecycle-audit.ts`
+**Runs automatically**: pre-commit hook when `skills/**` files are staged.
+**v1.2.0**: `scope` validation now accepts `workspace | common | variant | <current project's own directory name>` (was previously only the literal string `variant`, which incorrectly flagged legitimate variant-name scope values like `scope: co-consult`); `docs/_examples/skills/**` excluded from scanning (illustrative documentation, not real skills). Run once per location (workspace root + each `templates/co-*/` variant + `templates/common/`) since agent/scope resolution is relative to `cwd`.
+
+#### `readme-lifecycle-audit.ts`
+**Purpose**: Validates README.md / README_ko.md pairing in `templates/` directories.
+**Usage**: `bun scripts/readme-lifecycle-audit.ts`
+
+#### `verify-skills.ts`
+**Purpose**: Cross-validates skills referenced in `docs/context.md` against actual
+skill files on disk. Detects missing or orphaned skill references.
+**Usage**: `bun scripts/verify-skills.ts`
+
+#### `sync-skill-status.ts`
+**Purpose**: Synchronizes skill status between SKILL.md and registry tables.
+**Usage**: `bun scripts/sync-skill-status.ts`
+
+#### `new-project.ts`
+**Purpose**: Scaffolds a new project under the workspace root. Copies `templates/common/`
+and an optional variant, substitutes `[Project Name]` placeholders, strips L1-B metadata
+from `agents/pm.md`, flattens `docs/_common/`, and runs the post-scaffold audit.
+**Usage**: `bun scripts/new-project.ts <name> <variant>`
+**Breaking change from**: `bash scripts/new-project.sh` / `.\scripts\new-project.ps1` (removed 2026-06-11, ADR-0036)
+**Note**: L0 script (workspace infrastructure only). Changes must be versioned in SCRIPTS.md.
+
+#### `remove-project.ts`
+**Purpose**: Safely deletes a project directory without requiring administrator privileges.
+Detects running Claude Code / Antigravity processes with user confirmation before removal.
+**Usage**: `bun scripts/remove-project.ts <project-name>`
+**Breaking change from**: `.\scripts\remove-project.ps1` / `bash scripts/remove-project.sh` (removed 2026-06-11, ADR-0036)
+**Note**: L0 script.
+
+#### `sync-skills.ts`
+**Purpose**: Distributes skills from a project's SSOT (`skills/`) to its runtime locations
+(`.claude/skills/`, `.gemini/skills/`, `.agents/skills/`). Run after any change to `skills/`
+to ensure Claude Code, Antigravity, and Antigravity CLI pick up the update.
+**Usage**:
+- `bun run sync-skills` — workspace root only (default, unchanged from prior versions)
+- `bun scripts/sync-skills.ts --dir templates/co-consult` — a single project root (variant or `templates/common`)
+- `bun scripts/sync-skills.ts --all-variants` — every `templates/co-*/` variant plus `templates/common/`
+**v1.4.0**: added `--dir`/`--all-variants` — the workspace-root-only default was silently leaving `.agents/skills/` (Antigravity CLI) far behind `.claude/skills/`/`.gemini/skills/` in every variant (discovered during a full skill-lifecycle audit, 2026-07-19). Run `--all-variants` after any variant-level skill change.
+
+#### `sync-skills-to-l2.ts`
+**Purpose**: Synchronizes explicitly requested skills or scripts from L1 (templates/common) to L2 variants.
+**Usage**: `bun scripts/sync-skills-to-l2.ts`
+
+#### `resolve-variants.ts`
+**Purpose**: L1-B Phase script that pre-resolves `extends:` skeleton references in each `templates/co-*/` variant. Writes fully-merged files in-place so that audit can validate complete content before `new-project` runs. After resolution, `new-project.ts` only needs a simple file copy — no `merge-frontmatter` step required.
+**Usage**: `bun scripts/resolve-variants.ts [--force] [--variant co-develop]`
+**Idempotency**: files already marked `# @resolved-from:` are skipped unless `--force` is passed.
+**Note**: L0 script (workspace infrastructure only). Not copied to `templates/common/scripts/`.
+
+#### `verify-memory.ts`
+**Purpose**: Validates `memory/*.md` session logs for mandatory 4-section format compliance
+(`## Session Summary`, `## Changes`, `## Decisions`, `## Open Issues`) and detects
+orphaned files not registered in `MEMORY.md` index.
+**Usage**: `bun scripts/verify-memory.ts [--verify | --report]`
+**Runs automatically**: pre-commit hook when `memory/*.md` files are staged.
+
+#### `archive-memory.ts`
+**Purpose**: Archives memory markdown files older than 7 days to keep the root memory directory clean and within context limits.
+**Usage**: `bun scripts/archive-memory.ts`
+
+---
+
+### Multi-Agent Orchestration Scripts (Bun / TypeScript)
+
+#### `dispatch.ts`
+**Purpose**: Single-agent dispatch wrapper. Spawns one agent with a given prompt and
+waits for completion.
+**Usage**: `bun scripts/dispatch.ts --agent <name> --prompt "task"`
+
+#### `dispatch-parallel.ts`
+**Purpose**: Parallel multi-agent dispatch. Spawns multiple agents simultaneously and
+collects results when all complete.
+**Usage**: `bun scripts/dispatch-parallel.ts --agents agent1,agent2 --prompt "task"`
+
+#### `dispatch-serial.ts`
+**Purpose**: Serial multi-agent dispatch. Chains agents sequentially, passing each
+agent's output as input to the next.
+**Usage**: `bun scripts/dispatch-serial.ts --agents agent1,agent2 --prompt "task"`
+
+#### `retry-handler.ts`
+**Purpose**: Wraps any dispatch call with retry logic (configurable attempts, backoff).
+**Usage**: `import { withRetry } from './retry-handler.ts'` (library module)
+
+---
+
+### Platform Parity Scripts (Bun / TypeScript)
+
+#### `test-platform-parity.ts`
+**Purpose**: Validates platform parity between L0 workspace files and their L1/L2 counterparts per ADR-0033.
+Compares CLAUDE.md, GEMINI.md, and agents/pm.md across workspace root, templates/common/, and all L2 variants.
+**Usage**: `bun scripts/test-platform-parity.ts [--verbose]`
+**Runs automatically**: As part of audit.ts (non-lifecycle-only mode)
+**Exit codes**: 0 (pass), 1 (errors), 2 (warnings)
+**See also**: `docs/platform-parity-rules.md` for detailed parity rules
+
+#### `validate-pm-extends.ts`
+**Purpose**: Validates pm.md extends chains for correctness and compliance per ADR-0033.
+Checks 6 validation rules: syntax, circular references, depth limits, file existence, override validity, and platform parity.
+**Usage**: `bun scripts/validate-pm-extends.ts [options] [files...]`
+**Options**:
+  - `--fix` - Auto-fix simple issues (optional)
+  - `--verbose` - Detailed output
+  - `--json` - JSON output format
+  - `--max-depth N` - Set custom max depth (default: 3)
+**Exit codes**: 0 (all valid), 1 (errors found)
+**Examples**:
+  - `bun scripts/validate-pm-extends.ts` (validate all pm.md files)
+  - `bun scripts/validate-pm-extends.ts agents/pm.md` (validate specific file)
+  - `bun scripts/validate-pm-extends.ts --json` (CI/CD friendly output)
+
+---
+
+### Propagation Scripts (Bun / TypeScript)
+
+#### `propagate-to-templates.ts`
+**Purpose**: Publishes L0 workspace scripts and governance docs to L1 (`templates/common/`) and propagates L1 changes to L2 variant templates. This is the consolidated propagation tool invoked via `bun run propagate:apply`.
+**Usage**: `bun scripts/propagate-to-templates.ts [flags]`
+**Layer**: L0 (workspace infrastructure only — not copied to templates/common/, templates/co-*/, or L3 projects)
+**Aliases**: `bun run propagate:apply` (--apply), `bun run propagate:dry-run` (--dry-run)
+
+**Flag → Layer/Phase Mapping**:
+
+| Flag | Layer Operation | Phase Context |
+|------|----------------|---------------|
+| `--apply` | L0 → L1(common) sync | Phase A: install scripts into common template |
+| `--dry-run` | L0 → L1(common) diff | Any phase: preview changes before applying |
+| `--governance-l1` | L0 governance → L1(common) | Phase A: deploy CLAUDE.md/GEMINI.md/AGENTS.md to L1 |
+| `--docs` | L1(common) → L1(variants) COMMON marker injection | Phase B: prepare variant-specific governance docs |
+| `--prune` | L1(common) cleanup | Maintenance: remove L0-only orphan files from L1 |
+| `--check-drift` | L1 vs L2 drift report | Any phase: verify L2 variants not diverged from L1 |
+| `--include-disabled` | Opt-in override | Include domains marked `disabled: true` (e.g. `docs`) in the dry-run report only — combining with `--apply` is a hard error (exit 1), not a silent write |
+
+**Typical workflow**:
+```bash
+bun scripts/propagate-to-templates.ts --dry-run          # preview L0→L1 changes
+bun scripts/propagate-to-templates.ts --apply            # publish scripts L0→L1
+bun scripts/propagate-to-templates.ts --governance-l1    # publish governance docs L0→L1
+bun scripts/propagate-to-templates.ts --docs             # inject COMMON markers into variants (Phase B)
+bun scripts/propagate-to-templates.ts --prune            # remove orphan files from L1
+bun scripts/propagate-to-templates.ts --check-drift      # report L1 vs L2 drift
+bun scripts/propagate-to-templates.ts --domain docs --include-disabled --dry-run  # inspect a disabled domain
+```
+
+**Disabled domains**: a domain entry may carry `"disabled": true` in `propagation-map.json` to declare it *intentionally* inactive (as opposed to silently never having worked — see the `docs` domain's `note` field for the concrete incident this guards against). Default runs skip it and print why; `--include-disabled` is a read/inspect escape hatch, not a way to reactivate it — flip the flag in `propagation-map.json` itself once the underlying policy question is resolved.
+
+### L3 Variant Tooling (Bun / TypeScript)
+
+#### `generate-l3-readme.ts`
+**Purpose**: Regenerates `README.md`/`README_ko.md` for a Phase A L3 project (`Projects/<name>/`) from the workspace README Standard template (`templates/common/docs/README.template.md`), reading the live agent roster and skills via `scanL3Project()`. This is the Phase A self-service complement to `l3-to-variant-pipeline.ts`'s Phase B README generation — both call the same rendering engine (`helpers/generate-variant.ts`'s `generateReadme`/`generateReadmeKo`), so Phase A and Phase B READMEs can never drift structurally. Phase A is self-service only (no CI gate, consistent with the L3 Design Gate exemption); Phase B's `templates/co-*/` README standard stays hard-enforced by `WS-08` in `validate-templates.ts`. `create-l3-scaffold.ts` also calls this renderer directly at scaffold time, so even a same-day scaffold ships the real 7-section structure instead of a stub.
+**Usage**: `bun scripts/generate-l3-readme.ts [--l3-path <path>] [--dry-run] [--locale en|ko|both]`
+**Layer**: L0 (workspace infrastructure — not copied to templates/common/ or L3 projects)
+
+**Flags**:
+
+| Flag | Behavior |
+|------|----------|
+| `--l3-path <path>` | Target L3 project (defaults to `process.cwd()` — works bare from inside the project) |
+| `--dry-run` | Print planned output (agent/skill counts, files would-write) without writing |
+| `--locale en\|ko\|both` | Which README(s) to regenerate (default: `both`) |
+
+**Typical workflow**:
+```bash
+bun scripts/generate-l3-readme.ts --l3-path Projects/co-journalist --dry-run  # preview
+bun scripts/generate-l3-readme.ts --l3-path Projects/co-journalist            # write both
+cd Projects/co-journalist && bun scripts/generate-l3-readme.ts                # bare form (cwd)
+```
+
+---
 
 ## Version Bump Policy
 
-Bump the version here to match the script's own `@version` header whenever the script changes.
+When modifying a script:
+1. Increment `version` in the Registry row (semver: patch for bugfix, minor for feature)
+2. Update the Guide section if the interface or behavior changes
+3. If the change is breaking, set `status: deprecated` on the old version entry and
+   add a new row for the replacement
+
+---
+
+*SCRIPTS.md maintained by: workspace maintainer (L0 SSOT)*
+*Last updated: 2026-08-15 — Renamed the 4 scripts whose `l2`-prefixed names/flags predated the L3 layer terminology: `create-l2-scaffold.ts`→`create-l3-scaffold.ts` (v1.9.2), `generate-l2-readme.ts`→`generate-l3-readme.ts` (v1.0.3, `--l2-path`→`--l3-path`), `l2-to-variant-pipeline.ts`→`l3-to-variant-pipeline.ts` (v1.10.5, `executeL2ToVariantPipeline()`→`executeL3ToVariantPipeline()`, `PipelineConfig.l2ProjectPath`→`l3ProjectPath`), `test-l2-promotion.ts`→`test-l3-to-variant-promotion.ts` (v1.0.2); also renamed the `simulate-l2-promotion` skill to `simulate-l3-to-variant-promotion`. Historical ADRs, dated design docs, and memory archives were left unchanged (they document what was true at the time); previous: Version bumps for generate-l2-readme (new v1.0.0: self-service Phase A README regeneration sharing the generate-variant.ts renderer), create-l2-scaffold v1.9.0 (render README.md/README_ko.md from the standard template instead of hardcoded heredocs; _ORIGIN.md checklist + printSummary now point at generate-l2-readme.ts), generate-variant v1.10.0 (export generateReadme/generateReadmeKo/buildReadmeSubstitutions; relocate extractAgentRoster/extractSkills/normalizeRelPath here from l2-to-variant-pipeline.ts), l2-to-variant-pipeline v1.10.2 (import the three relocated functions from generate-variant.ts instead of defining them locally); previous: Version bumps for validate-templates v1.5.17 (new Check WS-08: README standard conformance, policy-driven WARN via variantValidationPolicy.warningOnly), generate-variant v1.9.0 (render README.md/README_ko.md from templates/common/docs/README.template.md via applyTemplate; readmeNarrative? override; deleted Generated/MVP footer), template-utils v1.1.0 (extracted generic applyTemplate(); applyContextTemplate delegates to it), readme-lifecycle-audit v1.0.3 (ownership comment: WS-08 is sole templates/ README standard enforcer); previous: Version bumps for validate-templates v1.5.16 (new Check WS-07: variants must not carry local docs/context.md), generate-variant v1.8.1 (fix Windows path-separator so SKIP_IN_COPY actually excludes docs/context.md during promotion), new-project v1.5.3 (defense-in-depth: variant overlay skips docs/context.md); previous: Version bump for l2-to-variant-pipeline v1.10.1 (Issue Set A fixes: consolidated SKIP_AGENT_FILES, fixed missingOptionalSections JSON field, removed process.exit(1) from executeL2ToVariantPipeline, registry-driven canonicalExtensionSource for lecture type, deleted dead VariantPlugin.goldenReference()); previous: Version bumps for l2-to-variant-pipeline v1.10.0, generate-variant v1.8.0, pm-md-parser v1.1.0, create-l2-scaffold v1.8.0, reconcile-with-l0-l1 v1.2.2, golden-reference-loader v1.1.0, capability-registry v1.0.2, consulting-plugin v1.1.0, agent-verify v1.0.2 (feature + bugfix changes: scan L1-match classification, lean variant templates, ADR-0048 pm.md).*
