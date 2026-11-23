@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-21T18:13:54.859Z
+**Generated**: 2026-11-22T12:28:33.170Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -216,7 +216,7 @@
 | setup-github-branch-protection.ts | 1.0.1 | scripts/setup-github-branch-protection.ts | bun, fs, os, path |
 | skill-lifecycle-audit.ts | 1.15.0 | scripts/skill-lifecycle-audit.ts | fs, path, process |
 | skill-session-review.ts | 1.3.0 | scripts/skill-session-review.ts | bun, fs, path |
-| spec-register.ts | 1.6.0 | scripts/spec-register.ts | fs, path |
+| spec-register.ts | 1.6.1 | scripts/spec-register.ts | fs, path |
 | start-mcp.ts | 1.0.1 | scripts/co-safety/start-mcp.ts | child_process, path |
 | sync-agent-mirrors.ts | 1.3.1 | scripts/sync-agent-mirrors.ts | fs, js-yaml, path, url |
 | sync-md.ts | 1.4.0 | scripts/sync-md.ts | N/A |
@@ -227,14 +227,14 @@
 | test-cross-domain-integration.ts | 1.0.1 | scripts/co-safety/test-cross-domain-integration.ts | fs, js-yaml, path |
 | test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | fs, path |
 | test-pharma-general-profile.ts | 1.0.1 | scripts/co-safety/test-pharma-general-profile.ts | fs, js-yaml, path |
-| test-runner.ts | 1.17.2 | scripts/test-runner.ts | fs, os, path |
+| test-runner.ts | 1.17.3 | scripts/test-runner.ts | fs, os, path |
 | test-runtime-tools.ts | 1.0.1 | scripts/co-safety/test-runtime-tools.ts | fs, os, path |
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | fs, path |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, crypto, fs, path, url |
 | typecheck.ts | 1.2.0 | scripts/typecheck.ts | fs, path |
 | update-footers.ts | 1.1.0 | scripts/handbook/update-footers.ts | fs, path |
 | validate-agents.ts | 1.4.1 | scripts/validate-agents.ts | fs, path, process |
-| validate-decisions.ts | 1.2.0 | scripts/validate-decisions.ts | fs, js-yaml, path, process |
+| validate-decisions.ts | 1.2.1 | scripts/validate-decisions.ts | fs, js-yaml, path, process |
 | validate-doc-folder.ts | 1.5.1 | scripts/validate-doc-folder.ts | fs, path |
 | validate-docs-links.ts | 1.6.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | child_process, path |

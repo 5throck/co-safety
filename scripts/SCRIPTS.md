@@ -96,7 +96,7 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `co-safety/test-cross-domain-integration.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
 | `co-safety/test-domain-scenarios.ts` | L2 | 1.1.0 | active | — | — | L2-only | — |
 | `co-safety/test-pharma-general-profile.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
-| `test-runner.ts` | — | 1.17.2 | active | — | — | — | — |
+| `test-runner.ts` | — | 1.17.3 | active | — | — | — | — |
 | `co-safety/test-runtime-tools.ts` | L2 | 1.0.1 | active | — | — | L2-only | — |
 | `translate-readme.ts` | — | 1.0.0 | active | — | — | — | — |
 | `co-safety/training-ingest.ts` | L2 | 1.0.0 | active | — | — | L2-only | — |
@@ -155,14 +155,14 @@ This project follows the TypeScript-only policy (ADR-0036). All scripts are `.ts
 | `validate-pm-extends.ts` | L0 | 0.3.1 | active | —| —| L0+L1 | —|
 | `verify-platform-lifecycle.ts` | L0 | 1.6.1 | active | —| —| L0+L1 | —|
 | `verify-skill-graph.ts` | L0 | 2.0.0 | active | —| —| L0+L1 | —|
-| `validate-decisions.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
+| `validate-decisions.ts` | L0 | 1.2.1 | active | —| —| L0+L1 | —|
 | `resolve-variants.ts` | L0 | 1.0.3 | active | —| —| L0+L1 | —|
 | `validate-variant-readiness.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `validate-templates.ts` | L0 | 1.87.0 | active | —| —| L0+L1 | —|
 | `helpers/upgrade-versions.ts` | L0+L1 | 1.2.0 | active | —| —| L0+L1 | —|
 | `typecheck.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `lib/local-date.ts` | L0 | 1.0.0 | active | —| —| L0+L1 | —|
-| `spec-register.ts` | L0 | 1.6.0 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
+| `spec-register.ts` | L0 | 1.6.1 | active | `--file`, `--source`, `--update`, `--status`, `--list`, `--ref`, `--id` | —| L0+L1 | —|
 | `lib/git-status.ts` | L0 | 1.2.0 | active | —| —| L0+L1 | —|
 | `helpers/l0-ref-policy.ts` | L0 | 1.3.0 | active | —| —| L0+L1 | —|
 | `lib/constitution-scrub.ts` | L0 | 1.3.1 | active | —| —| L0+L1 | —|
