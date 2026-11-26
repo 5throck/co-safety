@@ -1,8 +1,26 @@
 #!/usr/bin/env bun
 /**
  * Decision Record Chain Validator (ADR-0061)
- * @version 1.2.0
+ * @version 1.3.0
  */
+// v1.3.0 (2026-11-25, T-20261124-012 / U-20261123-004 — design
+//           docs/designs/2026-11-25-upgrade-runner-machinery-batch-design.md §4.5):
+//           Check V falls back to the workspace-root registry. Delivered
+//           template documents cite workspace-level decision records that the
+//           engine does not deliver, so the project validator blocked dev-sync in
+//           every upgraded project. A cited DEC id that is absent from
+//           <ROOT>/docs/decisions resolves against <workspace-root>/docs/decisions,
+//           where the workspace root is ROOT/../../ and is used only when it holds
+//           AGENTS.md. A local id wins on collision. An id that resolves only at
+//           the root is reported in an INFO line naming the root record (and in the
+//           `rootResolved` array under --json). An id that resolves nowhere stays
+//           fatal. The engine still delivers no decision record.
+// v1.2.1 (2026-11-22, upstream U-20261122-003): cross-check DEC ids CITED in
+//           CHANGELOG.md and memory/*.md prose against docs/decisions/ — a DEC id
+//           referenced in a CHANGELOG entry or memory log but with no
+//           docs/decisions/DEC-YYYYMMDD-NN.md file is a gate failure (the
+//           ADR-0061 "ruled but never filed" class). Scans the prose of both
+//           sources for the DEC-YYYYMMDD-NN pattern and reports unmatched ids.
 // v1.2.0 (2026-11-20, upstream U-20261119-001): knowledge_refs to a memory
 //           file archived by archive-memory.ts (dev-sync step 3.8, 7-day
 //           retention) resolve through the local archive (memory/archive/) —
@@ -298,7 +316,70 @@ function main() {
     console.log(`${colors.cyan}🔍 Validating decision records (ADR-0061)...${colors.reset}`);
     console.log(`${colors.dim}Root: ${ROOT}${colors.reset}`);
   }
+  // Check V (upstream U-20261122-003): DEC ids cited in CHANGELOG.md and
+  // memory/*.md prose must resolve to docs/decisions/DEC-*.md files.
+  // The ADR-0061 "ruled but never filed" class: a DEC id cited in prose with
+  // no backing record passes every existing gate.
+  const proseSources = ["CHANGELOG.md"];
+  try {
+    const memFiles = readdirSync(join(ROOT, "memory")).filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f));
+    proseSources.push(...memFiles.map((f) => join("memory", f)));
+  } catch {
+    /* memory/ absent = skip memory scan */
+  }
+  const decDir = join(ROOT, "docs", "decisions");
+  const knownDecIds = new Set<string>();
+  if (existsSync(decDir)) {
+    for (const f of readdirSync(decDir)) {
+      const m = f.match(/^(DEC-\d{8}-\d{2,})\.md$/);
+      if (m) knownDecIds.add(m[1]);
+    }
+  }
+  // v1.3.0: the workspace-root registry (ROOT/../../), used only when it holds AGENTS.md.
+  const rootRegistryDir = join(ROOT, "..", "..", "docs", "decisions");
+  const workspaceRoot = join(ROOT, "..", "..");
+  const rootDecIds = new Set<string>();
+  if (existsSync(join(workspaceRoot, "AGENTS.md")) && existsSync(rootRegistryDir)) {
+    for (const f of readdirSync(rootRegistryDir)) {
+      const m = f.match(/^(DEC-\d{8}-\d{2,})\.md$/);
+      if (m) rootDecIds.add(m[1]);
+    }
+  }
+  const rootResolved: string[] = [];
+  const citedDecIds = new Map<string, string[]>(); // id -> source files
+  const decToken = /DEC-\d{8}-\d{2,}/g;
+  for (const src of proseSources) {
+    const abs = join(ROOT, src);
+    if (!existsSync(abs)) continue;
+    const text = readFileSync(abs, "utf8");
+    for (const m of text.matchAll(decToken)) {
+      const id = m[0];
+      if (!knownDecIds.has(id) && rootDecIds.has(id)) {
+        // a local id wins on collision: this branch is reached only when the local registry lacks it
+        if (!rootResolved.includes(id)) rootResolved.push(id);
+      } else if (!knownDecIds.has(id)) {
+        const files = citedDecIds.get(id) ?? [];
+        files.push(src);
+        citedDecIds.set(id, files);
+      }
+    }
+  }
+  for (const [id, files] of citedDecIds) {
+    fail(
+      files.join(", "),
+      "dec-id-unresolved",
+      `DEC id "${id}" cited in prose but docs/decisions/${id}.md does not exist — the ADR-0061 "ruled but never filed" class`,
+      "Create the decision record or correct the citation",
+    );
+  }
+
   validateDecisions();
+
+  for (const id of rootResolved) {
+    const line = `DEC id "${id}" resolves at the workspace root: ${join(workspaceRoot, "docs", "decisions", `${id}.md`)}`;
+    if (JSON_MODE) continue;
+    console.log(`${colors.dim}ℹ️  ${line}${colors.reset}`);
+  }
 
   const errors = issues.filter((i) => i.level === "error");
   const warnings = issues.filter((i) => i.level === "warning");
@@ -306,7 +387,12 @@ function main() {
   if (JSON_MODE) {
     console.log(
       JSON.stringify(
-        { errors, warnings, summary: `${errors.length} error(s), ${warnings.length} warning(s)` },
+        {
+          errors,
+          warnings,
+          rootResolved,
+          summary: `${errors.length} error(s), ${warnings.length} warning(s)`,
+        },
         null,
         2,
       ),

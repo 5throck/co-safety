@@ -131,8 +131,8 @@
       "name": "pm",
       "scope": "root",
       "capability": "pm",
-      "content_hash": "2913908d8ddd9b19",
-      "version": "1.0.0",
+      "content_hash": "f59e58de8d5c3ee0",
+      "version": "1.1.1",
       "mirrors": [
         "agents/pm.md"
       ]
