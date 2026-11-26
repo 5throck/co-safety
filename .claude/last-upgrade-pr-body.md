@@ -4,19 +4,22 @@ Auto-composed from `.claude/last-upgrade-delivery.json` at delivery time — thi
 
 - Variant: co-safety
 - Template: 0.30.0 → 0.30.0
-- Delivered: 26 file(s) at 2026-11-26T04:44:25.254Z
+- Delivered: 48 file(s) at 2026-11-26T15:06:54.247Z
 
 ### Delivery footprint
 
-- scripts/ — 19 file(s)
-- .github/ — 2 file(s)
-- (root) — 2 file(s)
-- .githooks/ — 1 file(s)
-- agents/ — 1 file(s)
-- docs/ — 1 file(s)
+- skills/ — 8 file(s)
+- scripts/ — 7 file(s)
+- .agents/ — 6 file(s)
+- .claude/ — 6 file(s)
+- .codex/ — 6 file(s)
+- .gemini/ — 6 file(s)
+- .hermes/ — 6 file(s)
+- docs/ — 2 file(s)
+- (root) — 1 file(s)
 
 ### Decisions
 
-- INFO: 253 / WARN: 211 / ERROR: 0
+- INFO: 249 / WARN: 206 / ERROR: 0
 
 _Full inventory: `.claude/last-upgrade-delivery.json` (dev-sync Step 3.9 auto-E5 diff attribution; ERROR dispositions block auto-E5 until resolved)._

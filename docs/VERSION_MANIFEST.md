@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-26T04:51:44.625Z
+**Generated**: 2026-11-26T15:14:55.695Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -23,7 +23,7 @@
 | contract-gate-engineer | agents/contract-gate-engineer.md | medium | claude-sonnet-5-5 | 2026-11-18 |
 | design-system-lead | agents/design-system-lead.md | medium | claude-sonnet-5-5 | 2026-11-18 |
 | i18n-specialist | agents/i18n-specialist.md | medium | claude-sonnet-5-5 | 2026-11-18 |
-| pm | agents/pm.md | medium | inherit | 2026-11-18 |
+| pm | agents/pm.md | medium | inherit | 2026-11-26 |
 | public-data-analyst | agents/public-data-analyst.md | medium | claude-sonnet-5-5 | 2026-11-18 |
 | safety-governance-manager | agents/safety-governance-manager.md | high | claude-opus-5-5 | 2026-10-28 |
 | safety-workflow-manager | agents/safety-workflow-manager.md | high | claude-opus-5-5 | 2026-11-07 |
@@ -35,7 +35,7 @@
 
 | Name | Version | Status | Location | Platform | Triggers | Owner |
 |------|---------|--------|----------|----------|----------|-------|
-| accessibility-audit | 1.1.0 | active | skills/accessibility-audit/SKILL.md | workspace | accessibility-audit, /accessibility-audit, axe-core audit, wcag accessibility check, wcag 2.1 aa | pm |
+| accessibility-audit | 1.1.1 | active | skills/accessibility-audit/SKILL.md | workspace | accessibility-audit, /accessibility-audit, axe-core audit, wcag accessibility check, wcag 2.1 aa | pm |
 | agent-lifecycle-manager | 1.4.0 | active | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents, hire agent, fire agent, deprecate agent | pm |
 | api-documentation | 1.0.2 | active | skills/api-documentation/SKILL.md | workspace | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
 | arc-flash-analyzer | 1.0.0 | active | skills/arc-flash-analyzer/SKILL.md | workspace | 아크 플래시, arc flash, IEEE 1584, 고압 전기 작업, PPE category, incident energy, NFPA 70E, 활선 작업 허가 | powergen-agent |
@@ -44,7 +44,7 @@
 | benefit-risk-assessor | 1.0.0 | active | skills/benefit-risk-assessor/SKILL.md | workspace | 편익위해평가, benefit-risk assessment, PrOACT-URL, BRAT, MCDA, 위해편익 균형, PBRER 재평가, RMP 재평가 | gvp-agent |
 | bsl-lab-aerosol-control-planner | 1.0.0 | active | skills/bsl-lab-aerosol-control-planner/SKILL.md | workspace | BSL-2 BSL-3 실험실 에어로졸, bsl lab bioaerosol control, 생물안전캐비닛 BSC 작업, biological safety cabinet certification, 원심분리 에어로졸 밀폐, centrifuge sealed cup aerosol, 샤프스 재해 예방, sharps injury prevention needlestick, BSA Article 13 IRB 심의, LMO법 Article 22 밀폐관리, 생물유해인자 취급 작업, biohazard agent lab practice | biotech-agent |
 | chemical-risk-assessment | 1.1.0 | active | skills/chemical-risk-assessment/SKILL.md | workspace | 화학물질 위험성평가, chemical risk assessment, 노출평가, exposure assessment, RCR, 허용기준 초과, OEL DNEL, 신규화학물질 도입승인 | msds-agent |
-| ci-triage | 0.2.0 | active | skills/ci-triage/SKILL.md | workspace | ci failure, triage failure, audit gate failed, scaffold failed, fix the pipeline | pm |
+| ci-triage | 0.2.1 | active | skills/ci-triage/SKILL.md | workspace | ci failure, triage failure, audit gate failed, scaffold failed, fix the pipeline | pm |
 | coke-oven-pah-heat-stress-planner | 1.0.0 | active | skills/coke-oven-pah-heat-stress-planner/SKILL.md | workspace | 코크스로 작업 PAH 발암물질, coke oven PAH carcinogen, 코올타르피치 휘발성 유기화합물, coal tar pitch volatile CTPV, 노정 극고온 열스트레스, oven top heat stress steelmaking, 코크스로 가스 누출, coke oven gas leak, IARC Group 1 코크스 배출물, IARC Group 1 coke oven emissions, OSHA-KR Article 125 작업환경측정, OSHA-KR Article 130 특수건강진단, DSSMA Article 5 코크스 위험물, 특수건강진단 코크스로 작업자 | steelmaking-agent |
 | completion-inspection | 1.0.0 | active | skills/completion-inspection/SKILL.md | workspace | completion inspection, final inspection, permit issuance, 완성검사, 최종검사, 사용전검사 | gasterm-agent |
 | compliance-gap | 1.0.0 | active | skills/compliance-gap/SKILL.md | workspace | 컴플라이언스 갭, compliance gap, 준법 감시, 법률 검토, regulatory compliance, 규제 준수, 법적 요건, legal requirement review | compliance-agent |
@@ -52,7 +52,7 @@
 | contractor-onboarding | 1.0.0 | active | skills/contractor-onboarding/SKILL.md | workspace | 협력업체 온보딩, contractor onboarding, 도급업체 안전교육, 협력업체 자격심사, site access approval, 안전교육 이수확인, 도급 안전관리 | contractor-safety-agent |
 | cosmetics-solvent-exposure-monitor | 1.0.0 | active | skills/cosmetics-solvent-exposure-monitor/SKILL.md | workspace | 화장품 용제 노출, cosmetics solvent exposure, ethanol IPA inhalation, 에탄올 이소프로판올 흡입 노출, volatile raw material monitoring, OEL exposure assessment cosmetics, ventilation verification 향료 솔벤트, biological monitoring cosmetics, respirator selection 유기용제, OSHA-KR Article 110 (MSDS 작성·제출) | cosmetics-agent |
 | dangerous-cargo-handling-planner | 1.0.0 | active | skills/dangerous-cargo-handling-planner/SKILL.md | workspace | 항만 위험물 하역 안전, IMDG dangerous cargo handling, 위험물 컨테이너 적치, dangerous goods container stowage, IMDG 클래스 분류, IMDG class segregation, 유독가스 흡입 노출 항만, toxic gas inhalation port, 항만하역 위험물 누출 대응, PSSA Article 8 위험물 하역, DSSMA Article 20 위험물 운반, IMDG EmS MFAG response | logistics-agent |
-| decision-record | 1.1.0 | active | skills/decision-record/SKILL.md | workspace | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
+| decision-record | 1.1.1 | active | skills/decision-record/SKILL.md | workspace | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
 | delegate-to-hub | 1.0.1 | active | skills/delegate-to-hub/SKILL.md | workspace | delegate to hub, delegation ticket, hub delegation, escalate to hub, file delegation | pm |
 | design-foundation | 1.1.1 | active | skills/design-foundation/SKILL.md | workspace | design foundation, design principles, design guide, design tokens setup, design decision record | design-system-lead |
 | documentation-writing | 1.0.3 | active | skills/documentation-writing/SKILL.md | workspace | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
@@ -61,10 +61,10 @@
 | environmental-compliance-checker | 1.0.0 | active | skills/environmental-compliance-checker/SKILL.md | workspace | 환경 배출 기준, 대기오염물질 배출허용기준, SOx NOx VOC, 수질오염물질, BOD COD, 환경보전법 준수, 배출 규제 준수, environmental discharge compliance | ehschem-agent |
 | ess-fire-risk-assessor | 1.0.0 | active | skills/ess-fire-risk-assessor/SKILL.md | workspace | ESS 화재, 리튬이온 배터리 화재, thermal runaway, 열폭주, BMS 안전, energy storage system fire, MPSL 인증, 에너지저장장치 화재위험 | powergen-agent |
 | evidence-collection-hot-work-permit | 1.0.0 | active | skills/evidence-collection-hot-work-permit/SKILL.md | workspace | hot work permit record, HWP record, hot work evidence, fire watch permit record | safety-workflow-manager |
-| evidence-ledger | 1.1.0 | active | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
+| evidence-ledger | 1.1.1 | active | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
 | explain-me | 1.0.1 | experimental | skills/explain-me/SKILL.md | workspace | /explain-me, /reportme, make a report, create report, explain this topic | pm |
 | fall-hazard-assessor | 1.0.0 | active | skills/fall-hazard-assessor/SKILL.md | workspace | 추락 위해평가, fall hazard, leading edge, 안전대 활동제한장치, 방호 계층, fall protection hierarchy, 추락방지망, rescue plan 구조 계획 | ehsconst-agent |
-| finishing-a-development-branch | 1.0.2 | active | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
+| finishing-a-development-branch | 1.0.3 | active | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
 | gas-dispersion-analyzer | 1.0.0 | active | skills/gas-dispersion-analyzer/SKILL.md | workspace | 가스 확산 모델, gas dispersion, 가스 누출 시나리오, LNG LPG 누출, 수소 누출 확산, BLEVE, 대피 반경 산정, Gaussian dispersion model | gasterm-agent |
 | gateguard | 1.0.2 | active | skills/gateguard/SKILL.md | workspace | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
 | ghs-classifier | 1.0.0 | active | skills/ghs-classifier/SKILL.md | workspace | GHS 분류, GHS classification, 유해성 분류, H-Statement, 위험문구, 예방조치문구, P-Statement, GHS Rev 9 | msds-agent |
@@ -111,7 +111,7 @@
 | root-cause-analysis | 1.0.0 | active | skills/root-cause-analysis/SKILL.md | workspace | 근본원인분석, root cause analysis, RCA, 5 whys, fishbone diagram, 사고조사, CAPA 수립 | incident-investigation-agent |
 | sae-causality-assessor | 1.0.0 | active | skills/sae-causality-assessor/SKILL.md | workspace | SAE 인과성 평가, causality assessment, ImPACT, WHO-UMC, Naranjo algorithm, ICH E2A, 중대이상반응 인과관계, 이상반응 인과성 | gcp-agent |
 | safety-inspection-validator | 1.0.0 | active | skills/safety-inspection-validator/SKILL.md | workspace | 안전점검 결과 검증, safety inspection findings, 지적사항 분류, CAPA, 시정조치, Critical Major Minor 분류, 건설 안전점검 | ehsconst-agent |
-| script-lifecycle-manager | 1.2.2 | active | skills/script-lifecycle-manager/SKILL.md | workspace | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
+| script-lifecycle-manager | 1.2.3 | active | skills/script-lifecycle-manager/SKILL.md | workspace | create script, update script, deprecate script, script lifecycle, manage scripts | pm |
 | security-scan | 1.3.0 | active | skills/security-scan/SKILL.md | workspace | security scan, scan for vulnerabilities, security check, run security | pm |
 | service-design | 1.1.0 | active | skills/service-design/SKILL.md | workspace | service design, customer journey, service blueprint, touchpoint design, customer experience, service innovation, operational alignment | pm |
 | signal-detector | 1.0.0 | active | skills/signal-detector/SKILL.md | workspace | 시그널 탐지, signal detection, PRR, ROR, BCPNN, EBGM, 부작용 신호, disproportionality analysis | gvp-agent |
@@ -171,7 +171,7 @@
 | cleanup-completed-md.ts | 1.1.0 | scripts/cleanup-completed-md.ts | fs, path |
 | clear-pm-approval.ts | 1.0.0 | scripts/clear-pm-approval.ts | fs |
 | compile-tokens.ts | 1.3.0 | scripts/compile-tokens.ts | fs, path |
-| dependency-audit.ts | 1.1.0 | scripts/dependency-audit.ts | fs, path |
+| dependency-audit.ts | 1.2.0 | scripts/dependency-audit.ts | fs, path |
 | deploy-handbook.ts | 1.1.0 | scripts/handbook/deploy-handbook.ts | child_process, fs, path |
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test, fs, os, path |
 | design-lint.ts | 2.6.0 | scripts/design-lint.ts | fs, js-yaml, path |
@@ -187,7 +187,7 @@
 | gen-pr-body.ts | 1.2.1 | scripts/gen-pr-body.ts | bun, fs |
 | generate-ide-rules.ts | 1.0.0 | scripts/generate-ide-rules.ts | fs, path |
 | generate-raci.ts | 1.2.1 | scripts/generate-raci.ts | fs, js-yaml, path |
-| generate-skill-graph.ts | 2.0.1 | scripts/generate-skill-graph.ts | child_process, fs, js-yaml, path, url |
+| generate-skill-graph.ts | 2.2.0 | scripts/generate-skill-graph.ts | child_process, fs, js-yaml, path, url |
 | generate-skill-lifecycle-records.ts | 1.4.0 | scripts/generate-skill-lifecycle-records.ts | fs, js-yaml, path, url |
 | generate-version-manifest.ts | 1.12.1 | scripts/generate-version-manifest.ts | bun, child_process, fs, js-yaml, module, path |
 | graph-delta-log.ts | 1.1.0 | scripts/graph-delta-log.ts | child_process, fs, path, url |
@@ -235,7 +235,7 @@
 | update-footers.ts | 1.1.0 | scripts/handbook/update-footers.ts | fs, path |
 | validate-agents.ts | 1.4.2 | scripts/validate-agents.ts | fs, path, process |
 | validate-decisions.ts | 1.3.0 | scripts/validate-decisions.ts | fs, js-yaml, path, process |
-| validate-doc-folder.ts | 1.7.0 | scripts/validate-doc-folder.ts | fs, path |
+| validate-doc-folder.ts | 1.8.0 | scripts/validate-doc-folder.ts | fs, path |
 | validate-docs-links.ts | 1.6.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | child_process, path |
 | validate-md-language.ts | 1.16.2 | scripts/validate-md-language.ts | child_process, fs, path |

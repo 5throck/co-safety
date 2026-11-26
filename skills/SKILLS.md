@@ -116,7 +116,7 @@ Generated: 2026-09-12T01:28:07.508Z
 ## Legal-research
 
 - [k-law](skills/k-law/SKILL.md)
-| `accessibility-audit` | 1.1.0 | active | pm | 2026-09-06 | — | Promoted from co-design (L2-as-basis per ADR-0068 plan): automated WCAG 2.1 AA audits via axe-core |
+| `accessibility-audit` | 1.1.1 | active | pm | 2026-11-08 | — | Promoted from co-design (L2-as-basis per ADR-0068 plan): automated WCAG 2.1 AA audits via axe-core |
 | `agent-lifecycle-manager` | 1.4.0 | active | pm | 2026-11-06 | — | PM-led hiring/firing workflows + skill attach/detach rules |
 | `api-documentation` | 1.0.2 | active | pm | 2026-07-19 | — | Promoted from co-work/co-safety duplicate copies — generic REST/GraphQL/SDK documentation generation, not domain-specific |
 | `arc-flash-analyzer` | 1.0.0 | active | powergen-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -125,7 +125,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `benefit-risk-assessor` | 1.0.0 | active | gvp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `bsl-lab-aerosol-control-planner` | 1.0.0 | active | biotech-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `chemical-risk-assessment` | 1.1.0 | active | msds-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `ci-triage` | 0.2.0 | active | pm | 2026-10-04 | — | CI failure triage and owner routing for scheduled health-check issues |
+| `ci-triage` | 0.2.1 | active | pm | 2026-11-26 | — | CI failure triage and owner routing for scheduled health-check issues |
 | `coke-oven-pah-heat-stress-planner` | 1.0.0 | active | steelmaking-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `completion-inspection` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `compliance-gap` | 1.0.0 | active | compliance-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -133,16 +133,16 @@ Generated: 2026-09-12T01:28:07.508Z
 | `contractor-onboarding` | 1.0.0 | active | contractor-safety-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `cosmetics-solvent-exposure-monitor` | 1.0.0 | active | cosmetics-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `dangerous-cargo-handling-planner` | 1.0.0 | active | logistics-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `decision-record` | 1.1.0 | active | pm | 2026-08-25 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `decision-record` | 1.1.1 | active | pm | 2026-11-26 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `documentation-writing` | 1.0.3 | active | pm | 2026-07-19 | — | Promoted from co-work/co-safety duplicate copies — generic guide/manual/tutorial writing, not domain-specific |
 | `dts-verification` | 1.0.0 | active | gdp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `emergency-response` | 1.0.1 | active | emergency-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `environmental-compliance-checker` | 1.0.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `ess-fire-risk-assessor` | 1.0.0 | active | powergen-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `evidence-ledger` | 1.1.0 | active | pm | 2026-08-25 | — | Added by fleet resync reconcile backfill (2026-09-22) |
+| `evidence-ledger` | 1.1.1 | active | pm | 2026-11-26 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `explain-me` | 1.0.1 | experimental | pm | 2026-08-03 | — | Single-file interactive HTML report generation. Inspired by beret21/reportme (MIT). Korean loanword data in references/loanword-refinements.json |
 | `fall-hazard-assessor` | 1.0.0 | active | ehsconst-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `finishing-a-development-branch` | 1.0.2 | active | pm | 2026-11-08 | — | Workspace override — redirects branch completion to /sync (mirrored 2026-09-04 from .claude/skills) |
+| `finishing-a-development-branch` | 1.0.3 | active | pm | 2026-11-08 | — | Workspace override — redirects branch completion to /sync (mirrored 2026-09-04 from .claude/skills) |
 | `gas-dispersion-analyzer` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `gateguard` | 1.0.2 | active | pm | 2026-08-01 | — | Pre-edit fact-forcing quality gate — investigate importers, schemas, scope constraints before editing (Hook-Prompt-Skill 3-layer enforcement) |
 | `ghs-classifier` | 1.0.0 | active | msds-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -189,7 +189,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `root-cause-analysis` | 1.0.0 | active | incident-investigation-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `sae-causality-assessor` | 1.0.0 | active | gcp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `safety-inspection-validator` | 1.0.0 | active | ehsconst-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `script-lifecycle-manager` | 1.2.2 | active | pm | 2026-05-30 | — | — |
+| `script-lifecycle-manager` | 1.2.3 | active | pm | 2026-11-26 | — | — |
 | `security-scan` | 1.3.0 | active | pm | 2026-11-04 | — | Reassigned from security-expert — not defined in templates/common/agents/ or any variant, caused orphan on every propagated variant |
 | `signal-detector` | 1.0.0 | active | gvp-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `skill-lifecycle-manager` | 1.5.1 | active | pm | 2026-10-09 | — | Skill Request Workflow (agent-initiated, PM-approved) + Deprecation & Removal |
