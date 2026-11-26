@@ -43,7 +43,7 @@
 | `root/evidence-ledger` | L3 | 1.1.1 | — | — | root/documentation-writing (follows), root/research-analysis (follows) | — | — |
 | `root/explain-me` | L3 | 1.0.1 | — | — | — | — | — |
 | `root/fall-hazard-assessor` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/finishing-a-development-branch` | L3 | 1.0.3 | — | — | — | — | — |
+| `root/finishing-a-development-branch` | L3 | 1.1.1 | — | — | — | — | — |
 | `root/gas-dispersion-analyzer` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/gateguard` | L3 | 1.0.2 | root/automation-engineer | — | — | — | — |
 | `root/ghs-classifier` | L3 | 1.0.0 | — | — | — | — | — |
@@ -74,8 +74,8 @@
 | `root/munitions-magazine-storage-safety-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/painting-coating-fire-toxic-planner` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/permit-to-work` | L3 | 1.0.1 | root/safety-workflow-manager | — | — | — | — |
-| `root/platform-command-lifecycle-manager` | L3 | 1.0.3 | — | — | — | — | — |
-| `root/platform-skill-lifecycle-manager` | L3 | 1.0.3 | — | — | — | — | — |
+| `root/platform-command-lifecycle-manager` | L3 | 1.1.1 | — | — | — | — | — |
+| `root/platform-skill-lifecycle-manager` | L3 | 1.1.1 | — | — | — | — | — |
 | `root/pre-construction-technical-review` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/process-hazard-screening` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/project-review` | L3 | 1.3.4 | — | — | — | — | — |
