@@ -3,8 +3,8 @@ extends: ../../../agents/pm.md
 name: pm
 description: 'Orchestrates multi-agent workflows. Enforces quality gates. Decides agent hiring/firing and approves agent skill requests. Use when: "Managing workflow", "Coordinating multi-phase tasks", "PM orchestration needed"'
 variant: co-safety
-version: "1.0.0"
-last_updated: 2026-11-18
+version: "1.1.1"
+last_updated: 2026-11-26
 status: active
 owner: architect
 tier: medium
@@ -12,7 +12,7 @@ model: inherit
 lifecycle:
   phase: production
   created: "2026-06-04"
-  last_updated: 2026-11-18
+  last_updated: 2026-11-26
   governance: docs/lifecycle/agents/pm.md
 variant_overrides:
   governance_workflow: |
