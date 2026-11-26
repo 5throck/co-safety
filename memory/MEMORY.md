@@ -9,6 +9,7 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-11-27](2026-11-27.md) | chore(skills): workspace sync — delivery wave 3 (8 adjudicated skill rows + script bumps) |
 | [2026-11-26](2026-11-26.md) | chore(scripts): workspace sync (31 files) |
 | [2026-11-23](2026-11-23.md) | chore(sync): re-project pm.md agent mirror after L0 SSOT hardening (default-branch restore) |
 | [2026-11-22](2026-11-22.md) | chore(upgrade): template 0.30.0 wave delivery (2026-11-22 runner, dry-run resolved) |
