@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-26T15:19:13.604Z
+**Generated**: 2026-11-26T18:21:21.752Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -64,7 +64,7 @@
 | evidence-ledger | 1.1.1 | active | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
 | explain-me | 1.0.1 | experimental | skills/explain-me/SKILL.md | workspace | /explain-me, /reportme, make a report, create report, explain this topic | pm |
 | fall-hazard-assessor | 1.0.0 | active | skills/fall-hazard-assessor/SKILL.md | workspace | 추락 위해평가, fall hazard, leading edge, 안전대 활동제한장치, 방호 계층, fall protection hierarchy, 추락방지망, rescue plan 구조 계획 | ehsconst-agent |
-| finishing-a-development-branch | 1.0.3 | active | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
+| finishing-a-development-branch | 1.1.1 | active | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
 | gas-dispersion-analyzer | 1.0.0 | active | skills/gas-dispersion-analyzer/SKILL.md | workspace | 가스 확산 모델, gas dispersion, 가스 누출 시나리오, LNG LPG 누출, 수소 누출 확산, BLEVE, 대피 반경 산정, Gaussian dispersion model | gasterm-agent |
 | gateguard | 1.0.2 | active | skills/gateguard/SKILL.md | workspace | gateguard, /gateguard, investigate file, check before edit, pre-edit check | pm |
 | ghs-classifier | 1.0.0 | active | skills/ghs-classifier/SKILL.md | workspace | GHS 분류, GHS classification, 유해성 분류, H-Statement, 위험문구, 예방조치문구, P-Statement, GHS Rev 9 | msds-agent |
@@ -95,8 +95,8 @@
 | munitions-magazine-storage-safety-planner | 1.0.0 | active | skills/munitions-magazine-storage-safety-planner/SKILL.md | workspace | 탄약 마가진 저장 안전, munitions magazine storage safety, 화약류 안전거리 Q-D, quantity-distance siting explosives, 호환성 그룹 분리 저장, compatibility group segregation, UN hazard division 1.1 1.2 1.3, sympathetic detonation prevention, 화약류안전관리자 선임, FSESA Article 23 explosives safety manager, 마가진 낙뢰 정전기 대책, magazine lightning protection | defense-agent |
 | painting-coating-fire-toxic-planner | 1.0.0 | active | skills/painting-coating-fire-toxic-planner/SKILL.md | workspace | 조선 도장 작업 화재 폭발, ship painting coating fire, 선박 도료 가연성 증기 LEL, paint vapor LEL explosion shipyard, 유기용제 흡입 노출 도장, solvent vapor inhalation painting, 도장 베이 화재 대응, paint bay fire response, 밀폐구역 도장 산소결핍, confined area painting O2 deficiency, DSSMA Article 5 도장 위험물, DSSMA Article 27 응급조치, OSHA-KR Article 110 물질안전보건자료(MSDS) 작성·제출, SAPA Article 5 도급 사업주 | shipbuilding-agent |
 | permit-to-work | 1.0.1 | active | skills/permit-to-work/SKILL.md | workspace | 작업허가서, permit to work, PTW, hot work permit, 화기작업, 밀폐공간작업, confined space | safety-workflow-manager |
-| platform-command-lifecycle-manager | 1.0.3 | active | skills/platform-command-lifecycle-manager/SKILL.md | workspace | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
-| platform-skill-lifecycle-manager | 1.0.3 | active | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
+| platform-command-lifecycle-manager | 1.1.1 | active | skills/platform-command-lifecycle-manager/SKILL.md | workspace | create platform command, new .claude command, new .gemini command, platform command lifecycle, command parity, propagate command | pm |
+| platform-skill-lifecycle-manager | 1.1.1 | active | skills/platform-skill-lifecycle-manager/SKILL.md | workspace | create platform skill, new .claude skill, new .gemini skill, platform skill version, platform skill lifecycle, update platform skill | pm |
 | pre-construction-technical-review | 1.0.0 | active | skills/pre-construction-technical-review/SKILL.md | workspace | pre-construction review, technical review, design review, 시설기준 검토, 기술검토, 설계검토, 사전기술검토 | gasterm-agent |
 | process-hazard-screening | 1.0.0 | active | skills/process-hazard-screening/SKILL.md | workspace | PSM 적용대상, process hazard screening, 위해물질 보유량, 공정안전관리, PHA 대상 여부, 사고대비물질, 화학공장 초기 위해평가 | ehschem-agent |
 | project-review | 1.3.4 | active | skills/project-review/SKILL.md | workspace | project review, review project, audit project, quality review | pm |

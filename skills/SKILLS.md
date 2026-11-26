@@ -142,7 +142,7 @@ Generated: 2026-09-12T01:28:07.508Z
 | `evidence-ledger` | 1.1.1 | active | pm | 2026-11-26 | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `explain-me` | 1.0.1 | experimental | pm | 2026-08-03 | — | Single-file interactive HTML report generation. Inspired by beret21/reportme (MIT). Korean loanword data in references/loanword-refinements.json |
 | `fall-hazard-assessor` | 1.0.0 | active | ehsconst-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `finishing-a-development-branch` | 1.0.3 | active | pm | 2026-11-08 | — | Workspace override — redirects branch completion to /sync (mirrored 2026-09-04 from .claude/skills) |
+| `finishing-a-development-branch` | 1.1.1 | active | pm | 2026-11-27 | — | Workspace override — redirects branch completion to /sync (mirrored 2026-09-04 from .claude/skills) |
 | `gas-dispersion-analyzer` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `gateguard` | 1.0.2 | active | pm | 2026-08-01 | — | Pre-edit fact-forcing quality gate — investigate importers, schemas, scope constraints before editing (Hook-Prompt-Skill 3-layer enforcement) |
 | `ghs-classifier` | 1.0.0 | active | msds-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
@@ -173,8 +173,8 @@ Generated: 2026-09-12T01:28:07.508Z
 | `munitions-magazine-storage-safety-planner` | 1.0.0 | active | defense-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `painting-coating-fire-toxic-planner` | 1.0.0 | active | shipbuilding-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `permit-to-work` | 1.0.1 | active | safety-workflow-manager | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
-| `platform-command-lifecycle-manager` | 1.0.3 | active | pm | 2026-09-25 | — | Mirrored 2026-09-04 from .claude/skills |
-| `platform-skill-lifecycle-manager` | 1.0.3 | active | pm | 2026-11-08 | — | Mirrored 2026-09-04 from .claude/skills |
+| `platform-command-lifecycle-manager` | 1.1.1 | active | pm | 2026-11-27 | — | Mirrored 2026-09-04 from .claude/skills |
+| `platform-skill-lifecycle-manager` | 1.1.1 | active | pm | 2026-11-27 | — | Mirrored 2026-09-04 from .claude/skills |
 | `pre-construction-technical-review` | 1.0.0 | active | gasterm-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `process-hazard-screening` | 1.0.0 | active | ehschem-agent | — | — | Added by fleet resync reconcile backfill (2026-09-22) |
 | `project-review` | 1.3.4 | active | pm | 2026-10-11 | — | — |
