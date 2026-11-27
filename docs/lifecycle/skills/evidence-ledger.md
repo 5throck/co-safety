@@ -20,7 +20,7 @@
 - [x] Delivered to scaffolded projects via `docs/templates/common-contract.json`
 
 ## Metadata
-- **Version**: 1.1.1
+- **Version**: 1.2.0
 
 - **Current Phase**: production
 - **Owner**: pm

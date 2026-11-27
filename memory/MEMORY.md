@@ -9,11 +9,12 @@
 
 | Date | Summary |
 |------|---------|
+| [2026-11-28](2026-11-28.md) | chore: upgrade template to 0.31.0 - nightly sync wave 2026-11-28 (core scripts + common skills mirrors) |
 | [2026-11-27](2026-11-27.md) | chore(skills): workspace sync — delivery wave 3 (8 adjudicated skill rows + script bumps) |
 | [2026-11-26](2026-11-26.md) | chore(scripts): workspace sync (31 files) |
 | [2026-11-23](2026-11-23.md) | chore(sync): re-project pm.md agent mirror after L0 SSOT hardening (default-branch restore) |
 | [2026-11-22](2026-11-22.md) | chore(upgrade): template 0.30.0 wave delivery (2026-11-22 runner, dry-run resolved) |
-| [2026-11-20](2026-11-20.md) | chore(upgrade): template wave delivery (2026-11-20 runner, dry-run clean) |
+| 2026-11-20 | chore(upgrade): template wave delivery (2026-11-20 runner, dry-run clean) |
 | 2026-11-18 | chore: deliver common agents (i18n-specialist, automation-engineer, contract-gate-engineer, design-system-lead, public-data-analyst) + registry registration (T-20261112-008) |
 | 2026-11-12 | docs(review): full review 2026-11-12 remediation + graft-trail flip closeout |
 | 2026-11-10 | chore(skills): declare co-safety meeting command fork in SKILL.md scope (T-20261109-003, DEC-20261110-01) |

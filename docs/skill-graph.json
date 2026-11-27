@@ -313,7 +313,7 @@
       "scope": "root",
       "capability": "accessibility-audit",
       "content_hash": "9e6da04e275eb51c",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "mirrors": [
         "skills/accessibility-audit/SKILL.md",
         ".claude/skills/accessibility-audit/SKILL.md",
@@ -553,8 +553,8 @@
       "name": "decision-record",
       "scope": "root",
       "capability": "decision-record",
-      "content_hash": "9ab86a0df2bafd06",
-      "version": "1.1.1",
+      "content_hash": "7e89525b8e43aef5",
+      "version": "1.2.0",
       "mirrors": [
         "skills/decision-record/SKILL.md",
         ".claude/skills/decision-record/SKILL.md",
@@ -690,8 +690,8 @@
       "name": "evidence-ledger",
       "scope": "root",
       "capability": "evidence-ledger",
-      "content_hash": "36811a0d5b7d9757",
-      "version": "1.1.1",
+      "content_hash": "ef883afab3ed3f48",
+      "version": "1.2.0",
       "mirrors": [
         "skills/evidence-ledger/SKILL.md",
         ".claude/skills/evidence-ledger/SKILL.md",
@@ -1512,8 +1512,8 @@
       "name": "skill-lifecycle-manager",
       "scope": "root",
       "capability": "skill-lifecycle-manager",
-      "content_hash": "bb1a68cbd7b84047",
-      "version": "1.5.1",
+      "content_hash": "0cadfa104f83e706",
+      "version": "1.5.2",
       "mirrors": [
         "skills/skill-lifecycle-manager/SKILL.md",
         ".claude/skills/skill-lifecycle-manager/SKILL.md",
@@ -3139,12 +3139,6 @@
     },
     {
       "type": "references",
-      "from": "skill:root/decision-record",
-      "to": "skill:root/evidence-ledger",
-      "source": "prose"
-    },
-    {
-      "type": "references",
       "from": "skill:root/delegate-to-hub",
       "to": "skill:root/sync",
       "source": "prose"
@@ -3290,6 +3284,18 @@
       }
     },
     {
+      "type": "composes_with",
+      "from": "skill:root/evidence-ledger",
+      "to": "skill:root/decision-record",
+      "source": "relates_to",
+      "symmetric": true,
+      "provenance": {
+        "file": "skills/evidence-ledger/SKILL.md",
+        "field": "relates_to",
+        "index": 0
+      }
+    },
+    {
       "type": "references",
       "from": "skill:root/evidence-ledger",
       "to": "skill:root/decision-record",
@@ -3303,7 +3309,7 @@
       "provenance": {
         "file": "skills/evidence-ledger/SKILL.md",
         "field": "relates_to",
-        "index": 0
+        "index": 1
       }
     },
     {
@@ -3314,7 +3320,7 @@
       "provenance": {
         "file": "skills/evidence-ledger/SKILL.md",
         "field": "relates_to",
-        "index": 1
+        "index": 2
       }
     },
     {
