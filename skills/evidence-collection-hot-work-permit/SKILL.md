@@ -5,7 +5,7 @@ lang: en
 name: evidence-collection-hot-work-permit
 version: 1.0.0
 created: 2026-10-30
-last_updated: 2026-11-26
+last_updated: 2026-11-27
 last_reviewed: 2026-10-30
 owner: safety-workflow-manager
 scope: co-safety

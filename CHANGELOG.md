@@ -10,6 +10,8 @@ All notable changes to Safety OS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+- **[2026-11-27]**: chore(upgrade): template sync v0.31.0 (35 file(s) delivered; engine-scaffolded — edit or merge before commit; see templates/CHANGELOG.md v0.31.0)
+
 - **[2026-11-18]**: chore(upgrade): template sync v0.30.0 (328 file(s) delivered; engine-scaffolded — edit or merge before commit; see templates/CHANGELOG.md v0.30.0)
 
 - **[2026-11-12]**: docs(review): full project review 2026-11-12 remediation — graft→trail doc remnants retired in CODEX.md/HERMES.md (U-20261112-003), corrupted VARIANT-INJECT markers repaired in docs/co-safety.context.md (U-20261112-004), MEMORY.md session index repointed to archive/ (U-20261112-007), i18n-specialist lifecycle record retired + PROMOTION_CHECKLIST counts corrected, AGENTS.md §6 skill registry completed (meeting-facilitation rename, evidence-collection-hot-work-permit row + variant.json manifest entry), Phase 4 restored to docs/phase-definitions.md, root-file sanction lists extended (CODEX.md/HERMES.md/README_ko.md, U-20261112-006), DEC-20261110-01 pointer stub added, meeting-facilitation lifecycle record created, new-domain.ts input validation + overwrite guard (v1.1.0), risk-register-rollup.ts audit_trail guard + calendar-date validation (v1.0.1), kr_safety MCP block restored to .mcp.json (side effect of 9ec09e9, review H8); spec 2026-11-12-project-review-remediation-design registered.

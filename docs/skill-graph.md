@@ -14,7 +14,7 @@
 | `co-safety/daily/compliance-gap` | L3 | — | — | — | — | — | — |
 | `co-safety/daily/risk-assessment` | L3 | — | — | — | — | — | — |
 | `co-safety/investigation/hazop-analysis` | L3 | — | — | — | — | — | — |
-| `root/accessibility-audit` | L3 | 1.1.1 | — | — | — | — | — |
+| `root/accessibility-audit` | L3 | 1.1.2 | — | — | — | — | — |
 | `root/agent-lifecycle-manager` | L3 | 1.4.0 | — | — | root/skill-lifecycle-manager (composes_with) | — | — |
 | `root/api-documentation` | L3 | 1.0.2 | — | — | — | — | — |
 | `root/arc-flash-analyzer` | L3 | 1.0.0 | — | — | — | — | — |
@@ -31,7 +31,7 @@
 | `root/contractor-onboarding` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/cosmetics-solvent-exposure-monitor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/dangerous-cargo-handling-planner` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/decision-record` | L3 | 1.1.1 | — | — | root/documentation-writing (composes_with), root/evidence-ledger (composes_with) | — | — |
+| `root/decision-record` | L3 | 1.2.0 | — | — | root/documentation-writing (composes_with), root/evidence-ledger (composes_with) | — | — |
 | `root/delegate-to-hub` | L3 | 1.0.1 | — | — | — | — | — |
 | `root/design-foundation` | L3 | 1.1.1 | root/design-system-lead | — | root/accessibility-audit (composes_with), root/token-usage-lint (composes_with), root/ui-ux-design-intelligence (enables) | — | — |
 | `root/documentation-writing` | L3 | 1.0.3 | — | — | root/team-builder (composes_with) | — | — |
@@ -40,7 +40,7 @@
 | `root/environmental-compliance-checker` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/ess-fire-risk-assessor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/evidence-collection-hot-work-permit` | L3 | 1.0.0 | root/safety-workflow-manager | — | root/permit-to-work (composes_with), root/risk-assessment (follows), root/tool-box-meeting (composes_with) | — | — |
-| `root/evidence-ledger` | L3 | 1.1.1 | — | — | root/documentation-writing (follows), root/research-analysis (follows) | — | — |
+| `root/evidence-ledger` | L3 | 1.2.0 | — | — | root/decision-record (composes_with), root/documentation-writing (follows), root/research-analysis (follows) | — | — |
 | `root/explain-me` | L3 | 1.0.1 | — | — | — | — | — |
 | `root/fall-hazard-assessor` | L3 | 1.0.0 | — | — | — | — | — |
 | `root/finishing-a-development-branch` | L3 | 1.1.1 | — | — | — | — | — |
@@ -94,7 +94,7 @@
 | `root/security-scan` | L3 | 1.3.0 | — | — | — | — | — |
 | `root/service-design` | L3 | 1.1.0 | — | — | root/accessibility-audit (follows), root/token-usage-lint (follows), root/ui-ux-design-intelligence (follows) | — | — |
 | `root/signal-detector` | L3 | 1.0.0 | — | — | — | — | — |
-| `root/skill-lifecycle-manager` | L3 | 1.5.1 | — | — | root/script-lifecycle-manager (composes_with) | — | — |
+| `root/skill-lifecycle-manager` | L3 | 1.5.2 | — | — | root/script-lifecycle-manager (composes_with) | — | — |
 | `root/source-command-commit-push-pr` | L3 | 1.0.3 | — | — | — | — | — |
 | `root/standup-synthesizer` | L3 | 1.1.0 | — | — | — | — | — |
 | `root/sync` | L3 | 1.10.0 | root/automation-engineer | — | — | — | — |
@@ -355,7 +355,7 @@ Inferred from procedure steps that cite the skill and are owned via `step_by_age
 
 ## Skill Usage (E3)
 
-Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-27), window 90 days. Skill nodes with usage: 0.
+Joined from memory `## Skills Used` sections (names resolve via capability); reference date = newest memory log (2026-11-28), window 90 days. Skill nodes with usage: 0.
 
 - **used-but-unlinked** (usage > 0, no `used_by`) (0): —
 - **unused** (0 sessions in 90 days) (99): co-safety/daily/audit-preparation, co-safety/daily/compliance-gap, co-safety/daily/risk-assessment, co-safety/investigation/hazop-analysis, root/accessibility-audit, root/agent-lifecycle-manager, root/api-documentation, root/arc-flash-analyzer, root/asset-integrity-check, root/audit-preparation, root/benefit-risk-assessor, root/bsl-lab-aerosol-control-planner, root/chemical-risk-assessment, root/ci-triage, root/coke-oven-pah-heat-stress-planner, root/completion-inspection, root/compliance-gap, root/construction-permit-overview, root/contractor-onboarding, root/cosmetics-solvent-exposure-monitor, root/dangerous-cargo-handling-planner, root/decision-record, root/delegate-to-hub, root/design-foundation, root/documentation-writing, root/dts-verification, root/emergency-response, root/environmental-compliance-checker, root/ess-fire-risk-assessor, root/evidence-collection-hot-work-permit, root/evidence-ledger, root/explain-me, root/fall-hazard-assessor, root/finishing-a-development-branch, root/gas-dispersion-analyzer, root/gateguard, root/ghs-classifier, root/glp-data-integrity-checker, root/glp-study-protocol-validator, root/gmp-change-control … and 59 more

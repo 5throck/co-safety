@@ -1,6 +1,6 @@
 # VERSION_MANIFEST.md
 
-**Generated**: 2026-11-26T18:21:21.752Z
+**Generated**: 2026-11-27T18:56:53.343Z
 **Manifest Version**: 1.0
 **Location**: docs/VERSION_MANIFEST.md
 
@@ -35,7 +35,7 @@
 
 | Name | Version | Status | Location | Platform | Triggers | Owner |
 |------|---------|--------|----------|----------|----------|-------|
-| accessibility-audit | 1.1.1 | active | skills/accessibility-audit/SKILL.md | workspace | accessibility-audit, /accessibility-audit, axe-core audit, wcag accessibility check, wcag 2.1 aa | pm |
+| accessibility-audit | 1.1.2 | active | skills/accessibility-audit/SKILL.md | workspace | accessibility-audit, /accessibility-audit, axe-core audit, wcag accessibility check, wcag 2.1 aa | pm |
 | agent-lifecycle-manager | 1.4.0 | active | skills/agent-lifecycle-manager/SKILL.md | workspace | create agent, new agent, validate agents, agent lifecycle, manage agents, hire agent, fire agent, deprecate agent | pm |
 | api-documentation | 1.0.2 | active | skills/api-documentation/SKILL.md | workspace | api documentation, document api, api reference, developer documentation, rest api docs, graphql docs, sdk documentation | pm |
 | arc-flash-analyzer | 1.0.0 | active | skills/arc-flash-analyzer/SKILL.md | workspace | 아크 플래시, arc flash, IEEE 1584, 고압 전기 작업, PPE category, incident energy, NFPA 70E, 활선 작업 허가 | powergen-agent |
@@ -52,7 +52,7 @@
 | contractor-onboarding | 1.0.0 | active | skills/contractor-onboarding/SKILL.md | workspace | 협력업체 온보딩, contractor onboarding, 도급업체 안전교육, 협력업체 자격심사, site access approval, 안전교육 이수확인, 도급 안전관리 | contractor-safety-agent |
 | cosmetics-solvent-exposure-monitor | 1.0.0 | active | skills/cosmetics-solvent-exposure-monitor/SKILL.md | workspace | 화장품 용제 노출, cosmetics solvent exposure, ethanol IPA inhalation, 에탄올 이소프로판올 흡입 노출, volatile raw material monitoring, OEL exposure assessment cosmetics, ventilation verification 향료 솔벤트, biological monitoring cosmetics, respirator selection 유기용제, OSHA-KR Article 110 (MSDS 작성·제출) | cosmetics-agent |
 | dangerous-cargo-handling-planner | 1.0.0 | active | skills/dangerous-cargo-handling-planner/SKILL.md | workspace | 항만 위험물 하역 안전, IMDG dangerous cargo handling, 위험물 컨테이너 적치, dangerous goods container stowage, IMDG 클래스 분류, IMDG class segregation, 유독가스 흡입 노출 항만, toxic gas inhalation port, 항만하역 위험물 누출 대응, PSSA Article 8 위험물 하역, DSSMA Article 20 위험물 운반, IMDG EmS MFAG response | logistics-agent |
-| decision-record | 1.1.1 | active | skills/decision-record/SKILL.md | workspace | decision record, gate ruling, go/no-go decision, escalation decision, record a decision | pm |
+| decision-record | 1.2.0 | active | skills/decision-record/SKILL.md | workspace | decision record, record a gate ruling, go/no-go decision, escalation decision, record a decision | pm |
 | delegate-to-hub | 1.0.1 | active | skills/delegate-to-hub/SKILL.md | workspace | delegate to hub, delegation ticket, hub delegation, escalate to hub, file delegation | pm |
 | design-foundation | 1.1.1 | active | skills/design-foundation/SKILL.md | workspace | design foundation, design principles, design guide, design tokens setup, design decision record | design-system-lead |
 | documentation-writing | 1.0.3 | active | skills/documentation-writing/SKILL.md | workspace | write documentation, create guide, draft communication, write manual, create tutorial, documentation, technical writing | pm |
@@ -61,7 +61,7 @@
 | environmental-compliance-checker | 1.0.0 | active | skills/environmental-compliance-checker/SKILL.md | workspace | 환경 배출 기준, 대기오염물질 배출허용기준, SOx NOx VOC, 수질오염물질, BOD COD, 환경보전법 준수, 배출 규제 준수, environmental discharge compliance | ehschem-agent |
 | ess-fire-risk-assessor | 1.0.0 | active | skills/ess-fire-risk-assessor/SKILL.md | workspace | ESS 화재, 리튬이온 배터리 화재, thermal runaway, 열폭주, BMS 안전, energy storage system fire, MPSL 인증, 에너지저장장치 화재위험 | powergen-agent |
 | evidence-collection-hot-work-permit | 1.0.0 | active | skills/evidence-collection-hot-work-permit/SKILL.md | workspace | hot work permit record, HWP record, hot work evidence, fire watch permit record | safety-workflow-manager |
-| evidence-ledger | 1.1.1 | active | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, claim verification, source verification, evidence tracking | pm |
+| evidence-ledger | 1.2.0 | active | skills/evidence-ledger/SKILL.md | workspace | evidence ledger, citation ledger, ledger row, claim-to-source trace, supersede a ledger row | pm |
 | explain-me | 1.0.1 | experimental | skills/explain-me/SKILL.md | workspace | /explain-me, /reportme, make a report, create report, explain this topic | pm |
 | fall-hazard-assessor | 1.0.0 | active | skills/fall-hazard-assessor/SKILL.md | workspace | 추락 위해평가, fall hazard, leading edge, 안전대 활동제한장치, 방호 계층, fall protection hierarchy, 추락방지망, rescue plan 구조 계획 | ehsconst-agent |
 | finishing-a-development-branch | 1.1.1 | active | skills/finishing-a-development-branch/SKILL.md | workspace | finish branch, complete work, wrap up, finishing a development branch, merge branch, create PR, push and PR | pm |
@@ -115,7 +115,7 @@
 | security-scan | 1.3.0 | active | skills/security-scan/SKILL.md | workspace | security scan, scan for vulnerabilities, security check, run security | pm |
 | service-design | 1.1.0 | active | skills/service-design/SKILL.md | workspace | service design, customer journey, service blueprint, touchpoint design, customer experience, service innovation, operational alignment | pm |
 | signal-detector | 1.0.0 | active | skills/signal-detector/SKILL.md | workspace | 시그널 탐지, signal detection, PRR, ROR, BCPNN, EBGM, 부작용 신호, disproportionality analysis | gvp-agent |
-| skill-lifecycle-manager | 1.5.1 | active | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills, skill request, deprecate skill, remove skill | pm |
+| skill-lifecycle-manager | 1.5.2 | active | skills/skill-lifecycle-manager/SKILL.md | workspace | create skill, new skill, validate skills, skill lifecycle, manage skills, skill request, deprecate skill, remove skill | pm |
 | source-command-commit-push-pr | 1.0.3 | active | skills/source-command-commit-push-pr/SKILL.md | workspace | commit-push-pr, commit and push, create PR | pm |
 | standup-synthesizer | 1.1.0 | active | skills/standup-synthesizer/SKILL.md | workspace | standup digest, daily standup, synthesize standup, work summary | pm |
 | sync | 1.10.0 | active | skills/sync/SKILL.md | workspace | sync, /sync, commit and push, create PR | automation-engineer |
@@ -141,7 +141,7 @@
 |------|---------|----------|--------------|
 | agent-create.ts | 1.0.2 | scripts/agent-create.ts | fs, path |
 | agent-delete.ts | 1.0.2 | scripts/agent-delete.ts | fs, path |
-| agent-lifecycle-audit.ts | 1.9.2 | scripts/agent-lifecycle-audit.ts | child_process, fs, path, process |
+| agent-lifecycle-audit.ts | 1.10.0 | scripts/agent-lifecycle-audit.ts | child_process, fs, path, process |
 | agent-list.ts | 1.1.0 | scripts/agent-list.ts | fs, path |
 | agent-verify.ts | 1.0.2 | scripts/agent-verify.ts | fs, path |
 | analyze-git-history.ts | 1.0.2 | scripts/analyze-git-history.ts | child_process |
@@ -149,7 +149,7 @@
 | apply-handbook-theme.ts | 1.2.0 | scripts/handbook/apply-handbook-theme.ts | fs, path |
 | archive-memory.ts | 1.2.0 | scripts/archive-memory.ts | fs, path |
 | audit-variant.ts | 1.3.0 | scripts/co-safety/audit-variant.ts | bun, fs |
-| audit.ts | 2.71.0 | scripts/audit.ts | bun, child_process, crypto, fs, os, path, url |
+| audit.ts | 2.72.0 | scripts/audit.ts | bun, child_process, crypto, fs, os, path, url |
 | bootstrap-stages.ts | 1.1.0 | scripts/bootstrap-stages.ts | fs, js-yaml, path |
 | build-search-index.ts | 1.0.0 | scripts/handbook/build-search-index.ts | fs, path |
 | changelog-normalize.ts | 1.0.0 | scripts/changelog-normalize.ts | fs |
@@ -176,7 +176,7 @@
 | deploy-readme-patch.test.ts | 1.0.0 | scripts/tests/deploy-readme-patch.test.ts | bun:test, fs, os, path |
 | design-lint.ts | 2.6.0 | scripts/design-lint.ts | fs, js-yaml, path |
 | detect-backport.ts | 1.0.0 | scripts/detect-backport.ts | child_process, crypto, fs, path |
-| dev-sync.ts | 1.53.0 | scripts/dev-sync.ts | bun, crypto, fs, path |
+| dev-sync.ts | 1.54.0 | scripts/dev-sync.ts | bun, crypto, fs, path |
 | dispatch-parallel.ts | 1.1.1 | scripts/dispatch-parallel.ts | N/A |
 | dispatch-serial.ts | 1.1.2 | scripts/dispatch-serial.ts | url |
 | dispatch.ts | 1.1.1 | scripts/dispatch.ts | path |
@@ -189,11 +189,11 @@
 | generate-raci.ts | 1.2.1 | scripts/generate-raci.ts | fs, js-yaml, path |
 | generate-skill-graph.ts | 2.2.0 | scripts/generate-skill-graph.ts | child_process, fs, js-yaml, path, url |
 | generate-skill-lifecycle-records.ts | 1.4.0 | scripts/generate-skill-lifecycle-records.ts | fs, js-yaml, path, url |
-| generate-version-manifest.ts | 1.12.1 | scripts/generate-version-manifest.ts | bun, child_process, fs, js-yaml, module, path |
+| generate-version-manifest.ts | 1.13.0 | scripts/generate-version-manifest.ts | bun, child_process, fs, js-yaml, module, path |
 | graph-delta-log.ts | 1.1.0 | scripts/graph-delta-log.ts | child_process, fs, path, url |
 | handbook-doctor.ts | 1.0.0 | scripts/handbook/handbook-doctor.ts | fs, path |
 | handbook-sync-audit.ts | 1.0.0 | scripts/handbook/handbook-sync-audit.ts | fs, path |
-| lifecycle-sync-audit.ts | 1.22.0 | scripts/lifecycle-sync-audit.ts | crypto, fs, js-yaml, path, process |
+| lifecycle-sync-audit.ts | 1.23.0 | scripts/lifecycle-sync-audit.ts | child_process, crypto, fs, js-yaml, path, process |
 | lint-instructions.ts | 1.0.0 | scripts/lint-instructions.ts | fs, path |
 | md-to-ooxml.ts | 1.2.0 | scripts/md-to-ooxml.ts | fs, path |
 | migrate-quality-gates.ts | 1.1.0 | scripts/migrate-quality-gates.ts | fs, js-yaml, path |
@@ -227,7 +227,7 @@
 | test-cross-domain-integration.ts | 1.0.1 | scripts/co-safety/test-cross-domain-integration.ts | fs, js-yaml, path |
 | test-domain-scenarios.ts | 1.1.0 | scripts/co-safety/test-domain-scenarios.ts | fs, path |
 | test-pharma-general-profile.ts | 1.0.1 | scripts/co-safety/test-pharma-general-profile.ts | fs, js-yaml, path |
-| test-runner.ts | 1.19.0 | scripts/test-runner.ts | fs, os, path |
+| test-runner.ts | 1.23.0 | scripts/test-runner.ts | fs, os, path |
 | test-runtime-tools.ts | 1.0.1 | scripts/co-safety/test-runtime-tools.ts | fs, os, path |
 | training-ingest.ts | 1.0.0 | scripts/co-safety/training-ingest.ts | fs, path |
 | translate-readme.ts | 1.0.0 | scripts/translate-readme.ts | bun, crypto, fs, path, url |
@@ -238,7 +238,7 @@
 | validate-doc-folder.ts | 1.8.0 | scripts/validate-doc-folder.ts | fs, path |
 | validate-docs-links.ts | 1.6.0 | scripts/validate-docs-links.ts | fs, path |
 | validate-handbook.ts | 1.1.0 | scripts/handbook/validate-handbook.ts | child_process, path |
-| validate-md-language.ts | 1.16.2 | scripts/validate-md-language.ts | child_process, fs, path |
+| validate-md-language.ts | 1.17.0 | scripts/validate-md-language.ts | child_process, fs, path |
 | validate-model-registry.ts | 2.3.0 | scripts/validate-model-registry.ts | fs, path, url |
 | validate-nav.ts | 1.0.0 | scripts/handbook/validate-nav.ts | N/A |
 | validate-pm-extends.ts | 0.3.1 | scripts/validate-pm-extends.ts | child_process, fs, path |
@@ -247,13 +247,13 @@
 | validate-raci.ts | 1.2.1 | scripts/validate-raci.ts | fs, js-yaml, path |
 | validate-skills.ts | 1.5.2 | scripts/validate-skills.ts | fs, path, process |
 | validate-surface-registry.ts | 1.1.2 | scripts/validate-surface-registry.ts | fs, path |
-| validate-templates.ts | 1.87.0 | scripts/validate-templates.ts | child_process, crypto, fs, js-yaml, path, url |
+| validate-templates.ts | 1.88.0 | scripts/validate-templates.ts | child_process, crypto, fs, js-yaml, path, url |
 | validate-variant-readiness.ts | 1.2.0 | scripts/validate-variant-readiness.ts | fs, path |
 | verify-agent-deliverables.ts | 1.0.1 | scripts/verify-agent-deliverables.ts | fs |
 | verify-memory.ts | 1.3.0 | scripts/verify-memory.ts | fs, path |
 | verify-platform-lifecycle.ts | 1.6.1 | scripts/verify-platform-lifecycle.ts | fs, path |
 | verify-readme-sync.ts | 1.5.0 | scripts/verify-readme-sync.ts | bun, crypto, fs, path |
-| verify-scripts.ts | 1.15.0 | scripts/verify-scripts.ts | crypto, fs, path |
+| verify-scripts.ts | 1.16.0 | scripts/verify-scripts.ts | crypto, fs, path |
 | verify-skill-graph.ts | 2.0.0 | scripts/verify-skill-graph.ts | fs, path, url |
 | verify-skills.ts | 1.5.2 | scripts/verify-skills.ts | fs, path |
 
